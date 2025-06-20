@@ -1,8 +1,8 @@
-<p align="center">
-  <img src="assets/tech_banner.png" alt="Tech stack banner" />
-</p>
-
 # 👋 Andrea Bozzo
+
+<p align="center">
+  <img src="assets/tech_banner.png" alt="Tech stack banner" width="700"/>
+</p>
 
 Costruisco pipeline dati leggibili, validate e auditabili.  
 Modello e visualizzo dataset pubblici o simulati in ambienti locali, senza vendor lock-in.  
