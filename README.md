@@ -1,7 +1,6 @@
 <p align="center">
   <img src="./assets/tech_banner.png" alt="Tech stack badges banner" />
 </p>
-
 # 👋 Andrea Bozzo
 
 Costruisco pipeline dati leggibili, validate e auditabili.  
