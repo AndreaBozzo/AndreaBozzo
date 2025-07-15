@@ -56,7 +56,7 @@ Uso dbt, DuckDB, Python e strumenti di visualizzazione per produrre output tracc
 > Dashboard Python-based con Streamlit su dati finanziari simulati.  
 > KPI, filtri dinamici, esportazione e test di integrazione XBRL.
 
-### 📈 [DashboardBI-Excel]([https://github.com/AndreaBozzo/DashboardsBI-Excel])
+### 📈 [DashboardsBI-Excel](https://github.com/AndreaBozzo/DashboardsBI-Excel)
 > Dashboard Excel dinamiche e simulate per scenari aziendali.  
 > Calcoli di bilancio, grafici automatizzati, struttura scalabile.
 
