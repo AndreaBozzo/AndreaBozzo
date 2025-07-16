@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <strong>Data Engineer | Pipeline Builder | Open Data Enthusiast</strong><br>
+  <strong>Data Specialist | Pipeline Builder | Open Data Enthusiast</strong><br>
   Costruisco pipeline dati leggibili, validate e auditabili. Modello e visualizzo dataset pubblici o simulati in ambienti locali, senza vendor lock-in.
 </p>
 
