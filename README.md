@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <strong>Data Specialist | Open Data Advocate | Pipeline Architect</strong><br>
+  <strong>Data Engineer | Open Data Advocate | Pipeline Architect</strong><br>
   Trasformo dati pubblici in insight accessibili. Build locally, think openly.
 </p>
 
@@ -118,6 +118,12 @@ data_stack = {
   <img height="180em" src="https://github-readme-stats.vercel.app/api?username=AndreaBozzo&show_icons=true&theme=default&include_all_commits=true&count_private=true"/>
   <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AndreaBozzo&layout=compact&langs_count=7&theme=default"/>
 </p>
+
+<!-- Alternative se le stats non funzionano:
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=AndreaBozzo&theme=default" alt="GitHub Streak" />
+</p>
+-->
 
 ---
 
