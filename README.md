@@ -1,6 +1,10 @@
 # 👋 Andrea Bozzo
 
 <p align="center">
+  <img src="assets/tech_banner.png" alt="Tech stack banner" width="700"/>
+</p>
+
+<p align="center">
   <strong>Data Specialist | Open Data Advocate | Pipeline Architect</strong><br>
   Trasformo dati pubblici in insight accessibili. Build locally, think openly.
 </p>
@@ -64,7 +68,7 @@ data_stack = {
 
 <table>
 <tr>
-<td width="50%">
+<td width="33%">
 
 ### 🧊 [Mini-Lakehouse-Didattico](https://github.com/AndreaBozzo/Mini-Lakehouse-Didattico)
 **Modern Data Stack in miniatura**
@@ -73,13 +77,22 @@ data_stack = {
 - Template pronto per progetti reali
 
 </td>
-<td width="50%">
+<td width="33%">
 
 ### 📊 [CruscottoPMI](https://github.com/AndreaBozzo/CruscottoPMI)
 **Business Intelligence per PMI**
 - Dashboard finanziarie con Streamlit
 - Integrazione XBRL per bilanci
 - KPI automatizzati e what-if analysis
+
+</td>
+<td width="33%">
+
+### 📈 [DashboardsBI-Excel](https://github.com/AndreaBozzo/DashboardsBI-Excel)
+**Template Excel avanzati per BI**
+- Dashboard dinamiche con Power Query
+- Calcoli di bilancio e analisi what-if
+- Report parametrici multi-settore
 
 </td>
 </tr>
