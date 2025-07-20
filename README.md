@@ -133,7 +133,7 @@ data_stack = {
   <a href="https://github.com/AndreaBozzo/Osservatorio/discussions">
     <img src="https://img.shields.io/badge/Discuss-Osservatorio-blue?style=for-the-badge&logo=github" alt="Discussions" />
   </a>
-  <a href="https://linkedin.com/in/andrea-bozzo">
+  <a href="https://[linkedin.com/in/andrea-bozzo](https://www.linkedin.com/in/andrea-bozzo-/)">
     <img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin" alt="LinkedIn" />
   </a>
   <a href="mailto:andreabozzo92@gmail.com">
