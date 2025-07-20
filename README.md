@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <strong>Data Engineer | Open Data Advocate | Pipeline Architect</strong><br>
+  <strong>Data Specialist | Open Data Advocate | Pipeline Architect</strong><br>
   Trasformo dati pubblici in insight accessibili. Build locally, think openly.
 </p>
 
