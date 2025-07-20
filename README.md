@@ -1,150 +1,134 @@
 # 👋 Andrea Bozzo
 
 <p align="center">
-  <img src="assets/tech_banner.png" alt="Tech stack banner" width="700"/>
+  <strong>Data Specialist | Open Data Advocate | Pipeline Architect</strong><br>
+  Trasformo dati pubblici in insight accessibili. Build locally, think openly.
 </p>
 
 <p align="center">
-  <strong>Data Specialist | Pipeline Builder | Open Data Enthusiast</strong><br>
-  Costruisco pipeline dati leggibili, validate e auditabili. Modello e visualizzo dataset pubblici o simulati in ambienti locali, senza vendor lock-in.
-</p>
-
-<p align="center">
+  <a href="#-progetto-spotlight">Spotlight</a> •
   <a href="#-stack-tecnico">Stack</a> •
-  <a href="#-progetti-pubblici">Progetti</a> •
+  <a href="#-progetti">Progetti</a> •
   <a href="#-filosofia">Filosofia</a> •
-  <a href="#-contatti">Contatti</a>
+  <a href="#-connect">Connect</a>
 </p>
+
+---
+
+## 🔦 Progetto Spotlight
+
+### 🔭 [Osservatorio](https://github.com/AndreaBozzo/Osservatorio) - *Open Data Analytics Platform*
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Test_Coverage-57%25-green?style=flat-square" alt="Coverage" />
+  <img src="https://img.shields.io/badge/Performance-0.20s-blue?style=flat-square" alt="Performance" />
+  <img src="https://img.shields.io/badge/APIs-ISTAT_Ready-orange?style=flat-square" alt="APIs" />
+  <img src="https://img.shields.io/badge/Status-Active_Development-brightgreen?style=flat-square" alt="Status" />
+</p>
+
+**Osservatorio** democratizza l'accesso ai dati statistici italiani attraverso pipeline automatizzate e visualizzazioni intuitive.
+
+#### ✨ Key Features
+- **Pipeline ETL robuste** per dati ISTAT con retry automatici e circuit breakers
+- **Dashboard Streamlit** interattive per analisi demografiche e socio-economiche  
+- **Export multi-formato** (CSV, Excel, Parquet) per massima interoperabilità
+- **Architettura contributor-friendly** con docs complete e test coverage >50%
+
+#### 🚀 Next: Database Layer (DuckDB + PostgreSQL)
+Stiamo implementando persistenza ibrida per query analytics <100ms. [Contribuisci al progetto →](https://github.com/AndreaBozzo/Osservatorio/discussions)
 
 ---
 
 ## 🛠️ Stack Tecnico
 
-<details>
-<summary><b>🔹 Model & Orchestrate</b></summary>
+### Core Technologies
+```python
+data_stack = {
+    "orchestration": ["dbt-core", "Python 3.11+", "Poetry"],
+    "storage": ["DuckDB", "PostgreSQL", "Parquet"],
+    "analytics": ["pandas", "numpy", "streamlit"],
+    "visualization": ["Power BI", "Plotly", "Excel"],
+    "philosophy": "No vendor lock-in, 100% reproducible"
+}
+```
 
-- **dbt-core** con ecosystem completo (`dbt-utils`, `dbt-expectations`, `dbt-date`)
-- **DuckDB** • SQL avanzato (CTE, window functions, macro, ref/source)
-- Architettura a layer: `staging → core → marts`
-- Macro Jinja2, controlli incrociati, audit semiautomatico
-</details>
-
-<details>
-<summary><b>🔹 Scripting & Validazione</b></summary>
-
-- **Python 3.11+** • `pandas`, `numpy`, `pyarrow`
-- Sistema di flagging anomalie e validazioni numeriche
-- Notebook tecnici con **Jupyter** • Conversioni `CSV ↔ Parquet ↔ Excel`
-- Sanity check automatizzati e reportistica errori
-</details>
-
-<details>
-<summary><b>🔹 Visualizzazione Dati</b></summary>
-
-- **Power BI** per report business-ready e dashboard executive
-- **Excel** per analisi avanzate con formule dinamiche
-- **Streamlit** per mockup rapidi e dashboard interattive
-- **Plotly** / **Matplotlib** per visualizzazioni custom in Python
-</details>
-
-<details>
-<summary><b>🔹 Automation & DevOps</b></summary>
-
-- **Poetry** per dependency management • **Makefile** per automazione
-- **Git** con branching strategy e commit atomici
-- Configurazioni `pyproject.toml`, `YAML`
-- Sviluppo **100% locale** (no cloud dependencies, no vendor lock-in)
-</details>
-
-<details>
-<summary><b>🔹 Storage & Interoperabilità</b></summary>
-
-- Formati supportati: `CSV`, `Parquet`, `Excel`, `JSON`
-- Parsing dati pubblici (ISTAT, XBRL, open data governativi)
-- Pipeline `raw → bronze → silver → gold` con naming consistente
-- Versionamento e tracciabilità completa
-</details>
+### Competenze Distintive
+- **Data Modeling**: Architetture multi-layer (`staging → core → marts`)
+- **Pipeline Design**: ETL/ELT con validazioni integrate e audit trails
+- **API Integration**: Parsing SDMX, JSON, XML da fonti governative
+- **Performance**: Query optimization, caching strategies, async processing
 
 ---
 
-## 🚀 Progetti Pubblici
+## 📂 Altri Progetti
 
-### 🔭 [Osservatorio](https://github.com/AndreaBozzo/Osservatorio) <sup>NEW</sup>
-> **Analisi dati pubblici e creazione di insight automatizzati**
-> 
-> - Pipeline ETL per dati ISTAT e fonti governative
-> - Dashboard interattive con metriche socio-economiche
-> - Sistema di alerting per variazioni significative
-> - Documentazione automatica dei dataset processati
+<table>
+<tr>
+<td width="50%">
 
 ### 🧊 [Mini-Lakehouse-Didattico](https://github.com/AndreaBozzo/Mini-Lakehouse-Didattico)
-> **Pipeline dati minimale con architettura lakehouse**
-> 
-> - Stack: `dbt` + `DuckDB` + `Python`
-> - Modellazione multilevel con validazioni automatiche
-> - Audit log completo e test di qualità integrati
-> - Template riutilizzabile per progetti data engineering
+**Modern Data Stack in miniatura**
+- dbt + DuckDB per analytics velocissime
+- Testing automatizzato con `dbt-expectations`
+- Template pronto per progetti reali
+
+</td>
+<td width="50%">
 
 ### 📊 [CruscottoPMI](https://github.com/AndreaBozzo/CruscottoPMI)
-> **Dashboard Python per analisi finanziaria PMI**
-> 
-> - Framework: `Streamlit` con backend `pandas`
-> - KPI finanziari, filtri dinamici, export multi-formato
-> - Integrazione con standard XBRL per bilanci
-> - Dataset simulati per demo e formazione
+**Business Intelligence per PMI**
+- Dashboard finanziarie con Streamlit
+- Integrazione XBRL per bilanci
+- KPI automatizzati e what-if analysis
 
-### 📈 [DashboardsBI-Excel](https://github.com/AndreaBozzo/DashboardsBI-Excel)
-> **Template Excel avanzati per Business Intelligence**
-> 
-> - Dashboard dinamiche con `Power Query` e `VBA`
-> - Calcoli di bilancio e analisi what-if
-> - Grafici automatizzati e report parametrici
-> - Struttura scalabile per diversi settori
+</td>
+</tr>
+</table>
 
 ---
 
-## 🧭 Filosofia di Lavoro
+## 💡 Filosofia di Lavoro
 
-```
-📌 Prima leggibile, poi complesso
-   └─ Il codice deve essere comprensibile al primo sguardo
+> **"I dati pubblici appartengono a tutti, devono essere accessibili a tutti"**
 
-🧪 Qualità integrata nel processo
-   └─ Test e validazioni sono parte del flusso, non aggiunte dopo
-
-🔍 Tracciabilità end-to-end
-   └─ Ogni trasformazione deve essere auditabile e reversibile
-
-🧱 Build locale, pensa globale
-   └─ Nessun lock-in, massima portabilità e riproducibilità
-```
+### Principi Guida
+- 🔍 **Trasparenza**: Ogni trasformazione tracciabile e documentata
+- 🚀 **Performance**: Se non è veloce, non è finito
+- 🧪 **Qualità**: Test first, debug later
+- 🌍 **Openness**: Nessun vendor lock-in, massima portabilità
 
 ---
 
-## 📊 Statistiche GitHub
+## 📊 GitHub Activity
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=AndreaBozzo&show_icons=true&theme=default" alt="GitHub Stats" />
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=AndreaBozzo&show_icons=true&theme=default&include_all_commits=true&count_private=true"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AndreaBozzo&layout=compact&langs_count=7&theme=default"/>
 </p>
 
 ---
 
-## 📫 Contatti
+## 🤝 Let's Connect
 
 <p align="center">
-  <a href="mailto:andreabozzo92@gmail.com">
-    <img src="https://img.shields.io/badge/Email-andreabozzo92@gmail.com-blue?style=for-the-badge&logo=gmail" alt="Email" />
-  </a>
-  <a href="https://github.com/AndreaBozzo">
-    <img src="https://img.shields.io/badge/GitHub-AndreaBozzo-black?style=for-the-badge&logo=github" alt="GitHub" />
+  <a href="https://github.com/AndreaBozzo/Osservatorio/discussions">
+    <img src="https://img.shields.io/badge/Discuss-Osservatorio-blue?style=for-the-badge&logo=github" alt="Discussions" />
   </a>
   <a href="https://linkedin.com/in/andrea-bozzo">
-    <img src="https://img.shields.io/badge/LinkedIn-Andrea_Bozzo-0077B5?style=for-the-badge&logo=linkedin" alt="LinkedIn" />
+    <img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin" alt="LinkedIn" />
+  </a>
+  <a href="mailto:andreabozzo92@gmail.com">
+    <img src="https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail" alt="Email" />
   </a>
 </p>
+
+### 🎯 Interessato a:
+- Collaborazioni su progetti open data
+- Data engineering challenges
+- Democratizzazione dell'accesso ai dati pubblici
 
 ---
 
 <p align="center">
-  <sub>README costruito con attenzione al dettaglio. Niente template generici, solo contenuto verificato e testato sul campo.</sub>
+  <sub>Building data pipelines that make sense • Turning public data into public knowledge</sub>
 </p>
