@@ -56,6 +56,25 @@ data_stack = {
 }
 ```
 
+### 📊 Skills Progress
+
+#### Data Engineering
+![Python](https://img.shields.io/badge/Python-95%25-brightgreen?style=flat-square&logo=python)
+![SQL](https://img.shields.io/badge/SQL-90%25-brightgreen?style=flat-square&logo=postgresql)
+![dbt](https://img.shields.io/badge/dbt-85%25-green?style=flat-square&logo=dbt)
+![Docker](https://img.shields.io/badge/Docker-75%25-yellowgreen?style=flat-square&logo=docker)
+
+#### Analytics & BI
+![Power BI](https://img.shields.io/badge/Power%20BI-90%25-brightgreen?style=flat-square&logo=powerbi)
+![Streamlit](https://img.shields.io/badge/Streamlit-85%25-green?style=flat-square&logo=streamlit)
+![Excel](https://img.shields.io/badge/Excel-95%25-brightgreen?style=flat-square&logo=microsoftexcel)
+![Plotly](https://img.shields.io/badge/Plotly-80%25-green?style=flat-square&logo=plotly)
+
+#### Cloud & DevOps
+![Git](https://img.shields.io/badge/Git-90%25-brightgreen?style=flat-square&logo=git)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-75%25-yellowgreen?style=flat-square&logo=githubactions)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-85%25-green?style=flat-square&logo=postgresql)
+
 ### Competenze Distintive
 - **Data Modeling**: Architetture multi-layer (`staging → core → marts`)
 - **Pipeline Design**: ETL/ELT con validazioni integrate e audit trails
@@ -72,6 +91,10 @@ data_stack = {
 
 ### 🧊 [Mini-Lakehouse-Didattico](https://github.com/AndreaBozzo/Mini-Lakehouse-Didattico)
 **Modern Data Stack in miniatura**
+
+![Stars](https://img.shields.io/github/stars/AndreaBozzo/Mini-Lakehouse-Didattico?style=social)
+![Language](https://img.shields.io/github/languages/top/AndreaBozzo/Mini-Lakehouse-Didattico)
+
 - dbt + DuckDB per analytics velocissime
 - Testing automatizzato con `dbt-expectations`
 - Template pronto per progetti reali
@@ -81,6 +104,10 @@ data_stack = {
 
 ### 📊 [CruscottoPMI](https://github.com/AndreaBozzo/CruscottoPMI)
 **Business Intelligence per PMI**
+
+![Stars](https://img.shields.io/github/stars/AndreaBozzo/CruscottoPMI?style=social)
+![Language](https://img.shields.io/github/languages/top/AndreaBozzo/CruscottoPMI)
+
 - Dashboard finanziarie con Streamlit
 - Integrazione XBRL per bilanci
 - KPI automatizzati e what-if analysis
@@ -90,6 +117,10 @@ data_stack = {
 
 ### 📈 [DashboardsBI-Excel](https://github.com/AndreaBozzo/DashboardsBI-Excel)
 **Template Excel avanzati per BI**
+
+![Stars](https://img.shields.io/github/stars/AndreaBozzo/DashboardsBI-Excel?style=social)
+![Language](https://img.shields.io/github/languages/top/AndreaBozzo/DashboardsBI-Excel)
+
 - Dashboard dinamiche con Power Query
 - Calcoli di bilancio e analisi what-if
 - Report parametrici multi-settore
@@ -119,11 +150,15 @@ data_stack = {
   <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AndreaBozzo&layout=compact&langs_count=7&theme=default"/>
 </p>
 
-<!-- Alternative se le stats non funzionano:
 <p align="center">
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=AndreaBozzo&theme=default" alt="GitHub Streak" />
 </p>
--->
+
+### 🏆 Quick Stats
+- 📈 **Public Repositories**: Focus su data engineering e analytics
+- 🔥 **Recent Activity**: Pipeline ETL automatizzate e dashboard interattive
+- 💡 **Open Source**: Contributi alla community data italiana
+- 🎯 **Specialization**: 85% Python, SQL, Power BI
 
 ---
 
