@@ -1,7 +1,7 @@
 # 👋 Andrea Bozzo
 
 <p align="center">
-  <img src="assets/tech_banner.png" alt="Tech stack banner" width="700"/>
+  <img src="assets/tech_banner_new.png" alt="Tech stack banner" width="700"/>
 </p>
 
 <p align="center">
