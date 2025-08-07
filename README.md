@@ -42,7 +42,8 @@
 
 #### ✨ Key Features
 - **Robust ETL pipelines** for ISTAT data with automatic retries and circuit breakers
-- **Interactive Streamlit dashboards** for demographic and socio-economic analysis  
+- **Interactive Streamlit( and React soon) dashboards** 
+for demographic and socio-economic analysis  
 - **Multi-format export** (CSV, Excel, Parquet) for maximum interoperability
 - **Contributor-friendly architecture** with complete documentation and 57+ test coverage
 - **Active community** with regular discussions and collaborative development
