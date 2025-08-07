@@ -48,7 +48,7 @@
 - **Active community** with regular discussions and collaborative development
 
 #### 🚀 Current Focus: Advanced Analytics Layer
-Implementing hybrid persistence (DuckDB + PostgreSQL) for <100ms analytics queries. **Seeking contributors for data modeling and performance optimization.** [Join the discussion →](https://github.com/AndreaBozzo/Osservatorio/discussions)
+Implementing hybrid persistence (DuckDB + SQLlite to PostgreSQL) for <100ms analytics queries. **Seeking contributors for data modeling and performance optimization.** [Join the discussion →](https://github.com/AndreaBozzo/Osservatorio/discussions)
 
 ---
 
