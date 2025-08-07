@@ -5,8 +5,15 @@
 </p>
 
 <p align="center">
-  <strong>Data Specialist | Open Data Advocate | Pipeline Architect</strong><br>
-  Trasformo dati pubblici in insight accessibili. Build locally, think openly.
+  <strong>Data Engineer | Open Data Advocate | Analytics Pipeline Architect</strong><br>
+  Transforming public data into accessible insights. Building scalable data solutions with open-source tools.
+</p>
+
+<p align="center">
+  <a href="https://github.com/sponsors/AndreaBozzo">
+    <img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#EA4AAA" alt="GitHub Sponsors" />
+  </a>
+  <img src="https://komarev.com/ghpvc/?username=AndreaBozzo&style=for-the-badge&color=brightgreen" alt="Profile Views" />
 </p>
 
 <p align="center">
@@ -19,27 +26,29 @@
 
 ---
 
-## 🔦 Progetto Spotlight
+## 🔦 Featured Project
 
 ### 🔭 [Osservatorio](https://github.com/AndreaBozzo/Osservatorio) - *Open Data Analytics Platform*
 
 <p align="center">
+  <img src="https://img.shields.io/badge/Contributors-4+-brightgreen?style=flat-square&logo=github" alt="Contributors" />
   <img src="https://img.shields.io/badge/Test_Coverage-57%25-green?style=flat-square" alt="Coverage" />
   <img src="https://img.shields.io/badge/Performance-0.20s-blue?style=flat-square" alt="Performance" />
   <img src="https://img.shields.io/badge/APIs-ISTAT_Ready-orange?style=flat-square" alt="APIs" />
-  <img src="https://img.shields.io/badge/Status-Active_Development-brightgreen?style=flat-square" alt="Status" />
+  <img src="https://img.shields.io/badge/Status-Production_Ready-success?style=flat-square" alt="Status" />
 </p>
 
-**Osservatorio** democratizza l'accesso ai dati statistici italiani attraverso pipeline automatizzate e visualizzazioni intuitive.
+**Osservatorio** democratizes access to Italian statistical data through automated pipelines and intuitive visualizations. **Growing community with 4+ active contributors** and production-ready infrastructure.
 
 #### ✨ Key Features
-- **Pipeline ETL robuste** per dati ISTAT con retry automatici e circuit breakers
-- **Dashboard Streamlit** interattive per analisi demografiche e socio-economiche  
-- **Export multi-formato** (CSV, Excel, Parquet) per massima interoperabilità
-- **Architettura contributor-friendly** con docs complete e test coverage >50%
+- **Robust ETL pipelines** for ISTAT data with automatic retries and circuit breakers
+- **Interactive Streamlit dashboards** for demographic and socio-economic analysis  
+- **Multi-format export** (CSV, Excel, Parquet) for maximum interoperability
+- **Contributor-friendly architecture** with complete documentation and 57+ test coverage
+- **Active community** with regular discussions and collaborative development
 
-#### 🚀 Next: Database Layer (DuckDB + PostgreSQL)
-Stiamo implementando persistenza ibrida per query analytics <100ms. [Contribuisci al progetto →](https://github.com/AndreaBozzo/Osservatorio/discussions)
+#### 🚀 Current Focus: Advanced Analytics Layer
+Implementing hybrid persistence (DuckDB + PostgreSQL) for <100ms analytics queries. **Seeking contributors for data modeling and performance optimization.** [Join the discussion →](https://github.com/AndreaBozzo/Osservatorio/discussions)
 
 ---
 
@@ -162,26 +171,37 @@ data_stack = {
 
 ---
 
-🤝 Let's Connect
+## 🤝 Let's Connect & Collaborate
+
 <p align="center">
+  <a href="https://github.com/sponsors/AndreaBozzo">
+    <img src="https://img.shields.io/badge/Sponsor-GitHub_Sponsors-EA4AAA?style=for-the-badge&logo=github" alt="GitHub Sponsors" />
+  </a>
   <a href="https://github.com/AndreaBozzo/Osservatorio/discussions">
     <img src="https://img.shields.io/badge/Discuss-Osservatorio-blue?style=for-the-badge&logo=github" alt="Discussions" />
   </a>
   <a href="https://www.linkedin.com/in/andrea-bozzo-/">
-    <img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin" alt="LinkedIn" />
+    <img src="https://img.shields.io/badge/LinkedIn-Professional_Network-0077B5?style=for-the-badge&logo=linkedin" alt="LinkedIn" />
   </a>
   <a href="mailto:andreabozzo92@gmail.com">
-    <img src="https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail" alt="Email" />
+    <img src="https://img.shields.io/badge/Email-Direct_Contact-red?style=for-the-badge&logo=gmail" alt="Email" />
   </a>
 </p>
 
-### 🎯 Interessato a:
-- Collaborazioni su progetti open data
-- Data engineering challenges
-- Democratizzazione dell'accesso ai dati pubblici
+### 💼 Open to Professional Opportunities:
+- **Consulting** on data engineering and analytics architecture
+- **Collaborations** on open data initiatives and public sector projects
+- **Speaking engagements** on democratizing data access
+- **Mentoring** junior data professionals
+
+### 🎯 Currently Seeking:
+- **Contributors** for Osservatorio project expansion
+- **Data partnerships** with Italian public institutions
+- **Open source maintainers** for knowledge sharing
 
 ---
 
 <p align="center">
-  <sub>Building data pipelines that make sense • Turning public data into public knowledge</sub>
+  <sub>🚀 Building scalable data infrastructure • 🌍 Democratizing public data access • 💡 Open source advocate</sub><br>
+  <sub><strong>Supported by GitHub Sponsors</strong> • <em>Available for consulting and collaboration</em></sub>
 </p>
