@@ -32,10 +32,10 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Contributors-4+-brightgreen?style=flat-square&logo=github" alt="Contributors" />
-  <img src="https://img.shields.io/badge/Test_Coverage-57%25-green?style=flat-square" alt="Coverage" />
+  <img src="https://img.shields.io/badge/Test_Coverage-65%25-green?style=flat-square" alt="Coverage" />
   <img src="https://img.shields.io/badge/Performance-0.20s-blue?style=flat-square" alt="Performance" />
   <img src="https://img.shields.io/badge/APIs-ISTAT_Ready-orange?style=flat-square" alt="APIs" />
-  <img src="https://img.shields.io/badge/Status-Production_Ready-success?style=flat-square" alt="Status" />
+  <img src="https://img.shields.io/badge/Status-Active Development-success?style=flat-square" alt="Status" />
 </p>
 
 **Osservatorio** democratizes access to Italian statistical data through automated pipelines and intuitive visualizations. **Growing community with 4+ active contributors** and production-ready infrastructure.
