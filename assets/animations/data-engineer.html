@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Engineer Chronicles</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0d1117;
+            color: #c9d1d9;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: #161b22;
+            border: 2px solid #30363d;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            text-align: center;
+            color: #f0883e;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(240, 136, 62, 0.5);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #8b949e;
+            font-size: 14px;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .scene-container {
+            background: #0d1117;
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 400px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scene-time {
+            color: #f0883e;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .scene-content {
+            font-size: 13px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        /* Syntax highlighting */
+        .keyword { color: #ff7b72; }
+        .string { color: #a5d6ff; }
+        .comment { color: #8b949e; font-style: italic; }
+        .function { color: #d2a8ff; }
+        .number { color: #79c0ff; }
+        .success { color: #3fb950; }
+        .error { color: #f85149; }
+        .warning { color: #f0883e; }
+
+        .status-bar {
+            background: rgba(48, 54, 61, 0.3);
+            border-radius: 5px;
+            padding: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        .status-text {
+            color: #8b949e;
+        }
+
+        .metrics {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .metric {
+            color: #3fb950;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Loading spinner */
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #8b949e;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #30363d;
+            border-top-color: #58a6ff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+            
+            .scene-content {
+                font-size: 11px;
+            }
+            
+            .metrics {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 DATA ENGINEER CHRONICLES 🚀</h1>
+        <p class="subtitle">"In Data We Trust, In Backups We Believe"</p>
+        
+        <div class="scene-container" id="scene">
+            <div class="loading">
+                <span class="spinner"></span>
+                <span>Initializing chaos...</span>
+            </div>
+        </div>
+        
+        <div class="status-bar">
+            <span class="status-text" id="status">Starting pipeline...</span>
+            <div class="metrics">
+                <div class="metric">
+                    <span>⚡</span>
+                    <span id="throughput">0 TB/day</span>
+                </div>
+                <div class="metric">
+                    <span>🔥</span>
+                    <span id="nodes">0 nodes</span>
+                </div>
+                <div class="metric">
+                    <span>☕</span>
+                    <span id="coffee">0 cups</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Scene data
+        var scenes = [
+            {
+                time: "06:00 AM - Morning Check",
+                status: "☕ Checking production status...",
+                throughput: "2.3 TB/day",
+                nodes: "12 nodes",
+                coffee: "1 cups",
+                content: `<span class="comment">// First things first: check if prod survived the night</span>
+
+<span class="keyword">kubectl</span> get pods -n data-pipeline
+<span class="success">✓ All 47 pods running</span>
+
+<span class="keyword">docker</span> ps | grep spark-worker  
+<span class="success">✓ 12 Spark workers healthy</span>
+
+<span class="keyword">az</span> synapse pipeline-run query-by-workspace
+<span class="success">✓ All pipelines completed</span>
+
+<span class="comment">// Suspiciously quiet... too quiet...</span>`
+            },
+            {
+                time: "08:30 AM - Dashboard Hell",
+                status: "📊 Building 'simple' dashboard...",
+                throughput: "4.2 TB/day",
+                nodes: "16 nodes",
+                coffee: "3 cups",
+                content: `<span class="comment">// "Just a simple dashboard" they said...</span>
+
+<span class="keyword">-- Power BI DAX from Hell</span>
+<span class="function">ComplexMetric</span> = 
+<span class="keyword">CALCULATE</span>(
+    <span class="keyword">SUMX</span>(
+        <span class="keyword">FILTER</span>(<span class="keyword">ALL</span>(FactTable),
+            FactTable[Date] <= <span class="keyword">MAX</span>(Calendar[Date])
+        ),
+        FactTable[Amount] * <span class="keyword">RELATED</span>(Dim[Factor])
+    ),
+    <span class="error">ERROR: Circular dependency detected</span>
+)
+
+<span class="warning">⚠️ Slack: "Can we add 47 more filters?"</span>
+
+<span class="comment">// Meanwhile in VSCode...</span>
+<span class="keyword">def</span> <span class="function">process_data</span>(df):
+    <span class="comment"># TODO: Refactor before it gains consciousness</span>
+    <span class="keyword">return</span> df.groupby([<span class="string">'everything'</span>]).agg({<span class="string">'*'</span>: <span class="string">'sum'</span>})`
+            },
+            {
+                time: "10:45 AM - Everything Breaks",
+                status: "🔥 CRITICAL: Production on fire!",
+                throughput: "0.1 TB/day",
+                nodes: "32 nodes",
+                coffee: "5 cups",
+                content: `<span class="error">🚨 ALERT: Schema drift detected in 37 tables!</span>
+<span class="error">🚨 ALERT: Data Lake is now a Data Swamp!</span>
+
+<span class="keyword">SELECT COUNT</span>(*) <span class="keyword">FROM</span> transactions;
+<span class="error">ERROR: Table 'transactions' renamed to 'transaktions'</span>
+<span class="comment">// WHO DID THIS?!</span>
+
+<span class="warning">📱 Phone rings...</span>
+<span class="error">CEO: "Why is the dashboard showing last year's data?"</span>
+
+<span class="keyword">git</span> blame data_pipeline.py
+<span class="error">Every line: "Your Name - 6 months ago"</span>
+
+<span class="comment">// Panic mode: ACTIVATED</span>`
+            },
+            {
+                time: "11:30 AM - War Room",
+                status: "⚔️ Emergency meeting with 23 people...",
+                throughput: "0.5 TB/day",
+                nodes: "48 nodes",
+                coffee: "8 cups",
+                content: `<span class="comment">// Zoom call chaos</span>
+<span class="warning">"Can everyone see my screen?"</span>
+<span class="warning">"You're on mute"</span>
+<span class="warning">"Let's take this offline"</span>
+
+<span class="comment">// Desperate measures...</span>
+<span class="keyword">CREATE TABLE</span> transactions_backup_final_FINAL_v2
+<span class="keyword">AS SELECT</span> * <span class="keyword">FROM</span> transactions_backup_final;
+
+<span class="comment">// The sacred Excel file appears</span>
+<span class="error">File: budget_final_v47_REVIEWED(2).xlsx</span>
+<span class="error">Size: 847MB</span>
+
+<span class="comment">// Trying everything...</span>
+<span class="keyword">Connecting:</span> SQL Server, Databricks, Excel, 
+           Someone's Local MySQL, Prayer API`
+            },
+            {
+                time: "02:00 PM - Hacky Fix",
+                status: "🔧 Deploying 'temporary' solution...",
+                throughput: "8.7 TB/day",
+                nodes: "64 nodes",
+                coffee: "11 cups",
+                content: `<span class="comment">// The solution nobody talks about</span>
+<span class="keyword">while True</span>:
+    <span class="keyword">try</span>:
+        result = spark.sql(<span class="string">"""
+            SELECT * FROM transactions
+            UNION ALL
+            SELECT * FROM transaktions  
+            UNION ALL
+            SELECT * FROM excel_dump_temp
+        """</span>)
+        <span class="keyword">break</span>
+    <span class="keyword">except</span>:
+        time.sleep(60)  <span class="comment"># Maybe it fixes itself</span>
+
+<span class="comment">// Scale everything!</span>
+<span class="keyword">kubectl</span> scale deployment data-processor --replicas=100
+<span class="warning">⚠️ AWS bill has entered the chat</span>
+
+<span class="success">✓ Dashboard showing data (mostly correct)</span>`
+            },
+            {
+                time: "03:15 PM - Works On My Machine™",
+                status: "🐳 Docker debugging session...",
+                throughput: "10.2 TB/day",
+                nodes: "55 nodes",
+                coffee: "13 cups",
+                content: `<span class="success">✓ LOCAL: All tests passing</span>
+<span class="error">✗ PROD: Complete disaster</span>
+
+<span class="keyword">Developer:</span> <span class="string">"But it works on my machine!"</span>
+<span class="keyword">DevOps:</span> <span class="string">"What's your Python version?"</span>
+<span class="keyword">Developer:</span> <span class="string">"Yes"</span>
+
+<span class="keyword">python</span> --version
+<span class="success">Python 3.9.7</span>
+
+<span class="keyword">docker exec</span> prod-container python --version
+<span class="error">Python 2.7.3</span>
+<span class="comment">// HOW IS THIS EVEN RUNNING?!</span>
+
+<span class="comment">// The Dockerfile of doom</span>
+<span class="keyword">FROM</span> ubuntu:latest  <span class="comment"># First mistake</span>
+<span class="keyword">RUN</span> pip install -r requirements.txt  <span class="comment"># No versions</span>
+
+<span class="warning">"THEN WE'LL SHIP YOUR MACHINE!"</span>`
+            },
+            {
+                time: "04:30 PM - False Hope",
+                status: "😌 Everything seems stable...",
+                throughput: "12.3 TB/day",
+                nodes: "42 nodes",
+                coffee: "15 cups",
+                content: `<span class="success">✓ All pipelines running</span>
+<span class="success">✓ Dashboard updated</span>
+<span class="success">✓ CEO happy</span>
+
+<span class="keyword">git</span> commit -m <span class="string">"TODO: Refactor this mess"</span>
+
+<span class="warning">Slack: "Small request..."</span>
+<span class="warning">"Can we integrate with SAP by EOD?"</span>
+
+<span class="comment">// Check Azure costs</span>
+<span class="error">💸 Month: $47,892</span>
+<span class="error">💸 Budget: $5,000</span>
+<span class="error">💸 Overrun: 958%</span>
+
+<span class="warning">📧 New email: "Compliance audit tomorrow"</span>
+<span class="comment">// Record scratch</span>`
+            },
+            {
+                time: "07:00 PM - Victory?",
+                status: "🏆 Somehow survived another day",
+                throughput: "23.7 TB/day",
+                nodes: "69 nodes",
+                coffee: "∞ cups",
+                content: `<span class="comment">// Daily report</span>
+┌─────────────────────────────────┐
+│ <span class="success">TODAY'S STATS</span>                   │
+├─────────────────────────────────┤
+│ Crises Averted: <span class="warning">13</span>             │
+│ Prod Deploys:   <span class="error">7 (Friday!)</span>    │
+│ Stack Overflow: <span class="success">847 visits</span>     │
+│ Technical Debt: <span class="error">+47 years</span>      │
+│ Will to Live:   <span class="error">404 NOT FOUND</span>  │
+└─────────────────────────────────┘
+
+<span class="keyword">git</span> push --force origin main
+<span class="comment">// Force push on main? This is the way.</span>
+
+<span class="success">See you Monday for more "quick fixes"!</span>
+
+<span class="comment">// P.S. - The data was wrong all along</span>`
+            }
+        ];
+
+        var currentScene = 0;
+        var sceneInterval;
+
+        function showScene(index) {
+            var scene = scenes[index];
+            var sceneContainer = document.getElementById('scene');
+            
+            // Update scene content
+            sceneContainer.innerHTML = 
+                '<div class="scene-time">' + scene.time + '</div>' +
+                '<div class="scene-content">' + scene.content + '</div>';
+            
+            // Add fade-in animation
+            sceneContainer.classList.remove('fade-in');
+            void sceneContainer.offsetWidth; // Trigger reflow
+            sceneContainer.classList.add('fade-in');
+            
+            // Update status
+            document.getElementById('status').textContent = scene.status;
+            
+            // Update metrics
+            document.getElementById('throughput').textContent = scene.throughput;
+            document.getElementById('nodes').textContent = scene.nodes;
+            document.getElementById('coffee').textContent = scene.coffee;
+        }
+
+        function nextScene() {
+            currentScene = (currentScene + 1) % scenes.length;
+            showScene(currentScene);
+        }
+
+        function startAnimation() {
+            // Show first scene immediately
+            showScene(0);
+            
+            // Change scene every 8 seconds
+            sceneInterval = setInterval(nextScene, 8000);
+        }
+
+        // Start when page loads
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', startAnimation);
+        } else {
+            startAnimation();
+        }
+
+        // Console easter egg
+        console.log('%c🎮 Data Engineer Chronicles', 'color: #f0883e; font-size: 20px; font-weight: bold;');
+        console.log('%c⚠️ Warning: This console may contain production data', 'color: orange;');
+        console.log('%c🔥 If you can read this, production is probably down', 'color: red;');
+    </script>
+</body>
+</html>
