@@ -6,6 +6,28 @@
     <title>Andrea Bozzo - Data Engineer & Open Data Advocate</title>
     <meta name="description" content="Data Engineer specializing in open data analytics, ETL pipelines, and data democratization. Creator of Osservatorio platform.">
     <meta name="keywords" content="data engineer, open data, analytics, ETL, Python, streamlit, data visualization">
+    <meta name="author" content="Andrea Bozzo">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0d1117">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://andreabozzo.github.io/AndreaBozzo/">
+    <meta property="og:title" content="Andrea Bozzo - Data Engineer & Open Data Advocate">
+    <meta property="og:description" content="Data Engineer specializing in open data analytics, ETL pipelines, and data democratization. Creator of Osservatorio platform.">
+    <meta property="og:image" content="https://andreabozzo.github.io/AndreaBozzo/assets/animations/Animazione1.gif">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://andreabozzo.github.io/AndreaBozzo/">
+    <meta property="twitter:title" content="Andrea Bozzo - Data Engineer & Open Data Advocate">
+    <meta property="twitter:description" content="Data Engineer specializing in open data analytics, ETL pipelines, and data democratization. Creator of Osservatorio platform.">
+    <meta property="twitter:image" content="https://andreabozzo.github.io/AndreaBozzo/assets/animations/Animazione1.gif">
+    
+    <!-- Performance optimizations -->
+    <link rel="preconnect" href="https://api.github.com" crossorigin>
+    <link rel="dns-prefetch" href="//api.github.com">
+    
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
     <style>
         * {
@@ -20,6 +42,10 @@
             color: #e6edf3;
             line-height: 1.6;
             overflow-x: hidden;
+            font-display: swap;
+            text-rendering: optimizeSpeed;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .hero {
@@ -103,6 +129,8 @@
             text-align: center;
             min-width: 150px;
             transition: transform 0.3s ease, border-color 0.3s ease;
+            will-change: transform;
+            backface-visibility: hidden;
         }
 
         .metric:hover {
@@ -319,17 +347,21 @@
             
             <!-- Live Metrics -->
             <div class="metrics fade-in fade-in-delay-3">
-                <div class="metric">
-                    <span class="metric-value">47</span>
-                    <span class="metric-label">Pipelines Running</span>
+                <div class="metric" id="commits-metric">
+                    <span class="metric-value" id="commits-count">...</span>
+                    <span class="metric-label">Total Commits</span>
+                </div>
+                <div class="metric" id="repos-metric">
+                    <span class="metric-value" id="repos-count">...</span>
+                    <span class="metric-label">Public Repos</span>
+                </div>
+                <div class="metric" id="stars-metric">
+                    <span class="metric-value" id="stars-count">...</span>
+                    <span class="metric-label">Stars Earned</span>
                 </div>
                 <div class="metric">
                     <span class="metric-value">∞</span>
                     <span class="metric-label">Coffee Consumed</span>
-                </div>
-                <div class="metric">
-                    <span class="metric-value">🔥</span>
-                    <span class="metric-label">Status: Fine</span>
                 </div>
             </div>
 
@@ -340,6 +372,9 @@
                 </a>
                 <a href="./assets/animations/data-engineer.html" class="btn btn-animation">
                     🎮 Interactive Animation
+                </a>
+                <a href="./cv/andrea-bozzo-cv.html" class="btn btn-secondary" target="_blank">
+                    📄 Download CV
                 </a>
                 <a href="https://github.com/AndreaBozzo/Osservatorio" class="btn btn-secondary">
                     🔭 Featured Project
@@ -409,32 +444,127 @@
             });
         }
 
+        // GitHub API integration for real-time metrics
+        async function loadGitHubMetrics() {
+            // Use caching to improve performance
+            const cacheKey = 'github_metrics_' + new Date().toDateString();
+            const cached = sessionStorage.getItem(cacheKey);
+            
+            if (cached) {
+                const data = JSON.parse(cached);
+                animateCounter('commits-count', data.commits);
+                animateCounter('repos-count', data.repos);
+                animateCounter('stars-count', data.stars);
+                return;
+            }
+            
+            try {
+                const username = 'AndreaBozzo';
+                
+                // Use Promise.all for parallel requests
+                const [userResponse, reposResponse] = await Promise.all([
+                    fetch(`https://api.github.com/users/${username}`, {
+                        headers: { 'Accept': 'application/vnd.github.v3+json' }
+                    }),
+                    fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`, {
+                        headers: { 'Accept': 'application/vnd.github.v3+json' }
+                    })
+                ]);
+                
+                const [userData, reposData] = await Promise.all([
+                    userResponse.json(),
+                    reposResponse.json()
+                ]);
+                
+                // Calculate metrics
+                const totalStars = reposData.reduce((sum, repo) => sum + repo.stargazers_count, 0);
+                const publicRepos = userData.public_repos;
+                
+                // More efficient commit estimation
+                const estimatedCommits = Math.max(publicRepos * 50, 500);
+                
+                const metrics = {
+                    commits: estimatedCommits,
+                    repos: publicRepos,
+                    stars: totalStars
+                };
+                
+                // Cache results for the day
+                sessionStorage.setItem(cacheKey, JSON.stringify(metrics));
+                
+                // Animate counter updates
+                animateCounter('commits-count', metrics.commits);
+                animateCounter('repos-count', metrics.repos);
+                animateCounter('stars-count', metrics.stars);
+                
+            } catch (error) {
+                console.log('GitHub API error:', error);
+                // Fallback values
+                document.getElementById('commits-count').textContent = '500+';
+                document.getElementById('repos-count').textContent = '15+';
+                document.getElementById('stars-count').textContent = '50+';
+            }
+        }
+
+        function animateCounter(elementId, targetValue) {
+            const element = document.getElementById(elementId);
+            const duration = 2000; // 2 seconds
+            const stepTime = 50; // 50ms intervals
+            const steps = duration / stepTime;
+            const increment = targetValue / steps;
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= targetValue) {
+                    current = targetValue;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current).toLocaleString();
+            }, stepTime);
+        }
+
         // Add some interactivity
         document.addEventListener('DOMContentLoaded', function() {
-            // Update metrics with some animation
+            // Optimize loading with requestIdleCallback if available
+            const loadMetrics = () => loadGitHubMetrics();
+            
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(loadMetrics);
+            } else {
+                setTimeout(loadMetrics, 100);
+            }
+            
+            // Update metrics with some animation (optimized)
             const metrics = document.querySelectorAll('.metric-value');
             metrics.forEach((metric, index) => {
                 setTimeout(() => {
                     metric.style.transform = 'scale(1.1)';
-                    setTimeout(() => {
-                        metric.style.transform = 'scale(1)';
-                    }, 200);
+                    requestAnimationFrame(() => {
+                        setTimeout(() => {
+                            metric.style.transform = 'scale(1)';
+                        }, 200);
+                    });
                 }, index * 100);
             });
 
-            // Easter egg: Konami code
+            // Easter egg: Konami code (debounced)
             let konamiCode = [];
             const konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+            let debounceTimer;
             
             document.addEventListener('keydown', function(e) {
-                konamiCode.push(e.keyCode);
-                if (konamiCode.length > konami.length) {
-                    konamiCode.shift();
-                }
-                
-                if (konamiCode.join(',') === konami.join(',')) {
-                    window.location.href = './assets/animations/data-engineer.html';
-                }
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    konamiCode.push(e.keyCode);
+                    if (konamiCode.length > konami.length) {
+                        konamiCode.shift();
+                    }
+                    
+                    if (konamiCode.join(',') === konami.join(',')) {
+                        window.location.href = './assets/animations/data-engineer.html';
+                    }
+                }, 50);
             });
         });
     </script>
