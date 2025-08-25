@@ -29,7 +29,7 @@
 ## 🚀 Data Engineer Chronicles
 
 <p align="center">
-  <img src="assets/animations/Animazione.gif" alt="Data Engineer Chronicles - A day in the life" width="600"/>
+  <img src="assets/animations/Animazione.gif" alt="Data Engineer Chronicles - A day in the life" width="800"/>
 </p>
 
 *"In Data We Trust, In Backups We Believe"* - Un viaggio attraverso le gioie e i dolori di un Data Engineer
