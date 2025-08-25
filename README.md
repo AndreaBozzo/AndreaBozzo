@@ -258,7 +258,7 @@ data_stack = {
 
 <table>
 <tr>
-<td width="33%">
+<td width="25%">
 
 ### 🧊 [Mini-Lakehouse-Didattico](https://github.com/AndreaBozzo/Mini-Lakehouse-Didattico)
 **Modern Data Stack in miniatura**
@@ -271,7 +271,20 @@ data_stack = {
 - Template pronto per progetti reali
 
 </td>
-<td width="33%">
+<td width="25%">
+
+### 🎯 [ATS-Research](https://github.com/AndreaBozzo/ATS-Research)
+**ATS Parsing Optimization Research**
+
+![Stars](https://img.shields.io/github/stars/AndreaBozzo/ATS-Research?style=social)
+![Language](https://img.shields.io/github/languages/top/AndreaBozzo/ATS-Research)
+
+- Controlled A/B testing su 4 varianti CV
+- Analisi parsing ATS multi-piattaforma
+- Tecniche stealth per ottimizzazione nascosta
+
+</td>
+<td width="25%">
 
 ### 📊 [CruscottoPMI](https://github.com/AndreaBozzo/CruscottoPMI)
 **Business Intelligence per PMI**
@@ -284,7 +297,7 @@ data_stack = {
 - KPI automatizzati e what-if analysis
 
 </td>
-<td width="33%">
+<td width="25%">
 
 ### 📈 [DashboardsBI-Excel](https://github.com/AndreaBozzo/DashboardsBI-Excel)
 **Template Excel avanzati per BI**
