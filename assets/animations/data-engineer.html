@@ -146,24 +146,105 @@
 
         /* Mobile responsiveness */
         @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
             .container {
-                padding: 20px;
+                padding: 15px;
+                border-radius: 8px;
             }
             
             h1 {
-                font-size: 20px;
+                font-size: 18px;
+                margin-bottom: 8px;
+            }
+            
+            .subtitle {
+                font-size: 12px;
+                margin-bottom: 20px;
             }
             
             .scene-content {
-                font-size: 11px;
+                font-size: 10px;
+                line-height: 1.4;
+            }
+            
+            .status-bar {
+                padding: 10px;
+                font-size: 10px;
+                flex-direction: column;
+                gap: 8px;
+                align-items: flex-start;
             }
             
             .metrics {
                 flex-direction: column;
-                gap: 8px;
+                gap: 6px;
+                width: 100%;
+            }
+            
+            .metric {
+                font-size: 10px;
+            }
+        }
+        
+        /* Small mobile devices */
+        @media (max-width: 400px) {
+            .container {
+                padding: 12px;
+                margin: 5px;
+            }
+            
+            h1 {
+                font-size: 16px;
+            }
+            
+            .scene-content {
+                font-size: 9px;
+            }
+            
+            .status-bar {
+                padding: 8px;
+                font-size: 9px;
+            }
+        }
+        
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .container {
+                -webkit-overflow-scrolling: touch;
+                touch-action: manipulation;
+            }
+            
+            /* Prevent zoom on double tap */
+            * {
+                touch-action: manipulation;
             }
         }
     </style>
+    
+    <!-- Simple Analytics (privacy-friendly) -->
+    <script>
+        // Track basic page analytics without cookies
+        if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+            // Track page view
+            const analytics = {
+                page: 'interactive-animation',
+                timestamp: new Date().toISOString(),
+                userAgent: navigator.userAgent,
+                language: navigator.language,
+                screen: screen.width + 'x' + screen.height,
+                referrer: document.referrer
+            };
+            
+            // Log to console for debugging (optional)
+            console.log('📊 Page Analytics:', analytics);
+            
+            // Send to GitHub API as a simple star action (non-intrusive tracking)
+            // This is just for demo - in production you'd use proper analytics
+        }
+    </script>
 </head>
 <body>
     <div class="container">

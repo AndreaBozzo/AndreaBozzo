@@ -39,6 +39,7 @@ Want the full experience with easter eggs?
 ![Pipelines](https://img.shields.io/badge/Pipelines_Running-88-green?style=for-the-badge&logo=databricks)
 ![Coffee](https://img.shields.io/badge/Coffee_Consumed-15_cups-brown?style=for-the-badge&logo=coffeescript)
 ![Drama](https://img.shields.io/badge/Drama_Level-😌_Suspiciously_Calm-purple?style=for-the-badge&logo=statuspage)
+![Pages](https://img.shields.io/badge/GitHub_Pages-Live-brightgreen?style=for-the-badge&logo=github&logoColor=white)
 <!-- BADGES:END -->
 
 <p align="center">
@@ -56,6 +57,9 @@ Want the full experience with easter eggs?
     <img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#EA4AAA" alt="GitHub Sponsors" />
   </a>
   <img src="https://komarev.com/ghpvc/?username=AndreaBozzo&style=for-the-badge&color=brightgreen" alt="Profile Views" />
+  <a href="https://andreabozzo.github.io/AndreaBozzo/assets/animations/data-engineer.html">
+    <img src="https://img.shields.io/badge/Interactive_Animation-Live-success?style=for-the-badge&logo=html5&logoColor=white" alt="Interactive Animation" />
+  </a>
 </p>
 
 <p align="center">
