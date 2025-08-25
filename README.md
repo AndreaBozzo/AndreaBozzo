@@ -16,21 +16,75 @@
   <i>Actual footage from production (every single day)</i>
 </p>
 
-### 🎮 Interactive Version
+## 🌐 Professional Ecosystem
 
-Want the full experience with easter eggs? 
-**[Click here for the interactive animation!](https://andreabozzo.github.io/AndreaBozzo/assets/animations/data-engineer.html)**
+<div align="center">
 
-<sub>💡 Hint: Try the Konami Code (↑↑↓↓←→←→BA) on the interactive version!</sub>
+### **🏠 [Professional Landing Page](https://andreabozzo.github.io/AndreaBozzo/) • 🎮 [Interactive Animation](https://andreabozzo.github.io/AndreaBozzo/assets/animations/data-engineer.html) • 📄 [Download CV](https://andreabozzo.github.io/AndreaBozzo/cv/andrea-bozzo-cv.html)**
 
-### 🎨 Want Your Own Animated Profile?
+</div>
 
-**Feel free to fork this repo!** All code is open source:
-- 📁 **Animation**: `assets/animations/data-engineer.html` 
-- ⚙️ **GitHub Pages**: `.github/workflows/pages.yml`
-- 🎯 **Auto-updating badges**: `.github/workflows/update-readme.yml`
+<table>
+<tr>
+<td width="33%" align="center">
 
-<sub>💡 **Pro tip**: Customize the scenes in the HTML file with your own tech stack and daily dev life!</sub>
+**🏠 Landing Page**
+<br>
+[**andreabozzo.github.io**](https://andreabozzo.github.io/AndreaBozzo/)
+<br><br>
+✨ Real-time GitHub metrics<br>
+🎯 Professional showcase<br>
+📱 Mobile-optimized<br>
+⚡ Lighthouse 100/100
+
+</td>
+<td width="33%" align="center">
+
+**🎮 Interactive Animation**
+<br>
+[**Data Engineer Chronicles**](https://andreabozzo.github.io/AndreaBozzo/assets/animations/data-engineer.html)
+<br><br>
+🎭 Day-in-the-life simulation<br>
+🥚 Hidden easter eggs<br>
+⌨️ Konami Code support<br>
+📱 Touch-device optimized
+
+</td>
+<td width="33%" align="center">
+
+**📄 Professional CV**
+<br>
+[**Interactive Resume**](https://andreabozzo.github.io/AndreaBozzo/cv/andrea-bozzo-cv.html)
+<br><br>
+🖨️ Print-ready PDF<br>
+💼 Complete experience<br>
+🎨 Matching design theme<br>
+📊 Skills visualization
+
+</td>
+</tr>
+</table>
+
+<div align="center">
+
+**🚀 [Explore the Full Experience →](https://andreabozzo.github.io/AndreaBozzo/)**
+
+*Real-time data • Interactive elements • Professional design • Open source*
+
+</div>
+
+---
+
+### 🎨 Want Your Own Digital Ecosystem?
+
+**Fork this repository and customize!** Complete implementation available:
+- 🏠 **Landing Page**: Modern design with real-time GitHub API integration
+- 📁 **Interactive Animation**: `assets/animations/data-engineer.html` 
+- 📄 **Professional CV**: Print-ready with matching branding
+- ⚙️ **GitHub Pages Workflow**: `.github/workflows/pages.yml`
+- 🎯 **Auto-updating Badges**: `.github/workflows/update-readme.yml`
+
+<sub>💡 **Pro tip**: The entire ecosystem is designed to work together - landing page → animation → CV → projects. Customize the content but keep the flow!</sub>
 
 ## 📈 Live Production Metrics
 
@@ -53,22 +107,72 @@ Want the full experience with easter eggs?
 </p>
 
 <p align="center">
+  <a href="https://andreabozzo.github.io/AndreaBozzo/">
+    <img src="https://img.shields.io/badge/🌐_Landing_Page-Live-blue?style=for-the-badge" alt="Landing Page" />
+  </a>
+  <a href="https://andreabozzo.github.io/AndreaBozzo/cv/andrea-bozzo-cv.html">
+    <img src="https://img.shields.io/badge/📄_Download_CV-PDF_Ready-green?style=for-the-badge" alt="Download CV" />
+  </a>
+  <a href="https://andreabozzo.github.io/AndreaBozzo/assets/animations/data-engineer.html">
+    <img src="https://img.shields.io/badge/🎮_Interactive-Animation-orange?style=for-the-badge" alt="Interactive Animation" />
+  </a>
   <a href="https://github.com/sponsors/AndreaBozzo">
-    <img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#EA4AAA" alt="GitHub Sponsors" />
+    <img src="https://img.shields.io/badge/💎_Sponsor-Support_Work-EA4AAA?style=for-the-badge" alt="GitHub Sponsors" />
   </a>
   <img src="https://komarev.com/ghpvc/?username=AndreaBozzo&style=for-the-badge&color=brightgreen" alt="Profile Views" />
-  <a href="https://andreabozzo.github.io/AndreaBozzo/assets/animations/data-engineer.html">
-    <img src="https://img.shields.io/badge/Interactive_Animation-Live-success?style=for-the-badge&logo=html5&logoColor=white" alt="Interactive Animation" />
-  </a>
 </p>
 
 <p align="center">
+  <a href="#-professional-ecosystem">Digital Ecosystem</a> •
   <a href="#-featured-project">Featured Project</a> •
   <a href="#%EF%B8%8F-stack-tecnico">Tech Stack</a> •
   <a href="#-altri-progetti">Other Projects</a> •
-  <a href="#-filosofia">Philosophy</a> •
+  <a href="#-impact--achievements">Achievements</a> •
   <a href="#-lets-connect--collaborate">Connect</a>
 </p>
+
+---
+
+## 🏆 Impact & Achievements
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="25%">
+<h3>🚀</h3>
+<h2>4+ Contributors</h2>
+<p><strong>Osservatorio Platform</strong><br>Growing open-source community</p>
+</td>
+<td align="center" width="25%">
+<h3>⚡</h3>
+<h2>&lt;100ms</h2>
+<p><strong>Query Performance</strong><br>Analytics response time</p>
+</td>
+<td align="center" width="25%">
+<h3>📊</h3>
+<h2>65% Coverage</h2>
+<p><strong>Test Quality</strong><br>Production-ready code</p>
+</td>
+<td align="center" width="25%">
+<h3>🌍</h3>
+<h2>Open Source</h2>
+<p><strong>Data Democracy</strong><br>Public data accessibility</p>
+</td>
+</tr>
+</table>
+
+### 🎯 **Core Mission: Democratizing Data Access**
+
+*"Building bridges between complex public datasets and the people who need insights from them"*
+
+**Recent Highlights:**
+- ✅ **Osservatorio Platform**: Production-ready with growing contributor base
+- ✅ **Performance Optimization**: Sub-100ms analytics queries achieved  
+- ✅ **Community Impact**: 15+ public repositories, open-source advocate
+- ✅ **Professional Development**: Modern tech stack, CI/CD, comprehensive testing
+
+</div>
 
 ---
 
@@ -255,7 +359,67 @@ data_stack = {
 
 ---
 
+## 🌟 Community & Open Source
+
+<div align="center">
+
+**Contributing to the Data Engineering Ecosystem**
+
+<table>
+<tr>
+<td width="50%" align="center">
+
+### 📚 **Knowledge Sharing**
+- **15+ Public Repositories** with production-ready code
+- **Comprehensive Documentation** for all projects
+- **Best Practices** in data engineering and analytics
+- **Open Source Templates** ready for community use
+
+</td>
+<td width="50%" align="center">
+
+### 🤝 **Community Building** 
+- **Active Discussions** on GitHub for technical collaboration
+- **Mentoring** junior data professionals
+- **Code Reviews** and constructive feedback
+- **Public Data Advocacy** for transparency and access
+
+</td>
+</tr>
+</table>
+
+### 💡 **Philosophy in Action**
+> *"The best data engineering solutions are the ones that empower others to build great things"*
+
+**Community Impact:**
+- 🔄 **Reproducible Workflows**: All projects include complete setup documentation
+- 🎓 **Educational Resources**: Mini-lakehouse tutorials and examples
+- 🌐 **Open Standards**: No vendor lock-in, maximum portability
+- 🔧 **Production Ready**: Real-world solutions, not just demos
+
+</div>
+
+---
+
+<div align="center">
+
+## 🚀 **Ready to Explore?**
+
+### **[Start with the Landing Page →](https://andreabozzo.github.io/AndreaBozzo/)**
+
 <p align="center">
-  <sub>🚀 Building scalable data infrastructure • 🌍 Democratizing public data access • 💡 Open source advocate</sub><br>
-  <sub><strong>Supported by GitHub Sponsors</strong> • <em>Available for consulting and collaboration</em></sub>
+  <a href="https://andreabozzo.github.io/AndreaBozzo/">🏠 Professional Experience</a> • 
+  <a href="https://andreabozzo.github.io/AndreaBozzo/cv/andrea-bozzo-cv.html">📄 Download CV</a> • 
+  <a href="https://github.com/AndreaBozzo/Osservatorio">🔭 Featured Project</a> • 
+  <a href="https://github.com/sponsors/AndreaBozzo">💎 Support Work</a>
 </p>
+
+---
+
+*🌟 **Building the future of open data access** • 🎯 **One pipeline at a time** • 🤝 **Together with the community***
+
+**Available for:** *Data Engineering Consulting • Open Source Collaboration • Technical Mentoring*
+
+<sub>✨ **This entire ecosystem is open source** - Fork it, customize it, make it yours!</sub>
+
+</div>
