@@ -23,6 +23,15 @@ Want the full experience with easter eggs?
 
 <sub>💡 Hint: Try the Konami Code (↑↑↓↓←→←→BA) on the interactive version!</sub>
 
+### 🎨 Want Your Own Animated Profile?
+
+**Feel free to fork this repo!** All code is open source:
+- 📁 **Animation**: `assets/animations/data-engineer.html` 
+- ⚙️ **GitHub Pages**: `.github/workflows/pages.yml`
+- 🎯 **Auto-updating badges**: `.github/workflows/update-readme.yml`
+
+<sub>💡 **Pro tip**: Customize the scenes in the HTML file with your own tech stack and daily dev life!</sub>
+
 ## 📈 Live Production Metrics
 
 <!-- BADGES:START -->
