@@ -26,9 +26,9 @@ Want the full experience with easter eggs?
 ## 📈 Live Production Metrics
 
 <!-- BADGES:START -->
-![Incidents](https://img.shields.io/badge/Incidents_Today-0-green?style=for-the-badge&logo=fire)
-![Pipelines](https://img.shields.io/badge/Pipelines_Running-45-green?style=for-the-badge&logo=databricks)
-![Coffee](https://img.shields.io/badge/Coffee_Consumed-13_cups-brown?style=for-the-badge&logo=coffeescript)
+![Incidents](https://img.shields.io/badge/Incidents_Today-4-orange?style=for-the-badge&logo=fire)
+![Pipelines](https://img.shields.io/badge/Pipelines_Running-88-green?style=for-the-badge&logo=databricks)
+![Coffee](https://img.shields.io/badge/Coffee_Consumed-15_cups-brown?style=for-the-badge&logo=coffeescript)
 ![Drama](https://img.shields.io/badge/Drama_Level-😌_Suspiciously_Calm-purple?style=for-the-badge&logo=statuspage)
 <!-- BADGES:END -->
 
