@@ -3,81 +3,440 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andrea Bozzo - Data Engineer</title>
-    <meta http-equiv="refresh" content="0; url=https://github.com/AndreaBozzo/AndreaBozzo#readme">
+    <title>Andrea Bozzo - Data Engineer & Open Data Advocate</title>
+    <meta name="description" content="Data Engineer specializing in open data analytics, ETL pipelines, and data democratization. Creator of Osservatorio platform.">
+    <meta name="keywords" content="data engineer, open data, analytics, ETL, Python, streamlit, data visualization">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background: #0d1117;
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
             color: #e6edf3;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-        .container {
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            max-width: 500px;
+            position: relative;
             padding: 2rem;
         }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23181825" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
         .logo {
-            font-size: 3rem;
+            font-size: 4rem;
             margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
         }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
         .title {
-            font-size: 1.5rem;
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #58a6ff, #f0883e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 1rem;
-            color: #58a6ff;
         }
+
         .subtitle {
+            font-size: 1.2rem;
+            color: #8b949e;
             margin-bottom: 2rem;
-            color: #7d8590;
+            font-style: italic;
         }
-        .links {
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #c9d1d9;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .metrics {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .metric {
+            background: rgba(48, 54, 61, 0.3);
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            min-width: 150px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .metric:hover {
+            transform: translateY(-5px);
+            border-color: #58a6ff;
+        }
+
+        .metric-value {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #3fb950;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            color: #8b949e;
+            font-size: 0.9rem;
+        }
+
+        .cta-buttons {
             display: flex;
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
+            margin: 3rem 0;
         }
+
         .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background: #238636;
-            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
             text-decoration: none;
-            border-radius: 6px;
-            font-weight: 500;
-            transition: background 0.2s;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
-        .btn:hover {
-            background: #2ea043;
+
+        .btn-primary {
+            background: linear-gradient(45deg, #238636, #2ea043);
+            color: white;
         }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(35, 134, 54, 0.3);
+        }
+
         .btn-secondary {
-            background: #21262d;
-            border: 1px solid #30363d;
+            background: transparent;
+            color: #58a6ff;
+            border-color: #58a6ff;
         }
+
         .btn-secondary:hover {
-            background: #30363d;
+            background: rgba(88, 166, 255, 0.1);
+            transform: translateY(-2px);
         }
+
+        .btn-animation {
+            background: linear-gradient(45deg, #f0883e, #ff6b35);
+            color: white;
+        }
+
+        .btn-animation:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(240, 136, 62, 0.3);
+        }
+
+        .features {
+            padding: 4rem 2rem;
+            background: rgba(22, 27, 34, 0.5);
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(48, 54, 61, 0.3);
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #58a6ff;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #58a6ff;
+            margin-bottom: 1rem;
+        }
+
+        .feature-desc {
+            color: #8b949e;
+            line-height: 1.6;
+        }
+
+        .social-proof {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: rgba(13, 17, 23, 0.8);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(48, 54, 61, 0.5);
+            border: 1px solid #30363d;
+            border-radius: 25px;
+            color: #e6edf3;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .social-link:hover {
+            background: rgba(88, 166, 255, 0.1);
+            border-color: #58a6ff;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .metrics {
+                gap: 1rem;
+            }
+            
+            .metric {
+                min-width: 120px;
+                padding: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-delay-1 { animation-delay: 0.2s; }
+        .fade-in-delay-2 { animation-delay: 0.4s; }
+        .fade-in-delay-3 { animation-delay: 0.6s; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">🔧</div>
-        <h1 class="title">Andrea Bozzo</h1>
-        <p class="subtitle">Data Engineer | Open Data Advocate | Analytics Pipeline Architect</p>
-        <p>Redirecting to GitHub profile...</p>
-        <div class="links">
-            <a href="https://github.com/AndreaBozzo/AndreaBozzo#readme" class="btn">View Profile</a>
-            <a href="./assets/animations/data-engineer.html" class="btn btn-secondary">Interactive Animation</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="logo fade-in">🚀</div>
+            <h1 class="title fade-in fade-in-delay-1">Andrea Bozzo</h1>
+            <p class="subtitle fade-in fade-in-delay-2">Data Engineer | Open Data Advocate | Analytics Pipeline Architect</p>
+            <p class="tagline fade-in fade-in-delay-3">
+                "In Data We Trust, In Backups We Believe" - Transforming public data into accessible insights through scalable, open-source solutions.
+            </p>
+            
+            <!-- Live Metrics -->
+            <div class="metrics fade-in fade-in-delay-3">
+                <div class="metric">
+                    <span class="metric-value">47</span>
+                    <span class="metric-label">Pipelines Running</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">∞</span>
+                    <span class="metric-label">Coffee Consumed</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">🔥</span>
+                    <span class="metric-label">Status: Fine</span>
+                </div>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="cta-buttons fade-in fade-in-delay-3">
+                <a href="https://github.com/AndreaBozzo/AndreaBozzo#readme" class="btn btn-primary">
+                    📋 View Full Profile
+                </a>
+                <a href="./assets/animations/data-engineer.html" class="btn btn-animation">
+                    🎮 Interactive Animation
+                </a>
+                <a href="https://github.com/AndreaBozzo/Osservatorio" class="btn btn-secondary">
+                    🔭 Featured Project
+                </a>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🔭</span>
+                <h3 class="feature-title">Osservatorio Platform</h3>
+                <p class="feature-desc">
+                    Open data analytics platform democratizing access to Italian statistical data with automated ETL pipelines and interactive dashboards.
+                </p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">⚡</span>
+                <h3 class="feature-title">High-Performance Analytics</h3>
+                <p class="feature-desc">
+                    Building sub-100ms analytics queries with hybrid persistence (DuckDB + PostgreSQL) and optimized data modeling architectures.
+                </p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🌍</span>
+                <h3 class="feature-title">Open Source Advocate</h3>
+                <p class="feature-desc">
+                    Contributing to the open data ecosystem with production-ready tools, comprehensive documentation, and community collaboration.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <h2 style="color: #58a6ff; margin-bottom: 1rem;">Let's Connect & Collaborate</h2>
+        <p style="color: #8b949e; margin-bottom: 2rem;">
+            Open to consulting, partnerships, and mentoring opportunities in data engineering and analytics.
+        </p>
+        
+        <div class="social-links">
+            <a href="https://github.com/sponsors/AndreaBozzo" class="social-link">
+                💎 GitHub Sponsors
+            </a>
+            <a href="https://www.linkedin.com/in/andrea-bozzo-/" class="social-link">
+                💼 LinkedIn
+            </a>
+            <a href="mailto:andreabozzo92@gmail.com" class="social-link">
+                📧 Email
+            </a>
+            <a href="https://github.com/AndreaBozzo/Osservatorio/discussions" class="social-link">
+                💬 Discussions
+            </a>
+        </div>
+    </section>
+
     <script>
-        // Fallback redirect after 3 seconds if meta refresh doesn't work
-        setTimeout(() => {
-            window.location.href = 'https://github.com/AndreaBozzo/AndreaBozzo#readme';
-        }, 3000);
+        // Simple analytics (privacy-friendly)
+        if (window.location.hostname !== 'localhost') {
+            console.log('📊 Landing Page Analytics:', {
+                timestamp: new Date().toISOString(),
+                page: 'landing-page',
+                referrer: document.referrer,
+                screen: screen.width + 'x' + screen.height
+            });
+        }
+
+        // Add some interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update metrics with some animation
+            const metrics = document.querySelectorAll('.metric-value');
+            metrics.forEach((metric, index) => {
+                setTimeout(() => {
+                    metric.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        metric.style.transform = 'scale(1)';
+                    }, 200);
+                }, index * 100);
+            });
+
+            // Easter egg: Konami code
+            let konamiCode = [];
+            const konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+            
+            document.addEventListener('keydown', function(e) {
+                konamiCode.push(e.keyCode);
+                if (konamiCode.length > konami.length) {
+                    konamiCode.shift();
+                }
+                
+                if (konamiCode.join(',') === konami.join(',')) {
+                    window.location.href = './assets/animations/data-engineer.html';
+                }
+            });
+        });
     </script>
 </body>
 </html>
