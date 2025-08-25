@@ -1,0 +1,81 @@
+name: Update README with Daily Drama
+
+on:
+  schedule:
+    # Runs at 9 AM UTC every weekday
+    - cron: '0 9 * * 1-5'
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Update Drama Level
+      run: |
+        python << 'EOF'
+        import random
+        import datetime
+        import re
+        
+        # Read current README
+        with open('README.md', 'r') as f:
+            content = f.read()
+        
+        # Generate daily metrics
+        incidents = random.randint(0, 10)
+        pipelines = random.randint(30, 100)
+        coffee = random.randint(5, 50)
+        
+        # Drama levels for each day
+        drama_by_day = {
+            0: "😌_Suspiciously_Calm",
+            1: "🔥_Standard_Chaos",
+            2: "💥_Everything's_Broken", 
+            3: "🚨_CEO_is_Asking_Questions",
+            4: "☠️_Deploying_on_Friday"
+        }
+        
+        today = datetime.datetime.now().weekday()
+        drama = drama_by_day.get(today, "🔥_Unknown_State")
+        
+        # Determine incident badge color
+        incident_color = 'red' if incidents > 5 else ('orange' if incidents > 2 else 'green')
+        
+        # Update badges in README
+        badges = f"""![Incidents](https://img.shields.io/badge/Incidents_Today-{incidents}-{incident_color}?style=for-the-badge&logo=fire)
+![Pipelines](https://img.shields.io/badge/Pipelines_Running-{pipelines}-green?style=for-the-badge&logo=databricks)
+![Coffee](https://img.shields.io/badge/Coffee_Consumed-{coffee}_cups-brown?style=for-the-badge&logo=coffeescript)
+![Drama](https://img.shields.io/badge/Drama_Level-{drama}-purple?style=for-the-badge&logo=statuspage)"""
+        
+        # Replace the badges section
+        pattern = r'<!-- BADGES:START -->.*?<!-- BADGES:END -->'
+        replacement = f'<!-- BADGES:START -->\n{badges}\n<!-- BADGES:END -->'
+        content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+        
+        # Write updated README
+        with open('README.md', 'w') as f:
+            f.write(content)
+        
+        print(f"Updated: {incidents} incidents, {pipelines} pipelines, {coffee} coffee, {drama}")
+        EOF
+    
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git diff --quiet || (git add README.md && \
+        git commit -m "🤖 Update daily drama metrics [skip ci]")
+        
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main

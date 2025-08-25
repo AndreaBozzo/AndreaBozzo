@@ -1,11 +1,44 @@
 # 👋 Andrea Bozzo
 
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" 
+            srcset="./assets/animations/Animazione1.gif">
+    <source media="(prefers-color-scheme: light)" 
+            srcset="./assets/animations/Animazione1.gif">
+    <img alt="Data Engineer Chronicles - A day in the life" 
+         src="./assets/animations/Animazione1.gif" 
+         width="800">
+  </picture>
+</div>
+
 <p align="center">
-  <img src="assets/tech_banner_new.png" alt="Tech stack banner" width="700"/>
+  <i>Actual footage from production (every single day)</i>
+</p>
+
+### 🎮 Interactive Version
+
+Want the full experience with easter eggs? 
+**[Click here for the interactive animation!](https://andreabozzo.github.io/AndreaBozzo/assets/animations/data-engineer.html)**
+
+<sub>💡 Hint: Try the Konami Code (↑↑↓↓←→←→BA) on the interactive version!</sub>
+
+## 📈 Live Production Metrics
+
+<!-- BADGES:START -->
+![Incidents](https://img.shields.io/badge/Incidents_Today-3-orange?style=for-the-badge&logo=fire)
+![Pipelines](https://img.shields.io/badge/Pipelines_Running-47-green?style=for-the-badge&logo=databricks)
+![Coffee](https://img.shields.io/badge/Coffee_Consumed-∞-brown?style=for-the-badge&logo=coffeescript)
+![Drama](https://img.shields.io/badge/Drama_Level-Standard_Chaos-purple?style=for-the-badge&logo=statuspage)
+<!-- BADGES:END -->
+
+<p align="center">
+  <i>Last updated: automatically every morning • Status: 🔥 Everything is fine 🔥</i>
 </p>
 
 <p align="center">
   <strong>Data Engineer | Open Data Advocate | Analytics Pipeline Architect</strong><br>
+  <em>"In Data We Trust, In Backups We Believe"</em><br>
   Transforming public data into accessible insights. Building scalable data solutions with open-source tools.
 </p>
 
@@ -17,24 +50,15 @@
 </p>
 
 <p align="center">
-  <a href="#-progetto-spotlight">Spotlight</a> •
-  <a href="#-stack-tecnico">Stack</a> •
-  <a href="#-progetti">Progetti</a> •
-  <a href="#-filosofia">Filosofia</a> •
-  <a href="#-connect">Connect</a>
+  <a href="#-featured-project">Featured Project</a> •
+  <a href="#%EF%B8%8F-stack-tecnico">Tech Stack</a> •
+  <a href="#-altri-progetti">Other Projects</a> •
+  <a href="#-filosofia">Philosophy</a> •
+  <a href="#-lets-connect--collaborate">Connect</a>
 </p>
 
 ---
 
-## 🚀 Data Engineer Chronicles
-
-<p align="center">
-  <img src="assets/animations/Animazione1.gif" alt="Data Engineer Chronicles - A day in the life" width="1095"/>
-</p>
-
-*"In Data We Trust, In Backups We Believe"* - Un viaggio attraverso le gioie e i dolori di un Data Engineer
-
----
 
 ## 🔦 Featured Project
 
@@ -65,6 +89,16 @@ Implementing hybrid persistence (DuckDB + SQLlite to PostgreSQL) for <100ms anal
 
 ## 🛠️ Stack Tecnico
 
+### The stack that keeps me awake at night:
+
+| Category | Technologies | Status |
+|----------|-------------|--------|
+| **Data Processing** | Python, pandas, numpy, dbt-core | 🟢 Production Ready |
+| **Storage & DB** | DuckDB, PostgreSQL, Parquet | 🟢 Optimized |
+| **Analytics & BI** | streamlit, Power BI, Plotly, Excel | 🟢 Dashboard Heaven |
+| **Orchestration** | Poetry, GitHub Actions | 🟡 Continuously Improving |
+| **Philosophy** | No vendor lock-in, 100% reproducible | 🔥 Always On Fire |
+
 ### Core Technologies
 ```python
 data_stack = {
@@ -72,7 +106,7 @@ data_stack = {
     "storage": ["DuckDB", "PostgreSQL", "Parquet"],
     "analytics": ["pandas", "numpy", "streamlit"],
     "visualization": ["Power BI", "Plotly", "Excel"],
-    "philosophy": "No vendor lock-in, 100% reproducible"
+    "current_status": "🔥 Everything is fine 🔥"
 }
 ```
 
@@ -174,11 +208,7 @@ data_stack = {
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=AndreaBozzo&theme=default" alt="GitHub Streak" />
 </p>
 
-### 🏆 Quick Stats
-- 📈 **Public Repositories**: Focus su data engineering e analytics
-- 🔥 **Recent Activity**: Pipeline ETL automatizzate e dashboard interattive
-- 💡 **Open Source**: Contributi alla community data italiana
-- 🎯 **Specialization**: 85% Python, SQL, Power BI
+**🏆 Quick Stats**: Focus su data engineering • Pipeline ETL automatizzate • Open Source advocate • 85% Python, SQL, Power BI
 
 ---
 
