@@ -125,8 +125,8 @@
 <p align="center">
   <a href="#-professional-ecosystem">Digital Ecosystem</a> •
   <a href="#-featured-project">Featured Project</a> •
-  <a href="#%EF%B8%8F-stack-tecnico">Tech Stack</a> •
-  <a href="#-altri-progetti">Other Projects</a> •
+  <a href="#%EF%B8%8F-tech-stack">Tech Stack</a> •
+  <a href="#-other-projects">Other Projects</a> •
   <a href="#-impact--achievements">Achievements</a> •
   <a href="#-lets-connect--collaborate">Connect</a>
 </p>
@@ -193,18 +193,17 @@
 
 #### ✨ Key Features
 - **Robust ETL pipelines** for ISTAT data with automatic retries and circuit breakers
-- **Interactive Streamlit( and React soon) dashboards** 
-for demographic and socio-economic analysis  
+- **Interactive Streamlit dashboards** (React coming soon) for demographic and socio-economic analysis  
 - **Multi-format export** (CSV, Excel, Parquet) for maximum interoperability
-- **Contributor-friendly architecture** with complete documentation and 57+ test coverage
+- **Contributor-friendly architecture** with complete documentation and 65% test coverage
 - **Active community** with regular discussions and collaborative development
 
 #### 🚀 Current Focus: Advanced Analytics Layer
-Implementing hybrid persistence (DuckDB + SQLlite to PostgreSQL) for <100ms analytics queries. **Seeking contributors for data modeling and performance optimization.** [Join the discussion →](https://github.com/AndreaBozzo/Osservatorio/discussions)
+Implementing hybrid persistence (DuckDB + SQLite to PostgreSQL) for <100ms analytics queries. **Seeking contributors for data modeling and performance optimization.** [Join the discussion →](https://github.com/AndreaBozzo/Osservatorio/discussions)
 
 ---
 
-## 🛠️ Stack Tecnico
+## 🛠️ Tech Stack
 
 ### The stack that keeps me awake at night:
 
@@ -246,29 +245,29 @@ data_stack = {
 ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-75%25-yellowgreen?style=flat-square&logo=githubactions)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-85%25-green?style=flat-square&logo=postgresql)
 
-### Competenze Distintive
-- **Data Modeling**: Architetture multi-layer (`staging → core → marts`)
-- **Pipeline Design**: ETL/ELT con validazioni integrate e audit trails
-- **API Integration**: Parsing SDMX, JSON, XML da fonti governative
+### Core Expertise
+- **Data Modeling**: Multi-layer architectures (`staging → core → marts`)
+- **Pipeline Design**: ETL/ELT with integrated validations and audit trails
+- **API Integration**: SDMX, JSON, XML parsing from government sources
 - **Performance**: Query optimization, caching strategies, async processing
 
 ---
 
-## 📂 Altri Progetti
+## 📂 Other Projects
 
 <table>
 <tr>
 <td width="25%">
 
 ### 🧊 [Mini-Lakehouse-Didattico](https://github.com/AndreaBozzo/Mini-Lakehouse-Didattico)
-**Modern Data Stack in miniatura**
+**Miniature Modern Data Stack**
 
 ![Stars](https://img.shields.io/github/stars/AndreaBozzo/Mini-Lakehouse-Didattico?style=social)
 ![Language](https://img.shields.io/github/languages/top/AndreaBozzo/Mini-Lakehouse-Didattico)
 
-- dbt + DuckDB per analytics velocissime
-- Testing automatizzato con `dbt-expectations`
-- Template pronto per progetti reali
+- dbt + DuckDB for ultra-fast analytics
+- Automated testing with `dbt-expectations`
+- Production-ready template
 
 </td>
 <td width="25%">
@@ -279,9 +278,9 @@ data_stack = {
 ![Stars](https://img.shields.io/github/stars/AndreaBozzo/ATS-Research?style=social)
 ![Language](https://img.shields.io/github/languages/top/AndreaBozzo/ATS-Research)
 
-- Controlled A/B testing su 4 varianti CV
-- Analisi parsing ATS multi-piattaforma
-- Tecniche stealth per ottimizzazione nascosta
+- Controlled A/B testing on 4 CV variants
+- Multi-platform ATS parsing analysis
+- Stealth techniques for hidden optimization
 
 </td>
 <td width="25%">
@@ -292,9 +291,9 @@ data_stack = {
 ![Stars](https://img.shields.io/github/stars/AndreaBozzo/CruscottoPMI?style=social)
 ![Language](https://img.shields.io/github/languages/top/AndreaBozzo/CruscottoPMI)
 
-- Dashboard finanziarie con Streamlit
-- Integrazione XBRL per bilanci
-- KPI automatizzati e what-if analysis
+- Financial dashboards with Streamlit
+- XBRL integration for financial statements
+- Automated KPIs and what-if analysis
 
 </td>
 <td width="25%">
@@ -305,9 +304,9 @@ data_stack = {
 ![Stars](https://img.shields.io/github/stars/AndreaBozzo/DashboardsBI-Excel?style=social)
 ![Language](https://img.shields.io/github/languages/top/AndreaBozzo/DashboardsBI-Excel)
 
-- Dashboard dinamiche con Power Query
-- Calcoli di bilancio e analisi what-if
-- Report parametrici multi-settore
+- Dynamic dashboards with Power Query
+- Financial calculations and what-if analysis
+- Multi-sector parametric reports
 
 </td>
 </tr>
@@ -315,15 +314,15 @@ data_stack = {
 
 ---
 
-## 💡 Filosofia di Lavoro
+## 💡 Work Philosophy
 
-> **"I dati pubblici appartengono a tutti, devono essere accessibili a tutti"**
+> **"Public data belongs to everyone, it must be accessible to everyone"**
 
-### Principi Guida
-- 🔍 **Trasparenza**: Ogni trasformazione tracciabile e documentata
-- 🚀 **Performance**: Se non è veloce, non è finito
-- 🧪 **Qualità**: Test first, debug later
-- 🌍 **Openness**: Nessun vendor lock-in, massima portabilità
+### Guiding Principles
+- 🔍 **Transparency**: Every transformation traceable and documented
+- 🚀 **Performance**: If it's not fast, it's not finished
+- 🧪 **Quality**: Test first, debug later
+- 🌍 **Openness**: No vendor lock-in, maximum portability
 
 ---
 
@@ -338,7 +337,7 @@ data_stack = {
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=AndreaBozzo&theme=default" alt="GitHub Streak" />
 </p>
 
-**🏆 Quick Stats**: Focus su data engineering • Pipeline ETL automatizzate • Open Source advocate • 85% Python, SQL, Power BI
+**🏆 Quick Stats**: Focus on data engineering • Automated ETL pipelines • Open Source advocate • 85% Python, SQL, Power BI
 
 ---
 
