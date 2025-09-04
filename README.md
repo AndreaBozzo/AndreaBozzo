@@ -77,14 +77,7 @@
 
 ### 🎨 Want Your Own Digital Ecosystem?
 
-**Fork this repository and customize!** Complete implementation available:
-- 🏠 **Landing Page**: Modern design with real-time GitHub API integration
-- 📁 **Interactive Animation**: `assets/animations/data-engineer.html` 
-- 📄 **Professional CV**: Print-ready with matching branding
-- ⚙️ **GitHub Pages Workflow**: `.github/workflows/pages.yml`
-- 🎯 **Auto-updating Badges**: `.github/workflows/update-readme.yml`
-
-<sub>💡 **Pro tip**: The entire ecosystem is designed to work together - landing page → animation → CV → projects. Customize the content but keep the flow!</sub>
+**Fork this repository and customize!** Complete implementation with landing page, interactive animations, and auto-updating workflows.
 
 ## 📈 Live Production Metrics
 
@@ -134,44 +127,14 @@
 
 ## 🏆 Impact & Achievements
 
-<div align="center">
+**🎯 Core Mission: Democratizing Data Access**
 
-<table>
-<tr>
-<td align="center" width="25%">
-<h3>🚀</h3>
-<h2>4+ Contributors</h2>
-<p><strong>Osservatorio Platform</strong><br>Growing open-source community</p>
-</td>
-<td align="center" width="25%">
-<h3>⚡</h3>
-<h2>&lt;100ms</h2>
-<p><strong>Query Performance</strong><br>Analytics response time</p>
-</td>
-<td align="center" width="25%">
-<h3>📊</h3>
-<h2>65% Coverage</h2>
-<p><strong>Test Quality</strong><br>Production-ready code</p>
-</td>
-<td align="center" width="25%">
-<h3>🌍</h3>
-<h2>Open Source</h2>
-<p><strong>Data Democracy</strong><br>Public data accessibility</p>
-</td>
-</tr>
-</table>
+*Building bridges between complex public datasets and accessible insights*
 
-### 🎯 **Core Mission: Democratizing Data Access**
-
-*"Building bridges between complex public datasets and the people who need insights from them"*
-
-**Recent Highlights:**
-- ✅ **Osservatorio Platform**: Production-ready with growing contributor base
-- ✅ **Performance Optimization**: Sub-100ms analytics queries achieved  
-- ✅ **Community Impact**: 15+ public repositories, open-source advocate
-- ✅ **Professional Development**: Modern tech stack, CI/CD, comprehensive testing
-
-</div>
+- **🚀 4+ Contributors** on Osservatorio platform with growing community
+- **⚡ <100ms** analytics query performance optimization
+- **📊 65% Test Coverage** across production-ready codebases
+- **🌍 15+ Open Source** repositories supporting data democracy
 
 ---
 
@@ -199,6 +162,25 @@
 
 #### 🚀 Current Focus: Advanced Analytics Layer
 Implementing hybrid persistence (DuckDB + SQLite to PostgreSQL) for <100ms analytics queries. **Seeking contributors for data modeling and performance optimization.** [Join the discussion →](https://github.com/AndreaBozzo/Osservatorio/discussions)
+
+### 📊 [DataProfiler](https://github.com/AndreaBozzo/dataprof) - *High-Performance Data Quality Analysis*
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Language-Rust-orange?style=flat-square&logo=rust" alt="Rust" />
+  <img src="https://img.shields.io/badge/Performance-2.9s_for_115MB-green?style=flat-square" alt="Performance" />
+  <img src="https://img.shields.io/badge/Accuracy-99.6%25-brightgreen?style=flat-square" alt="Accuracy" />
+  <img src="https://img.shields.io/badge/Contributors-3-blue?style=flat-square&logo=github" alt="Contributors" />
+  <img src="https://img.shields.io/badge/Status-Active-success?style=flat-square" alt="Status" />
+</p>
+
+**Fast, lightweight library and CLI tool** for CSV and JSON data profiling written in Rust. Handles large files (GB+) with intelligent sampling and provides professional HTML reports.
+
+#### ✨ Key Features
+- **⚡ Lightning-fast analysis**: Milliseconds for small files, ~3s for 115MB with 99.6% accuracy
+- **🔍 Comprehensive profiling**: Auto-detects data types, nulls, duplicates, outliers, format inconsistencies  
+- **📈 Scalable architecture**: Smart sampling for large datasets without memory issues
+- **🎨 Professional output**: Colored terminal display and HTML reporting
+- **🦀 Rust performance**: Zero-runtime dependencies, memory-safe, ultra-fast execution
 
 ---
 
@@ -313,16 +295,6 @@ data_stack = {
 
 ---
 
-## 💡 Work Philosophy
-
-> **"Public data belongs to everyone, it must be accessible to everyone"**
-
-### Guiding Principles
-- 🔍 **Transparency**: Every transformation traceable and documented
-- 🚀 **Performance**: If it's not fast, it's not finished
-- 🧪 **Quality**: Test first, debug later
-- 🌍 **Openness**: No vendor lock-in, maximum portability
-
 ---
 
 ## 📊 GitHub Activity
@@ -369,46 +341,6 @@ data_stack = {
 - **Open source maintainers** for knowledge sharing
 
 ---
-
-## 🌟 Community & Open Source
-
-<div align="center">
-
-**Contributing to the Data Engineering Ecosystem**
-
-<table>
-<tr>
-<td width="50%" align="center">
-
-### 📚 **Knowledge Sharing**
-- **15+ Public Repositories** with production-ready code
-- **Comprehensive Documentation** for all projects
-- **Best Practices** in data engineering and analytics
-- **Open Source Templates** ready for community use
-
-</td>
-<td width="50%" align="center">
-
-### 🤝 **Community Building** 
-- **Active Discussions** on GitHub for technical collaboration
-- **Mentoring** junior data professionals
-- **Code Reviews** and constructive feedback
-- **Public Data Advocacy** for transparency and access
-
-</td>
-</tr>
-</table>
-
-### 💡 **Philosophy in Action**
-> *"The best data engineering solutions are the ones that empower others to build great things"*
-
-**Community Impact:**
-- 🔄 **Reproducible Workflows**: All projects include complete setup documentation
-- 🎓 **Educational Resources**: Mini-lakehouse tutorials and examples
-- 🌐 **Open Standards**: No vendor lock-in, maximum portability
-- 🔧 **Production Ready**: Real-world solutions, not just demos
-
-</div>
 
 ---
 
