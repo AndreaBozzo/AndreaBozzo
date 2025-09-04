@@ -191,16 +191,18 @@ Implementing hybrid persistence (DuckDB + SQLite to PostgreSQL) for <100ms analy
 | Category | Technologies | Status |
 |----------|-------------|--------|
 | **Data Processing** | Python, pandas, numpy, dbt-core | 🟢 Production Ready |
-| **Storage & DB** | DuckDB, PostgreSQL, Parquet | 🟢 Optimized |
+| **Systems Programming** | Rust, CLI tools, high-performance computing | 🟡 Actively Learning |
+| **Storage & DB** | DuckDB, PostgreSQL, SQLite, Parquet | 🟢 Optimized |
 | **Analytics & BI** | streamlit, Power BI, Plotly, Excel | 🟢 Dashboard Heaven |
-| **Orchestration** | Poetry, GitHub Actions | 🟡 Continuously Improving |
+| **Orchestration** | Poetry, GitHub Actions, Docker, Kubernetes | 🟡 Continuously Improving |
 | **Philosophy** | No vendor lock-in, 100% reproducible | 🔥 Always On Fire |
 
 ### Core Technologies
 ```python
 data_stack = {
-    "orchestration": ["dbt-core", "Python 3.11+", "Poetry"],
-    "storage": ["DuckDB", "PostgreSQL", "Parquet"],
+    "orchestration": ["dbt-core", "Python 3.11+", "Poetry", "Docker"],
+    "systems": ["Rust", "CLI tools", "performance-critical apps"],
+    "storage": ["DuckDB", "PostgreSQL", "SQLite", "Parquet"],
     "analytics": ["pandas", "numpy", "streamlit"],
     "visualization": ["Power BI", "Plotly", "Excel"],
     "current_status": "🔥 Everything is fine 🔥"
@@ -213,7 +215,8 @@ data_stack = {
 ![Python](https://img.shields.io/badge/Python-95%25-brightgreen?style=flat-square&logo=python)
 ![SQL](https://img.shields.io/badge/SQL-90%25-brightgreen?style=flat-square&logo=postgresql)
 ![dbt](https://img.shields.io/badge/dbt-85%25-green?style=flat-square&logo=dbt)
-![Docker](https://img.shields.io/badge/Docker-75%25-yellowgreen?style=flat-square&logo=docker)
+![Rust](https://img.shields.io/badge/Rust-70%25-yellowgreen?style=flat-square&logo=rust)
+![Docker](https://img.shields.io/badge/Docker-80%25-green?style=flat-square&logo=docker)
 
 #### Analytics & BI
 ![Power BI](https://img.shields.io/badge/Power%20BI-90%25-brightgreen?style=flat-square&logo=powerbi)
@@ -225,12 +228,14 @@ data_stack = {
 ![Git](https://img.shields.io/badge/Git-90%25-brightgreen?style=flat-square&logo=git)
 ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-75%25-yellowgreen?style=flat-square&logo=githubactions)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-85%25-green?style=flat-square&logo=postgresql)
+![SQLite](https://img.shields.io/badge/SQLite-85%25-green?style=flat-square&logo=sqlite)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-65%25-yellow?style=flat-square&logo=kubernetes)
 
 ### Core Expertise
 - **Data Modeling**: Multi-layer architectures (`staging → core → marts`)
 - **Pipeline Design**: ETL/ELT with integrated validations and audit trails
+- **Performance Engineering**: Query optimization, Rust CLI tools, sub-second data processing
 - **API Integration**: SDMX, JSON, XML parsing from government sources
-- **Performance**: Query optimization, caching strategies, async processing
 
 ---
 
