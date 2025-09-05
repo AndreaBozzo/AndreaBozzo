@@ -82,10 +82,10 @@
 ## 📈 Live Production Metrics
 
 <!-- BADGES:START -->
-![Incidents](https://img.shields.io/badge/Incidents_Today-5-orange?style=for-the-badge&logo=fire)
-![Pipelines](https://img.shields.io/badge/Pipelines_Running-33-green?style=for-the-badge&logo=databricks)
-![Coffee](https://img.shields.io/badge/Coffee_Consumed-17_cups-brown?style=for-the-badge&logo=coffeescript)
-![Drama](https://img.shields.io/badge/Drama_Level-🚨_CEO_is_Asking_Questions-purple?style=for-the-badge&logo=statuspage)
+![Incidents](https://img.shields.io/badge/Incidents_Today-3-orange?style=for-the-badge&logo=fire)
+![Pipelines](https://img.shields.io/badge/Pipelines_Running-52-green?style=for-the-badge&logo=databricks)
+![Coffee](https://img.shields.io/badge/Coffee_Consumed-8_cups-brown?style=for-the-badge&logo=coffeescript)
+![Drama](https://img.shields.io/badge/Drama_Level-☠️_Deploying_on_Friday-purple?style=for-the-badge&logo=statuspage)
 <!-- BADGES:END -->
 
 <p align="center">
