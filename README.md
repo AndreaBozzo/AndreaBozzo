@@ -302,6 +302,28 @@ data_stack = {
 
 ---
 
+## 🎮 Interactive Breakout Game
+
+<div align="center">
+  <picture>
+    <source
+      media="(prefers-color-scheme: dark)"
+      srcset="https://raw.githubusercontent.com/AndreaBozzo/AndreaBozzo/github-breakout/images/breakout-dark.svg"
+    />
+    <source
+      media="(prefers-color-scheme: light)"
+      srcset="https://raw.githubusercontent.com/AndreaBozzo/AndreaBozzo/github-breakout/images/breakout-light.svg"
+    />
+    <img alt="Breakout Game" src="https://raw.githubusercontent.com/AndreaBozzo/AndreaBozzo/github-breakout/images/breakout-light.svg" />
+  </picture>
+</div>
+
+<p align="center">
+  <i>Click above to play! A nostalgic breakout game powered by your GitHub activity</i>
+</p>
+
+---
+
 ## 📊 GitHub Activity
 
 <p align="center">
