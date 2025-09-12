@@ -83,9 +83,9 @@
 
 <!-- BADGES:START -->
 ![Incidents](https://img.shields.io/badge/Incidents_Today-6-red?style=for-the-badge&logo=fire)
-![Pipelines](https://img.shields.io/badge/Pipelines_Running-56-green?style=for-the-badge&logo=databricks)
-![Coffee](https://img.shields.io/badge/Coffee_Consumed-36_cups-brown?style=for-the-badge&logo=coffeescript)
-![Drama](https://img.shields.io/badge/Drama_Level-🚨_CEO_is_Asking_Questions-purple?style=for-the-badge&logo=statuspage)
+![Pipelines](https://img.shields.io/badge/Pipelines_Running-34-green?style=for-the-badge&logo=databricks)
+![Coffee](https://img.shields.io/badge/Coffee_Consumed-5_cups-brown?style=for-the-badge&logo=coffeescript)
+![Drama](https://img.shields.io/badge/Drama_Level-☠️_Deploying_on_Friday-purple?style=for-the-badge&logo=statuspage)
 <!-- BADGES:END -->
 
 <p align="center">
