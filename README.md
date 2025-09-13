@@ -65,13 +65,6 @@
 </tr>
 </table>
 
-<div align="center">
-
-**🚀 [Explore the Full Experience →](https://andreabozzo.github.io/AndreaBozzo/)**
-
-*Real-time data • Interactive elements • Professional design • Open source*
-
-</div>
 
 ---
 
@@ -184,58 +177,52 @@ Implementing hybrid persistence (DuckDB + SQLite to PostgreSQL) for <100ms analy
 
 ---
 
-## 🛠️ Tech Stack
 
-### The stack that keeps me awake at night:
+### 🛠️ Tech Stack
 
-| Category | Technologies | Status |
-|----------|-------------|--------|
-| **Data Processing** | Python, pandas, numpy, dbt-core | 🟢 Production Ready |
-| **Systems Programming** | Rust, CLI tools, high-performance computing | 🟡 Actively Learning |
-| **Storage & DB** | DuckDB, PostgreSQL, SQLite, Parquet | 🟢 Optimized |
-| **Analytics & BI** | streamlit, Power BI, Plotly, Excel | 🟢 Dashboard Heaven |
-| **Orchestration** | Poetry, GitHub Actions, Docker, Kubernetes | 🟡 Continuously Improving |
-| **Philosophy** | No vendor lock-in, 100% reproducible | 🔥 Always On Fire |
-
-### Core Technologies
 ```python
+# Actual production stack based on GitHub activity
 data_stack = {
-    "orchestration": ["dbt-core", "Python 3.11+", "Poetry", "Docker"],
-    "systems": ["Rust", "CLI tools", "performance-critical apps"],
+    "core": ["Python 3.9+", "SQL", "Rust"],
+    "data_engineering": ["dbt-core", "Poetry", "pandas", "numpy"],
     "storage": ["DuckDB", "PostgreSQL", "SQLite", "Parquet"],
-    "analytics": ["pandas", "numpy", "streamlit"],
-    "visualization": ["Power BI", "Plotly", "Excel"],
+    "visualization": ["Streamlit", "Power BI", "Plotly", "Excel"],
+    "devops": ["GitHub Actions", "Docker", "Git"],
+    "web": ["HTML5", "CSS3", "JavaScript", "GitHub Pages"],
     "current_status": "🔥 Everything is fine 🔥"
 }
 ```
 
 ### 📊 Skills Progress
 
-#### Data Engineering
+#### 🐍 Languages & Core
 ![Python](https://img.shields.io/badge/Python-95%25-brightgreen?style=flat-square&logo=python)
 ![SQL](https://img.shields.io/badge/SQL-90%25-brightgreen?style=flat-square&logo=postgresql)
-![dbt](https://img.shields.io/badge/dbt-85%25-green?style=flat-square&logo=dbt)
 ![Rust](https://img.shields.io/badge/Rust-70%25-yellowgreen?style=flat-square&logo=rust)
-![Docker](https://img.shields.io/badge/Docker-80%25-green?style=flat-square&logo=docker)
 
-#### Analytics & BI
+#### 🔧 Data Engineering
+![dbt](https://img.shields.io/badge/dbt-85%25-green?style=flat-square&logo=dbt)
+![DuckDB](https://img.shields.io/badge/DuckDB-85%25-green?style=flat-square&logo=duckdb)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-85%25-green?style=flat-square&logo=postgresql)
+
+#### 📊 Analytics & BI
 ![Power BI](https://img.shields.io/badge/Power%20BI-90%25-brightgreen?style=flat-square&logo=powerbi)
 ![Streamlit](https://img.shields.io/badge/Streamlit-85%25-green?style=flat-square&logo=streamlit)
 ![Excel](https://img.shields.io/badge/Excel-95%25-brightgreen?style=flat-square&logo=microsoftexcel)
 ![Plotly](https://img.shields.io/badge/Plotly-80%25-green?style=flat-square&logo=plotly)
 
-#### Cloud & DevOps
+#### ⚙️ DevOps & Tools
 ![Git](https://img.shields.io/badge/Git-90%25-brightgreen?style=flat-square&logo=git)
-![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-75%25-yellowgreen?style=flat-square&logo=githubactions)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-85%25-green?style=flat-square&logo=postgresql)
-![SQLite](https://img.shields.io/badge/SQLite-85%25-green?style=flat-square&logo=sqlite)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-65%25-yellow?style=flat-square&logo=kubernetes)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-80%25-green?style=flat-square&logo=githubactions)
+![Docker](https://img.shields.io/badge/Docker-75%25-yellowgreen?style=flat-square&logo=docker)
+![Poetry](https://img.shields.io/badge/Poetry-80%25-green?style=flat-square&logo=poetry)
 
 ### Core Expertise
 - **Data Modeling**: Multi-layer architectures (`staging → core → marts`)
 - **Pipeline Design**: ETL/ELT with integrated validations and audit trails
 - **Performance Engineering**: Query optimization, Rust CLI tools, sub-second data processing
 - **API Integration**: SDMX, JSON, XML parsing from government sources
+- **Cloud Experience**: Azure fundamentals, Databricks awareness (learning path)
 
 ---
 
@@ -300,8 +287,6 @@ data_stack = {
 
 ---
 
----
-
 ## 🎮 Interactive Breakout Game
 
 <div align="center">
@@ -335,7 +320,7 @@ data_stack = {
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=AndreaBozzo&theme=default" alt="GitHub Streak" />
 </p>
 
-**🏆 Quick Stats**: Focus on data engineering • Automated ETL pipelines • Open Source advocate • 85% Python, SQL, Power BI
+**🏆 Quick Stats**: Python-first data engineer • Open source advocate • dbt + DuckDB specialist
 
 ---
 
@@ -369,26 +354,9 @@ data_stack = {
 
 ---
 
----
-
 <div align="center">
 
-## 🚀 **Ready to Explore?**
-
-### **[Start with the Landing Page →](https://andreabozzo.github.io/AndreaBozzo/)**
-
-<p align="center">
-  <a href="https://andreabozzo.github.io/AndreaBozzo/">🏠 Professional Experience</a> • 
-  <a href="https://andreabozzo.github.io/AndreaBozzo/cv/andrea-bozzo-cv.html">📄 Download CV</a> • 
-  <a href="https://github.com/AndreaBozzo/Osservatorio">🔭 Featured Project</a> • 
-  <a href="https://github.com/sponsors/AndreaBozzo">💎 Support Work</a>
-</p>
-
----
-
 *🌟 **Building the future of open data access** • 🎯 **One pipeline at a time** • 🤝 **Together with the community***
-
-**Available for:** *Data Engineering Consulting • Open Source Collaboration • Technical Mentoring*
 
 <sub>✨ **This entire ecosystem is open source** - Fork it, customize it, make it yours!</sub>
 
