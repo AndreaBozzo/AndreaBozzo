@@ -8,7 +8,7 @@
             srcset="./assets/animations/Animazione1.gif">
     <img alt="Data Engineer Chronicles - A day in the life"
          src="./assets/animations/Animazione1.gif"
-         width="600">
+         width="400">
   </picture>
 </div>
 
