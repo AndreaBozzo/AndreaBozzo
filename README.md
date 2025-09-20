@@ -87,6 +87,7 @@ stack = {
   <a href="https://www.linkedin.com/in/andrea-bozzo-/">LinkedIn</a> •
   <a href="mailto:andreabozzo92@gmail.com">Email</a> •
   <a href="https://github.com/AndreaBozzo/Osservatorio/discussions">Osservatorio Discussions</a> •
+  <a href="https://github.com/AndreaBozzo/dataprof/discussions">dataprof Discussions</a> •
   <a href="https://github.com/sponsors/AndreaBozzo">Sponsor</a>
 </p>
 
