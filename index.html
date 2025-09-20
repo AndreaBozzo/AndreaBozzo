@@ -28,7 +28,7 @@
     <link rel="preconnect" href="https://api.github.com" crossorigin>
     <link rel="dns-prefetch" href="//api.github.com">
     
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='40'>AB</text></svg>">
     <style>
         * {
             margin: 0;
@@ -37,8 +37,8 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+            font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif;
+            background: linear-gradient(135deg, #0a0e1a 0%, #0d1117 50%, #161b22 100%);
             color: #e6edf3;
             line-height: 1.6;
             overflow-x: hidden;
@@ -79,12 +79,12 @@
         .logo {
             font-size: 4rem;
             margin-bottom: 1rem;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            background: linear-gradient(45deg, #58a6ff, #f0883e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            letter-spacing: -2px;
         }
 
         .title {
@@ -229,9 +229,16 @@
         }
 
         .feature-icon {
-            font-size: 2.5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #58a6ff;
+            background: rgba(88, 166, 255, 0.1);
+            border: 1px solid #58a6ff;
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
             margin-bottom: 1rem;
-            display: block;
+            display: inline-block;
+            letter-spacing: 1px;
         }
 
         .feature-title {
@@ -338,7 +345,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="logo fade-in">🚀</div>
+            <div class="logo fade-in">AB</div>
             <h1 class="title fade-in fade-in-delay-1">Andrea Bozzo</h1>
             <p class="subtitle fade-in fade-in-delay-2">Data Engineer | Open Data Advocate | Analytics Pipeline Architect</p>
             <p class="tagline fade-in fade-in-delay-3">
@@ -361,23 +368,20 @@
                 </div>
                 <div class="metric">
                     <span class="metric-value">∞</span>
-                    <span class="metric-label">Coffee Consumed</span>
+                    <span class="metric-label">Lines of Code</span>
                 </div>
             </div>
 
             <!-- CTA Buttons -->
             <div class="cta-buttons fade-in fade-in-delay-3">
                 <a href="https://github.com/AndreaBozzo/AndreaBozzo#readme" class="btn btn-primary">
-                    📋 View Full Profile
+                    View Full Profile
                 </a>
                 <a href="./assets/animations/data-engineer.html" class="btn btn-animation">
-                    🎮 Interactive Animation
-                </a>
-                <a href="./cv/andrea-bozzo-cv.html" class="btn btn-secondary" target="_blank">
-                    📄 Download CV
+                    Interactive Demo
                 </a>
                 <a href="https://github.com/AndreaBozzo/Osservatorio" class="btn btn-secondary">
-                    🔭 Featured Project
+                    Featured Project
                 </a>
             </div>
         </div>
@@ -387,21 +391,21 @@
     <section class="features">
         <div class="features-grid">
             <div class="feature-card">
-                <span class="feature-icon">🔭</span>
+                <span class="feature-icon">DATA</span>
                 <h3 class="feature-title">Osservatorio Platform</h3>
                 <p class="feature-desc">
                     Open data analytics platform democratizing access to Italian statistical data with automated ETL pipelines and interactive dashboards.
                 </p>
             </div>
             <div class="feature-card">
-                <span class="feature-icon">⚡</span>
+                <span class="feature-icon">PERF</span>
                 <h3 class="feature-title">High-Performance Analytics</h3>
                 <p class="feature-desc">
                     Building sub-100ms analytics queries with hybrid persistence (DuckDB + PostgreSQL) and optimized data modeling architectures.
                 </p>
             </div>
             <div class="feature-card">
-                <span class="feature-icon">🌍</span>
+                <span class="feature-icon">OSS</span>
                 <h3 class="feature-title">Open Source Advocate</h3>
                 <p class="feature-desc">
                     Contributing to the open data ecosystem with production-ready tools, comprehensive documentation, and community collaboration.
@@ -419,16 +423,16 @@
         
         <div class="social-links">
             <a href="https://github.com/sponsors/AndreaBozzo" class="social-link">
-                💎 GitHub Sponsors
+                GitHub Sponsors
             </a>
             <a href="https://www.linkedin.com/in/andrea-bozzo-/" class="social-link">
-                💼 LinkedIn
+                LinkedIn
             </a>
             <a href="mailto:andreabozzo92@gmail.com" class="social-link">
-                📧 Email
+                Email
             </a>
             <a href="https://github.com/AndreaBozzo/Osservatorio/discussions" class="social-link">
-                💬 Discussions
+                Discussions
             </a>
         </div>
     </section>
