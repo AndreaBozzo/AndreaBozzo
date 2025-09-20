@@ -20,7 +20,6 @@
 
 <p align="center">
   <a href="https://andreabozzo.github.io/AndreaBozzo/">🌐 Landing Page</a> •
-  <a href="https://andreabozzo.github.io/AndreaBozzo/cv/andrea-bozzo-cv.html">📄 CV</a> •
   <a href="https://andreabozzo.github.io/AndreaBozzo/assets/animations/data-engineer.html">🎮 Interactive Demo</a> •
   <a href="https://github.com/sponsors/AndreaBozzo">💎 Sponsor</a>
 </p>
