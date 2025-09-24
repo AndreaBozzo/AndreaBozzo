@@ -66,9 +66,9 @@ stack = {
 
 ## 📂 Other Notable Projects
 
-**🧊 [Mini-Lakehouse-Didattico](https://github.com/AndreaBozzo/Mini-Lakehouse-Didattico)** - Modern data stack template with dbt + DuckDB
+**🧊 [Mini-Lakehouse-Didattico](https://github.com/AndreaBozzo/Mini-Lakehouse-Didattico)** - Didactical Modern data stack template with dbt + DuckDB
 **🎯 [ATS-Research](https://github.com/AndreaBozzo/ATS-Research)** - A/B testing CV variants across ATS platforms
-**📊 [CruscottoPMI](https://github.com/AndreaBozzo/CruscottoPMI)** - Business intelligence dashboards for SMEs
+**📊 [memedoc](https://github.com/AndreaBozzo/memedoc)** - Meme trends analyzer, scrapes 110+ subreddits, queries into PostgreSQL supabase
 **📈 [DashboardsBI-Excel](https://github.com/AndreaBozzo/DashboardsBI-Excel)** - Advanced Excel templates for BI
 
 ---
@@ -91,11 +91,11 @@ stack = {
   <a href="https://github.com/sponsors/AndreaBozzo">Sponsor</a>
 </p>
 
-**Open to**: Consulting on data engineering • Open data collaborations • Contributing to Osservatorio
+**Open to**: Consulting on data engineering • Open data collaborations • Contributing to dataprof and Osservatorio projects • Business inquiries for data/ml projects ( might take a bit to answer, currently slightly overbooked )
 
 ---
 
 <p align="center">
-  <em>Building the future of open data access, one pipeline at a time 🚀</em><br>
+  <em>Building the future of open data access, one pipeline at a time, while keeping my mental sanity.</em><br>
   <sub>This entire ecosystem is open source - fork it, customize it, make it yours!</sub>
 </p>
