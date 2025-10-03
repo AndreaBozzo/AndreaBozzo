@@ -56,7 +56,7 @@ stack = {
     "languages": ["Python", "SQL", "Rust"],
     "data_tools": ["dbt", "DuckDB", "PostgreSQL", "Streamlit"],
     "daily_drivers": ["Poetry", "Git", "VS Code", "Coffee"],
-    "status": "🔥 Everything is fine 🔥"
+    "status": "☠️ Deploying on Friday"
 }
 ```
 
