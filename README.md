@@ -37,11 +37,11 @@ Democratizing access to Italian statistical data through automated pipelines and
 **Tech**: Python, dbt, DuckDB, PostgreSQL, Streamlit
 **Status**: Active development, seeking contributors for performance optimization
 
-### 📊 [dataprof](https://github.com/AndreaBozzo/dataprof) - *ML Readiness Assessment Library*
+### 📊 [dataprof](https://github.com/AndreaBozzo/dataprof) - *Data Quality Assessment CLI/Library*
 
-High-performance data quality and ML readiness assessment library built in Rust with Python bindings. 20x more memory efficient than pandas.
+High-performance data quality assessment library built in Rust with Python bindings. 20x more memory efficient than pandas.
 
-**What it does**: 30+ automated quality checks + ML readiness assessment + database connectivity
+**What it does**: 30+ automated quality checks + database connectivity
 **Performance**: 100MB CSV in 0.5s using only 30MB memory
 **Tech**: Rust (core), Python bindings, supports files up to 100GB
 
