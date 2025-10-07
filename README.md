@@ -46,8 +46,3 @@
 **Open to**: Consulting on data engineering • Open data collaborations • Contributing to dataprof and Osservatorio projects • Business inquiries for data/ml projects ( might take a bit to answer, currently slightly overbooked )
 
 ---
-
-<p align="center">
-  <em>Building the future of open data access, one pipeline at a time, while keeping my mental sanity.</em><br>
-  <sub>This entire ecosystem is open source - fork it, customize it, make it yours!</sub>
-</p>
