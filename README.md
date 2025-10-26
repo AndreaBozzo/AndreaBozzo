@@ -13,15 +13,25 @@
 </div>
 
 <p align="center">
-  <strong>Data Engineer | Open Data Advocate | Analytics Pipeline Architect</strong><br>
-  Building scalable data solutions with open-source tools. <em>(Coffee consumption not to scale)</em>
+  <strong>Data Engineer | Software Developer | Analytics Architect</strong><br>
+  Building scalable data solutions and exploring systems programming with Rust & Go. <em>(Coffee consumption not to scale)</em>
 </p>
 
 <p align="center">
   <a href="https://andreabozzo.github.io/AndreaBozzo/">🌐 Landing Page</a> •
-  <a href="https://andreabozzo.github.io/AndreaBozzo/assets/animations/data-engineer.html">🎮 Interactive Demo</a> •
-  <a href="https://github.com/sponsors/AndreaBozzo">💎 Sponsor</a>
+  <a href="https://www.linkedin.com/in/andrea-bozzo-/">💼 LinkedIn</a> •
+  <a href="mailto:andreabozzo92@gmail.com">📧 Email</a>
 </p>
+
+---
+
+## 🌟 Open Source Contributions
+
+Contributing to the broader open source ecosystem beyond my own projects.
+
+<!-- EXTERNAL_CONTRIBUTIONS:START -->
+<!-- This section is automatically updated by GitHub Actions -->
+<!-- EXTERNAL_CONTRIBUTIONS:END -->
 
 ---
 
@@ -38,11 +48,10 @@
 <p align="center">
   <a href="https://www.linkedin.com/in/andrea-bozzo-/">LinkedIn</a> •
   <a href="mailto:andreabozzo92@gmail.com">Email</a> •
-  <a href="https://github.com/AndreaBozzo/Osservatorio/discussions">Osservatorio Discussions</a> •
-  <a href="https://github.com/AndreaBozzo/dataprof/discussions">dataprof Discussions</a> •
-  <a href="https://github.com/sponsors/AndreaBozzo">Sponsor</a>
+  <a href="https://github.com/AndreaBozzo">GitHub</a> •
+  <a href="https://github.com/sponsors/AndreaBozzo">💎 Sponsor</a>
 </p>
 
-**Open to**: Consulting on data engineering • Open data collaborations • Contributing to dataprof and Osservatorio projects • Business inquiries for data/ml projects ( might take a bit to answer, currently slightly overbooked )
+**Open to**: Consulting on data engineering • Open source collaborations • Interesting data challenges • Rust & Go projects
 
 ---
