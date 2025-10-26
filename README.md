@@ -29,6 +29,8 @@
 
 Contributing to the broader open source ecosystem beyond my own projects.
 
+> 🤖 *This section is automatically updated daily via GitHub Actions*
+
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
 - **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 1780 - 1 merged PR
   - Build reliable Gen AI solutions without overhead 🍕
