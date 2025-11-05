@@ -32,7 +32,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 > 🤖 *This section is automatically updated daily via GitHub Actions*
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
-- **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 1899 - 3 merged PRs
+- **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 1912 - 3 merged PRs
   - Build reliable Gen AI solutions without overhead 🍕
 - **[italia-opensource/awesome-italia-opensource](https://github.com/italia-opensource/awesome-italia-opensource)** ⭐ 311 - 1 merged PR
   - Italian Open-Source is the first platform dedicated to Italian open-source world
@@ -41,6 +41,8 @@ Contributing to the broader open source ecosystem beyond my own projects.
 - **[piopy/fantacalcio-py](https://github.com/piopy/fantacalcio-py)** ⭐ 41 - 3 merged PRs
   - Piccolo tool per guidarci all'asta spendendo poco
 - **[informagico/fantavibe](https://github.com/informagico/fantavibe)** ⭐ 3 - 1 merged PR
+- **[rust-ita/rust-docs-it](https://github.com/rust-ita/rust-docs-it)** ⭐ 2 - 1 merged PR
+  - Documentazione Rust tradotta in italiano
 <!-- EXTERNAL_CONTRIBUTIONS:END -->
 
 ---
