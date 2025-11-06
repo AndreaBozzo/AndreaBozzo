@@ -32,11 +32,11 @@ Contributing to the broader open source ecosystem beyond my own projects.
 > 🤖 *This section is automatically updated daily via GitHub Actions*
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
-- **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 1912 - 3 merged PRs
+- **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 1922 - 3 merged PRs
   - Build reliable Gen AI solutions without overhead 🍕
-- **[italia-opensource/awesome-italia-opensource](https://github.com/italia-opensource/awesome-italia-opensource)** ⭐ 311 - 1 merged PR
+- **[italia-opensource/awesome-italia-opensource](https://github.com/italia-opensource/awesome-italia-opensource)** ⭐ 310 - 1 merged PR
   - Italian Open-Source is the first platform dedicated to Italian open-source world
-- **[CortexFlow/CortexBrain](https://github.com/CortexFlow/CortexBrain)** ⭐ 67 - 2 merged PRs
+- **[CortexFlow/CortexBrain](https://github.com/CortexFlow/CortexBrain)** ⭐ 67 - 3 merged PRs
   - CortexBrain is an ambitious open-source project created by CortexFlow, aiming to develop an intelligent, lightweight, and efficient service mesh architecture that seamlessly connects cloud and edge devices
 - **[piopy/fantacalcio-py](https://github.com/piopy/fantacalcio-py)** ⭐ 41 - 3 merged PRs
   - Piccolo tool per guidarci all'asta spendendo poco
