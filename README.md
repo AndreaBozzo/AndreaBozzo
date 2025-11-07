@@ -32,7 +32,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 > 🤖 *This section is automatically updated daily via GitHub Actions*
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
-- **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 1922 - 3 merged PRs
+- **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 1928 - 3 merged PRs
   - Build reliable Gen AI solutions without overhead 🍕
 - **[italia-opensource/awesome-italia-opensource](https://github.com/italia-opensource/awesome-italia-opensource)** ⭐ 310 - 1 merged PR
   - Italian Open-Source is the first platform dedicated to Italian open-source world
