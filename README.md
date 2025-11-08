@@ -29,6 +29,35 @@
 
 ---
 
+## 🛠️ Tech Stack
+
+<p align="center">
+  <strong>Languages</strong><br>
+  <img src="https://img.shields.io/badge/rust-%23000000.svg?style=for-the-badge&logo=rust&logoColor=white" alt="Rust"/>
+  <img src="https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white" alt="Go"/>
+  <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python"/>
+  <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript"/>
+</p>
+
+<p align="center">
+  <strong>Data Engineering & Databases</strong><br>
+  <img src="https://img.shields.io/badge/Apache%20Spark-FDEE21?style=for-the-badge&logo=apachespark&logoColor=black" alt="Apache Spark"/>
+  <img src="https://img.shields.io/badge/Apache%20Kafka-000?style=for-the-badge&logo=apachekafka" alt="Apache Kafka"/>
+  <img src="https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
+  <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB"/>
+  <img src="https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white" alt="Redis"/>
+</p>
+
+<p align="center">
+  <strong>Cloud & DevOps</strong><br>
+  <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"/>
+  <img src="https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white" alt="Kubernetes"/>
+  <img src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS"/>
+  <img src="https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions"/>
+</p>
+
+---
+
 ## 🌟 Open Source Contributions
 
 Contributing to the broader open source ecosystem beyond my own projects.
@@ -54,8 +83,27 @@ Contributing to the broader open source ecosystem beyond my own projects.
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AndreaBozzo&layout=compact&langs_count=6&theme=default"/>
+  <img src="https://github-readme-stats.vercel.app/api?username=AndreaBozzo&show_icons=true&theme=default&hide_border=true&count_private=true" alt="GitHub Stats" height="165"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AndreaBozzo&layout=compact&langs_count=8&theme=default&hide_border=true" alt="Top Languages" height="165"/>
 </p>
+
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=AndreaBozzo&theme=default&hide_border=true" alt="GitHub Streak" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=AndreaBozzo&theme=github-compact&hide_border=true" alt="Contribution Graph" />
+</p>
+
+---
+
+## 💡 Currently
+
+- 🔭 **Working on:** Building high-performance data pipelines with Rust
+- 🌱 **Learning:** Advanced systems programming and distributed computing patterns
+- 👯 **Looking to collaborate on:** Data engineering projects, Rust/Go libraries, open source tools
+- 💬 **Ask me about:** Data pipelines, ETL design, Rust best practices, system architecture
+- ⚡ **Fun fact:** I debug code faster after the third espresso ☕
 
 ---
 
