@@ -14,7 +14,7 @@
 
 <p align="center">
   <strong>Data Engineer | Software Developer | Analytics Architect</strong><br>
-  Hi, I'm Andrea and i'm usually trying to not set the database on fire. In my spare time i like exploring systems programming with Rust & Go. <em>(Coffee consumption not to scale)</em>
+  Hi, I'm Andrea, usually trying to not set the database on fire while building scalable data solutions. In my spare time I explore systems programming with Rust & Go. <em>(Coffee consumption not to scale)</em>
 </p>
 
 <p align="center">
