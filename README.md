@@ -111,7 +111,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 
 - 🔭 **Working on:** Building high-performance data pipelines with Rust
 - 🌱 **Learning:** Advanced systems programming and distributed computing patterns
-- 👯 **Looking to collaborate on:** Data engineering projects, Rust/Go libraries, open source tools
+- 👯 **Looking to collaborate on:** Data engineering projects, Python/Rust/Go libraries, open source tools
 - 💬 **Ask me about:** Data pipelines, ETL design, Rust best practices, system architecture
 - ⚡ **Fun fact:** I debug code faster after the third espresso ☕
 
@@ -126,6 +126,6 @@ Contributing to the broader open source ecosystem beyond my own projects.
   <a href="https://github.com/sponsors/AndreaBozzo">💎 Sponsor</a>
 </p>
 
-**Open to**: Consulting on data engineering • Open source collaborations • Interesting data challenges • Rust & Go projects
+**Open to**: Consulting on data engineering • Open source collaborations • Interesting data challenges • Python, Rust & Go projects
 
 ---
