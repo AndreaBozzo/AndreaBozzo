@@ -76,3 +76,8 @@ docs/_build/
 .env.production
 config.ini
 credentials.json
+
+# Hugo
+blog/public/
+blog/resources/
+blog/.hugo_build.lock

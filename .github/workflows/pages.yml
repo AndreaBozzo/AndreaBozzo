@@ -23,14 +23,41 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.146.0'
+          extended: true
+
+      - name: Build Hugo blog
+        run: |
+          cd blog
+          hugo --minify --baseURL https://andreabozzo.github.io/AndreaBozzo/blog/
+
+      - name: Prepare deployment directory
+        run: |
+          mkdir -p _site
+          # Copy root files (landing page)
+          cp index.html _site/
+          cp -r assets _site/ 2>/dev/null || true
+          # Copy Hugo blog output to /blog subdirectory
+          mkdir -p _site/blog
+          cp -r blog/public/* _site/blog/
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
         with:
           enablement: true
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
