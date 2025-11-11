@@ -76,11 +76,13 @@ Contributing to the broader open source ecosystem beyond my own projects.
 > 🤖 *This section is automatically updated daily via GitHub Actions*
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
-- **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 1939 - 3 merged PRs
+- **[risingwavelabs/risingwave](https://github.com/risingwavelabs/risingwave)** ⭐ 8499 - 1 merged PR
+  - Streaming data platform. Real-time stream processing, low-latency serving, and Iceberg table management.
+- **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 1951 - 3 merged PRs
   - Build reliable Gen AI solutions without overhead 🍕
 - **[italia-opensource/awesome-italia-opensource](https://github.com/italia-opensource/awesome-italia-opensource)** ⭐ 310 - 1 merged PR
   - Italian Open-Source is the first platform dedicated to Italian open-source world
-- **[CortexFlow/CortexBrain](https://github.com/CortexFlow/CortexBrain)** ⭐ 67 - 3 merged PRs
+- **[CortexFlow/CortexBrain](https://github.com/CortexFlow/CortexBrain)** ⭐ 68 - 3 merged PRs
   - CortexBrain is an ambitious open-source project created by CortexFlow, aiming to develop an intelligent, lightweight, and efficient service mesh architecture that seamlessly connects cloud and edge devices
 - **[piopy/fantacalcio-py](https://github.com/piopy/fantacalcio-py)** ⭐ 41 - 3 merged PRs
   - Piccolo tool per guidarci all'asta spendendo poco
