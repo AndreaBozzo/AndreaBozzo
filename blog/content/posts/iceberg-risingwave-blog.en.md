@@ -1,4 +1,31 @@
-# RisingWave and Iceberg-Rust: Where Real-Time Streaming Meets the Modern Data Lake
+---
+title: "RisingWave and Iceberg-Rust: When Real-Time Streaming Meets Modern Data Lake"
+date: 2025-11-10T12:00:00+01:00
+draft: false
+tags: ["Rust", "Data Engineering", "Apache Iceberg", "RisingWave", "Streaming", "Lakehouse", "CDC"]
+categories: ["Data Engineering", "Open Source"]
+description: "How RisingWave and Apache Iceberg Rust are revolutionizing modern data lakehouse architecture with real-time streaming, hybrid delete strategy, and an end-to-end Rust ecosystem"
+summary: "The partnership between RisingWave and Iceberg-Rust represents a window into where modern data engineering is heading: real-time CDC streaming, intelligent hybrid delete strategy, and a performant Rust ecosystem challenging JVM dominance."
+author: "Andrea Bozzo"
+showToc: true
+TocOpen: true
+hidemeta: false
+comments: false
+disableHLJS: false
+disableShare: false
+hideSummary: false
+searchHidden: false
+ShowReadingTime: true
+ShowBreadCrumbs: true
+ShowPostNavLinks: true
+ShowWordCount: true
+cover:
+    image: ""
+    alt: "RisingWave and Iceberg-Rust"
+    caption: ""
+    relative: false
+    hidden: true
+---
 
 ## Introduction
 
