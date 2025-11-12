@@ -128,19 +128,37 @@
 
         <!-- Blog Preview Section -->
         <section class="blog-preview scroll-reveal" id="blog">
-            <h2 class="section-title">Latest from the Blog</h2>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h2 class="section-title" style="margin: 0;">Latest from the Blog</h2>
+                <div class="language-toggle">
+                    <button id="lang-toggle-btn" class="lang-btn" onclick="toggleBlogLanguage()">
+                        <span id="lang-icon">🇮🇹</span>
+                        <span id="lang-text">IT</span>
+                    </button>
+                </div>
+            </div>
             <div class="blog-grid" id="blog-grid">
-                <!-- Blog posts will be loaded dynamically -->
-                <a href="/AndreaBozzo/blog/posts/iceberg-risingwave-blog/" class="blog-card" style="text-decoration: none; color: inherit;">
-                    <div class="blog-date">November 10, 2025</div>
-                    <div class="blog-title">RisingWave e Iceberg-Rust: Real-Time Streaming Meets Modern Data Lake</div>
-                    <div class="blog-summary">How RisingWave and Apache Iceberg Rust are revolutionizing modern data lakehouse architecture with real-time streaming CDC and intelligent hybrid delete strategies.</div>
-                    <div class="blog-tags">
-                        <span class="blog-tag">Rust</span>
-                        <span class="blog-tag">Data Engineering</span>
-                        <span class="blog-tag">Streaming</span>
+                <!-- Loading skeleton -->
+                <div class="blog-card blog-skeleton">
+                    <div class="skeleton-date"></div>
+                    <div class="skeleton-title"></div>
+                    <div class="skeleton-summary"></div>
+                    <div class="skeleton-tags">
+                        <span class="skeleton-tag"></span>
+                        <span class="skeleton-tag"></span>
+                        <span class="skeleton-tag"></span>
                     </div>
-                </a>
+                </div>
+                <div class="blog-card blog-skeleton">
+                    <div class="skeleton-date"></div>
+                    <div class="skeleton-title"></div>
+                    <div class="skeleton-summary"></div>
+                    <div class="skeleton-tags">
+                        <span class="skeleton-tag"></span>
+                        <span class="skeleton-tag"></span>
+                        <span class="skeleton-tag"></span>
+                    </div>
+                </div>
             </div>
             <div style="text-align: center; margin-top: 3rem;">
                 <a href="/AndreaBozzo/blog/" class="btn btn-primary">View All Posts →</a>
@@ -592,11 +610,49 @@
         });
 
         // ===== Blog Posts Auto-Loading =====
-        async function loadLatestBlogPosts() {
-            // Detect user language (prefer Italian, fallback to English)
+        function getCurrentBlogLanguage() {
+            // Check if user has manually selected a language
+            const savedLang = localStorage.getItem('blog_language_preference');
+            if (savedLang) return savedLang;
+
+            // Auto-detect from browser
             const userLang = (navigator.language || navigator.userLanguage).toLowerCase();
             const isItalian = userLang.startsWith('it');
-            const lang = isItalian ? 'it' : 'en';
+            return isItalian ? 'it' : 'en';
+        }
+
+        function toggleBlogLanguage() {
+            const currentLang = getCurrentBlogLanguage();
+            const newLang = currentLang === 'it' ? 'en' : 'it';
+
+            // Save preference
+            localStorage.setItem('blog_language_preference', newLang);
+
+            // Update UI
+            updateLanguageToggleUI(newLang);
+
+            // Reload blog posts
+            loadLatestBlogPosts(newLang);
+        }
+
+        function updateLanguageToggleUI(lang) {
+            const icon = document.getElementById('lang-icon');
+            const text = document.getElementById('lang-text');
+
+            if (lang === 'it') {
+                icon.textContent = '🇮🇹';
+                text.textContent = 'IT';
+            } else {
+                icon.textContent = '🇬🇧';
+                text.textContent = 'EN';
+            }
+        }
+
+        async function loadLatestBlogPosts(forceLang = null) {
+            const lang = forceLang || getCurrentBlogLanguage();
+
+            // Update toggle UI
+            updateLanguageToggleUI(lang);
 
             const cacheKey = `blog_posts_${lang}_` + new Date().toDateString();
             const cached = localStorage.getItem(cacheKey);
@@ -604,7 +660,7 @@
             if (cached) {
                 try {
                     const posts = JSON.parse(cached);
-                    renderBlogPosts(posts);
+                    renderBlogPosts(posts, lang);
                     return;
                 } catch (e) {
                     console.warn('Failed to parse cached blog posts:', e);
@@ -613,42 +669,36 @@
             }
 
             try {
-                // Try language-specific JSON first, fallback to default (Italian)
+                // Try language-specific JSON first
                 const blogJsonPath = lang === 'en'
                     ? '/AndreaBozzo/blog/en/index.json'
                     : '/AndreaBozzo/blog/index.json';
 
                 const response = await fetch(blogJsonPath);
                 if (!response.ok) {
-                    // If language-specific JSON fails, try fallback to Italian
-                    if (lang === 'en') {
-                        const fallbackResponse = await fetch('/AndreaBozzo/blog/index.json');
-                        if (!fallbackResponse.ok) throw new Error('Failed to fetch blog posts');
-                        const posts = await fallbackResponse.json();
-                        localStorage.setItem(cacheKey, JSON.stringify(posts));
-                        renderBlogPosts(posts);
-                        return;
-                    }
                     throw new Error('Failed to fetch blog posts');
                 }
 
                 const posts = await response.json();
                 localStorage.setItem(cacheKey, JSON.stringify(posts));
-                renderBlogPosts(posts);
+                renderBlogPosts(posts, lang);
             } catch (error) {
                 console.error('Failed to load blog posts:', error);
-                // Keep hardcoded fallback in HTML
+                showBlogError(lang);
             }
         }
 
-        function renderBlogPosts(posts) {
+        function renderBlogPosts(posts, lang) {
             const blogGrid = document.getElementById('blog-grid');
-            if (!blogGrid || !posts || posts.length === 0) return;
+            if (!blogGrid || !posts || posts.length === 0) {
+                showBlogError(lang);
+                return;
+            }
 
-            const latestPosts = posts.slice(0, 3); // Show 3 latest posts
+            const latestPosts = posts.slice(0, 2); // Show 2 latest posts
 
             blogGrid.innerHTML = latestPosts.map(post => {
-                const date = formatBlogDate(post.date || '');
+                const date = formatBlogDate(post.date || '', lang);
                 const tags = extractTags(post);
 
                 return `
@@ -664,13 +714,27 @@
             }).join('');
         }
 
-        function formatBlogDate(dateString) {
-            if (!dateString) return 'Recent';
+        function showBlogError(lang) {
+            const blogGrid = document.getElementById('blog-grid');
+            const message = lang === 'it'
+                ? 'Nessun articolo disponibile al momento.'
+                : 'No articles available at the moment.';
+
+            blogGrid.innerHTML = `
+                <div class="blog-card" style="text-align: center; padding: 3rem;">
+                    <div class="blog-title">${message}</div>
+                </div>
+            `;
+        }
+
+        function formatBlogDate(dateString, lang) {
+            if (!dateString) return lang === 'it' ? 'Recente' : 'Recent';
 
             try {
                 const date = new Date(dateString);
                 const options = { year: 'numeric', month: 'long', day: 'numeric' };
-                return date.toLocaleDateString('en-US', options);
+                const locale = lang === 'it' ? 'it-IT' : 'en-US';
+                return date.toLocaleDateString(locale, options);
             } catch (e) {
                 return dateString;
             }
