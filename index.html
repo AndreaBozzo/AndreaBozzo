@@ -131,7 +131,7 @@
             <h2 class="section-title">Latest from the Blog</h2>
             <div class="blog-grid" id="blog-grid">
                 <!-- Blog posts will be loaded dynamically -->
-                <div class="blog-card">
+                <a href="/AndreaBozzo/blog/posts/iceberg-risingwave-blog/" class="blog-card" style="text-decoration: none; color: inherit;">
                     <div class="blog-date">November 10, 2025</div>
                     <div class="blog-title">RisingWave e Iceberg-Rust: Real-Time Streaming Meets Modern Data Lake</div>
                     <div class="blog-summary">How RisingWave and Apache Iceberg Rust are revolutionizing modern data lakehouse architecture with real-time streaming CDC and intelligent hybrid delete strategies.</div>
@@ -140,7 +140,7 @@
                         <span class="blog-tag">Data Engineering</span>
                         <span class="blog-tag">Streaming</span>
                     </div>
-                </div>
+                </a>
             </div>
             <div style="text-align: center; margin-top: 3rem;">
                 <a href="/AndreaBozzo/blog/" class="btn btn-primary">View All Posts →</a>
@@ -643,9 +643,13 @@
 
         function renderBlogPosts(posts) {
             const blogGrid = document.getElementById('blog-grid');
-            if (!blogGrid || !posts || posts.length === 0) return;
+            if (!blogGrid || !posts || posts.length === 0) {
+                console.warn('Blog rendering skipped:', { blogGrid: !!blogGrid, posts: posts?.length });
+                return;
+            }
 
             const latestPosts = posts.slice(0, 3); // Show 3 latest posts
+            console.log('Rendering', latestPosts.length, 'blog posts');
 
             blogGrid.innerHTML = latestPosts.map(post => {
                 const date = formatBlogDate(post.date || '');
