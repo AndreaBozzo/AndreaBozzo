@@ -643,13 +643,9 @@
 
         function renderBlogPosts(posts) {
             const blogGrid = document.getElementById('blog-grid');
-            if (!blogGrid || !posts || posts.length === 0) {
-                console.warn('Blog rendering skipped:', { blogGrid: !!blogGrid, posts: posts?.length });
-                return;
-            }
+            if (!blogGrid || !posts || posts.length === 0) return;
 
             const latestPosts = posts.slice(0, 3); // Show 3 latest posts
-            console.log('Rendering', latestPosts.length, 'blog posts');
 
             blogGrid.innerHTML = latestPosts.map(post => {
                 const date = formatBlogDate(post.date || '');
