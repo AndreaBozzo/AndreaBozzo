@@ -1,6 +1,6 @@
 baseURL = 'https://andreabozzo.github.io/AndreaBozzo/blog/'
-languageCode = 'it-IT'
-title = 'Andrea Bozzo | Blog'
+defaultContentLanguage = 'it'
+defaultContentLanguageInSubdir = false
 theme = 'PaperMod'
 enableRobotsTXT = true
 buildDrafts = false
@@ -8,6 +8,19 @@ buildFuture = false
 buildExpired = false
 enableEmoji = true
 pygmentsUseClasses = true
+
+[languages]
+  [languages.it]
+    languageCode = 'it-IT'
+    languageName = 'Italiano'
+    title = 'Andrea Bozzo | Blog'
+    weight = 1
+
+  [languages.en]
+    languageCode = 'en-US'
+    languageName = 'English'
+    title = 'Andrea Bozzo | Blog'
+    weight = 2
 
 [pagination]
 pagerSize = 10
@@ -40,6 +53,43 @@ tocopen = true
 [params.profileMode]
 enabled = false
 
+[languages.it.params]
+env = "production"
+title = "Andrea Bozzo"
+description = "Blog tecnico su Data Engineering, Rust, Go e tecnologie open source"
+keywords = ["Data Engineering", "Rust", "Go", "Python", "Open Source", "Apache Spark", "DuckDB", "Lakehouse"]
+author = "Andrea Bozzo"
+DateFormat = "2 January 2006"
+
+[languages.it.params.homeInfoParams]
+Title = "Andrea Bozzo | Blog"
+Content = """
+👋 Benvenuto nel mio blog tecnico!
+
+Scrivo di **Data Engineering**, **Rust**, **Go**, **Python** e tecnologie open source.
+
+Esploro architetture lakehouse, streaming real-time e il mondo dei dati moderni.
+"""
+
+[languages.en.params]
+env = "production"
+title = "Andrea Bozzo"
+description = "Technical blog about Data Engineering, Rust, Go and open source technologies"
+keywords = ["Data Engineering", "Rust", "Go", "Python", "Open Source", "Apache Spark", "DuckDB", "Lakehouse"]
+author = "Andrea Bozzo"
+DateFormat = "January 2, 2006"
+
+[languages.en.params.homeInfoParams]
+Title = "Andrea Bozzo | Blog"
+Content = """
+👋 Welcome to my technical blog!
+
+I write about **Data Engineering**, **Rust**, **Go**, **Python** and open source technologies.
+
+Exploring lakehouse architectures, real-time streaming and the modern data world.
+"""
+
+# Shared params (applies to all languages)
 [params.homeInfoParams]
 Title = "Andrea Bozzo | Blog"
 Content = """
@@ -88,26 +138,50 @@ threshold = 0.4
 minMatchCharLength = 0
 keys = ["title", "permalink", "summary", "content"]
 
-[[menu.main]]
+[[languages.it.menu.main]]
 identifier = "home"
 name = "Home"
 url = "/"
 weight = 10
 
-[[menu.main]]
+[[languages.it.menu.main]]
 identifier = "posts"
 name = "Articoli"
 url = "/posts/"
 weight = 20
 
-[[menu.main]]
+[[languages.it.menu.main]]
 identifier = "tags"
 name = "Tags"
 url = "/tags/"
 weight = 30
 
-[[menu.main]]
+[[languages.it.menu.main]]
 identifier = "profilo"
+name = "GitHub Profile"
+url = "https://andreabozzo.github.io/AndreaBozzo/"
+weight = 40
+
+[[languages.en.menu.main]]
+identifier = "home"
+name = "Home"
+url = "/en/"
+weight = 10
+
+[[languages.en.menu.main]]
+identifier = "posts"
+name = "Posts"
+url = "/en/posts/"
+weight = 20
+
+[[languages.en.menu.main]]
+identifier = "tags"
+name = "Tags"
+url = "/en/tags/"
+weight = 30
+
+[[languages.en.menu.main]]
+identifier = "profile"
 name = "GitHub Profile"
 url = "https://andreabozzo.github.io/AndreaBozzo/"
 weight = 40
