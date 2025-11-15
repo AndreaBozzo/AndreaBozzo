@@ -78,7 +78,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
 - **[risingwavelabs/risingwave](https://github.com/risingwavelabs/risingwave)** ⭐ 8514 - 1 merged PR
   - Streaming data platform. Real-time stream processing, low-latency serving, and Iceberg table management.
-- **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 1981 - 3 merged PRs
+- **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 1983 - 3 merged PRs
   - Build reliable Gen AI solutions without overhead 🍕
 - **[lakekeeper/lakekeeper](https://github.com/lakekeeper/lakekeeper)** ⭐ 1026 - 1 merged PR
   - Lakekeeper is an Apache-Licensed, secure, fast and easy to use Apache Iceberg REST Catalog written in Rust.
