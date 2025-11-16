@@ -80,6 +80,8 @@ Contributing to the broader open source ecosystem beyond my own projects.
   - Streaming data platform. Real-time stream processing, low-latency serving, and Iceberg table management.
 - **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 1987 - 3 merged PRs
   - Build reliable Gen AI solutions without overhead 🍕
+- **[mariocandela/beelzebub](https://github.com/mariocandela/beelzebub)** ⭐ 1688 - 1 merged PR
+  - A secure low code honeypot framework, leveraging AI for System Virtualization.
 - **[lakekeeper/lakekeeper](https://github.com/lakekeeper/lakekeeper)** ⭐ 1028 - 1 merged PR
   - Lakekeeper is an Apache-Licensed, secure, fast and easy to use Apache Iceberg REST Catalog written in Rust.
 - **[italia-opensource/awesome-italia-opensource](https://github.com/italia-opensource/awesome-italia-opensource)** ⭐ 310 - 1 merged PR
