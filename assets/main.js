@@ -504,6 +504,30 @@ function escapeHtml(text) {
     return text.replace(/[&<>"']/g, m => map[m]);
 }
 
+// ===== Service Worker Registration =====
+if ('serviceWorker' in navigator && window.location.hostname !== 'localhost') {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/AndreaBozzo/sw.js')
+            .then((registration) => {
+                console.log('✅ Service Worker registered:', registration.scope);
+
+                // Controlla aggiornamenti ogni ora
+                setInterval(() => {
+                    registration.update();
+                }, 60 * 60 * 1000);
+            })
+            .catch((error) => {
+                console.log('❌ Service Worker registration failed:', error);
+            });
+
+        // Ascolta aggiornamenti del SW
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+            console.log('🔄 Service Worker updated, reloading...');
+            window.location.reload();
+        });
+    });
+}
+
 // ===== Initialize =====
 document.addEventListener('DOMContentLoaded', function() {
     const loadMetrics = () => loadGitHubMetrics();

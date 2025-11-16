@@ -1,4 +1,15 @@
-# General
+# Hugo generated files
+blog/public/
+blog/resources/
+blog/.hugo_build.lock
+
+# Development files
+node_modules/
+.npm/
+*.log
+npm-debug.log*
+
+# OS files
 .DS_Store
 .DS_Store?
 ._*
@@ -7,77 +18,18 @@
 ehthumbs.db
 Thumbs.db
 
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# Virtual environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# IDE
+# Editor files
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# Jupyter Notebook
-.ipynb_checkpoints
+# Build artifacts
+# assets/*.min.js
+# assets/*.min.css
 
-# Data files
-*.csv
-*.xlsx
-*.xls
-*.parquet
-*.db
-*.sqlite
-*.sqlite3
-
-# Logs
-*.log
-logs/
-
-# Cache
+# Temporary files
+*.tmp
+*.temp
 .cache/
-.pytest_cache/
-
-# Documentation builds
-docs/_build/
-
-# Secrets and config
-.env.local
-.env.production
-config.ini
-credentials.json
-
-# Hugo
-blog/public/
-blog/resources/
-blog/.hugo_build.lock
