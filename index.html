@@ -55,99 +55,51 @@
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <!-- Custom Cursor -->
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-
-    <!-- Animated Background -->
-    <div class="animated-bg"></div>
-
-    <!-- Particles Canvas -->
-    <canvas id="particles-canvas"></canvas>
-
     <!-- Theme Toggle -->
     <div class="theme-toggle" onclick="toggleTheme()">
         <span class="theme-toggle-icon" id="theme-icon">🌙</span>
     </div>
-
-    <!-- Floating Action Button -->
-    <a href="mailto:andreabozzo92@gmail.com" class="fab" title="Contact Me">
-        ✉️
-    </a>
 
     <!-- Main Content -->
     <div class="content-wrapper">
         <!-- Hero Section -->
         <section class="hero" id="home">
             <div class="hero-content">
-                <div class="logo fade-in">AB</div>
-                <h1 class="title fade-in fade-in-delay-1">Andrea Bozzo</h1>
-                <p class="subtitle fade-in fade-in-delay-2">Data Engineer | Software Developer | Analytics Architect</p>
-                <p class="tagline fade-in fade-in-delay-3">
-                    Usually trying not to set the database on fire while building scalable data solutions. In my spare time I explore systems programming with Rust & Go. <em>(Coffee consumption not to scale)</em>
+                <h1 class="title">Andrea Bozzo</h1>
+                <p class="subtitle">Data Engineer building streaming pipelines and lakehouse architectures.</p>
+                <p class="tagline">
+                    I build data systems that process millions of events per second without catching fire.
+                    When I'm not debugging distributed systems, I'm contributing to open source projects in
+                    the Rust and data engineering ecosystems. Three espressos in, I might even enjoy it.
                 </p>
 
-                <!-- Live Metrics -->
-                <div class="metrics fade-in fade-in-delay-3">
-                    <div class="metric" id="commits-metric">
-                        <span class="metric-value loading" id="commits-count">...</span>
-                        <span class="metric-label">Total Commits</span>
-                    </div>
-                    <div class="metric" id="repos-metric">
-                        <span class="metric-value loading" id="repos-count">...</span>
-                        <span class="metric-label">Public Repos</span>
-                    </div>
-                    <div class="metric" id="stars-metric">
-                        <span class="metric-value loading" id="stars-count">...</span>
-                        <span class="metric-label">Stars Earned</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-value">∞</span>
-                        <span class="metric-label">Lines of Code</span>
-                    </div>
-                </div>
-
                 <!-- CTA Buttons -->
-                <div class="cta-buttons fade-in fade-in-delay-3">
-                    <a href="/AndreaBozzo/blog/" class="btn btn-primary" aria-label="Read Andrea Bozzo's blog">
-                        📝 Read My Blog
+                <div class="cta-buttons">
+                    <a href="/AndreaBozzo/blog/" class="btn btn-primary" aria-label="Read blog">
+                        Read My Blog
                     </a>
-                    <a href="https://github.com/AndreaBozzo" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="Visit Andrea Bozzo's GitHub profile">
-                        💻 GitHub Profile
+                    <a href="https://github.com/AndreaBozzo" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        GitHub
                     </a>
-                    <a href="https://www.linkedin.com/in/andrea-bozzo-/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn">
-                        💼 LinkedIn
+                    <a href="https://www.linkedin.com/in/andrea-bozzo-/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        LinkedIn
                     </a>
-                    <a href="mailto:andreabozzo92@gmail.com" class="btn btn-secondary" aria-label="Send email to Andrea Bozzo">
-                        📧 Get in Touch
+                    <a href="mailto:andreabozzo92@gmail.com" class="btn btn-secondary" aria-label="Email">
+                        Email
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- Tech Stack Section -->
-        <section class="tech-stack scroll-reveal" id="tech">
-            <h2 class="section-title">Tech Stack</h2>
-            <div class="tech-grid">
-                <div class="tech-item"><div class="tech-icon">🦀</div><div class="tech-name">Rust</div></div>
-                <div class="tech-item"><div class="tech-icon">🐹</div><div class="tech-name">Go</div></div>
-                <div class="tech-item"><div class="tech-icon">🐍</div><div class="tech-name">Python</div></div>
-                <div class="tech-item"><div class="tech-icon">📜</div><div class="tech-name">JavaScript</div></div>
-                <div class="tech-item"><div class="tech-icon">⚡</div><div class="tech-name">Apache Spark</div></div>
-                <div class="tech-item"><div class="tech-icon">🌊</div><div class="tech-name">Apache Kafka</div></div>
-                <div class="tech-item"><div class="tech-icon">📊</div><div class="tech-name">DuckDB</div></div>
-                <div class="tech-item"><div class="tech-icon">🌀</div><div class="tech-name">RisingWave</div></div>
-                <div class="tech-item"><div class="tech-icon">🐘</div><div class="tech-name">PostgreSQL</div></div>
-                <div class="tech-item"><div class="tech-icon">🍃</div><div class="tech-name">MongoDB</div></div>
-                <div class="tech-item"><div class="tech-icon">⚙️</div><div class="tech-name">Redis</div></div>
-                <div class="tech-item"><div class="tech-icon">📈</div><div class="tech-name">Power BI</div></div>
-                <div class="tech-item"><div class="tech-icon">🧱</div><div class="tech-name">Databricks</div></div>
-                <div class="tech-item"><div class="tech-icon">📉</div><div class="tech-name">Superset</div></div>
-                <div class="tech-item"><div class="tech-icon">🐳</div><div class="tech-name">Docker</div></div>
-                <div class="tech-item"><div class="tech-icon">☸️</div><div class="tech-name">Kubernetes</div></div>
-                <div class="tech-item"><div class="tech-icon">☁️</div><div class="tech-name">AWS</div></div>
-                <div class="tech-item"><div class="tech-icon">🔷</div><div class="tech-name">Azure</div></div>
-                <div class="tech-item"><div class="tech-icon">🔄</div><div class="tech-name">GitHub Actions</div></div>
+        <!-- Currently Section -->
+        <section class="currently scroll-reveal" id="currently">
+            <div class="currently-content">
+                <h2 class="section-title">Currently</h2>
+                <div class="currently-text">
+                    <p>Working on high-performance data pipelines with <strong>Rust</strong>, <strong>Go</strong>, and <strong>Python</strong>.</p>
+                    <p>Building streaming architectures with <strong>Apache Kafka</strong>, <strong>RisingWave</strong>, and lakehouse patterns using <strong>Apache Iceberg</strong> and <strong>DuckDB</strong>.</p>
+                    <p>Contributing to open source projects in the Rust and data engineering ecosystems.</p>
+                </div>
             </div>
         </section>
 
@@ -192,106 +144,57 @@
 
         <!-- Projects Section -->
         <section class="projects scroll-reveal" id="projects">
-            <h2 class="section-title">Featured Open Source Contributions</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">🍕</div>
-                    <div class="project-content">
-                        <h3 class="project-title">DataPizza AI</h3>
-                        <p class="project-desc">Build reliable Gen AI solutions without overhead. 3 merged PRs contributing to a tool for practical AI implementation. ⭐ 1.9k stars</p>
-                        <div class="project-tech">
-                            <span class="project-tech-item">AI/ML</span>
-                            <span class="project-tech-item">Python</span>
-                            <span class="project-tech-item">Gen AI</span>
-                        </div>
-                    </div>
+            <h2 class="section-title">Open Source Contributions</h2>
+            <div class="projects-list">
+                <div class="project-item">
+                    <h3 class="project-name">DataPizza AI</h3>
+                    <p class="project-desc">Reliable Gen AI framework</p>
+                    <p class="project-contrib">3 merged PRs contributing to Python core • 1.9k GitHub stars</p>
+                    <a href="https://github.com/datapizzaai/datapizza" class="project-link" target="_blank" rel="noopener noreferrer">View project →</a>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">🦀</div>
-                    <div class="project-content">
-                        <h3 class="project-title">RisingWave & Rust Ecosystem</h3>
-                        <p class="project-desc">Contributing to RisingWave streaming database and Rust documentation translation. Building high-performance data pipelines with Rust.</p>
-                        <div class="project-tech">
-                            <span class="project-tech-item">Rust</span>
-                            <span class="project-tech-item">Streaming</span>
-                            <span class="project-tech-item">Documentation</span>
-                        </div>
-                    </div>
+
+                <div class="project-item">
+                    <h3 class="project-name">RisingWave</h3>
+                    <p class="project-desc">Streaming database</p>
+                    <p class="project-contrib">1 merged PR: Iceberg table management improvements</p>
+                    <a href="https://github.com/risingwavelabs/risingwave" class="project-link" target="_blank" rel="noopener noreferrer">View contribution →</a>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">🧠</div>
-                    <div class="project-content">
-                        <h3 class="project-title">CortexBrain</h3>
-                        <p class="project-desc">Intelligent service mesh architecture connecting cloud and edge devices. 3 merged PRs for distributed systems. ⭐ 67 stars</p>
-                        <div class="project-tech">
-                            <span class="project-tech-item">Edge Computing</span>
-                            <span class="project-tech-item">Service Mesh</span>
-                            <span class="project-tech-item">Distributed Systems</span>
-                        </div>
-                    </div>
+
+                <div class="project-item">
+                    <h3 class="project-name">Lakekeeper</h3>
+                    <p class="project-desc">Rust-based Iceberg catalog</p>
+                    <p class="project-contrib">1 merged PR: catalog optimization</p>
+                    <a href="https://github.com/lakekeeper/lakekeeper" class="project-link" target="_blank" rel="noopener noreferrer">View contribution →</a>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">📊</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Data Lakehouse Architecture</h3>
-                        <p class="project-desc">Building modern data lakehouse solutions with Apache Iceberg, DuckDB, and streaming pipelines for real-time analytics at scale.</p>
-                        <div class="project-tech">
-                            <span class="project-tech-item">Iceberg</span>
-                            <span class="project-tech-item">DuckDB</span>
-                            <span class="project-tech-item">Python</span>
-                        </div>
-                    </div>
+
+                <div class="project-item">
+                    <h3 class="project-name">CortexBrain</h3>
+                    <p class="project-desc">Service mesh for cloud and edge devices</p>
+                    <p class="project-contrib">3 merged PRs for distributed systems • 67 GitHub stars</p>
+                    <a href="https://github.com/cortexbrain/cortexbrain" class="project-link" target="_blank" rel="noopener noreferrer">View project →</a>
                 </div>
             </div>
         </section>
 
-        <!-- Features Section -->
-        <section class="features scroll-reveal">
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">DATA</span>
-                    <h3 class="feature-title">Data Engineering</h3>
-                    <p class="feature-desc">
-                        Designing and implementing robust ETL pipelines, data warehouses, and analytics platforms. Expertise in modern data stack technologies, streaming systems, and lakehouse architectures.
-                    </p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">ARCH</span>
-                    <h3 class="feature-title">System Architecture</h3>
-                    <p class="feature-desc">
-                        Building scalable, high-performance systems with optimized data modeling. Experience with distributed systems, cloud infrastructure, and real-time processing.
-                    </p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">CODE</span>
-                    <h3 class="feature-title">Software Development</h3>
-                    <p class="feature-desc">
-                        Creating clean, maintainable code in Rust, Go, and Python. Strong focus on performance, testing, documentation, and collaborative development workflows.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Social Proof -->
-        <section class="social-proof scroll-reveal">
-            <h2 class="social-proof-title">Let's Connect</h2>
-            <p class="social-proof-text">
-                Currently exploring systems programming with Rust and Go.<br>
-                Always interested in discussing new opportunities, collaborations, and innovative data challenges.
+        <!-- Contact Section -->
+        <section class="contact scroll-reveal">
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="contact-text">
+                Always interested in discussing new opportunities, collaborations, and data engineering challenges.
             </p>
 
-            <div class="social-links">
-                <a href="https://github.com/AndreaBozzo" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-                    💻 GitHub
+            <div class="contact-links">
+                <a href="https://github.com/AndreaBozzo" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                    GitHub
                 </a>
-                <a href="https://www.linkedin.com/in/andrea-bozzo-/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-                    💼 LinkedIn
+                <a href="https://www.linkedin.com/in/andrea-bozzo-/" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                    LinkedIn
                 </a>
-                <a href="/AndreaBozzo/blog/" class="social-link" aria-label="Blog">
-                    📝 Blog
+                <a href="/AndreaBozzo/blog/" class="contact-link" aria-label="Blog">
+                    Blog
                 </a>
-                <a href="mailto:andreabozzo92@gmail.com" class="social-link" aria-label="Email contact">
-                    📧 Email
+                <a href="mailto:andreabozzo92@gmail.com" class="contact-link" aria-label="Email contact">
+                    Email
                 </a>
             </div>
         </section>
