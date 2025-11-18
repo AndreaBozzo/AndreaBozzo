@@ -69,6 +69,26 @@
 
 ---
 
+
+## 🚀 Featured Project
+
+### [dataprof](https://github.com/AndreaBozzo/dataprof)
+**Fast, lightweight data profiling library built in Rust with Python bindings.**
+
+[![PyPI Downloads](https://img.shields.io/pypi/dm/dataprof?style=for-the-badge&label=PyPI%20Downloads&color=blue)](https://pypi.org/project/dataprof/)
+[![Crates.io Downloads](https://img.shields.io/crates/d/dataprof?style=for-the-badge&label=Crates.io%20Downloads&color=orange)](https://crates.io/crates/dataprof)
+[![GitHub Stars](https://img.shields.io/github/stars/AndreaBozzo/dataprof?style=for-the-badge&logo=github)](https://github.com/AndreaBozzo/dataprof)
+
+> A high-performance CLI tool and library designed for data engineers to profile datasets locally without sending data to external servers.
+
+* **🔥 Performance:** Written in Rust using **Apache Arrow** for memory efficiency.
+* **🐍 Python Integration:** Full Python bindings via PyO3 for seamless integration in notebooks and pipelines.
+* **🏭 Production Ready:** Over **90k+ downloads** across platforms, widely used in CI/CD pipelines for automated data quality checks.
+* **🔒 Privacy First:** Zero telemetry, 100% local execution.
+
+---
+
+
 ## 🌟 Open Source Contributions
 
 Contributing to the broader open source ecosystem beyond my own projects.
