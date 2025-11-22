@@ -98,17 +98,17 @@ Contributing to the broader open source ecosystem beyond my own projects.
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
 - **[risingwavelabs/risingwave](https://github.com/risingwavelabs/risingwave)** ⭐ 8532 - 1 merged PR
   - Streaming data platform. Real-time stream processing, low-latency serving, and Iceberg table management.
-- **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 1996 - 3 merged PRs
+- **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 1999 - 3 merged PRs
   - Build reliable Gen AI solutions without overhead 🍕
-- **[mariocandela/beelzebub](https://github.com/mariocandela/beelzebub)** ⭐ 1693 - 1 merged PR
+- **[mariocandela/beelzebub](https://github.com/mariocandela/beelzebub)** ⭐ 1694 - 1 merged PR
   - A secure low code honeypot framework, leveraging AI for System Virtualization.
-- **[lakekeeper/lakekeeper](https://github.com/lakekeeper/lakekeeper)** ⭐ 1036 - 1 merged PR
+- **[lakekeeper/lakekeeper](https://github.com/lakekeeper/lakekeeper)** ⭐ 1039 - 1 merged PR
   - Lakekeeper is an Apache-Licensed, secure, fast and easy to use Apache Iceberg REST Catalog written in Rust.
 - **[italia-opensource/awesome-italia-opensource](https://github.com/italia-opensource/awesome-italia-opensource)** ⭐ 310 - 1 merged PR
   - Italian Open-Source is the first platform dedicated to Italian open-source world
 - **[CortexFlow/CortexBrain](https://github.com/CortexFlow/CortexBrain)** ⭐ 67 - 3 merged PRs
   - CortexBrain is an ambitious open-source project created by CortexFlow, aiming to develop an intelligent, lightweight, and efficient service mesh architecture that seamlessly connects cloud and edge devices
-- **[piopy/fantacalcio-py](https://github.com/piopy/fantacalcio-py)** ⭐ 41 - 3 merged PRs
+- **[piopy/fantacalcio-py](https://github.com/piopy/fantacalcio-py)** ⭐ 41 - 4 merged PRs
   - Piccolo tool per guidarci all'asta spendendo poco
 - **[informagico/fantavibe](https://github.com/informagico/fantavibe)** ⭐ 3 - 1 merged PR
 - **[rust-ita/rust-docs-it](https://github.com/rust-ita/rust-docs-it)** ⭐ 2 - 1 merged PR
