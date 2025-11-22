@@ -141,19 +141,19 @@ keys = ["title", "permalink", "summary", "content"]
 [[languages.it.menu.main]]
 identifier = "home"
 name = "Home"
-url = "/"
+url = "/AndreaBozzo/blog/"
 weight = 10
 
 [[languages.it.menu.main]]
 identifier = "posts"
 name = "Articoli"
-url = "/posts/"
+url = "/AndreaBozzo/blog/posts/"
 weight = 20
 
 [[languages.it.menu.main]]
 identifier = "tags"
 name = "Tags"
-url = "/tags/"
+url = "/AndreaBozzo/blog/tags/"
 weight = 30
 
 [[languages.it.menu.main]]
@@ -165,19 +165,19 @@ weight = 40
 [[languages.en.menu.main]]
 identifier = "home"
 name = "Home"
-url = "/en/"
+url = "/AndreaBozzo/blog/en/"
 weight = 10
 
 [[languages.en.menu.main]]
 identifier = "posts"
 name = "Posts"
-url = "/en/posts/"
+url = "/AndreaBozzo/blog/en/posts/"
 weight = 20
 
 [[languages.en.menu.main]]
 identifier = "tags"
 name = "Tags"
-url = "/en/tags/"
+url = "/AndreaBozzo/blog/en/tags/"
 weight = 30
 
 [[languages.en.menu.main]]
