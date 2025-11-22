@@ -20,11 +20,11 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ShowWordCount: true
 cover:
-    image: ""
-    alt: "RisingWave and Iceberg-Rust"
-    caption: ""
+    image: "images/RisingWave-Architecture.jpg"
+    alt: "RisingWave Architecture"
+    caption: "RisingWave Streaming Platform Architecture"
     relative: false
-    hidden: true
+    hidden: false
 ---
 
 ## Introduction
