@@ -33,3 +33,18 @@ Thumbs.db
 *.tmp
 *.temp
 .cache/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.py
