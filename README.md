@@ -83,7 +83,7 @@
 
 * **🔥 Performance:** Written in Rust using **Apache Arrow** for memory efficiency.
 * **🐍 Python Integration:** Full Python bindings via PyO3 for seamless integration in notebooks and pipelines.
-* **🏭 Production Ready:** Over **90k+ downloads** across platforms, widely used in CI/CD pipelines for automated data quality checks.
+* **🏭 Production Ready:** Over **100k+ downloads** across platforms, widely used in CI/CD pipelines for automated data quality checks.
 * **🔒 Privacy First:** Zero telemetry, 100% local execution.
 
 ---
