@@ -96,11 +96,13 @@ Contributing to the broader open source ecosystem beyond my own projects.
 > 🤖 *This section is automatically updated daily via GitHub Actions*
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
+- **[pola-rs/polars](https://github.com/pola-rs/polars)** ⭐ 36343 - 1 merged PR
+  - Extremely fast Query Engine for DataFrames, written in Rust
 - **[risingwavelabs/risingwave](https://github.com/risingwavelabs/risingwave)** ⭐ 8563 - 1 merged PR
   - Streaming data platform. Real-time stream processing, low-latency serving, and Iceberg table management.
 - **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 2024 - 3 merged PRs
   - Build reliable Gen AI solutions without overhead 🍕
-- **[supabase/etl](https://github.com/supabase/etl)** ⭐ 2021 - 1 merged PR
+- **[supabase/etl](https://github.com/supabase/etl)** ⭐ 2022 - 1 merged PR
   - Stream your Postgres data anywhere in real-time. Simple Rust building blocks for change data capture (CDC) pipelines.
 - **[mariocandela/beelzebub](https://github.com/mariocandela/beelzebub)** ⭐ 1707 - 1 merged PR
   - A secure low code honeypot framework, leveraging AI for System Virtualization.
@@ -113,8 +115,6 @@ Contributing to the broader open source ecosystem beyond my own projects.
 - **[piopy/fantacalcio-py](https://github.com/piopy/fantacalcio-py)** ⭐ 41 - 4 merged PRs
   - Piccolo tool per guidarci all'asta spendendo poco
 - **[informagico/fantavibe](https://github.com/informagico/fantavibe)** ⭐ 3 - 1 merged PR
-- **[rust-ita/rust-docs-it](https://github.com/rust-ita/rust-docs-it)** ⭐ 2 - 1 merged PR
-  - Documentazione Rust tradotta in italiano
 <!-- EXTERNAL_CONTRIBUTIONS:END -->
 
 ---
