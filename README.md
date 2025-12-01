@@ -96,13 +96,15 @@ Contributing to the broader open source ecosystem beyond my own projects.
 > 🤖 *This section is automatically updated daily via GitHub Actions*
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
-- **[risingwavelabs/risingwave](https://github.com/risingwavelabs/risingwave)** ⭐ 8561 - 1 merged PR
+- **[risingwavelabs/risingwave](https://github.com/risingwavelabs/risingwave)** ⭐ 8563 - 1 merged PR
   - Streaming data platform. Real-time stream processing, low-latency serving, and Iceberg table management.
-- **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 2023 - 3 merged PRs
+- **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 2024 - 3 merged PRs
   - Build reliable Gen AI solutions without overhead 🍕
+- **[supabase/etl](https://github.com/supabase/etl)** ⭐ 2021 - 1 merged PR
+  - Stream your Postgres data anywhere in real-time. Simple Rust building blocks for change data capture (CDC) pipelines.
 - **[mariocandela/beelzebub](https://github.com/mariocandela/beelzebub)** ⭐ 1707 - 1 merged PR
   - A secure low code honeypot framework, leveraging AI for System Virtualization.
-- **[lakekeeper/lakekeeper](https://github.com/lakekeeper/lakekeeper)** ⭐ 1060 - 1 merged PR
+- **[lakekeeper/lakekeeper](https://github.com/lakekeeper/lakekeeper)** ⭐ 1063 - 1 merged PR
   - Lakekeeper is an Apache-Licensed, secure, fast and easy to use Apache Iceberg REST Catalog written in Rust.
 - **[italia-opensource/awesome-italia-opensource](https://github.com/italia-opensource/awesome-italia-opensource)** ⭐ 311 - 1 merged PR
   - Italian Open-Source is the first platform dedicated to Italian open-source world
