@@ -95,11 +95,9 @@
         <section class="currently scroll-reveal" id="currently">
             <div class="currently-content">
                 <h2 class="section-title">Currently</h2>
-                <div class="currently-text">
-                    <p>Working on high-performance data pipelines with <strong>Rust</strong>, <strong>Go</strong>, and <strong>Python</strong>.</p>
-                    <p>Building streaming architectures with <strong>Apache Kafka</strong>, <strong>RisingWave</strong>, and lakehouse patterns using <strong>Apache Iceberg</strong> and <strong>DuckDB</strong>.</p>
-                    <p>Contributing to open source projects in the Rust and data engineering ecosystems.</p>
-                </div>
+                <p class="currently-text">
+                    Building high-performance data systems with <strong>Rust</strong> & <strong>Python</strong>, architecting streaming lakehouses, and contributing to the open source data ecosystem.
+                </p>
             </div>
         </section>
 
@@ -145,41 +143,21 @@
         <!-- Projects Section -->
         <section class="projects scroll-reveal" id="projects">
             <h2 class="section-title">Open Source Contributions</h2>
-            <div class="projects-list">
-                <div class="project-item">
-                    <h3 class="project-name">DataPizza AI</h3>
-                    <p class="project-desc">Reliable Gen AI framework</p>
-                    <p class="project-contrib">3 merged PRs contributing to Python core • 1.9k GitHub stars</p>
-                    <a href="https://github.com/datapizza-labs/datapizza-ai" class="project-link" target="_blank" rel="noopener noreferrer">View project →</a>
+            <p class="section-subtitle">A selection of open source projects I've contributed to. Fetched live from GitHub.</p>
+            <div class="projects-list" id="contributions-list">
+                <!-- Skeleton Loaders -->
+                <div class="project-item project-skeleton">
+                    <div class="skeleton-line title"></div>
+                    <div class="skeleton-line desc"></div>
+                    <div class="skeleton-line contrib"></div>
                 </div>
-
-                <div class="project-item">
-                    <h3 class="project-name">RisingWave</h3>
-                    <p class="project-desc">Streaming database</p>
-                    <p class="project-contrib">1 merged PR: Iceberg table management improvements • 8516 GitHub stars</p>
-                    <a href="https://github.com/risingwavelabs/risingwave" class="project-link" target="_blank" rel="noopener noreferrer">View contribution →</a>
+                <div class="project-item project-skeleton">
+                    <div class="skeleton-line title"></div>
+                    <div class="skeleton-line desc"></div>
+                    <div class="skeleton-line contrib"></div>
                 </div>
-
-                <div class="project-item">
-                    <h3 class="project-name">Lakekeeper</h3>
-                    <p class="project-desc">Rust-based Iceberg catalog</p>
-                    <p class="project-contrib">1 merged PR: catalog optimization • 1028 GitHub stars</p>
-                    <a href="https://github.com/lakekeeper/lakekeeper" class="project-link" target="_blank" rel="noopener noreferrer">View contribution →</a>
-                </div>
-
-                <div class="project-item">
-                    <h3 class="project-name">CortexBrain</h3>
-                    <p class="project-desc">Service mesh for cloud and edge devices</p>
-                    <p class="project-contrib">3 merged PRs for distributed systems • 68 GitHub stars</p>
-                    <a href="https://github.com/cortexflow/cortexbrain" class="project-link" target="_blank" rel="noopener noreferrer">View project →</a>
-                </div>
-
-                <div class="project-item">
-                    <h3 class="project-name">beelzebub</h3>
-                    <p class="project-desc">A secure low code honeypot framework, leveraging AI for System Virtualization.</p>
-                    <p class="project-contrib">1 merged PR: builder security improvements • 1688 GitHub stars</p>
-                    <a href="https://github.com/mariocandela/beelzebub" class="project-link" target="_blank" rel="noopener noreferrer">View contribution →</a>
             </div>
+            <p class="contribution-footer">... and many more on my <a href="https://github.com/AndreaBozzo?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub profile</a>.</p>
         </section>
 
         <!-- Contact Section -->
@@ -208,5 +186,66 @@
 
     <!-- Minified JavaScript for production -->
     <script src="assets/main.min.js" defer></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchContributions('AndreaBozzo');
+        });
+
+        async function fetchContributions(username) {
+            const listElement = document.getElementById('contributions-list');
+            if (!listElement) return;
+
+            try {
+                // Fetch user events to find merged PRs
+                const response = await fetch(`https://api.github.com/users/${username}/events/public`);
+                if (!response.ok) throw new Error(`GitHub API error: ${response.status}`);
+                const events = await response.json();
+
+                const mergedPRs = events.filter(event => 
+                    event.type === 'PullRequestEvent' && 
+                    event.payload.action === 'closed' && 
+                    event.payload.pull_request.merged === true &&
+                    !event.repo.name.startsWith(username + '/') // Exclude own repos
+                );
+
+                // Get unique repository names
+                const repoUrls = [...new Set(mergedPRs.map(pr => pr.repo.url))];
+
+                // Fetch details for each repository
+                const repoDetailsPromises = repoUrls.slice(0, 5).map(url => fetch(url).then(res => res.json()));
+                let repos = await Promise.all(repoDetailsPromises);
+
+                // Sort by stars and take the top 4
+                repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+                repos = repos.slice(0, 4);
+
+                // Clear skeleton loaders
+                listElement.innerHTML = '';
+
+                if (repos.length === 0) {
+                    listElement.innerHTML = '<p>Could not fetch recent contributions. Please check on GitHub.</p>';
+                    return;
+                }
+
+                // Render contributions
+                repos.forEach(repo => {
+                    const projectItem = document.createElement('div');
+                    projectItem.className = 'project-item';
+                    projectItem.innerHTML = `
+                        <h3 class="project-name">${repo.name}</h3>
+                        <p class="project-desc">${repo.description || 'No description available.'}</p>
+                        <p class="project-contrib">⭐ ${repo.stargazers_count.toLocaleString()} stars</p>
+                        <a href="${repo.html_url}" class="project-link" target="_blank" rel="noopener noreferrer">View project →</a>
+                    `;
+                    listElement.appendChild(projectItem);
+                });
+
+            } catch (error) {
+                console.error('Failed to fetch GitHub contributions:', error);
+                listElement.innerHTML = '<p class="error-message">Could not load contributions at this time.</p>';
+            }
+        }
+    </script>
 </body>
 </html>
