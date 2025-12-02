@@ -1,20 +1,8 @@
 # 👋 Andrea Bozzo
 
-<div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)"
-            srcset="./assets/animations/Animazione1.gif">
-    <source media="(prefers-color-scheme: light)"
-            srcset="./assets/animations/Animazione1.gif">
-    <img alt="Data Engineer Chronicles - A day in the life"
-         src="./assets/animations/Animazione1.gif"
-         width="850">
-  </picture>
-</div>
-
 <p align="center">
-  <strong>Data Engineer | Software Developer | Analytics Architect</strong><br>
-  Hi, I'm Andrea, usually trying to not set the database on fire while building scalable data solutions. In my spare time I explore systems programming with Rust & Go. <em>(Coffee consumption not to scale)</em>
+  <strong>Senior Data Architect | Systems Programmer | Open Source Creator</strong><br>
+  My journey into tech was non-traditional, starting as a Chartered Accountant before diving deep into data and systems engineering. This hybrid DNA defines my approach: I don't just build pipelines; I architect solutions that optimize costs, ensure data integrity, and drive measurable ROI. I treat CPU cycles like a budget—they shouldn't be wasted.<br><br>As a freelancer, I have the freedom to choose projects and visions I truly believe in.
 </p>
 
 <p align="center">
@@ -32,39 +20,26 @@
 
 ## 🛠️ Tech Stack
 
-<p align="center">
-  <strong>Languages</strong><br>
-  <img src="https://img.shields.io/badge/rust-%23000000.svg?style=for-the-badge&logo=rust&logoColor=white" alt="Rust"/>
-  <img src="https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white" alt="Go"/>
-  <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python"/>
-  <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript"/>
-</p>
-
-<p align="center">
-  <strong>Data Engineering & Databases</strong><br>
-  <img src="https://img.shields.io/badge/Apache%20Spark-FDEE21?style=for-the-badge&logo=apachespark&logoColor=black" alt="Apache Spark"/>
-  <img src="https://img.shields.io/badge/Apache%20Kafka-000?style=for-the-badge&logo=apachekafka" alt="Apache Kafka"/>
-  <img src="https://img.shields.io/badge/DuckDB-FFF000?style=for-the-badge&logo=duckdb&logoColor=black" alt="DuckDB"/>
-  <img src="https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
-  <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB"/>
-  <img src="https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white" alt="Redis"/>
-</p>
-
-<p align="center">
-  <strong>Analytics & BI</strong><br>
-  <img src="https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black" alt="Power BI"/>
-  <img src="https://img.shields.io/badge/Databricks-FF3621?style=for-the-badge&logo=databricks&logoColor=white" alt="Databricks"/>
-  <img src="https://img.shields.io/badge/Apache%20Superset-3C4043?style=for-the-badge&logo=apachesuperset&logoColor=white" alt="Apache Superset"/>
-  <img src="https://img.shields.io/badge/RisingWave-6366F1?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTIgMkw0IDZWMTJDNCAxNi40MTggNy41ODIgMjAgMTIgMjBDMTYuNDE4IDIwIDIwIDE2LjQxOCAyMCAxMlY2TDEyIDJaIiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==&logoColor=white" alt="RisingWave"/>
-</p>
-
-<p align="center">
-  <strong>Cloud & DevOps</strong><br>
-  <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"/>
-  <img src="https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white" alt="Kubernetes"/>
-  <img src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS"/>
-  <img src="https://img.shields.io/badge/Azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white" alt="Azure"/>
-  <img src="https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions"/>
+<div align="center">
+  <table>
+    <tr>
+      <td align="center"><strong>Core Languages</strong></td>
+      <td><img src="https://img.shields.io/badge/Rust-000000?style=flat&logo=rust&logoColor=white" alt="Rust"/></td>
+      <td><img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python"/></td>
+    </tr>
+    <tr>
+      <td align="center"><strong>Data & Architecture</strong></td>
+      <td><img src="https://img.shields.io/badge/Data Lakehouse-0078D4?style=flat&logo=databricks&logoColor=white" alt="Data Lakehouse"/></td>
+      <td><img src="https://img.shields.io/badge/Apache Arrow-130F2A?style=flat&logo=apache-arrow&logoColor=white" alt="Apache Arrow"/></td>
+      <td><img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white" alt="PostgreSQL"/></td>
+    </tr>
+    <tr>
+      <td align="center"><strong>Cloud & DevOps</strong></td>
+      <td><img src="https://img.shields.io/badge/Azure-0078D4?style=flat&logo=microsoft-azure&logoColor=white" alt="Azure"/></td>
+      <td><img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" alt="Docker"/></td>
+      <td><img src="https://img.shields.io/badge/GitHub Actions-2088FF?style=flat&logo=github-actions&logoColor=white" alt="GitHub Actions"/></td>
+    </tr>
+  </table>
 </p>
 
 ---
@@ -73,18 +48,18 @@
 ## 🚀 Featured Project
 
 ### [dataprof](https://github.com/AndreaBozzo/dataprof)
-**Fast, lightweight data profiling library built in Rust with Python bindings.**
+**A fast, lightweight data profiling library built in Rust with Python bindings.**
 
-[![PyPI Downloads](https://img.shields.io/pypi/dm/dataprof?style=for-the-badge&label=PyPI%20Downloads&color=blue)](https://pypi.org/project/dataprof/)
-[![Crates.io Downloads](https://img.shields.io/crates/d/dataprof?style=for-the-badge&label=Crates.io%20Downloads&color=orange)](https://crates.io/crates/dataprof)
-[![GitHub Stars](https://img.shields.io/github/stars/AndreaBozzo/dataprof?style=for-the-badge&logo=github)](https://github.com/AndreaBozzo/dataprof)
+[![PyPI Downloads](https://img.shields.io/pypi/dm/dataprof?style=flat&label=PyPI%20Downloads&color=blue)](https://pypi.org/project/dataprof/)
+[![Crates.io Downloads](https://img.shields.io/crates/d/dataprof?style=flat&label=Crates.io%20Downloads&color=orange)](https://crates.io/crates/dataprof)
+[![GitHub Stars](https://img.shields.io/github/stars/AndreaBozzo/dataprof?style=flat&logo=github)](https://github.com/AndreaBozzo/dataprof)
 
 > A high-performance CLI tool and library designed for data engineers to profile datasets locally without sending data to external servers.
 
-* **🔥 Performance:** Written in Rust using **Apache Arrow** for memory efficiency.
-* **🐍 Python Integration:** Full Python bindings via PyO3 for seamless integration in notebooks and pipelines.
-* **🏭 Production Ready:** Over **100k+ downloads** across platforms, widely used in CI/CD pipelines for automated data quality checks.
-* **🔒 Privacy First:** Zero telemetry, 100% local execution.
+* **Performance:** Written in Rust using **Apache Arrow** for memory efficiency.
+* **Python Integration:** Full Python bindings via PyO3 for seamless integration.
+* **Production Ready:** Over **100k+ downloads** across platforms, used in CI/CD for automated data quality checks.
+* **Privacy First:** Zero telemetry, 100% local execution.
 
 ---
 
@@ -93,7 +68,7 @@
 
 Contributing to the broader open source ecosystem beyond my own projects.
 
-> 🤖 *This section is automatically updated daily via GitHub Actions*
+> *This section is automatically updated daily via GitHub Actions*
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
 - **[pola-rs/polars](https://github.com/pola-rs/polars)** ⭐ 36348 - 1 merged PR
@@ -122,12 +97,9 @@ Contributing to the broader open source ecosystem beyond my own projects.
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=AndreaBozzo&show_icons=true&theme=default&hide_border=true&count_private=true" alt="GitHub Stats" height="165"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AndreaBozzo&layout=compact&langs_count=8&theme=default&hide_border=true" alt="Top Languages" height="165"/>
-</p>
-
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=AndreaBozzo&theme=default&hide_border=true" alt="GitHub Streak" />
+  <img src="https://github-readme-stats.vercel.app/api?username=AndreaBozzo&show_icons=true&theme=default&hide_border=true&count_private=true" alt="GitHub Stats" height="150"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AndreaBozzo&layout=compact&langs_count=8&theme=default&hide_border=true" alt="Top Languages" height="150"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=AndreaBozzo&theme=default&hide_border=true" alt="GitHub Streak" height="150"/>
 </p>
 
 <p align="center">
@@ -136,25 +108,12 @@ Contributing to the broader open source ecosystem beyond my own projects.
 
 ---
 
-## 💡 Currently
-
-- 🔭 **Working on:** Building high-performance data pipelines with Rust
-- 🌱 **Learning:** Advanced systems programming and distributed computing patterns
-- 👯 **Looking to collaborate on:** Data engineering projects, Python/Rust/Go libraries, open source tools
-- 💬 **Ask me about:** Data pipelines, ETL design, Rust best practices, system architecture
-- ⚡ **Fun fact:** I debug code faster after the third espresso ☕
-
----
-
 ## 🤝 Let's Connect
 
-<p align="center">
-  <a href="https://www.linkedin.com/in/andrea-bozzo-/">LinkedIn</a> •
-  <a href="mailto:andreabozzo92@gmail.com">Email</a> •
-  <a href="https://github.com/AndreaBozzo">GitHub</a> •
-  <a href="https://github.com/sponsors/AndreaBozzo">💎 Sponsor</a>
-</p>
+I'm always open to connecting with fellow developers and data enthusiasts. Let's talk about data engineering, system architecture, or your favorite open-source project.
 
-**Open to**: Consulting on data engineering • Open source collaborations • Interesting data challenges • Python, Rust & Go projects
+*   **Ask me about:** Data pipelines, ETL design, Rust best practices, and system architecture.
+*   **Looking to collaborate on:** Data engineering tools, high-performance libraries (Rust/Python), and interesting open-source projects.
+*   **Fun fact:** I still write SQL, but now I optimize the engine running it.
 
 ---
