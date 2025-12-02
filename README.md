@@ -2,7 +2,8 @@
 
 <p align="center">
   <strong>Senior Data Architect | Systems Programmer | Open Source Creator</strong><br>
-  My journey into tech was non-traditional, starting as a Chartered Accountant before diving deep into data and systems engineering. This hybrid DNA defines my approach: I don't just build pipelines; I architect solutions that optimize costs, ensure data integrity, and drive measurable ROI. I treat CPU cycles like a budget—they shouldn't be wasted.<br><br>As a freelancer, I have the freedom to choose projects and visions I truly believe in.
+  My path into technology wasn't a straight line, but an inevitable evolution. I've spent my life as a problem-solver, and with a keyboard in front of me for as long as I can remember, programming became my natural language for building solutions.<br><br>
+  This journey took me from a background as a Chartered Accountant, through data analysis, and ultimately deep into systems engineering.
 </p>
 
 <p align="center">
