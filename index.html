@@ -227,20 +227,17 @@
                 contributionLines.slice(0, 4).forEach(line => { // Show top 4
                     const repoMatch = line.match(/\[(.*?)\]\((.*?)\)/);
                     const starsMatch = line.match(/⭐\s(.*?)\s-/);
-                    const descriptionMatch = line.match(/\n\s+-\s(.*)/);
 
                     if (!repoMatch) return;
 
                     const repoName = repoMatch[1];
                     const repoUrl = repoMatch[2];
                     const stars = starsMatch ? starsMatch[1] : 'N/A';
-                    const description = descriptionMatch ? descriptionMatch[1] : 'A valuable open source contribution.';
 
                     const projectItem = document.createElement('div');
                     projectItem.className = 'project-item';
                     projectItem.innerHTML = `
                         <h3 class="project-name">${repoName}</h3>
-                        <p class="project-desc">${description}</p>
                         <p class="project-contrib">⭐ ${stars} stars</p>
                         <a href="${repoUrl}" class="project-link" target="_blank" rel="noopener noreferrer">View project →</a>
                     `;
