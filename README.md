@@ -3,7 +3,7 @@
 <p align="center">
   <strong>Senior Data Architect | Systems Programmer | Open Source Creator</strong><br>
   My path into technology wasn't a straight line, but an inevitable evolution. I've spent my life as a problem-solver, and with a keyboard in front of me for as long as I can remember, programming became my natural language for building solutions.<br><br>
-  This journey took me from a background as a Chartered Accountant, through data analysis, and ultimately deep into systems engineering. On my blog, I share technical deep-dives into the projects I contribute to. Expect complex jargon and unfiltered details as it's written for fellow ~~nerds~~ builders.
+  This journey took me from a background as a Chartered Accountant, through data analysis, and ultimately deep into systems engineering. On my blog, I share technical deep-dives into the projects I contribute to. Expect complex jargon and unfiltered details as it's written for fellow <del>nerds</del> builders.
 </p>
 
 <p align="center">
