@@ -207,7 +207,7 @@ Immaginiamo di dover analizzare eventi di click-stream da un'applicazione web:
 - Catalogati da Lakekeeper con vended credentials STS
 - Analizzati giornalmente per dashboard executive e ML feature engineering
 
-![Stack Architecture Comparison](/images/Polars-Stack-Comparison.png)
+![Stack Architecture Comparison](/AndreaBozzo/blog/images/Polars-Stack-Comparison.png)
 *Confronto tra stack JVM tradizionale e stack Rust-native per analytics: dal paradigma "Big Data distribuito" alla performance single-node ottimizzata*
 
 ### Prima (Approccio JVM Tradizionale)
@@ -594,7 +594,7 @@ Con Polars, il cerchio si chiude. Nei tre articoli di questa serie abbiamo costr
 - Lettura nativa di Iceberg V3 con deletion vectors
 - Performance single-node che compete con cluster distribuiti
 
-![Complete Rust Data Stack](/images/Rust-Data-Stack-Complete.png)
+![Complete Rust Data Stack](/AndreaBozzo/blog/images/Rust-Data-Stack-Complete.png)
 *L'architettura completa dello stack Rust-native: RisingWave per ingestion, Lakekeeper per governance, e Polars per analytics—tutti integrati via Iceberg V3 e standard aperti*
 
 ### Architettura End-to-End
