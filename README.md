@@ -8,6 +8,8 @@
 
 <p align="center">
   I have a few personal projects like <a href="https://github.com/AndreaBozzo/dataprof">dataprof</a> and, more recently, <a href="https://github.com/AndreaBozzo/Ceres">Ceres</a>.
+</p>
+<p align="center">
   <a href="https://andreabozzo.github.io/AndreaBozzo/">🌐 Landing Page</a> •
   <a href="https://andreabozzo.github.io/AndreaBozzo/blog/">📝 Blog</a> •
   <a href="https://www.linkedin.com/in/andrea-bozzo-/">💼 LinkedIn</a> •
