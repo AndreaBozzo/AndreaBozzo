@@ -45,7 +45,7 @@ Scrivo in italiano perché c'è poco materiale di qualità su questi temi nella 
 
 Se stai lavorando su progetti interessanti nel mondo dei dati, o semplicemente vuoi fare due chiacchiere su architetture e tecnologie, scrivimi.
 
-📧 **Email:** [andreabozzo95@gmail.com](mailto:andreabozzo95@gmail.com)  
+📧 **Email:** [andreabozzo95@gmail.com](mailto:andreabozzo92@gmail.com)  
 💼 **LinkedIn:** [andrea-bozzo-](https://www.linkedin.com/in/andrea-bozzo-/)  
 🐙 **GitHub:** [AndreaBozzo](https://github.com/AndreaBozzo)
 
