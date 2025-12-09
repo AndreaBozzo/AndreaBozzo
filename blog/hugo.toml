@@ -157,6 +157,12 @@ url = "https://andreabozzo.github.io/AndreaBozzo/blog/tags/"
 weight = 30
 
 [[languages.it.menu.main]]
+identifier = "about"
+name = "Chi Sono"
+url = "https://andreabozzo.github.io/AndreaBozzo/blog/about/"
+weight = 35
+
+[[languages.it.menu.main]]
 identifier = "profilo"
 name = "GitHub Profile"
 url = "https://andreabozzo.github.io/AndreaBozzo/"
@@ -179,6 +185,12 @@ identifier = "tags"
 name = "Tags"
 url = "https://andreabozzo.github.io/AndreaBozzo/blog/en/tags/"
 weight = 30
+
+[[languages.en.menu.main]]
+identifier = "about"
+name = "About"
+url = "https://andreabozzo.github.io/AndreaBozzo/blog/en/about/"
+weight = 35
 
 [[languages.en.menu.main]]
 identifier = "profile"
