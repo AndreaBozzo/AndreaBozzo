@@ -61,21 +61,21 @@ Contributing to the broader open source ecosystem beyond my own projects.
 > *This section is automatically updated daily via GitHub Actions*
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
-- **[pola-rs/polars](https://github.com/pola-rs/polars)** ⭐ 36434 - 1 merged PR
+- **[pola-rs/polars](https://github.com/pola-rs/polars)** ⭐ 36454 - 1 merged PR
   - Extremely fast Query Engine for DataFrames, written in Rust
-- **[risingwavelabs/risingwave](https://github.com/risingwavelabs/risingwave)** ⭐ 8578 - 1 merged PR
+- **[risingwavelabs/risingwave](https://github.com/risingwavelabs/risingwave)** ⭐ 8583 - 1 merged PR
   - Streaming data platform. Real-time stream processing, low-latency serving, and Iceberg table management.
-- **[supabase/etl](https://github.com/supabase/etl)** ⭐ 2058 - 1 merged PR
+- **[supabase/etl](https://github.com/supabase/etl)** ⭐ 2060 - 1 merged PR
   - Stream your Postgres data anywhere in real-time. Simple Rust building blocks for change data capture (CDC) pipelines.
 - **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 2030 - 3 merged PRs
   - Build reliable Gen AI solutions without overhead 🍕
-- **[mariocandela/beelzebub](https://github.com/mariocandela/beelzebub)** ⭐ 1712 - 1 merged PR
+- **[mariocandela/beelzebub](https://github.com/mariocandela/beelzebub)** ⭐ 1714 - 1 merged PR
   - A secure low code honeypot framework, leveraging AI for System Virtualization.
-- **[lakekeeper/lakekeeper](https://github.com/lakekeeper/lakekeeper)** ⭐ 1070 - 2 merged PRs
+- **[lakekeeper/lakekeeper](https://github.com/lakekeeper/lakekeeper)** ⭐ 1074 - 2 merged PRs
   - Lakekeeper is an Apache-Licensed, secure, fast and easy to use Apache Iceberg REST Catalog written in Rust.
 - **[italia-opensource/awesome-italia-opensource](https://github.com/italia-opensource/awesome-italia-opensource)** ⭐ 311 - 1 merged PR
   - Italian Open-Source is the first platform dedicated to Italian open-source world
-- **[pganalyze/pg_query.rs](https://github.com/pganalyze/pg_query.rs)** ⭐ 204 - 1 merged PR
+- **[pganalyze/pg_query.rs](https://github.com/pganalyze/pg_query.rs)** ⭐ 205 - 1 merged PR
   - Parse, deparse and normalize SQL queries using the Postgres source code
 - **[CortexFlow/CortexBrain](https://github.com/CortexFlow/CortexBrain)** ⭐ 67 - 3 merged PRs
   - CortexBrain is an ambitious open-source project created by CortexFlow, aiming to develop an intelligent, lightweight, and efficient service mesh architecture that seamlessly connects cloud and edge devices
