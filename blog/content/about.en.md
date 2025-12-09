@@ -45,7 +45,7 @@ I write in Italian because there's little quality material on these topics in my
 
 If you're working on interesting projects in the data world, or just want to talk about architectures and technologies, reach out.
 
-📧 **Email:** [andreabozzo95@gmail.com](mailto:andreabozzo92@gmail.com)  
+📧 **Email:** [andreabozzo92@gmail.com](mailto:andreabozzo92@gmail.com)  
 💼 **LinkedIn:** [andrea-bozzo-](https://www.linkedin.com/in/andrea-bozzo-/)  
 🐙 **GitHub:** [AndreaBozzo](https://github.com/AndreaBozzo)
 
