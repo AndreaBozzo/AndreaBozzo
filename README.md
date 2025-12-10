@@ -61,7 +61,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 > *This section is automatically updated daily via GitHub Actions*
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
-- **[pola-rs/polars](https://github.com/pola-rs/polars)** ⭐ 36478 - 2 merged PRs
+- **[pola-rs/polars](https://github.com/pola-rs/polars)** ⭐ 36483 - 2 merged PRs
   - Extremely fast Query Engine for DataFrames, written in Rust
 - **[risingwavelabs/risingwave](https://github.com/risingwavelabs/risingwave)** ⭐ 8587 - 1 merged PR
   - Streaming data platform. Real-time stream processing, low-latency serving, and Iceberg table management.
@@ -71,6 +71,8 @@ Contributing to the broader open source ecosystem beyond my own projects.
   - Build reliable Gen AI solutions without overhead 🍕
 - **[mariocandela/beelzebub](https://github.com/mariocandela/beelzebub)** ⭐ 1720 - 1 merged PR
   - A secure low code honeypot framework, leveraging AI for System Virtualization.
+- **[apache/iceberg-rust](https://github.com/apache/iceberg-rust)** ⭐ 1157 - 1 merged PR
+  - Apache Iceberg
 - **[lakekeeper/lakekeeper](https://github.com/lakekeeper/lakekeeper)** ⭐ 1077 - 2 merged PRs
   - Lakekeeper is an Apache-Licensed, secure, fast and easy to use Apache Iceberg REST Catalog written in Rust.
 - **[italia-opensource/awesome-italia-opensource](https://github.com/italia-opensource/awesome-italia-opensource)** ⭐ 311 - 1 merged PR
@@ -79,8 +81,6 @@ Contributing to the broader open source ecosystem beyond my own projects.
   - Parse, deparse and normalize SQL queries using the Postgres source code
 - **[CortexFlow/CortexBrain](https://github.com/CortexFlow/CortexBrain)** ⭐ 67 - 3 merged PRs
   - CortexBrain is an ambitious open-source project created by CortexFlow, aiming to develop an intelligent, lightweight, and efficient service mesh architecture that seamlessly connects cloud and edge devices
-- **[piopy/fantacalcio-py](https://github.com/piopy/fantacalcio-py)** ⭐ 41 - 4 merged PRs
-  - Piccolo tool per guidarci all'asta spendendo poco
 <!-- EXTERNAL_CONTRIBUTIONS:END -->
 
 ---
