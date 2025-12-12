@@ -13,7 +13,8 @@
 </p>
 
 <p align="center">
-  I have a few personal projects like <a href="https://github.com/AndreaBozzo/dataprof">dataprof</a> and, more recently, <a href="https://github.com/AndreaBozzo/Ceres">Ceres</a>.
+  I have a few personal projects like <a href="https://github.com/AndreaBozzo/Ceres">Ceres</a>, free templates for BI,
+  on-hand starter implementations of Kafka, Flink, analytics notebooks and generally useful content for anyone working with data.
 </p>
 <p align="center">
   <a href="https://andreabozzo.github.io/AndreaBozzo/">🌐 Landing Page</a> •
