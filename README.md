@@ -16,6 +16,7 @@
   I have a few personal projects like <a href="https://github.com/AndreaBozzo/Ceres">Ceres</a>, free templates for BI,
   on-hand starter implementations of Kafka, Flink, PostgreSQL / DuckDB, analytics notebooks and generally useful content for anyone working with data. 
   Leave a ⭐ if you find any of these useful, they are all on free licences.
+  
   Thank you ❤️!
 </p>
 <p align="center">
