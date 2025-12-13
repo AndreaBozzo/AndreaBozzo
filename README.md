@@ -69,23 +69,23 @@ Contributing to the broader open source ecosystem beyond my own projects.
 > *This section is automatically updated daily via GitHub Actions*
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
-- **[pola-rs/polars](https://github.com/pola-rs/polars)** ⭐ 36511 - 2 merged PRs
+- **[pola-rs/polars](https://github.com/pola-rs/polars)** ⭐ 36518 - 2 merged PRs
   - Extremely fast Query Engine for DataFrames, written in Rust
-- **[risingwavelabs/risingwave](https://github.com/risingwavelabs/risingwave)** ⭐ 8592 - 1 merged PR
+- **[risingwavelabs/risingwave](https://github.com/risingwavelabs/risingwave)** ⭐ 8596 - 1 merged PR
   - Streaming data platform. Real-time stream processing, low-latency serving, and Iceberg table management.
-- **[supabase/etl](https://github.com/supabase/etl)** ⭐ 2074 - 1 merged PR
+- **[supabase/etl](https://github.com/supabase/etl)** ⭐ 2080 - 1 merged PR
   - Stream your Postgres data anywhere in real-time. Simple Rust building blocks for change data capture (CDC) pipelines.
-- **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 2036 - 3 merged PRs
+- **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 2038 - 3 merged PRs
   - Build reliable Gen AI solutions without overhead 🍕
-- **[mariocandela/beelzebub](https://github.com/mariocandela/beelzebub)** ⭐ 1729 - 1 merged PR
+- **[mariocandela/beelzebub](https://github.com/mariocandela/beelzebub)** ⭐ 1738 - 1 merged PR
   - A secure low code honeypot framework, leveraging AI for System Virtualization. 🇮🇹
-- **[apache/iceberg-rust](https://github.com/apache/iceberg-rust)** ⭐ 1160 - 1 merged PR
+- **[apache/iceberg-rust](https://github.com/apache/iceberg-rust)** ⭐ 1163 - 1 merged PR
   - Apache Iceberg
-- **[lakekeeper/lakekeeper](https://github.com/lakekeeper/lakekeeper)** ⭐ 1081 - 2 merged PRs
+- **[lakekeeper/lakekeeper](https://github.com/lakekeeper/lakekeeper)** ⭐ 1082 - 2 merged PRs
   - Lakekeeper is an Apache-Licensed, secure, fast and easy to use Apache Iceberg REST Catalog written in Rust.
 - **[italia-opensource/awesome-italia-opensource](https://github.com/italia-opensource/awesome-italia-opensource)** ⭐ 311 - 1 merged PR
   - Italian Open-Source is the first platform dedicated to Italian open-source world
-- **[pganalyze/pg_query.rs](https://github.com/pganalyze/pg_query.rs)** ⭐ 206 - 1 merged PR
+- **[pganalyze/pg_query.rs](https://github.com/pganalyze/pg_query.rs)** ⭐ 207 - 1 merged PR
   - Parse, deparse and normalize SQL queries using the Postgres source code
 - **[CortexFlow/CortexBrain](https://github.com/CortexFlow/CortexBrain)** ⭐ 67 - 3 merged PRs
   - CortexBrain is an ambitious open-source project created by CortexFlow, aiming to develop an intelligent, lightweight, and efficient service mesh architecture that seamlessly connects cloud and edge devices
