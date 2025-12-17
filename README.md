@@ -105,14 +105,3 @@ Contributing to the broader open source ecosystem beyond my own projects.
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=AndreaBozzo&theme=github-compact&hide_border=true" alt="Contribution Graph" />
 </p>
 
----
-
-## 🤝 Let's Connect
-
-I'm always open to connecting with fellow developers and data enthusiasts. Let's talk about data engineering, system architecture, or your favorite open-source project.
-
-*   **Ask me about:** Data pipelines, ETL design, Rust best practices, and system architecture.
-*   **Looking to collaborate on:** Data engineering tools, high-performance libraries (Rust/Python), and interesting open-source projects.
-*   **Fun fact:** I still write SQL, but now I optimize the engine running it.
-
----
