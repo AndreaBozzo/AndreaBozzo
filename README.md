@@ -69,25 +69,25 @@ Contributing to the broader open source ecosystem beyond my own projects.
 > *This section is automatically updated daily via GitHub Actions*
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
-- **[pola-rs/polars](https://github.com/pola-rs/polars)** ⭐ 36577 - 2 merged PRs
+- **[pola-rs/polars](https://github.com/pola-rs/polars)** ⭐ 36589 - 2 merged PRs
   - Extremely fast Query Engine for DataFrames, written in Rust
-- **[risingwavelabs/risingwave](https://github.com/risingwavelabs/risingwave)** ⭐ 8609 - 1 merged PR
+- **[risingwavelabs/risingwave](https://github.com/risingwavelabs/risingwave)** ⭐ 8611 - 1 merged PR
   - Streaming data platform. Real-time stream processing, low-latency serving, and Iceberg table management.
-- **[supabase/etl](https://github.com/supabase/etl)** ⭐ 2092 - 1 merged PR
+- **[supabase/etl](https://github.com/supabase/etl)** ⭐ 2109 - 1 merged PR
   - Stream your Postgres data anywhere in real-time. Simple Rust building blocks for change data capture (CDC) pipelines.
-- **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 2041 - 3 merged PRs
+- **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 2042 - 3 merged PRs
   - Build reliable Gen AI solutions without overhead 🍕
-- **[mariocandela/beelzebub](https://github.com/mariocandela/beelzebub)** ⭐ 1747 - 1 merged PR
+- **[mariocandela/beelzebub](https://github.com/mariocandela/beelzebub)** ⭐ 1748 - 1 merged PR
   - A secure low code honeypot framework, leveraging AI for System Virtualization.
-- **[apache/iceberg-rust](https://github.com/apache/iceberg-rust)** ⭐ 1169 - 1 merged PR
+- **[apache/iceberg-rust](https://github.com/apache/iceberg-rust)** ⭐ 1170 - 1 merged PR
   - Apache Iceberg
-- **[lakekeeper/lakekeeper](https://github.com/lakekeeper/lakekeeper)** ⭐ 1094 - 2 merged PRs
+- **[lakekeeper/lakekeeper](https://github.com/lakekeeper/lakekeeper)** ⭐ 1096 - 2 merged PRs
   - Lakekeeper is an Apache-Licensed, secure, fast and easy to use Apache Iceberg REST Catalog written in Rust.
 - **[italia-opensource/awesome-italia-opensource](https://github.com/italia-opensource/awesome-italia-opensource)** ⭐ 311 - 1 merged PR
   - Italian Open-Source is the first platform dedicated to Italian open-source world
 - **[pganalyze/pg_query.rs](https://github.com/pganalyze/pg_query.rs)** ⭐ 208 - 1 merged PR
   - Parse, deparse and normalize SQL queries using the Postgres source code
-- **[mosaico-labs/mosaico](https://github.com/mosaico-labs/mosaico)** ⭐ 138 - 1 merged PR
+- **[mosaico-labs/mosaico](https://github.com/mosaico-labs/mosaico)** ⭐ 182 - 1 merged PR
   - Mosaico is the open-source data platform for Robotics and Physical AI
 <!-- EXTERNAL_CONTRIBUTIONS:END -->
 
