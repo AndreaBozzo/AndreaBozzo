@@ -35,7 +35,7 @@ Ceres addresses exactly this gap. It's a semantic search engine for CKAN portals
 
 Ceres architecture is organized into three blocks that reflect a philosophy seen in previous articles: **metadata is the foundation, not a consequence**.
 
-![Ceres Architecture](/images/Ceres_architecture.png)
+![Ceres Architecture](/AndreaBozzo/blog/images/Ceres_architecture.png)
 
 ### 1. Async Harvesting: Preserving Original Semantics
 

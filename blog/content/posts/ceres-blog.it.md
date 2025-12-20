@@ -35,7 +35,7 @@ Ceres affronta esattamente questo gap. È un motore di ricerca semantico per por
 
 L'architettura di Ceres si articola in tre blocchi che rispecchiano una filosofia già vista negli articoli precedenti: **i metadati sono il fondamento, non una conseguenza**.
 
-![Ceres Architecture](/images/Ceres_architecture.png)
+![Ceres Architecture](/AndreaBozzo/blog/images/Ceres_architecture.png)
 
 ### 1. Harvesting Asincrono: Preservare la Semantica Originale
 
