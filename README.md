@@ -71,26 +71,44 @@ Contributing to the broader open source ecosystem beyond my own projects.
 > *This section is automatically updated daily via GitHub Actions*
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
-- **[pola-rs/polars](https://github.com/pola-rs/polars)** ⭐ 36702 - 2 merged PRs
-  - Extremely fast Query Engine for DataFrames, written in Rust
-- **[risingwavelabs/risingwave](https://github.com/risingwavelabs/risingwave)** ⭐ 8634 - 1 merged PR
-  - Streaming data platform. Real-time stream processing, low-latency serving, and Iceberg table management.
-- **[supabase/etl](https://github.com/supabase/etl)** ⭐ 2125 - 2 merged PRs
-  - Stream your Postgres data anywhere in real-time. Simple Rust building blocks for change data capture (CDC) pipelines.
-- **[datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai)** ⭐ 2048 - 3 merged PRs
-  - Build reliable Gen AI solutions without overhead 🍕
-- **[mariocandela/beelzebub](https://github.com/mariocandela/beelzebub)** ⭐ 1772 - 1 merged PR
-  - A secure low code honeypot framework, leveraging AI for System Virtualization.
-- **[apache/iceberg-rust](https://github.com/apache/iceberg-rust)** ⭐ 1175 - 2 merged PRs
-  - Apache Iceberg
-- **[lakekeeper/lakekeeper](https://github.com/lakekeeper/lakekeeper)** ⭐ 1109 - 2 merged PRs
-  - Lakekeeper is an Apache-Licensed, secure, fast and easy to use Apache Iceberg REST Catalog written in Rust.
-- **[italia-opensource/awesome-italia-opensource](https://github.com/italia-opensource/awesome-italia-opensource)** ⭐ 313 - 1 merged PR
-  - Italian Open-Source is the first platform dedicated to Italian open-source world
-- **[mosaico-labs/mosaico](https://github.com/mosaico-labs/mosaico)** ⭐ 254 - 7 merged PRs
-  - Mosaico is the open-source data platform for Robotics and Physical AI
-- **[pganalyze/pg_query.rs](https://github.com/pganalyze/pg_query.rs)** ⭐ 209 - 1 merged PR
-  - Parse, deparse and normalize SQL queries using the Postgres source code
+### 🔬 Data Ecosystem
+
+| Project | Stars | PRs | Description |
+|---------|-------|-----|-------------|
+| [pola-rs/polars](https://github.com/pola-rs/polars) | 36.7k | 2 | Extremely fast Query Engine for DataFrames, written in Rust |
+| [risingwavelabs/risingwave](https://github.com/risingwavelabs/risingwave) | 8.6k | 1 | Streaming data platform. Real-time stream processing,... |
+| [supabase/etl](https://github.com/supabase/etl) | 2.1k | 2 | Stream your Postgres data anywhere in real-time. Simple Rust... |
+| [lakekeeper/lakekeeper](https://github.com/lakekeeper/lakekeeper) | 1.1k | 2 | Lakekeeper is an Apache-Licensed, secure, fast and easy to... |
+| [pganalyze/pg_query.rs](https://github.com/pganalyze/pg_query.rs) | 209 | 1 | Parse, deparse and normalize SQL queries using the Postgres... |
+
+### 🦀 Rust Tooling
+
+| Project | Stars | PRs | Description |
+|---------|-------|-----|-------------|
+| [apache/iceberg-rust](https://github.com/apache/iceberg-rust) | 1.2k | 2 | Apache Iceberg |
+| [rust-ita/rust-docs-it](https://github.com/rust-ita/rust-docs-it) | 2 | 2 | Documentazione Rust tradotta in italiano |
+
+### 🤖 AI/ML
+
+| Project | Stars | PRs | Description |
+|---------|-------|-----|-------------|
+| [datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai) | 2.0k | 3 | Build reliable Gen AI solutions without overhead 🍕 |
+| [mosaico-labs/mosaico](https://github.com/mosaico-labs/mosaico) | 256 | 7 | Mosaico is the open-source data platform for Robotics and... |
+
+### 🛠️ Infrastructure
+
+| Project | Stars | PRs | Description |
+|---------|-------|-----|-------------|
+| [mariocandela/beelzebub](https://github.com/mariocandela/beelzebub) | 1.8k | 1 | A secure low code honeypot framework, leveraging AI for... |
+| [CortexFlow/CortexBrain](https://github.com/CortexFlow/CortexBrain) | 68 | 3 | CortexBrain is an ambitious open-source project designed to... |
+
+### 📦 Other
+
+| Project | Stars | PRs | Description |
+|---------|-------|-----|-------------|
+| [italia-opensource/awesome-italia-opensource](https://github.com/italia-opensource/awesome-italia-opensource) | 313 | 1 | Italian Open-Source is the first platform dedicated to... |
+| [piopy/fantacalcio-py](https://github.com/piopy/fantacalcio-py) | 41 | 4 | Piccolo tool per guidarci all'asta spendendo poco |
+| [informagico/fantavibe](https://github.com/informagico/fantavibe) | 3 | 1 | No description |
 <!-- EXTERNAL_CONTRIBUTIONS:END -->
 
 ---
