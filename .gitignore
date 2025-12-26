@@ -47,4 +47,6 @@ __pycache__/
 *.pyo
 *.pyd
 *.pdb
-*.py
+
+# Exception: keep GitHub Actions scripts
+!.github/scripts/*.py
