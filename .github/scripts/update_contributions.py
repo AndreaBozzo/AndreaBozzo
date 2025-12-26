@@ -136,7 +136,7 @@ def categorize_repo(repo_info):
                 scores[cat] += 3
 
     # Signal 2: Name/Description keywords (weight: 1)
-    text = f"{repo_info['name']} {repo_info.get('description', '')}".lower()
+    text = f"{repo_info['full_name']} {repo_info.get('description', '')}".lower()
     for cat, patterns in KEYWORD_PATTERNS.items():
         for pattern in patterns:
             if re.search(pattern, text, re.IGNORECASE):
