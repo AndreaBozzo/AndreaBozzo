@@ -510,6 +510,7 @@ body {
     .cta-buttons {
         flex-direction: column;
         width: 100%;
+        align-items: center;
     }
 
     .btn {
