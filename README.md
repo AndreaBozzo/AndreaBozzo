@@ -93,14 +93,14 @@ Contributing to the broader open source ecosystem beyond my own projects.
 | Project | Stars | PRs | Description |
 |---------|-------|-----|-------------|
 | [datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai) | 2.0k | 3 | Build reliable Gen AI solutions without overhead 🍕 |
-| [mosaico-labs/mosaico](https://github.com/mosaico-labs/mosaico) | 256 | 7 | Mosaico is the open-source data platform for Robotics and... |
+| [mosaico-labs/mosaico](https://github.com/mosaico-labs/mosaico) | 258 | 7 | Mosaico is the open-source data platform for Robotics and... |
 
 ### 🛠️ Infrastructure
 
 | Project | Stars | PRs | Description |
 |---------|-------|-----|-------------|
 | [mariocandela/beelzebub](https://github.com/mariocandela/beelzebub) | 1.8k | 1 | A secure low code honeypot framework, leveraging AI for... |
-| [CortexFlow/CortexBrain](https://github.com/CortexFlow/CortexBrain) | 68 | 3 | CortexBrain is an ambitious open-source project designed to... |
+| [CortexFlow/CortexBrain](https://github.com/CortexFlow/CortexBrain) | 69 | 3 | CortexBrain is an ambitious open-source project designed to... |
 
 ### 📦 Other
 
