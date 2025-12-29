@@ -75,7 +75,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 
 | Project | Stars | PRs | Description |
 |---------|-------|-----|-------------|
-| [pola-rs/polars](https://github.com/pola-rs/polars) | 36.7k | 2 | Extremely fast Query Engine for DataFrames, written in Rust |
+| [pola-rs/polars](https://github.com/pola-rs/polars) | 36.8k | 2 | Extremely fast Query Engine for DataFrames, written in Rust |
 | [risingwavelabs/risingwave](https://github.com/risingwavelabs/risingwave) | 8.6k | 1 | Streaming data platform. Real-time stream processing,... |
 | [supabase/etl](https://github.com/supabase/etl) | 2.1k | 2 | Stream your Postgres data anywhere in real-time. Simple Rust... |
 | [lakekeeper/lakekeeper](https://github.com/lakekeeper/lakekeeper) | 1.1k | 2 | Lakekeeper is an Apache-Licensed, secure, fast and easy to... |
@@ -85,6 +85,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 
 | Project | Stars | PRs | Description |
 |---------|-------|-----|-------------|
+| [tokio-rs/tokio](https://github.com/tokio-rs/tokio) | 30.6k | 1 | A runtime for writing reliable asynchronous applications with... |
 | [apache/iceberg-rust](https://github.com/apache/iceberg-rust) | 1.2k | 2 | Apache Iceberg |
 | [rust-ita/rust-docs-it](https://github.com/rust-ita/rust-docs-it) | 2 | 2 | Documentazione Rust tradotta in italiano |
 
@@ -93,7 +94,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 | Project | Stars | PRs | Description |
 |---------|-------|-----|-------------|
 | [datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai) | 2.0k | 3 | Build reliable Gen AI solutions without overhead 🍕 |
-| [mosaico-labs/mosaico](https://github.com/mosaico-labs/mosaico) | 261 | 7 | Mosaico is the open-source data platform for Robotics and... |
+| [mosaico-labs/mosaico](https://github.com/mosaico-labs/mosaico) | 264 | 7 | Mosaico is the open-source data platform for Robotics and... |
 
 ### 🛠️ Infrastructure
 
