@@ -87,13 +87,14 @@ Contributing to the broader open source ecosystem beyond my own projects.
 |---------|-------|-----|-------------|
 | [tokio-rs/tokio](https://github.com/tokio-rs/tokio) | 30.6k | 1 | A runtime for writing reliable asynchronous applications with... |
 | [apache/iceberg-rust](https://github.com/apache/iceberg-rust) | 1.2k | 2 | Apache Iceberg |
+| [vakamo-labs/openfga-client](https://github.com/vakamo-labs/openfga-client) | 3 | 1 | OpenFGA Rust Client is a type-safe client for OpenFGA with... |
 | [rust-ita/rust-docs-it](https://github.com/rust-ita/rust-docs-it) | 2 | 2 | Documentazione Rust tradotta in italiano |
 
 ### 🤖 AI/ML
 
 | Project | Stars | PRs | Description |
 |---------|-------|-----|-------------|
-| [datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai) | 2.0k | 3 | Build reliable Gen AI solutions without overhead 🍕 |
+| [datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai) | 2.1k | 3 | Build reliable Gen AI solutions without overhead 🍕 |
 | [mosaico-labs/mosaico](https://github.com/mosaico-labs/mosaico) | 266 | 7 | Mosaico is the open-source data platform for Robotics and... |
 
 ### 🛠️ Infrastructure
