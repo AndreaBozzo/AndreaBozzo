@@ -1,4 +1,4 @@
-baseURL = 'https://andreabozzo.github.io/AndreaBozzo/blog/'
+baseURL = 'https://andreabozzo.pages.dev/'
 defaultContentLanguage = 'it'
 defaultContentLanguageInSubdir = false
 theme = 'PaperMod'
@@ -141,25 +141,25 @@ keys = ["title", "permalink", "summary", "content"]
 [[languages.it.menu.main]]
 identifier = "home"
 name = "Home"
-url = "https://andreabozzo.github.io/AndreaBozzo/blog/"
+url = "/"
 weight = 10
 
 [[languages.it.menu.main]]
 identifier = "posts"
 name = "Articoli"
-url = "https://andreabozzo.github.io/AndreaBozzo/blog/posts/"
+url = "/posts/"
 weight = 20
 
 [[languages.it.menu.main]]
 identifier = "tags"
 name = "Tags"
-url = "https://andreabozzo.github.io/AndreaBozzo/blog/tags/"
+url = "/tags/"
 weight = 30
 
 [[languages.it.menu.main]]
 identifier = "about"
 name = "Chi Sono"
-url = "https://andreabozzo.github.io/AndreaBozzo/blog/about/"
+url = "/about/"
 weight = 35
 
 [[languages.it.menu.main]]
@@ -171,25 +171,25 @@ weight = 40
 [[languages.en.menu.main]]
 identifier = "home"
 name = "Home"
-url = "https://andreabozzo.github.io/AndreaBozzo/blog/en/"
+url = "/en/"
 weight = 10
 
 [[languages.en.menu.main]]
 identifier = "posts"
 name = "Posts"
-url = "https://andreabozzo.github.io/AndreaBozzo/blog/en/posts/"
+url = "/en/posts/"
 weight = 20
 
 [[languages.en.menu.main]]
 identifier = "tags"
 name = "Tags"
-url = "https://andreabozzo.github.io/AndreaBozzo/blog/en/tags/"
+url = "/en/tags/"
 weight = 30
 
 [[languages.en.menu.main]]
 identifier = "about"
 name = "About"
-url = "https://andreabozzo.github.io/AndreaBozzo/blog/en/about/"
+url = "/en/about/"
 weight = 35
 
 [[languages.en.menu.main]]

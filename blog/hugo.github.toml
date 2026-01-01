@@ -1,0 +1,3 @@
+# Overrides for GitHub Pages deployment
+# Use with: hugo --config hugo.toml,hugo.github.toml
+baseURL = 'https://andreabozzo.github.io/AndreaBozzo/blog/'
