@@ -168,7 +168,7 @@ How were the changes tested?
 - 🐛 **GitHub Issues**: For bug reports and feature requests
 - 📧 **Email**: [andreabozzo92@gmail.com](mailto:andreabozzo92@gmail.com)
 - 💼 **LinkedIn**: [Andrea Bozzo](https://www.linkedin.com/in/andrea-bozzo-/)
-- 📝 **Blog**: [andreabozzo.github.io/AndreaBozzo/blog](https://andreabozzo.github.io/AndreaBozzo/blog/)
+- 📝 **Blog**: [andreabozzo.pages.dev](https://andreabozzo.pages.dev/)
 
 ## 📄 Licenses
 
