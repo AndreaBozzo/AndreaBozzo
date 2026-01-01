@@ -30,8 +30,6 @@
   <a href="mailto:andreabozzo92@gmail.com">📧 Email</a>
 </p>
 
-> **⚠️ Maintenance Notice:** The blog may be temporarily unavailable between December 31st, 2025 and January 2nd, 2026 due to scheduled maintenance. Thank you for your patience!
-
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=AndreaBozzo&label=Profile%20views&color=0e75b6&style=flat" alt="profile views" />
 </p>
