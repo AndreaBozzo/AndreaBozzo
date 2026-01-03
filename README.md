@@ -78,12 +78,13 @@ Contributing to the broader open source ecosystem beyond my own projects.
 | [supabase/etl](https://github.com/supabase/etl) | 2.1k | 2 | Stream your Postgres data anywhere in real-time. Simple Rust... |
 | [lakekeeper/lakekeeper](https://github.com/lakekeeper/lakekeeper) | 1.1k | 2 | Lakekeeper is an Apache-Licensed, secure, fast and easy to... |
 | [pganalyze/pg_query.rs](https://github.com/pganalyze/pg_query.rs) | 210 | 1 | Parse, deparse and normalize SQL queries using the Postgres... |
+| [apache/fluss-rust](https://github.com/apache/fluss-rust) | 26 | 1 | Rust Client for Apache Fluss (Incubating) |
 
 ### 🦀 Rust Tooling
 
 | Project | Stars | PRs | Description |
 |---------|-------|-----|-------------|
-| [tokio-rs/tokio](https://github.com/tokio-rs/tokio) | 30.6k | 1 | A runtime for writing reliable asynchronous applications with... |
+| [tokio-rs/tokio](https://github.com/tokio-rs/tokio) | 30.7k | 1 | A runtime for writing reliable asynchronous applications with... |
 | [apache/iceberg-rust](https://github.com/apache/iceberg-rust) | 1.2k | 2 | Apache Iceberg |
 | [vakamo-labs/openfga-client](https://github.com/vakamo-labs/openfga-client) | 5 | 1 | OpenFGA Rust Client is a type-safe client for OpenFGA with... |
 | [rust-ita/rust-docs-it](https://github.com/rust-ita/rust-docs-it) | 2 | 2 | Documentazione Rust tradotta in italiano |
@@ -93,7 +94,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 | Project | Stars | PRs | Description |
 |---------|-------|-----|-------------|
 | [datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai) | 2.1k | 3 | Build reliable Gen AI solutions without overhead 🍕 |
-| [mosaico-labs/mosaico](https://github.com/mosaico-labs/mosaico) | 275 | 7 | Mosaico is the open-source data platform for Robotics and... |
+| [mosaico-labs/mosaico](https://github.com/mosaico-labs/mosaico) | 279 | 7 | Mosaico is the open-source data platform for Robotics and... |
 
 ### 🛠️ Infrastructure
 
