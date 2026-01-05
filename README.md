@@ -94,21 +94,21 @@ Contributing to the broader open source ecosystem beyond my own projects.
 | Project | Stars | PRs | Description |
 |---------|-------|-----|-------------|
 | [datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai) | 2.1k | 3 | Build reliable Gen AI solutions without overhead 🍕 |
-| [mosaico-labs/mosaico](https://github.com/mosaico-labs/mosaico) | 281 | 8 | Mosaico is the open-source data platform for Robotics and... |
+| [mosaico-labs/mosaico](https://github.com/mosaico-labs/mosaico) | 282 | 9 | Mosaico is the open-source data platform for Robotics and... |
 
 ### 🛠️ Infrastructure
 
 | Project | Stars | PRs | Description |
 |---------|-------|-----|-------------|
 | [mariocandela/beelzebub](https://github.com/mariocandela/beelzebub) | 1.8k | 1 | A secure low code honeypot framework, leveraging AI for... |
-| [CortexFlow/CortexBrain](https://github.com/CortexFlow/CortexBrain) | 69 | 3 | CortexBrain is an ambitious open-source project designed to... |
+| [CortexFlow/CortexBrain](https://github.com/CortexFlow/CortexBrain) | 71 | 3 | CortexBrain is an ambitious open-source project designed to... |
 
 ### 📦 Other
 
 | Project | Stars | PRs | Description |
 |---------|-------|-----|-------------|
 | [italia-opensource/awesome-italia-opensource](https://github.com/italia-opensource/awesome-italia-opensource) | 313 | 1 | Italian Open-Source is the first platform dedicated to... |
-| [piopy/fantacalcio-py](https://github.com/piopy/fantacalcio-py) | 41 | 4 | Piccolo tool per guidarci all'asta spendendo poco |
+| [piopy/fantacalcio-py](https://github.com/piopy/fantacalcio-py) | 42 | 4 | Piccolo tool per guidarci all'asta spendendo poco |
 | [informagico/fantavibe](https://github.com/informagico/fantavibe) | 3 | 1 | No description |
 <!-- EXTERNAL_CONTRIBUTIONS:END -->
 
