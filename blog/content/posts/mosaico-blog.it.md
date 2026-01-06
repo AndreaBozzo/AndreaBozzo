@@ -1,6 +1,6 @@
 ---
 title: "Mosaico: La Piattaforma Dati per Robotica e Physical AI scritta in Rust"
-date: 2025-01-06T12:00:00+01:00
+date: 2026-01-06T12:00:00+01:00
 draft: false
 tags: ["Rust", "Python", "Robotics", "Data Platform", "Physical AI", "Open Source", "Data Engineering"]
 categories: ["Data Engineering", "Open Source", "Robotics"]
