@@ -122,6 +122,6 @@ Contributing to the broader open source ecosystem beyond my own projects.
 </p>
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=AndreaBozzo&theme=github-compact&hide_border=true" alt="Contribution Graph" />
+  <img src="metrics/contributions.svg" alt="Contribution Graph" />
 </p>
 

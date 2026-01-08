@@ -48,3 +48,16 @@ jobs:
           plugin_languages_sections: most-used
           plugin_languages_threshold: 0%
           config_timezone: Europe/Rome
+
+      # Contribution Graph
+      - name: Generate contribution graph
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          filename: metrics/contributions.svg
+          user: AndreaBozzo
+          template: classic
+          base: ""
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+          config_timezone: Europe/Rome
