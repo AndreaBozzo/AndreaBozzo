@@ -117,9 +117,8 @@ Contributing to the broader open source ecosystem beyond my own projects.
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=AndreaBozzo&show_icons=true&theme=default&hide_border=true&count_private=true" alt="GitHub Stats" height="150"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AndreaBozzo&layout=compact&langs_count=8&theme=default&hide_border=true" alt="Top Languages" height="150"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=AndreaBozzo&theme=default&hide_border=true" alt="GitHub Streak" height="150"/>
+  <img src="metrics/github-stats.svg" alt="GitHub Stats"/>
+  <img src="metrics/languages.svg" alt="Top Languages"/>
 </p>
 
 <p align="center">

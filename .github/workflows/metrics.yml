@@ -1,0 +1,50 @@
+name: GitHub Metrics
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # ogni giorno a mezzanotte
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+    paths:
+      - '.github/workflows/metrics.yml'
+
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      # Stats generali
+      - name: Generate base metrics
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          filename: metrics/github-stats.svg
+          user: AndreaBozzo
+          template: classic
+          base: header, activity, community, repositories
+          base_indepth: yes
+          config_timezone: Europe/Rome
+          config_display: large
+
+      # Linguaggi
+      - name: Generate languages metrics
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          filename: metrics/languages.svg
+          user: AndreaBozzo
+          template: classic
+          base: ""
+          plugin_languages: yes
+          plugin_languages_analysis_timeout: 15
+          plugin_languages_categories: markup, programming
+          plugin_languages_colors: github
+          plugin_languages_limit: 8
+          plugin_languages_recent_categories: markup, programming
+          plugin_languages_recent_days: 365
+          plugin_languages_recent_load: 300
+          plugin_languages_sections: most-used
+          plugin_languages_threshold: 0%
+          config_timezone: Europe/Rome
