@@ -2,6 +2,8 @@
 
 <p align="center">
   <strong>Senior Data Architect | Systems Programmer | Open Source Creator</strong><br>
+  ✨ <i>Currently Open to Work & New Opportunities</i> ✨<br>
+  <i>Support and collaboration on my open source work are greatly appreciated!</i>
 </p>
 <p align="center">
   My path into technology wasn't a straight line, but an inevitable evolution. I've spent my life as a problem-solver, and with a keyboard in front of me for as long as I can remember, programming became my natural language for building solutions.<br><br>
