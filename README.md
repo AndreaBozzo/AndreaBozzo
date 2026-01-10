@@ -77,7 +77,8 @@ Contributing to the broader open source ecosystem beyond my own projects.
 |---------|-------|-----|-------------|
 | [pola-rs/polars](https://github.com/pola-rs/polars) | 36.9k | 3 | Extremely fast Query Engine for DataFrames, written in Rust |
 | [risingwavelabs/risingwave](https://github.com/risingwavelabs/risingwave) | 8.7k | 1 | Event streaming platform for agents, apps, and analytics.... |
-| [supabase/etl](https://github.com/supabase/etl) | 2.1k | 2 | Stream your Postgres data anywhere in real-time. Simple Rust... |
+| [apache/arrow-rs](https://github.com/apache/arrow-rs) | 3.3k | 1 | Official Rust implementation of Apache Arrow |
+| [supabase/etl](https://github.com/supabase/etl) | 2.2k | 2 | Stream your Postgres data anywhere in real-time. Simple Rust... |
 | [lakekeeper/lakekeeper](https://github.com/lakekeeper/lakekeeper) | 1.1k | 2 | Lakekeeper is an Apache-Licensed, secure, fast and easy to... |
 | [pganalyze/pg_query.rs](https://github.com/pganalyze/pg_query.rs) | 210 | 1 | Parse, deparse and normalize SQL queries using the Postgres... |
 | [apache/fluss-rust](https://github.com/apache/fluss-rust) | 27 | 1 | Rust Client for Apache Fluss (Incubating) |
