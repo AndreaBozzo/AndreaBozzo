@@ -81,7 +81,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 | [supabase/etl](https://github.com/supabase/etl) | 2.2k | 2 | Stream your Postgres data anywhere in real-time. Simple Rust... |
 | [lakekeeper/lakekeeper](https://github.com/lakekeeper/lakekeeper) | 1.1k | 2 | Lakekeeper is an Apache-Licensed, secure, fast and easy to... |
 | [pganalyze/pg_query.rs](https://github.com/pganalyze/pg_query.rs) | 210 | 1 | Parse, deparse and normalize SQL queries using the Postgres... |
-| [apache/fluss-rust](https://github.com/apache/fluss-rust) | 27 | 1 | Rust Client for Apache Fluss (Incubating) |
+| [apache/fluss-rust](https://github.com/apache/fluss-rust) | 26 | 1 | Rust Client for Apache Fluss (Incubating) |
 
 ### 🦀 Rust Tooling
 
@@ -97,7 +97,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 | Project | Stars | PRs | Description |
 |---------|-------|-----|-------------|
 | [datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai) | 2.1k | 3 | Build reliable Gen AI solutions without overhead 🍕 |
-| [mosaico-labs/mosaico](https://github.com/mosaico-labs/mosaico) | 289 | 10 | Mosaico is the open-source data platform for Robotics and... |
+| [mosaico-labs/mosaico](https://github.com/mosaico-labs/mosaico) | 288 | 10 | Mosaico is the open-source data platform for Robotics and... |
 
 ### 🛠️ Infrastructure
 
