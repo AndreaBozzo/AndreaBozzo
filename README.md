@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-  I have a few personal projects like <a href="https://github.com/AndreaBozzo/Ceres">Ceres</a>, free templates for BI,
+  I have a few personal projects like <a href="https://github.com/AndreaBozzo/Ceres">Ceres</a>,a personal fork of <a href="https://github.com/AndreaBozzo/serde-yaml">serde-yaml</a> with updated support to modern Rust versions from 1.82+, free templates for BI,
   hands on starter implementations of Kafka, Flink, PostgreSQL / DuckDB, analytics notebooks and generally useful content for anyone working with data. 
   Leave a ⭐ if you find any of these useful, they are all on free licences.
 </p>
