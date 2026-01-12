@@ -1,27 +1,18 @@
 # 👋 Andrea Bozzo
 
 <p align="center">
-  <strong>Senior Data Architect | Systems Programmer | Open Source Creator</strong><br>
-  ✨ <i>Currently Open to Work & New Opportunities</i> ✨<br>
-  <i>Support and collaboration on my open source work are greatly appreciated!</i>
-</p>
-<p align="center">
-  My path into technology wasn't a straight line, but an inevitable evolution. I've spent my life as a problem-solver, and with a keyboard in front of me for as long as I can remember, programming became my natural language for building solutions.<br><br>
-  This journey took me from a background as a Chartered Accountant, through data analysis, and ultimately deep into systems engineering. On my blog, I share technical deep-dives into the projects I contribute to.
+  <strong>Senior Data Engineer | Systems Programmer | Open Source Creator</strong><br>
+  ✨ <i>Currently Open to Work & New Opportunities</i> ✨
 </p>
 
 <p align="center">
-  Expect complex jargon and unfiltered details as it's written for fellow <del>nerds</del> builders.
+  Deep focus on the <strong>Rust ecosystem</strong> and <strong>Modern Data Stack</strong>. 
+  Transitioning from a background in Finance to Engineering, I combine domain expertise with technical rigor to build robust, scalable data infrastructure.
 </p>
 
 <p align="center">
-  I have a few personal projects like <a href="https://github.com/AndreaBozzo/Ceres">Ceres</a>, a personal fork of <a href="https://github.com/AndreaBozzo/serde-yaml">serde-yaml</a> with updated support to modern Rust versions from 1.82+, free templates for BI,
-  hands on starter implementations of Kafka, Flink, PostgreSQL / DuckDB, analytics notebooks and generally useful content for anyone working with data. 
-  Leave a ⭐ if you find any of these useful, they are all on free licences.
-</p>
-
-<p align="center">
-  Thank you ❤️
+  I am an active open-source contributor, maintaining projects like <a href="https://github.com/AndreaBozzo/Ceres">Ceres</a> and contributing to major ecosystems including Polars, RisingWave, and Apache Arrow. 
+  I write technical deep-dives on my blog for fellow <del>nerds</del> builders.
 </p>
 
 
@@ -127,4 +118,3 @@ Contributing to the broader open source ecosystem beyond my own projects.
 <p align="center">
   <img src="metrics/contributions.svg" alt="Contribution Graph" />
 </p>
-
