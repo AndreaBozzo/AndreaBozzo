@@ -66,7 +66,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 
 | Project | Stars | PRs | Description |
 |---------|-------|-----|-------------|
-| [pola-rs/polars](https://github.com/pola-rs/polars) | 36.9k | 3 | Extremely fast Query Engine for DataFrames, written in Rust |
+| [pola-rs/polars](https://github.com/pola-rs/polars) | 37.0k | 3 | Extremely fast Query Engine for DataFrames, written in Rust |
 | [risingwavelabs/risingwave](https://github.com/risingwavelabs/risingwave) | 8.7k | 1 | Event streaming platform for agents, apps, and analytics.... |
 | [lance-format/lance](https://github.com/lance-format/lance) | 5.9k | 1 | Open Lakehouse Format for Multimodal AI. Convert from Parquet... |
 | [apache/arrow-rs](https://github.com/apache/arrow-rs) | 3.3k | 1 | Official Rust implementation of Apache Arrow |
@@ -89,7 +89,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 | Project | Stars | PRs | Description |
 |---------|-------|-----|-------------|
 | [datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai) | 2.1k | 3 | Build reliable Gen AI solutions without overhead 🍕 |
-| [mosaico-labs/mosaico](https://github.com/mosaico-labs/mosaico) | 291 | 10 | Mosaico is the open-source data platform for Robotics and... |
+| [mosaico-labs/mosaico](https://github.com/mosaico-labs/mosaico) | 290 | 10 | Mosaico is the open-source data platform for Robotics and... |
 
 ### 🛠️ Infrastructure
 
