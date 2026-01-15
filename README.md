@@ -62,49 +62,55 @@ Contributing to the broader open source ecosystem beyond my own projects.
 > *This section is automatically updated daily via GitHub Actions*
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
+<p align="center">
+  <img src="https://img.shields.io/badge/Projects-19-blue?style=flat-square" alt="Projects"/>
+  <img src="https://img.shields.io/badge/PRs_Merged-37-success?style=flat-square" alt="PRs Merged"/>
+  <img src="https://img.shields.io/badge/Combined_Stars-92.5k-yellow?style=flat-square" alt="Stars"/>
+</p>
+
 ### 🔬 Data Ecosystem
 
-| Project | Stars | PRs | Description |
-|---------|-------|-----|-------------|
-| [pola-rs/polars](https://github.com/pola-rs/polars) | 37.0k | 3 | Extremely fast Query Engine for DataFrames, written in Rust |
-| [risingwavelabs/risingwave](https://github.com/risingwavelabs/risingwave) | 8.7k | 1 | Event streaming platform for agents, apps, and analytics.... |
-| [lance-format/lance](https://github.com/lance-format/lance) | 5.9k | 1 | Open Lakehouse Format for Multimodal AI. Convert from Parquet... |
-| [apache/arrow-rs](https://github.com/apache/arrow-rs) | 3.3k | 2 | Official Rust implementation of Apache Arrow |
-| [supabase/etl](https://github.com/supabase/etl) | 2.2k | 2 | Stream your Postgres data anywhere in real-time. Simple Rust... |
-| [lakekeeper/lakekeeper](https://github.com/lakekeeper/lakekeeper) | 1.1k | 2 | Lakekeeper is an Apache-Licensed, secure, fast and easy to... |
-| [pganalyze/pg_query.rs](https://github.com/pganalyze/pg_query.rs) | 211 | 1 | Parse, deparse and normalize SQL queries using the Postgres... |
-| [apache/fluss-rust](https://github.com/apache/fluss-rust) | 28 | 1 | Rust Client for Apache Fluss (Incubating) |
+<p>
+  <a href="https://github.com/pola-rs/polars"><img src="https://img.shields.io/badge/polars-⭐_37.0k-informational?style=flat-square" alt="polars"/></a>
+  <a href="https://github.com/risingwavelabs/risingwave"><img src="https://img.shields.io/badge/risingwave-⭐_8.7k-informational?style=flat-square" alt="risingwave"/></a>
+  <a href="https://github.com/lance-format/lance"><img src="https://img.shields.io/badge/lance-⭐_5.9k-informational?style=flat-square" alt="lance"/></a>
+  <a href="https://github.com/apache/arrow-rs"><img src="https://img.shields.io/badge/arrow--rs-⭐_3.3k-informational?style=flat-square" alt="arrow-rs"/></a>
+  <a href="https://github.com/supabase/etl"><img src="https://img.shields.io/badge/etl-⭐_2.2k-informational?style=flat-square" alt="etl"/></a>
+  <a href="https://github.com/lakekeeper/lakekeeper"><img src="https://img.shields.io/badge/lakekeeper-⭐_1.1k-informational?style=flat-square" alt="lakekeeper"/></a>
+  <a href="https://github.com/pganalyze/pg_query.rs"><img src="https://img.shields.io/badge/pg__query.rs-⭐_211-informational?style=flat-square" alt="pg_query.rs"/></a>
+  <a href="https://github.com/apache/fluss-rust"><img src="https://img.shields.io/badge/fluss--rust-⭐_28-informational?style=flat-square" alt="fluss-rust"/></a>
+</p>
 
 ### 🦀 Rust Tooling
 
-| Project | Stars | PRs | Description |
-|---------|-------|-----|-------------|
-| [tokio-rs/tokio](https://github.com/tokio-rs/tokio) | 30.8k | 1 | A runtime for writing reliable asynchronous applications with... |
-| [apache/iceberg-rust](https://github.com/apache/iceberg-rust) | 1.2k | 3 | Apache Iceberg |
-| [vakamo-labs/openfga-client](https://github.com/vakamo-labs/openfga-client) | 6 | 1 | OpenFGA Rust Client is a type-safe client for OpenFGA with... |
-| [rust-ita/rust-docs-it](https://github.com/rust-ita/rust-docs-it) | 2 | 2 | Documentazione Rust tradotta in italiano |
+<p>
+  <a href="https://github.com/tokio-rs/tokio"><img src="https://img.shields.io/badge/tokio-⭐_30.8k-informational?style=flat-square" alt="tokio"/></a>
+  <a href="https://github.com/apache/iceberg-rust"><img src="https://img.shields.io/badge/iceberg--rust-⭐_1.2k-informational?style=flat-square" alt="iceberg-rust"/></a>
+  <a href="https://github.com/vakamo-labs/openfga-client"><img src="https://img.shields.io/badge/openfga--client-⭐_6-informational?style=flat-square" alt="openfga-client"/></a>
+  <a href="https://github.com/rust-ita/rust-docs-it"><img src="https://img.shields.io/badge/rust--docs--it-⭐_2-informational?style=flat-square" alt="rust-docs-it"/></a>
+</p>
 
 ### 🤖 AI/ML
 
-| Project | Stars | PRs | Description |
-|---------|-------|-----|-------------|
-| [datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai) | 2.1k | 3 | Build reliable Gen AI solutions without overhead 🍕 |
-| [mosaico-labs/mosaico](https://github.com/mosaico-labs/mosaico) | 293 | 10 | Mosaico is the open-source data platform for Robotics and... |
+<p>
+  <a href="https://github.com/datapizza-labs/datapizza-ai"><img src="https://img.shields.io/badge/datapizza--ai-⭐_2.1k-informational?style=flat-square" alt="datapizza-ai"/></a>
+  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-⭐_293-informational?style=flat-square" alt="mosaico"/></a>
+</p>
 
 ### 🛠️ Infrastructure
 
-| Project | Stars | PRs | Description |
-|---------|-------|-----|-------------|
-| [mariocandela/beelzebub](https://github.com/mariocandela/beelzebub) | 1.8k | 1 | A secure low code honeypot framework, leveraging AI for... |
-| [CortexFlow/CortexBrain](https://github.com/CortexFlow/CortexBrain) | 73 | 3 | CortexBrain is an ambitious open-source project designed to... |
+<p>
+  <a href="https://github.com/mariocandela/beelzebub"><img src="https://img.shields.io/badge/beelzebub-⭐_1.8k-informational?style=flat-square" alt="beelzebub"/></a>
+  <a href="https://github.com/CortexFlow/CortexBrain"><img src="https://img.shields.io/badge/CortexBrain-⭐_73-informational?style=flat-square" alt="CortexBrain"/></a>
+</p>
 
 ### 📦 Other
 
-| Project | Stars | PRs | Description |
-|---------|-------|-----|-------------|
-| [italia-opensource/awesome-italia-opensource](https://github.com/italia-opensource/awesome-italia-opensource) | 314 | 1 | Italian Open-Source is the first platform dedicated to... |
-| [piopy/fantacalcio-py](https://github.com/piopy/fantacalcio-py) | 42 | 4 | Piccolo tool per guidarci all'asta spendendo poco |
-| [informagico/fantavibe](https://github.com/informagico/fantavibe) | 3 | 1 | No description |
+<p>
+  <a href="https://github.com/italia-opensource/awesome-italia-opensource"><img src="https://img.shields.io/badge/awesome--italia--opensource-⭐_314-informational?style=flat-square" alt="awesome-italia-opensource"/></a>
+  <a href="https://github.com/piopy/fantacalcio-py"><img src="https://img.shields.io/badge/fantacalcio--py-⭐_42-informational?style=flat-square" alt="fantacalcio-py"/></a>
+  <a href="https://github.com/informagico/fantavibe"><img src="https://img.shields.io/badge/fantavibe-⭐_3-informational?style=flat-square" alt="fantavibe"/></a>
+</p>
 <!-- EXTERNAL_CONTRIBUTIONS:END -->
 
 ---

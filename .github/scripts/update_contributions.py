@@ -172,8 +172,29 @@ def truncate_desc(desc, max_len=65):
 
 
 def generate_markdown(categorized_repos):
-    """Generate final markdown output."""
+    """Generate compact badge-style markdown output."""
     markdown_parts = []
+
+    # Calculate totals for summary
+    total_repos = sum(len(repos) for repos in categorized_repos.values())
+    total_prs = sum(
+        repo["pr_count"]
+        for repos in categorized_repos.values()
+        for repo in repos
+    )
+    total_stars = sum(
+        repo["stars"]
+        for repos in categorized_repos.values()
+        for repo in repos
+    )
+
+    # Summary badges
+    markdown_parts.append('<p align="center">')
+    markdown_parts.append(f'  <img src="https://img.shields.io/badge/Projects-{total_repos}-blue?style=flat-square" alt="Projects"/>')
+    markdown_parts.append(f'  <img src="https://img.shields.io/badge/PRs_Merged-{total_prs}-success?style=flat-square" alt="PRs Merged"/>')
+    markdown_parts.append(f'  <img src="https://img.shields.io/badge/Combined_Stars-{format_stars(total_stars)}-yellow?style=flat-square" alt="Stars"/>')
+    markdown_parts.append('</p>')
+    markdown_parts.append('')
 
     for category in CATEGORIES:
         repos = categorized_repos.get(category, [])
@@ -183,22 +204,25 @@ def generate_markdown(categorized_repos):
         # Sort by stars descending
         repos.sort(key=lambda x: x["stars"], reverse=True)
 
-        # Category header
+        # Category header (compact)
         markdown_parts.append(CATEGORY_HEADERS[category])
-        markdown_parts.append("")
-        markdown_parts.append("| Project | Stars | PRs | Description |")
-        markdown_parts.append("|---------|-------|-----|-------------|")
+        markdown_parts.append('')
+        markdown_parts.append('<p>')
 
+        # Generate compact badges for each repo
+        badges = []
         for repo in repos:
-            name = repo["full_name"]
+            name = repo["full_name"].split("/")[1]  # Just the repo name
             url = repo["url"]
             stars = format_stars(repo["stars"])
-            prs = repo["pr_count"]
-            desc = truncate_desc(repo["description"])
+            # URL-encode the name for shields.io
+            safe_name = name.replace("-", "--").replace("_", "__")
+            badge = f'<a href="{url}"><img src="https://img.shields.io/badge/{safe_name}-⭐_{stars}-informational?style=flat-square" alt="{name}"/></a>'
+            badges.append(badge)
 
-            markdown_parts.append(f"| [{name}]({url}) | {stars} | {prs} | {desc} |")
-
-        markdown_parts.append("")
+        markdown_parts.append("  " + "\n  ".join(badges))
+        markdown_parts.append('</p>')
+        markdown_parts.append('')
 
     return "\n".join(markdown_parts)
 
