@@ -69,18 +69,18 @@ Contributing to the broader open source ecosystem beyond my own projects.
 | [pola-rs/polars](https://github.com/pola-rs/polars) | 37.0k | 3 | Extremely fast Query Engine for DataFrames, written in Rust |
 | [risingwavelabs/risingwave](https://github.com/risingwavelabs/risingwave) | 8.7k | 1 | Event streaming platform for agents, apps, and analytics.... |
 | [lance-format/lance](https://github.com/lance-format/lance) | 5.9k | 1 | Open Lakehouse Format for Multimodal AI. Convert from Parquet... |
-| [apache/arrow-rs](https://github.com/apache/arrow-rs) | 3.3k | 1 | Official Rust implementation of Apache Arrow |
+| [apache/arrow-rs](https://github.com/apache/arrow-rs) | 3.3k | 2 | Official Rust implementation of Apache Arrow |
 | [supabase/etl](https://github.com/supabase/etl) | 2.2k | 2 | Stream your Postgres data anywhere in real-time. Simple Rust... |
 | [lakekeeper/lakekeeper](https://github.com/lakekeeper/lakekeeper) | 1.1k | 2 | Lakekeeper is an Apache-Licensed, secure, fast and easy to... |
-| [pganalyze/pg_query.rs](https://github.com/pganalyze/pg_query.rs) | 210 | 1 | Parse, deparse and normalize SQL queries using the Postgres... |
+| [pganalyze/pg_query.rs](https://github.com/pganalyze/pg_query.rs) | 211 | 1 | Parse, deparse and normalize SQL queries using the Postgres... |
 | [apache/fluss-rust](https://github.com/apache/fluss-rust) | 28 | 1 | Rust Client for Apache Fluss (Incubating) |
 
 ### 🦀 Rust Tooling
 
 | Project | Stars | PRs | Description |
 |---------|-------|-----|-------------|
-| [tokio-rs/tokio](https://github.com/tokio-rs/tokio) | 30.7k | 1 | A runtime for writing reliable asynchronous applications with... |
-| [apache/iceberg-rust](https://github.com/apache/iceberg-rust) | 1.2k | 2 | Apache Iceberg |
+| [tokio-rs/tokio](https://github.com/tokio-rs/tokio) | 30.8k | 1 | A runtime for writing reliable asynchronous applications with... |
+| [apache/iceberg-rust](https://github.com/apache/iceberg-rust) | 1.2k | 3 | Apache Iceberg |
 | [vakamo-labs/openfga-client](https://github.com/vakamo-labs/openfga-client) | 6 | 1 | OpenFGA Rust Client is a type-safe client for OpenFGA with... |
 | [rust-ita/rust-docs-it](https://github.com/rust-ita/rust-docs-it) | 2 | 2 | Documentazione Rust tradotta in italiano |
 
@@ -89,7 +89,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 | Project | Stars | PRs | Description |
 |---------|-------|-----|-------------|
 | [datapizza-labs/datapizza-ai](https://github.com/datapizza-labs/datapizza-ai) | 2.1k | 3 | Build reliable Gen AI solutions without overhead 🍕 |
-| [mosaico-labs/mosaico](https://github.com/mosaico-labs/mosaico) | 290 | 10 | Mosaico is the open-source data platform for Robotics and... |
+| [mosaico-labs/mosaico](https://github.com/mosaico-labs/mosaico) | 293 | 10 | Mosaico is the open-source data platform for Robotics and... |
 
 ### 🛠️ Infrastructure
 
