@@ -64,8 +64,8 @@ Contributing to the broader open source ecosystem beyond my own projects.
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
 <p align="center">
   <img src="https://img.shields.io/badge/Projects-19-blue?style=flat-square" alt="Projects"/>
-  <img src="https://img.shields.io/badge/PRs_Merged-37-success?style=flat-square" alt="PRs Merged"/>
-  <img src="https://img.shields.io/badge/Combined_Stars-92.5k-yellow?style=flat-square" alt="Stars"/>
+  <img src="https://img.shields.io/badge/PRs_Merged-43-success?style=flat-square" alt="PRs Merged"/>
+  <img src="https://img.shields.io/badge/Combined_Stars-95.1k-yellow?style=flat-square" alt="Stars"/>
 </p>
 
 ### 🔬 Data Ecosystem
@@ -94,7 +94,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 
 <p>
   <a href="https://github.com/datapizza-labs/datapizza-ai"><img src="https://img.shields.io/badge/datapizza--ai-⭐_2.1k-informational?style=flat-square" alt="datapizza-ai"/></a>
-  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-⭐_293-informational?style=flat-square" alt="mosaico"/></a>
+  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-⭐_296-informational?style=flat-square" alt="mosaico"/></a>
 </p>
 
 ### 🛠️ Infrastructure
