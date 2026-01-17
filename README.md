@@ -64,7 +64,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
 <p align="center">
   <img src="https://img.shields.io/badge/Projects-19-blue?style=flat-square" alt="Projects"/>
-  <img src="https://img.shields.io/badge/PRs_Merged-43-success?style=flat-square" alt="PRs Merged"/>
+  <img src="https://img.shields.io/badge/PRs_Merged-44-success?style=flat-square" alt="PRs Merged"/>
   <img src="https://img.shields.io/badge/Combined_Stars-95.1k-yellow?style=flat-square" alt="Stars"/>
 </p>
 
@@ -94,7 +94,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 
 <p>
   <a href="https://github.com/datapizza-labs/datapizza-ai"><img src="https://img.shields.io/badge/datapizza--ai-⭐_2.1k-informational?style=flat-square" alt="datapizza-ai"/></a>
-  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-⭐_296-informational?style=flat-square" alt="mosaico"/></a>
+  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-⭐_298-informational?style=flat-square" alt="mosaico"/></a>
 </p>
 
 ### 🛠️ Infrastructure
@@ -108,7 +108,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 
 <p>
   <a href="https://github.com/italia-opensource/awesome-italia-opensource"><img src="https://img.shields.io/badge/awesome--italia--opensource-⭐_314-informational?style=flat-square" alt="awesome-italia-opensource"/></a>
-  <a href="https://github.com/piopy/fantacalcio-py"><img src="https://img.shields.io/badge/fantacalcio--py-⭐_42-informational?style=flat-square" alt="fantacalcio-py"/></a>
+  <a href="https://github.com/piopy/fantacalcio-py"><img src="https://img.shields.io/badge/fantacalcio--py-⭐_43-informational?style=flat-square" alt="fantacalcio-py"/></a>
   <a href="https://github.com/informagico/fantavibe"><img src="https://img.shields.io/badge/fantavibe-⭐_3-informational?style=flat-square" alt="fantavibe"/></a>
 </p>
 <!-- EXTERNAL_CONTRIBUTIONS:END -->
