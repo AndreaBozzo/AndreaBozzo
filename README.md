@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  I am an active open-source contributor, maintaining projects like <a href="https://github.com/AndreaBozzo/Ceres">Ceres</a> and contributing to major ecosystems including Polars, RisingWave, and Apache Arrow. 
+  I am an active open-source contributor, maintaining projects like <a href="https://github.com/AndreaBozzo/Ceres">Ceres</a> or <a href="https://github.com/AndreaBozzo/dataprof">dataprof</a> and contributing to major ecosystems including Polars, RisingWave, and Apache Arrow. 
   I write technical deep-dives on my blog for fellow <del>nerds</del> builders.
 </p>
 
