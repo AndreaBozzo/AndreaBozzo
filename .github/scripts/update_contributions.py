@@ -215,9 +215,11 @@ def generate_markdown(categorized_repos):
             name = repo["full_name"].split("/")[1]  # Just the repo name
             url = repo["url"]
             stars = format_stars(repo["stars"])
+            pr_count = repo["pr_count"]
             # URL-encode the name for shields.io
             safe_name = name.replace("-", "--").replace("_", "__")
-            badge = f'<a href="{url}"><img src="https://img.shields.io/badge/{safe_name}-⭐_{stars}-informational?style=flat-square" alt="{name}"/></a>'
+            badge_text = f"{safe_name}-⭐{stars}-{pr_count}PR"
+            badge = f'<a href="{url}"><img src="https://img.shields.io/badge/{badge_text}-informational?style=flat-square" alt="{name}"/></a>'
             badges.append(badge)
 
         markdown_parts.append("  " + "\n  ".join(badges))

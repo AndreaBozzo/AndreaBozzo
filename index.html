@@ -213,39 +213,57 @@
                 }
 
                 const contributionsText = markdown.substring(startIndex + startMarker.length, endIndex).trim();
-                // Parse markdown table rows (exclude headers and separators)
-                const contributionLines = contributionsText.split('\n')
-                    .filter(line => line.startsWith('|') && line.includes('](') && !line.includes('---'));
+                
+                // Parse HTML badges
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(contributionsText, 'text/html');
+                const badges = doc.querySelectorAll('a img[alt]');
+                
+                const contributions = [];
+                badges.forEach(img => {
+                    const a = img.parentElement;
+                    const url = a.href;
+                    const name = img.alt;
+                    const src = img.src;
+                    // Extract from shields.io URL: .../badge/label-message-color
+                    const urlParts = src.split('/');
+                    const badgePart = urlParts[urlParts.length - 1];
+                    const decoded = decodeURIComponent(badgePart);
+                    // decoded like "polars-⭐37.0k-2PR-informational"
+                    const parts = decoded.split('-');
+                    if (parts.length >= 3) {
+                        const starsPart = parts.find(p => p.startsWith('⭐'));
+                        const prPart = parts.find(p => p.endsWith('PR'));
+                        const stars = starsPart ? starsPart.replace('⭐', '') : '0';
+                        const prs = prPart ? prPart.replace('PR', '') : '0';
+                        contributions.push({
+                            name,
+                            url,
+                            stars,
+                            prs,
+                            desc: 'Contributed to this open source project'
+                        });
+                    }
+                });
 
                 // Clear skeleton loaders before rendering
                 listElement.innerHTML = '';
 
-                if (contributionLines.length === 0) {
+                if (contributions.length === 0) {
                     listElement.innerHTML = '<p>No contributions found in README. Please check on GitHub.</p>';
                     return;
                 }
 
-                // Parse and render each table row: | [repo](url) | stars | prs | desc |
-                contributionLines.slice(0, 4).forEach(line => { // Show top 4
-                    const cells = line.split('|').map(c => c.trim()).filter(c => c);
-                    if (cells.length < 4) return;
-
-                    const repoMatch = cells[0].match(/\[(.*?)\]\((.*?)\)/);
-                    if (!repoMatch) return;
-
-                    const repoName = repoMatch[1];
-                    const repoUrl = repoMatch[2];
-                    const stars = cells[1];
-                    const prs = cells[2];
-                    const desc = cells[3];
-
+                // Sort by stars descending and render top 4
+                contributions.sort((a, b) => parseFloat(b.stars.replace('k', '000')) - parseFloat(a.stars.replace('k', '000')));
+                contributions.slice(0, 4).forEach(contrib => {
                     const projectItem = document.createElement('div');
                     projectItem.className = 'project-item';
                     projectItem.innerHTML = `
-                        <h3 class="project-name">${repoName}</h3>
-                        <p class="project-desc">${desc}</p>
-                        <p class="project-contrib">⭐ ${stars} stars · ${prs} PR${prs !== '1' ? 's' : ''}</p>
-                        <a href="${repoUrl}" class="project-link" target="_blank" rel="noopener noreferrer">View project →</a>
+                        <h3 class="project-name">${contrib.name}</h3>
+                        <p class="project-desc">${contrib.desc}</p>
+                        <p class="project-contrib">⭐ ${contrib.stars} stars · ${contrib.prs} PR${contrib.prs !== '1' ? 's' : ''}</p>
+                        <a href="${contrib.url}" class="project-link" target="_blank" rel="noopener noreferrer">View project →</a>
                     `;
                     listElement.appendChild(projectItem);
                 });
