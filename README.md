@@ -65,7 +65,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 <p align="center">
   <img src="https://img.shields.io/badge/Projects-19-blue?style=flat-square" alt="Projects"/>
   <img src="https://img.shields.io/badge/PRs_Merged-44-success?style=flat-square" alt="PRs Merged"/>
-  <img src="https://img.shields.io/badge/Combined_Stars-95.1k-yellow?style=flat-square" alt="Stars"/>
+  <img src="https://img.shields.io/badge/Combined_Stars-95.2k-yellow?style=flat-square" alt="Stars"/>
 </p>
 
 ### 🔬 Data Ecosystem
@@ -73,12 +73,12 @@ Contributing to the broader open source ecosystem beyond my own projects.
 <p>
   <a href="https://github.com/pola-rs/polars"><img src="https://img.shields.io/badge/polars-⭐_37.0k-informational?style=flat-square" alt="polars"/></a>
   <a href="https://github.com/risingwavelabs/risingwave"><img src="https://img.shields.io/badge/risingwave-⭐_8.7k-informational?style=flat-square" alt="risingwave"/></a>
-  <a href="https://github.com/lance-format/lance"><img src="https://img.shields.io/badge/lance-⭐_5.9k-informational?style=flat-square" alt="lance"/></a>
+  <a href="https://github.com/lance-format/lance"><img src="https://img.shields.io/badge/lance-⭐_6.0k-informational?style=flat-square" alt="lance"/></a>
   <a href="https://github.com/apache/arrow-rs"><img src="https://img.shields.io/badge/arrow--rs-⭐_3.3k-informational?style=flat-square" alt="arrow-rs"/></a>
   <a href="https://github.com/supabase/etl"><img src="https://img.shields.io/badge/etl-⭐_2.2k-informational?style=flat-square" alt="etl"/></a>
   <a href="https://github.com/lakekeeper/lakekeeper"><img src="https://img.shields.io/badge/lakekeeper-⭐_1.1k-informational?style=flat-square" alt="lakekeeper"/></a>
   <a href="https://github.com/pganalyze/pg_query.rs"><img src="https://img.shields.io/badge/pg__query.rs-⭐_211-informational?style=flat-square" alt="pg_query.rs"/></a>
-  <a href="https://github.com/apache/fluss-rust"><img src="https://img.shields.io/badge/fluss--rust-⭐_28-informational?style=flat-square" alt="fluss-rust"/></a>
+  <a href="https://github.com/apache/fluss-rust"><img src="https://img.shields.io/badge/fluss--rust-⭐_29-informational?style=flat-square" alt="fluss-rust"/></a>
 </p>
 
 ### 🦀 Rust Tooling
@@ -107,7 +107,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 ### 📦 Other
 
 <p>
-  <a href="https://github.com/italia-opensource/awesome-italia-opensource"><img src="https://img.shields.io/badge/awesome--italia--opensource-⭐_314-informational?style=flat-square" alt="awesome-italia-opensource"/></a>
+  <a href="https://github.com/italia-opensource/awesome-italia-opensource"><img src="https://img.shields.io/badge/awesome--italia--opensource-⭐_316-informational?style=flat-square" alt="awesome-italia-opensource"/></a>
   <a href="https://github.com/piopy/fantacalcio-py"><img src="https://img.shields.io/badge/fantacalcio--py-⭐_43-informational?style=flat-square" alt="fantacalcio-py"/></a>
   <a href="https://github.com/informagico/fantavibe"><img src="https://img.shields.io/badge/fantavibe-⭐_3-informational?style=flat-square" alt="fantavibe"/></a>
 </p>
