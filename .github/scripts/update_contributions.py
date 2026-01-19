@@ -12,6 +12,7 @@ This script:
 import os
 import re
 import time
+from urllib.parse import quote
 
 import requests
 
@@ -216,10 +217,17 @@ def generate_markdown(categorized_repos):
             url = repo["url"]
             stars = format_stars(repo["stars"])
             pr_count = repo["pr_count"]
-            # URL-encode the name for shields.io
-            safe_name = name.replace("-", "--").replace("_", "__")
-            badge_text = f"{safe_name}-⭐{stars}-{pr_count}PR"
-            badge = f'<a href="{url}"><img src="https://img.shields.io/badge/{badge_text}-informational?style=flat-square" alt="{name}"/></a>'
+
+            # Shields expects: /badge/<label>-<message>-<color>; both label and
+            # message must be URL-encoded, and color is the final segment.
+            safe_label = quote(name.replace("-", "--").replace("_", "__"))
+            message = quote(f"⭐ {stars} | {pr_count} PR")
+
+            badge = (
+                f'<a href="{url}"><img src="https://img.shields.io/badge/'
+                f"{safe_label}-{message}-informational?style=flat-square"  # color is informational
+                f'" alt="{name}"/></a>'
+            )
             badges.append(badge)
 
         markdown_parts.append("  " + "\n  ".join(badges))
