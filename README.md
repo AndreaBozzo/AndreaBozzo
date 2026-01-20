@@ -65,13 +65,13 @@ Contributing to the broader open source ecosystem beyond my own projects.
 <p align="center">
   <img src="https://img.shields.io/badge/Projects-19-blue?style=flat-square" alt="Projects"/>
   <img src="https://img.shields.io/badge/PRs_Merged-45-success?style=flat-square" alt="PRs Merged"/>
-  <img src="https://img.shields.io/badge/Combined_Stars-95.2k-yellow?style=flat-square" alt="Stars"/>
+  <img src="https://img.shields.io/badge/Combined_Stars-95.3k-yellow?style=flat-square" alt="Stars"/>
 </p>
 
 ### 🔬 Data Ecosystem
 
 <p>
-  <a href="https://github.com/pola-rs/polars"><img src="https://img.shields.io/badge/polars-%E2%AD%90%2037.0k%20%7C%203%20PR-informational?style=flat-square" alt="polars"/></a>
+  <a href="https://github.com/pola-rs/polars"><img src="https://img.shields.io/badge/polars-%E2%AD%90%2037.1k%20%7C%203%20PR-informational?style=flat-square" alt="polars"/></a>
   <a href="https://github.com/risingwavelabs/risingwave"><img src="https://img.shields.io/badge/risingwave-%E2%AD%90%208.7k%20%7C%201%20PR-informational?style=flat-square" alt="risingwave"/></a>
   <a href="https://github.com/lance-format/lance"><img src="https://img.shields.io/badge/lance-%E2%AD%90%206.0k%20%7C%201%20PR-informational?style=flat-square" alt="lance"/></a>
   <a href="https://github.com/apache/arrow-rs"><img src="https://img.shields.io/badge/arrow--rs-%E2%AD%90%203.3k%20%7C%202%20PR-informational?style=flat-square" alt="arrow-rs"/></a>
@@ -94,7 +94,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 
 <p>
   <a href="https://github.com/datapizza-labs/datapizza-ai"><img src="https://img.shields.io/badge/datapizza--ai-%E2%AD%90%202.1k%20%7C%203%20PR-informational?style=flat-square" alt="datapizza-ai"/></a>
-  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-%E2%AD%90%20301%20%7C%2010%20PR-informational?style=flat-square" alt="mosaico"/></a>
+  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-%E2%AD%90%20303%20%7C%2010%20PR-informational?style=flat-square" alt="mosaico"/></a>
 </p>
 
 ### 🛠️ Infrastructure
@@ -107,8 +107,8 @@ Contributing to the broader open source ecosystem beyond my own projects.
 ### 📦 Other
 
 <p>
-  <a href="https://github.com/italia-opensource/awesome-italia-opensource"><img src="https://img.shields.io/badge/awesome--italia--opensource-%E2%AD%90%20316%20%7C%201%20PR-informational?style=flat-square" alt="awesome-italia-opensource"/></a>
-  <a href="https://github.com/piopy/fantacalcio-py"><img src="https://img.shields.io/badge/fantacalcio--py-%E2%AD%90%2043%20%7C%204%20PR-informational?style=flat-square" alt="fantacalcio-py"/></a>
+  <a href="https://github.com/italia-opensource/awesome-italia-opensource"><img src="https://img.shields.io/badge/awesome--italia--opensource-%E2%AD%90%20317%20%7C%201%20PR-informational?style=flat-square" alt="awesome-italia-opensource"/></a>
+  <a href="https://github.com/piopy/fantacalcio-py"><img src="https://img.shields.io/badge/fantacalcio--py-%E2%AD%90%2044%20%7C%204%20PR-informational?style=flat-square" alt="fantacalcio-py"/></a>
   <a href="https://github.com/informagico/fantavibe"><img src="https://img.shields.io/badge/fantavibe-%E2%AD%90%203%20%7C%201%20PR-informational?style=flat-square" alt="fantavibe"/></a>
 </p>
 <!-- EXTERNAL_CONTRIBUTIONS:END -->
