@@ -1,6 +1,6 @@
 ---
 title: "Async in Python e Rust: Due Mondi, Una Sola Keyword"
-date: 2026-01-25T12:00:00+01:00
+date: 2026-01-22T12:00:00+01:00
 draft: false
 tags: ["Rust", "Python", "Async", "Tokio", "asyncio", "Concurrency", "Performance"]
 categories: ["Software Engineering", "Open Source"]
