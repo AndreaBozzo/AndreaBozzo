@@ -11,87 +11,41 @@
     <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://andreabozzo.github.io/AndreaBozzo/">
-    <meta property="og:title" content="Andrea Bozzo - Data Engineer & Software Developer">
-    <meta property="og:description" content="Data Engineer specializing in analytics, ETL pipelines, and scalable data solutions.">
-    <meta property="og:image" content="https://andreabozzo.github.io/AndreaBozzo/assets/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://andreabozzo.github.io/AndreaBozzo/">
-    <meta property="twitter:title" content="Andrea Bozzo - Data Engineer & Software Developer">
-    <meta property="twitter:description" content="Data Engineer specializing in analytics, ETL pipelines, and scalable data solutions.">
-    <meta property="twitter:image" content="https://andreabozzo.github.io/AndreaBozzo/assets/og-image.jpg">
-
-    <!-- Performance optimizations -->
     <link rel="preconnect" href="https://api.github.com" crossorigin>
     <link rel="dns-prefetch" href="//api.github.com">
-
-    <!-- Preload critical resources (minified versions) -->
     <link rel="preload" href="assets/styles.min.css" as="style">
     <link rel="preload" href="assets/main.min.js" as="script">
-
-    <!-- Prefetch next likely pages -->
     <link rel="prefetch" href="/AndreaBozzo/blog/">
-
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='40'>AB</text></svg>">
-
-    <!-- Minified CSS for production -->
     <link rel="stylesheet" href="assets/styles.min.css">
-
-    <!-- Critical inline script for theme (prevents FOUC) -->
     <script>
         (function() {
             const savedTheme = localStorage.getItem('theme') || 'dark';
             document.documentElement.setAttribute('data-theme', savedTheme);
         })();
     </script>
-
-    <!-- Web App Manifest -->
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <!-- Theme Toggle -->
     <div class="theme-toggle" onclick="toggleTheme()">
         <span class="theme-toggle-icon" id="theme-icon">🌙</span>
     </div>
 
-    <!-- Main Content -->
     <div class="content-wrapper">
-        <!-- Hero Section -->
         <section class="hero" id="home">
             <div class="hero-content">
                 <h1 class="title">Andrea Bozzo</h1>
                 <p class="subtitle">Data Engineer building streaming pipelines and lakehouse architectures.</p>
-                <p class="tagline">
-                    I build data systems that process millions of events per second without catching fire.
-                    When I'm not debugging distributed systems, I'm contributing to open source projects in
-                    the Rust and data engineering ecosystems. Three espressos in, I might even enjoy it.
-                </p>
 
-                <!-- CTA Buttons -->
-                <div class="cta-buttons" style="text-align: center;">
-                    <a href="/AndreaBozzo/blog/" class="btn btn-primary" aria-label="Read blog">
-                        Read My Blog
-                    </a>
-                    <a href="https://github.com/AndreaBozzo" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                        GitHub
-                    </a>
-                    <a href="https://www.linkedin.com/in/andrea-bozzo-/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        LinkedIn
-                    </a>
-                    <a href="mailto:andreabozzo92@gmail.com" class="btn btn-secondary" aria-label="Email">
-                        Email
-                    </a>
+                <div class="cta-buttons">
+                    <a href="/AndreaBozzo/blog/" class="btn btn-primary">Read My Blog</a>
+                    <a href="https://github.com/AndreaBozzo" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/andrea-bozzo-/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:andreabozzo92@gmail.com" class="btn btn-secondary">Email</a>
                 </div>
             </div>
         </section>
 
-        <!-- Currently Section -->
         <section class="currently scroll-reveal" id="currently">
             <div class="currently-content">
                 <h2 class="section-title">Currently</h2>
@@ -101,10 +55,9 @@
             </div>
         </section>
 
-        <!-- Blog Preview Section -->
         <section class="blog-preview scroll-reveal" id="blog">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                <h2 class="section-title" style="margin: 0;">Latest from the Blog</h2>
+            <div class="blog-header">
+                <h2 class="section-title">Latest from the Blog</h2>
                 <div class="language-toggle">
                     <button id="lang-toggle-btn" class="lang-btn" onclick="toggleBlogLanguage()">
                         <span id="lang-icon">🇮🇹</span>
@@ -113,7 +66,6 @@
                 </div>
             </div>
             <div class="blog-grid" id="blog-grid">
-                <!-- Loading skeleton -->
                 <div class="blog-card blog-skeleton">
                     <div class="skeleton-date"></div>
                     <div class="skeleton-title"></div>
@@ -135,17 +87,15 @@
                     </div>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 3rem;">
+            <div class="blog-footer">
                 <a href="/AndreaBozzo/blog/" class="btn btn-primary">View All Posts →</a>
             </div>
         </section>
 
-        <!-- Projects Section -->
         <section class="projects scroll-reveal" id="projects">
             <h2 class="section-title">Open Source Contributions</h2>
             <p class="section-subtitle">A selection of open source projects I've contributed to. Fetched live from GitHub.</p>
             <div class="projects-list" id="contributions-list">
-                <!-- Skeleton Loaders -->
                 <div class="project-item project-skeleton">
                     <div class="skeleton-line title"></div>
                     <div class="skeleton-line desc"></div>
@@ -160,7 +110,6 @@
             <p class="contribution-footer">... and many more on my <a href="https://github.com/AndreaBozzo?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub profile</a>.</p>
         </section>
 
-        <!-- Contact Section -->
         <section class="contact scroll-reveal">
             <h2 class="section-title">Let's Connect</h2>
             <p class="contact-text">
@@ -168,23 +117,14 @@
             </p>
 
             <div class="contact-links">
-                <a href="https://github.com/AndreaBozzo" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-                    GitHub
-                </a>
-                <a href="https://www.linkedin.com/in/andrea-bozzo-/" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-                    LinkedIn
-                </a>
-                <a href="/AndreaBozzo/blog/" class="contact-link" aria-label="Blog">
-                    Blog
-                </a>
-                <a href="mailto:andreabozzo92@gmail.com" class="contact-link" aria-label="Email contact">
-                    Email
-                </a>
+                <a href="https://github.com/AndreaBozzo" class="contact-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/andrea-bozzo-/" class="contact-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="/AndreaBozzo/blog/" class="contact-link">Blog</a>
+                <a href="mailto:andreabozzo92@gmail.com" class="contact-link">Email</a>
             </div>
         </section>
     </div>
 
-    <!-- Minified JavaScript for production -->
     <script src="assets/main.min.js" defer></script>
 
     <script>
@@ -197,12 +137,10 @@
             if (!listElement) return;
 
             try {
-                // Fetch the raw README.md content from the profile repository
                 const response = await fetch(`https://raw.githubusercontent.com/${username}/${repoName}/${branch}/README.md`);
                 if (!response.ok) throw new Error(`Failed to fetch README.md: ${response.status}`);
                 const markdown = await response.text();
 
-                // Extract the content between the contribution markers
                 const startMarker = '<!-- EXTERNAL_CONTRIBUTIONS:START -->';
                 const endMarker = '<!-- EXTERNAL_CONTRIBUTIONS:END -->';
                 const startIndex = markdown.indexOf(startMarker);
@@ -214,7 +152,6 @@
 
                 const contributionsText = markdown.substring(startIndex + startMarker.length, endIndex).trim();
                 
-                // Parse HTML badges
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(contributionsText, 'text/html');
                 const badges = doc.querySelectorAll('a img[alt]');
@@ -225,11 +162,9 @@
                     const url = a.href;
                     const name = img.alt;
                     const src = img.src;
-                    // Extract from shields.io URL: .../badge/label-message-color
                     const urlParts = src.split('/');
                     const badgePart = urlParts[urlParts.length - 1];
                     const decoded = decodeURIComponent(badgePart);
-                    // decoded like "polars-⭐37.0k-2PR-informational"
                     const parts = decoded.split('-');
                     if (parts.length >= 3) {
                         const starsPart = parts.find(p => p.startsWith('⭐'));
@@ -246,7 +181,6 @@
                     }
                 });
 
-                // Clear skeleton loaders before rendering
                 listElement.innerHTML = '';
 
                 if (contributions.length === 0) {
@@ -254,7 +188,7 @@
                     return;
                 }
 
-                // Sort by stars descending and render top 4
+                contributions.sort((a, b) => parseFloat(b.stars.replace('k', '000')) - parseFloat(a.stars.replace('k', '000')));
                 contributions.sort((a, b) => parseFloat(b.stars.replace('k', '000')) - parseFloat(a.stars.replace('k', '000')));
                 contributions.slice(0, 4).forEach(contrib => {
                     const projectItem = document.createElement('div');

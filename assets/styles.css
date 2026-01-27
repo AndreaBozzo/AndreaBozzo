@@ -253,6 +253,22 @@ body {
     background: var(--color-bg-primary);
 }
 
+.blog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-8);
+}
+
+.blog-header .section-title {
+    margin: 0;
+}
+
+.blog-footer {
+    text-align: center;
+    margin-top: var(--space-12);
+}
+
 .blog-grid {
     max-width: 1200px;
     margin: var(--space-8) auto 0;
