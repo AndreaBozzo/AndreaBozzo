@@ -77,9 +77,9 @@ Contributing to the broader open source ecosystem beyond my own projects.
 <p>
   <a href="https://github.com/pola-rs/polars"><img src="https://img.shields.io/badge/polars-%E2%AD%90%2037.3k%20%7C%203%20PR-informational?style=flat-square" alt="polars"/></a>
   <a href="https://github.com/risingwavelabs/risingwave"><img src="https://img.shields.io/badge/risingwave-%E2%AD%90%208.8k%20%7C%201%20PR-informational?style=flat-square" alt="risingwave"/></a>
-  <a href="https://github.com/apache/datafusion"><img src="https://img.shields.io/badge/datafusion-%E2%AD%90%208.3k%20%7C%201%20PR-informational?style=flat-square" alt="datafusion"/></a>
+  <a href="https://github.com/apache/datafusion"><img src="https://img.shields.io/badge/datafusion-%E2%AD%90%208.4k%20%7C%201%20PR-informational?style=flat-square" alt="datafusion"/></a>
   <a href="https://github.com/lance-format/lance"><img src="https://img.shields.io/badge/lance-%E2%AD%90%206.0k%20%7C%202%20PR-informational?style=flat-square" alt="lance"/></a>
-  <a href="https://github.com/apache/arrow-rs"><img src="https://img.shields.io/badge/arrow--rs-%E2%AD%90%203.3k%20%7C%202%20PR-informational?style=flat-square" alt="arrow-rs"/></a>
+  <a href="https://github.com/apache/arrow-rs"><img src="https://img.shields.io/badge/arrow--rs-%E2%AD%90%203.4k%20%7C%202%20PR-informational?style=flat-square" alt="arrow-rs"/></a>
   <a href="https://github.com/supabase/etl"><img src="https://img.shields.io/badge/etl-%E2%AD%90%202.2k%20%7C%202%20PR-informational?style=flat-square" alt="etl"/></a>
   <a href="https://github.com/lakekeeper/lakekeeper"><img src="https://img.shields.io/badge/lakekeeper-%E2%AD%90%201.2k%20%7C%202%20PR-informational?style=flat-square" alt="lakekeeper"/></a>
   <a href="https://github.com/pganalyze/pg_query.rs"><img src="https://img.shields.io/badge/pg__query.rs-%E2%AD%90%20221%20%7C%201%20PR-informational?style=flat-square" alt="pg_query.rs"/></a>
@@ -99,7 +99,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 
 <p>
   <a href="https://github.com/datapizza-labs/datapizza-ai"><img src="https://img.shields.io/badge/datapizza--ai-%E2%AD%90%202.1k%20%7C%204%20PR-informational?style=flat-square" alt="datapizza-ai"/></a>
-  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-%E2%AD%90%20506%20%7C%2010%20PR-informational?style=flat-square" alt="mosaico"/></a>
+  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-%E2%AD%90%20519%20%7C%2010%20PR-informational?style=flat-square" alt="mosaico"/></a>
 </p>
 
 ### 🛠️ Infrastructure
