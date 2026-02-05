@@ -1,5 +1,7 @@
 # 👋 Andrea Bozzo
 
+[![Card](https://github-readme-stats.vercel.app/api?username=AndreaBozzo)](https://github.com/anuraghazra/github-readme-stats)
+
 <p align="center">
   ✨ <i>Currently Open to Work & New Opportunities</i> ✨
 </p>
