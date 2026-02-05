@@ -21,7 +21,11 @@ jobs:
           url="https://github-readme-stats.vercel.app/api?username=AndreaBozzo&show_icons=true&rank_icon=github&include_all_commits=true&cache_seconds=21600"
           tmp="metrics/scorecard.svg.tmp"
           mkdir -p metrics
-          curl -fsSL "$url" -o "$tmp"
+          if ! curl -fsSL --retry 4 --retry-delay 5 --retry-all-errors "$url" -o "$tmp"; then
+            echo "Fetch failed, keeping previous file"
+            rm -f "$tmp"
+            exit 0
+          fi
           if ! grep -q "<svg" "$tmp"; then
             echo "Invalid SVG, keeping previous file"
             rm -f "$tmp"
