@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=AndreaBozzo&show_icons=true&rank_icon=github&include_all_commits=true&cache_seconds=21600" alt="GitHub Score Card"/>
+  <img src="metrics/scorecard.svg" alt="GitHub Score Card"/>
 </p>
 
 <p align="center">
