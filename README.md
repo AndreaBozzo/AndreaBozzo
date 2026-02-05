@@ -1,13 +1,16 @@
 # 👋 Andrea Bozzo
 
 <p align="center">
-  <strong>Senior Data Engineer | Systems Programmer | Open Source Creator</strong><br>
   ✨ <i>Currently Open to Work & New Opportunities</i> ✨
 </p>
 
 <p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=AndreaBozzo&show_icons=true&rank_icon=github&include_all_commits=true" alt="GitHub Score Card"/>
+</p>
+
+
+<p align="center">
   Deep focus on the <strong>Rust ecosystem</strong> and <strong>Modern Data Stack</strong>. 
-  Transitioning from a background in Finance to Engineering, I combine domain expertise with technical rigor to build robust, scalable data infrastructure.
 </p>
 
 <p align="center">
