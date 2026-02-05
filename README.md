@@ -5,10 +5,6 @@
 </p>
 
 <p align="center">
-  <img src="metrics/scorecard.svg" alt="GitHub Score Card"/>
-</p>
-
-<p align="center">
   Deep focus on the <strong>Rust ecosystem</strong> and <strong>Modern Data Stack</strong>. 
 </p>
 
