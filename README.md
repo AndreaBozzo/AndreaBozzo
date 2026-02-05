@@ -8,7 +8,6 @@
   <img src="https://github-readme-stats.vercel.app/api?username=AndreaBozzo&show_icons=true&rank_icon=github&include_all_commits=true" alt="GitHub Score Card"/>
 </p>
 
-
 <p align="center">
   Deep focus on the <strong>Rust ecosystem</strong> and <strong>Modern Data Stack</strong>. 
 </p>
