@@ -5,14 +5,6 @@
 </p>
 
 <p align="center">
-  Deep focus on the <strong>Rust ecosystem</strong> and <strong>Modern Data Stack</strong>. 
-</p>
-
-<p align="center">
-  In my every-day reality i mostly fix broken stuff.
-</p>
-
-<p align="center">
   I am an active open-source contributor, maintaining projects like <a href="https://github.com/AndreaBozzo/Ceres">Ceres</a> or <a href="https://github.com/AndreaBozzo/dataprof">dataprof</a> and contributing to major ecosystems including Apache Arrow & DataFusion, Polars, Tokio libraries.
   I write technical deep-dives on my blog for fellow <del>nerds</del> builders.
 </p>
