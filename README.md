@@ -21,31 +21,6 @@
   <img src="https://komarev.com/ghpvc/?username=AndreaBozzo&label=Profile%20views&color=0e75b6&style=flat" alt="profile views" />
 </p>
 
----
-
-## 🛠️ Tech Stack
-
-<div align="center">
-  <table>
-    <tr>
-      <td align="center"><strong>Core Languages</strong></td>
-      <td><img src="https://img.shields.io/badge/Rust-000000?style=flat&logo=rust&logoColor=white" alt="Rust"/></td>
-      <td><img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python"/></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>Data & Architecture</strong></td>
-      <td><img src="https://img.shields.io/badge/Data Lakehouse-0078D4?style=flat&logo=databricks&logoColor=white" alt="Data Lakehouse"/></td>
-      <td><img src="https://img.shields.io/badge/Apache Arrow-130F2A?style=flat&logo=apache-arrow&logoColor=white" alt="Apache Arrow"/></td>
-      <td><img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white" alt="PostgreSQL"/></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>Cloud & DevOps</strong></td>
-      <td><img src="https://img.shields.io/badge/Azure-0078D4?style=flat&logo=microsoft-azure&logoColor=white" alt="Azure"/></td>
-      <td><img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" alt="Docker"/></td>
-      <td><img src="https://img.shields.io/badge/GitHub Actions-2088FF?style=flat&logo=github-actions&logoColor=white" alt="GitHub Actions"/></td>
-    </tr>
-  </table>
-</p>
 
 ---
 
