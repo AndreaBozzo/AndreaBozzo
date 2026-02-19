@@ -34,7 +34,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 <p align="center">
   <img src="https://img.shields.io/badge/Projects-20-blue?style=flat-square" alt="Projects"/>
   <img src="https://img.shields.io/badge/PRs_Merged-48-success?style=flat-square" alt="PRs Merged"/>
-  <img src="https://img.shields.io/badge/Combined_Stars-105.0k-yellow?style=flat-square" alt="Stars"/>
+  <img src="https://img.shields.io/badge/Combined_Stars-105.1k-yellow?style=flat-square" alt="Stars"/>
 </p>
 
 ### 🔬 Data Ecosystem
@@ -64,14 +64,14 @@ Contributing to the broader open source ecosystem beyond my own projects.
 
 <p>
   <a href="https://github.com/datapizza-labs/datapizza-ai"><img src="https://img.shields.io/badge/datapizza--ai-%E2%AD%90%202.1k%20%7C%204%20PR-informational?style=flat-square" alt="datapizza-ai"/></a>
-  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-%E2%AD%90%20554%20%7C%2010%20PR-informational?style=flat-square" alt="mosaico"/></a>
+  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-%E2%AD%90%20556%20%7C%2010%20PR-informational?style=flat-square" alt="mosaico"/></a>
 </p>
 
 ### 🛠️ Infrastructure
 
 <p>
   <a href="https://github.com/mariocandela/beelzebub"><img src="https://img.shields.io/badge/beelzebub-%E2%AD%90%201.8k%20%7C%201%20PR-informational?style=flat-square" alt="beelzebub"/></a>
-  <a href="https://github.com/CortexFlow/CortexBrain"><img src="https://img.shields.io/badge/CortexBrain-%E2%AD%90%2075%20%7C%203%20PR-informational?style=flat-square" alt="CortexBrain"/></a>
+  <a href="https://github.com/CortexFlow/CortexBrain"><img src="https://img.shields.io/badge/CortexBrain-%E2%AD%90%2076%20%7C%203%20PR-informational?style=flat-square" alt="CortexBrain"/></a>
 </p>
 
 ### 📦 Other
