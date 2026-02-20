@@ -7,6 +7,7 @@ categories: ["Data Engineering", "Open Source"]
 description: "How building a web scraper (Ares) and an open-data harvester (Ceres) clarified the line between scraping as a technique and harvesting as a product."
 summary: "Two Rust projects, one conceptual divide. Ares fetches arbitrary web pages and uses LLMs to extract structured data; Ceres harvests metadata from CKAN portals and indexes it semantically. Together they show what it looks like to move from scraping scripts to production data pipelines."
 author: "Andrea Bozzo"
+images: ["images/harvesting_vs_scraping.png"]
 showToc: true
 TocOpen: true
 hidemeta: false
