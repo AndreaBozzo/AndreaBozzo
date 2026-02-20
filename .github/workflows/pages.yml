@@ -36,7 +36,7 @@ jobs:
       - name: Build Hugo blog
         run: |
           cd blog
-          hugo --minify -b "https://andreabozzo.github.io/AndreaBozzo/blog/"
+          hugo --minify -F -b "https://andreabozzo.github.io/AndreaBozzo/blog/"
 
       - name: Prepare deployment directory
         run: |
