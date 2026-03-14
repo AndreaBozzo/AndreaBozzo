@@ -43,14 +43,14 @@ Contributing to the broader open source ecosystem beyond my own projects.
   <a href="https://github.com/apache/arrow-rs"><img src="https://img.shields.io/badge/arrow--rs-%E2%AD%90%203.4k%20%7C%202%20PR-informational?style=flat-square" alt="arrow-rs"/></a>
   <a href="https://github.com/supabase/etl"><img src="https://img.shields.io/badge/etl-%E2%AD%90%202.2k%20%7C%202%20PR-informational?style=flat-square" alt="etl"/></a>
   <a href="https://github.com/lakekeeper/lakekeeper"><img src="https://img.shields.io/badge/lakekeeper-%E2%AD%90%201.2k%20%7C%202%20PR-informational?style=flat-square" alt="lakekeeper"/></a>
-  <a href="https://github.com/pganalyze/pg_query.rs"><img src="https://img.shields.io/badge/pg__query.rs-%E2%AD%90%20230%20%7C%201%20PR-informational?style=flat-square" alt="pg_query.rs"/></a>
-  <a href="https://github.com/apache/fluss-rust"><img src="https://img.shields.io/badge/fluss--rust-%E2%AD%90%2041%20%7C%202%20PR-informational?style=flat-square" alt="fluss-rust"/></a>
+  <a href="https://github.com/pganalyze/pg_query.rs"><img src="https://img.shields.io/badge/pg__query.rs-%E2%AD%90%20231%20%7C%201%20PR-informational?style=flat-square" alt="pg_query.rs"/></a>
+  <a href="https://github.com/apache/fluss-rust"><img src="https://img.shields.io/badge/fluss--rust-%E2%AD%90%2042%20%7C%202%20PR-informational?style=flat-square" alt="fluss-rust"/></a>
 </p>
 
 ### 🦀 Rust Tooling
 
 <p>
-  <a href="https://github.com/tokio-rs/tokio"><img src="https://img.shields.io/badge/tokio-%E2%AD%90%2031.5k%20%7C%202%20PR-informational?style=flat-square" alt="tokio"/></a>
+  <a href="https://github.com/tokio-rs/tokio"><img src="https://img.shields.io/badge/tokio-%E2%AD%90%2031.4k%20%7C%202%20PR-informational?style=flat-square" alt="tokio"/></a>
   <a href="https://github.com/tokio-rs/axum"><img src="https://img.shields.io/badge/axum-%E2%AD%90%2025.3k%20%7C%201%20PR-informational?style=flat-square" alt="axum"/></a>
   <a href="https://github.com/apache/iceberg-rust"><img src="https://img.shields.io/badge/iceberg--rust-%E2%AD%90%201.2k%20%7C%203%20PR-informational?style=flat-square" alt="iceberg-rust"/></a>
   <a href="https://github.com/vakamo-labs/openfga-client"><img src="https://img.shields.io/badge/openfga--client-%E2%AD%90%207%20%7C%201%20PR-informational?style=flat-square" alt="openfga-client"/></a>
@@ -61,7 +61,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
 
 <p>
   <a href="https://github.com/datapizza-labs/datapizza-ai"><img src="https://img.shields.io/badge/datapizza--ai-%E2%AD%90%202.2k%20%7C%205%20PR-informational?style=flat-square" alt="datapizza-ai"/></a>
-  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-%E2%AD%90%20718%20%7C%2010%20PR-informational?style=flat-square" alt="mosaico"/></a>
+  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-%E2%AD%90%20722%20%7C%2010%20PR-informational?style=flat-square" alt="mosaico"/></a>
 </p>
 
 ### 🛠️ Infrastructure
