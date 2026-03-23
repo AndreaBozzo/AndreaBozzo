@@ -10,8 +10,8 @@ cover:
 
 ## Guardrail per il ML Tabulare: la prospettiva di un Data Engineer su Data Leakage, Poisoning e Pipeline Fragili
 
-Mi è stato chiesto più volte di "dare una rapida occhiata" a pipeline ML in produzione.
-Non sono un data scientist, ma passo gran parte del mio tempo tra sistemi dati, Arrow e motori di query. Quello che ho trovato non erano failure esotiche del modello, ma qualcosa di molto più ordinario: pipeline tabulari fragili, che potevano rompersi in silenzio, o addirittura essere "avvelenate", da problemi di dati molto elementari mai codificati come controlli.
+Stavo sperimentando con [TabICL](https://github.com/soda-inria/tabicl), un large tabular model open-source, e allo stesso tempo mi è stato chiesto di "dare una rapida occhiata" a pipeline ML in produzione.
+Non sono un data scientist, ma passo gran parte del mio tempo tra sistemi dati, Arrow e motori di query. Quello che ho trovato — sia nei miei esperimenti sia in quelle pipeline — non erano failure esotiche del modello, ma qualcosa di molto più ordinario: pipeline tabulari fragili, che potevano rompersi in silenzio, o addirittura essere "avvelenate", da problemi di dati molto elementari mai codificati come controlli. Il modello era la parte facile; assicurarsi che i dati in ingresso fossero davvero puliti, no.
 
 Questo articolo è il mio tentativo di guardare il problema dal punto di vista di un data engineer: partire da un semplice script pandas, poi passare ad Apache DataFusion e Arrow per costruire guardrail che prevengano data leakage, scenari di poisoning e rotture della pipeline prima ancora che il modello veda i dati.
 
