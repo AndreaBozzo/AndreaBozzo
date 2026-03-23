@@ -5,7 +5,7 @@ draft: false
 tags: ["machine-learning", "data-engineering", "apache-arrow", "datafusion", "data-quality"]
 summary: "Most ML pipeline failures are not exotic model bugs — they are data issues that nobody encoded as checks. This article walks through building guardrails using pandas, Apache DataFusion, data contracts, and the Arrow C Data Interface."
 cover:
-    image: "images/tabularml-cover.svg"
+    image: "images/tabularml-cover.png"
 ---
 
 ## Guardrails for Tabular ML: A Data Engineer's Take on Data Leakage, Poisoning, and Brittle Pipelines
@@ -121,7 +121,7 @@ This is already much better than nothing and mirrors the basic advice in many ML
 
 The problem? Once the data grows beyond a few million rows, doing full inner joins and scans in pandas starts to hurt. And once data lives in a lake, pulling it into Python memory for every check becomes the bottleneck itself.
 
-![Pipeline Progression: from pandas notebooks to Arrow-native data contracts](/images/tabularml-pipeline-progression.svg)
+![Pipeline Progression: from pandas notebooks to Arrow-native data contracts](/images/tabularml-pipeline-progression.png)
 
 ## Step 2 — Moving the heavy lifting into Apache DataFusion
 
@@ -319,7 +319,7 @@ This is where my "systems" bias really kicks in: instead of bolting quality chec
 
 ## A concrete poisoning scenario
 
-![How a broken ETL job poisons a model — and how data contracts catch it](/images/tabularml-poisoning-scenario.svg)
+![How a broken ETL job poisons a model — and how data contracts catch it](/images/tabularml-poisoning-scenario.png)
 
 When people talk about "poisoning" ML systems, they often focus on adversarial examples and gradient-level attacks. At the pipeline level, however, most failures are more boring — and more common.
 
