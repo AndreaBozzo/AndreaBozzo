@@ -4,8 +4,6 @@
 
 <p align="center"><sub><i>— Per aspera ad data —</i></sub></p>
 
-# 👋 Andrea Bozzo
-
 <p align="center">
   <a href="https://andreabozzo.github.io/AndreaBozzo/">🌐 Landing Page</a> •
   <a href="https://andreabozzo.pages.dev/">📝 Blog</a> •
