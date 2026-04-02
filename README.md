@@ -1,3 +1,9 @@
+<p align="center">
+  <img src="assets/images/Climbing%20towards%20the%20celestial%20Ankh.png" alt="Climbing towards the celestial Ankh" width="480"/>
+</p>
+
+<p align="center"><sub><i>— Equipped with the right tools to conquer complex data quests. —</i></sub></p>
+
 # 👋 Andrea Bozzo
 
 <p align="center">
