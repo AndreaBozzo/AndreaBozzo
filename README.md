@@ -7,12 +7,6 @@
 # 👋 Andrea Bozzo
 
 <p align="center">
-  I am an active open-source contributor, maintaining projects like <a href="https://github.com/AndreaBozzo/Ceres">Ceres</a> / <a href="https://github.com/AndreaBozzo/Ares">Ares</a> or <a href="https://github.com/AndreaBozzo/dataprof">dataprof</a> and contributing to major ecosystems including Apache Arrow & DataFusion, Polars, Tokio libraries.
-  I write technical deep-dives on my blog for fellow <del>nerds</del> builders.
-</p>
-
-
-<p align="center">
   <a href="https://andreabozzo.github.io/AndreaBozzo/">🌐 Landing Page</a> •
   <a href="https://andreabozzo.pages.dev/">📝 Blog</a> •
   <a href="https://www.linkedin.com/in/andrea-bozzo-/">💼 LinkedIn</a> •
