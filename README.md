@@ -65,14 +65,14 @@ Contributing to the broader open source ecosystem beyond my own projects.
 ### 🛠️ Infrastructure
 
 <p>
-  <a href="https://github.com/beelzebub-labs/beelzebub"><img src="https://img.shields.io/badge/beelzebub-%E2%AD%90%201.9k%20%7C%201%20PR-informational?style=flat-square" alt="beelzebub"/></a>
+  <a href="https://github.com/beelzebub-labs/beelzebub"><img src="https://img.shields.io/badge/beelzebub-%E2%AD%90%202.0k%20%7C%201%20PR-informational?style=flat-square" alt="beelzebub"/></a>
   <a href="https://github.com/CortexFlow/CortexBrain"><img src="https://img.shields.io/badge/CortexBrain-%E2%AD%90%2079%20%7C%203%20PR-informational?style=flat-square" alt="CortexBrain"/></a>
 </p>
 
 ### 📦 Other
 
 <p>
-  <a href="https://github.com/italia-opensource/awesome-italia-opensource"><img src="https://img.shields.io/badge/awesome--italia--opensource-%E2%AD%90%20322%20%7C%201%20PR-informational?style=flat-square" alt="awesome-italia-opensource"/></a>
+  <a href="https://github.com/italia-opensource/awesome-italia-opensource"><img src="https://img.shields.io/badge/awesome--italia--opensource-%E2%AD%90%20323%20%7C%201%20PR-informational?style=flat-square" alt="awesome-italia-opensource"/></a>
   <a href="https://github.com/piopy/fantacalcio-py"><img src="https://img.shields.io/badge/fantacalcio--py-%E2%AD%90%2048%20%7C%204%20PR-informational?style=flat-square" alt="fantacalcio-py"/></a>
   <a href="https://github.com/informagico/fantavibe"><img src="https://img.shields.io/badge/fantavibe-%E2%AD%90%205%20%7C%201%20PR-informational?style=flat-square" alt="fantavibe"/></a>
 </p>
