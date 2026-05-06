@@ -37,7 +37,7 @@
     <header class="site-header">
         <a href="#home" class="site-brand">AB</a>
         <nav class="site-nav" aria-label="Primary navigation">
-            <a href="#currently">Focus</a>
+            <a href="#focus">Focus</a>
             <a href="./blog/">Blog</a>
             <a href="#projects">Open Source</a>
             <a href="#contact">Contact</a>
@@ -51,40 +51,33 @@
         <section class="hero" id="home">
             <div class="hero-grid">
                 <div class="hero-copy">
-                    <p class="eyebrow">Andrea Bozzo · Data Platforms · Open Source</p>
+                    <p class="eyebrow">Data Platforms · Open Source · Writing</p>
                     <h1 class="title">I build data systems for production.</h1>
-                    <p class="subtitle">Most of my work is around data platforms, developer tools, and open source. I care about performance, clarity, and systems people can keep working on.</p>
+                    <p class="subtitle">Data platforms, developer tools, and open source — built around performance, clarity, and systems people can keep working on.</p>
 
-                    <div class="hero-metrics" aria-label="Highlights">
-                        <div class="metric-pill">
-                            <span class="metric-label">Stack</span>
-                            <span class="metric-value">Rust · Python · Go</span>
+                    <dl class="hero-stats" aria-label="Open source footprint">
+                        <div class="stat">
+                            <dt>PRs merged</dt>
+                            <dd>50</dd>
                         </div>
-                        <div class="metric-pill">
-                            <span class="metric-label">Focus</span>
-                            <span class="metric-value">Streaming · Lakehouse · DX</span>
+                        <div class="stat">
+                            <dt>Combined stars</dt>
+                            <dd>134k</dd>
                         </div>
-                        <div class="metric-pill">
-                            <span class="metric-label">Mode</span>
-                            <span class="metric-value">Build · Write · Contribute</span>
+                        <div class="stat">
+                            <dt>Projects</dt>
+                            <dd>21</dd>
                         </div>
-                    </div>
+                        <div class="stat stat-stack">
+                            <dt>Stack</dt>
+                            <dd>Rust · Python · Go</dd>
+                        </div>
+                    </dl>
 
                     <div class="cta-buttons">
-                        <a href="./blog/" class="btn btn-primary">Enter the Blog</a>
-                        <a href="#projects" class="btn btn-secondary">See Open Source Work</a>
-                        <a href="https://github.com/AndreaBozzo" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    </div>
-
-                    <div class="hero-notes">
-                        <article class="hero-note">
-                            <span class="note-label">Now</span>
-                            <p>Working on data infrastructure that stays fast and readable as it grows.</p>
-                        </article>
-                        <article class="hero-note">
-                            <span class="note-label">Writing</span>
-                            <p>I write build notes, implementation details, and longer essays on the blog in English and Italian.</p>
-                        </article>
+                        <a href="./blog/" class="btn btn-primary">Read the blog</a>
+                        <a href="#projects" class="btn btn-secondary">Open source work</a>
+                        <a href="https://github.com/AndreaBozzo" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
                     </div>
                 </div>
 
@@ -97,25 +90,28 @@
             </div>
         </section>
 
-        <section class="currently scroll-reveal" id="currently">
+        <section class="currently scroll-reveal" id="focus">
             <div class="section-heading">
-                <p class="eyebrow">Current Focus</p>
+                <p class="eyebrow">Focus</p>
                 <h2 class="section-title">What I work on</h2>
-                <p class="section-lead">These are the areas I keep coming back to.</p>
+                <p class="section-lead">Three areas I keep coming back to.</p>
             </div>
 
             <div class="focus-grid">
                 <article class="focus-card">
+                    <span class="focus-index">01</span>
                     <h3>Data platforms</h3>
                     <p>Streaming systems, analytical storage, orchestration, and the messy edges between them.</p>
                 </article>
                 <article class="focus-card">
+                    <span class="focus-index">02</span>
                     <h3>Developer tooling</h3>
                     <p>Tools and workflows that make complex systems easier to build and operate.</p>
                 </article>
                 <article class="focus-card">
-                    <h3>Public technical writing</h3>
-                    <p>Technical writing rooted in real work across Rust, Python, Go, and data tooling.</p>
+                    <span class="focus-index">03</span>
+                    <h3>Technical writing</h3>
+                    <p>Build notes and essays grounded in real work across Rust, Python, Go, and data tooling.</p>
                 </article>
             </div>
         </section>

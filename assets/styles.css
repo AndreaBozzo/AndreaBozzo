@@ -80,10 +80,13 @@
 
 [data-theme="dark"] .site-brand,
 [data-theme="dark"] .theme-toggle,
-[data-theme="dark"] .metric-pill,
-[data-theme="dark"] .hero-note {
+[data-theme="dark"] .hero-stats {
     background: linear-gradient(180deg, rgba(20, 31, 49, 0.92), rgba(14, 22, 36, 0.9));
     border-color: rgba(145, 184, 255, 0.14);
+}
+
+[data-theme="dark"] .hero-stats .stat {
+    border-left-color: rgba(145, 184, 255, 0.14);
 }
 
 [data-theme="dark"] .hero-copy {
@@ -292,7 +295,7 @@ a {
 
 .hero-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
     gap: clamp(2rem, 5vw, 5rem);
     align-items: center;
 }
@@ -319,7 +322,7 @@ a {
     font-size: var(--text-4xl);
     line-height: 0.96;
     letter-spacing: -0.04em;
-    max-width: 11ch;
+    max-width: 14ch;
 }
 
 .subtitle,
@@ -338,41 +341,59 @@ a {
     max-width: 38rem;
 }
 
-.hero-metrics {
+.hero-stats {
     margin-top: var(--space-8);
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-3);
-}
-
-.metric-pill {
     display: grid;
-    gap: 0.15rem;
-    padding: var(--space-4) var(--space-6);
-    min-width: 13rem;
+    grid-template-columns: repeat(3, minmax(0, auto)) 1fr;
+    gap: 0;
+    padding: var(--space-5) var(--space-6);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     background: var(--color-bg-secondary);
-    border: 1px solid var(--color-border);
-    box-shadow: var(--color-surface-shadow);
     backdrop-filter: blur(18px);
-    transition: transform 180ms ease, border-color 180ms ease;
+    box-shadow: var(--color-surface-shadow);
 }
 
-.metric-pill:hover {
-    transform: translateY(-2px);
-    border-color: color-mix(in srgb, var(--color-accent-strong) 42%, var(--color-border));
+.hero-stats .stat {
+    display: grid;
+    gap: 0.15rem;
+    padding: 0 var(--space-6);
+    border-left: 1px solid var(--color-border);
+    align-content: center;
 }
 
-.metric-label {
+.hero-stats .stat:first-child {
+    padding-left: 0;
+    border-left: 0;
+}
+
+.hero-stats .stat-stack {
+    padding-right: 0;
+}
+
+.hero-stats dt {
     font-size: var(--text-xs);
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--color-text-muted);
+    font-weight: 600;
 }
 
-.metric-value {
-    font-size: var(--text-sm);
+.hero-stats dd {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
     font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    line-height: 1.1;
+}
+
+.hero-stats .stat-stack dd {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    letter-spacing: 0;
+    color: var(--color-text-secondary);
+    align-self: center;
 }
 
 .cta-buttons {
@@ -422,14 +443,18 @@ a {
     color: var(--color-text-primary);
 }
 
-.hero-notes {
-    margin-top: var(--space-10);
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-4);
+.btn-ghost {
+    background: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
 }
 
-.hero-note,
+.btn-ghost:hover,
+.btn-ghost:focus-visible {
+    color: var(--color-text-primary);
+    border-color: color-mix(in srgb, var(--color-accent) 48%, var(--color-border));
+}
+
 .focus-card,
 .blog-panel,
 .project-item,
@@ -440,22 +465,6 @@ a {
     box-shadow: var(--color-surface-shadow);
 }
 
-.hero-note {
-    padding: var(--space-6);
-    border-radius: var(--radius-md);
-}
-
-.note-label {
-    display: inline-block;
-    margin-bottom: var(--space-2);
-    font-size: var(--text-xs);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--color-accent-strong);
-    font-weight: 700;
-}
-
-.hero-note p,
 .focus-card p,
 .project-desc,
 .blog-summary,
@@ -472,12 +481,12 @@ a {
 
 .hero-art-frame {
     position: relative;
-    width: min(100%, 28rem);
-    padding: var(--space-4);
-    border-radius: var(--radius-xl);
+    width: min(100%, 22rem);
+    padding: var(--space-3);
+    border-radius: var(--radius-lg);
     background: linear-gradient(180deg, color-mix(in srgb, var(--color-bg-tertiary) 85%, white), var(--color-bg-secondary));
     border: 1px solid var(--color-border);
-    box-shadow: var(--color-surface-shadow);
+    box-shadow: 0 18px 50px rgba(48, 35, 17, 0.10);
     transition: transform 220ms ease, border-color 220ms ease;
 }
 
@@ -543,6 +552,25 @@ a {
 .focus-card {
     padding: var(--space-8);
     border-radius: var(--radius-lg);
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.focus-card:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--color-accent) 38%, var(--color-border));
+}
+
+.focus-index {
+    display: block;
+    margin-bottom: var(--space-4);
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--color-accent);
 }
 
 .focus-card h3,
@@ -928,25 +956,30 @@ a {
         font-size: 0.7rem;
     }
 
-    .hero-metrics {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: var(--space-2);
+    .hero-stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        padding: var(--space-4);
+        gap: 0;
     }
 
-    .metric-pill {
-        width: 100%;
-        min-width: 0;
-        padding: var(--space-4);
+    .hero-stats .stat {
+        padding: 0 var(--space-3);
+    }
+
+    .hero-stats .stat-stack {
+        grid-column: 1 / -1;
+        padding: var(--space-3) 0 0;
+        margin-top: var(--space-3);
+        border-top: 1px solid var(--color-border);
+        border-left: 0;
+    }
+
+    [data-theme="dark"] .hero-stats .stat-stack {
+        border-top-color: rgba(145, 184, 255, 0.14);
     }
 
     .subtitle {
         margin-top: var(--space-5);
-    }
-
-    .hero-notes {
-        grid-template-columns: 1fr;
-        gap: var(--space-3);
     }
 
     .cta-buttons,
@@ -1022,5 +1055,174 @@ a {
     .contact-panel {
         padding-top: var(--space-8);
         padding-bottom: var(--space-8);
+    }
+}
+
+/* ===== Mobile optimization pass ===== */
+
+/* Honor iOS safe-area insets so content does not collide with notches and home indicators. */
+@supports (padding: max(0px)) {
+    .site-header {
+        padding-left: max(var(--space-8), env(safe-area-inset-left));
+        padding-right: max(var(--space-8), env(safe-area-inset-right));
+    }
+
+    .content-wrapper {
+        padding-left: max(var(--space-8), env(safe-area-inset-left));
+        padding-right: max(var(--space-8), env(safe-area-inset-right));
+        padding-bottom: max(var(--space-20), env(safe-area-inset-bottom));
+    }
+}
+
+/* Disable hover-driven transforms on touch devices — they trigger on tap and feel laggy. */
+@media (hover: none) {
+    .btn:hover,
+    .btn:focus-visible,
+    .contact-link:hover,
+    .contact-link:focus-visible,
+    .text-link:hover,
+    .project-link:hover,
+    .blog-card:hover,
+    .project-item:hover,
+    .focus-card:hover,
+    .hero-art:hover .hero-art-frame,
+    .site-brand:hover,
+    .theme-toggle:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 760px) {
+    /* Mobile typography: keep the headline impactful but avoid horizontal overflow on narrow screens. */
+    :root {
+        --text-4xl: clamp(2.6rem, 12vw, 4.4rem);
+        --text-3xl: clamp(2rem, 8vw, 3.2rem);
+    }
+
+    body {
+        /* Stronger smoothing on small displays where antialiasing reads more clearly. */
+        text-rendering: optimizeLegibility;
+    }
+
+    /* Tighten the page glows so they do not dominate the small viewport. */
+    .page-glow {
+        width: 18rem;
+        height: 18rem;
+        filter: blur(56px);
+    }
+
+    .page-glow-left {
+        top: -8rem;
+        left: -6rem;
+    }
+
+    .page-glow-right {
+        right: -7rem;
+        top: 12rem;
+    }
+
+    /* Minimum 44x44 tap targets per Apple HIG / WCAG 2.5.5. */
+    .btn,
+    .contact-link,
+    .lang-btn,
+    .site-nav a,
+    .theme-toggle {
+        min-height: 2.75rem;
+    }
+
+    /* Slightly heavier hero-stats numbers compress less awkwardly on narrow widths. */
+    .hero-stats dd {
+        font-size: var(--text-lg);
+    }
+
+    /* Hide the hero art on very tight viewports to prioritize the message — the homepage stays useful. */
+    .hero-art {
+        margin-top: var(--space-2);
+    }
+
+    .hero-caption {
+        font-size: var(--text-xs);
+    }
+
+    /* The blog language toggle reads better as a compact pill on the right rather than a stretched bar. */
+    .blog-header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .language-toggle {
+        width: auto;
+    }
+
+    .lang-btn {
+        width: auto;
+        padding: 0.45rem 0.85rem;
+        font-size: var(--text-xs);
+    }
+
+    /* Section spacing scales with viewport rather than a fixed step, smoother across phone sizes. */
+    .hero,
+    .currently,
+    .blog-preview,
+    .projects,
+    .contact {
+        padding-top: clamp(2.5rem, 9vw, var(--space-12));
+    }
+}
+
+/* Tiny screens (older / smaller iPhones, foldables in cover mode). */
+@media (max-width: 380px) {
+    .site-header {
+        padding-top: var(--space-3);
+        gap: var(--space-3);
+    }
+
+    .site-brand,
+    .theme-toggle {
+        width: 2.5rem;
+        height: 2.5rem;
+        min-height: 2.5rem;
+    }
+
+    .hero-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero-stats .stat:nth-child(3) {
+        border-left: 0;
+        border-top: 1px solid var(--color-border);
+        padding-top: var(--space-3);
+        margin-top: var(--space-3);
+        grid-column: 1 / -1;
+    }
+
+    [data-theme="dark"] .hero-stats .stat:nth-child(3) {
+        border-top-color: rgba(145, 184, 255, 0.14);
+    }
+
+    .focus-card {
+        padding: var(--space-5);
+    }
+}
+
+/* Landscape phones: avoid vertical clipping of the hero on short heights. */
+@media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+    .hero {
+        min-height: auto;
+        padding-top: var(--space-10);
+    }
+
+    .hero-grid {
+        grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
+        gap: var(--space-6);
+    }
+
+    .hero-art {
+        order: initial;
+    }
+
+    .hero-art-frame {
+        width: min(100%, 16rem);
     }
 }
