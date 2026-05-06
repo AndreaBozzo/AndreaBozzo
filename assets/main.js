@@ -15,7 +15,6 @@ document.documentElement.setAttribute('data-theme', savedTheme);
 document.getElementById('theme-icon').textContent = savedTheme === 'dark' ? '🌙' : '☀️';
 
 const siteBasePath = new URL('.', window.location.href).pathname;
-const isLocalPreview = ['localhost', '127.0.0.1'].includes(window.location.hostname);
 
 function syncThemeColor(theme) {
     const themeColorMeta = document.querySelector('meta[name="theme-color"]:not([media])');
@@ -110,17 +109,9 @@ function parseCompactNumber(value) {
     return parseFloat(normalized) || 0;
 }
 
-function getBlogJsonCandidates(lang) {
+function getBlogJsonPath(lang) {
     const relativePath = lang === 'en' ? 'en/index.json' : 'index.json';
-    const candidates = [];
-
-    if (isLocalPreview) {
-        candidates.push(`${siteBasePath}blog/public/${relativePath}`);
-        candidates.push(`https://andreabozzo.github.io/AndreaBozzo/blog/${relativePath}`);
-    }
-
-    candidates.push(`${siteBasePath}blog/${relativePath}`);
-    return [...new Set(candidates)];
+    return `${siteBasePath}blog/${relativePath}`;
 }
 
 function extractContributionMetrics(badgeSource) {
@@ -155,22 +146,12 @@ async function loadLatestBlogPosts(forceLang = null) {
     }
 
     try {
-        const candidates = getBlogJsonCandidates(lang);
-        let posts = null;
-
-        for (const blogJsonPath of candidates) {
-            const response = await fetch(blogJsonPath);
-            if (!response.ok) {
-                continue;
-            }
-
-            posts = await response.json();
-            break;
-        }
-
-        if (!posts) {
+        const response = await fetch(getBlogJsonPath(lang));
+        if (!response.ok) {
             throw new Error('Failed to fetch blog posts');
         }
+
+        const posts = await response.json();
 
         localStorage.setItem(cacheKey, JSON.stringify(posts));
         renderBlogPosts(posts, lang);

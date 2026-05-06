@@ -2,6 +2,7 @@
 blog/public/
 blog/resources/
 blog/.hugo_build.lock
+_site/
 
 # Development files
 node_modules/

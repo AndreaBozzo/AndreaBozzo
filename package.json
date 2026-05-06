@@ -3,8 +3,11 @@
   "private": true,
   "scripts": {
     "build:assets": "npm run build:css && npm run build:js",
+    "build:blog": "cd blog && hugo --minify -F --config hugo.toml,hugo.github.toml",
     "build:css": "esbuild assets/styles.css --minify --outfile=assets/styles.min.css",
-    "build:js": "esbuild assets/main.js --minify --outfile=assets/main.min.js"
+    "build:js": "esbuild assets/main.js --minify --outfile=assets/main.min.js",
+    "assemble:site": "rm -rf _site && mkdir -p _site/blog && cp index.html manifest.json sw.js _site/ && cp -r assets _site/ && cp -r blog/public/* _site/blog/",
+    "build:site": "npm run build:assets && npm run build:blog && npm run assemble:site"
   },
   "devDependencies": {
     "esbuild": "^0.25.11"
