@@ -125,6 +125,18 @@ function extractContributionMetrics(badgeSource) {
     };
 }
 
+function revealLoadedCards(container, selector) {
+    const items = container.querySelectorAll(selector);
+
+    items.forEach((item, index) => {
+        item.style.setProperty('--card-delay', `${index}`);
+    });
+
+    requestAnimationFrame(() => {
+        items.forEach((item) => item.classList.add('is-visible'));
+    });
+}
+
 async function loadLatestBlogPosts(forceLang = null) {
     const lang = forceLang || getCurrentBlogLanguage();
 
@@ -175,7 +187,7 @@ function renderBlogPosts(posts, lang) {
         const tags = extractTags(post);
 
         return `
-            <a href="${post.permalink}" class="blog-card" style="text-decoration: none; color: inherit;">
+            <a href="${post.permalink}" class="blog-card content-card-enter" style="text-decoration: none; color: inherit;">
                 <div class="blog-date">${escapeHtml(date)}</div>
                 <div class="blog-title">${escapeHtml(post.title)}</div>
                 <div class="blog-summary">${escapeHtml(post.summary)}</div>
@@ -185,6 +197,8 @@ function renderBlogPosts(posts, lang) {
             </a>
         `;
     }).join('');
+
+    revealLoadedCards(blogGrid, '.content-card-enter');
 }
 
 function showBlogError(lang) {
@@ -194,7 +208,7 @@ function showBlogError(lang) {
         : 'No articles available at the moment.';
 
     blogGrid.innerHTML = `
-        <div class="blog-card" style="text-align: center; padding: 3rem;">
+        <div class="blog-card content-card-enter is-visible" style="text-align: center; padding: 3rem;">
             <div class="blog-title">${message}</div>
         </div>
     `;
@@ -296,7 +310,7 @@ async function fetchContributions(username, repoName = 'AndreaBozzo', branch = '
             .slice(0, 4)
             .forEach((contrib) => {
                 const projectItem = document.createElement('article');
-                projectItem.className = 'project-item';
+                projectItem.className = 'project-item content-card-enter';
                 projectItem.innerHTML = `
                     <h3 class="project-name">${escapeHtml(contrib.name)}</h3>
                     <p class="project-desc">${escapeHtml(contrib.desc)}</p>
@@ -305,6 +319,8 @@ async function fetchContributions(username, repoName = 'AndreaBozzo', branch = '
                 `;
                 listElement.appendChild(projectItem);
             });
+
+        revealLoadedCards(listElement, '.content-card-enter');
     } catch (error) {
         console.error('Failed to fetch GitHub contributions:', error);
         listElement.innerHTML = '<p class="error-message">Could not load contributions at this time.</p>';

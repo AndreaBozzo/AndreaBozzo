@@ -6,7 +6,7 @@
     "build:blog": "cd blog && hugo --minify -F --config hugo.toml,hugo.github.toml",
     "build:css": "esbuild assets/styles.css --minify --outfile=assets/styles.min.css",
     "build:js": "esbuild assets/main.js --minify --outfile=assets/main.min.js",
-    "assemble:site": "rm -rf _site && mkdir -p _site/blog && cp index.html manifest.json sw.js _site/ && cp -r assets _site/ && cp -r blog/public/* _site/blog/",
+    "assemble:site": "bash ./scripts/assemble-site.sh",
     "build:site": "npm run build:assets && npm run build:blog && npm run assemble:site"
   },
   "devDependencies": {

@@ -527,7 +527,7 @@ a {
     padding: var(--space-6);
     border-radius: var(--radius-md);
     text-decoration: none;
-    background: color-mix(in srgb, var(--color-bg-tertiary) 85%, transparent);
+    background: color-mix(in srgb, var(--color-bg-tertiary) 90%, transparent);
     border: 1px solid var(--color-border);
     min-height: 15rem;
     transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
@@ -560,6 +560,7 @@ a {
 .project-name {
     font-size: var(--text-xl);
     line-height: 1.1;
+    letter-spacing: -0.02em;
 }
 
 .blog-tags {
@@ -626,27 +627,51 @@ a {
 .project-item {
     padding: var(--space-8);
     border-radius: var(--radius-lg);
+    background: color-mix(in srgb, var(--color-bg-tertiary) 94%, transparent);
     transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.project-desc {
+    color: color-mix(in srgb, var(--color-text-primary) 32%, var(--color-text-secondary));
 }
 
 .project-contrib {
     margin-top: var(--space-4);
+    color: color-mix(in srgb, var(--color-accent) 48%, var(--color-text-muted));
 }
 
 .contribution-footer {
     margin-top: var(--space-6);
+    color: color-mix(in srgb, var(--color-text-secondary) 82%, transparent);
+}
+
+.contribution-footer a {
+    color: var(--color-accent-strong);
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.18em;
 }
 
 .contact-panel {
     padding: clamp(2rem, 4vw, 4rem);
     border-radius: var(--radius-xl);
     text-align: center;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--color-bg-tertiary) 94%, transparent), var(--color-bg-secondary));
 }
 
 .contact-panel .section-title,
 .contact-panel .contact-text {
     margin-left: auto;
     margin-right: auto;
+}
+
+.contact-panel .section-title {
+    max-width: 14ch;
+    line-height: 0.98;
+}
+
+.contact-panel .contact-text {
+    max-width: 44rem;
+    color: color-mix(in srgb, var(--color-text-primary) 30%, var(--color-text-secondary));
 }
 
 .contact-links {
@@ -673,6 +698,20 @@ a {
 .blog-skeleton,
 .project-skeleton {
     pointer-events: none;
+}
+
+.content-card-enter {
+    opacity: 0;
+    transform: translateY(14px);
+}
+
+.content-card-enter.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 380ms ease,
+        transform 380ms ease;
+    transition-delay: calc(var(--card-delay, 0) * 70ms);
 }
 
 .skeleton-date,
