@@ -1,3 +1,9 @@
+<h1 align="center">Andrea Bozzo</h1>
+
+<p align="center"><strong>Open source engineer building data platforms, developer tooling, and technical writing around Rust, Python, Go, and modern analytics systems.</strong></p>
+
+<p align="center">This repository is the public front door for my work: a handcrafted landing page at the root, a Hugo-powered blog in <code>/blog</code>, and the GitHub Pages automation that publishes both together.</p>
+
 <p align="center">
   <img src="assets/images/Climbing%20towards%20the%20celestial%20Ankh.png" alt="Climbing towards the celestial Ankh" width="480"/>
 </p>
@@ -6,7 +12,7 @@
 
 <p align="center">
   <a href="https://andreabozzo.github.io/AndreaBozzo/">🌐 Landing Page</a> •
-  <a href="https://andreabozzo.pages.dev/">📝 Blog</a> •
+  <a href="https://andreabozzo.github.io/AndreaBozzo/blog/">📝 Blog</a> •
   <a href="https://www.linkedin.com/in/andrea-bozzo-/">💼 LinkedIn</a> •
   <a href="mailto:andreabozzo92@gmail.com">📧 Email</a>
 </p>

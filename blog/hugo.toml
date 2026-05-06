@@ -1,4 +1,5 @@
-baseURL = 'https://andreabozzo.pages.dev/'
+# Environment-specific base URLs are provided by config overrides.
+baseURL = '/'
 defaultContentLanguage = 'it'
 defaultContentLanguageInSubdir = false
 theme = 'PaperMod'

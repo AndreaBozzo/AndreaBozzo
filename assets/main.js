@@ -13,6 +13,8 @@ const savedTheme = localStorage.getItem('theme') || 'dark';
 document.documentElement.setAttribute('data-theme', savedTheme);
 document.getElementById('theme-icon').textContent = savedTheme === 'dark' ? '🌙' : '☀️';
 
+const siteBasePath = new URL('.', window.location.href).pathname;
+
 // ===== Scroll Reveal Animation with Intersection Observer =====
 const revealElements = document.querySelectorAll('.scroll-reveal');
 
@@ -107,8 +109,8 @@ async function loadLatestBlogPosts(forceLang = null) {
     try {
         // Try language-specific JSON first
         const blogJsonPath = lang === 'en'
-            ? '/AndreaBozzo/blog/en/index.json'
-            : '/AndreaBozzo/blog/index.json';
+            ? `${siteBasePath}blog/en/index.json`
+            : `${siteBasePath}blog/index.json`;
 
         const response = await fetch(blogJsonPath);
         if (!response.ok) {
@@ -208,7 +210,7 @@ function escapeHtml(text) {
 // ===== Service Worker Registration =====
 if ('serviceWorker' in navigator && window.location.hostname !== 'localhost') {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/AndreaBozzo/sw.js')
+        navigator.serviceWorker.register(`${siteBasePath}sw.js`)
             .then((registration) => {
                 console.log('✅ Service Worker registered:', registration.scope);
 

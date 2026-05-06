@@ -1,9 +1,11 @@
-const CACHE_NAME = 'andreabozzo-v2';
+const CACHE_NAME = 'andreabozzo-v3';
+const BASE_PATH = new URL(self.registration.scope).pathname;
 const ASSETS_TO_CACHE = [
-    '/',
-    '/index.html',
-    '/assets/styles.min.css',
-    '/assets/main.min.js'
+    BASE_PATH,
+    `${BASE_PATH}index.html`,
+    `${BASE_PATH}assets/styles.min.css`,
+    `${BASE_PATH}assets/main.min.js`,
+    `${BASE_PATH}manifest.json`
 ];
 
 self.addEventListener('install', (event) => {
@@ -59,7 +61,7 @@ self.addEventListener('fetch', (event) => {
                     }
 
                     if (request.destination === 'document') {
-                        return caches.match('/index.html');
+                        return caches.match(`${BASE_PATH}index.html`);
                     }
                 });
             })
