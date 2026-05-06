@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Andrea Bozzo - Data Engineer & Software Developer</title>
-    <meta name="description" content="Data Engineer specializing in analytics, ETL pipelines, and scalable data solutions. Building elegant solutions to complex data challenges.">
-    <meta name="keywords" content="data engineer, analytics, ETL, Python, Rust, Go, data architecture, software development">
+    <title>Andrea Bozzo | Data Platforms, Open Source, Technical Writing</title>
+    <meta name="description" content="Andrea Bozzo builds data platforms, developer tooling, and technical writing across Rust, Python, Go, and modern analytics infrastructure.">
+    <meta name="keywords" content="Andrea Bozzo, data engineering, Rust, Python, Go, open source, lakehouse, streaming, analytics engineering">
     <meta name="author" content="Andrea Bozzo">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#f5efe2">
+    <meta name="theme-color" content="#f5efe2" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#101726" media="(prefers-color-scheme: dark)">
 
     <link rel="preconnect" href="https://api.github.com" crossorigin>
     <link rel="dns-prefetch" href="//api.github.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="preload" href="assets/styles.min.css" as="style">
     <link rel="preload" href="assets/main.min.js" as="script">
     <link rel="prefetch" href="./blog/">
@@ -20,81 +24,154 @@
     <link rel="stylesheet" href="assets/styles.min.css">
     <script>
         (function() {
-            const savedTheme = localStorage.getItem('theme') || 'dark';
+            const savedTheme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
         })();
     </script>
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <div class="theme-toggle" onclick="toggleTheme()">
-        <span class="theme-toggle-icon" id="theme-icon">🌙</span>
-    </div>
+    <div class="page-glow page-glow-left"></div>
+    <div class="page-glow page-glow-right"></div>
 
-    <div class="content-wrapper">
+    <header class="site-header">
+        <a href="#home" class="site-brand">AB</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="#currently">Focus</a>
+            <a href="./blog/">Blog</a>
+            <a href="#projects">Open Source</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle color theme">
+            <span class="theme-toggle-icon" id="theme-icon">☀️</span>
+        </button>
+    </header>
+
+    <main class="content-wrapper">
         <section class="hero" id="home">
-            <div class="hero-content">
-                <h1 class="title">Andrea Bozzo</h1>
-                <p class="subtitle">Data, Open Source, Python & Rust.</p>
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">Andrea Bozzo · Data Platforms · Open Source</p>
+                    <h1 class="title">Building data systems that stay fast, legible, and worth maintaining.</h1>
+                    <p class="subtitle">I work across Rust, Python, Go, and analytics infrastructure, with a bias for lakehouse architectures, pragmatic tooling, and public technical writing.</p>
 
-                <div class="cta-buttons">
-                    <a href="./blog/" class="btn btn-primary">Read My Blog</a>
-                    <a href="https://github.com/AndreaBozzo" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    <a href="https://www.linkedin.com/in/andrea-bozzo-/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <a href="mailto:andreabozzo92@gmail.com" class="btn btn-secondary">Email</a>
+                    <div class="hero-metrics" aria-label="Highlights">
+                        <div class="metric-pill">
+                            <span class="metric-label">Stack</span>
+                            <span class="metric-value">Rust · Python · Go</span>
+                        </div>
+                        <div class="metric-pill">
+                            <span class="metric-label">Focus</span>
+                            <span class="metric-value">Streaming · Lakehouse · DX</span>
+                        </div>
+                        <div class="metric-pill">
+                            <span class="metric-label">Mode</span>
+                            <span class="metric-value">Build · Write · Contribute</span>
+                        </div>
+                    </div>
+
+                    <div class="cta-buttons">
+                        <a href="./blog/" class="btn btn-primary">Enter the Blog</a>
+                        <a href="#projects" class="btn btn-secondary">See Open Source Work</a>
+                        <a href="https://github.com/AndreaBozzo" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </div>
+
+                    <div class="hero-notes">
+                        <article class="hero-note">
+                            <span class="note-label">Now</span>
+                            <p>Designing reliable data paths, reducing workflow friction, and contributing fixes upstream when the stack gets interesting.</p>
+                        </article>
+                        <article class="hero-note">
+                            <span class="note-label">Writing</span>
+                            <p>The homepage stays concise. The long-form thinking lives in the bilingual Hugo blog under <strong>/blog</strong>.</p>
+                        </article>
+                    </div>
                 </div>
+
+                <figure class="hero-art">
+                    <div class="hero-art-frame">
+                        <img src="assets/images/Climbing%20towards%20the%20celestial%20Ankh.png" alt="Pixel-art tableau of a party raising a glowing ankh between moon and sun" class="hero-image">
+                    </div>
+                    <figcaption class="hero-caption">Per aspera ad data.</figcaption>
+                </figure>
             </div>
         </section>
 
         <section class="currently scroll-reveal" id="currently">
-            <div class="currently-content">
-                <h2 class="section-title">Currently</h2>
-                <p class="currently-text">
-                    Building high-performance data systems with <strong>Rust</strong> & <strong>Python</strong>, architecting streaming lakehouses, and contributing to the open source data ecosystem.
-                </p>
+            <div class="section-heading">
+                <p class="eyebrow">Current Focus</p>
+                <h2 class="section-title">A profile front page, not a dumping ground.</h2>
+                <p class="section-lead">This homepage stays selective: what I build, what I write about, and how I tend to work when a system needs both speed and clarity.</p>
+            </div>
+
+            <div class="focus-grid">
+                <article class="focus-card">
+                    <h3>Data platforms</h3>
+                    <p>Event pipelines, analytical storage, orchestration boundaries, and the unglamorous edges where production systems usually get painful.</p>
+                </article>
+                <article class="focus-card">
+                    <h3>Developer tooling</h3>
+                    <p>Interfaces and workflows that reduce operational drag, especially when codebases mix data engineering, backend services, and infrastructure concerns.</p>
+                </article>
+                <article class="focus-card">
+                    <h3>Public technical writing</h3>
+                    <p>Notes from real implementation work across Rust, Python, Go, open data tooling, and the wider modern data ecosystem.</p>
+                </article>
             </div>
         </section>
 
         <section class="blog-preview scroll-reveal" id="blog">
-            <div class="blog-header">
-                <h2 class="section-title">Latest from the Blog</h2>
-                <div class="language-toggle">
-                    <button id="lang-toggle-btn" class="lang-btn" onclick="toggleBlogLanguage()">
-                        <span id="lang-icon">🇮🇹</span>
-                        <span id="lang-text">IT</span>
-                    </button>
+            <div class="blog-layout">
+                <div class="blog-intro">
+                    <p class="eyebrow">Journal</p>
+                    <h2 class="section-title">The blog is a separate reading space by design.</h2>
+                    <p class="section-lead">The landing page is the front door. The blog carries the long-form writing, in English and Italian, with a clearer editorial rhythm than the homepage itself should have.</p>
+                    <a href="./blog/" class="text-link">Browse every post</a>
                 </div>
-            </div>
-            <div class="blog-grid" id="blog-grid">
-                <div class="blog-card blog-skeleton">
-                    <div class="skeleton-date"></div>
-                    <div class="skeleton-title"></div>
-                    <div class="skeleton-summary"></div>
-                    <div class="skeleton-tags">
-                        <span class="skeleton-tag"></span>
-                        <span class="skeleton-tag"></span>
-                        <span class="skeleton-tag"></span>
+
+                <div class="blog-panel">
+                    <div class="blog-header">
+                        <h3 class="panel-title">Latest writing</h3>
+                        <div class="language-toggle">
+                            <button id="lang-toggle-btn" class="lang-btn" type="button" onclick="toggleBlogLanguage()">
+                                <span id="lang-icon">🇮🇹</span>
+                                <span id="lang-text">IT</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="blog-grid" id="blog-grid">
+                        <div class="blog-card blog-skeleton">
+                            <div class="skeleton-date"></div>
+                            <div class="skeleton-title"></div>
+                            <div class="skeleton-summary"></div>
+                            <div class="skeleton-tags">
+                                <span class="skeleton-tag"></span>
+                                <span class="skeleton-tag"></span>
+                                <span class="skeleton-tag"></span>
+                            </div>
+                        </div>
+                        <div class="blog-card blog-skeleton">
+                            <div class="skeleton-date"></div>
+                            <div class="skeleton-title"></div>
+                            <div class="skeleton-summary"></div>
+                            <div class="skeleton-tags">
+                                <span class="skeleton-tag"></span>
+                                <span class="skeleton-tag"></span>
+                                <span class="skeleton-tag"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="blog-card blog-skeleton">
-                    <div class="skeleton-date"></div>
-                    <div class="skeleton-title"></div>
-                    <div class="skeleton-summary"></div>
-                    <div class="skeleton-tags">
-                        <span class="skeleton-tag"></span>
-                        <span class="skeleton-tag"></span>
-                        <span class="skeleton-tag"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="blog-footer">
-                <a href="./blog/" class="btn btn-primary">View All Posts →</a>
             </div>
         </section>
 
         <section class="projects scroll-reveal" id="projects">
-            <h2 class="section-title">Open Source Contributions</h2>
-            <p class="section-subtitle">A selection of open source projects I've contributed to. Fetched live from GitHub.</p>
+            <div class="section-heading">
+                <p class="eyebrow">Open Source</p>
+                <h2 class="section-title">A working relationship with the ecosystem.</h2>
+                <p class="section-lead">A rotating slice of projects I have contributed to, pulled from the repository README so the homepage reflects the same public record as the profile repo.</p>
+            </div>
+
             <div class="projects-list" id="contributions-list">
                 <div class="project-item project-skeleton">
                     <div class="skeleton-line title"></div>
@@ -106,107 +183,37 @@
                     <div class="skeleton-line desc"></div>
                     <div class="skeleton-line contrib"></div>
                 </div>
+                <div class="project-item project-skeleton">
+                    <div class="skeleton-line title"></div>
+                    <div class="skeleton-line desc"></div>
+                    <div class="skeleton-line contrib"></div>
+                </div>
+                <div class="project-item project-skeleton">
+                    <div class="skeleton-line title"></div>
+                    <div class="skeleton-line desc"></div>
+                    <div class="skeleton-line contrib"></div>
+                </div>
             </div>
-            <p class="contribution-footer">... and many more on my <a href="https://github.com/AndreaBozzo?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub profile</a>.</p>
+
+            <p class="contribution-footer">More contributions live on <a href="https://github.com/AndreaBozzo?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
         </section>
 
-        <section class="contact scroll-reveal">
-            <h2 class="section-title">Let's Connect</h2>
-            <p class="contact-text">
-                Always interested in discussing new opportunities, collaborations, and data engineering challenges.
-            </p>
+        <section class="contact scroll-reveal" id="contact">
+            <div class="contact-panel">
+                <p class="eyebrow">Contact</p>
+                <h2 class="section-title">Interested in infrastructure, data, or an OSS collaboration?</h2>
+                <p class="contact-text">I am always interested in conversations around data engineering, platform reliability, open source work, and technically ambitious product teams.</p>
 
-            <div class="contact-links">
-                <a href="https://github.com/AndreaBozzo" class="contact-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="https://www.linkedin.com/in/andrea-bozzo-/" class="contact-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="./blog/" class="contact-link">Blog</a>
-                <a href="mailto:andreabozzo92@gmail.com" class="contact-link">Email</a>
+                <div class="contact-links">
+                    <a href="https://github.com/AndreaBozzo" class="contact-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/andrea-bozzo-/" class="contact-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="./blog/" class="contact-link">Blog</a>
+                    <a href="mailto:andreabozzo92@gmail.com" class="contact-link">Email</a>
+                </div>
             </div>
         </section>
-    </div>
+    </main>
 
     <script src="assets/main.min.js" defer></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            fetchContributions('AndreaBozzo');
-        });
-
-        async function fetchContributions(username, repoName = 'AndreaBozzo', branch = 'main') {
-            const listElement = document.getElementById('contributions-list');
-            if (!listElement) return;
-
-            try {
-                const response = await fetch(`https://raw.githubusercontent.com/${username}/${repoName}/${branch}/README.md`);
-                if (!response.ok) throw new Error(`Failed to fetch README.md: ${response.status}`);
-                const markdown = await response.text();
-
-                const startMarker = '<!-- EXTERNAL_CONTRIBUTIONS:START -->';
-                const endMarker = '<!-- EXTERNAL_CONTRIBUTIONS:END -->';
-                const startIndex = markdown.indexOf(startMarker);
-                const endIndex = markdown.indexOf(endMarker);
-
-                if (startIndex === -1 || endIndex === -1) {
-                    throw new Error('Contribution markers not found in README.md');
-                }
-
-                const contributionsText = markdown.substring(startIndex + startMarker.length, endIndex).trim();
-                
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(contributionsText, 'text/html');
-                const badges = doc.querySelectorAll('a img[alt]');
-                
-                const contributions = [];
-                badges.forEach(img => {
-                    const a = img.parentElement;
-                    const url = a.href;
-                    const name = img.alt;
-                    const src = img.src;
-                    const urlParts = src.split('/');
-                    const badgePart = urlParts[urlParts.length - 1];
-                    const decoded = decodeURIComponent(badgePart);
-                    const parts = decoded.split('-');
-                    if (parts.length >= 3) {
-                        const starsPart = parts.find(p => p.startsWith('⭐'));
-                        const prPart = parts.find(p => p.endsWith('PR'));
-                        const stars = starsPart ? starsPart.replace('⭐', '') : '0';
-                        const prs = prPart ? prPart.replace('PR', '') : '0';
-                        contributions.push({
-                            name,
-                            url,
-                            stars,
-                            prs,
-                            desc: 'Contributed to this open source project'
-                        });
-                    }
-                });
-
-                listElement.innerHTML = '';
-
-                if (contributions.length === 0) {
-                    listElement.innerHTML = '<p>No contributions found in README. Please check on GitHub.</p>';
-                    return;
-                }
-
-                contributions.sort((a, b) => parseFloat(b.stars.replace('k', '000')) - parseFloat(a.stars.replace('k', '000')));
-                contributions.sort((a, b) => parseFloat(b.stars.replace('k', '000')) - parseFloat(a.stars.replace('k', '000')));
-                contributions.slice(0, 4).forEach(contrib => {
-                    const projectItem = document.createElement('div');
-                    projectItem.className = 'project-item';
-                    projectItem.innerHTML = `
-                        <h3 class="project-name">${contrib.name}</h3>
-                        <p class="project-desc">${contrib.desc}</p>
-                        <p class="project-contrib">⭐ ${contrib.stars} stars · ${contrib.prs} PR${contrib.prs !== '1' ? 's' : ''}</p>
-                        <a href="${contrib.url}" class="project-link" target="_blank" rel="noopener noreferrer">View project →</a>
-                    `;
-                    listElement.appendChild(projectItem);
-                });
-
-            } catch (error) {
-                console.error('Failed to fetch GitHub contributions:', error);
-                listElement.innerHTML = '<p class="error-message">Could not load contributions at this time.</p>';
-            }
-        }
-    </script>
 </body>
 </html>

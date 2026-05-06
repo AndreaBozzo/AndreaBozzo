@@ -1,0 +1,12 @@
+{
+  "name": "andreabozzo-site",
+  "private": true,
+  "scripts": {
+    "build:assets": "npm run build:css && npm run build:js",
+    "build:css": "esbuild assets/styles.css --minify --outfile=assets/styles.min.css",
+    "build:js": "esbuild assets/main.js --minify --outfile=assets/main.min.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.11"
+  }
+}

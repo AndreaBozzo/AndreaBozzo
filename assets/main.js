@@ -6,14 +6,27 @@ function toggleTheme() {
     html.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     document.getElementById('theme-icon').textContent = newTheme === 'dark' ? '🌙' : '☀️';
+    syncThemeColor(newTheme);
 }
 
 // Load saved theme
-const savedTheme = localStorage.getItem('theme') || 'dark';
+const savedTheme = localStorage.getItem('theme') || 'light';
 document.documentElement.setAttribute('data-theme', savedTheme);
 document.getElementById('theme-icon').textContent = savedTheme === 'dark' ? '🌙' : '☀️';
 
 const siteBasePath = new URL('.', window.location.href).pathname;
+const isLocalPreview = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+
+function syncThemeColor(theme) {
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]:not([media])');
+    const color = theme === 'dark' ? '#101726' : '#f5efe2';
+
+    if (themeColorMeta) {
+        themeColorMeta.setAttribute('content', color);
+    }
+}
+
+syncThemeColor(savedTheme);
 
 // ===== Scroll Reveal Animation with Intersection Observer =====
 const revealElements = document.querySelectorAll('.scroll-reveal');
@@ -86,6 +99,41 @@ function updateLanguageToggleUI(lang) {
     }
 }
 
+function parseCompactNumber(value) {
+    if (!value) return 0;
+
+    const normalized = value.trim().toLowerCase();
+    if (normalized.endsWith('k')) {
+        return Math.round(parseFloat(normalized.slice(0, -1)) * 1000);
+    }
+
+    return parseFloat(normalized) || 0;
+}
+
+function getBlogJsonCandidates(lang) {
+    const relativePath = lang === 'en' ? 'en/index.json' : 'index.json';
+    const candidates = [];
+
+    if (isLocalPreview) {
+        candidates.push(`${siteBasePath}blog/public/${relativePath}`);
+        candidates.push(`https://andreabozzo.github.io/AndreaBozzo/blog/${relativePath}`);
+    }
+
+    candidates.push(`${siteBasePath}blog/${relativePath}`);
+    return [...new Set(candidates)];
+}
+
+function extractContributionMetrics(badgeSource) {
+    const withoutStyle = badgeSource.replace(/-informational.*$/, '');
+    const metricsSegment = withoutStyle.split('-').pop() || '';
+    const [starsPart = '', prsPart = ''] = metricsSegment.split('|').map((part) => part.trim());
+
+    return {
+        stars: starsPart.replace(/^⭐\s*/, '') || '0',
+        prs: prsPart.replace(/\s*PR$/, '') || '0'
+    };
+}
+
 async function loadLatestBlogPosts(forceLang = null) {
     const lang = forceLang || getCurrentBlogLanguage();
 
@@ -107,17 +155,23 @@ async function loadLatestBlogPosts(forceLang = null) {
     }
 
     try {
-        // Try language-specific JSON first
-        const blogJsonPath = lang === 'en'
-            ? `${siteBasePath}blog/en/index.json`
-            : `${siteBasePath}blog/index.json`;
+        const candidates = getBlogJsonCandidates(lang);
+        let posts = null;
 
-        const response = await fetch(blogJsonPath);
-        if (!response.ok) {
+        for (const blogJsonPath of candidates) {
+            const response = await fetch(blogJsonPath);
+            if (!response.ok) {
+                continue;
+            }
+
+            posts = await response.json();
+            break;
+        }
+
+        if (!posts) {
             throw new Error('Failed to fetch blog posts');
         }
 
-        const posts = await response.json();
         localStorage.setItem(cacheKey, JSON.stringify(posts));
         renderBlogPosts(posts, lang);
     } catch (error) {
@@ -207,6 +261,75 @@ function escapeHtml(text) {
     return text.replace(/[&<>"']/g, m => map[m]);
 }
 
+async function fetchContributions(username, repoName = 'AndreaBozzo', branch = 'main') {
+    const listElement = document.getElementById('contributions-list');
+    if (!listElement) return;
+
+    try {
+        const response = await fetch(`https://raw.githubusercontent.com/${username}/${repoName}/${branch}/README.md`);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch README.md: ${response.status}`);
+        }
+
+        const markdown = await response.text();
+        const startMarker = '<!-- EXTERNAL_CONTRIBUTIONS:START -->';
+        const endMarker = '<!-- EXTERNAL_CONTRIBUTIONS:END -->';
+        const startIndex = markdown.indexOf(startMarker);
+        const endIndex = markdown.indexOf(endMarker);
+
+        if (startIndex === -1 || endIndex === -1) {
+            throw new Error('Contribution markers not found in README.md');
+        }
+
+        const contributionsText = markdown.substring(startIndex + startMarker.length, endIndex).trim();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(contributionsText, 'text/html');
+        const badges = doc.querySelectorAll('a img[alt]');
+        const contributions = [];
+
+        badges.forEach((img) => {
+            const link = img.parentElement;
+            if (!link) return;
+
+            const badgeSource = decodeURIComponent(img.src.split('/').pop() || '');
+            const { stars, prs } = extractContributionMetrics(badgeSource);
+
+            contributions.push({
+                name: img.alt,
+                url: link.href,
+                stars,
+                prs,
+                desc: 'Contributed code, fixes, or improvements to this project.'
+            });
+        });
+
+        listElement.innerHTML = '';
+
+        if (contributions.length === 0) {
+            listElement.innerHTML = '<p class="error-message">No contribution cards available right now.</p>';
+            return;
+        }
+
+        contributions
+            .sort((left, right) => parseCompactNumber(right.stars) - parseCompactNumber(left.stars))
+            .slice(0, 4)
+            .forEach((contrib) => {
+                const projectItem = document.createElement('article');
+                projectItem.className = 'project-item';
+                projectItem.innerHTML = `
+                    <h3 class="project-name">${escapeHtml(contrib.name)}</h3>
+                    <p class="project-desc">${escapeHtml(contrib.desc)}</p>
+                    <p class="project-contrib">⭐ ${escapeHtml(contrib.stars)} stars · ${escapeHtml(contrib.prs)} PR${contrib.prs !== '1' ? 's' : ''}</p>
+                    <a href="${contrib.url}" class="project-link" target="_blank" rel="noopener noreferrer">View project</a>
+                `;
+                listElement.appendChild(projectItem);
+            });
+    } catch (error) {
+        console.error('Failed to fetch GitHub contributions:', error);
+        listElement.innerHTML = '<p class="error-message">Could not load contributions at this time.</p>';
+    }
+}
+
 // ===== Service Worker Registration =====
 if ('serviceWorker' in navigator && window.location.hostname !== 'localhost') {
     window.addEventListener('load', () => {
@@ -234,6 +357,7 @@ if ('serviceWorker' in navigator && window.location.hostname !== 'localhost') {
 // ===== Initialize =====
 document.addEventListener('DOMContentLoaded', function() {
     const loadBlogPosts = () => loadLatestBlogPosts();
+    fetchContributions('AndreaBozzo');
 
     if ('requestIdleCallback' in window) {
         requestIdleCallback(loadBlogPosts);

@@ -27,11 +27,23 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: '0.146.0'
           extended: true
+
+      - name: Install root-site dependencies
+        run: npm ci
+
+      - name: Build root-site assets
+        run: npm run build:assets
 
       - name: Build Hugo blog
         run: |
@@ -43,6 +55,8 @@ jobs:
           mkdir -p _site
           # Copy root files (landing page)
           cp index.html _site/
+          cp manifest.json _site/
+          cp sw.js _site/
           cp -r assets _site/ 2>/dev/null || true
           # Copy Hugo blog output to /blog subdirectory
           mkdir -p _site/blog
