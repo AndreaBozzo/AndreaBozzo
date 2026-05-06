@@ -29,6 +29,7 @@ Thumbs.db
 # Build artifacts
 assets/*.min.js
 assets/*.min.css
+assets/data/contributions.json
 
 # Temporary files
 *.tmp

@@ -59,6 +59,66 @@
     --color-glow-right: rgba(110, 158, 255, 0.18);
 }
 
+[data-theme="dark"] .site-header {
+    padding-top: var(--space-8);
+}
+
+[data-theme="dark"] .site-nav {
+    background: linear-gradient(180deg, rgba(18, 27, 43, 0.94), rgba(15, 22, 35, 0.9));
+    border-color: rgba(145, 184, 255, 0.18);
+    box-shadow: 0 28px 80px rgba(3, 9, 18, 0.44);
+}
+
+[data-theme="dark"] .site-nav a {
+    color: color-mix(in srgb, var(--color-text-secondary) 80%, white);
+}
+
+[data-theme="dark"] .site-nav a:hover,
+[data-theme="dark"] .site-nav a:focus-visible {
+    color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .site-brand,
+[data-theme="dark"] .theme-toggle,
+[data-theme="dark"] .metric-pill,
+[data-theme="dark"] .hero-note {
+    background: linear-gradient(180deg, rgba(20, 31, 49, 0.92), rgba(14, 22, 36, 0.9));
+    border-color: rgba(145, 184, 255, 0.14);
+}
+
+[data-theme="dark"] .hero-copy {
+    position: relative;
+}
+
+[data-theme="dark"] .hero-copy::before {
+    content: "";
+    position: absolute;
+    inset: -2rem auto auto -1.5rem;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(145, 184, 255, 0.16), transparent 68%);
+    filter: blur(16px);
+    pointer-events: none;
+}
+
+[data-theme="dark"] .title {
+    text-shadow: 0 16px 50px rgba(4, 11, 24, 0.36);
+}
+
+[data-theme="dark"] .subtitle {
+    color: color-mix(in srgb, var(--color-text-secondary) 84%, white);
+}
+
+[data-theme="dark"] .hero-art-frame {
+    background: linear-gradient(180deg, rgba(24, 36, 56, 0.96), rgba(16, 24, 39, 0.92));
+    border-color: rgba(255, 138, 76, 0.18);
+}
+
+[data-theme="dark"] .hero-caption {
+    color: color-mix(in srgb, var(--color-accent) 38%, var(--color-text-muted));
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -938,5 +998,29 @@ a {
 
     .contribution-footer {
         margin-top: var(--space-5);
+    }
+}
+
+@media (max-width: 760px) and (min-height: 880px) {
+    .currently,
+    .blog-preview,
+    .projects,
+    .contact {
+        padding-top: var(--space-16);
+    }
+
+    .section-heading {
+        margin-bottom: var(--space-10);
+    }
+
+    .focus-grid,
+    .projects-list,
+    .blog-grid {
+        gap: var(--space-5);
+    }
+
+    .contact-panel {
+        padding-top: var(--space-8);
+        padding-bottom: var(--space-8);
     }
 }

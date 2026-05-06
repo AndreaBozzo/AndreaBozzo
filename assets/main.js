@@ -114,17 +114,6 @@ function getBlogJsonPath(lang) {
     return `${siteBasePath}blog/${relativePath}`;
 }
 
-function extractContributionMetrics(badgeSource) {
-    const withoutStyle = badgeSource.replace(/-informational.*$/, '');
-    const metricsSegment = withoutStyle.split('-').pop() || '';
-    const [starsPart = '', prsPart = ''] = metricsSegment.split('|').map((part) => part.trim());
-
-    return {
-        stars: starsPart.replace(/^⭐\s*/, '') || '0',
-        prs: prsPart.replace(/\s*PR$/, '') || '0'
-    };
-}
-
 function revealLoadedCards(container, selector) {
     const items = container.querySelectorAll(selector);
 
@@ -261,42 +250,13 @@ async function fetchContributions(username, repoName = 'AndreaBozzo', branch = '
     if (!listElement) return;
 
     try {
-        const response = await fetch(`https://raw.githubusercontent.com/${username}/${repoName}/${branch}/README.md`);
+        const response = await fetch(`${siteBasePath}assets/data/contributions.json`);
         if (!response.ok) {
-            throw new Error(`Failed to fetch README.md: ${response.status}`);
+            throw new Error(`Failed to fetch contributions.json: ${response.status}`);
         }
 
-        const markdown = await response.text();
-        const startMarker = '<!-- EXTERNAL_CONTRIBUTIONS:START -->';
-        const endMarker = '<!-- EXTERNAL_CONTRIBUTIONS:END -->';
-        const startIndex = markdown.indexOf(startMarker);
-        const endIndex = markdown.indexOf(endMarker);
-
-        if (startIndex === -1 || endIndex === -1) {
-            throw new Error('Contribution markers not found in README.md');
-        }
-
-        const contributionsText = markdown.substring(startIndex + startMarker.length, endIndex).trim();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(contributionsText, 'text/html');
-        const badges = doc.querySelectorAll('a img[alt]');
-        const contributions = [];
-
-        badges.forEach((img) => {
-            const link = img.parentElement;
-            if (!link) return;
-
-            const badgeSource = decodeURIComponent(img.src.split('/').pop() || '');
-            const { stars, prs } = extractContributionMetrics(badgeSource);
-
-            contributions.push({
-                name: img.alt,
-                url: link.href,
-                stars,
-                prs,
-                desc: 'Contributed code, fixes, or improvements to this project.'
-            });
-        });
+        const payload = await response.json();
+        const contributions = Array.isArray(payload.items) ? payload.items : [];
 
         listElement.innerHTML = '';
 
@@ -306,8 +266,6 @@ async function fetchContributions(username, repoName = 'AndreaBozzo', branch = '
         }
 
         contributions
-            .sort((left, right) => parseCompactNumber(right.stars) - parseCompactNumber(left.stars))
-            .slice(0, 4)
             .forEach((contrib) => {
                 const projectItem = document.createElement('article');
                 projectItem.className = 'project-item content-card-enter';

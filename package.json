@@ -6,8 +6,9 @@
     "build:blog": "cd blog && hugo --minify -F --config hugo.toml,hugo.github.toml",
     "build:css": "esbuild assets/styles.css --minify --outfile=assets/styles.min.css",
     "build:js": "esbuild assets/main.js --minify --outfile=assets/main.min.js",
+    "generate:contributions": "node ./scripts/generate-contributions.mjs",
     "assemble:site": "bash ./scripts/assemble-site.sh",
-    "build:site": "npm run build:assets && npm run build:blog && npm run assemble:site"
+    "build:site": "npm run build:assets && npm run build:blog && npm run generate:contributions && npm run assemble:site"
   },
   "devDependencies": {
     "esbuild": "^0.25.11"
