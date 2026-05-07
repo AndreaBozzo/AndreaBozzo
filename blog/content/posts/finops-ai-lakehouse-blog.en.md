@@ -59,7 +59,7 @@ Two things follow. The platform markup on top of raw infrastructure varies enorm
 
 Databricks is the option founders mention first when they say "we want one tool that does everything." The platform does cover the full surface from ingestion to model serving, and the integration is tight enough that an ML engineer can go from a Delta table to a deployed agent without leaving the workspace. Mosaic AI bundles model training, an agent platform (Agent Bricks, the successor to the original Agent Framework), vector search, an AI gateway (now Unity AI Gateway, brought under Unity Catalog governance), and model serving into the lakehouse; MLflow handles experiment tracking and the registry; the Feature Store with online serving plugs into Unity Catalog for governance and lineage. Spark Structured Streaming with Photon gives a unified batch-and-stream API on the same Delta tables, with seconds-level micro-batches that are good enough for most feature pipelines.
 
-![Databricks DBU stack](images/Databricks-DBU-Stack.png "Databricks DBU classes — Jobs, SQL, Serverless, Mosaic AI — stacked on shared EC2 infrastructure")
+![Databricks DBU stack](/images/Databricks-DBU-Stack.png "Databricks DBU classes — Jobs, SQL, Serverless, Mosaic AI — stacked on shared EC2 infrastructure")
 
 Cost is where Databricks gets harder to reason about. The DBU is not a single price, it is a family of prices that depends on workload class. Jobs DBUs are cheap, SQL warehouse DBUs more expensive, serverless SQL and serverless all-purpose DBUs the most expensive of the lot. A typical mid-sized team I have spoken to reports monthly Databricks platform charges in the 500 to 5,000 USD range — roughly 430 to 4,270 EUR — *before* underlying compute costs are added. The bill becomes hard to forecast because four or five DBU buckets are filling at once, and serverless autoscaling can quietly push you up the curve.
 
@@ -85,7 +85,7 @@ AWS-native works well when the existing warehouse and analytics are concentrated
 
 The third option is the one I find most interesting personally, and the one I am most cautious about recommending. A DIY Iceberg stack typically looks like this: object storage (S3 or compatible), Apache Iceberg as the table format, a catalog of your choice (Glue, Hive Metastore, or REST catalogs like [Lakekeeper](https://andreabozzo.github.io/AndreaBozzo/blog/posts/lakekeeper-blog.en/), Nessie, or Apache Polaris — which graduated to a top-level Apache project in February 2026), and one or more engines on top — Spark for batch, Flink for streaming, Trino or Presto for interactive SQL, possibly DuckDB or DataFusion for embedded analytics. ML and AI tooling is whatever you already standardize on (MLflow, KServe, custom services), wired into engines via open interfaces.
 
-![Three lakehouse stacks compared](images/Lakehouse-Three-Stacks.png "Databricks, AWS-Native, and DIY Iceberg stacks over a shared S3-compatible object storage layer")
+![Three lakehouse stacks compared](/images/Lakehouse-Three-Stacks.png "Databricks, AWS-Native, and DIY Iceberg stacks over a shared S3-compatible object storage layer")
 
 The argument for this stack in 2026 is that the open-format war is over and Iceberg has won. Multi-engine compatibility is no longer a future promise; Spark, Flink, Trino, Presto, Snowflake, Dremio, RisingWave, and a growing number of Rust-native systems all read and write the same Iceberg tables today. Once you accept that, the lock-in question moves up a layer. The file format does not trap you anymore; the catalog and surrounding platform services do. Choosing your catalog and committing to it deliberately is the most important architectural decision in this option.
 
@@ -133,7 +133,7 @@ DIY Iceberg with Flink is the strongest technical option for genuinely low-laten
 
 Cost matrices and feature comparisons are useful, but the choice usually comes down to a smaller set of forcing functions. From conversations over the last several months, three filters tend to settle the question quickly.
 
-![Lakehouse decision funnel](images/Lakehouse-Decision-Funnel.png "Three filters that usually settle the lakehouse choice: team shape, warehouse footprint, portability appetite")
+![Lakehouse decision funnel](/images/Lakehouse-Decision-Funnel.png "Three filters that usually settle the lakehouse choice: team shape, warehouse footprint, portability appetite")
 
 **Team shape, not workload.** A small team that already speaks AWS fluently and wants one less vendor will get more done on AWS-native than on Databricks, even when Databricks looks objectively better on paper. A team with a real platform guild that enjoys running JVM engines will get more leverage out of DIY Iceberg than out of either managed option. A team that wants AI/ML velocity above everything else and can afford the platform fee will move fastest on Databricks.
 
