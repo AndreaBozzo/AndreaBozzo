@@ -86,7 +86,7 @@ ceres/
 
 **Andrea:** Claude blazed my local Postgres with over 350,000 datasets. It was a really good time to have a maniacal devotion to backups.
 
-![byedatabase.png](/images/byedatabase.png)
+![byedatabase.png](/AndreaBozzo/blog/images/byedatabase.png)
 
 Right there in the screenshot — `docker compose down && docker volume rm ceres_ceres_pgdata` — and then the immediate realization: *"Wait — that just deleted your data."* It was trying to fix a Docker volume ownership warning and went straight to the destructive path without pausing to check what was in that volume.
 

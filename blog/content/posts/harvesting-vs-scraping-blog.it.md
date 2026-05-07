@@ -79,7 +79,7 @@ let content_hash = compute_hash(&markdown);           // SHA-256 del contenuto p
 let data_hash = compute_hash(&extracted.to_string()); // SHA-256 del JSON estratto
 ```
 
-![Ares scraping pipeline: Fetch → Clean → Extract → Hash](/images/Ares_scraping_pipeline.png)
+![Ares scraping pipeline: Fetch → Clean → Extract → Hash](/AndreaBozzo/blog/images/Ares_scraping_pipeline.png)
 
 Il **sistema a doppio hash** è una scelta progettuale deliberata. `content_hash` traccia se è cambiata la pagina in sé; `data_hash` traccia se è cambiata l’*estrazione strutturata*. Questa distinzione è importante: una pagina può cambiare layout, annunci o boilerplate mentre l’LLM continua a estrarre gli stessi dati — `content_hash` cambia, `data_hash` resta uguale. Al contrario, se il dato sottostante cambia davvero, si aggiornano entrambi. La pipeline usa il confronto su `data_hash` per decidere se notificare i consumer downstream.
 
@@ -269,7 +269,7 @@ Ceres può esportare l’intero indice in file Parquet (Arrow-backed, compressi 
 
 ## Dove Ceres e Ares si incontrano
 
-![Ares vs Ceres architecture comparison](/images/Ares_vs_Ceres_architecture_comparison.png)
+![Ares vs Ceres architecture comparison](/AndreaBozzo/blog/images/Ares_vs_Ceres_architecture_comparison.png)
 
 Ceres e Ares condividono la stessa architettura a crate (`*-core`, `*-client`, `*-db`, `*-server`, `*-cli`), lo stesso backend PostgreSQL, lo stesso pattern di circuit breaker e la stessa dependency injection basata su trait. Eppure il loro temperamento è completamente diverso.
 

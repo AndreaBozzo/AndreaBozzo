@@ -86,7 +86,7 @@ ceres/
 
 **Andrea:** Claude ha spazzato via il mio Postgres locale con oltre 350.000 dataset. È stato un ottimo momento per avere una devozione maniacale ai backup.
 
-![byedatabase.png](/images/byedatabase.png)
+![byedatabase.png](/AndreaBozzo/blog/images/byedatabase.png)
 
 Proprio lì nello screenshot — `docker compose down && docker volume rm ceres_ceres_pgdata` — e poi la realizzazione immediata: *"Aspetta — ho appena cancellato i tuoi dati."* Stava cercando di risolvere un warning di ownership di un volume Docker ed è andato dritto verso il percorso distruttivo senza fermarsi a controllare cosa contenesse quel volume.
 

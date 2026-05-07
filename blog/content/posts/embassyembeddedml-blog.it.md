@@ -68,7 +68,7 @@ La maggior parte dei sistemi ML embedded segue la stessa trama:
 
 Zero Grappler codifica questa pipeline in tre interfacce minimali e due loop async, in modo che il *cablaggio* sia sempre lo stesso e tu possa concentrarti su *come* leggere il sensore, *quale* DSP applicare e *quale* modello usare.
 
-![Pipeline Sensore → DSP → modello](/images/zerograpplerarchitecture.png)
+![Pipeline Sensore → DSP → modello](/AndreaBozzo/blog/images/zerograpplerarchitecture.png)
 
 ## Tre Tratti per Tre Ruoli
 
@@ -242,7 +242,7 @@ L'intento è avere tutto il necessario per acquisire audio o movimento, calcolar
 - **Se hai già gli attrezzi da banco: ~30–45€.** Costo *netto* di un singolo set funzionante di componenti — una scheda, un microfono, una IMU, una breadboard, cavetti jumper.
 - **Se parti da zero assoluto: ~93€.** Aggiunge il kit saldatore, un multipack di Pico per avere scorte, e multipack di sensori così che un INMP441 bruciato non diventi un ritardo di una settimana. È ciò che l'immagine del breakdown qui sotto riflette.
 
-![Stima dei costi hardware](/images/zerograpplercost_estimation.png)
+![Stima dei costi hardware](/AndreaBozzo/blog/images/zerograpplercost_estimation.png)
 
 Se i numeri reggeranno — budget CPU per MFCC, stabilità del DMA, dimensione del modello rispetto alla SRAM — è lavoro di bring-up, non un'affermazione che sto facendo oggi.
 

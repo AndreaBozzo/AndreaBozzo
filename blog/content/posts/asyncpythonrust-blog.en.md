@@ -85,7 +85,7 @@ async fn fetch_user(user_id: UserId) -> Result<UserProfile> {
 
 The syntax is almost identical. The question that will guide the rest of this article is: **why do these two snippets live in such different worlds?**
 
-![Async Models Comparison](/images/async-models-comparison.png)
+![Async Models Comparison](/AndreaBozzo/blog/images/async-models-comparison.png)
 *Comparison between async models: Python with generous runtime vs Rust with compile-time state machines*
 
 ***
@@ -211,7 +211,7 @@ At first these constraints seem hostile. Over time, they become a safety net: **
 
 Let's compare the two approaches on concrete dimensions.
 
-![Runtime Architecture](/images/async-runtime-architecture.png)
+![Runtime Architecture](/AndreaBozzo/blog/images/async-runtime-architecture.png)
 *Runtime architecture: asyncio single-threaded with event loop vs Tokio multi-threaded with work stealing*
 
 

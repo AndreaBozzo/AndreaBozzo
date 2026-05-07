@@ -69,7 +69,7 @@ Mosaico was born to bridge this gap: a platform that combines the capabilities o
 
 Mosaico's architecture follows a client-server pattern that clearly separates responsibilities between a high-performance Rust daemon and a Python SDK designed for developer ergonomics.
 
-![Mosaico Architecture](/images/Mosaico-architecture.png)
+![Mosaico Architecture](/AndreaBozzo/blog/images/Mosaico-architecture.png)
 *Schema of Mosaico's client-server architecture: the Rust daemon (mosaicod) handles storage, compression, and metadata, while Python clients communicate via Apache Arrow Flight.*
 
 ### mosaicod: The Rust Daemon

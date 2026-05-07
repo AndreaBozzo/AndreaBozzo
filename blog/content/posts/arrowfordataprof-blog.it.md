@@ -80,7 +80,7 @@ Uno dei cambiamenti più importanti è stato il passaggio da "leggi un file" a "
 
 Un profiler basato su righe classico potrebbe leggere righe da un file CSV, analizzarle in qualche struct, e aggiornare contatori mentre procede. Con Arrow, volevo operare su **chunk di colonne** invece:
 
-![Row-Oriented vs Columnar Processing](/images/columnarbatchprocessingflow.png "Confronto tra approcci di elaborazione orientati alle righe e columnar")
+![Row-Oriented vs Columnar Processing](/AndreaBozzo/blog/images/columnarbatchprocessingflow.png "Confronto tra approcci di elaborazione orientati alle righe e columnar")
 
 - Il lettore Parquet o CSV produce `RecordBatch` di N righe.
 - Ogni batch contiene un insieme di array Arrow, uno per colonna.
@@ -107,7 +107,7 @@ Per un profiler che aspira a stare in mezzo ai flussi dati, questi non sono vant
 
 Una volta che Arrow è nel mezzo, inizi a scoprire quali idee sopravvivono e quali no. dataprof mi ha costretto a cristallizzare alcuni principi di design.
 
-![dataprof Architecture](/images/dataprofhiglevelarchitecture.png "Architettura di alto livello di dataprof con Arrow al centro")
+![dataprof Architecture](/AndreaBozzo/blog/images/dataprofhiglevelarchitecture.png "Architettura di alto livello di dataprof con Arrow al centro")
 
 ### 1. Ogni metrica è un'operazione di colonna
 

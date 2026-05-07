@@ -121,7 +121,7 @@ Una nota: il rilevamento dei duplicati basato su merge confronta valori di featu
 
 Il problema? Appena i dati superano qualche milione di righe, fare inner join e scan completi in pandas inizia a pesare. E quando i dati vivono in un data lake, portarli in memoria Python a ogni controllo diventa esso stesso il collo di bottiglia.
 
-![Evoluzione della pipeline: dai notebook pandas ai data contract Arrow-native](/images/tabularml-pipeline-progression.png)
+![Evoluzione della pipeline: dai notebook pandas ai data contract Arrow-native](/AndreaBozzo/blog/images/tabularml-pipeline-progression.png)
 
 ## Step 2 — Spostare il lavoro pesante in Apache DataFusion
 
@@ -319,7 +319,7 @@ Da quel punto, una funzione C++ come `validate_temporal_integrity` può:
 
 ## Uno scenario concreto di poisoning
 
-![Come un job ETL rotto avvelena un modello e come i data contract lo intercettano](/images/tabularml-poisoning-scenario.png)
+![Come un job ETL rotto avvelena un modello e come i data contract lo intercettano](/AndreaBozzo/blog/images/tabularml-poisoning-scenario.png)
 
 Quando si parla di "poisoning" nei sistemi ML, spesso si pensa ad esempi avversariali e attacchi a livello di gradiente. A livello pipeline, però, la maggior parte dei problemi è più noiosa e molto più comune.
 

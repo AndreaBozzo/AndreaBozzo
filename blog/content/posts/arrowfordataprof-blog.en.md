@@ -80,7 +80,7 @@ One of the most important shifts was moving from "read a file" to "stream `Recor
 
 A classic row-based profiler might read lines from a CSV file, parse them into some struct, and update counters as it goes. With Arrow, I wanted to operate on **column chunks** instead:
 
-![Row-Oriented vs Columnar Processing](/images/columnarbatchprocessingflow.png "Comparing row-oriented and columnar batch processing approaches")
+![Row-Oriented vs Columnar Processing](/AndreaBozzo/blog/images/columnarbatchprocessingflow.png "Comparing row-oriented and columnar batch processing approaches")
 
 - The Parquet or CSV reader yields `RecordBatch`es of N rows.
 - Each batch contains a set of Arrow arrays, one per column.
@@ -107,7 +107,7 @@ For a profiler that aspires to sit in the middle of data flows, these are not mi
 
 Once Arrow is in the middle, you start discovering which ideas survive and which don't. dataprof forced me to crystallize a few design principles.
 
-![dataprof Architecture](/images/dataprofhiglevelarchitecture.png "High-level architecture of dataprof with Arrow at the center")
+![dataprof Architecture](/AndreaBozzo/blog/images/dataprofhiglevelarchitecture.png "High-level architecture of dataprof with Arrow at the center")
 
 ### 1. Every metric is a column operation
 
