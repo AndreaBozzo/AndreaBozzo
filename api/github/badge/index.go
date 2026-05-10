@@ -3,7 +3,7 @@ package handler
 import (
 	"net/http"
 
-	"github.com/AndreaBozzo/AndreaBozzo/internal/githubstats"
+	"github.com/AndreaBozzo/AndreaBozzo/pkg/githubstats"
 )
 
 func Handler(w http.ResponseWriter, r *http.Request) {
