@@ -859,16 +859,16 @@ struct SimResult {
     kinetic_energy: f32,
 }
 
-const REPULSION: f32 = 12.0;
-const SPRING_K: f32 = 0.22;
-const SPRING_REST: f32 = 9.0;
+const REPULSION: f32 = 10.0;
+const SPRING_K: f32 = 0.24;
+const SPRING_REST: f32 = 8.0;
 const DAMPING: f32 = 0.78;
 const FOCUS_PULL: f32 = 0.015;
-const CENTER_PULL: f32 = 0.16;
+const CENTER_PULL: f32 = 0.22;
 const MIN_DIST: f32 = 2.0;
 const MAX_VEL: f32 = 2.5;
-const BOUND_LOW: f32 = 8.0;
-const BOUND_HIGH: f32 = 92.0;
+const BOUND_LOW: f32 = 16.0;
+const BOUND_HIGH: f32 = 84.0;
 
 fn simulate(mut state: SimState) -> SimResult {
     let dt = if state.dt > 0.0 && state.dt <= 2.0 {

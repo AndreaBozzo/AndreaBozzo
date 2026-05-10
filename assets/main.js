@@ -442,7 +442,7 @@ function seedInitialPosition(id, index, total) {
     const hash = Array.from(String(id)).reduce((h, ch) => ((h * 31) + ch.charCodeAt(0)) >>> 0, 2166136261);
     const angle = index * goldenAngle + (hash % 1000) / 1000 * 0.4;
     const radiusFrac = Math.sqrt((index + 0.5) / Math.max(total, 1));
-    const r = 28 * radiusFrac;
+    const r = 22 * radiusFrac;
     return { x: 50 + r * Math.cos(angle), y: 50 + r * Math.sin(angle) };
 }
 
@@ -547,17 +547,17 @@ function stepSimulation() {
 }
 
 function stepSimulationJS() {
-    const REPULSION = 12;
-    const SPRING_K = 0.22;
-    const SPRING_REST = 9;
+    const REPULSION = 10;
+    const SPRING_K = 0.24;
+    const SPRING_REST = 8;
     const DAMPING = 0.78;
     const FOCUS_PULL = 0.015;
-    const CENTER_PULL = 0.16;
+    const CENTER_PULL = 0.22;
     const MIN_DIST = 2.0;
     const MIN_DIST_SQ = MIN_DIST * MIN_DIST;
     const MAX_VEL = 2.5;
-    const BOUND_LOW = 8;
-    const BOUND_HIGH = 92;
+    const BOUND_LOW = 16;
+    const BOUND_HIGH = 84;
     const temperature = graphSim.temperature;
 
     const nodes = graphSim.nodes.map(n => ({ ...n }));
@@ -719,17 +719,32 @@ function drawGraph() {
         ctx.stroke();
 
         ctx.font = `${isTopic ? 600 : 500} 12px "IBM Plex Sans", Arial, sans-serif`;
-        ctx.textAlign = 'center';
         if (isTopic) {
-            // Topic nodes are larger; render label inside, wrapped to two lines.
             ctx.fillStyle = baseColor;
+            ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             drawWrappedLabel(ctx, node.label, x, y, radius * 1.6, 13);
         } else {
-            // Other nodes get a label below the circle so the disc stays clean.
             ctx.fillStyle = isDark ? '#e8eef5' : '#1a2236';
-            ctx.textBaseline = 'top';
-            drawWrappedLabel(ctx, node.label, x, y + radius + 6, radius * 3.2, 13);
+            const lineHeight = 13;
+            const maxWidth = Math.min(radius * 3.6, graphSim.width * 0.35);
+            const placeBelow = y + radius + 6 + lineHeight * 2 < graphSim.height - 4;
+            let labelX = x;
+            ctx.textAlign = 'center';
+            if (x - maxWidth / 2 < 4) {
+                ctx.textAlign = 'left';
+                labelX = Math.max(x - radius, 4);
+            } else if (x + maxWidth / 2 > graphSim.width - 4) {
+                ctx.textAlign = 'right';
+                labelX = Math.min(x + radius, graphSim.width - 4);
+            }
+            if (placeBelow) {
+                ctx.textBaseline = 'top';
+                drawWrappedLabel(ctx, node.label, labelX, y + radius + 6, maxWidth, lineHeight);
+            } else {
+                ctx.textBaseline = 'bottom';
+                drawWrappedLabel(ctx, node.label, labelX, y - radius - 6, maxWidth, lineHeight);
+            }
         }
     }
     ctx.globalAlpha = 1.0;
@@ -765,6 +780,8 @@ function drawWrappedLabel(ctx, label, cx, topY, maxWidth, lineHeight) {
     let startY = topY;
     if (baseline === 'middle') {
         startY = topY - totalHeight / 2 + lineHeight / 2;
+    } else if (baseline === 'bottom') {
+        startY = topY - totalHeight + lineHeight;
     }
     for (let i = 0; i < lines.length; i++) {
         ctx.fillText(lines[i], cx, startY + i * lineHeight);
