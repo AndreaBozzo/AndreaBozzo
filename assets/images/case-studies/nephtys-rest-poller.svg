@@ -1,18 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
-  <rect width="1200" height="900" rx="40" fill="#0B1720"/>
-  <rect x="56" y="56" width="1088" height="788" rx="28" fill="#101F2C" stroke="#254056" stroke-width="2"/>
-  <circle cx="102" cy="102" r="10" fill="#FF6B6B"/>
-  <circle cx="136" cy="102" r="10" fill="#F7B731"/>
-  <circle cx="170" cy="102" r="10" fill="#2ED573"/>
-  <text x="214" y="110" fill="#CDE7F4" font-size="28" font-family="IBM Plex Mono, monospace">REST poller example</text>
-  <text x="96" y="180" fill="#7DD3FC" font-size="28" font-family="IBM Plex Mono, monospace">curl -X POST http://localhost:3002/v1/streams \</text>
-  <text x="96" y="226" fill="#E5F3FB" font-size="26" font-family="IBM Plex Mono, monospace">-H &quot;Authorization: Bearer $NEPHTYS_ADMIN_TOKEN&quot; \</text>
-  <text x="96" y="272" fill="#E5F3FB" font-size="26" font-family="IBM Plex Mono, monospace">-d @docs/examples/sensor_rest_poller.json</text>
-  <rect x="84" y="334" width="1032" height="160" rx="20" fill="#0E2836" stroke="#1F526A"/>
-  <text x="116" y="392" fill="#9AE6B4" font-size="32" font-family="IBM Plex Mono, monospace">topic: nephtys.stream.sensors.weather.bologna</text>
-  <text x="116" y="442" fill="#CDE7F4" font-size="26" font-family="IBM Plex Mono, monospace">source: Open-Meteo  |  kind: rest_poller  |  interval: 60s</text>
-  <text x="96" y="574" fill="#7DD3FC" font-size="28" font-family="IBM Plex Mono, monospace">nats sub &quot;nephtys.stream.sensors.&gt;&quot;</text>
-  <rect x="84" y="618" width="1032" height="150" rx="20" fill="#08161E" stroke="#1F526A"/>
-  <text x="116" y="680" fill="#FACC15" font-size="28" font-family="IBM Plex Mono, monospace">payload</text>
-  <text x="116" y="724" fill="#E5F3FB" font-size="24" font-family="IBM Plex Mono, monospace">{ &quot;type&quot;: &quot;weather.update&quot;, &quot;temperature&quot;: 22.4, &quot;city&quot;: &quot;bologna&quot; }</text>
+  <defs>
+    <linearGradient id="nephtysFlow" x1="180" y1="236" x2="1016" y2="636" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2E6F95"/>
+      <stop offset="1" stop-color="#64A67D"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" rx="40" fill="#F4ECE0"/>
+  <circle cx="1042" cy="122" r="188" fill="#E7D8C3" fill-opacity="0.5"/>
+  <circle cx="184" cy="784" r="220" fill="#E8E2D7"/>
+  <rect x="44" y="44" width="1112" height="812" rx="34" fill="#FBF7F1" stroke="#DCCDB8" stroke-width="2"/>
+  <text x="86" y="108" fill="#1E2B4A" font-size="24" font-weight="700" letter-spacing="4" font-family="IBM Plex Sans, sans-serif">RUNNABLE FLOW</text>
+  <text x="84" y="178" fill="#1A2340" font-size="60" font-weight="700" font-family="Space Grotesk, sans-serif">Nephtys REST poller</text>
+  <text x="84" y="220" fill="#5F6576" font-size="28" font-family="IBM Plex Sans, sans-serif">A public weather source becomes a normalized JetStream subject without custom glue code.</text>
+  <rect x="90" y="306" width="224" height="126" rx="28" fill="#FFF9F0" stroke="#D7C09D"/>
+  <text x="122" y="358" fill="#C27A2C" font-size="20" font-weight="700" letter-spacing="3" font-family="IBM Plex Sans, sans-serif">SOURCE</text>
+  <text x="122" y="404" fill="#1B2746" font-size="36" font-weight="700" font-family="Space Grotesk, sans-serif">Open-Meteo</text>
+  <rect x="486" y="306" width="230" height="126" rx="28" fill="#F5F8FB" stroke="#C9D8E6"/>
+  <text x="520" y="358" fill="#2F6E95" font-size="20" font-weight="700" letter-spacing="3" font-family="IBM Plex Sans, sans-serif">NORMALIZE</text>
+  <text x="520" y="404" fill="#1B2746" font-size="34" font-weight="700" font-family="Space Grotesk, sans-serif">REST poller</text>
+  <rect x="886" y="306" width="220" height="126" rx="28" fill="#F2FAF4" stroke="#BED7C1"/>
+  <text x="920" y="358" fill="#5C8E63" font-size="20" font-weight="700" letter-spacing="3" font-family="IBM Plex Sans, sans-serif">DURABILITY</text>
+  <text x="920" y="404" fill="#1B2746" font-size="36" font-weight="700" font-family="Space Grotesk, sans-serif">JetStream</text>
+  <path d="M314 369C388 369 398 369 486 369" stroke="url(#nephtysFlow)" stroke-width="10" stroke-linecap="round"/>
+  <path d="M716 369C794 369 804 369 886 369" stroke="url(#nephtysFlow)" stroke-width="10" stroke-linecap="round"/>
+  <polygon points="474,369 444,351 444,387" fill="#3B7B99"/>
+  <polygon points="874,369 844,351 844,387" fill="#5C8E63"/>
+  <rect x="90" y="520" width="1020" height="144" rx="30" fill="#FFF7EC" stroke="#E0CBA7"/>
+  <text x="126" y="576" fill="#A56A24" font-size="22" font-weight="700" letter-spacing="3" font-family="IBM Plex Sans, sans-serif">SUBJECT</text>
+  <text x="126" y="624" fill="#1A2340" font-size="38" font-weight="700" font-family="IBM Plex Mono, monospace">nephtys.stream.sensors.weather.bologna</text>
+  <rect x="90" y="704" width="312" height="96" rx="24" fill="#F5F8FB" stroke="#C9D8E6"/>
+  <text x="122" y="762" fill="#2F6E95" font-size="28" font-weight="700" font-family="Space Grotesk, sans-serif">60s interval</text>
+  <rect x="428" y="704" width="682" height="96" rx="24" fill="#F7FBF6" stroke="#BED7C1"/>
+  <text x="460" y="762" fill="#5F6576" font-size="28" font-family="IBM Plex Sans, sans-serif">Compatible with the documented Open-Meteo example and downstream `nats sub` tap.</text>
 </svg>

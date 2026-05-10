@@ -1,20 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
-  <rect width="1200" height="900" rx="40" fill="#F2F6F8"/>
-  <rect x="70" y="84" width="220" height="92" rx="24" fill="#D7F0FF" stroke="#8BC6E8"/><text x="128" y="138" fill="#0F2C3A" font-size="34" font-family="IBM Plex Sans, sans-serif">WebSocket</text>
-  <rect x="70" y="206" width="220" height="92" rx="24" fill="#DDF7E8" stroke="#8ED3A8"/><text x="152" y="260" fill="#133221" font-size="34" font-family="IBM Plex Sans, sans-serif">SSE</text>
-  <rect x="70" y="328" width="220" height="92" rx="24" fill="#FCE8D1" stroke="#E8BC7D"/><text x="145" y="382" fill="#3A2610" font-size="34" font-family="IBM Plex Sans, sans-serif">REST</text>
-  <rect x="70" y="450" width="220" height="92" rx="24" fill="#F8DDF1" stroke="#D79CC5"/><text x="116" y="504" fill="#341728" font-size="34" font-family="IBM Plex Sans, sans-serif">Webhook</text>
-  <rect x="70" y="572" width="220" height="92" rx="24" fill="#E5E9FF" stroke="#A0AFE8"/><text x="143" y="626" fill="#1E2447" font-size="34" font-family="IBM Plex Sans, sans-serif">gRPC</text>
-  <rect x="418" y="212" width="364" height="320" rx="32" fill="#0E1E28"/>
-  <text x="474" y="282" fill="#E9F8FF" font-size="40" font-family="Space Grotesk, sans-serif">Pipeline</text>
-  <text x="474" y="344" fill="#8FD3F4" font-size="28" font-family="IBM Plex Mono, monospace">filter  →  transform  →  dedup</text>
-  <text x="474" y="392" fill="#8FD3F4" font-size="28" font-family="IBM Plex Mono, monospace">enrich  →  threshold  →  batch</text>
-  <text x="474" y="470" fill="#B8D9EA" font-size="24" font-family="IBM Plex Sans, sans-serif">configurable at runtime through the REST API</text>
-  <rect x="898" y="274" width="232" height="192" rx="28" fill="#102733" stroke="#2E5B70" stroke-width="2"/>
-  <text x="956" y="352" fill="#CFF5FF" font-size="36" font-family="Space Grotesk, sans-serif">JetStream</text>
-  <text x="958" y="404" fill="#8FD3F4" font-size="24" font-family="IBM Plex Sans, sans-serif">events + configs</text>
-  <path d="M290 374H394" stroke="#38647A" stroke-width="10" stroke-linecap="round"/>
-  <path d="M782 374H874" stroke="#38647A" stroke-width="10" stroke-linecap="round"/>
-  <polygon points="394,374 366,358 366,390" fill="#38647A"/>
-  <polygon points="874,374 846,358 846,390" fill="#38647A"/>
+  <rect width="1200" height="900" rx="40" fill="#F4ECE0"/>
+  <rect x="44" y="44" width="1112" height="812" rx="34" fill="#FBF7F1" stroke="#DCCDB8" stroke-width="2"/>
+  <text x="84" y="110" fill="#1E2B4A" font-size="24" font-weight="700" letter-spacing="4" font-family="IBM Plex Sans, sans-serif">CONNECTOR SURFACE</text>
+  <text x="84" y="178" fill="#1A2340" font-size="58" font-weight="700" font-family="Space Grotesk, sans-serif">One ingress shape, five real-time entry points</text>
+  <text x="84" y="220" fill="#5F6576" font-size="28" font-family="IBM Plex Sans, sans-serif">Nephtys keeps the connector edge diverse while preserving one durable event contract downstream.</text>
+  <rect x="466" y="304" width="268" height="280" rx="36" fill="#1E2B4A"/>
+  <text x="528" y="396" fill="#F7F3EA" font-size="46" font-weight="700" font-family="Space Grotesk, sans-serif">JetStream</text>
+  <text x="548" y="444" fill="#D5DCE7" font-size="24" font-family="IBM Plex Sans, sans-serif">events + configs</text>
+  <text x="520" y="520" fill="#E4B66C" font-size="22" letter-spacing="3" font-family="IBM Plex Sans, sans-serif">FILTER → TRANSFORM → DEDUP</text>
+  <rect x="114" y="320" width="210" height="86" rx="24" fill="#EFF5FB" stroke="#C5D7E7"/><text x="154" y="372" fill="#23476A" font-size="30" font-weight="700" font-family="Space Grotesk, sans-serif">WebSocket</text>
+  <rect x="114" y="446" width="210" height="86" rx="24" fill="#F7FBF6" stroke="#C6D8C9"/><text x="190" y="498" fill="#3A6C49" font-size="30" font-weight="700" font-family="Space Grotesk, sans-serif">SSE</text>
+  <rect x="114" y="572" width="210" height="86" rx="24" fill="#FFF8EC" stroke="#E0CBA7"/><text x="183" y="624" fill="#A56A24" font-size="30" font-weight="700" font-family="Space Grotesk, sans-serif">REST</text>
+  <rect x="876" y="320" width="210" height="86" rx="24" fill="#FFF3EE" stroke="#E0C0B5"/><text x="920" y="372" fill="#9C5E49" font-size="30" font-weight="700" font-family="Space Grotesk, sans-serif">Webhook</text>
+  <rect x="876" y="446" width="210" height="86" rx="24" fill="#F1F0FB" stroke="#CEC9E7"/><text x="952" y="498" fill="#57518D" font-size="30" font-weight="700" font-family="Space Grotesk, sans-serif">gRPC</text>
+  <path d="M324 363C392 363 394 362 454 404" stroke="#7BA3BF" stroke-width="8" stroke-linecap="round"/>
+  <path d="M324 489C392 489 394 488 454 444" stroke="#8BB59A" stroke-width="8" stroke-linecap="round"/>
+  <path d="M324 615C392 615 394 614 454 484" stroke="#D19F59" stroke-width="8" stroke-linecap="round"/>
+  <path d="M734 404C790 362 792 363 876 363" stroke="#D9B17A" stroke-width="8" stroke-linecap="round"/>
+  <path d="M734 444C790 488 792 489 876 489" stroke="#9B87C8" stroke-width="8" stroke-linecap="round"/>
+  <rect x="112" y="720" width="974" height="92" rx="24" fill="#FFF9F0" stroke="#DCCDB8"/>
+  <text x="148" y="776" fill="#5F6576" font-size="28" font-family="IBM Plex Sans, sans-serif">Configurable through the REST API, with one pipeline shape regardless of whether the source is push- or pull-based.</text>
 </svg>

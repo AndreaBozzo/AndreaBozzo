@@ -116,6 +116,7 @@ url = "mailto:andreabozzo95@gmail.com"
 [params.assets]
 disableHLJS = false
 disableFingerprinting = false
+favicon = "favicon.svg"
 
 [[params.assets.customCSS]]
 href = ""

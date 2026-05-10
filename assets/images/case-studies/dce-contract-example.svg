@@ -1,16 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
-  <rect width="1200" height="900" rx="40" fill="#141111"/>
-  <rect x="60" y="60" width="1080" height="780" rx="28" fill="#1E1717" stroke="#4A3333" stroke-width="2"/>
-  <text x="96" y="126" fill="#F5DDD8" font-size="34" font-family="Space Grotesk, sans-serif">user_events.yml</text>
-  <text x="96" y="204" fill="#FCA5A5" font-size="28" font-family="IBM Plex Mono, monospace">version: &quot;1.0.0&quot;</text>
-  <text x="96" y="248" fill="#FCA5A5" font-size="28" font-family="IBM Plex Mono, monospace">name: user_events</text>
-  <text x="96" y="292" fill="#FCA5A5" font-size="28" font-family="IBM Plex Mono, monospace">schema:</text>
-  <text x="136" y="336" fill="#FDE68A" font-size="28" font-family="IBM Plex Mono, monospace">format: iceberg</text>
-  <text x="136" y="380" fill="#FDE68A" font-size="28" font-family="IBM Plex Mono, monospace">location: s3://data/user_events</text>
-  <text x="136" y="424" fill="#93C5FD" font-size="28" font-family="IBM Plex Mono, monospace">- name: user_id     type: string     nullable: false</text>
-  <text x="136" y="468" fill="#93C5FD" font-size="28" font-family="IBM Plex Mono, monospace">- name: event_type  type: string     allowed: [click, view, purchase]</text>
-  <text x="96" y="544" fill="#FCA5A5" font-size="28" font-family="IBM Plex Mono, monospace">quality_checks:</text>
-  <text x="136" y="588" fill="#86EFAC" font-size="28" font-family="IBM Plex Mono, monospace">completeness.threshold: 0.99</text>
-  <text x="136" y="632" fill="#86EFAC" font-size="28" font-family="IBM Plex Mono, monospace">freshness.max_delay: 1h</text>
-  <text x="136" y="676" fill="#86EFAC" font-size="28" font-family="IBM Plex Mono, monospace">fields: [user_id, event_type]</text>
+  <rect width="1200" height="900" rx="40" fill="#F4ECE0"/>
+  <rect x="48" y="48" width="1104" height="804" rx="34" fill="#FBF7F1" stroke="#DCCDB8" stroke-width="2"/>
+  <text x="84" y="110" fill="#1E2B4A" font-size="24" font-weight="700" letter-spacing="4" font-family="IBM Plex Sans, sans-serif">CONTRACT SHAPE</text>
+  <text x="84" y="178" fill="#1A2340" font-size="58" font-weight="700" font-family="Space Grotesk, sans-serif">A data contract as a public artifact</text>
+  <rect x="84" y="246" width="566" height="520" rx="34" fill="#FFF9F0" stroke="#E0CBA7"/>
+  <text x="122" y="304" fill="#A56A24" font-size="20" font-weight="700" letter-spacing="3" font-family="IBM Plex Sans, sans-serif">SCHEMA</text>
+  <text x="122" y="362" fill="#1B2746" font-size="32" font-weight="700" font-family="Space Grotesk, sans-serif">user_events</text>
+  <rect x="122" y="404" width="182" height="56" rx="18" fill="#F5F8FB" stroke="#C9D8E6"/><text x="152" y="439" fill="#2F6E95" font-size="24" font-family="IBM Plex Sans, sans-serif">format: iceberg</text>
+  <rect x="320" y="404" width="256" height="56" rx="18" fill="#F7FBF6" stroke="#C6D8C9"/><text x="348" y="439" fill="#3A6C49" font-size="24" font-family="IBM Plex Sans, sans-serif">owner: analytics-team</text>
+  <rect x="122" y="492" width="454" height="76" rx="24" fill="#FBF7F1" stroke="#DCCDB8"/>
+  <text x="148" y="538" fill="#1B2746" font-size="26" font-weight="700" font-family="IBM Plex Sans, sans-serif">user_id</text>
+  <text x="360" y="538" fill="#5F6576" font-size="24" font-family="IBM Plex Sans, sans-serif">string · required</text>
+  <rect x="122" y="588" width="454" height="106" rx="24" fill="#FBF7F1" stroke="#DCCDB8"/>
+  <text x="148" y="634" fill="#1B2746" font-size="26" font-weight="700" font-family="IBM Plex Sans, sans-serif">event_type</text>
+  <text x="148" y="674" fill="#5F6576" font-size="24" font-family="IBM Plex Sans, sans-serif">allowed values: click · view · purchase</text>
+  <rect x="704" y="246" width="412" height="520" rx="34" fill="#F5F8FB" stroke="#C9D8E6"/>
+  <text x="742" y="304" fill="#2F6E95" font-size="20" font-weight="700" letter-spacing="3" font-family="IBM Plex Sans, sans-serif">QUALITY CHECKS</text>
+  <rect x="742" y="352" width="336" height="108" rx="28" fill="#FFFFFF" stroke="#D8E3EE"/>
+  <text x="774" y="408" fill="#1B2746" font-size="28" font-weight="700" font-family="Space Grotesk, sans-serif">Completeness</text>
+  <text x="774" y="446" fill="#5F6576" font-size="24" font-family="IBM Plex Sans, sans-serif">threshold: 0.99</text>
+  <rect x="742" y="490" width="336" height="108" rx="28" fill="#FFFFFF" stroke="#D8E3EE"/>
+  <text x="774" y="546" fill="#1B2746" font-size="28" font-weight="700" font-family="Space Grotesk, sans-serif">Freshness</text>
+  <text x="774" y="584" fill="#5F6576" font-size="24" font-family="IBM Plex Sans, sans-serif">max delay: 1h</text>
+  <rect x="742" y="628" width="336" height="108" rx="28" fill="#FFFFFF" stroke="#D8E3EE"/>
+  <text x="774" y="684" fill="#1B2746" font-size="28" font-weight="700" font-family="Space Grotesk, sans-serif">Execution target</text>
+  <text x="774" y="722" fill="#5F6576" font-size="24" font-family="IBM Plex Sans, sans-serif">Iceberg table with typed fields and rule checks</text>
 </svg>

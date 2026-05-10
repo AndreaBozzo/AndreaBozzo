@@ -1,12 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
-  <rect width="1200" height="900" rx="40" fill="#F5F7FB"/>
-  <text x="76" y="118" fill="#14213D" font-size="40" font-family="Space Grotesk, sans-serif">Druid segment anatomy</text>
-  <rect x="96" y="206" width="238" height="136" rx="28" fill="#DCE9FF" stroke="#8BA9E6"/><text x="138" y="282" fill="#203864" font-size="34" font-family="IBM Plex Mono, monospace">index.dr</text>
-  <rect x="96" y="382" width="238" height="136" rx="28" fill="#E8F6E2" stroke="#9BCC8E"/><text x="118" y="458" fill="#224218" font-size="34" font-family="IBM Plex Mono, monospace">metadata.dr</text>
-  <rect x="96" y="558" width="238" height="136" rx="28" fill="#FDEBD5" stroke="#E7B674"/><text x="120" y="634" fill="#5B3810" font-size="34" font-family="IBM Plex Mono, monospace">version.bin</text>
-  <rect x="462" y="248" width="264" height="108" rx="24" fill="#111827"/><text x="518" y="312" fill="#D9E6FF" font-size="30" font-family="IBM Plex Mono, monospace">dictionaries</text>
-  <rect x="462" y="398" width="264" height="108" rx="24" fill="#111827"/><text x="538" y="462" fill="#D9E6FF" font-size="30" font-family="IBM Plex Mono, monospace">metrics</text>
-  <rect x="462" y="548" width="264" height="108" rx="24" fill="#111827"/><text x="540" y="612" fill="#D9E6FF" font-size="30" font-family="IBM Plex Mono, monospace">bitmaps</text>
-  <rect x="850" y="342" width="252" height="220" rx="30" fill="#0F172A" stroke="#325D99"/><text x="908" y="424" fill="#CDE7F4" font-size="34" font-family="Space Grotesk, sans-serif">Arrow</text><text x="904" y="472" fill="#7DD3FC" font-size="26" font-family="IBM Plex Sans, sans-serif">TableProvider</text><text x="914" y="516" fill="#7DD3FC" font-size="26" font-family="IBM Plex Sans, sans-serif">ExecutionPlan</text>
-  <path d="M334 274H430" stroke="#597FB3" stroke-width="10" stroke-linecap="round"/><path d="M334 450H430" stroke="#597FB3" stroke-width="10" stroke-linecap="round"/><path d="M334 626H430" stroke="#597FB3" stroke-width="10" stroke-linecap="round"/><path d="M726 452H824" stroke="#597FB3" stroke-width="10" stroke-linecap="round"/>
+  <rect width="1200" height="900" rx="40" fill="#F4ECE0"/>
+  <rect x="48" y="48" width="1104" height="804" rx="34" fill="#FBF7F1" stroke="#DCCDB8" stroke-width="2"/>
+  <text x="84" y="110" fill="#1E2B4A" font-size="24" font-weight="700" letter-spacing="4" font-family="IBM Plex Sans, sans-serif">ANATOMY</text>
+  <text x="84" y="178" fill="#1A2340" font-size="58" font-weight="700" font-family="Space Grotesk, sans-serif">How one offline segment becomes a queryable table</text>
+  <rect x="96" y="288" width="244" height="118" rx="28" fill="#FFF9F0" stroke="#E0CBA7"/>
+  <text x="132" y="340" fill="#A56A24" font-size="18" font-weight="700" letter-spacing="3" font-family="IBM Plex Sans, sans-serif">SEGMENT FILE</text>
+  <text x="132" y="382" fill="#1B2746" font-size="30" font-weight="700" font-family="Space Grotesk, sans-serif">index.dr</text>
+  <rect x="96" y="438" width="244" height="118" rx="28" fill="#FFF9F0" stroke="#E0CBA7"/>
+  <text x="132" y="532" fill="#1B2746" font-size="30" font-weight="700" font-family="Space Grotesk, sans-serif">metadata.dr</text>
+  <rect x="96" y="588" width="244" height="118" rx="28" fill="#FFF9F0" stroke="#E0CBA7"/>
+  <text x="132" y="682" fill="#1B2746" font-size="30" font-weight="700" font-family="Space Grotesk, sans-serif">version.bin</text>
+  <rect x="456" y="316" width="280" height="96" rx="24" fill="#F5F8FB" stroke="#C9D8E6"/>
+  <text x="498" y="372" fill="#2F6E95" font-size="28" font-weight="700" font-family="Space Grotesk, sans-serif">Dictionaries</text>
+  <rect x="456" y="458" width="280" height="96" rx="24" fill="#F5F8FB" stroke="#C9D8E6"/>
+  <text x="538" y="514" fill="#2F6E95" font-size="28" font-weight="700" font-family="Space Grotesk, sans-serif">Metrics</text>
+  <rect x="456" y="600" width="280" height="96" rx="24" fill="#F5F8FB" stroke="#C9D8E6"/>
+  <text x="530" y="656" fill="#2F6E95" font-size="28" font-weight="700" font-family="Space Grotesk, sans-serif">Bitmaps</text>
+  <rect x="848" y="390" width="264" height="214" rx="32" fill="#1E2B4A"/>
+  <text x="916" y="472" fill="#F7F3EA" font-size="40" font-weight="700" font-family="Space Grotesk, sans-serif">Arrow</text>
+  <text x="900" y="522" fill="#DCE4EE" font-size="24" font-family="IBM Plex Sans, sans-serif">TableProvider + ExecutionPlan</text>
+  <path d="M340 346H432" stroke="#C79A57" stroke-width="8" stroke-linecap="round"/><path d="M340 496H432" stroke="#C79A57" stroke-width="8" stroke-linecap="round"/><path d="M340 646H432" stroke="#C79A57" stroke-width="8" stroke-linecap="round"/><path d="M736 506H818" stroke="#7BA3BF" stroke-width="8" stroke-linecap="round"/>
 </svg>

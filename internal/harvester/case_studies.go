@@ -16,23 +16,26 @@ type caseStudiesPayload struct {
 }
 
 type caseStudy struct {
-	Slug            string             `json:"slug"`
-	Title           string             `json:"title"`
-	Subtitle        string             `json:"subtitle"`
-	Summary         string             `json:"summary"`
-	MetaDescription string             `json:"metaDescription"`
-	Status          string             `json:"status"`
-	RepoURL         string             `json:"repoUrl"`
-	RelatedPosts    []string           `json:"relatedPosts"`
-	CoverImage      string             `json:"coverImage"`
-	CoverAlt        string             `json:"coverAlt"`
-	CoverEyebrow    string             `json:"coverEyebrow"`
-	CoverTitle      string             `json:"coverTitle"`
-	CoverText       string             `json:"coverText"`
-	Stack           []string           `json:"stack"`
-	Actions         []caseStudyAction  `json:"actions"`
-	MediaSlots      []mediaSlot        `json:"mediaSlots"`
-	Sections        []caseStudySection `json:"sections"`
+	Slug               string             `json:"slug"`
+	Title              string             `json:"title"`
+	DisplayTitle       string             `json:"displayTitle"`
+	Subtitle           string             `json:"subtitle"`
+	Summary            string             `json:"summary"`
+	MetaDescription    string             `json:"metaDescription"`
+	Status             string             `json:"status"`
+	RepoURL            string             `json:"repoUrl"`
+	RelatedPosts       []string           `json:"relatedPosts"`
+	CoverImage         string             `json:"coverImage"`
+	CoverAlt           string             `json:"coverAlt"`
+	CoverImageScale    string             `json:"coverImageScale"`
+	CoverImagePosition string             `json:"coverImagePosition"`
+	CoverEyebrow       string             `json:"coverEyebrow"`
+	CoverTitle         string             `json:"coverTitle"`
+	CoverText          string             `json:"coverText"`
+	Stack              []string           `json:"stack"`
+	Actions            []caseStudyAction  `json:"actions"`
+	MediaSlots         []mediaSlot        `json:"mediaSlots"`
+	Sections           []caseStudySection `json:"sections"`
 }
 
 type caseStudyAction struct {
@@ -129,6 +132,7 @@ func removeStaleCaseStudyDirs(workDir string, validSlugs map[string]struct{}) er
 
 func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext) []byte {
 	title := firstNonEmpty(study.Title, study.Slug, "Case Study")
+	displayTitle := firstNonEmpty(study.DisplayTitle, title)
 	metaDescription := firstNonEmpty(study.MetaDescription, study.Summary, study.Subtitle, title+" case study.")
 	cover := renderCaseStudyCover(study)
 	actions := resolvedActions(study)
@@ -145,6 +149,7 @@ func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext) []by
 	buf.WriteString("    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n")
 	buf.WriteString("    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n")
 	buf.WriteString("    <link href=\"https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap\" rel=\"stylesheet\">\n")
+	buf.WriteString("    <link rel=\"icon\" type=\"image/svg+xml\" href=\"../../favicon.svg\">\n")
 	buf.WriteString("    <link rel=\"stylesheet\" href=\"../../assets/styles.min.css\">\n")
 	buf.WriteString("    <script>\n        (function() {\n            const savedTheme = localStorage.getItem('theme') || 'light';\n            document.documentElement.setAttribute('data-theme', savedTheme);\n        })();\n    </script>\n")
 	buf.WriteString("</head>\n<body>\n")
@@ -165,7 +170,7 @@ func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext) []by
 	buf.WriteString("        <section class=\"case-hero\">\n")
 	buf.WriteString("            <div class=\"case-hero-copy\">\n")
 	buf.WriteString("                <p class=\"eyebrow\">Case Study</p>\n")
-	buf.WriteString("                <h1 class=\"title\">" + escapeHTML(title) + "</h1>\n")
+	buf.WriteString("                <h1 class=\"title\">" + escapeHTML(displayTitle) + "</h1>\n")
 	buf.WriteString("                <p class=\"subtitle\">" + escapeHTML(firstNonEmpty(study.Subtitle, study.Summary)) + "</p>\n")
 	buf.WriteString("                <div class=\"case-meta\">\n")
 	if study.Status != "" {
@@ -265,9 +270,10 @@ func pageContextForStudy(items []caseStudy, idx int) caseStudyPageContext {
 func renderCaseStudyCover(study caseStudy) []byte {
 	coverImage := resolveCaseStudyAssetPath(study.CoverImage)
 	if coverImage != "" {
+		imageStyle := coverImageInlineStyle(study)
 		return []byte(
 			"            <figure class=\"case-cover\">\n" +
-				"                <img src=\"" + escapeHTML(coverImage) + "\" alt=\"" + escapeHTML(firstNonEmpty(study.CoverAlt, firstNonEmpty(study.Title, study.Slug, "Case study")+" cover art")) + "\">\n" +
+				"                <img src=\"" + escapeHTML(coverImage) + "\" alt=\"" + escapeHTML(firstNonEmpty(study.CoverAlt, firstNonEmpty(study.Title, study.Slug, "Case study")+" cover art")) + "\"" + imageStyle + ">\n" +
 				"            </figure>\n",
 		)
 	}
@@ -281,6 +287,21 @@ func renderCaseStudyCover(study caseStudy) []byte {
 			"                </div>\n" +
 			"            </figure>\n",
 	)
+}
+
+func coverImageInlineStyle(study caseStudy) string {
+	styles := make([]string, 0, 2)
+	if strings.TrimSpace(study.CoverImagePosition) != "" {
+		styles = append(styles, "object-position: "+study.CoverImagePosition)
+	}
+	if strings.TrimSpace(study.CoverImageScale) != "" {
+		styles = append(styles, "transform: scale("+study.CoverImageScale+")")
+	}
+	if len(styles) == 0 {
+		return ""
+	}
+
+	return " style=\"" + escapeHTML(strings.Join(styles, "; ")) + "\""
 }
 
 func resolvedActions(study caseStudy) []caseStudyAction {

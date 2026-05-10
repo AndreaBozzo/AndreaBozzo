@@ -19,6 +19,11 @@ document.getElementById('theme-icon').textContent = savedTheme === 'dark' ? 'ðŸŒ
 
 const defaultGitHubUsername = 'AndreaBozzo';
 
+function shouldEnableAnalytics() {
+    const hostname = window.location.hostname;
+    return hostname !== 'localhost' && hostname !== '127.0.0.1' && window.location.protocol !== 'file:';
+}
+
 function getSiteBasePath() {
     const assetStylesheet = document.querySelector('link[href$="assets/styles.min.css"], link[href$="assets/styles.css"]');
     if (assetStylesheet) {
@@ -466,7 +471,9 @@ if ('serviceWorker' in navigator && window.location.hostname !== 'localhost') {
 
 // ===== Initialize =====
 document.addEventListener('DOMContentLoaded', function() {
-    inject();
+    if (shouldEnableAnalytics()) {
+        inject();
+    }
     const loadBlogPosts = () => loadLatestBlogPosts();
     const hasWorkbench = workbench.initializeWorkbench();
 

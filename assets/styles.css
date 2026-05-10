@@ -1095,6 +1095,7 @@ a {
 
 .case-hero .title {
     max-width: 12ch;
+    text-wrap: balance;
 }
 
 .case-meta {
@@ -1134,6 +1135,7 @@ a {
     padding: var(--space-4);
     background: color-mix(in srgb, var(--color-bg-secondary) 88%, transparent);
     box-shadow: var(--color-surface-shadow);
+    overflow: hidden;
 }
 
 .case-cover-placeholder {
@@ -1178,6 +1180,8 @@ a {
     width: 100%;
     aspect-ratio: 4 / 3;
     object-fit: cover;
+    object-position: center;
+    transform-origin: center;
     border-radius: calc(var(--radius-lg) - 0.65rem);
     background: color-mix(in srgb, var(--color-bg-tertiary) 82%, transparent);
 }

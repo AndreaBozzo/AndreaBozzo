@@ -232,6 +232,8 @@
       "relatedPosts": [],
       "coverImage": "../../assets/images/case-studies/nephtys-logo.png",
       "coverAlt": "Nephtys project logo",
+      "coverImageScale": "1.42",
+      "coverImagePosition": "48% 54%",
       "coverEyebrow": "Real-time connectors",
       "coverText": "WebSocket, webhook, SSE, and gRPC ingestion normalized into one durable event pipeline.",
       "actions": [
@@ -283,6 +285,8 @@
       "relatedPosts": [],
       "coverImage": "../../assets/images/case-studies/dce-logo.png",
       "coverAlt": "DCE project logo",
+      "coverImageScale": "1.68",
+      "coverImagePosition": "50% 56%",
       "coverEyebrow": "Contract enforcement",
       "coverText": "Move from reactive profiling to explicit contracts that can fail fast inside data workflows.",
       "actions": [
@@ -433,6 +437,7 @@
     {
       "slug": "druid-datafusion-bridge",
       "title": "druid-datafusion-bridge",
+      "displayTitle": "Druid Segment Bridge",
       "subtitle": "Query Apache Druid segments directly through DataFusion.",
       "summary": "A Rust bridge that reads Druid segment files directly and exposes them to DataFusion as queryable tables without requiring a running Druid cluster.",
       "stack": ["Rust", "Apache Druid", "DataFusion", "Arrow", "Query Engine"],
