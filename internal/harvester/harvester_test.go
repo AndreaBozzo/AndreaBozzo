@@ -1,9 +1,19 @@
 package harvester
 
 import (
+	"context"
+	"io"
+	"net/http"
 	"strings"
 	"testing"
+	"time"
 )
+
+type roundTripFunc func(*http.Request) (*http.Response, error)
+
+func (fn roundTripFunc) RoundTrip(req *http.Request) (*http.Response, error) {
+	return fn(req)
+}
 
 func TestExtractContributionMetrics(t *testing.T) {
 	stars, prs := extractContributionMetrics("polars-⭐ 38.4k | 3 PR-informational?style=flat-square")
@@ -81,5 +91,57 @@ func TestReplaceBetweenMarkers(t *testing.T) {
 	}
 	if !strings.Contains(updated, "\nnew<!-- X:END -->") {
 		t.Fatalf("replacement not applied: %q", updated)
+	}
+}
+
+func TestGithubClientGetJSONDoesNotRetryGenericForbidden(t *testing.T) {
+	originalSleep := sleepFor
+	defer func() { sleepFor = originalSleep }()
+
+	slept := false
+	sleepFor = func(time.Duration) {
+		slept = true
+	}
+
+	client := githubClient{
+		httpClient: &http.Client{Transport: roundTripFunc(func(req *http.Request) (*http.Response, error) {
+			return &http.Response{
+				StatusCode: http.StatusForbidden,
+				Header:     make(http.Header),
+				Body:       io.NopCloser(strings.NewReader(`{"message":"forbidden"}`)),
+			}, nil
+		})},
+	}
+
+	err := client.getJSON(context.Background(), "https://api.github.com/test", &struct{}{})
+	if err == nil {
+		t.Fatal("expected forbidden response to return an error")
+	}
+	if slept {
+		t.Fatal("expected generic forbidden response not to trigger rate-limit sleep")
+	}
+	if !strings.Contains(err.Error(), "returned 403") {
+		t.Fatalf("expected 403 error, got %v", err)
+	}
+}
+
+func TestIsGitHubRateLimited(t *testing.T) {
+	header := make(http.Header)
+	header.Set("X-RateLimit-Remaining", "0")
+	resp := &http.Response{Header: header}
+	if !isGitHubRateLimited(resp) {
+		t.Fatal("expected response to be treated as rate limited")
+	}
+
+	header = make(http.Header)
+	header.Set("X-RateLimit-Remaining", "7")
+	resp = &http.Response{Header: header}
+	if isGitHubRateLimited(resp) {
+		t.Fatal("expected response with remaining budget not to be rate limited")
+	}
+
+	resp = &http.Response{Header: http.Header{}}
+	if isGitHubRateLimited(resp) {
+		t.Fatal("expected response without rate-limit header not to be rate limited")
 	}
 }

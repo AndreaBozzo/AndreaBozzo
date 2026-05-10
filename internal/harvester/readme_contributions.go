@@ -18,6 +18,8 @@ import (
 	"time"
 )
 
+var sleepFor = time.Sleep
+
 var categoryOrder = []string{"Data Ecosystem", "Rust Tooling", "AI/ML", "Infrastructure", "Other"}
 
 var categoryHeaders = map[string]string{
@@ -132,7 +134,7 @@ func (client githubClient) fetchAllMergedPRs(ctx context.Context, username strin
 		if len(response.Items) < 100 || len(prs) >= response.TotalCount {
 			break
 		}
-		time.Sleep(time.Second)
+		sleepFor(time.Second)
 	}
 	return prs, nil
 }
@@ -226,7 +228,7 @@ func (client githubClient) getJSON(ctx context.Context, endpoint string, target 
 			return fmt.Errorf("request %s: %w", endpoint, err)
 		}
 
-		if resp.StatusCode == http.StatusForbidden {
+		if resp.StatusCode == http.StatusForbidden && isGitHubRateLimited(resp) {
 			resetAt := time.Now().Add(30 * time.Second)
 			if raw := resp.Header.Get("X-RateLimit-Reset"); raw != "" {
 				if unixSeconds, convErr := strconv.ParseInt(raw, 10, 64); convErr == nil {
@@ -241,7 +243,7 @@ func (client githubClient) getJSON(ctx context.Context, endpoint string, target 
 			if sleep > 2*time.Minute {
 				sleep = 2 * time.Minute
 			}
-			time.Sleep(sleep)
+			sleepFor(sleep)
 			continue
 		}
 
@@ -259,6 +261,10 @@ func (client githubClient) getJSON(ctx context.Context, endpoint string, target 
 		return nil
 	}
 	return fmt.Errorf("github API %s exceeded retry budget", endpoint)
+}
+
+func isGitHubRateLimited(resp *http.Response) bool {
+	return resp.Header.Get("X-RateLimit-Remaining") == "0"
 }
 
 func categorizeContributionRepo(repo contributionRepo) string {

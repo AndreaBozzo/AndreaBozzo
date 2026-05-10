@@ -39,7 +39,7 @@ type repositoryResponse struct {
 }
 
 func NewClient() *Client {
-	return NewClientWithBaseURL(defaultAPIBaseURL, http.DefaultClient)
+	return NewClientWithBaseURL(defaultAPIBaseURL, nil)
 }
 
 func NewClientWithBaseURL(baseURL string, httpClient *http.Client) *Client {

@@ -7,7 +7,18 @@ import (
 	"net/http/httptest"
 	"strings"
 	"testing"
+	"time"
 )
+
+func TestNewClientUsesDefaultTimeout(t *testing.T) {
+	client := NewClient()
+	if client.httpClient == nil {
+		t.Fatal("expected http client to be configured")
+	}
+	if client.httpClient.Timeout != 10*time.Second {
+		t.Fatalf("expected timeout %s, got %s", 10*time.Second, client.httpClient.Timeout)
+	}
+}
 
 func TestFetchSummaryAggregatesOwnedRepos(t *testing.T) {
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
