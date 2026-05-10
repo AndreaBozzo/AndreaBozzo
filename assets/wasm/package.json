@@ -1,0 +1,15 @@
+{
+  "name": "site_engine",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "site_engine_bg.wasm",
+    "site_engine.js",
+    "site_engine.d.ts"
+  ],
+  "main": "site_engine.js",
+  "types": "site_engine.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

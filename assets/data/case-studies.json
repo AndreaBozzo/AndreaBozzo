@@ -1,0 +1,152 @@
+{
+  "items": [
+    {
+      "slug": "dataprof",
+      "title": "dataprof",
+      "subtitle": "A small analytical engine hiding inside a data profiler.",
+      "summary": "A Rust/Python profiler shaped around Apache Arrow, RecordBatch flows, Parquet, and machine-readable pipeline output.",
+      "stack": ["Rust", "Python", "Apache Arrow", "DataFusion", "Parquet"],
+      "status": "Active design story",
+      "repoUrl": "https://github.com/AndreaBozzo/dataprof",
+      "relatedPosts": ["arrowfordataprof-blog"],
+      "coverImage": "../blog/images/dataprof-arrow.png",
+      "mediaSlots": [
+        {
+          "label": "Workspace photo",
+          "kind": "personal-photo",
+          "placeholder": "A future photo of the local development setup, profiling traces, or notebook-to-CLI workflow."
+        },
+        {
+          "label": "Pipeline artifact",
+          "kind": "diagram",
+          "placeholder": "A real report screenshot or Arrow batch flow once the next public build is ready."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Why it exists",
+          "body": "Profiling data should work like an infrastructure component: runnable in CI, useful from a CLI, and consumable by other systems."
+        },
+        {
+          "heading": "Technical center",
+          "body": "Arrow batches became the contract between ingestion, profiling, SQL execution, and export instead of a final serialization detail."
+        },
+        {
+          "heading": "What to show next",
+          "body": "A compact demo dataset, a generated report, and a before/after architecture note would make this page feel complete."
+        }
+      ]
+    },
+    {
+      "slug": "ares-ceres",
+      "title": "Ares + Ceres",
+      "subtitle": "Harvesting, scraping, and delta detection as an operational system.",
+      "summary": "A paired architecture for data acquisition work: Ceres focuses on configurable harvesting behavior, while Ares covers scraping pipeline concerns.",
+      "stack": ["Rust", "Python", "CLI", "Data Pipelines", "Automation"],
+      "status": "Evolving project pair",
+      "repoUrl": "https://github.com/AndreaBozzo",
+      "relatedPosts": ["ceres-blog", "harvesting-vs-scraping-blog"],
+      "coverImage": "../blog/images/Ares_vs_Ceres_architecture_comparison.png",
+      "mediaSlots": [
+        {
+          "label": "Field notes",
+          "kind": "personal-photo",
+          "placeholder": "A future desk or whiteboard photo with collection strategy notes."
+        },
+        {
+          "label": "Architecture",
+          "kind": "diagram",
+          "placeholder": "A real pipeline trace showing fetch, detect, persist, and review stages."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Why it exists",
+          "body": "Data collection needs different contracts depending on whether the goal is repeatable harvesting or targeted scraping."
+        },
+        {
+          "heading": "Technical center",
+          "body": "The interesting part is delta detection: choosing what changed, what matters, and how much work to spend finding out."
+        },
+        {
+          "heading": "What to show next",
+          "body": "A real CLI walkthrough and a strategy matrix would turn the architecture into a usable guide."
+        }
+      ]
+    },
+    {
+      "slug": "mosaico",
+      "title": "Mosaico",
+      "subtitle": "AI workflow orchestration as composable infrastructure.",
+      "summary": "An open tooling contribution area around AI workflow orchestration, integration boundaries, and developer-facing automation.",
+      "stack": ["AI", "Workflow Orchestration", "Open Source", "Developer Tools"],
+      "status": "Open-source contribution",
+      "repoUrl": "https://github.com/mosaico-labs/mosaico",
+      "relatedPosts": ["mosaico-blog"],
+      "coverImage": "../blog/images/Mosaico-architecture.png",
+      "mediaSlots": [
+        {
+          "label": "Demo surface",
+          "kind": "screenshot",
+          "placeholder": "A future product screenshot or flow capture from a representative orchestration run."
+        },
+        {
+          "label": "Contribution note",
+          "kind": "personal-note",
+          "placeholder": "A short note on the actual upstream contribution and the design tradeoff it touched."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Why it matters",
+          "body": "AI workflows become maintainable when orchestration is explicit, observable, and understandable by engineers who inherit it."
+        },
+        {
+          "heading": "Technical center",
+          "body": "The useful tension is between flexible workflow composition and operational constraints that keep systems debuggable."
+        },
+        {
+          "heading": "What to show next",
+          "body": "A compact flow diagram and a contribution diff story would make this case study much more concrete."
+        }
+      ]
+    },
+    {
+      "slug": "zero-grappler",
+      "title": "Zero Grappler",
+      "subtitle": "Cost-aware pipeline thinking for modern analytical systems.",
+      "summary": "A project thread around estimating, understanding, and reducing the operational cost of data and AI-oriented pipelines.",
+      "stack": ["FinOps", "Data Pipelines", "AI", "Lakehouse", "Cost Modeling"],
+      "status": "Research thread",
+      "repoUrl": "https://github.com/AndreaBozzo",
+      "relatedPosts": ["finops-ai-lakehouse-blog"],
+      "coverImage": "../blog/images/zerograpplerarchitecture.png",
+      "mediaSlots": [
+        {
+          "label": "Cost model",
+          "kind": "diagram",
+          "placeholder": "A future annotated cost model with concrete pipeline assumptions."
+        },
+        {
+          "label": "Personal material",
+          "kind": "personal-photo",
+          "placeholder": "A photo or note from the research process once the thread becomes more public."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Why it exists",
+          "body": "Modern data systems can look elegant while hiding unpredictable cost behavior across storage, compute, and AI usage."
+        },
+        {
+          "heading": "Technical center",
+          "body": "The core idea is to make cost a first-class design input instead of a post-hoc dashboard."
+        },
+        {
+          "heading": "What to show next",
+          "body": "A small calculator, a worked example, and a lakehouse decision funnel would make the page interactive."
+        }
+      ]
+    }
+  ]
+}

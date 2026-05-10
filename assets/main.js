@@ -67,8 +67,12 @@ const workbenchState = {
     query: '',
     selectedId: 'data-platforms',
     posts: [],
-    contributions: []
+    contributions: [],
+    caseStudies: []
 };
+
+let workbenchEngine = null;
+let workbenchEngineLoadStarted = false;
 
 function normalizeText(value) {
     return String(value || '').toLowerCase();
@@ -115,6 +119,21 @@ function itemTags(item) {
 
 function getWorkbenchItems() {
     const topicItems = topicBlueprints.filter(topic => topic.id !== 'all');
+    const caseStudyItems = workbenchState.caseStudies.map((study) => {
+        const title = study.title || study.slug || 'Case study';
+        const text = `${study.title || ''} ${study.subtitle || ''} ${study.summary || ''} ${(study.stack || []).join(' ')} ${(study.relatedPosts || []).join(' ')}`;
+
+        return {
+            id: `case-${normalizeText(study.slug || title).replace(/[^a-z0-9]+/g, '-')}`,
+            kind: 'case-study',
+            label: title,
+            title,
+            summary: study.summary || study.subtitle || 'A project case study from the archive.',
+            tags: Array.isArray(study.stack) ? study.stack.slice(0, 4) : [],
+            topics: topicForItem(text),
+            url: `${siteBasePath}work/${study.slug || normalizeText(title).replace(/[^a-z0-9]+/g, '-')}/`
+        };
+    });
     const postItems = workbenchState.posts.slice(0, 8).map((post, index) => {
         const text = `${post.title || ''} ${post.summary || ''} ${(post.tags || []).join(' ')}`;
         return {
@@ -143,7 +162,97 @@ function getWorkbenchItems() {
         };
     });
 
-    return [...topicItems, ...postItems, ...contributionItems];
+    return [...topicItems, ...caseStudyItems, ...postItems, ...contributionItems];
+}
+
+function buildWorkbenchPayload() {
+    return {
+        topics: topicBlueprints,
+        posts: workbenchState.posts,
+        contributions: workbenchState.contributions,
+        caseStudies: workbenchState.caseStudies,
+        activeTopic: workbenchState.activeTopic,
+        query: workbenchState.query,
+        selectedId: workbenchState.selectedId
+    };
+}
+
+function resultFromItem(item, score = 0) {
+    return {
+        id: item.id,
+        kind: item.kind,
+        title: item.title || item.label,
+        summary: item.summary || '',
+        tags: item.tags || [],
+        url: item.url || './blog/',
+        score
+    };
+}
+
+function selectedFromItem(item) {
+    return {
+        id: item.id,
+        kind: item.kind,
+        title: item.title || item.label,
+        summary: item.summary || '',
+        tags: item.tags || [],
+        url: item.url || './blog/'
+    };
+}
+
+function buildFallbackWorkbench() {
+    const items = getWorkbenchItems();
+    const count = Math.max(items.length, 1);
+    const results = items
+        .filter(item => item.kind !== 'topic' && matchesWorkbenchFilter(item))
+        .slice(0, 6)
+        .map((item, index) => resultFromItem(item, 10 - index));
+    const fallbackResults = items
+        .filter(item => item.kind !== 'topic')
+        .slice(0, 6)
+        .map((item, index) => resultFromItem(item, 5 - index));
+    const selected = items.find(item => item.id === workbenchState.selectedId)
+        || topicBlueprints.find(topic => topic.id === workbenchState.activeTopic && topic.id !== 'all')
+        || topicBlueprints[1];
+
+    return {
+        nodes: items.slice(0, 14).map((item, index) => {
+            const isTopic = item.kind === 'topic';
+            const radius = isTopic ? 24 : 38;
+            const angle = (Math.PI * 2 * index / count) - Math.PI / 2;
+            return {
+                id: item.id,
+                kind: item.kind,
+                label: item.label,
+                x: 50 + Math.cos(angle) * radius,
+                y: 50 + Math.sin(angle) * (radius * 0.78),
+                score: 0,
+                visible: matchesWorkbenchFilter(item)
+            };
+        }),
+        results: results.length ? results : fallbackResults,
+        selected: selectedFromItem(selected),
+        topics: topicBlueprints.map(topic => ({
+            id: topic.id,
+            label: topic.label,
+            count: topic.id === 'all'
+                ? items.filter(item => item.kind !== 'topic').length
+                : items.filter(item => (item.topics || []).includes(topic.id)).length
+        }))
+    };
+}
+
+function buildWorkbenchViewModel() {
+    if (workbenchEngine) {
+        try {
+            const output = workbenchEngine(JSON.stringify(buildWorkbenchPayload()));
+            return JSON.parse(output);
+        } catch (error) {
+            console.warn('Rust workbench engine failed, using JavaScript fallback:', error);
+        }
+    }
+
+    return buildFallbackWorkbench();
 }
 
 function matchesWorkbenchFilter(item) {
@@ -156,13 +265,15 @@ function matchesWorkbenchFilter(item) {
     return matchesTopic && (!query || searchable.includes(query));
 }
 
-function renderTopicStrip() {
+function renderTopicStrip(topicCounts = []) {
     const strip = document.getElementById('topic-strip');
     if (!strip) return;
 
+    const countsById = new Map(topicCounts.map(topic => [topic.id, topic.count]));
+
     strip.innerHTML = topicBlueprints.map(topic => `
         <button class="topic-pill${topic.id === workbenchState.activeTopic ? ' is-active' : ''}" type="button" data-topic="${topic.id}">
-            ${escapeHtml(topic.label)}
+            ${escapeHtml(topic.label)} <span>${escapeHtml(countsById.get(topic.id) ?? '')}</span>
         </button>
     `).join('');
 
@@ -176,24 +287,17 @@ function renderTopicStrip() {
     });
 }
 
-function renderMap(items) {
+function renderMap(nodes) {
     const map = document.getElementById('map-orbit');
     if (!map) return;
 
-    const visibleItems = items.slice(0, 14);
-    const count = Math.max(visibleItems.length, 1);
-    map.innerHTML = visibleItems.map((item, index) => {
-        const isTopic = item.kind === 'topic';
-        const radius = isTopic ? 24 : 38;
-        const angle = (Math.PI * 2 * index / count) - Math.PI / 2;
-        const x = 50 + Math.cos(angle) * radius;
-        const y = 50 + Math.sin(angle) * (radius * 0.78);
-        const muted = matchesWorkbenchFilter(item) ? '' : ' is-muted';
-        const selected = item.id === workbenchState.selectedId ? ' is-selected' : '';
+    map.innerHTML = nodes.map((node) => {
+        const muted = node.visible ? '' : ' is-muted';
+        const selected = node.id === workbenchState.selectedId ? ' is-selected' : '';
 
         return `
-            <button class="map-node${muted}${selected}" type="button" data-item-id="${escapeHtml(item.id)}" data-kind="${escapeHtml(item.kind)}" style="--node-x: ${x.toFixed(2)}%; --node-y: ${y.toFixed(2)}%;">
-                ${escapeHtml(item.label)}
+            <button class="map-node${muted}${selected}" type="button" data-item-id="${escapeHtml(node.id)}" data-kind="${escapeHtml(node.kind)}" style="--node-x: ${Number(node.x).toFixed(2)}%; --node-y: ${Number(node.y).toFixed(2)}%;">
+                ${escapeHtml(node.label)}
             </button>
         `;
     }).join('');
@@ -206,11 +310,7 @@ function renderMap(items) {
     });
 }
 
-function renderInspector(items) {
-    const selected = items.find(item => item.id === workbenchState.selectedId)
-        || topicBlueprints.find(topic => topic.id === workbenchState.activeTopic && topic.id !== 'all')
-        || topicBlueprints[1];
-
+function renderInspector(selected) {
     const kind = document.getElementById('inspector-kind');
     const title = document.getElementById('inspector-title');
     const summary = document.getElementById('inspector-summary');
@@ -219,23 +319,20 @@ function renderInspector(items) {
 
     if (!kind || !title || !summary || !tags || !link) return;
 
-    kind.textContent = selected.kind === 'post' ? 'Writing' : selected.kind === 'project' ? 'Open source' : 'Thread';
+    kind.textContent = selected.kind === 'post' ? 'Writing' : selected.kind === 'project' ? 'Open source' : selected.kind === 'case-study' ? 'Case study' : 'Thread';
     title.textContent = selected.title || selected.label;
     summary.textContent = selected.summary;
     tags.innerHTML = (selected.tags || []).map(tag => `<span class="inspector-tag">${escapeHtml(tag)}</span>`).join('');
     link.href = selected.url || './blog/';
-    link.textContent = selected.kind === 'project' ? 'View project' : selected.kind === 'post' ? 'Read note' : 'Browse related writing';
-    link.target = selected.kind === 'project' ? '_blank' : '';
-    link.rel = selected.kind === 'project' ? 'noopener noreferrer' : '';
+    link.textContent = selected.kind === 'project' ? 'View project' : selected.kind === 'post' ? 'Read note' : selected.kind === 'case-study' ? 'Open case study' : 'Browse related writing';
+    const external = /^https?:\/\//.test(link.href) && !link.href.startsWith(window.location.origin);
+    link.target = external ? '_blank' : '';
+    link.rel = external ? 'noopener noreferrer' : '';
 }
 
-function renderWorkbenchResults(items) {
+function renderWorkbenchResults(results) {
     const container = document.getElementById('workbench-results');
     if (!container) return;
-
-    const matches = items.filter(item => item.kind !== 'topic' && matchesWorkbenchFilter(item)).slice(0, 6);
-    const fallback = items.filter(item => item.kind !== 'topic').slice(0, 6);
-    const results = matches.length ? matches : fallback;
 
     if (!results.length) {
         container.innerHTML = topicBlueprints.slice(1, 4).map(topic => `
@@ -250,7 +347,7 @@ function renderWorkbenchResults(items) {
 
     container.innerHTML = results.map(item => `
         <a class="result-card content-card-enter" href="${escapeHtml(item.url || './blog/')}" ${item.kind === 'project' ? 'target="_blank" rel="noopener noreferrer"' : ''}>
-            <span class="result-meta">${item.kind === 'project' ? 'Open source' : 'Writing'}</span>
+            <span class="result-meta">${item.kind === 'project' ? 'Open source' : item.kind === 'case-study' ? 'Case study' : 'Writing'}</span>
             <h3>${escapeHtml(item.title || item.label)}</h3>
             <p>${escapeHtml(item.summary || '')}</p>
         </a>
@@ -262,17 +359,31 @@ function renderWorkbenchResults(items) {
 function renderWorkbench() {
     if (!workbenchState.initialized) return;
 
-    const items = getWorkbenchItems();
-    renderTopicStrip();
-    renderMap(items);
-    renderInspector(items);
-    renderWorkbenchResults(items);
+    const viewModel = buildWorkbenchViewModel();
+    renderTopicStrip(viewModel.topics || []);
+    renderMap(viewModel.nodes || []);
+    renderInspector(viewModel.selected || selectedFromItem(topicBlueprints[1]));
+    renderWorkbenchResults(viewModel.results || []);
+}
+
+async function loadWorkbenchEngine() {
+    if (workbenchEngineLoadStarted) return;
+    workbenchEngineLoadStarted = true;
+
+    try {
+        const module = await import(`${siteBasePath}assets/wasm/site_engine.js`);
+        await module.default(`${siteBasePath}assets/wasm/site_engine_bg.wasm`);
+        workbenchEngine = module.build_workbench;
+        renderWorkbench();
+    } catch (error) {
+        console.warn('Rust workbench engine unavailable, using JavaScript fallback:', error);
+    }
 }
 
 function initializeWorkbench() {
     const search = document.getElementById('workbench-search');
     const map = document.getElementById('map-orbit');
-    if (!search || !map || workbenchState.initialized) return;
+    if (!search || !map || workbenchState.initialized) return false;
 
     workbenchState.initialized = true;
     search.addEventListener('input', () => {
@@ -281,6 +392,7 @@ function initializeWorkbench() {
     });
 
     renderWorkbench();
+    return true;
 }
 
 function syncThemeColor(theme) {
@@ -355,6 +467,7 @@ function toggleBlogLanguage() {
 function updateLanguageToggleUI(lang) {
     const icon = document.getElementById('lang-icon');
     const text = document.getElementById('lang-text');
+    if (!icon || !text) return;
 
     if (lang === 'it') {
         icon.textContent = '🇮🇹';
@@ -463,6 +576,7 @@ function renderBlogPosts(posts, lang) {
 
 function showBlogError(lang) {
     const blogGrid = document.getElementById('blog-grid');
+    if (!blogGrid) return;
     const message = lang === 'it'
         ? 'Nessun articolo disponibile al momento.'
         : 'No articles available at the moment.';
@@ -559,6 +673,21 @@ async function fetchContributions(username, repoName = 'AndreaBozzo', branch = '
     }
 }
 
+async function loadCaseStudies() {
+    try {
+        const response = await fetch(`${siteBasePath}assets/data/case-studies.json`);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch case-studies.json: ${response.status}`);
+        }
+
+        const payload = await response.json();
+        workbenchState.caseStudies = Array.isArray(payload.items) ? payload.items : [];
+        renderWorkbench();
+    } catch (error) {
+        console.error('Failed to load case studies:', error);
+    }
+}
+
 // ===== Service Worker Registration =====
 if ('serviceWorker' in navigator && window.location.hostname !== 'localhost') {
     window.addEventListener('load', () => {
@@ -586,12 +715,17 @@ if ('serviceWorker' in navigator && window.location.hostname !== 'localhost') {
 // ===== Initialize =====
 document.addEventListener('DOMContentLoaded', function() {
     const loadBlogPosts = () => loadLatestBlogPosts();
-    initializeWorkbench();
-    fetchContributions('AndreaBozzo');
+    const hasWorkbench = initializeWorkbench();
 
-    if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadBlogPosts);
-    } else {
-        setTimeout(loadBlogPosts, 100);
+    if (hasWorkbench) {
+        loadWorkbenchEngine();
+        loadCaseStudies();
+        fetchContributions('AndreaBozzo');
+
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadBlogPosts);
+        } else {
+            setTimeout(loadBlogPosts, 100);
+        }
     }
 });

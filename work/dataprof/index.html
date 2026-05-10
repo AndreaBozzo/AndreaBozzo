@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>dataprof | Andrea Bozzo</title>
+    <meta name="description" content="Case study for dataprof, a Rust and Python data profiler built around Apache Arrow, DataFusion, and Parquet.">
+    <meta name="theme-color" content="#f5efe2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/styles.min.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <a href="../../#home" class="site-brand">AB</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="../../#workbench">Work</a>
+            <a href="../../blog/">Blog</a>
+            <a href="../../#projects">Open Source</a>
+            <a href="../../#contact">Contact</a>
+        </nav>
+        <button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle color theme">
+            <span class="theme-toggle-icon" id="theme-icon">☀️</span>
+        </button>
+    </header>
+
+    <main class="content-wrapper case-study-page">
+        <section class="case-hero">
+            <div class="case-hero-copy">
+                <p class="eyebrow">Case Study</p>
+                <h1 class="title">dataprof</h1>
+                <p class="subtitle">A small analytical engine hiding inside a data profiler.</p>
+                <div class="case-meta">
+                    <span>Rust</span>
+                    <span>Python</span>
+                    <span>Apache Arrow</span>
+                    <span>DataFusion</span>
+                    <span>Parquet</span>
+                </div>
+            </div>
+            <figure class="case-cover">
+                <img src="../../blog/images/dataprof-arrow.png" alt="Profiling data around Apache Arrow">
+            </figure>
+        </section>
+
+        <section class="case-layout">
+            <article class="case-main">
+                <h2>Why It Exists</h2>
+                <p>Profiling data should work like an infrastructure component: runnable in CI, useful from a CLI, and consumable by other systems.</p>
+
+                <h2>Technical Center</h2>
+                <p>Arrow batches became the contract between ingestion, profiling, SQL execution, and export instead of a final serialization detail.</p>
+
+                <h2>What To Show Next</h2>
+                <p>A compact demo dataset, a generated report, and a before/after architecture note would make this page feel complete.</p>
+            </article>
+
+            <aside class="case-aside">
+                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/dataprof" target="_blank" rel="noopener noreferrer">Repository</a>
+                <a class="btn btn-secondary" href="../../blog/en/posts/arrowfordataprof-blog/">Related article</a>
+
+                <div class="media-slots">
+                    <article class="media-slot">
+                        <span>Workspace photo</span>
+                        <p>A future photo of the local development setup, profiling traces, or notebook-to-CLI workflow.</p>
+                    </article>
+                    <article class="media-slot">
+                        <span>Pipeline artifact</span>
+                        <p>A real report screenshot or Arrow batch flow once the next public build is ready.</p>
+                    </article>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <script src="../../assets/main.min.js" defer></script>
+</body>
+</html>

@@ -27,9 +27,15 @@ Thumbs.db
 *~
 
 # Build artifacts
+target/
+rust/**/target/
 assets/*.min.js
 assets/*.min.css
 assets/data/contributions.json
+!assets/data/
+!assets/data/case-studies.json
+!assets/wasm/
+!assets/wasm/**
 
 # Temporary files
 *.tmp

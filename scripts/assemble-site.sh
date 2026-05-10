@@ -10,4 +10,5 @@ mkdir -p _site/blog
 
 cp index.html manifest.json sw.js _site/
 cp -r assets _site/
+cp -r work _site/
 cp -r blog/public/* _site/blog/

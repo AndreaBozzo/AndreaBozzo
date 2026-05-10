@@ -1,10 +1,18 @@
-const CACHE_NAME = 'andreabozzo-v3';
+const CACHE_NAME = 'andreabozzo-v4';
 const BASE_PATH = new URL(self.registration.scope).pathname;
 const ASSETS_TO_CACHE = [
     BASE_PATH,
     `${BASE_PATH}index.html`,
     `${BASE_PATH}assets/styles.min.css`,
     `${BASE_PATH}assets/main.min.js`,
+    `${BASE_PATH}assets/data/case-studies.json`,
+    `${BASE_PATH}assets/data/contributions.json`,
+    `${BASE_PATH}assets/wasm/site_engine.js`,
+    `${BASE_PATH}assets/wasm/site_engine_bg.wasm`,
+    `${BASE_PATH}work/dataprof/`,
+    `${BASE_PATH}work/ares-ceres/`,
+    `${BASE_PATH}work/mosaico/`,
+    `${BASE_PATH}work/zero-grappler/`,
     `${BASE_PATH}manifest.json`
 ];
 
