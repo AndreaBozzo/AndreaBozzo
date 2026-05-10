@@ -832,6 +832,11 @@ struct SimState {
     selected_id: String,
     #[serde(default)]
     dt: f32,
+    /// Cooling coefficient in (0, 1]. Caller decreases it across ticks so the
+    /// system anneals into a stable layout even with a noisy start. Defaults
+    /// to 1.0 for hot starts.
+    #[serde(default)]
+    temperature: f32,
 }
 
 #[derive(Debug, Default, Deserialize, Serialize, Clone)]
@@ -854,20 +859,25 @@ struct SimResult {
     kinetic_energy: f32,
 }
 
-const REPULSION: f32 = 220.0;
-const SPRING_K: f32 = 0.18;
-const SPRING_REST: f32 = 14.0;
-const DAMPING: f32 = 0.82;
-const FOCUS_PULL: f32 = 0.012;
-const CENTER_PULL: f32 = 0.0035;
-const MIN_DIST_SQ: f32 = 0.6;
-const MAX_VEL: f32 = 8.0;
-const BOUND_LOW: f32 = 6.0;
-const BOUND_HIGH: f32 = 94.0;
+const REPULSION: f32 = 12.0;
+const SPRING_K: f32 = 0.22;
+const SPRING_REST: f32 = 9.0;
+const DAMPING: f32 = 0.78;
+const FOCUS_PULL: f32 = 0.015;
+const CENTER_PULL: f32 = 0.16;
+const MIN_DIST: f32 = 2.0;
+const MAX_VEL: f32 = 2.5;
+const BOUND_LOW: f32 = 8.0;
+const BOUND_HIGH: f32 = 92.0;
 
 fn simulate(mut state: SimState) -> SimResult {
     let dt = if state.dt > 0.0 && state.dt <= 2.0 {
         state.dt
+    } else {
+        1.0
+    };
+    let temperature = if state.temperature > 0.0 && state.temperature <= 1.0 {
+        state.temperature
     } else {
         1.0
     };
@@ -882,14 +892,25 @@ fn simulate(mut state: SimState) -> SimResult {
     let mut fx = vec![0.0_f32; n];
     let mut fy = vec![0.0_f32; n];
 
-    // Repulsion (Coulomb-like).
+    // Repulsion (Coulomb-like). Force scales as 1/dist (not 1/dist^2) — a
+    // softer falloff that keeps coincident nodes from launching across the
+    // canvas while still pushing dense clusters apart.
+    let min_dist_sq = MIN_DIST * MIN_DIST;
     for i in 0..n {
         for j in (i + 1)..n {
-            let dx = state.nodes[i].x - state.nodes[j].x;
-            let dy = state.nodes[i].y - state.nodes[j].y;
-            let dist_sq = (dx * dx + dy * dy).max(MIN_DIST_SQ);
-            let force = REPULSION / dist_sq;
+            let mut dx = state.nodes[i].x - state.nodes[j].x;
+            let mut dy = state.nodes[i].y - state.nodes[j].y;
+            let mut dist_sq = dx * dx + dy * dy;
+            if dist_sq < min_dist_sq {
+                // Inject a tiny deterministic offset so the unit vector is
+                // defined even when nodes start coincident.
+                let bias = ((i * 17 + j * 31) % 7) as f32 * 0.01 + 0.05;
+                dx += bias;
+                dy -= bias;
+                dist_sq = (dx * dx + dy * dy).max(min_dist_sq);
+            }
             let dist = dist_sq.sqrt();
+            let force = REPULSION / dist;
             let ux = dx / dist;
             let uy = dy / dist;
             fx[i] += ux * force;
@@ -915,7 +936,7 @@ fn simulate(mut state: SimState) -> SimResult {
         };
         let dx = state.nodes[j].x - state.nodes[i].x;
         let dy = state.nodes[j].y - state.nodes[i].y;
-        let dist = (dx * dx + dy * dy).sqrt().max(MIN_DIST_SQ.sqrt());
+        let dist = (dx * dx + dy * dy).sqrt().max(MIN_DIST);
         let displacement = dist - SPRING_REST;
         let force = SPRING_K * displacement;
         let ux = dx / dist;
@@ -945,10 +966,11 @@ fn simulate(mut state: SimState) -> SimResult {
         }
     }
 
-    // Integrate.
+    // Integrate. Temperature scales the effective velocity so the caller can
+    // anneal over time by walking it from 1.0 down to ~0.3.
+    let max_step = MAX_VEL * temperature;
     let mut ke = 0.0_f32;
     for i in 0..n {
-        // Selected node holds position (acts as anchor).
         if Some(i) == selected_idx {
             state.nodes[i].vx = 0.0;
             state.nodes[i].vy = 0.0;
@@ -957,8 +979,8 @@ fn simulate(mut state: SimState) -> SimResult {
         let mut vx = (state.nodes[i].vx + fx[i] * dt) * DAMPING;
         let mut vy = (state.nodes[i].vy + fy[i] * dt) * DAMPING;
         let speed = (vx * vx + vy * vy).sqrt();
-        if speed > MAX_VEL {
-            let scale = MAX_VEL / speed;
+        if speed > max_step {
+            let scale = max_step / speed;
             vx *= scale;
             vy *= scale;
         }
@@ -1106,18 +1128,21 @@ mod tests {
 
         let mut state = payload;
         let mut last_ke = f32::INFINITY;
-        for _ in 0..200 {
+        for tick in 0..200 {
+            let temperature = (1.0 - (tick as f32 / 200.0)).max(0.05);
             let result = simulate(SimState {
                 nodes: state.nodes,
                 edges: state.edges.clone(),
                 selected_id: state.selected_id.clone(),
                 dt: 1.0,
+                temperature,
             });
             state = SimState {
                 nodes: result.nodes,
                 edges: state.edges,
                 selected_id: state.selected_id,
                 dt: 1.0,
+                temperature,
             };
             last_ke = result.kinetic_energy;
         }
@@ -1174,6 +1199,7 @@ mod tests {
             edges: vec![],
             selected_id: String::new(),
             dt: 1.0,
+            temperature: 1.0,
         };
         let result = simulate(payload);
         for node in &result.nodes {

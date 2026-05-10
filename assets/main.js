@@ -112,7 +112,9 @@ const graphSim = {
     width: 0,
     height: 0,
     reduceMotion: false,
-    settledFrames: 0
+    settledFrames: 0,
+    temperature: 1.0,
+    tickCount: 0
 };
 
 const NODE_KIND_COLORS = {
@@ -122,11 +124,14 @@ const NODE_KIND_COLORS = {
     project: '#0e7065'
 };
 const NODE_KIND_RADIUS = {
-    topic: 28,
-    'case-study': 22,
-    post: 18,
-    project: 18
+    topic: 30,
+    'case-study': 24,
+    post: 20,
+    project: 20
 };
+const SIM_WARMUP_STEPS = 60;
+const SIM_TEMP_FLOOR = 0.05;
+const SIM_TEMP_DECAY = 0.985;
 
 function normalizeText(value) {
     return String(value || '').toLowerCase();
@@ -429,6 +434,18 @@ function ensureGraphCanvas() {
     return canvas;
 }
 
+function seedInitialPosition(id, index, total) {
+    // Sunflower (Vogel) spiral packs n points evenly inside a disk. Stable per
+    // node because we hash the id into the angle, so re-renders keep nodes
+    // anchored.
+    const goldenAngle = Math.PI * (3 - Math.sqrt(5));
+    const hash = Array.from(String(id)).reduce((h, ch) => ((h * 31) + ch.charCodeAt(0)) >>> 0, 2166136261);
+    const angle = index * goldenAngle + (hash % 1000) / 1000 * 0.4;
+    const radiusFrac = Math.sqrt((index + 0.5) / Math.max(total, 1));
+    const r = 28 * radiusFrac;
+    return { x: 50 + r * Math.cos(angle), y: 50 + r * Math.sin(angle) };
+}
+
 function renderGraphCanvas(nodes, edges) {
     const panel = document.querySelector('.map-panel');
     if (panel && !panel.classList.contains('is-canvas')) {
@@ -437,17 +454,31 @@ function renderGraphCanvas(nodes, edges) {
     if (!ensureGraphCanvas()) return;
 
     const previousById = new Map(graphSim.nodes.map(n => [n.id, n]));
-    graphSim.nodes = nodes.map(node => {
+    const isFirstRender = previousById.size === 0;
+    graphSim.nodes = nodes.map((node, index) => {
         const prev = previousById.get(node.id);
+        if (prev) {
+            return {
+                id: node.id,
+                kind: node.kind,
+                label: node.label,
+                visible: node.visible,
+                x: prev.x,
+                y: prev.y,
+                vx: prev.vx,
+                vy: prev.vy
+            };
+        }
+        const seed = seedInitialPosition(node.id, index, nodes.length);
         return {
             id: node.id,
             kind: node.kind,
             label: node.label,
             visible: node.visible,
-            x: prev ? prev.x : node.x,
-            y: prev ? prev.y : node.y,
-            vx: prev ? prev.vx : 0,
-            vy: prev ? prev.vy : 0
+            x: seed.x,
+            y: seed.y,
+            vx: 0,
+            vy: 0
         };
     });
     graphSim.edges = (edges || []).filter(edge =>
@@ -455,11 +486,22 @@ function renderGraphCanvas(nodes, edges) {
     );
     graphSim.settledFrames = 0;
 
+    if (isFirstRender) {
+        graphSim.temperature = 1.0;
+        graphSim.tickCount = 0;
+        for (let i = 0; i < SIM_WARMUP_STEPS; i++) {
+            stepSimulation();
+        }
+    } else {
+        graphSim.temperature = Math.max(graphSim.temperature, 0.6);
+    }
+
     if (graphSim.reduceMotion) {
-        for (let i = 0; i < 80; i++) stepSimulation();
+        for (let i = 0; i < 40; i++) stepSimulation();
         drawGraph();
         return;
     }
+    drawGraph();
     startGraphLoop();
 }
 
@@ -469,7 +511,8 @@ function stepSimulation() {
         nodes: graphSim.nodes,
         edges: graphSim.edges,
         selectedId: workbenchState.selectedId,
-        dt: 1.0
+        dt: 1.0,
+        temperature: graphSim.temperature
     });
     let result;
     if (workbenchEngineTick) {
@@ -484,20 +527,24 @@ function stepSimulation() {
         result = stepSimulationJS();
     }
     graphSim.nodes = result.nodes;
+    graphSim.tickCount += 1;
+    graphSim.temperature = Math.max(graphSim.temperature * SIM_TEMP_DECAY, SIM_TEMP_FLOOR);
     return result.kineticEnergy ?? result.kinetic_energy ?? 0;
 }
 
 function stepSimulationJS() {
-    const REPULSION = 220;
-    const SPRING_K = 0.18;
-    const SPRING_REST = 14;
-    const DAMPING = 0.82;
-    const FOCUS_PULL = 0.012;
-    const CENTER_PULL = 0.0035;
-    const MIN_DIST_SQ = 0.6;
-    const MAX_VEL = 8;
-    const BOUND_LOW = 6;
-    const BOUND_HIGH = 94;
+    const REPULSION = 12;
+    const SPRING_K = 0.22;
+    const SPRING_REST = 9;
+    const DAMPING = 0.78;
+    const FOCUS_PULL = 0.015;
+    const CENTER_PULL = 0.16;
+    const MIN_DIST = 2.0;
+    const MIN_DIST_SQ = MIN_DIST * MIN_DIST;
+    const MAX_VEL = 2.5;
+    const BOUND_LOW = 8;
+    const BOUND_HIGH = 92;
+    const temperature = graphSim.temperature;
 
     const nodes = graphSim.nodes.map(n => ({ ...n }));
     const fx = new Array(nodes.length).fill(0);
@@ -505,11 +552,17 @@ function stepSimulationJS() {
 
     for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
-            const dx = nodes[i].x - nodes[j].x;
-            const dy = nodes[i].y - nodes[j].y;
-            const distSq = Math.max(dx * dx + dy * dy, MIN_DIST_SQ);
+            let dx = nodes[i].x - nodes[j].x;
+            let dy = nodes[i].y - nodes[j].y;
+            let distSq = dx * dx + dy * dy;
+            if (distSq < MIN_DIST_SQ) {
+                const bias = ((i * 17 + j * 31) % 7) * 0.01 + 0.05;
+                dx += bias;
+                dy -= bias;
+                distSq = Math.max(dx * dx + dy * dy, MIN_DIST_SQ);
+            }
             const dist = Math.sqrt(distSq);
-            const force = REPULSION / distSq;
+            const force = REPULSION / dist;
             const ux = dx / dist;
             const uy = dy / dist;
             fx[i] += ux * force; fy[i] += uy * force;
@@ -524,7 +577,7 @@ function stepSimulationJS() {
         if (i === undefined || j === undefined) continue;
         const dx = nodes[j].x - nodes[i].x;
         const dy = nodes[j].y - nodes[i].y;
-        const dist = Math.max(Math.sqrt(dx * dx + dy * dy), Math.sqrt(MIN_DIST_SQ));
+        const dist = Math.max(Math.sqrt(dx * dx + dy * dy), MIN_DIST);
         const force = SPRING_K * (dist - SPRING_REST);
         const ux = dx / dist;
         const uy = dy / dist;
@@ -544,6 +597,7 @@ function stepSimulationJS() {
         }
     }
 
+    const maxStep = MAX_VEL * temperature;
     let ke = 0;
     for (let i = 0; i < nodes.length; i++) {
         if (i === selectedIdx) {
@@ -553,9 +607,9 @@ function stepSimulationJS() {
         let vx = (nodes[i].vx + fx[i]) * DAMPING;
         let vy = (nodes[i].vy + fy[i]) * DAMPING;
         const speed = Math.sqrt(vx * vx + vy * vy);
-        if (speed > MAX_VEL) {
-            vx = vx * MAX_VEL / speed;
-            vy = vy * MAX_VEL / speed;
+        if (speed > maxStep) {
+            vx = vx * maxStep / speed;
+            vy = vy * maxStep / speed;
         }
         nodes[i].vx = vx;
         nodes[i].vy = vy;
@@ -572,7 +626,7 @@ function startGraphLoop() {
     const tick = () => {
         const ke = stepSimulation();
         drawGraph();
-        if (ke < 0.05) {
+        if (ke < 0.02) {
             graphSim.settledFrames += 1;
         } else {
             graphSim.settledFrames = 0;
@@ -587,6 +641,8 @@ function startGraphLoop() {
 }
 
 function nodeToPixel(node) {
+    // Independent x/y scaling stretches the layout to fill the panel. Node
+    // sizes stay in absolute pixels so circles never deform.
     return {
         x: (node.x / 100) * graphSim.width,
         y: (node.y / 100) * graphSim.height
@@ -627,6 +683,7 @@ function drawGraph() {
         const isSelected = node.id === selectedId;
         const isHovered = node.id === graphSim.hoveredId;
         const baseColor = NODE_KIND_COLORS[node.kind] || '#444';
+        const isTopic = node.kind === 'topic';
 
         ctx.globalAlpha = node.visible ? 1.0 : 0.32;
 
@@ -647,14 +704,57 @@ function drawGraph() {
         ctx.lineWidth = isSelected ? 3 : 1.8;
         ctx.stroke();
 
-        ctx.fillStyle = isDark ? '#e8eef5' : '#1a2236';
-        ctx.font = `${node.kind === 'topic' ? 600 : 500} 12px IBM Plex Sans, Arial, sans-serif`;
+        ctx.font = `${isTopic ? 600 : 500} 12px "IBM Plex Sans", Arial, sans-serif`;
         ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        const label = node.label.length > 14 ? node.label.slice(0, 13) + '…' : node.label;
-        ctx.fillText(label, x, y);
+        if (isTopic) {
+            // Topic nodes are larger; render label inside, wrapped to two lines.
+            ctx.fillStyle = baseColor;
+            ctx.textBaseline = 'middle';
+            drawWrappedLabel(ctx, node.label, x, y, radius * 1.6, 13);
+        } else {
+            // Other nodes get a label below the circle so the disc stays clean.
+            ctx.fillStyle = isDark ? '#e8eef5' : '#1a2236';
+            ctx.textBaseline = 'top';
+            drawWrappedLabel(ctx, node.label, x, y + radius + 6, radius * 3.2, 13);
+        }
     }
     ctx.globalAlpha = 1.0;
+}
+
+function drawWrappedLabel(ctx, label, cx, topY, maxWidth, lineHeight) {
+    const words = String(label).split(/\s+/).filter(Boolean);
+    const lines = [];
+    let current = '';
+    for (const word of words) {
+        const candidate = current ? `${current} ${word}` : word;
+        if (ctx.measureText(candidate).width <= maxWidth || !current) {
+            current = candidate;
+        } else {
+            lines.push(current);
+            current = word;
+        }
+        if (lines.length >= 2) break;
+    }
+    if (lines.length < 2 && current) lines.push(current);
+
+    while (lines.length > 0 && ctx.measureText(lines[lines.length - 1]).width > maxWidth) {
+        let last = lines[lines.length - 1];
+        while (last.length > 1 && ctx.measureText(last + '…').width > maxWidth) {
+            last = last.slice(0, -1);
+        }
+        lines[lines.length - 1] = last + '…';
+        break;
+    }
+
+    const totalHeight = lines.length * lineHeight;
+    const baseline = ctx.textBaseline;
+    let startY = topY;
+    if (baseline === 'middle') {
+        startY = topY - totalHeight / 2 + lineHeight / 2;
+    }
+    for (let i = 0; i < lines.length; i++) {
+        ctx.fillText(lines[i], cx, startY + i * lineHeight);
+    }
 }
 
 function pickNodeAt(clientX, clientY) {
