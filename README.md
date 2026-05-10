@@ -106,12 +106,12 @@ The repository now also contains a small Go `api/` layer intended for a Vercel-h
 
 Both endpoints accept an optional `username` query parameter and default to `AndreaBozzo`. The badge endpoint also accepts `metric=stars|repos|followers|top-repo`.
 
-The homepage hero now knows how to consume `/api/github/stats`. To activate it from the static Pages site, set the `ab-api-base` meta tag in [index.html](index.html) to your deployed Vercel host, for example `https://your-project.vercel.app`. If the homepage is served directly from a Vercel preview or production deployment, it will also fall back to same-origin `/api/` automatically.
+The homepage hero now consumes `/api/github/stats` from the deployed companion host at `https://andrea-bozzo.vercel.app`. If the homepage is served directly from a Vercel preview or production deployment, it will also fall back to same-origin `/api/` automatically.
 
-Once the companion API is deployed, you can also surface the live badge directly in this README by replacing `YOUR-VERCEL-HOST` in the snippet below with the production hostname from Vercel:
+The README now also uses the live badge endpoint directly:
 
 ```md
-[![Live GitHub stars](https://YOUR-VERCEL-HOST/api/github/badge?metric=stars&username=AndreaBozzo)](https://YOUR-VERCEL-HOST/api/github/stats?username=AndreaBozzo)
+[![Live GitHub stars](https://andrea-bozzo.vercel.app/api/github/badge?metric=stars&username=AndreaBozzo)](https://andrea-bozzo.vercel.app/api/github/stats?username=AndreaBozzo)
 ```
 
 Set `GITHUB_API_TOKEN` or `GITHUB_TOKEN` in the runtime environment if you want better GitHub API rate-limit headroom.
@@ -119,6 +119,12 @@ Set `GITHUB_API_TOKEN` or `GITHUB_TOKEN` in the runtime environment if you want 
 ---
 
 ## 📊 GitHub Stats
+
+<p align="center">
+  <a href="https://andrea-bozzo.vercel.app/api/github/stats?username=AndreaBozzo">
+    <img src="https://andrea-bozzo.vercel.app/api/github/badge?metric=stars&username=AndreaBozzo" alt="Live GitHub stars via companion API" />
+  </a>
+</p>
 
 <p align="center">
   <img src="metrics/github-stats.svg" alt="GitHub Stats"/>
