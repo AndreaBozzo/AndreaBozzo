@@ -48,12 +48,8 @@
                     <span>Webhooks</span>
                 </div>
             </div>
-            <figure class="case-cover case-cover-placeholder">
-                <div>
-                    <span class="case-cover-eyebrow">Real-time connectors</span>
-                    <strong>Nephtys</strong>
-                    <p>WebSocket, webhook, SSE, and gRPC ingestion normalized into one durable event pipeline.</p>
-                </div>
+            <figure class="case-cover">
+                <img src="../../assets/images/case-studies/nephtys-logo.png" alt="Nephtys project logo">
             </figure>
         </section>
 
@@ -71,8 +67,8 @@
                 <h2>Technical center</h2>
                 <p>Nephtys manages connector lifecycles, normalizes inbound events, persists them to NATS JetStream, and exposes a REST API so stream management is operable instead of hardcoded.</p>
 
-                <h2>What to show next</h2>
-                <p>A deployed demo with connector configuration, metrics, and an event replay flow would show the operational value clearly.</p>
+                <h2>Current proof points</h2>
+                <p>The operational story is already present in public material: supported connector matrices, middleware ordering, REST management APIs, Prometheus and Grafana support, and a UIC 2026 paper framing urban sensor ingestion as the first concrete evaluation path.</p>
 
             </article>
 
@@ -81,12 +77,18 @@
 
                 <div class="media-slots">
                     <article class="media-slot">
-                        <span>Connector dashboard</span>
-                        <p>A future dashboard snapshot covering connector status, throughput, retries, and downstream delivery.</p>
+                        <span>REST poller run</span>
+                        <figure class="media-slot-figure">
+                            <img src="../../assets/images/case-studies/nephtys-rest-poller.svg" alt="Nephtys REST poller example card" loading="lazy">
+                        </figure>
+                        <p>Open-Meteo poller to a JetStream subject.</p>
                     </article>
                     <article class="media-slot">
-                        <span>Event flow</span>
-                        <p>A real trace showing ingress, normalization, JetStream persistence, and replay or fan-out.</p>
+                        <span>Connector matrix</span>
+                        <figure class="media-slot-figure">
+                            <img src="../../assets/images/case-studies/nephtys-connectors.svg" alt="Nephtys supported connector matrix card" loading="lazy">
+                        </figure>
+                        <p>WebSocket, SSE, gRPC, webhook, and REST.</p>
                     </article>
                 </div>
             </aside>

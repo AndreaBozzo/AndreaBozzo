@@ -44,6 +44,9 @@ type caseStudyAction struct {
 type mediaSlot struct {
 	Label       string `json:"label"`
 	Kind        string `json:"kind"`
+	Image       string `json:"image"`
+	Alt         string `json:"alt"`
+	Caption     string `json:"caption"`
 	Placeholder string `json:"placeholder"`
 }
 
@@ -199,9 +202,18 @@ func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext) []by
 	if len(study.MediaSlots) > 0 {
 		buf.WriteString("\n                <div class=\"media-slots\">\n")
 		for _, slot := range study.MediaSlots {
+			label := firstNonEmpty(slot.Label, "Media")
+			caption := firstNonEmpty(slot.Caption, slot.Placeholder)
 			buf.WriteString("                    <article class=\"media-slot\">\n")
-			buf.WriteString("                        <span>" + escapeHTML(firstNonEmpty(slot.Label, "Placeholder")) + "</span>\n")
-			buf.WriteString("                        <p>" + escapeHTML(slot.Placeholder) + "</p>\n")
+			buf.WriteString("                        <span>" + escapeHTML(label) + "</span>\n")
+			if slot.Image != "" {
+				buf.WriteString("                        <figure class=\"media-slot-figure\">\n")
+				buf.WriteString("                            <img src=\"" + escapeHTML(resolveCaseStudyAssetPath(slot.Image)) + "\" alt=\"" + escapeHTML(firstNonEmpty(slot.Alt, label)) + "\" loading=\"lazy\">\n")
+				buf.WriteString("                        </figure>\n")
+			}
+			if caption != "" {
+				buf.WriteString("                        <p>" + escapeHTML(caption) + "</p>\n")
+			}
 			buf.WriteString("                    </article>\n")
 		}
 		buf.WriteString("                </div>\n")
@@ -251,7 +263,7 @@ func pageContextForStudy(items []caseStudy, idx int) caseStudyPageContext {
 }
 
 func renderCaseStudyCover(study caseStudy) []byte {
-	coverImage := resolveCoverImagePath(study.CoverImage)
+	coverImage := resolveCaseStudyAssetPath(study.CoverImage)
 	if coverImage != "" {
 		return []byte(
 			"            <figure class=\"case-cover\">\n" +
@@ -301,20 +313,20 @@ func resolvedActions(study caseStudy) []caseStudyAction {
 	return actions
 }
 
-func resolveCoverImagePath(coverImage string) string {
+func resolveCaseStudyAssetPath(assetPath string) string {
 	switch {
-	case coverImage == "":
+	case assetPath == "":
 		return ""
-	case isExternalURL(coverImage):
-		return coverImage
-	case strings.HasPrefix(coverImage, "../../"):
-		return coverImage
-	case strings.HasPrefix(coverImage, "../blog/"):
-		return "../" + coverImage
-	case strings.HasPrefix(coverImage, "blog/"):
-		return "../../" + coverImage
+	case isExternalURL(assetPath):
+		return assetPath
+	case strings.HasPrefix(assetPath, "../../"):
+		return assetPath
+	case strings.HasPrefix(assetPath, "../blog/"):
+		return "../" + assetPath
+	case strings.HasPrefix(assetPath, "blog/"):
+		return "../../" + assetPath
 	default:
-		return coverImage
+		return assetPath
 	}
 }
 

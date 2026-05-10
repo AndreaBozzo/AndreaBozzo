@@ -1249,20 +1249,45 @@ a {
 .media-slot {
     display: grid;
     gap: var(--space-3);
-    min-height: 10rem;
-    padding: var(--space-5);
+    padding: var(--space-4);
     border-radius: var(--radius-md);
     background:
         linear-gradient(135deg, color-mix(in srgb, var(--color-bg-tertiary) 86%, transparent), color-mix(in srgb, var(--color-bg-secondary) 88%, transparent)),
         linear-gradient(color-mix(in srgb, var(--color-border) 34%, transparent) 1px, transparent 1px),
         linear-gradient(90deg, color-mix(in srgb, var(--color-border) 34%, transparent) 1px, transparent 1px);
     background-size: auto, 2rem 2rem, 2rem 2rem;
+    overflow: hidden;
 }
 
 .media-slot span {
     width: fit-content;
     padding: 0.35rem 0.65rem;
     background: color-mix(in srgb, var(--color-bg-tertiary) 84%, transparent);
+    border-radius: 999px;
+    font-size: var(--text-xs);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.media-slot-figure {
+    margin: 0;
+    border-radius: calc(var(--radius-md) - 0.25rem);
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--color-border) 88%, transparent);
+    background: color-mix(in srgb, var(--color-bg-tertiary) 72%, transparent);
+}
+
+.media-slot-figure img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.media-slot p {
+    margin: 0;
+    font-size: var(--text-sm);
+    line-height: 1.55;
 }
 
 .focus-grid {

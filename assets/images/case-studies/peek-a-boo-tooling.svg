@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
+  <rect width="1200" height="900" rx="40" fill="#101212"/>
+  <text x="78" y="118" fill="#F4F7F5" font-size="40" font-family="Space Grotesk, sans-serif">Peek-a-Boo tool surface</text>
+  <g font-family="IBM Plex Mono, monospace" font-size="28">
+    <rect x="76" y="178" width="480" height="88" rx="22" fill="#1B2A24" stroke="#35604D"/><text x="116" y="232" fill="#C7F0D9">ListFiles      → initial orientation</text>
+    <rect x="644" y="178" width="480" height="88" rx="22" fill="#1B2230" stroke="#3D547C"/><text x="684" y="232" fill="#D9E5FF">FindFiles      → target extensions</text>
+    <rect x="76" y="304" width="480" height="88" rx="22" fill="#2D2417" stroke="#7E5D2E"/><text x="116" y="358" fill="#FFE6B5">ReadPreview    → first 5 + last 5</text>
+    <rect x="644" y="304" width="480" height="88" rx="22" fill="#2B1820" stroke="#7A3C58"/><text x="684" y="358" fill="#FFD6E6">GrepSearch     → single file, exact hit</text>
+    <rect x="360" y="430" width="480" height="88" rx="22" fill="#192632" stroke="#355F7A"/><text x="400" y="484" fill="#D4EEFF">GrepRecursive  → capped global fallback</text>
+  </g>
+  <rect x="90" y="606" width="1020" height="206" rx="28" fill="#151B1A" stroke="#31433D"/>
+  <text x="128" y="674" fill="#95E0B8" font-size="28" font-family="IBM Plex Mono, monospace">Limits: 30 entries, 20 file results, 3 matches/file, 10 files total</text>
+  <text x="128" y="726" fill="#C9D8D1" font-size="26" font-family="IBM Plex Sans, sans-serif">The agent escalates from list/find to single-file grep before using recursive search.</text>
+</svg>

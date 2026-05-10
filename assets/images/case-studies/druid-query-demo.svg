@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
+  <rect width="1200" height="900" rx="40" fill="#0D1117"/>
+  <rect x="56" y="56" width="1088" height="788" rx="28" fill="#111826" stroke="#2D3F5C" stroke-width="2"/>
+  <text x="92" y="122" fill="#DDE7F5" font-size="34" font-family="Space Grotesk, sans-serif">Offline query path</text>
+  <text x="92" y="212" fill="#7DD3FC" font-size="28" font-family="IBM Plex Mono, monospace">let provider = DruidTableProvider::try_new(&quot;path/to/segment/index.dr&quot;)?;</text>
+  <text x="92" y="262" fill="#E5F3FB" font-size="28" font-family="IBM Plex Mono, monospace">ctx.register_table(&quot;druid_table&quot;, Arc::new(provider))?;</text>
+  <text x="92" y="312" fill="#E5F3FB" font-size="28" font-family="IBM Plex Mono, monospace">let df = ctx.sql(&quot;SELECT * FROM druid_table LIMIT 10&quot;).await?;</text>
+  <rect x="84" y="402" width="1032" height="292" rx="24" fill="#09111A" stroke="#1D3557"/>
+  <text x="116" y="474" fill="#FACC15" font-size="28" font-family="IBM Plex Mono, monospace">SQL</text>
+  <text x="116" y="526" fill="#CDE7F4" font-size="30" font-family="IBM Plex Mono, monospace">SELECT * FROM druid_table LIMIT 10;</text>
+  <text x="116" y="612" fill="#93C5FD" font-size="26" font-family="IBM Plex Mono, monospace">No running Druid cluster required.</text>
+  <text x="116" y="656" fill="#93C5FD" font-size="26" font-family="IBM Plex Mono, monospace">The segment is read directly and exposed to DataFusion.</text>
+</svg>

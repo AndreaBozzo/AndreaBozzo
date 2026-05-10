@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
+  <rect width="1200" height="900" rx="40" fill="#F6F1E7"/>
+  <text x="78" y="116" fill="#2D2115" font-size="40" font-family="Space Grotesk, sans-serif">Bootstrap flow</text>
+  <rect x="70" y="178" width="250" height="120" rx="26" fill="#FFF8EC" stroke="#D8C39C"/><text x="112" y="250" fill="#4A3520" font-size="30" font-family="IBM Plex Mono, monospace">python -m venv .venv</text>
+  <rect x="362" y="178" width="278" height="120" rx="26" fill="#FFF8EC" stroke="#D8C39C"/><text x="404" y="250" fill="#4A3520" font-size="28" font-family="IBM Plex Mono, monospace">pip install -r requirements.txt</text>
+  <rect x="682" y="178" width="250" height="120" rx="26" fill="#FFF8EC" stroke="#D8C39C"/><text x="730" y="250" fill="#4A3520" font-size="30" font-family="IBM Plex Mono, monospace">docker-compose up -d</text>
+  <rect x="974" y="178" width="156" height="120" rx="26" fill="#FFF8EC" stroke="#D8C39C"/><text x="1018" y="250" fill="#4A3520" font-size="30" font-family="IBM Plex Mono, monospace">dbt run</text>
+  <path d="M320 238H350" stroke="#B4935A" stroke-width="10" stroke-linecap="round"/><path d="M640 238H670" stroke="#B4935A" stroke-width="10" stroke-linecap="round"/><path d="M932 238H962" stroke="#B4935A" stroke-width="10" stroke-linecap="round"/>
+  <polygon points="350,238 326,224 326,252" fill="#B4935A"/><polygon points="670,238 646,224 646,252" fill="#B4935A"/><polygon points="962,238 938,224 938,252" fill="#B4935A"/>
+  <rect x="94" y="426" width="1012" height="312" rx="30" fill="#FFF8EC" stroke="#D8C39C"/>
+  <text x="134" y="492" fill="#6F552E" font-size="30" font-family="IBM Plex Sans, sans-serif">Services</text>
+  <text x="134" y="548" fill="#2D2115" font-size="28" font-family="IBM Plex Mono, monospace">MinIO console  :9001</text>
+  <text x="134" y="596" fill="#2D2115" font-size="28" font-family="IBM Plex Mono, monospace">MinIO API      :9000</text>
+  <text x="134" y="644" fill="#2D2115" font-size="28" font-family="IBM Plex Mono, monospace">Superset       :8088</text>
+  <text x="134" y="692" fill="#2D2115" font-size="28" font-family="IBM Plex Mono, monospace">Pipeline       python dlt/pipelines/example_api.py</text>
+</svg>

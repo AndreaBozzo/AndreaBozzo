@@ -67,8 +67,8 @@
                 <h2>Technical center</h2>
                 <p>Ceres centers on incremental portal sync and catalog durability, while Ares focuses on fetch pipelines, markdown normalization, JSON Schema extraction, retries, and queue-driven execution.</p>
 
-                <h2>What to show next</h2>
-                <p>A side-by-side walkthrough against one public portal and one arbitrary site would make the boundary between the two tools obvious.</p>
+                <h2>Current proof points</h2>
+                <p>The distinction is already concrete in the READMEs: Ceres offers incremental portal sync, metadata-only mode, export, and optional semantic search, while Ares offers schema-driven extraction, change detection, queue workers, crawl sessions, and protected API endpoints for scrape orchestration.</p>
 
             </article>
 
@@ -79,12 +79,18 @@
 
                 <div class="media-slots">
                     <article class="media-slot">
-                        <span>Field notes</span>
-                        <p>A future whiteboard or terminal capture comparing harvest and scrape strategies on the same target.</p>
+                        <span>Ares pipeline</span>
+                        <figure class="media-slot-figure">
+                            <img src="../../blog/images/Ares_scraping_pipeline.png" alt="Ares scraping pipeline diagram" loading="lazy">
+                        </figure>
+                        <p>Fetch, normalize, extract, persist.</p>
                     </article>
                     <article class="media-slot">
-                        <span>Architecture</span>
-                        <p>A real collection trace showing portal sync, page fetch, extraction, and change detection stages.</p>
+                        <span>Ceres architecture</span>
+                        <figure class="media-slot-figure">
+                            <img src="../../blog/images/Ceres_architecture.png" alt="Ceres architecture diagram" loading="lazy">
+                        </figure>
+                        <p>Harvest, catalog, search, and export.</p>
                     </article>
                 </div>
             </aside>

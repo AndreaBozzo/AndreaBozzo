@@ -48,12 +48,8 @@
                     <span>YAML</span>
                 </div>
             </div>
-            <figure class="case-cover case-cover-placeholder">
-                <div>
-                    <span class="case-cover-eyebrow">Contract enforcement</span>
-                    <strong>DCE</strong>
-                    <p>Move from reactive profiling to explicit contracts that can fail fast inside data workflows.</p>
-                </div>
+            <figure class="case-cover">
+                <img src="../../assets/images/case-studies/dce-logo.png" alt="DCE project logo">
             </figure>
         </section>
 
@@ -71,8 +67,8 @@
                 <h2>Technical center</h2>
                 <p>DCE grows out of dataprof by moving from observation to enforcement: contract definitions, validation commands, and table-format-aware checks become the center of the workflow.</p>
 
-                <h2>What to show next</h2>
-                <p>A full example contract and a validation walkthrough against a real catalog would make the transition from profiler to contract engine tangible.</p>
+                <h2>Current proof points</h2>
+                <p>The shift from profiler to contract engine is already visible in the public repo through Iceberg-aware validation, explicit known limitations for non-Iceberg formats, 194 tests across packages, and a roadmap that makes the next steps in SQL execution and multi-format validation explicit.</p>
 
             </article>
 
@@ -82,11 +78,17 @@
                 <div class="media-slots">
                     <article class="media-slot">
                         <span>Contract example</span>
-                        <p>A future public contract showing schema, quality constraints, and the resulting validation output.</p>
+                        <figure class="media-slot-figure">
+                            <img src="../../assets/images/case-studies/dce-contract-example.svg" alt="DCE contract example card" loading="lazy">
+                        </figure>
+                        <p>Iceberg contract fields and quality rules.</p>
                     </article>
                     <article class="media-slot">
                         <span>Validation run</span>
-                        <p>A CLI capture showing catalog-backed validation against a table and a failing contract.</p>
+                        <figure class="media-slot-figure">
+                            <img src="../../assets/images/case-studies/dce-cli-validate.svg" alt="DCE CLI validation card" loading="lazy">
+                        </figure>
+                        <p>Validate, init, and check flows.</p>
                     </article>
                 </div>
             </aside>

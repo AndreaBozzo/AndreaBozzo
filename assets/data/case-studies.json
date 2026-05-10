@@ -25,14 +25,18 @@
       ],
       "mediaSlots": [
         {
-          "label": "Workspace photo",
+          "label": "Arrow path",
           "kind": "personal-photo",
-          "placeholder": "A future photo of the profiling CLI, notebook workflow, or large-file profiling runs."
+          "image": "../blog/images/dataprof-arrow.png",
+          "alt": "dataprof Arrow interoperability diagram",
+          "caption": "Arrow export and zero-copy interchange."
         },
         {
-          "label": "Report artifact",
+          "label": "System architecture",
           "kind": "diagram",
-          "placeholder": "A real profile report, contract summary, or Arrow export snapshot from a public release."
+          "image": "../blog/images/dataprofhiglevelarchitecture.png",
+          "alt": "dataprof high-level architecture diagram",
+          "caption": "Rust core, interfaces, and report pipeline."
         }
       ],
       "sections": [
@@ -45,8 +49,8 @@
           "body": "The core combines bounded-memory profiling, column statistics, type and pattern detection, and ISO 8000/25012 quality dimensions across multiple input and export formats."
         },
         {
-          "heading": "What to show next",
-          "body": "A single dataset profiled through the CLI, Python API, and exported report would make the multi-interface story concrete."
+          "heading": "Current proof points",
+          "body": "The repo already demonstrates selective metrics for faster runs, bounded-memory streaming, async and database feature flags, and distribution across Crates.io, docs.rs, and PyPI, so the multi-interface story is already visible in public artifacts rather than planned copy."
         }
       ]
     },
@@ -80,14 +84,18 @@
       ],
       "mediaSlots": [
         {
-          "label": "Field notes",
+          "label": "Ares pipeline",
           "kind": "personal-photo",
-          "placeholder": "A future whiteboard or terminal capture comparing harvest and scrape strategies on the same target."
+          "image": "../blog/images/Ares_scraping_pipeline.png",
+          "alt": "Ares scraping pipeline diagram",
+          "caption": "Fetch, normalize, extract, persist."
         },
         {
-          "label": "Architecture",
+          "label": "Ceres architecture",
           "kind": "diagram",
-          "placeholder": "A real collection trace showing portal sync, page fetch, extraction, and change detection stages."
+          "image": "../blog/images/Ceres_architecture.png",
+          "alt": "Ceres architecture diagram",
+          "caption": "Harvest, catalog, search, and export."
         }
       ],
       "sections": [
@@ -100,8 +108,8 @@
           "body": "Ceres centers on incremental portal sync and catalog durability, while Ares focuses on fetch pipelines, markdown normalization, JSON Schema extraction, retries, and queue-driven execution."
         },
         {
-          "heading": "What to show next",
-          "body": "A side-by-side walkthrough against one public portal and one arbitrary site would make the boundary between the two tools obvious."
+          "heading": "Current proof points",
+          "body": "The distinction is already concrete in the READMEs: Ceres offers incremental portal sync, metadata-only mode, export, and optional semantic search, while Ares offers schema-driven extraction, change detection, queue workers, crawl sessions, and protected API endpoints for scrape orchestration."
         }
       ]
     },
@@ -130,14 +138,18 @@
       ],
       "mediaSlots": [
         {
-          "label": "Demo surface",
+          "label": "Platform cover",
           "kind": "screenshot",
-          "placeholder": "A future flow capture from a representative robotics or physical-AI data workflow."
+          "image": "../blog/images/Mosaico-Cover.svg",
+          "alt": "Mosaico project cover artwork",
+          "caption": "Monorepo surface for SDK plus backend."
         },
         {
-          "label": "Contribution note",
+          "label": "System architecture",
           "kind": "personal-note",
-          "placeholder": "A short note on the concrete upstream contribution and the design tradeoff it changed."
+          "image": "../blog/images/Mosaico-architecture.png",
+          "alt": "Mosaico architecture diagram",
+          "caption": "Client-server data platform shape."
         }
       ],
       "sections": [
@@ -150,8 +162,8 @@
           "body": "The interesting work sits at integration boundaries: how orchestration stays flexible enough for experimentation while remaining debuggable for the next engineer."
         },
         {
-          "heading": "What to show next",
-          "body": "A concrete upstream diff and one end-to-end workflow trace would turn this from a platform overview into a real contribution story."
+          "heading": "Current proof points",
+          "body": "This is already more than a platform summary: the visible contribution history sits exactly at the workflow seams that matter in robotics systems, where CI reliability, query ergonomics, and SDK-server compatibility determine whether data tooling remains usable by the next engineer."
         }
       ]
     },
@@ -180,14 +192,18 @@
       ],
       "mediaSlots": [
         {
-          "label": "Hardware demo",
+          "label": "Pipeline architecture",
           "kind": "diagram",
-          "placeholder": "A future sensor-to-inference trace from the Raspberry hardware target once the first public demo lands."
+          "image": "../blog/images/zerograpplerarchitecture.png",
+          "alt": "Zero Grappler architecture diagram",
+          "caption": "Sensor, DSP, and inference stages."
         },
         {
-          "label": "Pipeline notes",
+          "label": "Hardware bill",
           "kind": "personal-photo",
-          "placeholder": "A photo or short note from the embedded setup once the hardware loop is running end to end."
+          "image": "../blog/images/zerograpplercost_estimation.png",
+          "alt": "Zero Grappler hardware cost estimation graphic",
+          "caption": "Pico 2 W starter kit and budget."
         }
       ],
       "sections": [
@@ -200,8 +216,8 @@
           "body": "The crate splits the pipeline into three traits, keeps buffer sizes at compile time, routes stages through Embassy channels, and avoids heap allocation entirely."
         },
         {
-          "heading": "What to show next",
-          "body": "One public board demo and a concrete sensor-plus-inference example would make the design feel finished."
+          "heading": "Current proof points",
+          "body": "Even before the first full board demo, the design is already grounded by the no-allocation trait split, monomorphic Embassy task wrappers, the host-side mock example, and a documented bill of materials that keeps the first public hardware loop realistic rather than hypothetical."
         }
       ]
     },
@@ -214,7 +230,8 @@
       "status": "Active OSS project",
       "repoUrl": "https://github.com/AndreaBozzo/Nephtys",
       "relatedPosts": [],
-      "coverImage": "",
+      "coverImage": "../../assets/images/case-studies/nephtys-logo.png",
+      "coverAlt": "Nephtys project logo",
       "coverEyebrow": "Real-time connectors",
       "coverText": "WebSocket, webhook, SSE, and gRPC ingestion normalized into one durable event pipeline.",
       "actions": [
@@ -226,14 +243,18 @@
       ],
       "mediaSlots": [
         {
-          "label": "Connector dashboard",
+          "label": "REST poller run",
           "kind": "screenshot",
-          "placeholder": "A future dashboard snapshot covering connector status, throughput, retries, and downstream delivery."
+          "image": "../../assets/images/case-studies/nephtys-rest-poller.svg",
+          "alt": "Nephtys REST poller example card",
+          "caption": "Open-Meteo poller to a JetStream subject."
         },
         {
-          "label": "Event flow",
+          "label": "Connector matrix",
           "kind": "diagram",
-          "placeholder": "A real trace showing ingress, normalization, JetStream persistence, and replay or fan-out."
+          "image": "../../assets/images/case-studies/nephtys-connectors.svg",
+          "alt": "Nephtys supported connector matrix card",
+          "caption": "WebSocket, SSE, gRPC, webhook, and REST."
         }
       ],
       "sections": [
@@ -246,8 +267,8 @@
           "body": "Nephtys manages connector lifecycles, normalizes inbound events, persists them to NATS JetStream, and exposes a REST API so stream management is operable instead of hardcoded."
         },
         {
-          "heading": "What to show next",
-          "body": "A deployed demo with connector configuration, metrics, and an event replay flow would show the operational value clearly."
+          "heading": "Current proof points",
+          "body": "The operational story is already present in public material: supported connector matrices, middleware ordering, REST management APIs, Prometheus and Grafana support, and a UIC 2026 paper framing urban sensor ingestion as the first concrete evaluation path."
         }
       ]
     },
@@ -260,7 +281,8 @@
       "status": "Pre-release engine",
       "repoUrl": "https://github.com/AndreaBozzo/dce",
       "relatedPosts": [],
-      "coverImage": "",
+      "coverImage": "../../assets/images/case-studies/dce-logo.png",
+      "coverAlt": "DCE project logo",
       "coverEyebrow": "Contract enforcement",
       "coverText": "Move from reactive profiling to explicit contracts that can fail fast inside data workflows.",
       "actions": [
@@ -274,12 +296,16 @@
         {
           "label": "Contract example",
           "kind": "spec",
-          "placeholder": "A future public contract showing schema, quality constraints, and the resulting validation output."
+          "image": "../../assets/images/case-studies/dce-contract-example.svg",
+          "alt": "DCE contract example card",
+          "caption": "Iceberg contract fields and quality rules."
         },
         {
           "label": "Validation run",
           "kind": "terminal",
-          "placeholder": "A CLI capture showing catalog-backed validation against a table and a failing contract."
+          "image": "../../assets/images/case-studies/dce-cli-validate.svg",
+          "alt": "DCE CLI validation card",
+          "caption": "Validate, init, and check flows."
         }
       ],
       "sections": [
@@ -292,8 +318,8 @@
           "body": "DCE grows out of dataprof by moving from observation to enforcement: contract definitions, validation commands, and table-format-aware checks become the center of the workflow."
         },
         {
-          "heading": "What to show next",
-          "body": "A full example contract and a validation walkthrough against a real catalog would make the transition from profiler to contract engine tangible."
+          "heading": "Current proof points",
+          "body": "The shift from profiler to contract engine is already visible in the public repo through Iceberg-aware validation, explicit known limitations for non-Iceberg formats, 194 tests across packages, and a roadmap that makes the next steps in SQL execution and multi-format validation explicit."
         }
       ]
     },
@@ -306,7 +332,8 @@
       "status": "Starter platform",
       "repoUrl": "https://github.com/AndreaBozzo/LakehouseStarterKit",
       "relatedPosts": ["finops-ai-lakehouse-blog"],
-      "coverImage": "",
+      "coverImage": "../../assets/images/case-studies/lakehouse-screen-01.png",
+      "coverAlt": "Open Lakehouse Starter screenshot",
       "coverEyebrow": "Small-team lakehouse",
       "coverText": "A practical starter stack for ingestion, transformation, dashboards, and S3-compatible storage without enterprise overhead.",
       "actions": [
@@ -323,14 +350,18 @@
       ],
       "mediaSlots": [
         {
-          "label": "Stack overview",
+          "label": "Stack screenshot",
           "kind": "diagram",
-          "placeholder": "A future architecture screenshot covering dlt ingestion, dbt models, MinIO storage, and Superset dashboards."
+          "image": "../../assets/images/case-studies/lakehouse-screen-01.png",
+          "alt": "Open Lakehouse Starter dashboard screenshot",
+          "caption": "Compose-based starter environment."
         },
         {
-          "label": "Setup flow",
+          "label": "Bootstrap flow",
           "kind": "terminal",
-          "placeholder": "A short bootstrap walkthrough showing how quickly the stack can be brought up for a small team."
+          "image": "../../assets/images/case-studies/lakehouse-setup-flow.svg",
+          "alt": "Open Lakehouse Starter setup flow card",
+          "caption": "venv, compose, dlt, dbt, dashboards."
         }
       ],
       "sections": [
@@ -343,8 +374,8 @@
           "body": "The project combines dlt ingestion, dbt transformations, Superset dashboards, and MinIO-backed object storage into a setup that is intentionally simple to start and expandable later."
         },
         {
-          "heading": "What to show next",
-          "body": "A reproducible demo with one source, one dbt model chain, and one live dashboard would show where the starter kit saves real setup time."
+          "heading": "Current proof points",
+          "body": "The repo already contains the first real artifact set: a published screenshot, a runnable compose stack, an example dlt API pipeline, staged dbt models, and local credentials for MinIO and Superset that make the small-team bootstrap path concrete rather than aspirational."
         }
       ]
     },
@@ -357,7 +388,8 @@
       "status": "Focused prototype",
       "repoUrl": "https://github.com/AndreaBozzo/Peek-a-Boo",
       "relatedPosts": [],
-      "coverImage": "",
+      "coverImage": "../../assets/images/case-studies/peek-a-boo-run.png",
+      "coverAlt": "Peek-a-Boo example mission run",
       "coverEyebrow": "Token-efficient agents",
       "coverText": "Use surgical file operations instead of broad context dumps when the task is to find one answer fast.",
       "actions": [
@@ -371,12 +403,16 @@
         {
           "label": "Mission run",
           "kind": "screenshot",
-          "placeholder": "A future run showing how the agent narrows a search space and answers one concrete code-audit task."
+          "image": "../../assets/images/case-studies/peek-a-boo-run.png",
+          "alt": "Peek-a-Boo mission run screenshot",
+          "caption": "Credential-hunt mission in the test repo."
         },
         {
-          "label": "Prompt trace",
+          "label": "Tool surface",
           "kind": "note",
-          "placeholder": "A short trace comparing broad-context prompting with the cheaper surgical search path."
+          "image": "../../assets/images/case-studies/peek-a-boo-tooling.svg",
+          "alt": "Peek-a-Boo tool surface card",
+          "caption": "Five tools with strict search limits."
         }
       ],
       "sections": [
@@ -389,8 +425,8 @@
           "body": "Peek-a-Boo keeps the tool surface intentionally small, leaning on grep-like operations and focused traversal so the model spends tokens on synthesis instead of raw repository context."
         },
         {
-          "heading": "What to show next",
-          "body": "A benchmark against a broader repository-search workflow would make the token-efficiency argument much stronger."
+          "heading": "Current proof points",
+          "body": "The project already behaves like a benchmark-shaped prototype: four built-in missions, a generated target codebase, safety limits that prevent token blowups, and a deliberately narrow tool surface that makes the token-saving argument inspectable in code rather than only in prose."
         }
       ]
     },
@@ -403,7 +439,8 @@
       "status": "Work in progress",
       "repoUrl": "https://github.com/AndreaBozzo/druid-datafusion-bridge",
       "relatedPosts": [],
-      "coverImage": "",
+      "coverImage": "../../assets/images/case-studies/druid-datafusion-bridge-logo.png",
+      "coverAlt": "druid-datafusion-bridge project logo",
       "coverEyebrow": "Segment-native analytics",
       "coverText": "Read Druid segment internals directly and surface them as DataFusion tables without standing up the original cluster.",
       "actions": [
@@ -417,12 +454,16 @@
         {
           "label": "Segment anatomy",
           "kind": "diagram",
-          "placeholder": "A future diagram showing how smoosh files, dictionaries, and metric columns map into Arrow-facing execution paths."
+          "image": "../../assets/images/case-studies/druid-segment-anatomy.svg",
+          "alt": "druid-datafusion-bridge segment anatomy card",
+          "caption": "Smoosh files, dictionaries, metrics, and bitmaps."
         },
         {
           "label": "Query demo",
           "kind": "terminal",
-          "placeholder": "A short SQL demo proving that offline segment files can be queried without a Druid runtime."
+          "image": "../../assets/images/case-studies/druid-query-demo.svg",
+          "alt": "druid-datafusion-bridge query demo card",
+          "caption": "Register a segment and query it in DataFusion."
         }
       ],
       "sections": [
@@ -435,8 +476,8 @@
           "body": "The library reads Druid segment structures such as index.dr data and maps them into DataFusion table and execution abstractions, aiming for vectorized Arrow-friendly execution where possible."
         },
         {
-          "heading": "What to show next",
-          "body": "A real offline segment query walkthrough and a type-support matrix would make the bridge easier to evaluate."
+          "heading": "Current proof points",
+          "body": "Even as a work in progress, the evaluation surface is already concrete: a dedicated segment parser layer, DataFusion `TableProvider` and `ExecutionPlan` adapters, Wikipedia segment fixtures, and integration tests around offline segment access rather than hand-wavy architectural claims."
         }
       ]
     },
@@ -484,8 +525,8 @@
           "body": "The repository now uses a Go harvester to generate case-study and contribution artifacts, GitHub Actions to assemble and publish the static site on GitHub Pages, and a small Go API on Vercel to expose live GitHub stats and badge endpoints that the homepage can consume."
         },
         {
-          "heading": "What to show next",
-          "body": "The next useful artifact is a short walkthrough of how content flows from source data and blog content into generated pages, the workbench, and the companion API, with one end-to-end deployment trace."
+          "heading": "Current proof points",
+          "body": "The repository already exposes the whole public system path: structured JSON and the Go harvester generate work and contribution artifacts, Hugo builds the blog, the workbench logic is mirrored in JavaScript and Rust/WASM, and GitHub Pages plus the Vercel API split static delivery from live GitHub stats."
         }
       ]
     }

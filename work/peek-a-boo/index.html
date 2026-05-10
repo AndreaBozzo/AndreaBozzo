@@ -48,12 +48,8 @@
                     <span>Gemini</span>
                 </div>
             </div>
-            <figure class="case-cover case-cover-placeholder">
-                <div>
-                    <span class="case-cover-eyebrow">Token-efficient agents</span>
-                    <strong>Peek-a-Boo</strong>
-                    <p>Use surgical file operations instead of broad context dumps when the task is to find one answer fast.</p>
-                </div>
+            <figure class="case-cover">
+                <img src="../../assets/images/case-studies/peek-a-boo-run.png" alt="Peek-a-Boo example mission run">
             </figure>
         </section>
 
@@ -71,8 +67,8 @@
                 <h2>Technical center</h2>
                 <p>Peek-a-Boo keeps the tool surface intentionally small, leaning on grep-like operations and focused traversal so the model spends tokens on synthesis instead of raw repository context.</p>
 
-                <h2>What to show next</h2>
-                <p>A benchmark against a broader repository-search workflow would make the token-efficiency argument much stronger.</p>
+                <h2>Current proof points</h2>
+                <p>The project already behaves like a benchmark-shaped prototype: four built-in missions, a generated target codebase, safety limits that prevent token blowups, and a deliberately narrow tool surface that makes the token-saving argument inspectable in code rather than only in prose.</p>
 
             </article>
 
@@ -82,11 +78,17 @@
                 <div class="media-slots">
                     <article class="media-slot">
                         <span>Mission run</span>
-                        <p>A future run showing how the agent narrows a search space and answers one concrete code-audit task.</p>
+                        <figure class="media-slot-figure">
+                            <img src="../../assets/images/case-studies/peek-a-boo-run.png" alt="Peek-a-Boo mission run screenshot" loading="lazy">
+                        </figure>
+                        <p>Credential-hunt mission in the test repo.</p>
                     </article>
                     <article class="media-slot">
-                        <span>Prompt trace</span>
-                        <p>A short trace comparing broad-context prompting with the cheaper surgical search path.</p>
+                        <span>Tool surface</span>
+                        <figure class="media-slot-figure">
+                            <img src="../../assets/images/case-studies/peek-a-boo-tooling.svg" alt="Peek-a-Boo tool surface card" loading="lazy">
+                        </figure>
+                        <p>Five tools with strict search limits.</p>
                     </article>
                 </div>
             </aside>

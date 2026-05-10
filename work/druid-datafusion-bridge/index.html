@@ -48,12 +48,8 @@
                     <span>Query Engine</span>
                 </div>
             </div>
-            <figure class="case-cover case-cover-placeholder">
-                <div>
-                    <span class="case-cover-eyebrow">Segment-native analytics</span>
-                    <strong>druid-datafusion-bridge</strong>
-                    <p>Read Druid segment internals directly and surface them as DataFusion tables without standing up the original cluster.</p>
-                </div>
+            <figure class="case-cover">
+                <img src="../../assets/images/case-studies/druid-datafusion-bridge-logo.png" alt="druid-datafusion-bridge project logo">
             </figure>
         </section>
 
@@ -71,8 +67,8 @@
                 <h2>Technical center</h2>
                 <p>The library reads Druid segment structures such as index.dr data and maps them into DataFusion table and execution abstractions, aiming for vectorized Arrow-friendly execution where possible.</p>
 
-                <h2>What to show next</h2>
-                <p>A real offline segment query walkthrough and a type-support matrix would make the bridge easier to evaluate.</p>
+                <h2>Current proof points</h2>
+                <p>Even as a work in progress, the evaluation surface is already concrete: a dedicated segment parser layer, DataFusion `TableProvider` and `ExecutionPlan` adapters, Wikipedia segment fixtures, and integration tests around offline segment access rather than hand-wavy architectural claims.</p>
 
             </article>
 
@@ -82,11 +78,17 @@
                 <div class="media-slots">
                     <article class="media-slot">
                         <span>Segment anatomy</span>
-                        <p>A future diagram showing how smoosh files, dictionaries, and metric columns map into Arrow-facing execution paths.</p>
+                        <figure class="media-slot-figure">
+                            <img src="../../assets/images/case-studies/druid-segment-anatomy.svg" alt="druid-datafusion-bridge segment anatomy card" loading="lazy">
+                        </figure>
+                        <p>Smoosh files, dictionaries, metrics, and bitmaps.</p>
                     </article>
                     <article class="media-slot">
                         <span>Query demo</span>
-                        <p>A short SQL demo proving that offline segment files can be queried without a Druid runtime.</p>
+                        <figure class="media-slot-figure">
+                            <img src="../../assets/images/case-studies/druid-query-demo.svg" alt="druid-datafusion-bridge query demo card" loading="lazy">
+                        </figure>
+                        <p>Register a segment and query it in DataFusion.</p>
                     </article>
                 </div>
             </aside>

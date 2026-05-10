@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
+  <rect width="1200" height="900" rx="40" fill="#0B1220"/>
+  <rect x="56" y="56" width="1088" height="788" rx="28" fill="#10192C" stroke="#23365C" stroke-width="2"/>
+  <text x="92" y="122" fill="#D7E4FF" font-size="34" font-family="Space Grotesk, sans-serif">CLI reference</text>
+  <text x="92" y="214" fill="#7DD3FC" font-size="30" font-family="IBM Plex Mono, monospace">dce validate contract.yml</text>
+  <text x="92" y="266" fill="#E5F3FB" font-size="26" font-family="IBM Plex Mono, monospace">dce validate --schema-only contract.yml</text>
+  <text x="92" y="318" fill="#E5F3FB" font-size="26" font-family="IBM Plex Mono, monospace">dce validate --sample-size 10000 contract.yml</text>
+  <text x="92" y="370" fill="#E5F3FB" font-size="26" font-family="IBM Plex Mono, monospace">dce validate --strict contract.yml</text>
+  <rect x="84" y="434" width="1032" height="128" rx="20" fill="#112645" stroke="#214A88"/>
+  <text x="120" y="508" fill="#A5F3FC" font-size="28" font-family="IBM Plex Mono, monospace">dce init &lt;catalog-uri&gt; --catalog rest --namespace analytics --table events</text>
+  <text x="92" y="648" fill="#FDE68A" font-size="28" font-family="IBM Plex Mono, monospace">dce check contract.yml</text>
+  <text x="92" y="700" fill="#CDE7F4" font-size="24" font-family="IBM Plex Sans, sans-serif">JSON output is available for CI, while init and check handle generation and syntax validation.</text>
+</svg>

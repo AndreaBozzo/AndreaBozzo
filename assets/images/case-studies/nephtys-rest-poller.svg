@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
+  <rect width="1200" height="900" rx="40" fill="#0B1720"/>
+  <rect x="56" y="56" width="1088" height="788" rx="28" fill="#101F2C" stroke="#254056" stroke-width="2"/>
+  <circle cx="102" cy="102" r="10" fill="#FF6B6B"/>
+  <circle cx="136" cy="102" r="10" fill="#F7B731"/>
+  <circle cx="170" cy="102" r="10" fill="#2ED573"/>
+  <text x="214" y="110" fill="#CDE7F4" font-size="28" font-family="IBM Plex Mono, monospace">REST poller example</text>
+  <text x="96" y="180" fill="#7DD3FC" font-size="28" font-family="IBM Plex Mono, monospace">curl -X POST http://localhost:3002/v1/streams \</text>
+  <text x="96" y="226" fill="#E5F3FB" font-size="26" font-family="IBM Plex Mono, monospace">-H &quot;Authorization: Bearer $NEPHTYS_ADMIN_TOKEN&quot; \</text>
+  <text x="96" y="272" fill="#E5F3FB" font-size="26" font-family="IBM Plex Mono, monospace">-d @docs/examples/sensor_rest_poller.json</text>
+  <rect x="84" y="334" width="1032" height="160" rx="20" fill="#0E2836" stroke="#1F526A"/>
+  <text x="116" y="392" fill="#9AE6B4" font-size="32" font-family="IBM Plex Mono, monospace">topic: nephtys.stream.sensors.weather.bologna</text>
+  <text x="116" y="442" fill="#CDE7F4" font-size="26" font-family="IBM Plex Mono, monospace">source: Open-Meteo  |  kind: rest_poller  |  interval: 60s</text>
+  <text x="96" y="574" fill="#7DD3FC" font-size="28" font-family="IBM Plex Mono, monospace">nats sub &quot;nephtys.stream.sensors.&gt;&quot;</text>
+  <rect x="84" y="618" width="1032" height="150" rx="20" fill="#08161E" stroke="#1F526A"/>
+  <text x="116" y="680" fill="#FACC15" font-size="28" font-family="IBM Plex Mono, monospace">payload</text>
+  <text x="116" y="724" fill="#E5F3FB" font-size="24" font-family="IBM Plex Mono, monospace">{ &quot;type&quot;: &quot;weather.update&quot;, &quot;temperature&quot;: 22.4, &quot;city&quot;: &quot;bologna&quot; }</text>
+</svg>

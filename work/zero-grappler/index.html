@@ -67,8 +67,8 @@
                 <h2>Technical center</h2>
                 <p>The crate splits the pipeline into three traits, keeps buffer sizes at compile time, routes stages through Embassy channels, and avoids heap allocation entirely.</p>
 
-                <h2>What to show next</h2>
-                <p>One public board demo and a concrete sensor-plus-inference example would make the design feel finished.</p>
+                <h2>Current proof points</h2>
+                <p>Even before the first full board demo, the design is already grounded by the no-allocation trait split, monomorphic Embassy task wrappers, the host-side mock example, and a documented bill of materials that keeps the first public hardware loop realistic rather than hypothetical.</p>
 
             </article>
 
@@ -78,12 +78,18 @@
 
                 <div class="media-slots">
                     <article class="media-slot">
-                        <span>Hardware demo</span>
-                        <p>A future sensor-to-inference trace from the Raspberry hardware target once the first public demo lands.</p>
+                        <span>Pipeline architecture</span>
+                        <figure class="media-slot-figure">
+                            <img src="../../blog/images/zerograpplerarchitecture.png" alt="Zero Grappler architecture diagram" loading="lazy">
+                        </figure>
+                        <p>Sensor, DSP, and inference stages.</p>
                     </article>
                     <article class="media-slot">
-                        <span>Pipeline notes</span>
-                        <p>A photo or short note from the embedded setup once the hardware loop is running end to end.</p>
+                        <span>Hardware bill</span>
+                        <figure class="media-slot-figure">
+                            <img src="../../blog/images/zerograpplercost_estimation.png" alt="Zero Grappler hardware cost estimation graphic" loading="lazy">
+                        </figure>
+                        <p>Pico 2 W starter kit and budget.</p>
                     </article>
                 </div>
             </aside>

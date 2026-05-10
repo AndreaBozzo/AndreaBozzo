@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
+  <rect width="1200" height="900" rx="40" fill="#141111"/>
+  <rect x="60" y="60" width="1080" height="780" rx="28" fill="#1E1717" stroke="#4A3333" stroke-width="2"/>
+  <text x="96" y="126" fill="#F5DDD8" font-size="34" font-family="Space Grotesk, sans-serif">user_events.yml</text>
+  <text x="96" y="204" fill="#FCA5A5" font-size="28" font-family="IBM Plex Mono, monospace">version: &quot;1.0.0&quot;</text>
+  <text x="96" y="248" fill="#FCA5A5" font-size="28" font-family="IBM Plex Mono, monospace">name: user_events</text>
+  <text x="96" y="292" fill="#FCA5A5" font-size="28" font-family="IBM Plex Mono, monospace">schema:</text>
+  <text x="136" y="336" fill="#FDE68A" font-size="28" font-family="IBM Plex Mono, monospace">format: iceberg</text>
+  <text x="136" y="380" fill="#FDE68A" font-size="28" font-family="IBM Plex Mono, monospace">location: s3://data/user_events</text>
+  <text x="136" y="424" fill="#93C5FD" font-size="28" font-family="IBM Plex Mono, monospace">- name: user_id     type: string     nullable: false</text>
+  <text x="136" y="468" fill="#93C5FD" font-size="28" font-family="IBM Plex Mono, monospace">- name: event_type  type: string     allowed: [click, view, purchase]</text>
+  <text x="96" y="544" fill="#FCA5A5" font-size="28" font-family="IBM Plex Mono, monospace">quality_checks:</text>
+  <text x="136" y="588" fill="#86EFAC" font-size="28" font-family="IBM Plex Mono, monospace">completeness.threshold: 0.99</text>
+  <text x="136" y="632" fill="#86EFAC" font-size="28" font-family="IBM Plex Mono, monospace">freshness.max_delay: 1h</text>
+  <text x="136" y="676" fill="#86EFAC" font-size="28" font-family="IBM Plex Mono, monospace">fields: [user_id, event_type]</text>
+</svg>
