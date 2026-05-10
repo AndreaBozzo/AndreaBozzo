@@ -11,7 +11,7 @@
 <p align="center"><sub><i>— Per aspera ad data —</i></sub></p>
 
 <p align="center">
-  <a href="https://andreabozzo.github.io/AndreaBozzo/">🌐 Landing Page</a> •
+  <a href="https://andreabozzo.github.io/AndreaBozzo/">🌐 WebSite</a> •
   <a href="https://andreabozzo.github.io/AndreaBozzo/blog/">📝 Blog</a> •
   <a href="https://www.linkedin.com/in/andrea-bozzo-/">💼 LinkedIn</a> •
   <a href="mailto:andreabozzo92@gmail.com">📧 Email</a>
