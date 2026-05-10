@@ -29,6 +29,16 @@
         })();
     </script>
     <link rel="manifest" href="manifest.json">
+    <script type="speculationrules">
+        {
+            "prefetch": [
+                {
+                    "source": "list",
+                    "urls": ["./blog/", "./blog/index.json", "./blog/en/index.json", "./assets/data/contributions.json"]
+                }
+            ]
+        }
+    </script>
 </head>
 <body>
     <div class="page-glow page-glow-left"></div>
@@ -37,7 +47,7 @@
     <header class="site-header">
         <a href="#home" class="site-brand">AB</a>
         <nav class="site-nav" aria-label="Primary navigation">
-            <a href="#focus">Focus</a>
+            <a href="#workbench">Workbench</a>
             <a href="./blog/">Blog</a>
             <a href="#projects">Open Source</a>
             <a href="#contact">Contact</a>
@@ -52,23 +62,23 @@
             <div class="hero-grid">
                 <div class="hero-copy">
                     <p class="eyebrow">Andrea Bozzo</p>
-                    <h1 class="title">Data infrastructure and writing about it.</h1>
-                    <p class="subtitle">Most days that means Rust, Python, Go, open source, and a lot of time around pipelines, storage, and tooling.</p>
+                    <h1 class="title">A living map of data infrastructure work.</h1>
+                    <p class="subtitle">Rust, Python, Go, open source, and field notes from the places where pipelines, storage, and developer tooling meet.</p>
 
                     <div class="hero-notes" aria-label="About this site" style="text-align: center;">
                         <article class="hero-note" style="text-align: center;">
-                            <span class="hero-note-label">Work</span>
-                            <p style="padding: 0 1rem;">Pipelines, orchestration, analytical systems, and the awkward seams between them.</p>
+                            <span class="hero-note-label">Map</span>
+                            <p style="padding: 0 1rem;">A connected view of articles, projects, topics, and open-source contributions.</p>
                         </article>
                         <article class="hero-note" style="text-align: center;">
-                            <span class="hero-note-label">Writing</span>
-                            <p style="padding: 0 1rem;">Notes in English and Italian on what I built, what broke, and what changed my mind.</p>
+                            <span class="hero-note-label">Archive</span>
+                            <p style="padding: 0 1rem;">Bilingual notes on what I built, what broke, and what changed my mind.</p>
                         </article>
                     </div>
 
                     <div class="cta-buttons">
-                        <a href="./blog/" class="btn btn-primary">Read the notes</a>
-                        <a href="#projects" class="btn btn-secondary">See the projects</a>
+                        <a href="#workbench" class="btn btn-primary">Open the workbench</a>
+                        <a href="./blog/" class="btn btn-secondary">Read the notes</a>
                         <a href="https://github.com/AndreaBozzo" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
                     </div>
                 </div>
@@ -80,6 +90,39 @@
                     <figcaption class="hero-caption">Per aspera ad data.</figcaption>
                 </figure>
             </div>
+        </section>
+
+        <section class="workbench scroll-reveal" id="workbench" aria-labelledby="workbench-title">
+            <div class="workbench-heading">
+                <div>
+                    <p class="eyebrow">Workbench</p>
+                    <h2 class="section-title" id="workbench-title">Explore the archive as a system</h2>
+                    <p class="section-lead">One interface for writing, open source, and the technical threads that connect them.</p>
+                </div>
+
+                <label class="command-search" for="workbench-search">
+                    <span class="command-search-kicker">Search</span>
+                    <input id="workbench-search" type="search" autocomplete="off" placeholder="Rust, Iceberg, scraping">
+                </label>
+            </div>
+
+            <div class="topic-strip" id="topic-strip" aria-label="Topic filters"></div>
+
+            <div class="workbench-shell">
+                <div class="map-panel" aria-label="Knowledge map">
+                    <div class="map-orbit" id="map-orbit"></div>
+                </div>
+
+                <aside class="inspector-panel" aria-live="polite">
+                    <p class="inspector-kind" id="inspector-kind">Selected thread</p>
+                    <h3 id="inspector-title">Data platforms</h3>
+                    <p id="inspector-summary">Pipelines, analytical storage, orchestration, and the developer tooling needed to keep them understandable.</p>
+                    <div class="inspector-tags" id="inspector-tags"></div>
+                    <a href="./blog/" class="project-link" id="inspector-link">Browse related writing</a>
+                </aside>
+            </div>
+
+            <div class="workbench-results" id="workbench-results" aria-label="Related work"></div>
         </section>
 
         <section class="currently scroll-reveal" id="focus">

@@ -16,6 +16,273 @@ document.getElementById('theme-icon').textContent = savedTheme === 'dark' ? 'ðŸŒ
 
 const siteBasePath = new URL('.', window.location.href).pathname;
 
+const topicBlueprints = [
+    {
+        id: 'all',
+        label: 'All work',
+        kind: 'topic',
+        summary: 'Writing, projects, and open-source work across data infrastructure, developer tooling, and technical systems.',
+        tags: ['Rust', 'Python', 'Go', 'Open Source']
+    },
+    {
+        id: 'data-platforms',
+        label: 'Data platforms',
+        kind: 'topic',
+        summary: 'Pipelines, lakehouse systems, analytical storage, orchestration, and the places where those systems touch.',
+        tags: ['Iceberg', 'Lakehouse', 'Pipelines', 'Storage']
+    },
+    {
+        id: 'rust-systems',
+        label: 'Rust systems',
+        kind: 'topic',
+        summary: 'Rust-native analytics, async runtimes, web services, and the ergonomics of building dependable systems.',
+        tags: ['Rust', 'Polars', 'Tokio', 'Axum']
+    },
+    {
+        id: 'streaming',
+        label: 'Streaming',
+        kind: 'topic',
+        summary: 'Streaming databases, event-driven systems, and operational patterns for continuous data products.',
+        tags: ['RisingWave', 'Events', 'Queries']
+    },
+    {
+        id: 'scraping',
+        label: 'Harvesting',
+        kind: 'topic',
+        summary: 'Data acquisition, scraping boundaries, pipeline design, and the difference between collecting and extracting.',
+        tags: ['Scraping', 'Harvesting', 'Pipelines']
+    },
+    {
+        id: 'ai-finops',
+        label: 'AI + FinOps',
+        kind: 'topic',
+        summary: 'The cost, architecture, and governance questions around analytical systems and AI workloads.',
+        tags: ['AI', 'FinOps', 'Lakehouse']
+    }
+];
+
+const workbenchState = {
+    initialized: false,
+    activeTopic: 'all',
+    query: '',
+    selectedId: 'data-platforms',
+    posts: [],
+    contributions: []
+};
+
+function normalizeText(value) {
+    return String(value || '').toLowerCase();
+}
+
+function topicForItem(text) {
+    const haystack = normalizeText(text);
+    const matches = [];
+
+    if (/(iceberg|lakehouse|pipeline|storage|lance|arrow|tabular|database|data platform|analytics)/.test(haystack)) {
+        matches.push('data-platforms');
+    }
+    if (/(rust|polars|tokio|axum|async|runtime)/.test(haystack)) {
+        matches.push('rust-systems');
+    }
+    if (/(stream|risingwave|event|query)/.test(haystack)) {
+        matches.push('streaming');
+    }
+    if (/(scrap|harvest|ares|ceres|grappler)/.test(haystack)) {
+        matches.push('scraping');
+    }
+    if (/(ai|finops|cost|dbu|claude|ml)/.test(haystack)) {
+        matches.push('ai-finops');
+    }
+
+    return matches.length ? matches : ['data-platforms'];
+}
+
+function itemTags(item) {
+    if (Array.isArray(item.tags) && item.tags.length) {
+        return item.tags.slice(0, 4);
+    }
+
+    const source = normalizeText(`${item.title || item.label} ${item.summary || ''}`);
+    const tags = [];
+    if (source.includes('rust')) tags.push('Rust');
+    if (source.includes('iceberg')) tags.push('Iceberg');
+    if (source.includes('lakehouse')) tags.push('Lakehouse');
+    if (source.includes('stream')) tags.push('Streaming');
+    if (source.includes('scrap') || source.includes('harvest')) tags.push('Harvesting');
+    if (source.includes('ai')) tags.push('AI');
+    return tags.slice(0, 4);
+}
+
+function getWorkbenchItems() {
+    const topicItems = topicBlueprints.filter(topic => topic.id !== 'all');
+    const postItems = workbenchState.posts.slice(0, 8).map((post, index) => {
+        const text = `${post.title || ''} ${post.summary || ''} ${(post.tags || []).join(' ')}`;
+        return {
+            id: `post-${index}-${normalizeText(post.title).replace(/[^a-z0-9]+/g, '-').slice(0, 36)}`,
+            kind: 'post',
+            label: post.title || 'Untitled note',
+            title: post.title || 'Untitled note',
+            summary: post.summary || 'A technical note from the archive.',
+            tags: itemTags(post),
+            topics: topicForItem(text),
+            url: post.permalink || './blog/'
+        };
+    });
+
+    const contributionItems = workbenchState.contributions.map((contrib, index) => {
+        const text = `${contrib.name || ''} ${contrib.desc || ''}`;
+        return {
+            id: `project-${index}-${normalizeText(contrib.name).replace(/[^a-z0-9]+/g, '-')}`,
+            kind: 'project',
+            label: contrib.name,
+            title: contrib.name,
+            summary: contrib.desc,
+            tags: itemTags({ title: contrib.name, summary: contrib.desc }),
+            topics: topicForItem(text),
+            url: contrib.url
+        };
+    });
+
+    return [...topicItems, ...postItems, ...contributionItems];
+}
+
+function matchesWorkbenchFilter(item) {
+    const query = normalizeText(workbenchState.query);
+    const activeTopic = workbenchState.activeTopic;
+    const itemTopicIds = item.kind === 'topic' ? [item.id] : item.topics || [];
+    const matchesTopic = activeTopic === 'all' || itemTopicIds.includes(activeTopic);
+    const searchable = normalizeText(`${item.label} ${item.title || ''} ${item.summary || ''} ${(item.tags || []).join(' ')}`);
+
+    return matchesTopic && (!query || searchable.includes(query));
+}
+
+function renderTopicStrip() {
+    const strip = document.getElementById('topic-strip');
+    if (!strip) return;
+
+    strip.innerHTML = topicBlueprints.map(topic => `
+        <button class="topic-pill${topic.id === workbenchState.activeTopic ? ' is-active' : ''}" type="button" data-topic="${topic.id}">
+            ${escapeHtml(topic.label)}
+        </button>
+    `).join('');
+
+    strip.querySelectorAll('[data-topic]').forEach(button => {
+        button.addEventListener('click', () => {
+            workbenchState.activeTopic = button.dataset.topic;
+            const topic = topicBlueprints.find(item => item.id === workbenchState.activeTopic);
+            if (topic && topic.id !== 'all') workbenchState.selectedId = topic.id;
+            renderWorkbench();
+        });
+    });
+}
+
+function renderMap(items) {
+    const map = document.getElementById('map-orbit');
+    if (!map) return;
+
+    const visibleItems = items.slice(0, 14);
+    const count = Math.max(visibleItems.length, 1);
+    map.innerHTML = visibleItems.map((item, index) => {
+        const isTopic = item.kind === 'topic';
+        const radius = isTopic ? 24 : 38;
+        const angle = (Math.PI * 2 * index / count) - Math.PI / 2;
+        const x = 50 + Math.cos(angle) * radius;
+        const y = 50 + Math.sin(angle) * (radius * 0.78);
+        const muted = matchesWorkbenchFilter(item) ? '' : ' is-muted';
+        const selected = item.id === workbenchState.selectedId ? ' is-selected' : '';
+
+        return `
+            <button class="map-node${muted}${selected}" type="button" data-item-id="${escapeHtml(item.id)}" data-kind="${escapeHtml(item.kind)}" style="--node-x: ${x.toFixed(2)}%; --node-y: ${y.toFixed(2)}%;">
+                ${escapeHtml(item.label)}
+            </button>
+        `;
+    }).join('');
+
+    map.querySelectorAll('[data-item-id]').forEach(button => {
+        button.addEventListener('click', () => {
+            workbenchState.selectedId = button.dataset.itemId;
+            renderWorkbench();
+        });
+    });
+}
+
+function renderInspector(items) {
+    const selected = items.find(item => item.id === workbenchState.selectedId)
+        || topicBlueprints.find(topic => topic.id === workbenchState.activeTopic && topic.id !== 'all')
+        || topicBlueprints[1];
+
+    const kind = document.getElementById('inspector-kind');
+    const title = document.getElementById('inspector-title');
+    const summary = document.getElementById('inspector-summary');
+    const tags = document.getElementById('inspector-tags');
+    const link = document.getElementById('inspector-link');
+
+    if (!kind || !title || !summary || !tags || !link) return;
+
+    kind.textContent = selected.kind === 'post' ? 'Writing' : selected.kind === 'project' ? 'Open source' : 'Thread';
+    title.textContent = selected.title || selected.label;
+    summary.textContent = selected.summary;
+    tags.innerHTML = (selected.tags || []).map(tag => `<span class="inspector-tag">${escapeHtml(tag)}</span>`).join('');
+    link.href = selected.url || './blog/';
+    link.textContent = selected.kind === 'project' ? 'View project' : selected.kind === 'post' ? 'Read note' : 'Browse related writing';
+    link.target = selected.kind === 'project' ? '_blank' : '';
+    link.rel = selected.kind === 'project' ? 'noopener noreferrer' : '';
+}
+
+function renderWorkbenchResults(items) {
+    const container = document.getElementById('workbench-results');
+    if (!container) return;
+
+    const matches = items.filter(item => item.kind !== 'topic' && matchesWorkbenchFilter(item)).slice(0, 6);
+    const fallback = items.filter(item => item.kind !== 'topic').slice(0, 6);
+    const results = matches.length ? matches : fallback;
+
+    if (!results.length) {
+        container.innerHTML = topicBlueprints.slice(1, 4).map(topic => `
+            <article class="result-card">
+                <span class="result-meta">Thread</span>
+                <h3>${escapeHtml(topic.label)}</h3>
+                <p>${escapeHtml(topic.summary)}</p>
+            </article>
+        `).join('');
+        return;
+    }
+
+    container.innerHTML = results.map(item => `
+        <a class="result-card content-card-enter" href="${escapeHtml(item.url || './blog/')}" ${item.kind === 'project' ? 'target="_blank" rel="noopener noreferrer"' : ''}>
+            <span class="result-meta">${item.kind === 'project' ? 'Open source' : 'Writing'}</span>
+            <h3>${escapeHtml(item.title || item.label)}</h3>
+            <p>${escapeHtml(item.summary || '')}</p>
+        </a>
+    `).join('');
+
+    revealLoadedCards(container, '.content-card-enter');
+}
+
+function renderWorkbench() {
+    if (!workbenchState.initialized) return;
+
+    const items = getWorkbenchItems();
+    renderTopicStrip();
+    renderMap(items);
+    renderInspector(items);
+    renderWorkbenchResults(items);
+}
+
+function initializeWorkbench() {
+    const search = document.getElementById('workbench-search');
+    const map = document.getElementById('map-orbit');
+    if (!search || !map || workbenchState.initialized) return;
+
+    workbenchState.initialized = true;
+    search.addEventListener('input', () => {
+        workbenchState.query = search.value;
+        renderWorkbench();
+    });
+
+    renderWorkbench();
+}
+
 function syncThemeColor(theme) {
     const themeColorMeta = document.querySelector('meta[name="theme-color"]:not([media])');
     const color = theme === 'dark' ? '#101726' : '#f5efe2';
@@ -139,6 +406,8 @@ async function loadLatestBlogPosts(forceLang = null) {
         try {
             const posts = JSON.parse(cached);
             renderBlogPosts(posts, lang);
+            workbenchState.posts = posts;
+            renderWorkbench();
             return;
         } catch (e) {
             console.warn('Failed to parse cached blog posts:', e);
@@ -156,6 +425,8 @@ async function loadLatestBlogPosts(forceLang = null) {
 
         localStorage.setItem(cacheKey, JSON.stringify(posts));
         renderBlogPosts(posts, lang);
+        workbenchState.posts = posts;
+        renderWorkbench();
     } catch (error) {
         console.error('Failed to load blog posts:', error);
         showBlogError(lang);
@@ -235,6 +506,7 @@ function extractTags(post) {
 }
 
 function escapeHtml(text) {
+    const value = String(text || '');
     const map = {
         '&': '&amp;',
         '<': '&lt;',
@@ -242,7 +514,7 @@ function escapeHtml(text) {
         '"': '&quot;',
         "'": '&#039;'
     };
-    return text.replace(/[&<>"']/g, m => map[m]);
+    return value.replace(/[&<>"']/g, m => map[m]);
 }
 
 async function fetchContributions(username, repoName = 'AndreaBozzo', branch = 'main') {
@@ -278,6 +550,8 @@ async function fetchContributions(username, repoName = 'AndreaBozzo', branch = '
                 listElement.appendChild(projectItem);
             });
 
+        workbenchState.contributions = contributions;
+        renderWorkbench();
         revealLoadedCards(listElement, '.content-card-enter');
     } catch (error) {
         console.error('Failed to fetch GitHub contributions:', error);
@@ -312,6 +586,7 @@ if ('serviceWorker' in navigator && window.location.hostname !== 'localhost') {
 // ===== Initialize =====
 document.addEventListener('DOMContentLoaded', function() {
     const loadBlogPosts = () => loadLatestBlogPosts();
+    initializeWorkbench();
     fetchContributions('AndreaBozzo');
 
     if ('requestIdleCallback' in window) {
