@@ -8,14 +8,28 @@ function toggleTheme() {
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     html.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-    document.getElementById('theme-icon').textContent = newTheme === 'dark' ? '🌙' : '☀️';
+    updateThemeToggleIcon(newTheme);
     syncThemeColor(newTheme);
+}
+
+function updateThemeToggleIcon(theme) {
+    const themeIcon = document.getElementById('theme-icon');
+    if (themeIcon) {
+        themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
+    }
+}
+
+function initializeThemeToggle() {
+    const toggleButtons = document.querySelectorAll('.theme-toggle');
+    toggleButtons.forEach((button) => {
+        button.addEventListener('click', toggleTheme);
+    });
 }
 
 // Load saved theme
 const savedTheme = localStorage.getItem('theme') || 'light';
 document.documentElement.setAttribute('data-theme', savedTheme);
-document.getElementById('theme-icon').textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+updateThemeToggleIcon(savedTheme);
 
 const defaultGitHubUsername = 'AndreaBozzo';
 
@@ -546,6 +560,7 @@ if ('serviceWorker' in navigator && window.location.hostname !== 'localhost') {
 
 // ===== Initialize =====
 document.addEventListener('DOMContentLoaded', function() {
+    initializeThemeToggle();
     if (shouldEnableAnalytics()) {
         inject();
     }

@@ -162,7 +162,7 @@ func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext) []by
 	buf.WriteString("            <a href=\"../../#papers\">Papers</a>\n")
 	buf.WriteString("            <a href=\"../../#contact\">Contact</a>\n")
 	buf.WriteString("        </nav>\n")
-	buf.WriteString("        <button class=\"theme-toggle\" type=\"button\" onclick=\"toggleTheme()\" aria-label=\"Toggle color theme\">\n")
+	buf.WriteString("        <button class=\"theme-toggle\" type=\"button\" aria-label=\"Toggle color theme\">\n")
 	buf.WriteString("            <span class=\"theme-toggle-icon\" id=\"theme-icon\">☀️</span>\n")
 	buf.WriteString("        </button>\n")
 	buf.WriteString("    </header>\n\n")

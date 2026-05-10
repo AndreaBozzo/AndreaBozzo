@@ -35,8 +35,8 @@ func TestCategorizeContributionRepo(t *testing.T) {
 	}
 }
 
-func TestResolveCoverImagePath(t *testing.T) {
-	got := resolveCoverImagePath("../blog/images/diagram.png")
+func TestResolveCaseStudyAssetPath(t *testing.T) {
+	got := resolveCaseStudyAssetPath("../blog/images/diagram.png")
 	if got != "../../blog/images/diagram.png" {
 		t.Fatalf("unexpected cover path: %s", got)
 	}

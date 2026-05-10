@@ -16,12 +16,12 @@ use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
 pub fn build_workbench(payload_json: &str) -> String {
-	serde_json::to_string(&workbench::build(workbench::parse_payload(payload_json)))
-		.unwrap_or_else(|_| "{}".to_string())
+    serde_json::to_string(&workbench::build(workbench::parse_payload(payload_json)))
+        .unwrap_or_else(|_| "{}".to_string())
 }
 
 #[wasm_bindgen]
 pub fn tick_layout(state_json: &str) -> String {
-	let state: SimState = serde_json::from_str(state_json).unwrap_or_default();
-	serde_json::to_string(&simulation::simulate(state)).unwrap_or_else(|_| "{}".to_string())
+    let state: SimState = serde_json::from_str(state_json).unwrap_or_default();
+    serde_json::to_string(&simulation::simulate(state)).unwrap_or_else(|_| "{}".to_string())
 }
