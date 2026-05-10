@@ -48,12 +48,8 @@
                     <span>GitHub Pages</span>
                 </div>
             </div>
-            <figure class="case-cover case-cover-placeholder">
-                <div>
-                    <span class="case-cover-eyebrow">Portfolio as system</span>
-                    <strong>AndreaBozzo</strong>
-                    <p>A single repo that serves as landing page, blog, generated work archive, and companion API surface instead of a static brochure site.</p>
-                </div>
+            <figure class="case-cover">
+                <img src="../../assets/images/andreabozzo-system-diagram.svg" alt="Architecture diagram of the AndreaBozzo site showing the landing page, Hugo blog, Rust and WebAssembly workbench, Go harvester, GitHub Pages, and Vercel companion API">
             </figure>
         </section>
 
@@ -74,7 +70,7 @@
                 <p>The repository now uses a Go harvester to generate case-study and contribution artifacts, GitHub Actions to assemble and publish the static site on GitHub Pages, and a small Go API on Vercel to expose live GitHub stats and badge endpoints that the homepage can consume.</p>
 
                 <h2>What to show next</h2>
-                <p>The next useful artifact is a real architecture diagram for the site itself, plus a short walkthrough of how content flows from source data and blog content into generated pages, the workbench, and the companion API.</p>
+                <p>The next useful artifact is a short walkthrough of how content flows from source data and blog content into generated pages, the workbench, and the companion API, with one end-to-end deployment trace.</p>
 
             </article>
 
@@ -82,17 +78,6 @@
                 <a class="btn btn-primary" href="https://github.com/AndreaBozzo/AndreaBozzo" target="_blank" rel="noopener noreferrer">Repository</a>
                 <a class="btn btn-secondary" href="https://andreabozzo.github.io/AndreaBozzo/" target="_blank" rel="noopener noreferrer">Live site</a>
                 <a class="btn btn-secondary" href="https://andrea-bozzo.vercel.app/api/github/stats?username=AndreaBozzo" target="_blank" rel="noopener noreferrer">Companion API</a>
-
-                <div class="media-slots">
-                    <article class="media-slot">
-                        <span>Homepage surface</span>
-                        <p>A future homepage capture showing the live hero stats, workbench map, and the updated visual direction.</p>
-                    </article>
-                    <article class="media-slot">
-                        <span>System map</span>
-                        <p>A simple architecture diagram connecting the static landing page, Hugo blog, Rust/WASM workbench, Go harvester, GitHub Pages, and Vercel companion API.</p>
-                    </article>
-                </div>
             </aside>
         </section>
     </main>

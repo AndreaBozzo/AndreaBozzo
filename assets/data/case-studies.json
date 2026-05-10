@@ -449,7 +449,8 @@
       "status": "Live system",
       "repoUrl": "https://github.com/AndreaBozzo/AndreaBozzo",
       "relatedPosts": [],
-      "coverImage": "",
+      "coverImage": "../../assets/images/andreabozzo-system-diagram.svg",
+      "coverAlt": "Architecture diagram of the AndreaBozzo site showing the landing page, Hugo blog, Rust and WebAssembly workbench, Go harvester, GitHub Pages, and Vercel companion API",
       "coverEyebrow": "Portfolio as system",
       "coverText": "A single repo that serves as landing page, blog, generated work archive, and companion API surface instead of a static brochure site.",
       "actions": [
@@ -469,18 +470,6 @@
           "style": "secondary"
         }
       ],
-      "mediaSlots": [
-        {
-          "label": "Homepage surface",
-          "kind": "screenshot",
-          "placeholder": "A future homepage capture showing the live hero stats, workbench map, and the updated visual direction."
-        },
-        {
-          "label": "System map",
-          "kind": "diagram",
-          "placeholder": "A simple architecture diagram connecting the static landing page, Hugo blog, Rust/WASM workbench, Go harvester, GitHub Pages, and Vercel companion API."
-        }
-      ],
       "sections": [
         {
           "heading": "Why it exists",
@@ -496,7 +485,7 @@
         },
         {
           "heading": "What to show next",
-          "body": "The next useful artifact is a real architecture diagram for the site itself, plus a short walkthrough of how content flows from source data and blog content into generated pages, the workbench, and the companion API."
+          "body": "The next useful artifact is a short walkthrough of how content flows from source data and blog content into generated pages, the workbench, and the companion API, with one end-to-end deployment trace."
         }
       ]
     }

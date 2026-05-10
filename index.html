@@ -113,6 +113,40 @@
             </div>
         </section>
 
+        <section class="system-view scroll-reveal" id="system-view">
+            <div class="system-layout">
+                <div class="system-copy">
+                    <p class="eyebrow">System View</p>
+                    <h2 class="section-title">This site is also a small platform.</h2>
+                    <p class="section-lead">The public surface is intentionally hand-built, but the repository behind it is a real delivery system: static homepage, Hugo archive, generated work pages, Rust/WASM workbench, Go harvester, and a Vercel companion API.</p>
+
+                    <div class="system-points">
+                        <article class="system-point">
+                            <strong>Static front door</strong>
+                            <p>The landing page is plain HTML, CSS, and JavaScript so the public surface stays lightweight and explicit.</p>
+                        </article>
+                        <article class="system-point">
+                            <strong>Content + computation</strong>
+                            <p>Hugo handles the writing archive, while the workbench logic is mirrored between JavaScript and Rust compiled to WebAssembly.</p>
+                        </article>
+                        <article class="system-point">
+                            <strong>Generated archive</strong>
+                            <p>Go generators turn structured JSON and repository data into case-study pages, contribution cards, and static artifacts.</p>
+                        </article>
+                        <article class="system-point">
+                            <strong>Live companion</strong>
+                            <p>GitHub Pages serves the static site, and Vercel only carries the live GitHub stats and badge endpoints.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <figure class="system-diagram">
+                    <img src="assets/images/andreabozzo-system-diagram.svg" alt="Architecture diagram connecting the landing page, Hugo blog, Rust and WebAssembly workbench, Go harvester, GitHub Pages, and Vercel companion API">
+                    <figcaption>One repository, two delivery surfaces: GitHub Pages for the static site and Vercel for live GitHub metrics.</figcaption>
+                </figure>
+            </div>
+        </section>
+
         <section class="workbench scroll-reveal" id="workbench" aria-labelledby="workbench-title">
             <div class="workbench-heading">
                 <div>
