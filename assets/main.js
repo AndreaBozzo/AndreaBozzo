@@ -190,6 +190,9 @@ function toggleBlogLanguage() {
     loadLatestBlogPosts(newLang);
 }
 
+window.toggleTheme = toggleTheme;
+window.toggleBlogLanguage = toggleBlogLanguage;
+
 function updateLanguageToggleUI(lang) {
     const icon = document.getElementById('lang-icon');
     const text = document.getElementById('lang-text');
