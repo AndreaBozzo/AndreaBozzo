@@ -439,6 +439,66 @@
           "body": "A real offline segment query walkthrough and a type-support matrix would make the bridge easier to evaluate."
         }
       ]
+    },
+    {
+      "slug": "andreabozzo-site",
+      "title": "AndreaBozzo",
+      "subtitle": "A public front door that combines portfolio, blog, workbench, generators, and a companion API.",
+      "summary": "This repository is both the personal website and the system behind it: a handcrafted landing page, a Hugo blog, a Rust/WASM knowledge workbench, Go generators for static artifacts, and a small Vercel-hosted GitHub stats API.",
+      "stack": ["HTML/CSS/JS", "Hugo", "Rust/WASM", "Go", "GitHub Pages"],
+      "status": "Live system",
+      "repoUrl": "https://github.com/AndreaBozzo/AndreaBozzo",
+      "relatedPosts": [],
+      "coverImage": "",
+      "coverEyebrow": "Portfolio as system",
+      "coverText": "A single repo that serves as landing page, blog, generated work archive, and companion API surface instead of a static brochure site.",
+      "actions": [
+        {
+          "label": "Repository",
+          "url": "https://github.com/AndreaBozzo/AndreaBozzo",
+          "style": "primary"
+        },
+        {
+          "label": "Live site",
+          "url": "https://andreabozzo.github.io/AndreaBozzo/",
+          "style": "secondary"
+        },
+        {
+          "label": "Companion API",
+          "url": "https://andrea-bozzo.vercel.app/api/github/stats?username=AndreaBozzo",
+          "style": "secondary"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "label": "Homepage surface",
+          "kind": "screenshot",
+          "placeholder": "A future homepage capture showing the live hero stats, workbench map, and the updated visual direction."
+        },
+        {
+          "label": "System map",
+          "kind": "diagram",
+          "placeholder": "A simple architecture diagram connecting the static landing page, Hugo blog, Rust/WASM workbench, Go harvester, GitHub Pages, and Vercel companion API."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Why it exists",
+          "body": "A personal site should not be a thin profile page if the work itself is systems work. This repository is meant to function as a public front door, a writing archive, and a concrete example of how I like to structure tools and platforms."
+        },
+        {
+          "heading": "System shape",
+          "body": "The root site is plain HTML, CSS, and JavaScript, the long-form writing lives in a Hugo blog, the interactive workbench logic is mirrored between JavaScript and Rust compiled to WebAssembly, and generated work pages come from structured JSON rather than hand-maintained HTML."
+        },
+        {
+          "heading": "Technical center",
+          "body": "The repository now uses a Go harvester to generate case-study and contribution artifacts, GitHub Actions to assemble and publish the static site on GitHub Pages, and a small Go API on Vercel to expose live GitHub stats and badge endpoints that the homepage can consume."
+        },
+        {
+          "heading": "What to show next",
+          "body": "The next useful artifact is a real architecture diagram for the site itself, plus a short walkthrough of how content flows from source data and blog content into generated pages, the workbench, and the companion API."
+        }
+      ]
     }
   ]
 }

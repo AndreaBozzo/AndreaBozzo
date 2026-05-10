@@ -1,0 +1,102 @@
+<!-- Generated from assets/data/case-studies.json by cmd/harvester. Do not edit directly. -->
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>AndreaBozzo | Andrea Bozzo</title>
+    <meta name="description" content="This repository is both the personal website and the system behind it: a handcrafted landing page, a Hugo blog, a Rust/WASM knowledge workbench, Go generators for static artifacts, and a small Vercel-hosted GitHub stats API.">
+    <meta name="theme-color" content="#f5efe2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/styles.min.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <a href="../../#home" class="site-brand">AB</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="../../#workbench">Work</a>
+            <a href="../../blog/">Blog</a>
+            <a href="../../#projects">Open Source</a>
+            <a href="../../#papers">Papers</a>
+            <a href="../../#contact">Contact</a>
+        </nav>
+        <button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle color theme">
+            <span class="theme-toggle-icon" id="theme-icon">☀️</span>
+        </button>
+    </header>
+
+    <main class="content-wrapper case-study-page">
+        <section class="case-hero">
+            <div class="case-hero-copy">
+                <p class="eyebrow">Case Study</p>
+                <h1 class="title">AndreaBozzo</h1>
+                <p class="subtitle">A public front door that combines portfolio, blog, workbench, generators, and a companion API.</p>
+                <div class="case-meta">
+                    <span class="case-meta-status">Live system</span>
+                    <span>HTML/CSS/JS</span>
+                    <span>Hugo</span>
+                    <span>Rust/WASM</span>
+                    <span>Go</span>
+                    <span>GitHub Pages</span>
+                </div>
+            </div>
+            <figure class="case-cover case-cover-placeholder">
+                <div>
+                    <span class="case-cover-eyebrow">Portfolio as system</span>
+                    <strong>AndreaBozzo</strong>
+                    <p>A single repo that serves as landing page, blog, generated work archive, and companion API surface instead of a static brochure site.</p>
+                </div>
+            </figure>
+        </section>
+
+        <nav class="case-page-nav" aria-label="Case study navigation">
+            <a class="btn btn-secondary" href="../../#workbench">Back to workbench</a>
+            <a class="btn btn-ghost" href="../druid-datafusion-bridge/">← druid-datafusion-bridge</a>
+        </nav>
+
+        <section class="case-layout">
+            <article class="case-main">
+                <h2>Why it exists</h2>
+                <p>A personal site should not be a thin profile page if the work itself is systems work. This repository is meant to function as a public front door, a writing archive, and a concrete example of how I like to structure tools and platforms.</p>
+
+                <h2>System shape</h2>
+                <p>The root site is plain HTML, CSS, and JavaScript, the long-form writing lives in a Hugo blog, the interactive workbench logic is mirrored between JavaScript and Rust compiled to WebAssembly, and generated work pages come from structured JSON rather than hand-maintained HTML.</p>
+
+                <h2>Technical center</h2>
+                <p>The repository now uses a Go harvester to generate case-study and contribution artifacts, GitHub Actions to assemble and publish the static site on GitHub Pages, and a small Go API on Vercel to expose live GitHub stats and badge endpoints that the homepage can consume.</p>
+
+                <h2>What to show next</h2>
+                <p>The next useful artifact is a real architecture diagram for the site itself, plus a short walkthrough of how content flows from source data and blog content into generated pages, the workbench, and the companion API.</p>
+
+            </article>
+
+            <aside class="case-aside">
+                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/AndreaBozzo" target="_blank" rel="noopener noreferrer">Repository</a>
+                <a class="btn btn-secondary" href="https://andreabozzo.github.io/AndreaBozzo/" target="_blank" rel="noopener noreferrer">Live site</a>
+                <a class="btn btn-secondary" href="https://andrea-bozzo.vercel.app/api/github/stats?username=AndreaBozzo" target="_blank" rel="noopener noreferrer">Companion API</a>
+
+                <div class="media-slots">
+                    <article class="media-slot">
+                        <span>Homepage surface</span>
+                        <p>A future homepage capture showing the live hero stats, workbench map, and the updated visual direction.</p>
+                    </article>
+                    <article class="media-slot">
+                        <span>System map</span>
+                        <p>A simple architecture diagram connecting the static landing page, Hugo blog, Rust/WASM workbench, Go harvester, GitHub Pages, and Vercel companion API.</p>
+                    </article>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <script src="../../assets/main.min.js" defer></script>
+</body>
+</html>

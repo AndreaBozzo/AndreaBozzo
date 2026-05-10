@@ -31,20 +31,24 @@
 
     --page-max: 1200px;
 
-    --color-bg-primary: #f5efe2;
-    --color-bg-secondary: rgba(255, 251, 242, 0.82);
-    --color-bg-tertiary: #fff9ee;
-    --color-text-primary: #15171f;
-    --color-text-secondary: #4d5363;
-    --color-text-muted: #7d8494;
-    --color-border: rgba(39, 46, 67, 0.12);
-    --color-accent: #de5f34;
-    --color-accent-strong: #133d88;
-    --color-signal: #0f7d68;
-    --color-plum: #6f3fb6;
-    --color-surface-shadow: 0 28px 80px rgba(48, 35, 17, 0.14);
-    --color-glow-left: rgba(235, 131, 67, 0.24);
-    --color-glow-right: rgba(36, 118, 196, 0.18);
+    --color-bg-primary: #eee1c7;
+    --color-bg-secondary: rgba(249, 241, 227, 0.84);
+    --color-bg-tertiary: #fbf4e7;
+    --color-text-primary: #171925;
+    --color-text-secondary: #4c5565;
+    --color-text-muted: #7a8291;
+    --color-border: rgba(65, 52, 31, 0.14);
+    --color-accent: #c45a27;
+    --color-accent-strong: #1e4f95;
+    --color-signal: #0e7065;
+    --color-plum: #7358ba;
+    --color-surface-shadow: 0 28px 72px rgba(54, 36, 14, 0.12);
+    --color-glow-left: rgba(219, 118, 52, 0.24);
+    --color-glow-right: rgba(48, 98, 170, 0.15);
+    --color-paper-warm: #f7efdf;
+    --color-paper-cool: #edf3f8;
+    --color-ink-panel: #1a2236;
+    --color-ink-panel-soft: #294166;
 }
 
 [data-theme="dark"] {
@@ -62,6 +66,10 @@
     --color-surface-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
     --color-glow-left: rgba(255, 138, 76, 0.16);
     --color-glow-right: rgba(110, 158, 255, 0.18);
+    --color-paper-warm: #192334;
+    --color-paper-cool: #162233;
+    --color-ink-panel: #0d1422;
+    --color-ink-panel-soft: #173053;
 }
 
 [data-theme="dark"] .site-header {
@@ -164,8 +172,8 @@ body {
     font-family: var(--font-body);
     background:
         radial-gradient(circle at top left, var(--color-glow-left), transparent 34%),
-        radial-gradient(circle at top right, var(--color-glow-right), transparent 32%),
-        linear-gradient(180deg, var(--color-bg-primary), color-mix(in srgb, var(--color-bg-primary) 90%, white));
+        radial-gradient(circle at top right, var(--color-glow-right), transparent 30%),
+        linear-gradient(180deg, color-mix(in srgb, var(--color-bg-primary) 84%, white), var(--color-bg-primary) 56%, color-mix(in srgb, var(--color-bg-primary) 88%, #d8ccb3));
     color: var(--color-text-primary);
     line-height: 1.6;
     overflow-x: hidden;
@@ -182,7 +190,7 @@ a {
     width: 28rem;
     height: 28rem;
     border-radius: 999px;
-    filter: blur(40px);
+    filter: blur(54px);
     pointer-events: none;
     z-index: 0;
 }
@@ -219,16 +227,17 @@ a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 999px;
-    background: var(--color-bg-secondary);
+    width: 3.15rem;
+    height: 3.15rem;
+    border-radius: 1rem;
+    background: linear-gradient(155deg, color-mix(in srgb, var(--color-paper-cool) 84%, white), color-mix(in srgb, var(--color-paper-warm) 92%, transparent));
     border: 1px solid var(--color-border);
-    box-shadow: var(--color-surface-shadow);
+    box-shadow: 0 18px 40px rgba(34, 29, 20, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.5);
     text-decoration: none;
     font-family: var(--font-display);
     font-weight: 700;
     letter-spacing: 0.08em;
+    color: var(--color-accent-strong);
     transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
 }
 
@@ -247,16 +256,18 @@ a {
     padding: var(--space-3) var(--space-6);
     border: 1px solid var(--color-border);
     border-radius: 999px;
-    background: var(--color-bg-secondary);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--color-paper-warm) 90%, transparent), color-mix(in srgb, var(--color-bg-secondary) 92%, transparent));
     backdrop-filter: blur(18px);
-    box-shadow: var(--color-surface-shadow);
+    box-shadow: 0 20px 48px rgba(51, 40, 20, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
 .site-nav a {
     text-decoration: none;
     color: var(--color-text-secondary);
-    font-size: var(--text-sm);
+    font-size: 0.8rem;
     font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
 }
 
 .site-nav a:hover,
@@ -267,13 +278,13 @@ a {
 .theme-toggle {
     appearance: none;
     border: 1px solid var(--color-border);
-    background: var(--color-bg-secondary);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--color-paper-warm) 92%, transparent), color-mix(in srgb, var(--color-bg-secondary) 90%, transparent));
     border-radius: 999px;
     min-width: 3rem;
     min-height: 3rem;
     padding: 0;
     cursor: pointer;
-    box-shadow: var(--color-surface-shadow);
+    box-shadow: 0 18px 40px rgba(51, 40, 20, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.42);
     backdrop-filter: blur(18px);
     transition: transform 180ms ease, border-color 180ms ease;
 }
@@ -375,8 +386,26 @@ a {
     padding: calc(var(--space-5) + 0.15rem) var(--space-6) var(--space-5);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
-    background: color-mix(in srgb, var(--color-bg-secondary) 88%, transparent);
-    box-shadow: 0 14px 36px rgba(48, 35, 17, 0.07);
+    background: linear-gradient(150deg, color-mix(in srgb, var(--color-paper-warm) 88%, white), color-mix(in srgb, var(--color-bg-secondary) 92%, transparent));
+    box-shadow: 0 18px 34px rgba(60, 43, 17, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-note:nth-child(2) {
+    background: linear-gradient(150deg, color-mix(in srgb, var(--color-paper-cool) 84%, white), color-mix(in srgb, var(--color-bg-secondary) 92%, transparent));
+}
+
+.hero-note::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0.4rem;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--color-accent) 92%, white), color-mix(in srgb, var(--color-accent-strong) 72%, var(--color-accent)));
+}
+
+.hero-note:nth-child(2)::before {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--color-accent-strong) 84%, white), color-mix(in srgb, var(--color-signal) 72%, var(--color-accent-strong)));
 }
 
 .hero-note-label {
@@ -400,18 +429,18 @@ a {
     grid-template-columns: repeat(3, minmax(0, auto)) 1fr;
     gap: 0;
     padding: var(--space-5) var(--space-6);
-    border: 1px solid var(--color-border);
+    border: 1px solid rgba(17, 27, 45, 0.5);
     border-radius: var(--radius-md);
-    background: var(--color-bg-secondary);
+    background: linear-gradient(145deg, color-mix(in srgb, var(--color-ink-panel) 96%, #21365a), color-mix(in srgb, var(--color-ink-panel-soft) 86%, var(--color-ink-panel)));
     backdrop-filter: blur(18px);
-    box-shadow: var(--color-surface-shadow);
+    box-shadow: 0 26px 56px rgba(14, 18, 28, 0.28);
 }
 
 .hero-stats .stat {
     display: grid;
     gap: 0.15rem;
     padding: 0 var(--space-6);
-    border-left: 1px solid var(--color-border);
+    border-left: 1px solid rgba(255, 245, 226, 0.12);
     align-content: center;
 }
 
@@ -428,7 +457,7 @@ a {
     font-size: var(--text-xs);
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--color-text-muted);
+    color: color-mix(in srgb, var(--color-accent) 54%, #f2e9d9);
     font-weight: 600;
 }
 
@@ -437,7 +466,7 @@ a {
     font-size: var(--text-xl);
     font-weight: 700;
     letter-spacing: -0.02em;
-    color: var(--color-text-primary);
+    color: #f6f1e7;
     line-height: 1.1;
 }
 
@@ -445,17 +474,17 @@ a {
     font-family: var(--font-body);
     font-size: var(--text-sm);
     letter-spacing: 0;
-    color: var(--color-text-secondary);
+    color: rgba(242, 233, 217, 0.74);
     align-self: center;
 }
 
 .hero-stats[data-state="live"] .stat-stack dd {
-    color: var(--color-text-primary);
+    color: #f6f1e7;
 }
 
 .hero-stats[data-state="disabled"] .stat-stack dd,
 .hero-stats[data-state="error"] .stat-stack dd {
-    color: var(--color-text-muted);
+    color: rgba(242, 233, 217, 0.56);
 }
 
 .cta-buttons {
@@ -489,18 +518,18 @@ a {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--color-accent), color-mix(in srgb, var(--color-accent) 62%, var(--color-accent-strong)));
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 94%, white), color-mix(in srgb, var(--color-accent-strong) 64%, var(--color-accent)));
     color: #fff7f2;
-    box-shadow: 0 18px 40px rgba(210, 95, 53, 0.22);
+    box-shadow: 0 18px 40px rgba(196, 90, 39, 0.24);
 }
 
 .btn-primary:hover,
 .btn-primary:focus-visible {
-    box-shadow: 0 24px 50px rgba(210, 95, 53, 0.28);
+    box-shadow: 0 24px 50px rgba(196, 90, 39, 0.3);
 }
 
 .btn-secondary {
-    background: var(--color-bg-secondary);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--color-paper-warm) 92%, transparent), color-mix(in srgb, var(--color-bg-secondary) 92%, transparent));
     border-color: var(--color-border);
     color: var(--color-text-primary);
 }
@@ -525,8 +554,6 @@ a {
 .project-item,
 .contact-panel {
     border: 1px solid var(--color-border);
-    background: var(--color-bg-secondary);
-    backdrop-filter: blur(20px);
     box-shadow: var(--color-surface-shadow);
 }
 
@@ -549,9 +576,9 @@ a {
     width: min(100%, 22rem);
     padding: var(--space-3);
     border-radius: var(--radius-lg);
-    background: linear-gradient(180deg, color-mix(in srgb, var(--color-bg-tertiary) 85%, white), var(--color-bg-secondary));
+    background: linear-gradient(180deg, color-mix(in srgb, var(--color-paper-cool) 78%, white), color-mix(in srgb, var(--color-paper-warm) 92%, transparent));
     border: 1px solid var(--color-border);
-    box-shadow: 0 18px 50px rgba(48, 35, 17, 0.10);
+    box-shadow: 0 22px 54px rgba(48, 35, 17, 0.12);
     transition: transform 220ms ease, border-color 220ms ease;
 }
 
@@ -624,8 +651,8 @@ a {
     padding: var(--space-4);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
-    background: color-mix(in srgb, var(--color-bg-secondary) 86%, transparent);
-    box-shadow: 0 16px 44px rgba(48, 35, 17, 0.08);
+    background: linear-gradient(145deg, color-mix(in srgb, var(--color-paper-cool) 82%, white), color-mix(in srgb, var(--color-bg-secondary) 90%, transparent));
+    box-shadow: 0 18px 42px rgba(48, 35, 17, 0.08);
 }
 
 .command-search-kicker,
@@ -675,7 +702,7 @@ a {
     min-height: 2.75rem;
     padding: 0.7rem 1rem;
     border-radius: 999px;
-    background: color-mix(in srgb, var(--color-bg-tertiary) 84%, transparent);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--color-paper-warm) 86%, transparent), color-mix(in srgb, var(--color-bg-secondary) 88%, transparent));
 }
 
 .topic-pill span {
@@ -687,7 +714,7 @@ a {
 .topic-pill:hover,
 .topic-pill:focus-visible {
     border-color: color-mix(in srgb, var(--color-accent) 54%, var(--color-border));
-    background: color-mix(in srgb, var(--color-accent) 12%, var(--color-bg-tertiary));
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 15%, var(--color-paper-warm)), color-mix(in srgb, var(--color-accent-strong) 10%, var(--color-paper-cool)));
 }
 
 .workbench-shell {
@@ -697,19 +724,23 @@ a {
     padding: var(--space-6);
     border-radius: var(--radius-lg);
     background:
-        linear-gradient(135deg, color-mix(in srgb, var(--color-bg-tertiary) 86%, transparent), color-mix(in srgb, var(--color-bg-secondary) 92%, transparent)),
-        radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--color-signal) 18%, transparent), transparent 30%),
-        radial-gradient(circle at 78% 22%, color-mix(in srgb, var(--color-plum) 15%, transparent), transparent 32%);
+        radial-gradient(circle at 16% 18%, color-mix(in srgb, var(--color-signal) 22%, transparent), transparent 28%),
+        radial-gradient(circle at 78% 18%, color-mix(in srgb, var(--color-accent) 18%, transparent), transparent 30%),
+        linear-gradient(145deg, color-mix(in srgb, var(--color-ink-panel) 96%, #14213a), color-mix(in srgb, var(--color-ink-panel-soft) 88%, var(--color-ink-panel)));
+    border-color: rgba(34, 56, 92, 0.22);
+    box-shadow: 0 28px 64px rgba(17, 24, 39, 0.2);
 }
 
 .map-panel {
     min-height: 31rem;
-    border: 1px solid color-mix(in srgb, var(--color-border) 76%, transparent);
+    border: 1px solid rgba(153, 188, 242, 0.14);
     border-radius: var(--radius-md);
     overflow: hidden;
     background:
-        linear-gradient(color-mix(in srgb, var(--color-border) 44%, transparent) 1px, transparent 1px),
-        linear-gradient(90deg, color-mix(in srgb, var(--color-border) 44%, transparent) 1px, transparent 1px);
+        radial-gradient(circle at center, rgba(255, 255, 255, 0.03), transparent 48%),
+        linear-gradient(rgba(153, 188, 242, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(153, 188, 242, 0.12) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(9, 16, 30, 0.54), rgba(12, 19, 34, 0.78));
     background-size: 3rem 3rem;
 }
 
@@ -745,8 +776,8 @@ a {
     aspect-ratio: 1;
     padding: var(--space-3);
     border-radius: 50%;
-    background: color-mix(in srgb, var(--color-bg-tertiary) 88%, transparent);
-    box-shadow: 0 18px 46px rgba(48, 35, 17, 0.10);
+    background: linear-gradient(180deg, rgba(251, 244, 231, 0.96), rgba(232, 238, 246, 0.92));
+    box-shadow: 0 18px 42px rgba(6, 10, 20, 0.22);
     text-align: center;
     font-size: var(--text-sm);
     line-height: 1.15;
@@ -792,7 +823,8 @@ a {
     gap: var(--space-4);
     padding: var(--space-8);
     border-radius: var(--radius-md);
-    background: color-mix(in srgb, var(--color-bg-secondary) 86%, transparent);
+    background: linear-gradient(160deg, color-mix(in srgb, var(--color-paper-warm) 84%, white), color-mix(in srgb, var(--color-paper-cool) 74%, transparent));
+    border-color: rgba(255, 245, 230, 0.14);
 }
 
 .inspector-panel h3 {
@@ -835,7 +867,7 @@ a {
     padding: var(--space-6);
     border-radius: var(--radius-md);
     text-decoration: none;
-    background: color-mix(in srgb, var(--color-bg-secondary) 84%, transparent);
+    background: linear-gradient(150deg, color-mix(in srgb, var(--color-paper-cool) 78%, white), color-mix(in srgb, var(--color-paper-warm) 92%, transparent));
     transition: transform 180ms ease, border-color 180ms ease;
 }
 
@@ -1074,10 +1106,36 @@ a {
     padding: var(--space-8);
     border-radius: var(--radius-lg);
     border: 1px solid var(--color-border);
-    background: color-mix(in srgb, var(--color-bg-secondary) 78%, transparent);
+    background: linear-gradient(145deg, color-mix(in srgb, var(--color-paper-warm) 90%, white), color-mix(in srgb, var(--color-bg-secondary) 86%, transparent));
     box-shadow: 0 16px 40px rgba(48, 35, 17, 0.06);
     backdrop-filter: blur(14px);
     transition: border-color 180ms ease, transform 180ms ease, background-color 180ms ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.focus-card:nth-child(2) {
+    background: linear-gradient(145deg, color-mix(in srgb, var(--color-paper-cool) 84%, white), color-mix(in srgb, var(--color-bg-secondary) 86%, transparent));
+}
+
+.focus-card:nth-child(3) {
+    background: linear-gradient(145deg, color-mix(in srgb, var(--color-paper-warm) 78%, white), color-mix(in srgb, var(--color-paper-cool) 44%, transparent));
+}
+
+.focus-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 0.4rem;
+    background: linear-gradient(90deg, var(--color-accent), color-mix(in srgb, var(--color-accent-strong) 68%, var(--color-accent)));
+}
+
+.focus-card:nth-child(2)::before {
+    background: linear-gradient(90deg, var(--color-accent-strong), color-mix(in srgb, var(--color-signal) 74%, var(--color-accent-strong)));
+}
+
+.focus-card:nth-child(3)::before {
+    background: linear-gradient(90deg, var(--color-signal), color-mix(in srgb, var(--color-plum) 62%, var(--color-signal)));
 }
 
 .focus-card:hover {
@@ -1115,6 +1173,7 @@ a {
 .blog-panel {
     padding: var(--space-8);
     border-radius: var(--radius-lg);
+    background: linear-gradient(155deg, color-mix(in srgb, var(--color-paper-cool) 88%, white), color-mix(in srgb, var(--color-bg-secondary) 88%, transparent));
 }
 
 .blog-header {
@@ -1137,7 +1196,7 @@ a {
     padding: var(--space-6);
     border-radius: var(--radius-md);
     text-decoration: none;
-    background: color-mix(in srgb, var(--color-bg-tertiary) 90%, transparent);
+    background: linear-gradient(150deg, color-mix(in srgb, var(--color-paper-warm) 90%, white), color-mix(in srgb, var(--color-bg-secondary) 92%, transparent));
     border: 1px solid var(--color-border);
     min-height: 15rem;
     transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
@@ -1252,8 +1311,18 @@ a {
 .project-item {
     padding: var(--space-8);
     border-radius: var(--radius-lg);
-    background: color-mix(in srgb, var(--color-bg-tertiary) 94%, transparent);
+    background: linear-gradient(150deg, color-mix(in srgb, var(--color-paper-warm) 92%, white), color-mix(in srgb, var(--color-paper-cool) 68%, transparent));
     transition: transform 180ms ease, border-color 180ms ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-item::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0.45rem;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--color-accent-strong) 74%, white), color-mix(in srgb, var(--color-signal) 68%, var(--color-accent-strong)));
 }
 
 .project-desc {
@@ -1280,7 +1349,9 @@ a {
     padding: clamp(2rem, 4vw, 4rem);
     border-radius: var(--radius-xl);
     text-align: center;
-    background: linear-gradient(180deg, color-mix(in srgb, var(--color-bg-tertiary) 94%, transparent), var(--color-bg-secondary));
+    background: linear-gradient(155deg, color-mix(in srgb, var(--color-ink-panel) 98%, #111a2d), color-mix(in srgb, var(--color-ink-panel-soft) 84%, var(--color-ink-panel)));
+    border-color: rgba(255, 244, 228, 0.1);
+    box-shadow: 0 32px 72px rgba(10, 16, 28, 0.26);
 }
 
 .contact-panel .section-title,
@@ -1292,11 +1363,12 @@ a {
 .contact-panel .section-title {
     max-width: 14ch;
     line-height: 0.98;
+    color: #f6f1e7;
 }
 
 .contact-panel .contact-text {
     max-width: 44rem;
-    color: color-mix(in srgb, var(--color-text-primary) 30%, var(--color-text-secondary));
+    color: rgba(246, 241, 231, 0.76);
 }
 
 .contact-links {
@@ -1314,8 +1386,9 @@ a {
     min-width: 8.5rem;
     padding: 0.95rem 1.4rem;
     text-decoration: none;
-    border: 1px solid var(--color-border);
-    background: color-mix(in srgb, var(--color-bg-tertiary) 84%, transparent);
+    border: 1px solid rgba(255, 244, 228, 0.16);
+    background: linear-gradient(180deg, rgba(255, 244, 228, 0.08), rgba(255, 244, 228, 0.03));
+    color: #f6f1e7;
     font-weight: 700;
     transition: transform 180ms ease, border-color 180ms ease;
 }
