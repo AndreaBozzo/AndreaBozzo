@@ -93,9 +93,9 @@ Public companion repositories for reviewed papers and reproducible evaluation ma
 - [uic2026-nephtys](https://github.com/AndreaBozzo/uic2026-nephtys) — companion repository for the IEEE UIC 2026 short paper on Nephtys, including the sensor simulator, demo scripts, benchmark automation, and LaTeX source.
 - [scalcom2026-dataprof](https://github.com/AndreaBozzo/scalcom2026-dataprof) — IEEE ScalCom 2026 paper and benchmark suite comparing dataprof against interpreted Python profilers for scalable and sustainable edge AI telemetry profiling.
 
-Case-study pages under [work](work) are generated from [assets/data/case-studies.json](assets/data/case-studies.json). Update the JSON source and rebuild the site instead of editing those HTML files directly.
+Case-study pages under [work](work) are generated from [assets/data/case-studies.json](assets/data/case-studies.json) by [cmd/harvester](cmd/harvester). Update the JSON source and rebuild the site instead of editing those HTML files directly.
 
-An optional Go-based data harvester now lives in [cmd/harvester](cmd/harvester) as a staged replacement for the split Python and Node generation scripts.
+The repository data-build path now lives in [cmd/harvester](cmd/harvester), which replaces the old split Python and Node generator scripts for contribution updates and generated site artifacts.
 
 ---
 
