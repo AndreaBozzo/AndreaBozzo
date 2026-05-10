@@ -108,6 +108,12 @@ Both endpoints accept an optional `username` query parameter and default to `And
 
 The homepage hero now knows how to consume `/api/github/stats`. To activate it from the static Pages site, set the `ab-api-base` meta tag in [index.html](index.html) to your deployed Vercel host, for example `https://your-project.vercel.app`. If the homepage is served directly from a Vercel preview or production deployment, it will also fall back to same-origin `/api/` automatically.
 
+Once the companion API is deployed, you can also surface the live badge directly in this README by replacing `YOUR-VERCEL-HOST` in the snippet below with the production hostname from Vercel:
+
+```md
+[![Live GitHub stars](https://YOUR-VERCEL-HOST/api/github/badge?metric=stars&username=AndreaBozzo)](https://YOUR-VERCEL-HOST/api/github/stats?username=AndreaBozzo)
+```
+
 Set `GITHUB_API_TOKEN` or `GITHUB_TOKEN` in the runtime environment if you want better GitHub API rate-limit headroom.
 
 ---

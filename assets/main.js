@@ -679,10 +679,13 @@ async function loadHeroStats() {
 
     const apiBase = getCompanionApiBase();
     if (!apiBase) {
+        root.hidden = true;
         root.dataset.state = 'disabled';
         meta.textContent = 'Set the companion Vercel host in the ab-api-base meta tag to enable live GitHub stats.';
         return;
     }
+
+    root.hidden = false;
 
     try {
         const endpoint = new URL('/api/github/stats', apiBase);
