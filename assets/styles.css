@@ -648,7 +648,7 @@ a {
     display: grid;
     grid-template-columns: minmax(18rem, 0.7fr) minmax(0, 1.3fr);
     gap: clamp(1.5rem, 3vw, 2.75rem);
-    align-items: stretch;
+    align-items: start;
     padding: clamp(1.15rem, 1.8vw, 1.6rem);
     border: 1px solid color-mix(in srgb, var(--color-border) 92%, transparent);
     border-radius: var(--radius-xl);

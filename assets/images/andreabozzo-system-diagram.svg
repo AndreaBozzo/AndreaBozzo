@@ -46,20 +46,23 @@
   <text x="108" y="534" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18">RSS, search index, static assets</text>
 
   <rect x="448" y="144" width="306" height="436" rx="30" fill="url(#ink)" filter="url(#shadow)"/>
-  <text x="490" y="196" fill="#f6f1e7" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2">CONTENT + COMPUTATION LAYER</text>
+  <text x="490" y="196" fill="#f6f1e7" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2">CONTENT + COMPUTATION</text>
   <rect x="490" y="224" width="222" height="86" rx="20" fill="#f7efdf"/>
-  <text x="518" y="258" fill="#1a2236" font-family="Space Grotesk, Arial, sans-serif" font-size="24" font-weight="700">Rust/WASM workbench</text>
-  <text x="518" y="284" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16">interactive map, filters, mirrored logic</text>
+  <text x="518" y="252" fill="#1a2236" font-family="Space Grotesk, Arial, sans-serif" font-size="22" font-weight="700">
+    <tspan x="518" dy="0">Rust/WASM</tspan>
+    <tspan x="518" dy="24">workbench</tspan>
+  </text>
+  <text x="518" y="300" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="14">interactive filters, mirrored logic</text>
 
   <rect x="490" y="334" width="222" height="92" rx="20" fill="#fbf4e7"/>
   <text x="518" y="368" fill="#1a2236" font-family="Space Grotesk, Arial, sans-serif" font-size="24" font-weight="700">Go harvester</text>
-  <text x="518" y="394" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16">case-study pages, contributions JSON,</text>
-  <text x="518" y="416" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16">README metrics and static artifacts</text>
+  <text x="518" y="394" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="15">case-study pages, JSON feeds,</text>
+  <text x="518" y="416" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="15">README metrics, static artifacts</text>
 
   <rect x="490" y="450" width="222" height="92" rx="20" fill="#edf3f8"/>
   <text x="518" y="484" fill="#1a2236" font-family="Space Grotesk, Arial, sans-serif" font-size="24" font-weight="700">Structured sources</text>
-  <text x="518" y="510" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16">case-studies.json, papers.json,</text>
-  <text x="518" y="532" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16">contributions.json, blog content</text>
+  <text x="518" y="510" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="15">case-studies.json, papers.json,</text>
+  <text x="518" y="532" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="15">contributions.json, blog content</text>
 
   <rect x="816" y="166" width="304" height="166" rx="24" fill="#fbf4e7" stroke="#cfbea1" filter="url(#shadow)"/>
   <rect x="816" y="166" width="12" height="166" rx="12" fill="#0e7065"/>
