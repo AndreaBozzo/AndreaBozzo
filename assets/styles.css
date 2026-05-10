@@ -864,6 +864,7 @@ a {
 }
 
 .map-panel {
+    position: relative;
     min-height: 31rem;
     border: 1px solid color-mix(in srgb, var(--color-accent-strong) 14%, var(--color-border));
     border-radius: var(--radius-md);

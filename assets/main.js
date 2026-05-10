@@ -1,3 +1,5 @@
+import { inject } from '@vercel/analytics';
+
 // ===== Theme Toggle =====
 function toggleTheme() {
     const html = document.documentElement;
@@ -1330,6 +1332,7 @@ if ('serviceWorker' in navigator && window.location.hostname !== 'localhost') {
 
 // ===== Initialize =====
 document.addEventListener('DOMContentLoaded', function() {
+    inject();
     const loadBlogPosts = () => loadLatestBlogPosts();
     const hasWorkbench = initializeWorkbench();
 

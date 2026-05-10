@@ -5,7 +5,7 @@
     "build:assets": "npm run build:wasm && npm run build:css && npm run build:js",
     "build:blog": "cd blog && hugo --minify -F --config hugo.toml,hugo.github.toml",
     "build:css": "esbuild assets/styles.css --minify --outfile=assets/styles.min.css",
-    "build:js": "esbuild assets/main.js --minify --outfile=assets/main.min.js",
+    "build:js": "esbuild assets/main.js --bundle --format=iife --minify --outfile=assets/main.min.js",
     "build:wasm": "bash ./scripts/build-wasm.sh",
     "generate:case-studies": "go run ./cmd/harvester generate-case-study-pages",
     "generate:contributions": "go run ./cmd/harvester generate-contributions-json",
@@ -16,5 +16,8 @@
   },
   "devDependencies": {
     "esbuild": "^0.25.11"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
   }
 }
