@@ -500,7 +500,10 @@ fn select_item(
     topics: &[Topic],
     scored: &[(WorkItem, f32, bool)],
 ) -> Selected {
-    if let Some((item, score, _)) = scored.iter().find(|(item, _, _)| item.id == selected_id) {
+    if let Some((item, score, _)) = scored
+        .iter()
+        .find(|(item, _, visible)| item.id == selected_id && *visible)
+    {
         return selected_from_item(item, *score);
     }
 
@@ -596,26 +599,76 @@ fn topics_for_text(text: &str) -> Vec<String> {
             "data platform",
             "analytics",
             "profiler",
+            "contract",
         ],
     ) {
         topics.push("data-platforms".to_string());
     }
     if contains_any(
         &haystack,
-        &["rust", "polars", "tokio", "axum", "async", "runtime"],
+        &[
+            "rust",
+            "polars",
+            "tokio",
+            "axum",
+            "async",
+            "runtime",
+            "no_std",
+            "embassy",
+            "embedded",
+        ],
     ) {
         topics.push("rust-systems".to_string());
     }
-    if contains_any(&haystack, &["stream", "risingwave", "event", "query"]) {
+    if contains_any(
+        &haystack,
+        &[
+            "streaming",
+            "risingwave",
+            "event-driven",
+            "jetstream",
+            "websocket",
+            "webhook",
+            "server-sent",
+            "sse",
+            "nats",
+            "grpc",
+        ],
+    ) {
         topics.push("streaming".to_string());
     }
     if contains_any(
         &haystack,
-        &["scrap", "harvest", "ares", "ceres", "grappler"],
+        &[
+            "scrap",
+            "harvest",
+            "ares",
+            "ceres",
+            "schema extraction",
+            "json schema",
+            "open data portal",
+            "web scraper",
+        ],
     ) {
         topics.push("scraping".to_string());
     }
-    if contains_any(&haystack, &["ai", "finops", "cost", "dbu", "claude", "ml"]) {
+    if contains_any(
+        &haystack,
+        &[
+            "finops",
+            "cost",
+            "dbu",
+            "green ai",
+            "edge ai",
+            "machine learning",
+            "tinyml",
+            "llm",
+            "agent",
+            "physical ai",
+            "robotics",
+            " ml ",
+        ],
+    ) {
         topics.push("ai-finops".to_string());
     }
     if topics.is_empty() {
@@ -780,5 +833,33 @@ mod tests {
         let a_nodes: Vec<_> = a.nodes.iter().map(|n| (&n.id, n.x, n.y)).collect();
         let b_nodes: Vec<_> = b.nodes.iter().map(|n| (&n.id, n.x, n.y)).collect();
         assert_eq!(a_nodes, b_nodes);
+    }
+
+    #[test]
+    fn selected_item_drops_hidden_selection_when_filtered() {
+        let payload = r#"{
+            "topics": [
+                {"id": "all", "label": "All work"},
+                {"id": "scraping", "label": "Harvesting", "summary": "Collection systems"}
+            ],
+            "caseStudies": [
+                {"slug": "dataprof", "title": "dataprof", "summary": "Arrow-powered data profiler", "stack": ["Rust", "Apache Arrow"]},
+                {"slug": "ares", "title": "Ares", "summary": "Schema-driven web scraper", "stack": ["Rust", "Web Scraping"]}
+            ],
+            "activeTopic": "scraping",
+            "query": "",
+            "selectedId": "case-dataprof"
+        }"#;
+
+        let out: Output = serde_json::from_str(&build_workbench(payload)).unwrap();
+        assert_eq!(out.selected.id, "scraping");
+        assert_ne!(out.selected.id, "case-dataprof");
+    }
+
+    #[test]
+    fn grappler_no_longer_maps_to_scraping_topic() {
+        let topics = topics_for_text("Zero Grappler is an embedded TinyML crate built with Embassy");
+        assert!(!topics.contains(&"scraping".to_string()));
+        assert!(topics.contains(&"rust-systems".to_string()));
     }
 }

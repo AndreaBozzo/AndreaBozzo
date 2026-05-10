@@ -14,7 +14,16 @@ const savedTheme = localStorage.getItem('theme') || 'light';
 document.documentElement.setAttribute('data-theme', savedTheme);
 document.getElementById('theme-icon').textContent = savedTheme === 'dark' ? '🌙' : '☀️';
 
-const siteBasePath = new URL('.', window.location.href).pathname;
+function getSiteBasePath() {
+    const assetStylesheet = document.querySelector('link[href$="assets/styles.min.css"], link[href$="assets/styles.css"]');
+    if (assetStylesheet) {
+        return new URL('../', new URL(assetStylesheet.getAttribute('href'), window.location.href)).pathname;
+    }
+
+    return new URL('.', window.location.href).pathname;
+}
+
+const siteBasePath = getSiteBasePath();
 
 const topicBlueprints = [
     {
@@ -82,19 +91,19 @@ function topicForItem(text) {
     const haystack = normalizeText(text);
     const matches = [];
 
-    if (/(iceberg|lakehouse|pipeline|storage|lance|arrow|tabular|database|data platform|analytics)/.test(haystack)) {
+    if (/(iceberg|lakehouse|pipeline|storage|lance|arrow|tabular|database|data platform|analytics|profiler|contract)/.test(haystack)) {
         matches.push('data-platforms');
     }
-    if (/(rust|polars|tokio|axum|async|runtime)/.test(haystack)) {
+    if (/(rust|polars|tokio|axum|async|runtime|no_std|embassy|embedded)/.test(haystack)) {
         matches.push('rust-systems');
     }
-    if (/(stream|risingwave|event|query)/.test(haystack)) {
+    if (/(streaming|risingwave|event-driven|jetstream|websocket|webhook|server-sent|\bsse\b|\bnats\b|grpc)/.test(haystack)) {
         matches.push('streaming');
     }
-    if (/(scrap|harvest|ares|ceres|grappler)/.test(haystack)) {
+    if (/(scrap|harvest|ares|ceres|schema extraction|json schema|open data portal|web scraper)/.test(haystack)) {
         matches.push('scraping');
     }
-    if (/(ai|finops|cost|dbu|claude|ml)/.test(haystack)) {
+    if (/(finops|cost|dbu|green ai|edge ai|machine learning|tinyml|llm|agent|physical ai|robotics|\bml\b)/.test(haystack)) {
         matches.push('ai-finops');
     }
 
@@ -203,6 +212,7 @@ function selectedFromItem(item) {
 function buildFallbackWorkbench() {
     const items = getWorkbenchItems();
     const count = Math.max(items.length, 1);
+    const visibleItems = items.filter(item => matchesWorkbenchFilter(item));
     const results = items
         .filter(item => item.kind !== 'topic' && matchesWorkbenchFilter(item))
         .slice(0, 6)
@@ -211,8 +221,9 @@ function buildFallbackWorkbench() {
         .filter(item => item.kind !== 'topic')
         .slice(0, 6)
         .map((item, index) => resultFromItem(item, 5 - index));
-    const selected = items.find(item => item.id === workbenchState.selectedId)
+    const selected = visibleItems.find(item => item.id === workbenchState.selectedId)
         || topicBlueprints.find(topic => topic.id === workbenchState.activeTopic && topic.id !== 'all')
+        || visibleItems.find(item => item.kind !== 'topic')
         || topicBlueprints[1];
 
     return {
@@ -350,6 +361,7 @@ function renderWorkbenchResults(results) {
             <span class="result-meta">${item.kind === 'project' ? 'Open source' : item.kind === 'case-study' ? 'Case study' : 'Writing'}</span>
             <h3>${escapeHtml(item.title || item.label)}</h3>
             <p>${escapeHtml(item.summary || '')}</p>
+            ${(item.tags || []).length ? `<div class="result-tags">${item.tags.slice(0, 3).map(tag => `<span class="result-tag">${escapeHtml(tag)}</span>`).join('')}</div>` : ''}
         </a>
     `).join('');
 

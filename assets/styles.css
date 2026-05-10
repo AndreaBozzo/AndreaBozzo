@@ -846,6 +846,22 @@ a {
     color: var(--color-text-secondary);
 }
 
+.result-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: auto;
+}
+
+.result-tag {
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 0.35rem 0.65rem;
+    color: var(--color-text-secondary);
+    font-size: var(--text-xs);
+    font-weight: 700;
+}
+
 .case-study-page {
     padding-top: var(--space-16);
 }
@@ -894,6 +910,12 @@ a {
     min-height: 2.2rem;
     padding: 0.45rem 0.8rem;
     background: color-mix(in srgb, var(--color-bg-secondary) 84%, transparent);
+}
+
+.case-meta-status {
+    color: var(--color-accent-strong);
+    border-color: color-mix(in srgb, var(--color-accent) 34%, var(--color-border));
+    background: color-mix(in srgb, var(--color-accent) 16%, var(--color-bg-secondary));
 }
 
 .case-cover {

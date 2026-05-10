@@ -22,6 +22,26 @@ function isExternalUrl(url) {
   return /^https?:\/\//i.test(url);
 }
 
+function resolveCoverImagePath(coverImage) {
+  if (!coverImage) {
+    return '';
+  }
+
+  if (isExternalUrl(coverImage) || coverImage.startsWith('../../')) {
+    return coverImage;
+  }
+
+  if (coverImage.startsWith('../blog/')) {
+    return `../${coverImage}`;
+  }
+
+  if (coverImage.startsWith('blog/')) {
+    return `../../${coverImage}`;
+  }
+
+  return coverImage;
+}
+
 function resolveActions(study) {
   if (Array.isArray(study.actions) && study.actions.length > 0) {
     return study.actions;
@@ -77,9 +97,11 @@ function renderSections(study) {
 }
 
 function renderCover(study) {
-  if (study.coverImage) {
+  const coverImage = resolveCoverImagePath(study.coverImage);
+
+  if (coverImage) {
     return `            <figure class="case-cover">
-                <img src="${escapeHtml(study.coverImage)}" alt="${escapeHtml(study.coverAlt || `${study.title || study.slug || 'Case study'} cover art`)}">
+                <img src="${escapeHtml(coverImage)}" alt="${escapeHtml(study.coverAlt || `${study.title || study.slug || 'Case study'} cover art`)}">
             </figure>`;
   }
 
@@ -96,6 +118,7 @@ function renderCaseStudyPage(study) {
   const title = study.title || study.slug || 'Case Study';
   const metaDescription = study.metaDescription || study.summary || study.subtitle || `${title} case study.`;
   const stack = Array.isArray(study.stack) ? study.stack : [];
+  const statusChip = study.status ? `                    <span class="case-meta-status">${escapeHtml(study.status)}</span>\n` : '';
   const actions = renderActions(study);
   const mediaSlots = renderMediaSlots(study);
   const sections = renderSections(study);
@@ -127,6 +150,7 @@ function renderCaseStudyPage(study) {
             <a href="../../#workbench">Work</a>
             <a href="../../blog/">Blog</a>
             <a href="../../#projects">Open Source</a>
+        <a href="../../#papers">Papers</a>
             <a href="../../#contact">Contact</a>
         </nav>
         <button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle color theme">
@@ -141,7 +165,7 @@ function renderCaseStudyPage(study) {
                 <h1 class="title">${escapeHtml(title)}</h1>
                 <p class="subtitle">${escapeHtml(study.subtitle || study.summary || '')}</p>
                 <div class="case-meta">
-${stack.map((item) => `                    <span>${escapeHtml(item)}</span>`).join('\n')}
+        ${statusChip}${stack.map((item) => `                    <span>${escapeHtml(item)}</span>`).join('\n')}
                 </div>
             </div>
 ${renderCover(study)}
