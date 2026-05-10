@@ -2,7 +2,10 @@
   <rect width="1200" height="900" rx="40" fill="#F4ECE0"/>
   <rect x="48" y="48" width="1104" height="804" rx="34" fill="#FBF7F1" stroke="#DCCDB8" stroke-width="2"/>
   <text x="84" y="110" fill="#1E2B4A" font-size="24" font-weight="700" letter-spacing="4" font-family="IBM Plex Sans, sans-serif">ANATOMY</text>
-  <text x="84" y="178" fill="#1A2340" font-size="58" font-weight="700" font-family="Space Grotesk, sans-serif">How one offline segment becomes a queryable table</text>
+  <text x="84" y="166" fill="#1A2340" font-size="48" font-weight="700" font-family="Space Grotesk, sans-serif">
+    <tspan x="84" dy="0">How one offline segment</tspan>
+    <tspan x="84" dy="50">becomes a queryable table</tspan>
+  </text>
   <rect x="96" y="288" width="244" height="118" rx="28" fill="#FFF9F0" stroke="#E0CBA7"/>
   <text x="132" y="340" fill="#A56A24" font-size="18" font-weight="700" letter-spacing="3" font-family="IBM Plex Sans, sans-serif">SEGMENT FILE</text>
   <text x="132" y="382" fill="#1B2746" font-size="30" font-weight="700" font-family="Space Grotesk, sans-serif">index.dr</text>
@@ -18,6 +21,9 @@
   <text x="530" y="656" fill="#2F6E95" font-size="28" font-weight="700" font-family="Space Grotesk, sans-serif">Bitmaps</text>
   <rect x="848" y="390" width="264" height="214" rx="32" fill="#1E2B4A"/>
   <text x="916" y="472" fill="#F7F3EA" font-size="40" font-weight="700" font-family="Space Grotesk, sans-serif">Arrow</text>
-  <text x="900" y="522" fill="#DCE4EE" font-size="24" font-family="IBM Plex Sans, sans-serif">TableProvider + ExecutionPlan</text>
+  <text x="892" y="514" fill="#DCE4EE" font-size="20" font-family="IBM Plex Sans, sans-serif">
+    <tspan x="892" dy="0">TableProvider +</tspan>
+    <tspan x="892" dy="24">ExecutionPlan</tspan>
+  </text>
   <path d="M340 346H432" stroke="#C79A57" stroke-width="8" stroke-linecap="round"/><path d="M340 496H432" stroke="#C79A57" stroke-width="8" stroke-linecap="round"/><path d="M340 646H432" stroke="#C79A57" stroke-width="8" stroke-linecap="round"/><path d="M736 506H818" stroke="#7BA3BF" stroke-width="8" stroke-linecap="round"/>
 </svg>

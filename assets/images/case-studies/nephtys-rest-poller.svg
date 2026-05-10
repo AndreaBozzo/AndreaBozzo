@@ -11,7 +11,10 @@
   <rect x="44" y="44" width="1112" height="812" rx="34" fill="#FBF7F1" stroke="#DCCDB8" stroke-width="2"/>
   <text x="86" y="108" fill="#1E2B4A" font-size="24" font-weight="700" letter-spacing="4" font-family="IBM Plex Sans, sans-serif">RUNNABLE FLOW</text>
   <text x="84" y="178" fill="#1A2340" font-size="60" font-weight="700" font-family="Space Grotesk, sans-serif">Nephtys REST poller</text>
-  <text x="84" y="220" fill="#5F6576" font-size="28" font-family="IBM Plex Sans, sans-serif">A public weather source becomes a normalized JetStream subject without custom glue code.</text>
+  <text x="84" y="214" fill="#5F6576" font-size="25" font-family="IBM Plex Sans, sans-serif">
+    <tspan x="84" dy="0">A public weather source becomes a normalized JetStream subject</tspan>
+    <tspan x="84" dy="28">without custom glue code.</tspan>
+  </text>
   <rect x="90" y="306" width="224" height="126" rx="28" fill="#FFF9F0" stroke="#D7C09D"/>
   <text x="122" y="358" fill="#C27A2C" font-size="20" font-weight="700" letter-spacing="3" font-family="IBM Plex Sans, sans-serif">SOURCE</text>
   <text x="122" y="404" fill="#1B2746" font-size="36" font-weight="700" font-family="Space Grotesk, sans-serif">Open-Meteo</text>
@@ -27,9 +30,15 @@
   <polygon points="874,369 844,351 844,387" fill="#5C8E63"/>
   <rect x="90" y="520" width="1020" height="144" rx="30" fill="#FFF7EC" stroke="#E0CBA7"/>
   <text x="126" y="576" fill="#A56A24" font-size="22" font-weight="700" letter-spacing="3" font-family="IBM Plex Sans, sans-serif">SUBJECT</text>
-  <text x="126" y="624" fill="#1A2340" font-size="38" font-weight="700" font-family="IBM Plex Mono, monospace">nephtys.stream.sensors.weather.bologna</text>
+  <text x="126" y="614" fill="#1A2340" font-size="30" font-weight="700" font-family="IBM Plex Mono, monospace">
+    <tspan x="126" dy="0">nephtys.stream.sensors</tspan>
+    <tspan x="126" dy="32">.weather.bologna</tspan>
+  </text>
   <rect x="90" y="704" width="312" height="96" rx="24" fill="#F5F8FB" stroke="#C9D8E6"/>
   <text x="122" y="762" fill="#2F6E95" font-size="28" font-weight="700" font-family="Space Grotesk, sans-serif">60s interval</text>
   <rect x="428" y="704" width="682" height="96" rx="24" fill="#F7FBF6" stroke="#BED7C1"/>
-  <text x="460" y="762" fill="#5F6576" font-size="28" font-family="IBM Plex Sans, sans-serif">Compatible with the documented Open-Meteo example and downstream `nats sub` tap.</text>
+  <text x="460" y="748" fill="#5F6576" font-size="22" font-family="IBM Plex Sans, sans-serif">
+    <tspan x="460" dy="0">Compatible with the documented Open-Meteo example</tspan>
+    <tspan x="460" dy="26">and downstream `nats sub` tap.</tspan>
+  </text>
 </svg>

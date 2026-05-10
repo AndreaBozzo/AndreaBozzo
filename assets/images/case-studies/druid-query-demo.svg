@@ -5,7 +5,10 @@
   <text x="84" y="178" fill="#1A2340" font-size="58" font-weight="700" font-family="Space Grotesk, sans-serif">Offline segment, live SQL</text>
   <rect x="84" y="256" width="1032" height="148" rx="32" fill="#F5F8FB" stroke="#C9D8E6"/>
   <text x="118" y="314" fill="#2F6E95" font-size="20" font-weight="700" letter-spacing="3" font-family="IBM Plex Sans, sans-serif">REGISTER</text>
-  <text x="118" y="364" fill="#1B2746" font-size="30" font-weight="700" font-family="IBM Plex Mono, monospace">DruidTableProvider::try_new(&quot;path/to/segment/index.dr&quot;)</text>
+  <text x="118" y="346" fill="#1B2746" font-size="24" font-weight="700" font-family="IBM Plex Mono, monospace">
+    <tspan x="118" dy="0">DruidTableProvider::try_new(</tspan>
+    <tspan x="118" dy="30">&quot;path/to/segment/index.dr&quot;)</tspan>
+  </text>
   <rect x="84" y="446" width="1032" height="256" rx="32" fill="#FFF9F0" stroke="#E0CBA7"/>
   <text x="118" y="504" fill="#A56A24" font-size="20" font-weight="700" letter-spacing="3" font-family="IBM Plex Sans, sans-serif">QUERY</text>
   <text x="118" y="562" fill="#1B2746" font-size="38" font-weight="700" font-family="IBM Plex Mono, monospace">SELECT * FROM druid_table LIMIT 10;</text>
@@ -15,5 +18,9 @@
   <text x="446" y="641" fill="#5F6576" font-size="22" font-family="IBM Plex Sans, sans-serif">Direct segment reader</text>
   <rect x="722" y="606" width="320" height="54" rx="18" fill="#FBF7F1" stroke="#DCCDB8"/>
   <text x="748" y="641" fill="#5F6576" font-size="22" font-family="IBM Plex Sans, sans-serif">Arrow-native execution path</text>
-  <text x="84" y="786" fill="#5F6576" font-size="28" font-family="IBM Plex Sans, sans-serif">The public example is already enough to evaluate the core promise: segment-local data becomes a DataFusion table without spinning up the original serving system.</text>
+  <text x="84" y="770" fill="#5F6576" font-size="24" font-family="IBM Plex Sans, sans-serif">
+    <tspan x="84" dy="0">The public example is already enough to evaluate the core promise:</tspan>
+    <tspan x="84" dy="28">segment-local data becomes a DataFusion table without spinning up</tspan>
+    <tspan x="84" dy="28">the original serving system.</tspan>
+  </text>
 </svg>

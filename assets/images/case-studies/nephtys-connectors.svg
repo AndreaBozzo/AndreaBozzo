@@ -2,12 +2,18 @@
   <rect width="1200" height="900" rx="40" fill="#F4ECE0"/>
   <rect x="44" y="44" width="1112" height="812" rx="34" fill="#FBF7F1" stroke="#DCCDB8" stroke-width="2"/>
   <text x="84" y="110" fill="#1E2B4A" font-size="24" font-weight="700" letter-spacing="4" font-family="IBM Plex Sans, sans-serif">CONNECTOR SURFACE</text>
-  <text x="84" y="178" fill="#1A2340" font-size="58" font-weight="700" font-family="Space Grotesk, sans-serif">One ingress shape, five real-time entry points</text>
-  <text x="84" y="220" fill="#5F6576" font-size="28" font-family="IBM Plex Sans, sans-serif">Nephtys keeps the connector edge diverse while preserving one durable event contract downstream.</text>
-  <rect x="466" y="304" width="268" height="280" rx="36" fill="#1E2B4A"/>
-  <text x="528" y="396" fill="#F7F3EA" font-size="46" font-weight="700" font-family="Space Grotesk, sans-serif">JetStream</text>
-  <text x="548" y="444" fill="#D5DCE7" font-size="24" font-family="IBM Plex Sans, sans-serif">events + configs</text>
-  <text x="520" y="520" fill="#E4B66C" font-size="22" letter-spacing="3" font-family="IBM Plex Sans, sans-serif">FILTER → TRANSFORM → DEDUP</text>
+  <text x="84" y="166" fill="#1A2340" font-size="48" font-weight="700" font-family="Space Grotesk, sans-serif">
+    <tspan x="84" dy="0">One ingress shape,</tspan>
+    <tspan x="84" dy="50">five real-time entry points</tspan>
+  </text>
+  <text x="84" y="258" fill="#5F6576" font-size="21" font-family="IBM Plex Sans, sans-serif">
+    <tspan x="84" dy="0">Nephtys keeps the connector edge diverse while</tspan>
+    <tspan x="84" dy="24">preserving one durable event contract downstream.</tspan>
+  </text>
+  <rect x="466" y="320" width="268" height="264" rx="36" fill="#1E2B4A"/>
+  <text x="528" y="402" fill="#F7F3EA" font-size="42" font-weight="700" font-family="Space Grotesk, sans-serif">JetStream</text>
+  <text x="548" y="446" fill="#D5DCE7" font-size="22" font-family="IBM Plex Sans, sans-serif">events + configs</text>
+  <text x="496" y="518" fill="#E4B66C" font-size="18" letter-spacing="2" font-family="IBM Plex Sans, sans-serif">FILTER → TRANSFORM → DEDUP</text>
   <rect x="114" y="320" width="210" height="86" rx="24" fill="#EFF5FB" stroke="#C5D7E7"/><text x="154" y="372" fill="#23476A" font-size="30" font-weight="700" font-family="Space Grotesk, sans-serif">WebSocket</text>
   <rect x="114" y="446" width="210" height="86" rx="24" fill="#F7FBF6" stroke="#C6D8C9"/><text x="190" y="498" fill="#3A6C49" font-size="30" font-weight="700" font-family="Space Grotesk, sans-serif">SSE</text>
   <rect x="114" y="572" width="210" height="86" rx="24" fill="#FFF8EC" stroke="#E0CBA7"/><text x="183" y="624" fill="#A56A24" font-size="30" font-weight="700" font-family="Space Grotesk, sans-serif">REST</text>
@@ -19,5 +25,8 @@
   <path d="M734 404C790 362 792 363 876 363" stroke="#D9B17A" stroke-width="8" stroke-linecap="round"/>
   <path d="M734 444C790 488 792 489 876 489" stroke="#9B87C8" stroke-width="8" stroke-linecap="round"/>
   <rect x="112" y="720" width="974" height="92" rx="24" fill="#FFF9F0" stroke="#DCCDB8"/>
-  <text x="148" y="776" fill="#5F6576" font-size="28" font-family="IBM Plex Sans, sans-serif">Configurable through the REST API, with one pipeline shape regardless of whether the source is push- or pull-based.</text>
+  <text x="148" y="764" fill="#5F6576" font-size="23" font-family="IBM Plex Sans, sans-serif">
+    <tspan x="148" dy="0">Configurable through the REST API, with one pipeline shape</tspan>
+    <tspan x="148" dy="26">regardless of whether the source is push- or pull-based.</tspan>
+  </text>
 </svg>

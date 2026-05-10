@@ -1295,7 +1295,6 @@ a {
     margin: 0;
     display: grid;
     place-items: center;
-    min-height: clamp(12rem, 24vw, 16rem);
     padding: var(--space-2);
     border-radius: calc(var(--radius-md) - 0.25rem);
     overflow: hidden;
@@ -1306,10 +1305,9 @@ a {
 .media-slot-figure img {
     display: block;
     width: 100%;
+    max-width: 100%;
     height: auto;
-    max-height: clamp(12rem, 24vw, 16rem);
-    object-fit: contain;
-    object-position: center;
+    max-height: none;
     border-radius: calc(var(--radius-md) - 0.55rem);
     background: color-mix(in srgb, var(--color-paper-cool) 56%, transparent);
 }
