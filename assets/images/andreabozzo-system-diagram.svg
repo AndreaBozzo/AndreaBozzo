@@ -1,84 +1,74 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
   <title id="title">AndreaBozzo site architecture diagram</title>
-  <desc id="desc">Diagram showing the static homepage and Hugo blog feeding a workbench and generated work pages, with GitHub Pages serving the static site and Vercel serving the companion API.</desc>
+  <desc id="desc">A simplified architecture diagram showing authoring surfaces flowing into a repository core, then out to GitHub Pages for the static site and Vercel for the live companion API.</desc>
   <defs>
     <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
       <stop offset="0%" stop-color="#f7efdf"/>
       <stop offset="100%" stop-color="#e8eef5"/>
     </linearGradient>
     <linearGradient id="ink" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0%" stop-color="#182237"/>
-      <stop offset="100%" stop-color="#2a4466"/>
+      <stop offset="0%" stop-color="#1a2337"/>
+      <stop offset="100%" stop-color="#2c4569"/>
     </linearGradient>
     <linearGradient id="accent" x1="0" x2="1" y1="0" y2="1">
       <stop offset="0%" stop-color="#c45a27"/>
       <stop offset="100%" stop-color="#1e4f95"/>
     </linearGradient>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#3b2c18" flood-opacity="0.14"/>
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#3b2c18" flood-opacity="0.14"/>
     </filter>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0,0 L10,5 L0,10 z" fill="#5c6678"/>
+    <marker id="arrow" markerWidth="11" markerHeight="11" refX="8" refY="5.5" orient="auto">
+      <path d="M0,0 L11,5.5 L0,11 z" fill="#657187"/>
     </marker>
   </defs>
 
   <rect width="1200" height="720" rx="36" fill="url(#bg)"/>
-  <rect x="26" y="26" width="1148" height="668" rx="30" fill="none" stroke="#d0c2a7" stroke-width="2" stroke-dasharray="8 12"/>
+  <rect x="24" y="24" width="1152" height="672" rx="30" fill="none" stroke="#d0c2a7" stroke-width="2" stroke-dasharray="8 12"/>
 
   <text x="72" y="88" fill="#1a2236" font-family="IBM Plex Sans, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="3">ANDREABOZZO REPOSITORY AS SYSTEM</text>
-  <text x="72" y="120" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18">Static homepage, Hugo archive, generated case studies, Rust/WASM workbench, Go harvester, and a Vercel companion API.</text>
+  <text x="72" y="122" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="20">
+    <tspan x="72" dy="0">A small publishing stack: authored content flows into one repository core</tspan>
+    <tspan x="72" dy="24">and then ships to static and live delivery surfaces.</tspan>
+  </text>
 
-  <rect x="72" y="166" width="312" height="166" rx="24" fill="#fbf4e7" stroke="#cfbea1" filter="url(#shadow)"/>
-  <rect x="72" y="166" width="12" height="166" rx="12" fill="#c45a27"/>
-  <text x="108" y="214" fill="#1a2236" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2">STATIC FRONT DOOR</text>
-  <text x="108" y="256" fill="#1a2236" font-family="Space Grotesk, Arial, sans-serif" font-size="30" font-weight="700">Root landing page</text>
-  <text x="108" y="290" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18">index.html, assets/styles.css,</text>
-  <text x="108" y="316" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18">assets/main.js, service worker</text>
+  <rect x="72" y="182" width="272" height="190" rx="28" fill="#fbf4e7" stroke="#d4c6ab" filter="url(#shadow)"/>
+  <rect x="72" y="182" width="14" height="190" rx="14" fill="#c45a27"/>
+  <text x="108" y="228" fill="#1a2236" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2">AUTHORING</text>
+  <text x="108" y="274" fill="#1a2236" font-family="Space Grotesk, Arial, sans-serif" font-size="34" font-weight="700">Homepage</text>
+  <text x="108" y="306" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="20">HTML, CSS, JS</text>
+  <text x="108" y="348" fill="#1a2236" font-family="Space Grotesk, Arial, sans-serif" font-size="34" font-weight="700">Hugo blog</text>
+  <text x="108" y="380" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="20">posts, taxonomies, feeds</text>
 
-  <rect x="72" y="384" width="312" height="166" rx="24" fill="#edf3f8" stroke="#bfd0e8" filter="url(#shadow)"/>
-  <rect x="72" y="384" width="12" height="166" rx="12" fill="#1e4f95"/>
-  <text x="108" y="432" fill="#1a2236" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2">WRITING ARCHIVE</text>
-  <text x="108" y="474" fill="#1a2236" font-family="Space Grotesk, Arial, sans-serif" font-size="30" font-weight="700">Hugo blog</text>
-  <text x="108" y="508" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18">bilingual posts, taxonomy pages,</text>
-  <text x="108" y="534" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18">RSS, search index, static assets</text>
+  <rect x="420" y="146" width="360" height="430" rx="34" fill="url(#ink)" filter="url(#shadow)"/>
+  <text x="460" y="202" fill="#f6f1e7" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2">REPOSITORY CORE</text>
+  <text x="460" y="252" fill="#f6f1e7" font-family="Space Grotesk, Arial, sans-serif" font-size="40" font-weight="700">One repo</text>
+  <text x="460" y="288" fill="#d9dfeb" font-family="IBM Plex Sans, Arial, sans-serif" font-size="20">source data, generators, live companion</text>
 
-  <rect x="448" y="144" width="306" height="436" rx="30" fill="url(#ink)" filter="url(#shadow)"/>
-  <text x="490" y="196" fill="#f6f1e7" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2">CONTENT + COMPUTATION LAYER</text>
-  <rect x="490" y="224" width="222" height="86" rx="20" fill="#f7efdf"/>
-  <text x="518" y="258" fill="#1a2236" font-family="Space Grotesk, Arial, sans-serif" font-size="24" font-weight="700">Rust/WASM workbench</text>
-  <text x="518" y="284" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16">interactive map, filters, mirrored logic</text>
+  <rect x="460" y="330" width="280" height="74" rx="22" fill="#f7efdf"/>
+  <text x="492" y="374" fill="#1a2236" font-family="Space Grotesk, Arial, sans-serif" font-size="28" font-weight="700">Rust/WASM workbench</text>
 
-  <rect x="490" y="334" width="222" height="92" rx="20" fill="#fbf4e7"/>
-  <text x="518" y="368" fill="#1a2236" font-family="Space Grotesk, Arial, sans-serif" font-size="24" font-weight="700">Go harvester</text>
-  <text x="518" y="394" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16">case-study pages, contributions JSON,</text>
-  <text x="518" y="416" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16">README metrics and static artifacts</text>
+  <rect x="460" y="426" width="280" height="74" rx="22" fill="#fbf4e7"/>
+  <text x="492" y="470" fill="#1a2236" font-family="Space Grotesk, Arial, sans-serif" font-size="28" font-weight="700">Go harvester</text>
 
-  <rect x="490" y="450" width="222" height="92" rx="20" fill="#edf3f8"/>
-  <text x="518" y="484" fill="#1a2236" font-family="Space Grotesk, Arial, sans-serif" font-size="24" font-weight="700">Structured sources</text>
-  <text x="518" y="510" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16">case-studies.json, papers.json,</text>
-  <text x="518" y="532" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16">contributions.json, blog content</text>
+  <rect x="460" y="522" width="280" height="74" rx="22" fill="#edf3f8"/>
+  <text x="492" y="566" fill="#1a2236" font-family="Space Grotesk, Arial, sans-serif" font-size="28" font-weight="700">Structured JSON sources</text>
 
-  <rect x="816" y="166" width="304" height="166" rx="24" fill="#fbf4e7" stroke="#cfbea1" filter="url(#shadow)"/>
-  <rect x="816" y="166" width="12" height="166" rx="12" fill="#0e7065"/>
-  <text x="852" y="214" fill="#1a2236" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2">STATIC DELIVERY</text>
-  <text x="852" y="256" fill="#1a2236" font-family="Space Grotesk, Arial, sans-serif" font-size="30" font-weight="700">GitHub Pages</text>
-  <text x="852" y="290" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18">homepage, generated work pages,</text>
-  <text x="852" y="316" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18">Hugo blog, service-worker cache</text>
+  <rect x="856" y="182" width="272" height="168" rx="28" fill="#fbf4e7" stroke="#d4c6ab" filter="url(#shadow)"/>
+  <rect x="856" y="182" width="14" height="168" rx="14" fill="#0e7065"/>
+  <text x="892" y="228" fill="#1a2236" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2">STATIC DELIVERY</text>
+  <text x="892" y="278" fill="#1a2236" font-family="Space Grotesk, Arial, sans-serif" font-size="36" font-weight="700">GitHub Pages</text>
+  <text x="892" y="314" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="20">homepage, work pages, blog</text>
 
-  <rect x="816" y="384" width="304" height="166" rx="24" fill="#edf3f8" stroke="#bfd0e8" filter="url(#shadow)"/>
-  <rect x="816" y="384" width="12" height="166" rx="12" fill="#7358ba"/>
-  <text x="852" y="432" fill="#1a2236" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2">DYNAMIC COMPANION</text>
-  <text x="852" y="474" fill="#1a2236" font-family="Space Grotesk, Arial, sans-serif" font-size="30" font-weight="700">Vercel Go API</text>
-  <text x="852" y="508" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18">/api/github/stats and /badge</text>
-  <text x="852" y="534" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18">live metrics for homepage and README</text>
+  <rect x="856" y="392" width="272" height="168" rx="28" fill="#edf3f8" stroke="#c0d0e6" filter="url(#shadow)"/>
+  <rect x="856" y="392" width="14" height="168" rx="14" fill="#7358ba"/>
+  <text x="892" y="438" fill="#1a2236" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2">LIVE COMPANION</text>
+  <text x="892" y="488" fill="#1a2236" font-family="Space Grotesk, Arial, sans-serif" font-size="36" font-weight="700">Vercel API</text>
+  <text x="892" y="524" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="20">GitHub stats and badge API</text>
 
-  <path d="M384 248 H448" fill="none" stroke="#5c6678" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M384 466 H448" fill="none" stroke="#5c6678" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M754 248 H816" fill="none" stroke="#5c6678" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M754 466 H816" fill="none" stroke="#5c6678" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M602 310 V334" fill="none" stroke="#8da0bf" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M602 426 V450" fill="none" stroke="#8da0bf" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M344 276 H420" fill="none" stroke="#657187" stroke-width="5" marker-end="url(#arrow)"/>
+  <path d="M780 276 H856" fill="none" stroke="#657187" stroke-width="5" marker-end="url(#arrow)"/>
+  <path d="M780 476 H856" fill="none" stroke="#657187" stroke-width="5" marker-end="url(#arrow)"/>
 
-  <rect x="470" y="610" width="630" height="56" rx="18" fill="url(#accent)" opacity="0.95"/>
-  <text x="500" y="646" fill="#f6f1e7" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18" font-weight="600">One repository, two delivery surfaces: GitHub Pages for static publishing and Vercel for the live GitHub metrics companion.</text>
+  <rect x="346" y="616" width="508" height="58" rx="20" fill="url(#accent)" filter="url(#shadow)"/>
+  <text x="600" y="652" text-anchor="middle" fill="#f6f1e7" font-family="IBM Plex Sans, Arial, sans-serif" font-size="20" font-weight="600">Static on GitHub Pages. Live metrics on Vercel.</text>
 </svg>

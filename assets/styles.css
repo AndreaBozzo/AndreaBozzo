@@ -143,6 +143,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: clip;
 }
 
 @view-transition {
@@ -645,10 +646,10 @@ a {
 
 .system-layout {
     display: grid;
-    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
     gap: clamp(1.75rem, 4vw, 3.5rem);
-    align-items: center;
-    padding: clamp(1.4rem, 2vw, 2rem);
+    align-items: stretch;
+    padding: clamp(1.15rem, 1.8vw, 1.6rem);
     border: 1px solid color-mix(in srgb, var(--color-border) 92%, transparent);
     border-radius: var(--radius-xl);
     background:
@@ -657,6 +658,10 @@ a {
         linear-gradient(145deg, color-mix(in srgb, var(--color-paper-warm) 88%, white), color-mix(in srgb, var(--color-paper-cool) 76%, transparent));
     box-shadow: 0 28px 68px rgba(52, 37, 16, 0.12);
     overflow: hidden;
+}
+
+.system-layout > * {
+    min-width: 0;
 }
 
 .system-layout::before {
@@ -676,6 +681,9 @@ a {
     gap: var(--space-6);
     position: relative;
     z-index: 1;
+    align-content: center;
+    padding: clamp(0.8rem, 1.4vw, 1.25rem);
+    min-width: 0;
 }
 
 .system-points {
@@ -692,6 +700,28 @@ a {
     border: 1px solid color-mix(in srgb, var(--color-border) 84%, transparent);
     background: linear-gradient(160deg, color-mix(in srgb, var(--color-bg-tertiary) 92%, white), color-mix(in srgb, var(--color-bg-secondary) 94%, transparent));
     box-shadow: 0 14px 30px rgba(58, 42, 18, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.system-point::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 0.3rem;
+    background: linear-gradient(90deg, var(--color-accent), color-mix(in srgb, var(--color-accent-strong) 68%, var(--color-accent)));
+}
+
+.system-point:nth-child(2)::before {
+    background: linear-gradient(90deg, var(--color-accent-strong), color-mix(in srgb, var(--color-signal) 74%, var(--color-accent-strong)));
+}
+
+.system-point:nth-child(3)::before {
+    background: linear-gradient(90deg, var(--color-signal), color-mix(in srgb, var(--color-accent) 72%, var(--color-signal)));
+}
+
+.system-point:nth-child(4)::before {
+    background: linear-gradient(90deg, var(--color-plum), color-mix(in srgb, var(--color-accent-strong) 66%, var(--color-plum)));
 }
 
 .system-point strong {
@@ -708,19 +738,24 @@ a {
 .system-diagram {
     display: grid;
     gap: var(--space-4);
-    padding: var(--space-4);
+    padding: var(--space-3);
     border-radius: calc(var(--radius-xl) - 0.3rem);
     border: 1px solid rgba(36, 54, 88, 0.14);
     background: linear-gradient(180deg, rgba(255, 252, 244, 0.9), rgba(240, 244, 249, 0.84));
     box-shadow: 0 22px 50px rgba(22, 20, 18, 0.12);
     position: relative;
     z-index: 1;
+    align-content: start;
+    min-width: 0;
 }
 
 .system-diagram img {
+    max-width: 100%;
     width: 100%;
+    height: auto;
     display: block;
     border-radius: calc(var(--radius-lg) - 0.4rem);
+    background: rgba(255, 255, 255, 0.6);
 }
 
 .system-diagram figcaption {
@@ -1255,10 +1290,33 @@ a {
     grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
     gap: var(--space-8);
     align-items: start;
+    padding: clamp(1.2rem, 2vw, 1.8rem);
+    border: 1px solid color-mix(in srgb, var(--color-accent-strong) 12%, var(--color-border));
+    border-radius: var(--radius-xl);
+    background:
+        radial-gradient(circle at 82% 18%, color-mix(in srgb, var(--color-accent-strong) 12%, transparent), transparent 30%),
+        linear-gradient(150deg, color-mix(in srgb, var(--color-paper-cool) 92%, white), color-mix(in srgb, var(--color-paper-warm) 82%, transparent));
+    box-shadow: 0 24px 58px rgba(40, 49, 66, 0.1);
 }
 
 .blog-intro {
-    padding-top: var(--space-6);
+    padding: var(--space-6) var(--space-3) var(--space-3);
+    position: relative;
+}
+
+.blog-intro::before {
+    content: "Field notes";
+    display: inline-flex;
+    width: fit-content;
+    margin-bottom: var(--space-5);
+    padding: 0.38rem 0.72rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.58);
+    color: var(--color-accent-strong);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
 }
 
 .blog-panel {
@@ -1383,6 +1441,27 @@ a {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-6);
+}
+
+.projects-list {
+    padding: clamp(1.2rem, 2vw, 1.8rem);
+    border: 1px solid color-mix(in srgb, var(--color-accent) 14%, var(--color-border));
+    border-radius: var(--radius-xl);
+    background:
+        radial-gradient(circle at 16% 16%, color-mix(in srgb, var(--color-accent) 12%, transparent), transparent 28%),
+        linear-gradient(150deg, color-mix(in srgb, var(--color-paper-warm) 92%, white), color-mix(in srgb, var(--color-paper-cool) 70%, transparent));
+    box-shadow: 0 22px 52px rgba(52, 37, 16, 0.08);
+}
+
+.papers-list {
+    padding: clamp(1.2rem, 2vw, 1.8rem);
+    border: 1px solid color-mix(in srgb, var(--color-accent-strong) 16%, var(--color-border));
+    border-radius: var(--radius-xl);
+    background:
+        linear-gradient(rgba(30, 79, 149, 0.06) 1px, transparent 1px),
+        linear-gradient(150deg, color-mix(in srgb, var(--color-paper-cool) 94%, white), color-mix(in srgb, var(--color-paper-warm) 72%, transparent));
+    background-size: auto, auto;
+    box-shadow: 0 22px 52px rgba(33, 51, 83, 0.08);
 }
 
 .paper-item {
@@ -1715,6 +1794,13 @@ a {
     }
 
     .system-layout {
+        padding: var(--space-5);
+        border-radius: var(--radius-lg);
+    }
+
+    .blog-layout,
+    .projects-list,
+    .papers-list {
         padding: var(--space-5);
         border-radius: var(--radius-lg);
     }
