@@ -12,6 +12,12 @@ pub fn build_workbench(payload_json: &str) -> String {
     serde_json::to_string(&build(parse_payload(payload_json))).unwrap_or_else(|_| "{}".to_string())
 }
 
+#[wasm_bindgen]
+pub fn tick_layout(state_json: &str) -> String {
+    let state: SimState = serde_json::from_str(state_json).unwrap_or_default();
+    serde_json::to_string(&simulate(state)).unwrap_or_else(|_| "{}".to_string())
+}
+
 #[derive(Debug, Default, Deserialize)]
 #[serde(rename_all = "camelCase")]
 struct Payload {
@@ -132,9 +138,18 @@ struct WorkItem {
 #[derive(Debug, Serialize, Deserialize)]
 struct Output {
     nodes: Vec<Node>,
+    edges: Vec<Edge>,
     results: Vec<ResultCard>,
     selected: Selected,
     topics: Vec<TopicCount>,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "camelCase")]
+struct Edge {
+    from: String,
+    to: String,
+    kind: String,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -211,12 +226,20 @@ fn build(mut payload: Payload) -> Output {
     });
 
     let mut graph_items = topics_to_items(&topics);
-    graph_items.extend(scored.iter().map(|(item, score, visible)| {
+    let mut by_kind_counts: std::collections::HashMap<&str, usize> =
+        std::collections::HashMap::new();
+    let per_kind_cap = 5;
+    for (item, score, visible) in &scored {
+        let count = by_kind_counts.entry(item.kind.as_str()).or_insert(0);
+        if *count >= per_kind_cap {
+            continue;
+        }
+        *count += 1;
         let mut cloned = item.clone();
         cloned.base_score = *score + if *visible { 10.0 } else { 0.0 };
-        cloned
-    }));
-    graph_items.truncate(14);
+        graph_items.push(cloned);
+    }
+    graph_items.truncate(20);
 
     let positions = layout(&graph_items);
     let nodes = graph_items
@@ -262,13 +285,40 @@ fn build(mut payload: Payload) -> Output {
 
     let selected = select_item(&payload.selected_id, active_topic, &topics, &scored);
     let topic_counts = count_topics(&topics, &scored);
+    let edges = derive_edges(&graph_items);
 
     Output {
         nodes,
+        edges,
         results,
         selected,
         topics: topic_counts,
     }
+}
+
+fn derive_edges(items: &[WorkItem]) -> Vec<Edge> {
+    let topic_ids: std::collections::HashSet<&str> = items
+        .iter()
+        .filter(|item| item.kind == "topic")
+        .map(|item| item.id.as_str())
+        .collect();
+
+    let mut edges = Vec::new();
+    for item in items {
+        if item.kind == "topic" {
+            continue;
+        }
+        for topic in &item.topics {
+            if topic_ids.contains(topic.as_str()) {
+                edges.push(Edge {
+                    from: item.id.clone(),
+                    to: topic.clone(),
+                    kind: "topic".into(),
+                });
+            }
+        }
+    }
+    edges
 }
 
 fn normalize_topics(mut topics: Vec<Topic>) -> Vec<Topic> {
@@ -607,15 +657,7 @@ fn topics_for_text(text: &str) -> Vec<String> {
     if contains_any(
         &haystack,
         &[
-            "rust",
-            "polars",
-            "tokio",
-            "axum",
-            "async",
-            "runtime",
-            "no_std",
-            "embassy",
-            "embedded",
+            "rust", "polars", "tokio", "axum", "async", "runtime", "no_std", "embassy", "embedded",
         ],
     ) {
         topics.push("rust-systems".to_string());
@@ -769,6 +811,170 @@ fn small_hash(s: &str) -> u32 {
     h
 }
 
+// ---- Force-directed layout simulation ----
+//
+// Coords are in the same 0..100 space the radial layout already uses, so the
+// existing CSS percentage positioning continues to work for the DOM fallback
+// path while the new canvas renderer maps 0..100 to pixels.
+//
+// Algorithm: classic spring-electrical model with an O(n^2) repulsion loop.
+// At ~14 nodes that's ~200 ops per tick — quadtree (Barnes-Hut) would be
+// premature here. Revisit if node count grows past ~100.
+
+#[derive(Debug, Default, Deserialize)]
+#[serde(rename_all = "camelCase")]
+struct SimState {
+    #[serde(default)]
+    nodes: Vec<SimNode>,
+    #[serde(default)]
+    edges: Vec<Edge>,
+    #[serde(default)]
+    selected_id: String,
+    #[serde(default)]
+    dt: f32,
+}
+
+#[derive(Debug, Default, Deserialize, Serialize, Clone)]
+struct SimNode {
+    id: String,
+    #[serde(default)]
+    kind: String,
+    x: f32,
+    y: f32,
+    #[serde(default)]
+    vx: f32,
+    #[serde(default)]
+    vy: f32,
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+struct SimResult {
+    nodes: Vec<SimNode>,
+    kinetic_energy: f32,
+}
+
+const REPULSION: f32 = 220.0;
+const SPRING_K: f32 = 0.18;
+const SPRING_REST: f32 = 14.0;
+const DAMPING: f32 = 0.82;
+const FOCUS_PULL: f32 = 0.012;
+const CENTER_PULL: f32 = 0.0035;
+const MIN_DIST_SQ: f32 = 0.6;
+const MAX_VEL: f32 = 8.0;
+const BOUND_LOW: f32 = 6.0;
+const BOUND_HIGH: f32 = 94.0;
+
+fn simulate(mut state: SimState) -> SimResult {
+    let dt = if state.dt > 0.0 && state.dt <= 2.0 {
+        state.dt
+    } else {
+        1.0
+    };
+    let n = state.nodes.len();
+    if n == 0 {
+        return SimResult {
+            nodes: Vec::new(),
+            kinetic_energy: 0.0,
+        };
+    }
+
+    let mut fx = vec![0.0_f32; n];
+    let mut fy = vec![0.0_f32; n];
+
+    // Repulsion (Coulomb-like).
+    for i in 0..n {
+        for j in (i + 1)..n {
+            let dx = state.nodes[i].x - state.nodes[j].x;
+            let dy = state.nodes[i].y - state.nodes[j].y;
+            let dist_sq = (dx * dx + dy * dy).max(MIN_DIST_SQ);
+            let force = REPULSION / dist_sq;
+            let dist = dist_sq.sqrt();
+            let ux = dx / dist;
+            let uy = dy / dist;
+            fx[i] += ux * force;
+            fy[i] += uy * force;
+            fx[j] -= ux * force;
+            fy[j] -= uy * force;
+        }
+    }
+
+    // Spring attraction along edges.
+    let id_to_index: std::collections::HashMap<&str, usize> = state
+        .nodes
+        .iter()
+        .enumerate()
+        .map(|(idx, node)| (node.id.as_str(), idx))
+        .collect();
+    for edge in &state.edges {
+        let (Some(&i), Some(&j)) = (
+            id_to_index.get(edge.from.as_str()),
+            id_to_index.get(edge.to.as_str()),
+        ) else {
+            continue;
+        };
+        let dx = state.nodes[j].x - state.nodes[i].x;
+        let dy = state.nodes[j].y - state.nodes[i].y;
+        let dist = (dx * dx + dy * dy).sqrt().max(MIN_DIST_SQ.sqrt());
+        let displacement = dist - SPRING_REST;
+        let force = SPRING_K * displacement;
+        let ux = dx / dist;
+        let uy = dy / dist;
+        fx[i] += ux * force;
+        fy[i] += uy * force;
+        fx[j] -= ux * force;
+        fy[j] -= uy * force;
+    }
+
+    // Centering pull + selected-node focus pull.
+    let selected_idx = if state.selected_id.is_empty() {
+        None
+    } else {
+        id_to_index.get(state.selected_id.as_str()).copied()
+    };
+    let (focus_x, focus_y) = match selected_idx {
+        Some(idx) => (state.nodes[idx].x, state.nodes[idx].y),
+        None => (50.0, 50.0),
+    };
+    for i in 0..n {
+        fx[i] += (50.0 - state.nodes[i].x) * CENTER_PULL;
+        fy[i] += (50.0 - state.nodes[i].y) * CENTER_PULL;
+        if selected_idx.is_some() && Some(i) != selected_idx {
+            fx[i] += (focus_x - state.nodes[i].x) * FOCUS_PULL;
+            fy[i] += (focus_y - state.nodes[i].y) * FOCUS_PULL;
+        }
+    }
+
+    // Integrate.
+    let mut ke = 0.0_f32;
+    for i in 0..n {
+        // Selected node holds position (acts as anchor).
+        if Some(i) == selected_idx {
+            state.nodes[i].vx = 0.0;
+            state.nodes[i].vy = 0.0;
+            continue;
+        }
+        let mut vx = (state.nodes[i].vx + fx[i] * dt) * DAMPING;
+        let mut vy = (state.nodes[i].vy + fy[i] * dt) * DAMPING;
+        let speed = (vx * vx + vy * vy).sqrt();
+        if speed > MAX_VEL {
+            let scale = MAX_VEL / speed;
+            vx *= scale;
+            vy *= scale;
+        }
+        state.nodes[i].vx = vx;
+        state.nodes[i].vy = vy;
+        state.nodes[i].x = (state.nodes[i].x + vx * dt).clamp(BOUND_LOW, BOUND_HIGH);
+        state.nodes[i].y = (state.nodes[i].y + vy * dt).clamp(BOUND_LOW, BOUND_HIGH);
+        ke += vx * vx + vy * vy;
+    }
+
+    SimResult {
+        nodes: state.nodes,
+        kinetic_energy: ke,
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -858,8 +1064,129 @@ mod tests {
 
     #[test]
     fn grappler_no_longer_maps_to_scraping_topic() {
-        let topics = topics_for_text("Zero Grappler is an embedded TinyML crate built with Embassy");
+        let topics =
+            topics_for_text("Zero Grappler is an embedded TinyML crate built with Embassy");
         assert!(!topics.contains(&"scraping".to_string()));
         assert!(topics.contains(&"rust-systems".to_string()));
+    }
+
+    #[test]
+    fn build_emits_edges_from_items_to_topics() {
+        let out: Output = serde_json::from_str(&build_workbench(sample_payload())).unwrap();
+        let topic_ids: std::collections::HashSet<&str> = out
+            .nodes
+            .iter()
+            .filter(|n| n.kind == "topic")
+            .map(|n| n.id.as_str())
+            .collect();
+        assert!(!out.edges.is_empty());
+        for edge in &out.edges {
+            assert!(
+                topic_ids.contains(edge.to.as_str()),
+                "edge target should be a topic node"
+            );
+        }
+    }
+
+    #[test]
+    fn force_sim_converges() {
+        let payload: SimState = serde_json::from_str(
+            r#"{
+                "nodes": [
+                    {"id": "a", "kind": "topic", "x": 50.0, "y": 50.0, "vx": 0.0, "vy": 0.0},
+                    {"id": "b", "kind": "post", "x": 50.0, "y": 50.5, "vx": 0.0, "vy": 0.0},
+                    {"id": "c", "kind": "post", "x": 49.5, "y": 50.0, "vx": 0.0, "vy": 0.0}
+                ],
+                "edges": [{"from": "b", "to": "a", "kind": "topic"}],
+                "selectedId": "",
+                "dt": 1.0
+            }"#,
+        )
+        .unwrap();
+
+        let mut state = payload;
+        let mut last_ke = f32::INFINITY;
+        for _ in 0..200 {
+            let result = simulate(SimState {
+                nodes: state.nodes,
+                edges: state.edges.clone(),
+                selected_id: state.selected_id.clone(),
+                dt: 1.0,
+            });
+            state = SimState {
+                nodes: result.nodes,
+                edges: state.edges,
+                selected_id: state.selected_id,
+                dt: 1.0,
+            };
+            last_ke = result.kinetic_energy;
+        }
+        assert!(last_ke < 0.05, "expected sim to settle, last_ke={last_ke}");
+        // Coincident nodes should have separated.
+        let dx = state.nodes[1].x - state.nodes[2].x;
+        let dy = state.nodes[1].y - state.nodes[2].y;
+        assert!((dx * dx + dy * dy).sqrt() > 1.0);
+    }
+
+    #[test]
+    fn selected_node_anchors_position() {
+        let payload: SimState = serde_json::from_str(
+            r#"{
+                "nodes": [
+                    {"id": "anchor", "kind": "topic", "x": 30.0, "y": 30.0},
+                    {"id": "free", "kind": "post", "x": 70.0, "y": 70.0}
+                ],
+                "edges": [],
+                "selectedId": "anchor",
+                "dt": 1.0
+            }"#,
+        )
+        .unwrap();
+
+        let result = simulate(payload);
+        let anchor = result.nodes.iter().find(|n| n.id == "anchor").unwrap();
+        assert!((anchor.x - 30.0).abs() < 0.01);
+        assert!((anchor.y - 30.0).abs() < 0.01);
+        assert!((anchor.vx).abs() < 0.001);
+    }
+
+    #[test]
+    fn coincident_points_do_not_blow_up() {
+        let payload = SimState {
+            nodes: vec![
+                SimNode {
+                    id: "a".into(),
+                    kind: "topic".into(),
+                    x: 50.0,
+                    y: 50.0,
+                    vx: 0.0,
+                    vy: 0.0,
+                },
+                SimNode {
+                    id: "b".into(),
+                    kind: "post".into(),
+                    x: 50.0,
+                    y: 50.0,
+                    vx: 0.0,
+                    vy: 0.0,
+                },
+            ],
+            edges: vec![],
+            selected_id: String::new(),
+            dt: 1.0,
+        };
+        let result = simulate(payload);
+        for node in &result.nodes {
+            assert!(node.x.is_finite() && node.y.is_finite());
+            assert!(node.x >= BOUND_LOW && node.x <= BOUND_HIGH);
+            assert!(node.y >= BOUND_LOW && node.y <= BOUND_HIGH);
+        }
+    }
+
+    #[test]
+    fn tick_layout_handles_malformed_json() {
+        let out = tick_layout("{not-json");
+        let parsed: serde_json::Value = serde_json::from_str(&out).unwrap();
+        assert_eq!(parsed["nodes"].as_array().unwrap().len(), 0);
     }
 }

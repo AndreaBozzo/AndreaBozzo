@@ -882,6 +882,42 @@ a {
     isolation: isolate;
 }
 
+.map-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    cursor: grab;
+    touch-action: manipulation;
+}
+
+.map-panel.is-canvas .map-canvas {
+    display: block;
+}
+
+.map-panel.is-canvas .map-orbit {
+    display: none;
+}
+
+.map-panel.is-canvas .map-orbit::before,
+.map-panel.is-canvas .map-orbit::after {
+    display: none;
+}
+
+.map-a11y-list {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+    list-style: none;
+}
+
 .map-orbit::before,
 .map-orbit::after {
     content: "";

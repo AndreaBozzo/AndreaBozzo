@@ -97,7 +97,36 @@ const workbenchState = {
 };
 
 let workbenchEngine = null;
+let workbenchEngineTick = null;
 let workbenchEngineLoadStarted = false;
+
+const graphSim = {
+    enabled: false,
+    nodes: [],
+    edges: [],
+    rafId: null,
+    hoveredId: null,
+    canvas: null,
+    ctx: null,
+    dpr: 1,
+    width: 0,
+    height: 0,
+    reduceMotion: false,
+    settledFrames: 0
+};
+
+const NODE_KIND_COLORS = {
+    topic: '#c45a27',
+    'case-study': '#7358ba',
+    post: '#1e4f95',
+    project: '#0e7065'
+};
+const NODE_KIND_RADIUS = {
+    topic: 28,
+    'case-study': 22,
+    post: 18,
+    project: 18
+};
 
 function normalizeText(value) {
     return String(value || '').toLowerCase();
@@ -314,7 +343,17 @@ function renderTopicStrip(topicCounts = []) {
     });
 }
 
-function renderMap(nodes) {
+function renderMap(nodes, edges) {
+    if (graphSim.enabled) {
+        renderGraphCanvas(nodes, edges);
+        renderMapA11yList(nodes);
+        return;
+    }
+    renderMapDom(nodes);
+    renderMapA11yList(nodes);
+}
+
+function renderMapDom(nodes) {
     const map = document.getElementById('map-orbit');
     if (!map) return;
 
@@ -335,6 +374,325 @@ function renderMap(nodes) {
             renderWorkbench();
         });
     });
+}
+
+function renderMapA11yList(nodes) {
+    const list = document.getElementById('map-a11y-list');
+    if (!list) return;
+    list.innerHTML = nodes.map(node => `
+        <li><button type="button" data-item-id="${escapeHtml(node.id)}">${escapeHtml(node.label)}</button></li>
+    `).join('');
+    list.querySelectorAll('[data-item-id]').forEach(button => {
+        button.addEventListener('click', () => {
+            workbenchState.selectedId = button.dataset.itemId;
+            renderWorkbench();
+        });
+    });
+}
+
+function ensureGraphCanvas() {
+    if (graphSim.canvas) return graphSim.canvas;
+    const canvas = document.getElementById('map-canvas');
+    if (!canvas) return null;
+    graphSim.canvas = canvas;
+    graphSim.ctx = canvas.getContext('2d');
+    graphSim.reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const resize = () => {
+        const rect = canvas.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        graphSim.dpr = dpr;
+        graphSim.width = rect.width;
+        graphSim.height = rect.height;
+        canvas.width = Math.max(1, Math.round(rect.width * dpr));
+        canvas.height = Math.max(1, Math.round(rect.height * dpr));
+        graphSim.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        drawGraph();
+    };
+    resize();
+    if ('ResizeObserver' in window) {
+        new ResizeObserver(resize).observe(canvas);
+    } else {
+        window.addEventListener('resize', resize);
+    }
+
+    canvas.addEventListener('click', onGraphClick);
+    canvas.addEventListener('mousemove', onGraphHover);
+    canvas.addEventListener('mouseleave', () => {
+        if (graphSim.hoveredId !== null) {
+            graphSim.hoveredId = null;
+            graphSim.canvas.style.cursor = 'grab';
+            drawGraph();
+        }
+    });
+
+    return canvas;
+}
+
+function renderGraphCanvas(nodes, edges) {
+    const panel = document.querySelector('.map-panel');
+    if (panel && !panel.classList.contains('is-canvas')) {
+        panel.classList.add('is-canvas');
+    }
+    if (!ensureGraphCanvas()) return;
+
+    const previousById = new Map(graphSim.nodes.map(n => [n.id, n]));
+    graphSim.nodes = nodes.map(node => {
+        const prev = previousById.get(node.id);
+        return {
+            id: node.id,
+            kind: node.kind,
+            label: node.label,
+            visible: node.visible,
+            x: prev ? prev.x : node.x,
+            y: prev ? prev.y : node.y,
+            vx: prev ? prev.vx : 0,
+            vy: prev ? prev.vy : 0
+        };
+    });
+    graphSim.edges = (edges || []).filter(edge =>
+        graphSim.nodes.some(n => n.id === edge.from) && graphSim.nodes.some(n => n.id === edge.to)
+    );
+    graphSim.settledFrames = 0;
+
+    if (graphSim.reduceMotion) {
+        for (let i = 0; i < 80; i++) stepSimulation();
+        drawGraph();
+        return;
+    }
+    startGraphLoop();
+}
+
+function stepSimulation() {
+    if (!graphSim.nodes.length) return 0;
+    const payload = JSON.stringify({
+        nodes: graphSim.nodes,
+        edges: graphSim.edges,
+        selectedId: workbenchState.selectedId,
+        dt: 1.0
+    });
+    let result;
+    if (workbenchEngineTick) {
+        try {
+            result = JSON.parse(workbenchEngineTick(payload));
+        } catch (error) {
+            console.warn('tick_layout failed, switching to JS fallback:', error);
+            workbenchEngineTick = null;
+            result = stepSimulationJS();
+        }
+    } else {
+        result = stepSimulationJS();
+    }
+    graphSim.nodes = result.nodes;
+    return result.kineticEnergy ?? result.kinetic_energy ?? 0;
+}
+
+function stepSimulationJS() {
+    const REPULSION = 220;
+    const SPRING_K = 0.18;
+    const SPRING_REST = 14;
+    const DAMPING = 0.82;
+    const FOCUS_PULL = 0.012;
+    const CENTER_PULL = 0.0035;
+    const MIN_DIST_SQ = 0.6;
+    const MAX_VEL = 8;
+    const BOUND_LOW = 6;
+    const BOUND_HIGH = 94;
+
+    const nodes = graphSim.nodes.map(n => ({ ...n }));
+    const fx = new Array(nodes.length).fill(0);
+    const fy = new Array(nodes.length).fill(0);
+
+    for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+            const dx = nodes[i].x - nodes[j].x;
+            const dy = nodes[i].y - nodes[j].y;
+            const distSq = Math.max(dx * dx + dy * dy, MIN_DIST_SQ);
+            const dist = Math.sqrt(distSq);
+            const force = REPULSION / distSq;
+            const ux = dx / dist;
+            const uy = dy / dist;
+            fx[i] += ux * force; fy[i] += uy * force;
+            fx[j] -= ux * force; fy[j] -= uy * force;
+        }
+    }
+
+    const indexById = new Map(nodes.map((n, idx) => [n.id, idx]));
+    for (const edge of graphSim.edges) {
+        const i = indexById.get(edge.from);
+        const j = indexById.get(edge.to);
+        if (i === undefined || j === undefined) continue;
+        const dx = nodes[j].x - nodes[i].x;
+        const dy = nodes[j].y - nodes[i].y;
+        const dist = Math.max(Math.sqrt(dx * dx + dy * dy), Math.sqrt(MIN_DIST_SQ));
+        const force = SPRING_K * (dist - SPRING_REST);
+        const ux = dx / dist;
+        const uy = dy / dist;
+        fx[i] += ux * force; fy[i] += uy * force;
+        fx[j] -= ux * force; fy[j] -= uy * force;
+    }
+
+    const selectedIdx = workbenchState.selectedId ? indexById.get(workbenchState.selectedId) : undefined;
+    const focusX = selectedIdx !== undefined ? nodes[selectedIdx].x : 50;
+    const focusY = selectedIdx !== undefined ? nodes[selectedIdx].y : 50;
+    for (let i = 0; i < nodes.length; i++) {
+        fx[i] += (50 - nodes[i].x) * CENTER_PULL;
+        fy[i] += (50 - nodes[i].y) * CENTER_PULL;
+        if (selectedIdx !== undefined && i !== selectedIdx) {
+            fx[i] += (focusX - nodes[i].x) * FOCUS_PULL;
+            fy[i] += (focusY - nodes[i].y) * FOCUS_PULL;
+        }
+    }
+
+    let ke = 0;
+    for (let i = 0; i < nodes.length; i++) {
+        if (i === selectedIdx) {
+            nodes[i].vx = 0; nodes[i].vy = 0;
+            continue;
+        }
+        let vx = (nodes[i].vx + fx[i]) * DAMPING;
+        let vy = (nodes[i].vy + fy[i]) * DAMPING;
+        const speed = Math.sqrt(vx * vx + vy * vy);
+        if (speed > MAX_VEL) {
+            vx = vx * MAX_VEL / speed;
+            vy = vy * MAX_VEL / speed;
+        }
+        nodes[i].vx = vx;
+        nodes[i].vy = vy;
+        nodes[i].x = Math.min(BOUND_HIGH, Math.max(BOUND_LOW, nodes[i].x + vx));
+        nodes[i].y = Math.min(BOUND_HIGH, Math.max(BOUND_LOW, nodes[i].y + vy));
+        ke += vx * vx + vy * vy;
+    }
+
+    return { nodes, kineticEnergy: ke };
+}
+
+function startGraphLoop() {
+    if (graphSim.rafId) return;
+    const tick = () => {
+        const ke = stepSimulation();
+        drawGraph();
+        if (ke < 0.05) {
+            graphSim.settledFrames += 1;
+        } else {
+            graphSim.settledFrames = 0;
+        }
+        if (graphSim.settledFrames >= 12) {
+            graphSim.rafId = null;
+            return;
+        }
+        graphSim.rafId = requestAnimationFrame(tick);
+    };
+    graphSim.rafId = requestAnimationFrame(tick);
+}
+
+function nodeToPixel(node) {
+    return {
+        x: (node.x / 100) * graphSim.width,
+        y: (node.y / 100) * graphSim.height
+    };
+}
+
+function drawGraph() {
+    const ctx = graphSim.ctx;
+    if (!ctx) return;
+    ctx.clearRect(0, 0, graphSim.width, graphSim.height);
+
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const edgeStroke = isDark ? 'rgba(170, 190, 220, 0.22)' : 'rgba(60, 70, 95, 0.18)';
+    const edgeStrokeActive = isDark ? 'rgba(196, 90, 39, 0.7)' : 'rgba(196, 90, 39, 0.55)';
+
+    const nodeById = new Map(graphSim.nodes.map(n => [n.id, n]));
+    const selectedId = workbenchState.selectedId;
+
+    ctx.lineWidth = 1.2;
+    for (const edge of graphSim.edges) {
+        const a = nodeById.get(edge.from);
+        const b = nodeById.get(edge.to);
+        if (!a || !b) continue;
+        const active = a.id === selectedId || b.id === selectedId
+            || a.id === graphSim.hoveredId || b.id === graphSim.hoveredId;
+        ctx.strokeStyle = active ? edgeStrokeActive : edgeStroke;
+        ctx.beginPath();
+        const ap = nodeToPixel(a);
+        const bp = nodeToPixel(b);
+        ctx.moveTo(ap.x, ap.y);
+        ctx.lineTo(bp.x, bp.y);
+        ctx.stroke();
+    }
+
+    for (const node of graphSim.nodes) {
+        const { x, y } = nodeToPixel(node);
+        const radius = NODE_KIND_RADIUS[node.kind] || 18;
+        const isSelected = node.id === selectedId;
+        const isHovered = node.id === graphSim.hoveredId;
+        const baseColor = NODE_KIND_COLORS[node.kind] || '#444';
+
+        ctx.globalAlpha = node.visible ? 1.0 : 0.32;
+
+        if (isSelected || isHovered) {
+            ctx.beginPath();
+            ctx.arc(x, y, radius + 6, 0, Math.PI * 2);
+            ctx.fillStyle = isDark
+                ? 'rgba(196, 90, 39, 0.18)'
+                : 'rgba(196, 90, 39, 0.16)';
+            ctx.fill();
+        }
+
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fillStyle = isDark ? '#1c2436' : '#fbf4e7';
+        ctx.fill();
+        ctx.strokeStyle = baseColor;
+        ctx.lineWidth = isSelected ? 3 : 1.8;
+        ctx.stroke();
+
+        ctx.fillStyle = isDark ? '#e8eef5' : '#1a2236';
+        ctx.font = `${node.kind === 'topic' ? 600 : 500} 12px IBM Plex Sans, Arial, sans-serif`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        const label = node.label.length > 14 ? node.label.slice(0, 13) + '…' : node.label;
+        ctx.fillText(label, x, y);
+    }
+    ctx.globalAlpha = 1.0;
+}
+
+function pickNodeAt(clientX, clientY) {
+    const rect = graphSim.canvas.getBoundingClientRect();
+    const px = clientX - rect.left;
+    const py = clientY - rect.top;
+    let best = null;
+    let bestDistSq = Infinity;
+    for (const node of graphSim.nodes) {
+        const { x, y } = nodeToPixel(node);
+        const dx = px - x;
+        const dy = py - y;
+        const dSq = dx * dx + dy * dy;
+        const radius = NODE_KIND_RADIUS[node.kind] || 18;
+        if (dSq <= (radius + 6) * (radius + 6) && dSq < bestDistSq) {
+            best = node;
+            bestDistSq = dSq;
+        }
+    }
+    return best;
+}
+
+function onGraphClick(event) {
+    const node = pickNodeAt(event.clientX, event.clientY);
+    if (!node) return;
+    workbenchState.selectedId = node.id;
+    renderWorkbench();
+    startGraphLoop();
+}
+
+function onGraphHover(event) {
+    const node = pickNodeAt(event.clientX, event.clientY);
+    const id = node ? node.id : null;
+    if (id !== graphSim.hoveredId) {
+        graphSim.hoveredId = id;
+        graphSim.canvas.style.cursor = id ? 'pointer' : 'grab';
+        drawGraph();
+    }
 }
 
 function renderInspector(selected) {
@@ -389,7 +747,7 @@ function renderWorkbench() {
 
     const viewModel = buildWorkbenchViewModel();
     renderTopicStrip(viewModel.topics || []);
-    renderMap(viewModel.nodes || []);
+    renderMap(viewModel.nodes || [], viewModel.edges || []);
     renderInspector(viewModel.selected || selectedFromItem(topicBlueprints[1]));
     renderWorkbenchResults(viewModel.results || []);
 }
@@ -402,6 +760,8 @@ async function loadWorkbenchEngine() {
         const module = await import(`${siteBasePath}assets/wasm/site_engine.js`);
         await module.default(`${siteBasePath}assets/wasm/site_engine_bg.wasm`);
         workbenchEngine = module.build_workbench;
+        workbenchEngineTick = typeof module.tick_layout === 'function' ? module.tick_layout : null;
+        graphSim.enabled = true;
         renderWorkbench();
     } catch (error) {
         console.warn('Rust workbench engine unavailable, using JavaScript fallback:', error);
