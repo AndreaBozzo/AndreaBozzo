@@ -60,6 +60,78 @@ function syncThemeColor(theme) {
 
 syncThemeColor(savedTheme);
 
+function ensureCaseStudyMediaViewer() {
+    let viewer = document.getElementById('case-study-media-viewer');
+    if (viewer) {
+        return viewer;
+    }
+
+    viewer = document.createElement('div');
+    viewer.id = 'case-study-media-viewer';
+    viewer.className = 'media-viewer';
+    viewer.hidden = true;
+    viewer.innerHTML = `
+        <div class="media-viewer-backdrop" data-media-dismiss="true"></div>
+        <div class="media-viewer-dialog" role="dialog" aria-modal="true" aria-label="Expanded case study media">
+            <button class="media-viewer-close" type="button" aria-label="Close full size media">×</button>
+            <div class="media-viewer-frame">
+                <img src="" alt="">
+            </div>
+            <div class="media-viewer-meta">
+                <div class="media-viewer-label"></div>
+                <p class="media-viewer-caption"></p>
+            </div>
+        </div>
+    `;
+
+    const closeViewer = () => {
+        viewer.hidden = true;
+        document.body.classList.remove('media-viewer-open');
+    };
+
+    viewer.querySelector('[data-media-dismiss="true"]').addEventListener('click', closeViewer);
+    viewer.querySelector('.media-viewer-close').addEventListener('click', closeViewer);
+    viewer.addEventListener('click', (event) => {
+        if (event.target === viewer) {
+            closeViewer();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !viewer.hidden) {
+            closeViewer();
+        }
+    });
+
+    document.body.appendChild(viewer);
+    return viewer;
+}
+
+function initializeCaseStudyMediaViewer() {
+    const triggers = document.querySelectorAll('.media-slot-trigger');
+    if (!triggers.length) {
+        return;
+    }
+
+    const viewer = ensureCaseStudyMediaViewer();
+    const viewerImage = viewer.querySelector('.media-viewer-frame img');
+    const viewerLabel = viewer.querySelector('.media-viewer-label');
+    const viewerCaption = viewer.querySelector('.media-viewer-caption');
+    const viewerClose = viewer.querySelector('.media-viewer-close');
+
+    triggers.forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+            viewerImage.src = trigger.dataset.mediaSrc || '';
+            viewerImage.alt = trigger.dataset.mediaAlt || trigger.dataset.mediaLabel || '';
+            viewerLabel.textContent = trigger.dataset.mediaLabel || 'Case study media';
+            viewerCaption.textContent = trigger.dataset.mediaCaption || '';
+            viewer.hidden = false;
+            document.body.classList.add('media-viewer-open');
+            viewerClose.focus();
+        });
+    });
+}
+
 // ===== Scroll Reveal Animation with Intersection Observer =====
 const revealElements = document.querySelectorAll('.scroll-reveal');
 
@@ -474,6 +546,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (shouldEnableAnalytics()) {
         inject();
     }
+    initializeCaseStudyMediaViewer();
     const loadBlogPosts = () => loadLatestBlogPosts();
     const hasWorkbench = workbench.initializeWorkbench();
 

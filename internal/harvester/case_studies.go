@@ -212,9 +212,14 @@ func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext) []by
 			buf.WriteString("                    <article class=\"media-slot\">\n")
 			buf.WriteString("                        <span>" + escapeHTML(label) + "</span>\n")
 			if slot.Image != "" {
-				buf.WriteString("                        <figure class=\"media-slot-figure\">\n")
-				buf.WriteString("                            <img src=\"" + escapeHTML(resolveCaseStudyAssetPath(slot.Image)) + "\" alt=\"" + escapeHTML(firstNonEmpty(slot.Alt, label)) + "\" loading=\"lazy\">\n")
-				buf.WriteString("                        </figure>\n")
+				imagePath := resolveCaseStudyAssetPath(slot.Image)
+				altText := firstNonEmpty(slot.Alt, label)
+				buf.WriteString("                        <button class=\"media-slot-trigger\" type=\"button\" aria-haspopup=\"dialog\" aria-label=\"Open full size " + escapeHTML(label) + "\" data-media-src=\"" + escapeHTML(imagePath) + "\" data-media-alt=\"" + escapeHTML(altText) + "\" data-media-label=\"" + escapeHTML(label) + "\" data-media-caption=\"" + escapeHTML(caption) + "\">\n")
+				buf.WriteString("                            <figure class=\"media-slot-figure\">\n")
+				buf.WriteString("                                <img src=\"" + escapeHTML(imagePath) + "\" alt=\"" + escapeHTML(altText) + "\" loading=\"lazy\">\n")
+				buf.WriteString("                            </figure>\n")
+				buf.WriteString("                            <span class=\"media-slot-hint\">Open full size</span>\n")
+				buf.WriteString("                        </button>\n")
 			}
 			if caption != "" {
 				buf.WriteString("                        <p>" + escapeHTML(caption) + "</p>\n")
