@@ -131,6 +131,14 @@ const NODE_KIND_RADIUS = {
     post: 20,
     project: 20
 };
+// Same kinds, but expressed in simulation units (the 0..100 coord space) so
+// the spring-electrical model can keep circles from visually overlapping.
+const NODE_KIND_SIM_RADIUS = {
+    topic: 6.5,
+    'case-study': 5.0,
+    post: 4.0,
+    project: 4.0
+};
 const SIM_WARMUP_STEPS = 60;
 const SIM_TEMP_FLOOR = 0.05;
 const SIM_TEMP_DECAY = 0.985;
@@ -458,6 +466,7 @@ function renderGraphCanvas(nodes, edges) {
     const previousById = new Map(graphSim.nodes.map(n => [n.id, n]));
     let newNodeCount = 0;
     graphSim.nodes = nodes.map((node, index) => {
+        const radius = NODE_KIND_SIM_RADIUS[node.kind] || 4.0;
         const prev = previousById.get(node.id);
         if (prev) {
             return {
@@ -465,6 +474,7 @@ function renderGraphCanvas(nodes, edges) {
                 kind: node.kind,
                 label: node.label,
                 visible: node.visible,
+                radius,
                 x: prev.x,
                 y: prev.y,
                 vx: prev.vx,
@@ -478,6 +488,7 @@ function renderGraphCanvas(nodes, edges) {
             kind: node.kind,
             label: node.label,
             visible: node.visible,
+            radius,
             x: seed.x,
             y: seed.y,
             vx: 0,
@@ -549,17 +560,19 @@ function stepSimulation() {
 }
 
 function stepSimulationJS() {
-    const REPULSION = 10;
-    const SPRING_K = 0.24;
-    const SPRING_REST = 8;
-    const DAMPING = 0.78;
+    const REPULSION = 8;
+    const SPRING_K = 0.18;
+    const SPRING_REST = 16;
+    const DAMPING = 0.80;
     const FOCUS_PULL = 0.015;
-    const CENTER_PULL = 0.22;
+    const CENTER_PULL = 0.13;
+    const COLLISION_PAD = 1.2;
+    const COLLISION_K = 1.2;
     const MIN_DIST = 2.0;
     const MIN_DIST_SQ = MIN_DIST * MIN_DIST;
     const MAX_VEL = 2.5;
-    const BOUND_LOW = 16;
-    const BOUND_HIGH = 84;
+    const BOUND_LOW = 14;
+    const BOUND_HIGH = 86;
     const temperature = graphSim.temperature;
 
     const nodes = graphSim.nodes.map(n => ({ ...n }));
@@ -578,9 +591,11 @@ function stepSimulationJS() {
                 distSq = Math.max(dx * dx + dy * dy, MIN_DIST_SQ);
             }
             const dist = Math.sqrt(distSq);
-            const force = REPULSION / dist;
             const ux = dx / dist;
             const uy = dy / dist;
+            let force = REPULSION / dist;
+            const target = (nodes[i].radius || 0) + (nodes[j].radius || 0) + COLLISION_PAD;
+            if (dist < target) force += COLLISION_K * (target - dist);
             fx[i] += ux * force; fy[i] += uy * force;
             fx[j] -= ux * force; fy[j] -= uy * force;
         }
@@ -693,22 +708,23 @@ function drawGraph() {
         ctx.stroke();
     }
 
+    // Pass 1: circles. Track each rendered circle's bounding box so the
+    // label pass can avoid drawing over them.
+    const circleRects = [];
+    const drawn = [];
     for (const node of graphSim.nodes) {
         const { x, y } = nodeToPixel(node);
         const radius = NODE_KIND_RADIUS[node.kind] || 18;
         const isSelected = node.id === selectedId;
         const isHovered = node.id === graphSim.hoveredId;
         const baseColor = NODE_KIND_COLORS[node.kind] || '#444';
-        const isTopic = node.kind === 'topic';
 
         ctx.globalAlpha = node.visible ? 1.0 : 0.32;
 
         if (isSelected || isHovered) {
             ctx.beginPath();
             ctx.arc(x, y, radius + 6, 0, Math.PI * 2);
-            ctx.fillStyle = isDark
-                ? 'rgba(196, 90, 39, 0.18)'
-                : 'rgba(196, 90, 39, 0.16)';
+            ctx.fillStyle = isDark ? 'rgba(196, 90, 39, 0.18)' : 'rgba(196, 90, 39, 0.16)';
             ctx.fill();
         }
 
@@ -720,39 +736,82 @@ function drawGraph() {
         ctx.lineWidth = isSelected ? 3 : 1.8;
         ctx.stroke();
 
+        circleRects.push({ x: x - radius, y: y - radius, w: radius * 2, h: radius * 2 });
+        drawn.push({ node, x, y, radius, isSelected, isHovered, baseColor });
+    }
+
+    // Pass 2: labels. Topic labels draw inside the circle (they own the
+    // space). Other labels go above/below; collect a candidate rect for each
+    // and place greedily by priority, skipping any whose rect overlaps an
+    // already-placed label or a non-source circle.
+    const labelRects = [];
+    const intersects = (a, b) =>
+        a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y;
+    const lineHeight = 13;
+
+    const ordered = drawn.slice().sort((a, b) => {
+        const score = d => (d.node.kind === 'topic' ? 0 : 0)
+            + (d.isSelected ? -3 : 0)
+            + (d.isHovered ? -2 : 0)
+            + (d.node.kind === 'topic' ? -4 : 0)
+            + (d.node.visible ? 0 : 1);
+        return score(a) - score(b);
+    });
+
+    for (const item of ordered) {
+        const { node, x, y, radius, isSelected, isHovered, baseColor } = item;
+        const isTopic = node.kind === 'topic';
+        const forceShow = isTopic || isSelected || isHovered;
+
+        ctx.globalAlpha = node.visible ? 1.0 : 0.32;
         ctx.font = `${isTopic ? 600 : 500} 12px "IBM Plex Sans", Arial, sans-serif`;
+
         if (isTopic) {
             ctx.fillStyle = baseColor;
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
-            drawWrappedLabel(ctx, node.label, x, y, radius * 1.6, 13);
-        } else {
-            ctx.fillStyle = isDark ? '#e8eef5' : '#1a2236';
-            const lineHeight = 13;
-            const maxWidth = Math.min(radius * 3.6, graphSim.width * 0.35);
-            const placeBelow = y + radius + 6 + lineHeight * 2 < graphSim.height - 4;
-            let labelX = x;
-            ctx.textAlign = 'center';
-            if (x - maxWidth / 2 < 4) {
-                ctx.textAlign = 'left';
-                labelX = Math.max(x - radius, 4);
-            } else if (x + maxWidth / 2 > graphSim.width - 4) {
-                ctx.textAlign = 'right';
-                labelX = Math.min(x + radius, graphSim.width - 4);
+            drawWrappedLabel(ctx, node.label, x, y, radius * 1.6, lineHeight);
+            continue;
+        }
+
+        const maxWidth = Math.min(radius * 3.6, graphSim.width * 0.32);
+        const lines = layoutLines(ctx, node.label, maxWidth);
+        const labelHeight = lines.length * lineHeight;
+        const labelWidth = Math.min(
+            maxWidth,
+            Math.max(...lines.map(line => ctx.measureText(line).width))
+        );
+
+        const placeBelow = y + radius + 6 + labelHeight < graphSim.height - 4;
+        const labelTop = placeBelow ? y + radius + 6 : y - radius - 6 - labelHeight;
+        let labelLeft = x - labelWidth / 2;
+        if (labelLeft < 4) labelLeft = 4;
+        if (labelLeft + labelWidth > graphSim.width - 4) labelLeft = graphSim.width - 4 - labelWidth;
+        const candidate = { x: labelLeft - 2, y: labelTop - 1, w: labelWidth + 4, h: labelHeight + 2 };
+
+        if (!forceShow) {
+            let blocked = false;
+            for (const rect of labelRects) if (intersects(candidate, rect)) { blocked = true; break; }
+            if (!blocked) for (const rect of circleRects) {
+                // Allow our own circle.
+                if (rect.x === x - radius && rect.y === y - radius) continue;
+                if (intersects(candidate, rect)) { blocked = true; break; }
             }
-            if (placeBelow) {
-                ctx.textBaseline = 'top';
-                drawWrappedLabel(ctx, node.label, labelX, y + radius + 6, maxWidth, lineHeight);
-            } else {
-                ctx.textBaseline = 'bottom';
-                drawWrappedLabel(ctx, node.label, labelX, y - radius - 6, maxWidth, lineHeight);
-            }
+            if (blocked) continue;
+        }
+
+        labelRects.push(candidate);
+        ctx.fillStyle = isDark ? '#e8eef5' : '#1a2236';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'top';
+        for (let i = 0; i < lines.length; i++) {
+            ctx.fillText(lines[i], labelLeft, labelTop + i * lineHeight);
         }
     }
     ctx.globalAlpha = 1.0;
 }
 
-function drawWrappedLabel(ctx, label, cx, topY, maxWidth, lineHeight) {
+function layoutLines(ctx, label, maxWidth) {
     const words = String(label).split(/\s+/).filter(Boolean);
     const lines = [];
     let current = '';
@@ -767,7 +826,6 @@ function drawWrappedLabel(ctx, label, cx, topY, maxWidth, lineHeight) {
         if (lines.length >= 2) break;
     }
     if (lines.length < 2 && current) lines.push(current);
-
     while (lines.length > 0 && ctx.measureText(lines[lines.length - 1]).width > maxWidth) {
         let last = lines[lines.length - 1];
         while (last.length > 1 && ctx.measureText(last + '…').width > maxWidth) {
@@ -776,7 +834,11 @@ function drawWrappedLabel(ctx, label, cx, topY, maxWidth, lineHeight) {
         lines[lines.length - 1] = last + '…';
         break;
     }
+    return lines;
+}
 
+function drawWrappedLabel(ctx, label, cx, topY, maxWidth, lineHeight) {
+    const lines = layoutLines(ctx, label, maxWidth);
     const totalHeight = lines.length * lineHeight;
     const baseline = ctx.textBaseline;
     let startY = topY;

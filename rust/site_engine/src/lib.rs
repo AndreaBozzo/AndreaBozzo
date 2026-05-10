@@ -850,6 +850,10 @@ struct SimNode {
     vx: f32,
     #[serde(default)]
     vy: f32,
+    /// Radius in simulation units. Used by repulsion to keep visible circles
+    /// from overlapping. 0 means "treat as point particle".
+    #[serde(default)]
+    radius: f32,
 }
 
 #[derive(Debug, Serialize)]
@@ -859,16 +863,18 @@ struct SimResult {
     kinetic_energy: f32,
 }
 
-const REPULSION: f32 = 10.0;
-const SPRING_K: f32 = 0.24;
-const SPRING_REST: f32 = 8.0;
-const DAMPING: f32 = 0.78;
+const REPULSION: f32 = 8.0;
+const SPRING_K: f32 = 0.18;
+const SPRING_REST: f32 = 16.0;
+const DAMPING: f32 = 0.80;
 const FOCUS_PULL: f32 = 0.015;
-const CENTER_PULL: f32 = 0.22;
+const CENTER_PULL: f32 = 0.13;
+const COLLISION_PAD: f32 = 1.2;
+const COLLISION_K: f32 = 1.2;
 const MIN_DIST: f32 = 2.0;
 const MAX_VEL: f32 = 2.5;
-const BOUND_LOW: f32 = 16.0;
-const BOUND_HIGH: f32 = 84.0;
+const BOUND_LOW: f32 = 14.0;
+const BOUND_HIGH: f32 = 86.0;
 
 fn simulate(mut state: SimState) -> SimResult {
     let dt = if state.dt > 0.0 && state.dt <= 2.0 {
@@ -892,9 +898,10 @@ fn simulate(mut state: SimState) -> SimResult {
     let mut fx = vec![0.0_f32; n];
     let mut fy = vec![0.0_f32; n];
 
-    // Repulsion (Coulomb-like). Force scales as 1/dist (not 1/dist^2) — a
-    // softer falloff that keeps coincident nodes from launching across the
-    // canvas while still pushing dense clusters apart.
+    // Repulsion (Coulomb-like, 1/dist falloff) plus a stiff collision force
+    // that activates when circles would visually overlap. The collision term
+    // is what stops nodes from drawing on top of each other; long-range
+    // repulsion just helps the layout breathe.
     let min_dist_sq = MIN_DIST * MIN_DIST;
     for i in 0..n {
         for j in (i + 1)..n {
@@ -902,17 +909,21 @@ fn simulate(mut state: SimState) -> SimResult {
             let mut dy = state.nodes[i].y - state.nodes[j].y;
             let mut dist_sq = dx * dx + dy * dy;
             if dist_sq < min_dist_sq {
-                // Inject a tiny deterministic offset so the unit vector is
-                // defined even when nodes start coincident.
                 let bias = ((i * 17 + j * 31) % 7) as f32 * 0.01 + 0.05;
                 dx += bias;
                 dy -= bias;
                 dist_sq = (dx * dx + dy * dy).max(min_dist_sq);
             }
             let dist = dist_sq.sqrt();
-            let force = REPULSION / dist;
             let ux = dx / dist;
             let uy = dy / dist;
+            let mut force = REPULSION / dist;
+
+            let target = state.nodes[i].radius + state.nodes[j].radius + COLLISION_PAD;
+            if dist < target {
+                force += COLLISION_K * (target - dist);
+            }
+
             fx[i] += ux * force;
             fy[i] += uy * force;
             fx[j] -= ux * force;
@@ -1186,6 +1197,7 @@ mod tests {
                     y: 50.0,
                     vx: 0.0,
                     vy: 0.0,
+                    radius: 6.5,
                 },
                 SimNode {
                     id: "b".into(),
@@ -1194,6 +1206,7 @@ mod tests {
                     y: 50.0,
                     vx: 0.0,
                     vy: 0.0,
+                    radius: 4.0,
                 },
             ],
             edges: vec![],
