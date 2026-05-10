@@ -454,7 +454,7 @@ function renderGraphCanvas(nodes, edges) {
     if (!ensureGraphCanvas()) return;
 
     const previousById = new Map(graphSim.nodes.map(n => [n.id, n]));
-    const isFirstRender = previousById.size === 0;
+    let newNodeCount = 0;
     graphSim.nodes = nodes.map((node, index) => {
         const prev = previousById.get(node.id);
         if (prev) {
@@ -469,6 +469,7 @@ function renderGraphCanvas(nodes, edges) {
                 vy: prev.vy
             };
         }
+        newNodeCount += 1;
         const seed = seedInitialPosition(node.id, index, nodes.length);
         return {
             id: node.id,
@@ -486,14 +487,14 @@ function renderGraphCanvas(nodes, edges) {
     );
     graphSim.settledFrames = 0;
 
-    if (isFirstRender) {
+    if (newNodeCount > 0) {
         graphSim.temperature = 1.0;
         graphSim.tickCount = 0;
         for (let i = 0; i < SIM_WARMUP_STEPS; i++) {
             stepSimulation();
         }
     } else {
-        graphSim.temperature = Math.max(graphSim.temperature, 0.6);
+        graphSim.temperature = Math.max(graphSim.temperature, 0.4);
     }
 
     if (graphSim.reduceMotion) {
@@ -526,7 +527,20 @@ function stepSimulation() {
     } else {
         result = stepSimulationJS();
     }
-    graphSim.nodes = result.nodes;
+    // The Rust sim only echoes id/kind/x/y/vx/vy; merge by id so labels and
+    // visibility carried only by the JS side survive the round-trip.
+    const updates = new Map(result.nodes.map(n => [n.id, n]));
+    graphSim.nodes = graphSim.nodes.map(node => {
+        const updated = updates.get(node.id);
+        if (!updated) return node;
+        return {
+            ...node,
+            x: updated.x,
+            y: updated.y,
+            vx: updated.vx ?? 0,
+            vy: updated.vy ?? 0
+        };
+    });
     graphSim.tickCount += 1;
     graphSim.temperature = Math.max(graphSim.temperature * SIM_TEMP_DECAY, SIM_TEMP_FLOOR);
     return result.kineticEnergy ?? result.kinetic_energy ?? 0;
