@@ -7,12 +7,12 @@
     "build:css": "esbuild assets/styles.css --minify --outfile=assets/styles.min.css",
     "build:js": "esbuild assets/main.js --minify --outfile=assets/main.min.js",
     "build:wasm": "bash ./scripts/build-wasm.sh",
-    "generate:case-studies": "node ./scripts/generate-case-study-pages.mjs",
-    "generate:contributions": "node ./scripts/generate-contributions.mjs",
+    "generate:case-studies": "go run ./cmd/harvester generate-case-study-pages",
+    "generate:contributions": "go run ./cmd/harvester generate-contributions-json",
     "harvester:artifacts": "go run ./cmd/harvester generate-static-artifacts",
     "harvester:readme": "go run ./cmd/harvester update-contributions-readme",
     "assemble:site": "bash ./scripts/assemble-site.sh",
-    "build:site": "npm run build:assets && npm run build:blog && npm run generate:contributions && npm run assemble:site"
+    "build:site": "npm run build:assets && npm run build:blog && npm run harvester:artifacts && npm run assemble:site"
   },
   "devDependencies": {
     "esbuild": "^0.25.11"

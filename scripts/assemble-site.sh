@@ -5,8 +5,6 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 cd "$ROOT_DIR"
 
-node ./scripts/generate-case-study-pages.mjs
-
 rm -rf _site
 mkdir -p _site/blog
 

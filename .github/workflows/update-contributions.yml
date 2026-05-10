@@ -17,19 +17,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Set up Go
+        uses: actions/setup-go@v5
         with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: |
-          pip install requests
+          go-version: '1.22'
+          cache: true
 
       - name: Fetch external contributions
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python .github/scripts/update_contributions.py
+        run: go run ./cmd/harvester update-contributions-readme
 
       - name: Commit and push if changed
         run: |
