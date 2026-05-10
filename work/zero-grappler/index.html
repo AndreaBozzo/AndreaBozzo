@@ -1,10 +1,11 @@
+<!-- Generated from assets/data/case-studies.json by scripts/generate-case-study-pages.mjs. Do not edit directly. -->
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Zero Grappler | Andrea Bozzo</title>
-    <meta name="description" content="Case study for Zero Grappler, a research thread around cost-aware data and AI pipelines.">
+    <meta name="description" content="A prototype crate for wiring async sources, DSP transforms, and inference stages together through Embassy channels with zero allocations.">
     <meta name="theme-color" content="#f5efe2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,44 +37,44 @@
             <div class="case-hero-copy">
                 <p class="eyebrow">Case Study</p>
                 <h1 class="title">Zero Grappler</h1>
-                <p class="subtitle">Cost-aware pipeline thinking for modern analytical systems.</p>
+                <p class="subtitle">Minimal no_std async sensor-to-inference pipelines for embedded Rust.</p>
                 <div class="case-meta">
-                    <span>FinOps</span>
-                    <span>Data Pipelines</span>
-                    <span>AI</span>
-                    <span>Lakehouse</span>
-                    <span>Cost Modeling</span>
+                    <span>Rust</span>
+                    <span>Embedded</span>
+                    <span>no_std</span>
+                    <span>Embassy</span>
+                    <span>TinyML</span>
                 </div>
             </div>
             <figure class="case-cover">
-                <img src="../../blog/images/zerograpplerarchitecture.png" alt="Zero Grappler architecture">
+                <img src="../blog/images/zerograpplerarchitecture.png" alt="Zero Grappler pipeline architecture">
             </figure>
         </section>
 
         <section class="case-layout">
             <article class="case-main">
-                <h2>Why It Exists</h2>
-                <p>Modern data systems can look elegant while hiding unpredictable cost behavior across storage, compute, and AI usage.</p>
+                <h2>Why it exists</h2>
+                <p>Embedded ML examples often entangle hardware access, feature extraction, and inference logic, which makes reuse harder than it should be.</p>
 
-                <h2>Technical Center</h2>
-                <p>The core idea is to make cost a first-class design input instead of a post-hoc dashboard.</p>
+                <h2>Technical center</h2>
+                <p>The crate splits the pipeline into three traits, keeps buffer sizes at compile time, routes stages through Embassy channels, and avoids heap allocation entirely.</p>
 
-                <h2>What To Show Next</h2>
-                <p>A small calculator, a worked example, and a lakehouse decision funnel would make the page interactive.</p>
+                <h2>What to show next</h2>
+                <p>One public board demo and a concrete sensor-plus-inference example would make the design feel finished.</p>
             </article>
 
             <aside class="case-aside">
-                <a class="btn btn-primary" href="https://github.com/AndreaBozzo" target="_blank" rel="noopener noreferrer">GitHub profile</a>
-                <a class="btn btn-secondary" href="../../blog/en/posts/finops-ai-lakehouse-blog/">Related article</a>
+                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/zero-grappler" target="_blank" rel="noopener noreferrer">Repository</a>
+                <a class="btn btn-secondary" href="../../blog/en/posts/embassyembeddedml-blog/">Related article</a>
 
                 <div class="media-slots">
                     <article class="media-slot">
-                        <span>Cost model</span>
-                        <p>A future annotated cost model with concrete pipeline assumptions.</p>
+                        <span>Hardware demo</span>
+                        <p>A future sensor-to-inference trace from the Raspberry hardware target once the first public demo lands.</p>
                     </article>
                     <article class="media-slot">
-                        <span>Personal material</span>
-                        <p>A photo or note from the research process once the thread becomes more public.</p>
+                        <span>Pipeline notes</span>
+                        <p>A photo or short note from the embedded setup once the hardware loop is running end to end.</p>
                     </article>
                 </div>
             </aside>

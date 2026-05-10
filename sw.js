@@ -1,4 +1,4 @@
-const CACHE_NAME = 'andreabozzo-v4';
+const CACHE_NAME = 'andreabozzo-v6';
 const BASE_PATH = new URL(self.registration.scope).pathname;
 const ASSETS_TO_CACHE = [
     BASE_PATH,
@@ -7,12 +7,18 @@ const ASSETS_TO_CACHE = [
     `${BASE_PATH}assets/main.min.js`,
     `${BASE_PATH}assets/data/case-studies.json`,
     `${BASE_PATH}assets/data/contributions.json`,
+    `${BASE_PATH}assets/data/papers.json`,
     `${BASE_PATH}assets/wasm/site_engine.js`,
     `${BASE_PATH}assets/wasm/site_engine_bg.wasm`,
     `${BASE_PATH}work/dataprof/`,
     `${BASE_PATH}work/ares-ceres/`,
     `${BASE_PATH}work/mosaico/`,
     `${BASE_PATH}work/zero-grappler/`,
+    `${BASE_PATH}work/nephtys/`,
+    `${BASE_PATH}work/dce/`,
+    `${BASE_PATH}work/lakehouse-starter-kit/`,
+    `${BASE_PATH}work/peek-a-boo/`,
+    `${BASE_PATH}work/druid-datafusion-bridge/`,
     `${BASE_PATH}manifest.json`
 ];
 

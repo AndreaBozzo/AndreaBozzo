@@ -595,6 +595,7 @@ a {
 
 .currently,
 .workbench,
+.papers,
 .projects,
 .contact {
     position: relative;
@@ -903,6 +904,43 @@ a {
     box-shadow: var(--color-surface-shadow);
 }
 
+.case-cover-placeholder {
+    display: grid;
+    min-height: 20rem;
+    place-items: center;
+}
+
+.case-cover-placeholder > div {
+    display: grid;
+    gap: var(--space-3);
+    max-width: 22rem;
+    text-align: left;
+}
+
+.case-cover-placeholder strong {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 6vw, 3.2rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+}
+
+.case-cover-placeholder p {
+    color: var(--color-text-secondary);
+    font-size: var(--text-base);
+}
+
+.case-cover-eyebrow {
+    width: fit-content;
+    padding: 0.45rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    color: var(--color-accent-strong);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
 .case-cover img {
     display: block;
     width: 100%;
@@ -1148,10 +1186,25 @@ a {
     content: "↗";
 }
 
-.projects-list {
+.projects-list,
+.papers-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-6);
+}
+
+.paper-item {
+    display: grid;
+    align-content: start;
+}
+
+.paper-kicker {
+    margin-bottom: var(--space-4);
+    color: var(--color-accent-strong);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
 
 .project-item {
@@ -1319,6 +1372,7 @@ a {
     .case-hero,
     .case-layout,
     .focus-grid,
+    .papers-list,
     .projects-list,
     .workbench-results {
         grid-template-columns: 1fr;
@@ -1379,6 +1433,7 @@ a {
     .case-study-page,
     .currently,
     .blog-preview,
+    .papers,
     .projects,
     .contact {
         padding-top: var(--space-12);
@@ -1568,6 +1623,7 @@ a {
 
     .focus-grid,
     .workbench-results,
+    .papers-list,
     .projects-list,
     .blog-grid {
         gap: var(--space-4);
@@ -1615,6 +1671,7 @@ a {
     .workbench,
     .currently,
     .blog-preview,
+    .papers,
     .projects,
     .contact {
         padding-top: var(--space-16);
@@ -1626,6 +1683,7 @@ a {
 
     .focus-grid,
     .workbench-results,
+    .papers-list,
     .projects-list,
     .blog-grid {
         gap: var(--space-5);

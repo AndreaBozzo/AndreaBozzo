@@ -44,8 +44,8 @@ Zero Grappler è il risultato: un minuscolo crate `no_std` con tre tratti (trait
 
 Gli ultimi tre post su questo blog hanno spinto lo stesso set di idee attraverso scale molto diverse:
 
-- [**Guardrails per ML Tabulare**](https://andreabozzo.pages.dev/posts/tabularmlpipes-blog.en/) — contratti di schema e controlli di leakage su pipeline batch, con Arrow e DataFusion a fare il lavoro pesante.
-- [**Formato Lance e LanceDB**](https://andreabozzo.pages.dev/posts/lancearticle-blog.en/) — archiviazione colonnare con integrazione Arrow zero-copy, collegata a un flusso di eventi NATS dal vivo.
+- [**Guardrails per ML Tabulare**](../../en/posts/tabularmlpipes-blog/) — contratti di schema e controlli di leakage su pipeline batch, con Arrow e DataFusion a fare il lavoro pesante.
+- [**Formato Lance e LanceDB**](../../en/posts/lancearticle-blog/) — archiviazione colonnare con integrazione Arrow zero-copy, collegata a un flusso di eventi NATS dal vivo.
 - **Zero Grappler (questo post)** — lo stesso scheletro di idee compresso in 520 KB di SRAM: il `Channel` di Embassy al posto di NATS, `[f32; N]` al posto di `RecordBatch`, dimensionamento a tempo di compilazione al posto della validazione runtime.
 
 Scale diverse, stessa colonna vertebrale: sorgenti, trasformazioni, code, back-pressure, schema-al-confine. Il pensiero in stile Rust più Arrow continua a reggere anche quando il sistema operativo scompare, ed è questo il filo che mi interessa di più tirare.

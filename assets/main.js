@@ -673,6 +673,46 @@ async function fetchContributions(username, repoName = 'AndreaBozzo', branch = '
     }
 }
 
+async function loadPapers() {
+    const listElement = document.getElementById('papers-list');
+    if (!listElement) return;
+
+    try {
+        const response = await fetch(`${siteBasePath}assets/data/papers.json`);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch papers.json: ${response.status}`);
+        }
+
+        const payload = await response.json();
+        const papers = Array.isArray(payload.items) ? payload.items : [];
+
+        listElement.innerHTML = '';
+
+        if (papers.length === 0) {
+            listElement.innerHTML = '<p class="error-message">No paper cards available right now.</p>';
+            return;
+        }
+
+        papers.forEach((paper) => {
+            const paperItem = document.createElement('article');
+            paperItem.className = 'project-item paper-item content-card-enter';
+            paperItem.innerHTML = `
+                <p class="paper-kicker">${escapeHtml(paper.kicker || '')}</p>
+                <h3 class="project-name">${escapeHtml(paper.name || 'Paper')}</h3>
+                <p class="project-desc">${escapeHtml(paper.desc || '')}</p>
+                <p class="project-contrib">${escapeHtml(paper.meta || '')}</p>
+                <a href="${paper.url}" class="project-link" target="_blank" rel="noopener noreferrer">View repository</a>
+            `;
+            listElement.appendChild(paperItem);
+        });
+
+        revealLoadedCards(listElement, '.content-card-enter');
+    } catch (error) {
+        console.error('Failed to load papers:', error);
+        listElement.innerHTML = '<p class="error-message">Could not load papers at this time.</p>';
+    }
+}
+
 async function loadCaseStudies() {
     try {
         const response = await fetch(`${siteBasePath}assets/data/case-studies.json`);
@@ -721,6 +761,7 @@ document.addEventListener('DOMContentLoaded', function() {
         loadWorkbenchEngine();
         loadCaseStudies();
         fetchContributions('AndreaBozzo');
+        loadPapers();
 
         if ('requestIdleCallback' in window) {
             requestIdleCallback(loadBlogPosts);

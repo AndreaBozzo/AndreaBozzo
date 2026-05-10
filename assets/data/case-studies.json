@@ -3,148 +3,440 @@
     {
       "slug": "dataprof",
       "title": "dataprof",
-      "subtitle": "A small analytical engine hiding inside a data profiler.",
-      "summary": "A Rust/Python profiler shaped around Apache Arrow, RecordBatch flows, Parquet, and machine-readable pipeline output.",
-      "stack": ["Rust", "Python", "Apache Arrow", "DataFusion", "Parquet"],
-      "status": "Active design story",
+      "subtitle": "High-performance data profiling with ISO 8000/25012 quality metrics.",
+      "summary": "A Rust library, CLI, and Python package for profiling tabular data with bounded memory, format flexibility, and machine-readable quality outputs.",
+      "stack": ["Rust", "Python", "Apache Arrow", "CLI", "Data Quality"],
+      "status": "Active OSS project",
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
       "relatedPosts": ["arrowfordataprof-blog"],
-      "coverImage": "../blog/images/dataprof-arrow.png",
+      "coverImage": "../blog/images/dataprofhiglevelarchitecture.png",
+      "coverAlt": "dataprof high-level architecture diagram",
+      "actions": [
+        {
+          "label": "Repository",
+          "url": "https://github.com/AndreaBozzo/dataprof",
+          "style": "primary"
+        },
+        {
+          "label": "Related article",
+          "url": "../../blog/en/posts/arrowfordataprof-blog/",
+          "style": "secondary"
+        }
+      ],
       "mediaSlots": [
         {
           "label": "Workspace photo",
           "kind": "personal-photo",
-          "placeholder": "A future photo of the local development setup, profiling traces, or notebook-to-CLI workflow."
+          "placeholder": "A future photo of the profiling CLI, notebook workflow, or large-file profiling runs."
         },
         {
-          "label": "Pipeline artifact",
+          "label": "Report artifact",
           "kind": "diagram",
-          "placeholder": "A real report screenshot or Arrow batch flow once the next public build is ready."
+          "placeholder": "A real profile report, contract summary, or Arrow export snapshot from a public release."
         }
       ],
       "sections": [
         {
           "heading": "Why it exists",
-          "body": "Profiling data should work like an infrastructure component: runnable in CI, useful from a CLI, and consumable by other systems."
+          "body": "Profiling should be something teams can run in CI and scripts, not only in notebooks or ad hoc inspection sessions."
         },
         {
           "heading": "Technical center",
-          "body": "Arrow batches became the contract between ingestion, profiling, SQL execution, and export instead of a final serialization detail."
+          "body": "The core combines bounded-memory profiling, column statistics, type and pattern detection, and ISO 8000/25012 quality dimensions across multiple input and export formats."
         },
         {
           "heading": "What to show next",
-          "body": "A compact demo dataset, a generated report, and a before/after architecture note would make this page feel complete."
+          "body": "A single dataset profiled through the CLI, Python API, and exported report would make the multi-interface story concrete."
         }
       ]
     },
     {
       "slug": "ares-ceres",
       "title": "Ares + Ceres",
-      "subtitle": "Harvesting, scraping, and delta detection as an operational system.",
-      "summary": "A paired architecture for data acquisition work: Ceres focuses on configurable harvesting behavior, while Ares covers scraping pipeline concerns.",
-      "stack": ["Rust", "Python", "CLI", "Data Pipelines", "Automation"],
-      "status": "Evolving project pair",
-      "repoUrl": "https://github.com/AndreaBozzo",
+      "subtitle": "Open-data harvesting and LLM extraction as complementary collection systems.",
+      "summary": "Ceres keeps portal metadata synchronized over time, while Ares turns arbitrary pages into schema-driven structured data with queues, retries, and change detection.",
+      "stack": ["Rust", "Open Data", "Web Scraping", "REST API", "CLI"],
+      "status": "Active repo pair",
+      "repoUrl": "https://github.com/AndreaBozzo/Ceres",
       "relatedPosts": ["ceres-blog", "harvesting-vs-scraping-blog"],
       "coverImage": "../blog/images/Ares_vs_Ceres_architecture_comparison.png",
+      "coverAlt": "Ares and Ceres architecture comparison",
+      "actions": [
+        {
+          "label": "Ceres repository",
+          "url": "https://github.com/AndreaBozzo/Ceres",
+          "style": "primary"
+        },
+        {
+          "label": "Ares repository",
+          "url": "https://github.com/AndreaBozzo/Ares",
+          "style": "secondary"
+        },
+        {
+          "label": "Related article",
+          "url": "../../blog/en/posts/harvesting-vs-scraping-blog/",
+          "style": "secondary"
+        }
+      ],
       "mediaSlots": [
         {
           "label": "Field notes",
           "kind": "personal-photo",
-          "placeholder": "A future desk or whiteboard photo with collection strategy notes."
+          "placeholder": "A future whiteboard or terminal capture comparing harvest and scrape strategies on the same target."
         },
         {
           "label": "Architecture",
           "kind": "diagram",
-          "placeholder": "A real pipeline trace showing fetch, detect, persist, and review stages."
+          "placeholder": "A real collection trace showing portal sync, page fetch, extraction, and change detection stages."
         }
       ],
       "sections": [
         {
           "heading": "Why it exists",
-          "body": "Data collection needs different contracts depending on whether the goal is repeatable harvesting or targeted scraping."
+          "body": "Harvesting and scraping are different operational contracts, and treating them as the same thing usually makes both systems worse."
         },
         {
           "heading": "Technical center",
-          "body": "The interesting part is delta detection: choosing what changed, what matters, and how much work to spend finding out."
+          "body": "Ceres centers on incremental portal sync and catalog durability, while Ares focuses on fetch pipelines, markdown normalization, JSON Schema extraction, retries, and queue-driven execution."
         },
         {
           "heading": "What to show next",
-          "body": "A real CLI walkthrough and a strategy matrix would turn the architecture into a usable guide."
+          "body": "A side-by-side walkthrough against one public portal and one arbitrary site would make the boundary between the two tools obvious."
         }
       ]
     },
     {
       "slug": "mosaico",
       "title": "Mosaico",
-      "subtitle": "AI workflow orchestration as composable infrastructure.",
-      "summary": "An open tooling contribution area around AI workflow orchestration, integration boundaries, and developer-facing automation.",
-      "stack": ["AI", "Workflow Orchestration", "Open Source", "Developer Tools"],
-      "status": "Open-source contribution",
-      "repoUrl": "https://github.com/mosaico-labs/mosaico",
+      "subtitle": "Contribution work on an open data platform for robotics and physical AI.",
+      "summary": "A contribution-oriented case study around workflow boundaries, developer ergonomics, and data-platform integration surfaces in Mosaico.",
+      "stack": ["Python", "Robotics", "Physical AI", "Data Platform", "Open Source"],
+      "status": "Upstream contribution",
+      "repoUrl": "https://github.com/AndreaBozzo/mosaico",
       "relatedPosts": ["mosaico-blog"],
       "coverImage": "../blog/images/Mosaico-architecture.png",
+      "coverAlt": "Mosaico architecture diagram",
+      "actions": [
+        {
+          "label": "Repository",
+          "url": "https://github.com/AndreaBozzo/mosaico",
+          "style": "primary"
+        },
+        {
+          "label": "Related article",
+          "url": "../../blog/en/posts/mosaico-blog/",
+          "style": "secondary"
+        }
+      ],
       "mediaSlots": [
         {
           "label": "Demo surface",
           "kind": "screenshot",
-          "placeholder": "A future product screenshot or flow capture from a representative orchestration run."
+          "placeholder": "A future flow capture from a representative robotics or physical-AI data workflow."
         },
         {
           "label": "Contribution note",
           "kind": "personal-note",
-          "placeholder": "A short note on the actual upstream contribution and the design tradeoff it touched."
+          "placeholder": "A short note on the concrete upstream contribution and the design tradeoff it changed."
         }
       ],
       "sections": [
         {
           "heading": "Why it matters",
-          "body": "AI workflows become maintainable when orchestration is explicit, observable, and understandable by engineers who inherit it."
+          "body": "Robotics and physical-AI systems need data platform primitives that remain understandable once experiments become real operations."
         },
         {
           "heading": "Technical center",
-          "body": "The useful tension is between flexible workflow composition and operational constraints that keep systems debuggable."
+          "body": "The interesting work sits at integration boundaries: how orchestration stays flexible enough for experimentation while remaining debuggable for the next engineer."
         },
         {
           "heading": "What to show next",
-          "body": "A compact flow diagram and a contribution diff story would make this case study much more concrete."
+          "body": "A concrete upstream diff and one end-to-end workflow trace would turn this from a platform overview into a real contribution story."
         }
       ]
     },
     {
       "slug": "zero-grappler",
       "title": "Zero Grappler",
-      "subtitle": "Cost-aware pipeline thinking for modern analytical systems.",
-      "summary": "A project thread around estimating, understanding, and reducing the operational cost of data and AI-oriented pipelines.",
-      "stack": ["FinOps", "Data Pipelines", "AI", "Lakehouse", "Cost Modeling"],
-      "status": "Research thread",
-      "repoUrl": "https://github.com/AndreaBozzo",
-      "relatedPosts": ["finops-ai-lakehouse-blog"],
+      "subtitle": "Minimal no_std async sensor-to-inference pipelines for embedded Rust.",
+      "summary": "A prototype crate for wiring async sources, DSP transforms, and inference stages together through Embassy channels with zero allocations.",
+      "stack": ["Rust", "Embedded", "no_std", "Embassy", "TinyML"],
+      "status": "Prototype crate",
+      "repoUrl": "https://github.com/AndreaBozzo/zero-grappler",
+      "relatedPosts": ["embassyembeddedml-blog"],
       "coverImage": "../blog/images/zerograpplerarchitecture.png",
-      "mediaSlots": [
+      "coverAlt": "Zero Grappler pipeline architecture",
+      "actions": [
         {
-          "label": "Cost model",
-          "kind": "diagram",
-          "placeholder": "A future annotated cost model with concrete pipeline assumptions."
+          "label": "Repository",
+          "url": "https://github.com/AndreaBozzo/zero-grappler",
+          "style": "primary"
         },
         {
-          "label": "Personal material",
+          "label": "Related article",
+          "url": "../../blog/en/posts/embassyembeddedml-blog/",
+          "style": "secondary"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "label": "Hardware demo",
+          "kind": "diagram",
+          "placeholder": "A future sensor-to-inference trace from the Raspberry hardware target once the first public demo lands."
+        },
+        {
+          "label": "Pipeline notes",
           "kind": "personal-photo",
-          "placeholder": "A photo or note from the research process once the thread becomes more public."
+          "placeholder": "A photo or short note from the embedded setup once the hardware loop is running end to end."
         }
       ],
       "sections": [
         {
           "heading": "Why it exists",
-          "body": "Modern data systems can look elegant while hiding unpredictable cost behavior across storage, compute, and AI usage."
+          "body": "Embedded ML examples often entangle hardware access, feature extraction, and inference logic, which makes reuse harder than it should be."
         },
         {
           "heading": "Technical center",
-          "body": "The core idea is to make cost a first-class design input instead of a post-hoc dashboard."
+          "body": "The crate splits the pipeline into three traits, keeps buffer sizes at compile time, routes stages through Embassy channels, and avoids heap allocation entirely."
         },
         {
           "heading": "What to show next",
-          "body": "A small calculator, a worked example, and a lakehouse decision funnel would make the page interactive."
+          "body": "One public board demo and a concrete sensor-plus-inference example would make the design feel finished."
+        }
+      ]
+    },
+    {
+      "slug": "nephtys",
+      "title": "Nephtys",
+      "subtitle": "A real-time connector for live event streams and edge integrations.",
+      "summary": "A Go service that ingests WebSocket, webhook, SSE, and gRPC streams, normalizes events, and publishes them to NATS JetStream with durable persistence and operational metrics.",
+      "stack": ["Go", "Streaming", "NATS JetStream", "gRPC", "Webhooks"],
+      "status": "Active OSS project",
+      "repoUrl": "https://github.com/AndreaBozzo/Nephtys",
+      "relatedPosts": [],
+      "coverImage": "",
+      "coverEyebrow": "Real-time connectors",
+      "coverText": "WebSocket, webhook, SSE, and gRPC ingestion normalized into one durable event pipeline.",
+      "actions": [
+        {
+          "label": "Repository",
+          "url": "https://github.com/AndreaBozzo/Nephtys",
+          "style": "primary"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "label": "Connector dashboard",
+          "kind": "screenshot",
+          "placeholder": "A future dashboard snapshot covering connector status, throughput, retries, and downstream delivery."
+        },
+        {
+          "label": "Event flow",
+          "kind": "diagram",
+          "placeholder": "A real trace showing ingress, normalization, JetStream persistence, and replay or fan-out."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Why it exists",
+          "body": "Live interfaces such as webhooks, WebSockets, SSE, and gRPC all have different operational quirks, but downstream systems still need one stable event contract."
+        },
+        {
+          "heading": "Technical center",
+          "body": "Nephtys manages connector lifecycles, normalizes inbound events, persists them to NATS JetStream, and exposes a REST API so stream management is operable instead of hardcoded."
+        },
+        {
+          "heading": "What to show next",
+          "body": "A deployed demo with connector configuration, metrics, and an event replay flow would show the operational value clearly."
+        }
+      ]
+    },
+    {
+      "slug": "dce",
+      "title": "DCE",
+      "subtitle": "Proactive data contracts enforcement built from dataprof's profiling core.",
+      "summary": "A Rust-native engine for defining, validating, and enforcing data contracts across modern table formats, shifting quality checks from after-the-fact profiling to contract execution.",
+      "stack": ["Rust", "Data Contracts", "Data Quality", "Iceberg", "YAML"],
+      "status": "Pre-release engine",
+      "repoUrl": "https://github.com/AndreaBozzo/dce",
+      "relatedPosts": [],
+      "coverImage": "",
+      "coverEyebrow": "Contract enforcement",
+      "coverText": "Move from reactive profiling to explicit contracts that can fail fast inside data workflows.",
+      "actions": [
+        {
+          "label": "Repository",
+          "url": "https://github.com/AndreaBozzo/dce",
+          "style": "primary"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "label": "Contract example",
+          "kind": "spec",
+          "placeholder": "A future public contract showing schema, quality constraints, and the resulting validation output."
+        },
+        {
+          "label": "Validation run",
+          "kind": "terminal",
+          "placeholder": "A CLI capture showing catalog-backed validation against a table and a failing contract."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Why it exists",
+          "body": "Profiling is useful after the fact, but data platforms also need an explicit way to define what must be true before pipelines keep moving."
+        },
+        {
+          "heading": "Technical center",
+          "body": "DCE grows out of dataprof by moving from observation to enforcement: contract definitions, validation commands, and table-format-aware checks become the center of the workflow."
+        },
+        {
+          "heading": "What to show next",
+          "body": "A full example contract and a validation walkthrough against a real catalog would make the transition from profiler to contract engine tangible."
+        }
+      ]
+    },
+    {
+      "slug": "lakehouse-starter-kit",
+      "title": "Open Lakehouse Starter",
+      "subtitle": "A small-team lakehouse stack with dlt, dbt, Superset, and MinIO.",
+      "summary": "An open starter environment for small teams that combines ingestion, transformation, storage, and dashboards in a light but expandable lakehouse setup.",
+      "stack": ["Python", "Lakehouse", "dlt", "dbt", "Superset"],
+      "status": "Starter platform",
+      "repoUrl": "https://github.com/AndreaBozzo/LakehouseStarterKit",
+      "relatedPosts": ["finops-ai-lakehouse-blog"],
+      "coverImage": "",
+      "coverEyebrow": "Small-team lakehouse",
+      "coverText": "A practical starter stack for ingestion, transformation, dashboards, and S3-compatible storage without enterprise overhead.",
+      "actions": [
+        {
+          "label": "Repository",
+          "url": "https://github.com/AndreaBozzo/LakehouseStarterKit",
+          "style": "primary"
+        },
+        {
+          "label": "Related article",
+          "url": "../../blog/en/posts/finops-ai-lakehouse-blog/",
+          "style": "secondary"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "label": "Stack overview",
+          "kind": "diagram",
+          "placeholder": "A future architecture screenshot covering dlt ingestion, dbt models, MinIO storage, and Superset dashboards."
+        },
+        {
+          "label": "Setup flow",
+          "kind": "terminal",
+          "placeholder": "A short bootstrap walkthrough showing how quickly the stack can be brought up for a small team."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Why it exists",
+          "body": "Small teams often need a usable lakehouse before they need platform complexity, so the real challenge is choosing a stack that starts light without painting the team into a corner."
+        },
+        {
+          "heading": "Technical center",
+          "body": "The project combines dlt ingestion, dbt transformations, Superset dashboards, and MinIO-backed object storage into a setup that is intentionally simple to start and expandable later."
+        },
+        {
+          "heading": "What to show next",
+          "body": "A reproducible demo with one source, one dbt model chain, and one live dashboard would show where the starter kit saves real setup time."
+        }
+      ]
+    },
+    {
+      "slug": "peek-a-boo",
+      "title": "Peek-a-Boo",
+      "subtitle": "A minimalist AI agent for surgical file search and extraction.",
+      "summary": "A Python agent that uses focused grep and ls operations to answer codebase questions with lower token cost than broad repository scans.",
+      "stack": ["Python", "CLI", "Agent Tooling", "Code Audit", "Gemini"],
+      "status": "Focused prototype",
+      "repoUrl": "https://github.com/AndreaBozzo/Peek-a-Boo",
+      "relatedPosts": [],
+      "coverImage": "",
+      "coverEyebrow": "Token-efficient agents",
+      "coverText": "Use surgical file operations instead of broad context dumps when the task is to find one answer fast.",
+      "actions": [
+        {
+          "label": "Repository",
+          "url": "https://github.com/AndreaBozzo/Peek-a-Boo",
+          "style": "primary"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "label": "Mission run",
+          "kind": "screenshot",
+          "placeholder": "A future run showing how the agent narrows a search space and answers one concrete code-audit task."
+        },
+        {
+          "label": "Prompt trace",
+          "kind": "note",
+          "placeholder": "A short trace comparing broad-context prompting with the cheaper surgical search path."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Why it exists",
+          "body": "A lot of code search tasks do not need a full-repo embedding or a giant prompt, they need a cheap agent that can ask narrower questions in sequence."
+        },
+        {
+          "heading": "Technical center",
+          "body": "Peek-a-Boo keeps the tool surface intentionally small, leaning on grep-like operations and focused traversal so the model spends tokens on synthesis instead of raw repository context."
+        },
+        {
+          "heading": "What to show next",
+          "body": "A benchmark against a broader repository-search workflow would make the token-efficiency argument much stronger."
+        }
+      ]
+    },
+    {
+      "slug": "druid-datafusion-bridge",
+      "title": "druid-datafusion-bridge",
+      "subtitle": "Query Apache Druid segments directly through DataFusion.",
+      "summary": "A Rust bridge that reads Druid segment files directly and exposes them to DataFusion as queryable tables without requiring a running Druid cluster.",
+      "stack": ["Rust", "Apache Druid", "DataFusion", "Arrow", "Query Engine"],
+      "status": "Work in progress",
+      "repoUrl": "https://github.com/AndreaBozzo/druid-datafusion-bridge",
+      "relatedPosts": [],
+      "coverImage": "",
+      "coverEyebrow": "Segment-native analytics",
+      "coverText": "Read Druid segment internals directly and surface them as DataFusion tables without standing up the original cluster.",
+      "actions": [
+        {
+          "label": "Repository",
+          "url": "https://github.com/AndreaBozzo/druid-datafusion-bridge",
+          "style": "primary"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "label": "Segment anatomy",
+          "kind": "diagram",
+          "placeholder": "A future diagram showing how smoosh files, dictionaries, and metric columns map into Arrow-facing execution paths."
+        },
+        {
+          "label": "Query demo",
+          "kind": "terminal",
+          "placeholder": "A short SQL demo proving that offline segment files can be queried without a Druid runtime."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Why it exists",
+          "body": "Query engines become more reusable when storage formats can be inspected directly instead of only through the original serving system."
+        },
+        {
+          "heading": "Technical center",
+          "body": "The library reads Druid segment structures such as index.dr data and maps them into DataFusion table and execution abstractions, aiming for vectorized Arrow-friendly execution where possible."
+        },
+        {
+          "heading": "What to show next",
+          "body": "A real offline segment query walkthrough and a type-support matrix would make the bridge easier to evaluate."
         }
       ]
     }

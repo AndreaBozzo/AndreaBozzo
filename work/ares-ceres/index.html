@@ -1,10 +1,11 @@
+<!-- Generated from assets/data/case-studies.json by scripts/generate-case-study-pages.mjs. Do not edit directly. -->
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Ares + Ceres | Andrea Bozzo</title>
-    <meta name="description" content="Case study for Ares and Ceres, a project pair around harvesting, scraping, and data acquisition pipelines.">
+    <meta name="description" content="Ceres keeps portal metadata synchronized over time, while Ares turns arbitrary pages into schema-driven structured data with queues, retries, and change detection.">
     <meta name="theme-color" content="#f5efe2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,44 +37,45 @@
             <div class="case-hero-copy">
                 <p class="eyebrow">Case Study</p>
                 <h1 class="title">Ares + Ceres</h1>
-                <p class="subtitle">Harvesting, scraping, and delta detection as an operational system.</p>
+                <p class="subtitle">Open-data harvesting and LLM extraction as complementary collection systems.</p>
                 <div class="case-meta">
                     <span>Rust</span>
-                    <span>Python</span>
+                    <span>Open Data</span>
+                    <span>Web Scraping</span>
+                    <span>REST API</span>
                     <span>CLI</span>
-                    <span>Data Pipelines</span>
-                    <span>Automation</span>
                 </div>
             </div>
             <figure class="case-cover">
-                <img src="../../blog/images/Ares_vs_Ceres_architecture_comparison.png" alt="Ares and Ceres architecture comparison">
+                <img src="../blog/images/Ares_vs_Ceres_architecture_comparison.png" alt="Ares and Ceres architecture comparison">
             </figure>
         </section>
 
         <section class="case-layout">
             <article class="case-main">
-                <h2>Why It Exists</h2>
-                <p>Data collection needs different contracts depending on whether the goal is repeatable harvesting or targeted scraping.</p>
+                <h2>Why it exists</h2>
+                <p>Harvesting and scraping are different operational contracts, and treating them as the same thing usually makes both systems worse.</p>
 
-                <h2>Technical Center</h2>
-                <p>The interesting part is delta detection: choosing what changed, what matters, and how much work to spend finding out.</p>
+                <h2>Technical center</h2>
+                <p>Ceres centers on incremental portal sync and catalog durability, while Ares focuses on fetch pipelines, markdown normalization, JSON Schema extraction, retries, and queue-driven execution.</p>
 
-                <h2>What To Show Next</h2>
-                <p>A real CLI walkthrough and a strategy matrix would turn the architecture into a usable guide.</p>
+                <h2>What to show next</h2>
+                <p>A side-by-side walkthrough against one public portal and one arbitrary site would make the boundary between the two tools obvious.</p>
             </article>
 
             <aside class="case-aside">
-                <a class="btn btn-primary" href="https://github.com/AndreaBozzo" target="_blank" rel="noopener noreferrer">GitHub profile</a>
+                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/Ceres" target="_blank" rel="noopener noreferrer">Ceres repository</a>
+                <a class="btn btn-secondary" href="https://github.com/AndreaBozzo/Ares" target="_blank" rel="noopener noreferrer">Ares repository</a>
                 <a class="btn btn-secondary" href="../../blog/en/posts/harvesting-vs-scraping-blog/">Related article</a>
 
                 <div class="media-slots">
                     <article class="media-slot">
                         <span>Field notes</span>
-                        <p>A future desk or whiteboard photo with collection strategy notes.</p>
+                        <p>A future whiteboard or terminal capture comparing harvest and scrape strategies on the same target.</p>
                     </article>
                     <article class="media-slot">
                         <span>Architecture</span>
-                        <p>A real pipeline trace showing fetch, detect, persist, and review stages.</p>
+                        <p>A real collection trace showing portal sync, page fetch, extraction, and change detection stages.</p>
                     </article>
                 </div>
             </aside>

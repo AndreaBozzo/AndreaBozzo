@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>dataprof | Andrea Bozzo</title>
-    <meta name="description" content="A Rust library, CLI, and Python package for profiling tabular data with bounded memory, format flexibility, and machine-readable quality outputs.">
+    <title>Peek-a-Boo | Andrea Bozzo</title>
+    <meta name="description" content="A Python agent that uses focused grep and ls operations to answer codebase questions with lower token cost than broad repository scans.">
     <meta name="theme-color" content="#f5efe2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,45 +36,48 @@
         <section class="case-hero">
             <div class="case-hero-copy">
                 <p class="eyebrow">Case Study</p>
-                <h1 class="title">dataprof</h1>
-                <p class="subtitle">High-performance data profiling with ISO 8000/25012 quality metrics.</p>
+                <h1 class="title">Peek-a-Boo</h1>
+                <p class="subtitle">A minimalist AI agent for surgical file search and extraction.</p>
                 <div class="case-meta">
-                    <span>Rust</span>
                     <span>Python</span>
-                    <span>Apache Arrow</span>
                     <span>CLI</span>
-                    <span>Data Quality</span>
+                    <span>Agent Tooling</span>
+                    <span>Code Audit</span>
+                    <span>Gemini</span>
                 </div>
             </div>
-            <figure class="case-cover">
-                <img src="../blog/images/dataprofhiglevelarchitecture.png" alt="dataprof high-level architecture diagram">
+            <figure class="case-cover case-cover-placeholder">
+                <div>
+                    <span class="case-cover-eyebrow">Token-efficient agents</span>
+                    <strong>Peek-a-Boo</strong>
+                    <p>Use surgical file operations instead of broad context dumps when the task is to find one answer fast.</p>
+                </div>
             </figure>
         </section>
 
         <section class="case-layout">
             <article class="case-main">
                 <h2>Why it exists</h2>
-                <p>Profiling should be something teams can run in CI and scripts, not only in notebooks or ad hoc inspection sessions.</p>
+                <p>A lot of code search tasks do not need a full-repo embedding or a giant prompt, they need a cheap agent that can ask narrower questions in sequence.</p>
 
                 <h2>Technical center</h2>
-                <p>The core combines bounded-memory profiling, column statistics, type and pattern detection, and ISO 8000/25012 quality dimensions across multiple input and export formats.</p>
+                <p>Peek-a-Boo keeps the tool surface intentionally small, leaning on grep-like operations and focused traversal so the model spends tokens on synthesis instead of raw repository context.</p>
 
                 <h2>What to show next</h2>
-                <p>A single dataset profiled through the CLI, Python API, and exported report would make the multi-interface story concrete.</p>
+                <p>A benchmark against a broader repository-search workflow would make the token-efficiency argument much stronger.</p>
             </article>
 
             <aside class="case-aside">
-                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/dataprof" target="_blank" rel="noopener noreferrer">Repository</a>
-                <a class="btn btn-secondary" href="../../blog/en/posts/arrowfordataprof-blog/">Related article</a>
+                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/Peek-a-Boo" target="_blank" rel="noopener noreferrer">Repository</a>
 
                 <div class="media-slots">
                     <article class="media-slot">
-                        <span>Workspace photo</span>
-                        <p>A future photo of the profiling CLI, notebook workflow, or large-file profiling runs.</p>
+                        <span>Mission run</span>
+                        <p>A future run showing how the agent narrows a search space and answers one concrete code-audit task.</p>
                     </article>
                     <article class="media-slot">
-                        <span>Report artifact</span>
-                        <p>A real profile report, contract summary, or Arrow export snapshot from a public release.</p>
+                        <span>Prompt trace</span>
+                        <p>A short trace comparing broad-context prompting with the cheaper surgical search path.</p>
                     </article>
                 </div>
             </aside>

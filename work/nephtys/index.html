@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>dataprof | Andrea Bozzo</title>
-    <meta name="description" content="A Rust library, CLI, and Python package for profiling tabular data with bounded memory, format flexibility, and machine-readable quality outputs.">
+    <title>Nephtys | Andrea Bozzo</title>
+    <meta name="description" content="A Go service that ingests WebSocket, webhook, SSE, and gRPC streams, normalizes events, and publishes them to NATS JetStream with durable persistence and operational metrics.">
     <meta name="theme-color" content="#f5efe2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,45 +36,48 @@
         <section class="case-hero">
             <div class="case-hero-copy">
                 <p class="eyebrow">Case Study</p>
-                <h1 class="title">dataprof</h1>
-                <p class="subtitle">High-performance data profiling with ISO 8000/25012 quality metrics.</p>
+                <h1 class="title">Nephtys</h1>
+                <p class="subtitle">A real-time connector for live event streams and edge integrations.</p>
                 <div class="case-meta">
-                    <span>Rust</span>
-                    <span>Python</span>
-                    <span>Apache Arrow</span>
-                    <span>CLI</span>
-                    <span>Data Quality</span>
+                    <span>Go</span>
+                    <span>Streaming</span>
+                    <span>NATS JetStream</span>
+                    <span>gRPC</span>
+                    <span>Webhooks</span>
                 </div>
             </div>
-            <figure class="case-cover">
-                <img src="../blog/images/dataprofhiglevelarchitecture.png" alt="dataprof high-level architecture diagram">
+            <figure class="case-cover case-cover-placeholder">
+                <div>
+                    <span class="case-cover-eyebrow">Real-time connectors</span>
+                    <strong>Nephtys</strong>
+                    <p>WebSocket, webhook, SSE, and gRPC ingestion normalized into one durable event pipeline.</p>
+                </div>
             </figure>
         </section>
 
         <section class="case-layout">
             <article class="case-main">
                 <h2>Why it exists</h2>
-                <p>Profiling should be something teams can run in CI and scripts, not only in notebooks or ad hoc inspection sessions.</p>
+                <p>Live interfaces such as webhooks, WebSockets, SSE, and gRPC all have different operational quirks, but downstream systems still need one stable event contract.</p>
 
                 <h2>Technical center</h2>
-                <p>The core combines bounded-memory profiling, column statistics, type and pattern detection, and ISO 8000/25012 quality dimensions across multiple input and export formats.</p>
+                <p>Nephtys manages connector lifecycles, normalizes inbound events, persists them to NATS JetStream, and exposes a REST API so stream management is operable instead of hardcoded.</p>
 
                 <h2>What to show next</h2>
-                <p>A single dataset profiled through the CLI, Python API, and exported report would make the multi-interface story concrete.</p>
+                <p>A deployed demo with connector configuration, metrics, and an event replay flow would show the operational value clearly.</p>
             </article>
 
             <aside class="case-aside">
-                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/dataprof" target="_blank" rel="noopener noreferrer">Repository</a>
-                <a class="btn btn-secondary" href="../../blog/en/posts/arrowfordataprof-blog/">Related article</a>
+                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/Nephtys" target="_blank" rel="noopener noreferrer">Repository</a>
 
                 <div class="media-slots">
                     <article class="media-slot">
-                        <span>Workspace photo</span>
-                        <p>A future photo of the profiling CLI, notebook workflow, or large-file profiling runs.</p>
+                        <span>Connector dashboard</span>
+                        <p>A future dashboard snapshot covering connector status, throughput, retries, and downstream delivery.</p>
                     </article>
                     <article class="media-slot">
-                        <span>Report artifact</span>
-                        <p>A real profile report, contract summary, or Arrow export snapshot from a public release.</p>
+                        <span>Event flow</span>
+                        <p>A real trace showing ingress, normalization, JetStream persistence, and replay or fan-out.</p>
                     </article>
                 </div>
             </aside>

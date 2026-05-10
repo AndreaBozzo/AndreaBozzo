@@ -36,11 +36,14 @@ hugo server -D -F
 ### Root landing page
 
 ```bash
-cd ..
-python3 -m http.server 8000
+npm install
+npm run build:site
+python3 -m http.server --directory _site 8000
 ```
 
-The root page is static. Some homepage data, such as the blog preview cards, still points to the published site, so local landing-page work is best for layout and content changes unless the fetching logic is being changed too.
+The root page is static, but the correct local preview is the assembled `_site/` output so the landing page and blog use the same paths as GitHub Pages.
+
+Case-study pages under [work](work) are generated artifacts. Edit [assets/data/case-studies.json](assets/data/case-studies.json) and regenerate them instead of changing the HTML files directly.
 
 ## Working Style
 
@@ -48,6 +51,7 @@ The root page is static. Some homepage data, such as the blog preview cards, sti
 - prefer small PRs over mixed changes
 - update docs when behavior or workflow changes
 - preserve the split between the root landing page and the Hugo blog unless the change is intentional
+- treat [work](work) as generated output backed by [assets/data/case-studies.json](assets/data/case-studies.json)
 
 If you touch deployment or publishing behavior, mention how you validated it.
 
@@ -56,7 +60,7 @@ If you touch deployment or publishing behavior, mention how you validated it.
 Use the smallest relevant check for your change:
 
 - blog/content/theme changes: run `hugo --minify -F --config hugo.toml,hugo.github.toml` inside [blog](blog)
-- landing page changes: serve the repo root locally and verify the affected section in a browser
+- landing page changes: run `npm run build:site`, serve `_site/`, and verify the affected section in a browser
 - workflow or documentation changes: explain the expected deploy or local-development impact in the PR
 
 ## Pull Requests

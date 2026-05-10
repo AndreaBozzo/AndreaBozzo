@@ -1,0 +1,18 @@
+{
+  "items": [
+    {
+      "kicker": "IEEE UIC 2026",
+      "name": "uic2026-nephtys",
+      "desc": "Companion repository for the Nephtys short paper, including the sensor simulator, demo scripts, Grafana dashboard, benchmarks, and LaTeX source.",
+      "meta": "Edge ingestion · Smart city streams · Reproducible evaluation",
+      "url": "https://github.com/AndreaBozzo/uic2026-nephtys"
+    },
+    {
+      "kicker": "IEEE ScalCom 2026",
+      "name": "scalcom2026-dataprof",
+      "desc": "Paper and benchmark suite comparing dataprof against interpreted Python profilers for scalable, sustainable edge-AI telemetry profiling.",
+      "meta": "Edge AI · Energy profiling · Benchmark suite",
+      "url": "https://github.com/AndreaBozzo/scalcom2026-dataprof"
+    }
+  ]
+}

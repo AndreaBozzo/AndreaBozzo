@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>dataprof | Andrea Bozzo</title>
-    <meta name="description" content="A Rust library, CLI, and Python package for profiling tabular data with bounded memory, format flexibility, and machine-readable quality outputs.">
+    <title>druid-datafusion-bridge | Andrea Bozzo</title>
+    <meta name="description" content="A Rust bridge that reads Druid segment files directly and exposes them to DataFusion as queryable tables without requiring a running Druid cluster.">
     <meta name="theme-color" content="#f5efe2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,45 +36,48 @@
         <section class="case-hero">
             <div class="case-hero-copy">
                 <p class="eyebrow">Case Study</p>
-                <h1 class="title">dataprof</h1>
-                <p class="subtitle">High-performance data profiling with ISO 8000/25012 quality metrics.</p>
+                <h1 class="title">druid-datafusion-bridge</h1>
+                <p class="subtitle">Query Apache Druid segments directly through DataFusion.</p>
                 <div class="case-meta">
                     <span>Rust</span>
-                    <span>Python</span>
-                    <span>Apache Arrow</span>
-                    <span>CLI</span>
-                    <span>Data Quality</span>
+                    <span>Apache Druid</span>
+                    <span>DataFusion</span>
+                    <span>Arrow</span>
+                    <span>Query Engine</span>
                 </div>
             </div>
-            <figure class="case-cover">
-                <img src="../blog/images/dataprofhiglevelarchitecture.png" alt="dataprof high-level architecture diagram">
+            <figure class="case-cover case-cover-placeholder">
+                <div>
+                    <span class="case-cover-eyebrow">Segment-native analytics</span>
+                    <strong>druid-datafusion-bridge</strong>
+                    <p>Read Druid segment internals directly and surface them as DataFusion tables without standing up the original cluster.</p>
+                </div>
             </figure>
         </section>
 
         <section class="case-layout">
             <article class="case-main">
                 <h2>Why it exists</h2>
-                <p>Profiling should be something teams can run in CI and scripts, not only in notebooks or ad hoc inspection sessions.</p>
+                <p>Query engines become more reusable when storage formats can be inspected directly instead of only through the original serving system.</p>
 
                 <h2>Technical center</h2>
-                <p>The core combines bounded-memory profiling, column statistics, type and pattern detection, and ISO 8000/25012 quality dimensions across multiple input and export formats.</p>
+                <p>The library reads Druid segment structures such as index.dr data and maps them into DataFusion table and execution abstractions, aiming for vectorized Arrow-friendly execution where possible.</p>
 
                 <h2>What to show next</h2>
-                <p>A single dataset profiled through the CLI, Python API, and exported report would make the multi-interface story concrete.</p>
+                <p>A real offline segment query walkthrough and a type-support matrix would make the bridge easier to evaluate.</p>
             </article>
 
             <aside class="case-aside">
-                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/dataprof" target="_blank" rel="noopener noreferrer">Repository</a>
-                <a class="btn btn-secondary" href="../../blog/en/posts/arrowfordataprof-blog/">Related article</a>
+                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/druid-datafusion-bridge" target="_blank" rel="noopener noreferrer">Repository</a>
 
                 <div class="media-slots">
                     <article class="media-slot">
-                        <span>Workspace photo</span>
-                        <p>A future photo of the profiling CLI, notebook workflow, or large-file profiling runs.</p>
+                        <span>Segment anatomy</span>
+                        <p>A future diagram showing how smoosh files, dictionaries, and metric columns map into Arrow-facing execution paths.</p>
                     </article>
                     <article class="media-slot">
-                        <span>Report artifact</span>
-                        <p>A real profile report, contract summary, or Arrow export snapshot from a public release.</p>
+                        <span>Query demo</span>
+                        <p>A short SQL demo proving that offline segment files can be queried without a Druid runtime.</p>
                     </article>
                 </div>
             </aside>
