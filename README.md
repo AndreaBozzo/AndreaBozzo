@@ -95,6 +95,8 @@ Public companion repositories for reviewed papers and reproducible evaluation ma
 
 Case-study pages under [work](work) are generated from [assets/data/case-studies.json](assets/data/case-studies.json). Update the JSON source and rebuild the site instead of editing those HTML files directly.
 
+An optional Go-based data harvester now lives in [cmd/harvester](cmd/harvester) as a staged replacement for the split Python and Node generation scripts.
+
 ---
 
 ## 📊 GitHub Stats

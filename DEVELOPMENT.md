@@ -68,6 +68,34 @@ Notes:
 - the `_site/` assembly step lives in [scripts/assemble-site.sh](scripts/assemble-site.sh) so the npm workflow stays readable
 - `npm run generate:case-studies` is available if you only need to refresh the generated `work/*` pages while editing case study content
 
+## Go Harvester Evaluation
+
+This repo now includes an optional Go CLI at [cmd/harvester/main.go](cmd/harvester/main.go) for a staged migration away from the split Python and Node data-build scripts.
+
+The current recommendation is:
+
+- high-value migration target: the external-contributions updater, because it does real network I/O and benefits from concurrent GitHub API fetches
+- reasonable unification target: the README-to-JSON and case-study page generators, so one language owns the data-build surface
+- lower immediate priority: switching the Pages deploy to the Go generators before the HTML shape settles, because the existing Node path is already stable
+
+Available commands:
+
+```bash
+go run ./cmd/harvester update-contributions-readme
+go run ./cmd/harvester generate-contributions-json
+go run ./cmd/harvester generate-case-study-pages
+go run ./cmd/harvester generate-static-artifacts
+```
+
+Package-script wrappers are also available:
+
+```bash
+npm run harvester:readme
+npm run harvester:artifacts
+```
+
+For now the GitHub Pages build remains on the existing Node-based generators so deploy behavior stays unchanged while the Go path matures.
+
 ## Deployment Model
 
 The canonical public URLs are:

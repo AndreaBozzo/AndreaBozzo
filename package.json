@@ -9,6 +9,8 @@
     "build:wasm": "bash ./scripts/build-wasm.sh",
     "generate:case-studies": "node ./scripts/generate-case-study-pages.mjs",
     "generate:contributions": "node ./scripts/generate-contributions.mjs",
+    "harvester:artifacts": "go run ./cmd/harvester generate-static-artifacts",
+    "harvester:readme": "go run ./cmd/harvester update-contributions-readme",
     "assemble:site": "bash ./scripts/assemble-site.sh",
     "build:site": "npm run build:assets && npm run build:blog && npm run generate:contributions && npm run assemble:site"
   },
