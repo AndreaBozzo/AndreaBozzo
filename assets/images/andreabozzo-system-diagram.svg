@@ -52,7 +52,7 @@
     <tspan x="518" dy="0">Rust/WASM</tspan>
     <tspan x="518" dy="24">workbench</tspan>
   </text>
-  <text x="518" y="300" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="14">interactive filters, mirrored logic</text>
+  <text x="518" y="300" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="14">interactive filters, shared logic</text>
 
   <rect x="490" y="334" width="222" height="92" rx="20" fill="#fbf4e7"/>
   <text x="518" y="368" fill="#1a2236" font-family="Space Grotesk, Arial, sans-serif" font-size="24" font-weight="700">Go harvester</text>
@@ -60,7 +60,7 @@
   <text x="518" y="416" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="15">README metrics, static artifacts</text>
 
   <rect x="490" y="450" width="222" height="92" rx="20" fill="#edf3f8"/>
-  <text x="518" y="484" fill="#1a2236" font-family="Space Grotesk, Arial, sans-serif" font-size="24" font-weight="700">Structured sources</text>
+  <text x="518" y="484" fill="#1a2236" font-family="Space Grotesk, Arial, sans-serif" font-size="22" font-weight="700">Structured sources</text>
   <text x="518" y="510" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="15">case-studies.json, papers.json,</text>
   <text x="518" y="532" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="15">contributions.json, blog content</text>
 
@@ -76,7 +76,7 @@
   <text x="852" y="432" fill="#1a2236" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2">DYNAMIC COMPANION</text>
   <text x="852" y="474" fill="#1a2236" font-family="Space Grotesk, Arial, sans-serif" font-size="30" font-weight="700">Vercel Go API</text>
   <text x="852" y="508" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18">/api/github/stats and /badge</text>
-  <text x="852" y="534" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18">live metrics for homepage and README</text>
+  <text x="852" y="534" fill="#4c5565" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18">homepage and README metrics</text>
 
   <path d="M384 248 H448" fill="none" stroke="#5c6678" stroke-width="4" marker-end="url(#arrow)"/>
   <path d="M384 466 H448" fill="none" stroke="#5c6678" stroke-width="4" marker-end="url(#arrow)"/>

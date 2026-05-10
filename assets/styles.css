@@ -678,7 +678,7 @@ a {
 
 .system-copy {
     display: grid;
-    gap: var(--space-6);
+    gap: var(--space-5);
     position: relative;
     z-index: 1;
     align-content: center;
@@ -689,8 +689,11 @@ a {
 
 .system-points {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: var(--space-4);
+    position: relative;
+    z-index: 1;
 }
 
 .system-point {
@@ -1734,7 +1737,7 @@ a {
     }
 
     .system-points {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .hero-copy {
@@ -1799,6 +1802,10 @@ a {
     .system-layout {
         padding: var(--space-5);
         border-radius: var(--radius-lg);
+    }
+
+    .system-points {
+        grid-template-columns: 1fr;
     }
 
     .blog-layout,
