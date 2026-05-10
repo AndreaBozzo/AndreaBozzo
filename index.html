@@ -11,6 +11,7 @@
     <meta name="theme-color" content="#f5efe2">
     <meta name="theme-color" content="#f5efe2" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#101726" media="(prefers-color-scheme: dark)">
+    <meta name="ab-api-base" content="">
 
     <link rel="preconnect" href="https://api.github.com" crossorigin>
     <link rel="dns-prefetch" href="//api.github.com">
@@ -76,6 +77,25 @@
                             <p style="padding: 0 1rem;">Bilingual notes on what I built, what broke, and what changed my mind.</p>
                         </article>
                     </div>
+
+                    <dl class="hero-stats" id="hero-stats" data-state="idle" aria-live="polite">
+                        <div class="stat">
+                            <dt>Followers</dt>
+                            <dd id="hero-stat-followers">--</dd>
+                        </div>
+                        <div class="stat">
+                            <dt>Stars</dt>
+                            <dd id="hero-stat-stars">--</dd>
+                        </div>
+                        <div class="stat">
+                            <dt>Owned repos</dt>
+                            <dd id="hero-stat-repos">--</dd>
+                        </div>
+                        <div class="stat stat-stack">
+                            <dt>Live GitHub</dt>
+                            <dd id="hero-stat-meta">Connect the companion API host to surface live GitHub stats here.</dd>
+                        </div>
+                    </dl>
 
                     <div class="cta-buttons">
                         <a href="#workbench" class="btn btn-primary">Open the workbench</a>

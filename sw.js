@@ -46,12 +46,17 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
     const { request } = event;
+    const requestUrl = new URL(request.url);
 
     if (!request.url.startsWith(self.location.origin)) {
         return;
     }
 
     if (request.url.includes('api.github.com')) {
+        return;
+    }
+
+    if (requestUrl.pathname === `${BASE_PATH}api` || requestUrl.pathname.startsWith(`${BASE_PATH}api/`)) {
         return;
     }
 

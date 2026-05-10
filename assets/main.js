@@ -14,6 +14,8 @@ const savedTheme = localStorage.getItem('theme') || 'light';
 document.documentElement.setAttribute('data-theme', savedTheme);
 document.getElementById('theme-icon').textContent = savedTheme === 'dark' ? '🌙' : '☀️';
 
+const defaultGitHubUsername = 'AndreaBozzo';
+
 function getSiteBasePath() {
     const assetStylesheet = document.querySelector('link[href$="assets/styles.min.css"], link[href$="assets/styles.css"]');
     if (assetStylesheet) {
@@ -24,6 +26,20 @@ function getSiteBasePath() {
 }
 
 const siteBasePath = getSiteBasePath();
+
+function getCompanionApiBase() {
+    const configuredBase = document.querySelector('meta[name="ab-api-base"]')?.getAttribute('content')?.trim();
+    if (configuredBase) {
+        return configuredBase.replace(/\/$/, '');
+    }
+
+    const hostname = window.location.hostname;
+    if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname.endsWith('.vercel.app')) {
+        return window.location.origin;
+    }
+
+    return '';
+}
 
 const topicBlueprints = [
     {
@@ -501,6 +517,15 @@ function parseCompactNumber(value) {
     return parseFloat(normalized) || 0;
 }
 
+function formatMetricCount(value) {
+    if (!Number.isFinite(value)) return '--';
+
+    return new Intl.NumberFormat('en-US', {
+        notation: value >= 1000 ? 'compact' : 'standard',
+        maximumFractionDigits: 1
+    }).format(value);
+}
+
 function getBlogJsonPath(lang) {
     const relativePath = lang === 'en' ? 'en/index.json' : 'index.json';
     return `${siteBasePath}blog/${relativePath}`;
@@ -643,6 +668,51 @@ function escapeHtml(text) {
     return value.replace(/[&<>"']/g, m => map[m]);
 }
 
+async function loadHeroStats() {
+    const root = document.getElementById('hero-stats');
+    const followers = document.getElementById('hero-stat-followers');
+    const stars = document.getElementById('hero-stat-stars');
+    const repos = document.getElementById('hero-stat-repos');
+    const meta = document.getElementById('hero-stat-meta');
+
+    if (!root || !followers || !stars || !repos || !meta) return;
+
+    const apiBase = getCompanionApiBase();
+    if (!apiBase) {
+        root.dataset.state = 'disabled';
+        meta.textContent = 'Set the companion Vercel host in the ab-api-base meta tag to enable live GitHub stats.';
+        return;
+    }
+
+    try {
+        const endpoint = new URL('/api/github/stats', apiBase);
+        endpoint.searchParams.set('username', defaultGitHubUsername);
+
+        const response = await fetch(endpoint.toString(), { mode: 'cors' });
+        if (!response.ok) {
+            throw new Error(`Failed to fetch live stats: ${response.status}`);
+        }
+
+        const summary = await response.json();
+        followers.textContent = formatMetricCount(summary.followers);
+        stars.textContent = formatMetricCount(summary.totalStars);
+        repos.textContent = formatMetricCount(summary.ownedRepos || summary.publicRepos);
+
+        const updatedAt = summary.generatedAtUtc ? new Date(summary.generatedAtUtc).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+        }) : 'now';
+        const topRepo = summary.topRepoName ? `Top repo: ${summary.topRepoName}` : 'Top repo unavailable';
+        meta.textContent = `${topRepo} · Updated ${updatedAt}`;
+        root.dataset.state = 'live';
+    } catch (error) {
+        console.error('Failed to load live GitHub stats:', error);
+        root.dataset.state = 'error';
+        meta.textContent = 'The companion API is unavailable right now. Static content is still served from GitHub Pages.';
+    }
+}
+
 async function fetchContributions(username, repoName = 'AndreaBozzo', branch = 'main') {
     const listElement = document.getElementById('contributions-list');
     if (!listElement) return;
@@ -769,10 +839,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const loadBlogPosts = () => loadLatestBlogPosts();
     const hasWorkbench = initializeWorkbench();
 
+    loadHeroStats();
+
     if (hasWorkbench) {
         loadWorkbenchEngine();
         loadCaseStudies();
-        fetchContributions('AndreaBozzo');
+        fetchContributions(defaultGitHubUsername);
         loadPapers();
 
         if ('requestIdleCallback' in window) {

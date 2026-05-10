@@ -96,6 +96,40 @@ npm run harvester:readme
 npm run harvester:artifacts
 ```
 
+## Go API Companion
+
+The repository now also contains a small Go `api/` surface intended for Vercel-hosted dynamic endpoints while GitHub Pages remains the canonical static host.
+
+Current endpoints:
+
+- `/api/github/stats` — JSON summary for a GitHub user
+- `/api/github/badge` — SVG badge for one GitHub metric
+
+Query parameters:
+
+- `username` — optional, defaults to `AndreaBozzo`
+- `metric` — optional on the badge endpoint; supported values are `stars`, `repos`, `followers`, and `top-repo`
+
+Environment variables:
+
+- `GITHUB_API_TOKEN` or `GITHUB_TOKEN` — optional but recommended to reduce GitHub API rate-limit issues
+
+Local validation:
+
+```bash
+go test ./...
+```
+
+If you want to exercise the handlers locally with Vercel, use `vercel dev` from the repository root after setting the token in your shell or Vercel project environment.
+
+The static homepage can consume the companion API through the `ab-api-base` meta tag in [index.html](index.html). Leave it blank for same-origin Vercel previews, or set it to your deployed Vercel hostname when GitHub Pages remains the primary static host.
+
+Recommended deployment model:
+
+- GitHub Pages serves the static site and blog
+- Vercel serves only the `api/` directory as the dynamic companion host
+- set `GITHUB_API_TOKEN` or `GITHUB_TOKEN` in Vercel for better GitHub API rate-limit headroom
+
 ## Deployment Model
 
 The canonical public URLs are:

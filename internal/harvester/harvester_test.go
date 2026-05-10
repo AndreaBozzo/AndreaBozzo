@@ -41,13 +41,35 @@ func TestRenderCaseStudyPageIncludesPapersNav(t *testing.T) {
 		CoverImage: "../blog/images/demo.png",
 		Stack:      []string{"Go", "CLI"},
 		Sections:   []caseStudySection{{Heading: "Why", Body: "Because"}},
-	}))
+	}, caseStudyPageContext{}))
 
 	if !strings.Contains(body, "../../#papers") {
 		t.Fatalf("expected papers navigation link")
 	}
 	if !strings.Contains(body, "../../blog/images/demo.png") {
 		t.Fatalf("expected normalized cover path")
+	}
+	if !strings.Contains(body, "</div>\n            <figure") {
+		t.Fatalf("expected case hero copy to close before the cover figure")
+	}
+}
+
+func TestRenderCaseStudyPageIncludesLocalNavigationButtons(t *testing.T) {
+	body := string(renderCaseStudyPage(caseStudy{
+		Slug:     "demo",
+		Title:    "Demo",
+		Subtitle: "Example",
+		Sections: []caseStudySection{{Heading: "Why", Body: "Because"}},
+	}, caseStudyPageContext{
+		Previous: &adjacentCaseStudy{Title: "Previous", URL: "../previous/"},
+		Next:     &adjacentCaseStudy{Title: "Next", URL: "../next/"},
+	}))
+
+	if !strings.Contains(body, "Back to workbench") {
+		t.Fatalf("expected a back-to-workbench button")
+	}
+	if !strings.Contains(body, "../previous/") || !strings.Contains(body, "../next/") {
+		t.Fatalf("expected previous and next case-study links")
 	}
 }
 

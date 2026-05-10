@@ -97,6 +97,19 @@ Case-study pages under [work](work) are generated from [assets/data/case-studies
 
 The repository data-build path now lives in [cmd/harvester](cmd/harvester), which replaces the old split Python and Node generator scripts for contribution updates and generated site artifacts.
 
+## 🧩 Dynamic API
+
+The repository now also contains a small Go `api/` layer intended for a Vercel-hosted dynamic companion service while GitHub Pages remains the canonical static host.
+
+- `/api/github/stats` returns a JSON summary for a GitHub user
+- `/api/github/badge` returns an SVG badge for one GitHub metric
+
+Both endpoints accept an optional `username` query parameter and default to `AndreaBozzo`. The badge endpoint also accepts `metric=stars|repos|followers|top-repo`.
+
+The homepage hero now knows how to consume `/api/github/stats`. To activate it from the static Pages site, set the `ab-api-base` meta tag in [index.html](index.html) to your deployed Vercel host, for example `https://your-project.vercel.app`. If the homepage is served directly from a Vercel preview or production deployment, it will also fall back to same-origin `/api/` automatically.
+
+Set `GITHUB_API_TOKEN` or `GITHUB_TOKEN` in the runtime environment if you want better GitHub API rate-limit headroom.
+
 ---
 
 ## 📊 GitHub Stats

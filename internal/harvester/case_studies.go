@@ -52,6 +52,16 @@ type caseStudySection struct {
 	Body    string `json:"body"`
 }
 
+type adjacentCaseStudy struct {
+	Title string
+	URL   string
+}
+
+type caseStudyPageContext struct {
+	Previous *adjacentCaseStudy
+	Next     *adjacentCaseStudy
+}
+
 func GenerateCaseStudyPages(repoRoot string) error {
 	caseStudiesPath := filepath.Join(repoRoot, "assets", "data", "case-studies.json")
 	workDir := filepath.Join(repoRoot, "work")
@@ -81,12 +91,12 @@ func GenerateCaseStudyPages(repoRoot string) error {
 		return err
 	}
 
-	for _, study := range payload.Items {
+	for idx, study := range payload.Items {
 		outputDir := filepath.Join(workDir, study.Slug)
 		if err := os.MkdirAll(outputDir, 0o755); err != nil {
 			return fmt.Errorf("create %s: %w", outputDir, err)
 		}
-		if err := os.WriteFile(filepath.Join(outputDir, "index.html"), renderCaseStudyPage(study), 0o644); err != nil {
+		if err := os.WriteFile(filepath.Join(outputDir, "index.html"), renderCaseStudyPage(study, pageContextForStudy(payload.Items, idx)), 0o644); err != nil {
 			return fmt.Errorf("write case study page for %s: %w", study.Slug, err)
 		}
 	}
@@ -114,11 +124,12 @@ func removeStaleCaseStudyDirs(workDir string, validSlugs map[string]struct{}) er
 	return nil
 }
 
-func renderCaseStudyPage(study caseStudy) []byte {
+func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext) []byte {
 	title := firstNonEmpty(study.Title, study.Slug, "Case Study")
 	metaDescription := firstNonEmpty(study.MetaDescription, study.Summary, study.Subtitle, title+" case study.")
 	cover := renderCaseStudyCover(study)
 	actions := resolvedActions(study)
+	navigation := renderCaseStudyNavigation(pageContext)
 
 	var buf bytes.Buffer
 	buf.WriteString("<!-- Generated from assets/data/case-studies.json by cmd/harvester. Do not edit directly. -->\n")
@@ -161,8 +172,11 @@ func renderCaseStudyPage(study caseStudy) []byte {
 		buf.WriteString("                    <span>" + escapeHTML(item) + "</span>\n")
 	}
 	buf.WriteString("                </div>\n")
+	buf.WriteString("            </div>\n")
 	buf.Write(cover)
 	buf.WriteString("        </section>\n\n")
+	buf.Write(navigation)
+	buf.WriteString("\n")
 	buf.WriteString("        <section class=\"case-layout\">\n")
 	buf.WriteString("            <article class=\"case-main\">\n")
 	for _, section := range study.Sections {
@@ -199,6 +213,41 @@ func renderCaseStudyPage(study caseStudy) []byte {
 	buf.WriteString("</body>\n</html>\n")
 
 	return buf.Bytes()
+}
+
+func renderCaseStudyNavigation(pageContext caseStudyPageContext) []byte {
+	var buf bytes.Buffer
+	buf.WriteString("        <nav class=\"case-page-nav\" aria-label=\"Case study navigation\">\n")
+	buf.WriteString("            <a class=\"btn btn-secondary\" href=\"../../#workbench\">Back to workbench</a>\n")
+
+	if pageContext.Previous != nil {
+		buf.WriteString("            <a class=\"btn btn-ghost\" href=\"" + escapeHTML(pageContext.Previous.URL) + "\">← " + escapeHTML(pageContext.Previous.Title) + "</a>\n")
+	}
+	if pageContext.Next != nil {
+		buf.WriteString("            <a class=\"btn btn-ghost\" href=\"" + escapeHTML(pageContext.Next.URL) + "\">" + escapeHTML(pageContext.Next.Title) + " →</a>\n")
+	}
+
+	buf.WriteString("        </nav>\n")
+	return buf.Bytes()
+}
+
+func pageContextForStudy(items []caseStudy, idx int) caseStudyPageContext {
+	var pageContext caseStudyPageContext
+
+	if idx > 0 {
+		pageContext.Previous = &adjacentCaseStudy{
+			Title: firstNonEmpty(items[idx-1].Title, items[idx-1].Slug, "Previous case study"),
+			URL:   "../" + items[idx-1].Slug + "/",
+		}
+	}
+	if idx+1 < len(items) {
+		pageContext.Next = &adjacentCaseStudy{
+			Title: firstNonEmpty(items[idx+1].Title, items[idx+1].Slug, "Next case study"),
+			URL:   "../" + items[idx+1].Slug + "/",
+		}
+	}
+
+	return pageContext
 }
 
 func renderCaseStudyCover(study caseStudy) []byte {
