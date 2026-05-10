@@ -29,6 +29,7 @@ Thumbs.db
 # Build artifacts
 target/
 rust/**/target/
+/harvester
 assets/*.min.js
 assets/*.min.css
 assets/data/contributions.json
@@ -55,6 +56,3 @@ __pycache__/
 *.pyo
 *.pyd
 *.pdb
-
-# Exception: keep GitHub Actions scripts
-!.github/scripts/*.py
