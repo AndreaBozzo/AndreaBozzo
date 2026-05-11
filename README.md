@@ -1,34 +1,35 @@
-<h1 align="center">Andrea Bozzo</h1>
+# Andrea Bozzo
 
-<p align="center"><strong>Open source engineer building data platforms, developer tooling, and technical writing around Rust, Python, Go, and modern analytics systems.</strong></p>
+Open source engineer building data platforms, developer tooling, and technical writing around Rust, Python, Go, and modern analytics systems.
 
-<p align="center">This repository is the public front door for my work: a handcrafted landing page at the root, a Hugo-powered blog in <code>/blog</code>, and the GitHub Pages automation that publishes both together.</p>
+This repository is the public front door for that work: the landing page, the blog, the interactive workbench, the generated case studies, and the small companion API that powers live GitHub stats on the site.
 
-<p align="center">
-  <img src="assets/images/Climbing%20towards%20the%20celestial%20Ankh.png" alt="Climbing towards the celestial Ankh" width="480"/>
-</p>
+[Website](https://andreabozzo.github.io/AndreaBozzo/) | [Blog](https://andreabozzo.github.io/AndreaBozzo/blog/) | [LinkedIn](https://www.linkedin.com/in/andrea-bozzo-/) | [Email](mailto:andreabozzo92@gmail.com)
 
-<p align="center"><sub><i>— Per aspera ad data —</i></sub></p>
+![Climbing towards the celestial Ankh](assets/images/Climbing%20towards%20the%20celestial%20Ankh.png)
 
-<p align="center">
-  <a href="https://andreabozzo.github.io/AndreaBozzo/">🌐 WebSite</a> •
-  <a href="https://andreabozzo.github.io/AndreaBozzo/blog/">📝 Blog</a> •
-  <a href="https://www.linkedin.com/in/andrea-bozzo-/">💼 LinkedIn</a> •
-  <a href="mailto:andreabozzo92@gmail.com">📧 Email</a>
-</p>
+_Per aspera ad data._
 
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=AndreaBozzo&label=Profile%20views&color=0e75b6&style=flat" alt="profile views" />
-</p>
+## What this repository contains
 
+- A handcrafted landing page at the repository root built with HTML, CSS, and JavaScript.
+- A Hugo-powered writing archive under [blog](blog).
+- A queryable workbench whose frontend logic is mirrored between JavaScript and Rust compiled to WebAssembly.
+- Generated case-study pages under [work](work), sourced from structured data and built through the Go harvester in [cmd/harvester](cmd/harvester).
+- A small Go companion API under [api](api) for live GitHub metrics and badge endpoints.
 
----
+Public deployment is intentionally split: GitHub Pages serves the static site and blog, while Vercel serves only the dynamic `api/` surface.
 
-## 🌟 Open Source Contributions
+## Selected papers and companion repositories
 
-Contributing to the broader open source ecosystem beyond my own projects.
+- [uic2026-nephtys](https://github.com/AndreaBozzo/uic2026-nephtys) - companion repository for the IEEE UIC 2026 short paper on Nephtys, including the sensor simulator, demo scripts, benchmark automation, and LaTeX source.
+- [scalcom2026-dataprof](https://github.com/AndreaBozzo/scalcom2026-dataprof) - IEEE ScalCom 2026 paper and benchmark suite comparing dataprof against interpreted Python profilers for scalable and sustainable edge AI telemetry profiling.
 
-> *This section is automatically updated daily via GitHub Actions*
+## Open source contributions
+
+Contributions to the broader open source ecosystem beyond my own repositories.
+
+> This section is updated automatically via GitHub Actions.
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
 <p align="center">
@@ -37,7 +38,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
   <img src="https://img.shields.io/badge/Combined_Stars-134.5k-yellow?style=flat-square" alt="Stars"/>
 </p>
 
-### 🔬 Data Ecosystem
+### Data ecosystem
 
 <p>
 <a href="https://github.com/pola-rs/polars"><img src="https://img.shields.io/badge/polars-%E2%AD%90%2038.4k%20%7C%203%20PR-informational?style=flat-square" alt="polars"/></a>
@@ -51,7 +52,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
   <a href="https://github.com/apache/fluss-rust"><img src="https://img.shields.io/badge/fluss--rust-%E2%AD%90%2049%20%7C%202%20PR-informational?style=flat-square" alt="fluss-rust"/></a>
 </p>
 
-### 🦀 Rust Tooling
+### Rust tooling
 
 <p>
 <a href="https://github.com/tokio-rs/tokio"><img src="https://img.shields.io/badge/tokio-%E2%AD%90%2031.9k%20%7C%202%20PR-informational?style=flat-square" alt="tokio"/></a>
@@ -61,21 +62,21 @@ Contributing to the broader open source ecosystem beyond my own projects.
   <a href="https://github.com/rust-ita/rust-docs-it"><img src="https://img.shields.io/badge/rust--docs--it-%E2%AD%90%202%20%7C%202%20PR-informational?style=flat-square" alt="rust-docs-it"/></a>
 </p>
 
-### 🤖 AI/ML
+### AI and ML
 
 <p>
 <a href="https://github.com/datapizza-labs/datapizza-ai"><img src="https://img.shields.io/badge/datapizza--ai-%E2%AD%90%202.2k%20%7C%205%20PR-informational?style=flat-square" alt="datapizza-ai"/></a>
   <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-%E2%AD%90%20860%20%7C%2010%20PR-informational?style=flat-square" alt="mosaico"/></a>
 </p>
 
-### 🛠️ Infrastructure
+### Infrastructure
 
 <p>
 <a href="https://github.com/beelzebub-labs/beelzebub"><img src="https://img.shields.io/badge/beelzebub-%E2%AD%90%202.0k%20%7C%201%20PR-informational?style=flat-square" alt="beelzebub"/></a>
   <a href="https://github.com/CortexFlow/CortexBrain"><img src="https://img.shields.io/badge/CortexBrain-%E2%AD%90%2080%20%7C%203%20PR-informational?style=flat-square" alt="CortexBrain"/></a>
 </p>
 
-### 📦 Other
+### Other
 
 <p>
 <a href="https://github.com/italia-opensource/awesome-italia-opensource"><img src="https://img.shields.io/badge/awesome--italia--opensource-%E2%AD%90%20326%20%7C%201%20PR-informational?style=flat-square" alt="awesome-italia-opensource"/></a>
@@ -83,47 +84,7 @@ Contributing to the broader open source ecosystem beyond my own projects.
   <a href="https://github.com/informagico/fantavibe"><img src="https://img.shields.io/badge/fantavibe-%E2%AD%90%206%20%7C%201%20PR-informational?style=flat-square" alt="fantavibe"/></a>
 </p><!-- EXTERNAL_CONTRIBUTIONS:END -->
 
----
-
-## 📚 Reviews & Papers
-
-Public companion repositories for reviewed papers and reproducible evaluation material.
-
-- [uic2026-nephtys](https://github.com/AndreaBozzo/uic2026-nephtys) — companion repository for the IEEE UIC 2026 short paper on Nephtys, including the sensor simulator, demo scripts, benchmark automation, and LaTeX source.
-- [scalcom2026-dataprof](https://github.com/AndreaBozzo/scalcom2026-dataprof) — IEEE ScalCom 2026 paper and benchmark suite comparing dataprof against interpreted Python profilers for scalable and sustainable edge AI telemetry profiling.
-
-Case-study pages under [work](work) are generated from [assets/data/case-studies.json](assets/data/case-studies.json) by [cmd/harvester](cmd/harvester). Update the JSON source and rebuild the site instead of editing those HTML files directly.
-
-The repository data-build path now lives in [cmd/harvester](cmd/harvester), which replaces the old split Python and Node generator scripts for contribution updates and generated site artifacts.
-
-## 🧩 Dynamic API
-
-The repository now also contains a small Go `api/` layer intended for a Vercel-hosted dynamic companion service while GitHub Pages remains the canonical static host.
-
-- `/api/github/stats` returns a JSON summary for a GitHub user
-- `/api/github/badge` returns an SVG badge for one GitHub metric
-
-Both endpoints accept an optional `username` query parameter and default to `AndreaBozzo`. The badge endpoint also accepts `metric=stars|repos|followers|top-repo`.
-
-The homepage hero now consumes `/api/github/stats` from the deployed companion host at `https://andrea-bozzo.vercel.app`. If the homepage is served directly from a Vercel preview or production deployment, it will also fall back to same-origin `/api/` automatically.
-
-The README now also uses the live badge endpoint directly:
-
-```md
-[![Live GitHub stars](https://andrea-bozzo.vercel.app/api/github/badge?metric=stars&username=AndreaBozzo)](https://andrea-bozzo.vercel.app/api/github/stats?username=AndreaBozzo)
-```
-
-Set `GITHUB_API_TOKEN` or `GITHUB_TOKEN` in the runtime environment if you want better GitHub API rate-limit headroom.
-
----
-
-## 📊 GitHub Stats
-
-<p align="center">
-  <a href="https://andrea-bozzo.vercel.app/api/github/stats?username=AndreaBozzo">
-    <img src="https://andrea-bozzo.vercel.app/api/github/badge?metric=stars&username=AndreaBozzo" alt="Live GitHub stars via companion API" />
-  </a>
-</p>
+## GitHub snapshot
 
 <p align="center">
   <img src="metrics/github-stats.svg" alt="GitHub Stats"/>
@@ -133,3 +94,28 @@ Set `GITHUB_API_TOKEN` or `GITHUB_TOKEN` in the runtime environment if you want 
 <p align="center">
   <img src="metrics/contributions.svg" alt="Contribution Graph" />
 </p>
+
+## Local development
+
+For the full contributor workflow, see [DEVELOPMENT.md](DEVELOPMENT.md). The shortest local preview path is:
+
+```bash
+npm install
+npm run build:site
+python3 -m http.server --directory _site 8000
+```
+
+Then open `http://localhost:8000/`.
+
+Useful notes:
+
+- The merged GitHub Pages artifact is assembled into [_site](_site).
+- Styles are modularized under [assets/styles](assets/styles), with [assets/styles.css](assets/styles.css) as the single entrypoint for the bundled stylesheet.
+- Case-study pages under [work](work) are generated from [assets/data/case-studies.json](assets/data/case-studies.json); edit the source data rather than the generated HTML.
+- The Go harvester in [cmd/harvester](cmd/harvester) owns generated site artifacts and the auto-updated contributions section in this README.
+
+If you only want to preview the blog, run `hugo server -D -F` inside [blog](blog).
+
+## Roadmap
+
+The next phases for the site are tracked in [ROADMAP.md](ROADMAP.md), including the multi-source harvester, typed schema work, client-side live polling polish, and the terminal-native `ssh cv.andreabozzo.com` companion project.
