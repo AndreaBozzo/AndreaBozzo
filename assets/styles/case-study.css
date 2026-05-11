@@ -1,0 +1,344 @@
+/* Case study pages and media viewer. */
+
+.case-study-page {
+    padding-top: var(--space-16);
+}
+
+.case-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(20rem, 0.75fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+    min-height: min(72vh, 42rem);
+}
+
+.case-hero > *,
+.case-layout > * {
+    min-width: 0;
+}
+
+.case-hero-copy {
+    min-width: 0;
+}
+
+.case-hero .title {
+    max-width: 12ch;
+    text-wrap: balance;
+}
+
+.case-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-8);
+}
+
+.case-meta span,
+.media-slot span {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    color: var(--color-text-secondary);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.case-meta span {
+    min-height: 2.2rem;
+    padding: 0.45rem 0.8rem;
+    background: color-mix(in srgb, var(--color-bg-secondary) 84%, transparent);
+}
+
+.case-meta-status {
+    color: var(--color-accent-strong);
+    border-color: color-mix(in srgb, var(--color-accent) 34%, var(--color-border));
+    background: color-mix(in srgb, var(--color-accent) 16%, var(--color-bg-secondary));
+}
+
+.case-cover {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    background: color-mix(in srgb, var(--color-bg-secondary) 88%, transparent);
+    box-shadow: var(--color-surface-shadow);
+    overflow: hidden;
+}
+
+.case-cover-placeholder {
+    display: grid;
+    min-height: 20rem;
+    place-items: center;
+}
+
+.case-cover-placeholder > div {
+    display: grid;
+    gap: var(--space-3);
+    max-width: 22rem;
+    text-align: left;
+}
+
+.case-cover-placeholder strong {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 6vw, 3.2rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+}
+
+.case-cover-placeholder p {
+    color: var(--color-text-secondary);
+    font-size: var(--text-base);
+}
+
+.case-cover-eyebrow {
+    width: fit-content;
+    padding: 0.45rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    color: var(--color-accent-strong);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.case-cover img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center;
+    transform-origin: center;
+    border-radius: calc(var(--radius-lg) - 0.65rem);
+    background: color-mix(in srgb, var(--color-bg-tertiary) 82%, transparent);
+}
+
+.case-page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin: 0 0 var(--space-8);
+}
+
+.case-page-nav .btn {
+    width: auto;
+}
+
+.case-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.42fr);
+    gap: var(--space-8);
+    align-items: start;
+}
+
+.case-main,
+.case-aside,
+.media-slot {
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-secondary);
+    box-shadow: var(--color-surface-shadow);
+}
+
+.case-main {
+    display: grid;
+    gap: var(--space-5);
+    padding: clamp(2rem, 4vw, 4rem);
+    border-radius: var(--radius-lg);
+}
+
+.case-main h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+}
+
+.case-main p,
+.media-slot p {
+    color: var(--color-text-secondary);
+}
+
+.case-aside {
+    position: sticky;
+    top: var(--space-6);
+    display: grid;
+    gap: var(--space-4);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+}
+
+.case-aside .btn {
+    width: 100%;
+}
+
+.media-slots {
+    display: grid;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+}
+
+.media-slot {
+    display: grid;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    background:
+        linear-gradient(135deg, color-mix(in srgb, var(--color-bg-tertiary) 86%, transparent), color-mix(in srgb, var(--color-bg-secondary) 88%, transparent)),
+        linear-gradient(color-mix(in srgb, var(--color-border) 34%, transparent) 1px, transparent 1px),
+        linear-gradient(90deg, color-mix(in srgb, var(--color-border) 34%, transparent) 1px, transparent 1px);
+    background-size: auto, 2rem 2rem, 2rem 2rem;
+    overflow: hidden;
+}
+
+.media-slot span {
+    width: fit-content;
+    padding: 0.35rem 0.65rem;
+    background: color-mix(in srgb, var(--color-bg-tertiary) 84%, transparent);
+    border-radius: 999px;
+    font-size: var(--text-xs);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.media-slot-trigger {
+    display: grid;
+    gap: var(--space-2);
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    text-align: left;
+    cursor: zoom-in;
+}
+
+.media-slot-trigger:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--color-accent-strong) 64%, white);
+    outline-offset: 0.35rem;
+    border-radius: calc(var(--radius-md) - 0.2rem);
+}
+
+.media-slot-figure {
+    margin: 0;
+    display: grid;
+    place-items: center;
+    padding: var(--space-2);
+    border-radius: calc(var(--radius-md) - 0.25rem);
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--color-border) 88%, transparent);
+    background: color-mix(in srgb, var(--color-bg-tertiary) 72%, transparent);
+}
+
+.media-slot-figure img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+    border-radius: calc(var(--radius-md) - 0.55rem);
+    background: color-mix(in srgb, var(--color-paper-cool) 56%, transparent);
+}
+
+.media-slot-hint {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--color-accent-strong);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.media-viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: grid;
+    place-items: center;
+    padding: clamp(1rem, 4vw, 2rem);
+}
+
+.media-viewer[hidden] {
+    display: none;
+}
+
+.media-viewer-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(13, 20, 34, 0.82);
+    backdrop-filter: blur(10px);
+}
+
+.media-viewer-dialog {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: var(--space-4);
+    width: min(100%, 72rem);
+    max-height: calc(100vh - clamp(2rem, 8vw, 4rem));
+    padding: clamp(1rem, 3vw, 1.5rem);
+    border: 1px solid color-mix(in srgb, var(--color-border) 88%, white);
+    border-radius: var(--radius-lg);
+    background: color-mix(in srgb, var(--color-bg-secondary) 96%, white);
+    box-shadow: 0 36px 100px rgba(6, 10, 19, 0.35);
+}
+
+.media-viewer-close {
+    justify-self: end;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-paper-warm) 92%, transparent);
+    color: var(--color-text-primary);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.media-viewer-frame {
+    display: grid;
+    place-items: center;
+    min-height: 0;
+    overflow: auto;
+    border-radius: calc(var(--radius-lg) - 0.4rem);
+    border: 1px solid color-mix(in srgb, var(--color-border) 88%, transparent);
+    background: color-mix(in srgb, var(--color-bg-tertiary) 82%, transparent);
+}
+
+.media-viewer-frame img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: min(78vh, 64rem);
+}
+
+.media-viewer-meta {
+    display: grid;
+    gap: var(--space-2);
+}
+
+.media-viewer-label {
+    color: var(--color-text-primary);
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    line-height: 1.05;
+}
+
+.media-viewer-caption {
+    color: var(--color-text-secondary);
+    font-size: var(--text-base);
+}
+
+body.media-viewer-open {
+    overflow: hidden;
+}
+
+.media-slot p {
+    margin: 0;
+    font-size: var(--text-sm);
+    line-height: 1.55;
+}

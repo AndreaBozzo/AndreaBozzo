@@ -1,0 +1,127 @@
+/* System view section. */
+
+.system-layout {
+    display: grid;
+    grid-template-columns: minmax(18rem, 0.7fr) minmax(0, 1.3fr);
+    gap: clamp(1.5rem, 3vw, 2.75rem);
+    align-items: start;
+    padding: clamp(1.15rem, 1.8vw, 1.6rem);
+    border: 1px solid color-mix(in srgb, var(--color-border) 92%, transparent);
+    border-radius: var(--radius-xl);
+    background:
+        radial-gradient(circle at 14% 18%, color-mix(in srgb, var(--color-accent) 16%, transparent), transparent 28%),
+        radial-gradient(circle at 88% 16%, color-mix(in srgb, var(--color-accent-strong) 14%, transparent), transparent 32%),
+        linear-gradient(145deg, color-mix(in srgb, var(--color-paper-warm) 88%, white), color-mix(in srgb, var(--color-paper-cool) 76%, transparent));
+    box-shadow: 0 28px 68px rgba(52, 37, 16, 0.12);
+    overflow: hidden;
+}
+
+.system-layout > * {
+    min-width: 0;
+}
+
+.system-layout::before {
+    content: "";
+    position: absolute;
+    inset: auto -6rem -7rem auto;
+    width: 18rem;
+    height: 18rem;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--color-accent-strong) 12%, transparent);
+    filter: blur(18px);
+    pointer-events: none;
+}
+
+.system-copy {
+    display: grid;
+    gap: var(--space-5);
+    position: relative;
+    z-index: 1;
+    align-content: center;
+    padding: clamp(0.8rem, 1.4vw, 1.25rem);
+    min-width: 0;
+    max-width: 34rem;
+}
+
+.system-points {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-4);
+    position: relative;
+    z-index: 1;
+}
+
+.system-point {
+    display: grid;
+    gap: var(--space-2);
+    padding: var(--space-5);
+    border-radius: var(--radius-md);
+    border: 1px solid color-mix(in srgb, var(--color-border) 84%, transparent);
+    background: linear-gradient(160deg, color-mix(in srgb, var(--color-bg-tertiary) 92%, white), color-mix(in srgb, var(--color-bg-secondary) 94%, transparent));
+    box-shadow: 0 14px 30px rgba(58, 42, 18, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.system-point::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 0.3rem;
+    background: linear-gradient(90deg, var(--color-accent), color-mix(in srgb, var(--color-accent-strong) 68%, var(--color-accent)));
+}
+
+.system-point:nth-child(2)::before {
+    background: linear-gradient(90deg, var(--color-accent-strong), color-mix(in srgb, var(--color-signal) 74%, var(--color-accent-strong)));
+}
+
+.system-point:nth-child(3)::before {
+    background: linear-gradient(90deg, var(--color-signal), color-mix(in srgb, var(--color-accent) 72%, var(--color-signal)));
+}
+
+.system-point:nth-child(4)::before {
+    background: linear-gradient(90deg, var(--color-plum), color-mix(in srgb, var(--color-accent-strong) 66%, var(--color-plum)));
+}
+
+.system-point strong {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    line-height: 1.05;
+}
+
+.system-point p {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+}
+
+.system-diagram {
+    display: grid;
+    gap: var(--space-4);
+    padding: var(--space-2);
+    border-radius: calc(var(--radius-xl) - 0.3rem);
+    border: 1px solid rgba(36, 54, 88, 0.14);
+    background: linear-gradient(180deg, rgba(255, 252, 244, 0.9), rgba(240, 244, 249, 0.84));
+    box-shadow: 0 22px 50px rgba(22, 20, 18, 0.12);
+    position: relative;
+    z-index: 1;
+    align-content: start;
+    min-width: 0;
+}
+
+.system-diagram img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: calc(var(--radius-lg) - 0.4rem);
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.system-diagram figcaption {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    text-align: center;
+    max-width: 42rem;
+    justify-self: center;
+}

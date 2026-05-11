@@ -1,0 +1,344 @@
+/* Interactive workbench section. */
+
+.workbench-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.42fr);
+    gap: var(--space-8);
+    align-items: end;
+    margin-bottom: var(--space-6);
+}
+
+.command-search {
+    display: grid;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: linear-gradient(145deg, color-mix(in srgb, var(--color-paper-cool) 82%, white), color-mix(in srgb, var(--color-bg-secondary) 90%, transparent));
+    box-shadow: 0 18px 42px rgba(48, 35, 17, 0.08);
+}
+
+.command-search.is-error {
+    border-color: color-mix(in srgb, #c7372f 58%, var(--color-border));
+}
+
+.command-search-kicker,
+.inspector-kind,
+.result-meta {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.command-search input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--color-text-primary);
+    font: 700 var(--text-lg) / 1.2 var(--font-display);
+}
+
+.command-search.is-error input {
+    text-decoration: underline wavy #c7372f 0.08em;
+    text-underline-offset: 0.28em;
+}
+
+.command-search input::placeholder {
+    color: color-mix(in srgb, var(--color-text-muted) 72%, transparent);
+}
+
+.query-error {
+    color: #9f2f2a;
+    font-size: var(--text-xs);
+    font-weight: 700;
+}
+
+.query-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.query-suggestion {
+    appearance: none;
+    border: 1px solid color-mix(in srgb, var(--color-accent) 28%, var(--color-border));
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--color-paper-warm) 82%, white);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    font: 700 var(--text-xs) / 1.1 var(--font-body);
+    padding: 0.42rem 0.55rem;
+    transition: border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.query-suggestion:hover,
+.query-suggestion:focus-visible {
+    border-color: color-mix(in srgb, var(--color-accent) 58%, var(--color-border));
+    color: var(--color-text-primary);
+    transform: translateY(-1px);
+}
+
+.topic-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+}
+
+.topic-pill,
+.map-node {
+    appearance: none;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    cursor: pointer;
+    font-weight: 700;
+    transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease, opacity 180ms ease;
+}
+
+.topic-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: 2.75rem;
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--color-paper-warm) 86%, transparent), color-mix(in srgb, var(--color-bg-secondary) 88%, transparent));
+}
+
+.topic-pill span {
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+}
+
+.topic-pill.is-active,
+.topic-pill:hover,
+.topic-pill:focus-visible {
+    border-color: color-mix(in srgb, var(--color-accent) 54%, var(--color-border));
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 15%, var(--color-paper-warm)), color-mix(in srgb, var(--color-accent-strong) 10%, var(--color-paper-cool)));
+}
+
+.workbench-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+    gap: var(--space-6);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    background:
+        radial-gradient(circle at 14% 18%, color-mix(in srgb, var(--color-signal) 16%, transparent), transparent 28%),
+        radial-gradient(circle at 84% 16%, color-mix(in srgb, var(--color-accent-strong) 12%, transparent), transparent 32%),
+        linear-gradient(145deg, color-mix(in srgb, var(--color-paper-warm) 90%, white), color-mix(in srgb, var(--color-paper-cool) 78%, transparent));
+    border-color: color-mix(in srgb, var(--color-border) 92%, transparent);
+    box-shadow: 0 24px 56px rgba(48, 35, 17, 0.12);
+}
+
+.map-panel {
+    position: relative;
+    min-height: 31rem;
+    border: 1px solid color-mix(in srgb, var(--color-accent-strong) 14%, var(--color-border));
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--color-accent-strong) 8%, transparent), transparent 42%),
+        linear-gradient(color-mix(in srgb, var(--color-accent-strong) 12%, transparent) 1px, transparent 1px),
+        linear-gradient(90deg, color-mix(in srgb, var(--color-accent-strong) 12%, transparent) 1px, transparent 1px),
+        linear-gradient(180deg, color-mix(in srgb, var(--color-paper-cool) 80%, white), color-mix(in srgb, var(--color-paper-warm) 94%, transparent));
+    background-size: 3rem 3rem;
+}
+
+.map-orbit {
+    position: relative;
+    min-height: inherit;
+    isolation: isolate;
+}
+
+.map-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    cursor: grab;
+    touch-action: manipulation;
+}
+
+.map-panel.is-canvas .map-canvas {
+    display: block;
+}
+
+.map-panel.is-canvas .map-orbit {
+    display: none;
+}
+
+.map-panel.is-canvas .map-orbit::before,
+.map-panel.is-canvas .map-orbit::after {
+    display: none;
+}
+
+.map-a11y-list {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+    list-style: none;
+}
+
+.map-orbit::before,
+.map-orbit::after {
+    content: "";
+    position: absolute;
+    inset: 16%;
+    border: 1px solid color-mix(in srgb, var(--color-accent-strong) 22%, transparent);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.map-orbit::after {
+    inset: 30%;
+    border-color: color-mix(in srgb, var(--color-signal) 24%, transparent);
+}
+
+.map-node {
+    position: absolute;
+    left: var(--node-x);
+    top: var(--node-y);
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    width: var(--node-size, 6rem);
+    aspect-ratio: 1;
+    padding: var(--space-3);
+    border-radius: 50%;
+    background: linear-gradient(180deg, rgba(251, 244, 231, 0.98), rgba(237, 243, 248, 0.96));
+    box-shadow: 0 16px 34px rgba(44, 35, 21, 0.12);
+    text-align: center;
+    font-size: var(--text-sm);
+    line-height: 1.15;
+    z-index: 1;
+}
+
+.map-node[data-kind="topic"] {
+    --node-size: 7.3rem;
+    border-color: color-mix(in srgb, var(--color-accent-strong) 38%, var(--color-border));
+}
+
+.map-node[data-kind="post"] {
+    --node-size: 5.8rem;
+    border-color: color-mix(in srgb, var(--color-accent) 34%, var(--color-border));
+}
+
+.map-node[data-kind="project"] {
+    --node-size: 5.6rem;
+    border-color: color-mix(in srgb, var(--color-signal) 38%, var(--color-border));
+}
+
+.map-node[data-kind="case-study"] {
+    --node-size: 6.35rem;
+    border-color: color-mix(in srgb, var(--color-plum) 44%, var(--color-border));
+}
+
+.map-node:hover,
+.map-node:focus-visible,
+.map-node.is-selected {
+    transform: translate(-50%, -50%) scale(1.045);
+    border-color: var(--color-accent);
+    z-index: 2;
+}
+
+.map-node.is-muted {
+    opacity: 0.26;
+}
+
+.inspector-panel {
+    align-self: stretch;
+    display: grid;
+    align-content: center;
+    gap: var(--space-4);
+    padding: var(--space-8);
+    border-radius: var(--radius-md);
+    background: linear-gradient(160deg, color-mix(in srgb, var(--color-paper-warm) 84%, white), color-mix(in srgb, var(--color-paper-cool) 74%, transparent));
+    border-color: rgba(255, 245, 230, 0.14);
+}
+
+.inspector-panel h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+}
+
+.inspector-panel p:not(.inspector-kind) {
+    color: var(--color-text-secondary);
+}
+
+.inspector-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.inspector-tag {
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 0.35rem 0.65rem;
+    color: var(--color-text-secondary);
+    font-size: var(--text-xs);
+    font-weight: 700;
+}
+
+.workbench-results {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-5);
+    margin-top: var(--space-6);
+}
+
+.result-card {
+    display: grid;
+    gap: var(--space-3);
+    min-height: 13rem;
+    padding: var(--space-6);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    background: linear-gradient(150deg, color-mix(in srgb, var(--color-paper-cool) 78%, white), color-mix(in srgb, var(--color-paper-warm) 92%, transparent));
+    transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.result-card:hover,
+.result-card:focus-visible {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--color-accent) 54%, var(--color-border));
+}
+
+.result-card h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    line-height: 1.1;
+}
+
+.result-card p {
+    color: var(--color-text-secondary);
+}
+
+.result-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: auto;
+}
+
+.result-tag {
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 0.35rem 0.65rem;
+    color: var(--color-text-secondary);
+    font-size: var(--text-xs);
+    font-weight: 700;
+}
