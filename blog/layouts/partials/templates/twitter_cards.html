@@ -1,0 +1,54 @@
+{{- $socialImagePath := "" -}}
+{{- if .IsPage -}}
+  {{- with .Params.socialImage -}}
+    {{- $socialImagePath = . -}}
+  {{- else -}}
+    {{- with .File -}}
+      {{- $languageCandidate := printf "images/og-posts/%s.%s.png" .TranslationBaseName $.Lang -}}
+      {{- $logicalCandidate := printf "images/og-posts/%s.png" (strings.TrimSuffix ".md" .LogicalName) -}}
+      {{- $baseCandidate := printf "images/og-posts/%s.png" .BaseFileName -}}
+      {{- if fileExists (printf "static/%s" $languageCandidate) -}}
+        {{- $socialImagePath = $languageCandidate -}}
+      {{- else if fileExists (printf "static/%s" $logicalCandidate) -}}
+        {{- $socialImagePath = $logicalCandidate -}}
+      {{- else if fileExists (printf "static/%s" $baseCandidate) -}}
+        {{- $socialImagePath = $baseCandidate -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if $socialImagePath -}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ $socialImagePath | absURL }}">
+<meta name="twitter:image:alt" content="{{ .Title | plainify }} social card">
+{{- else if .Params.cover.image -}}
+<meta name="twitter:card" content="summary_large_image">
+{{- if (ne $.Params.cover.relative true) }}
+<meta name="twitter:image" content="{{ .Params.cover.image | absURL }}">
+{{- else }}
+<meta name="twitter:image" content="{{ (path.Join .RelPermalink .Params.cover.image ) | absURL }}">
+{{- end}}
+{{- else }}
+{{- $images := partial "templates/_funcs/get-page-images" . -}}
+{{- with index $images 0 -}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ .Permalink }}">
+{{- else -}}
+<meta name="twitter:card" content="summary">
+{{- end -}}
+{{- end }}
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}">
+
+{{- $twitterSite := "" }}
+{{- with site.Params.social }}
+  {{- if reflect.IsMap . }}
+    {{- with .twitter }}
+      {{- $content := . }}
+      {{- if not (strings.HasPrefix . "@") }}
+        {{- $content = printf "@%v" . }}
+      {{- end }}
+      <meta name="twitter:site" content="{{ $content }}">
+    {{- end }}
+  {{- end }}
+{{- end }}

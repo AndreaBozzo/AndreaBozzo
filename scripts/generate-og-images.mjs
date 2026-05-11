@@ -1,5 +1,5 @@
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
+import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { basename, dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { Resvg } from '@resvg/resvg-js';
@@ -7,6 +7,8 @@ import { Resvg } from '@resvg/resvg-js';
 const ROOT_DIR = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const CASE_STUDIES_PATH = join(ROOT_DIR, 'assets/data/case-studies.json');
 const OUTPUT_DIR = join(ROOT_DIR, 'assets/images/og');
+const BLOG_POSTS_DIR = join(ROOT_DIR, 'blog/content/posts');
+const BLOG_OG_DIR = join(ROOT_DIR, 'blog/static/images/og-posts');
 const WIDTH = 1200;
 const HEIGHT = 630;
 const PANEL_X = 822;
@@ -164,9 +166,9 @@ function createCardSvg({ eyebrow, title, body, tags, slug, sectionLabel }) {
 </svg>`;
 }
 
-function writeCard(fileBaseName, card) {
-  const svgPath = join(OUTPUT_DIR, `${fileBaseName}.svg`);
-  const pngPath = join(OUTPUT_DIR, `${fileBaseName}.png`);
+function writeCard(outputDir, fileBaseName, card) {
+  const svgPath = join(outputDir, `${fileBaseName}.svg`);
+  const pngPath = join(outputDir, `${fileBaseName}.png`);
   const svg = createCardSvg(card);
 
   writeFileSync(svgPath, svg);
@@ -176,11 +178,50 @@ function writeCard(fileBaseName, card) {
   console.log(`wrote ${pngPath}`);
 }
 
+function stripQuotes(value) {
+  const trimmed = value.trim();
+  if ((trimmed.startsWith('"') && trimmed.endsWith('"')) || (trimmed.startsWith("'") && trimmed.endsWith("'"))) {
+    return trimmed.slice(1, -1);
+  }
+  return trimmed;
+}
+
+function parseFrontMatter(filePath) {
+  const source = readFileSync(filePath, 'utf8');
+  const match = source.match(/^---\n([\s\S]*?)\n---/);
+  if (!match) {
+    return null;
+  }
+
+  const block = match[1];
+  const readScalar = (key) => {
+    const scalarMatch = block.match(new RegExp(`^${key}:\\s*(.+)$`, 'm'));
+    return scalarMatch ? stripQuotes(scalarMatch[1]) : '';
+  };
+  const tagsMatch = block.match(/^tags:\s*\[(.*)\]$/m);
+  const tags = tagsMatch
+    ? tagsMatch[1].split(',').map((tag) => stripQuotes(tag)).map((tag) => tag.trim()).filter(Boolean)
+    : [];
+
+  return {
+    title: readScalar('title'),
+    description: readScalar('description'),
+    summary: readScalar('summary'),
+    draft: readScalar('draft') === 'true',
+    tags,
+  };
+}
+
+function blogEyebrowForFile(fileBaseName) {
+  return fileBaseName.endsWith('.it') ? 'Articolo' : 'Blog Post';
+}
+
 mkdirSync(OUTPUT_DIR, { recursive: true });
+mkdirSync(BLOG_OG_DIR, { recursive: true });
 
 const payload = JSON.parse(readFileSync(CASE_STUDIES_PATH, 'utf8'));
 
-writeCard('homepage', {
+writeCard(OUTPUT_DIR, 'homepage', {
   eyebrow: 'Andrea Bozzo',
   title: 'A living map of data infrastructure work.',
   body: 'Data platforms, open source, technical writing, and practical systems work across Rust, Python, and Go.',
@@ -190,12 +231,34 @@ writeCard('homepage', {
 });
 
 for (const study of payload.items ?? []) {
-  writeCard(study.slug, {
+  writeCard(OUTPUT_DIR, study.slug, {
     eyebrow: 'Case Study',
     title: study.displayTitle || study.title || study.slug,
     body: study.subtitle || study.summary || 'Work archive entry',
     tags: Array.isArray(study.stack) ? study.stack : [],
     slug: study.slug,
     sectionLabel: 'Work Page',
+  });
+}
+
+for (const entry of readdirSync(BLOG_POSTS_DIR)) {
+  if (!entry.endsWith('.md')) {
+    continue;
+  }
+
+  const filePath = join(BLOG_POSTS_DIR, entry);
+  const frontMatter = parseFrontMatter(filePath);
+  if (!frontMatter || frontMatter.draft) {
+    continue;
+  }
+
+  const fileBaseName = basename(entry, '.md');
+  writeCard(BLOG_OG_DIR, fileBaseName, {
+    eyebrow: blogEyebrowForFile(fileBaseName),
+    title: frontMatter.title || fileBaseName,
+    body: frontMatter.description || frontMatter.summary || 'Technical writing on data engineering, open systems, and infrastructure work.',
+    tags: frontMatter.tags,
+    slug: fileBaseName,
+    sectionLabel: 'Blog',
   });
 }
