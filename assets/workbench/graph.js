@@ -342,20 +342,22 @@ export function createWorkbenchGraph({
         ctx.clearRect(0, 0, graphSim.width, graphSim.height);
 
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        const edgeStroke = isDark ? 'rgba(170, 190, 220, 0.22)' : 'rgba(60, 70, 95, 0.18)';
-        const edgeStrokeActive = isDark ? 'rgba(196, 90, 39, 0.7)' : 'rgba(196, 90, 39, 0.55)';
+        const edgeStroke = isDark ? 'rgba(170, 190, 220, 0.10)' : 'rgba(60, 70, 95, 0.07)';
+        const edgeStrokeActive = isDark ? 'rgba(249, 115, 22, 0.72)' : 'rgba(196, 90, 39, 0.58)';
 
         const nodeById = new Map(graphSim.nodes.map(n => [n.id, n]));
         const selectedId = state.selectedId;
 
-        ctx.lineWidth = 1.2;
+        ctx.lineWidth = 0.9;
         for (const edge of graphSim.edges) {
             const a = nodeById.get(edge.from);
             const b = nodeById.get(edge.to);
             if (!a || !b) continue;
             const active = a.id === selectedId || b.id === selectedId
                 || a.id === graphSim.hoveredId || b.id === graphSim.hoveredId;
+            if (!active && a.kind !== 'topic' && b.kind !== 'topic') continue;
             ctx.strokeStyle = active ? edgeStrokeActive : edgeStroke;
+            ctx.lineWidth = active ? 1.65 : 0.85;
             ctx.beginPath();
             const ap = nodeToPixel(a);
             const bp = nodeToPixel(b);
@@ -373,22 +375,29 @@ export function createWorkbenchGraph({
             const isHovered = node.id === graphSim.hoveredId;
             const baseColor = NODE_KIND_COLORS[node.kind] || '#444';
 
-            ctx.globalAlpha = node.visible ? 1.0 : 0.32;
+            ctx.globalAlpha = node.visible ? 1.0 : 0.24;
 
             if (isSelected || isHovered) {
                 ctx.beginPath();
-                ctx.arc(x, y, radius + 6, 0, Math.PI * 2);
-                ctx.fillStyle = isDark ? 'rgba(196, 90, 39, 0.18)' : 'rgba(196, 90, 39, 0.16)';
+                ctx.arc(x, y, radius + 7, 0, Math.PI * 2);
+                ctx.fillStyle = isDark ? 'rgba(249, 115, 22, 0.18)' : 'rgba(249, 115, 22, 0.14)';
                 ctx.fill();
             }
 
             ctx.beginPath();
             ctx.arc(x, y, radius, 0, Math.PI * 2);
-            ctx.fillStyle = isDark ? '#1c2436' : '#fbf4e7';
+            ctx.fillStyle = isDark ? '#111a29' : '#fffaf2';
             ctx.fill();
             ctx.strokeStyle = baseColor;
-            ctx.lineWidth = isSelected ? 3 : 1.8;
+            ctx.lineWidth = isSelected ? 3 : 1.55;
             ctx.stroke();
+
+            if (isSelected || isHovered) {
+                ctx.beginPath();
+                ctx.arc(x, y, Math.max(2.5, radius * 0.18), 0, Math.PI * 2);
+                ctx.fillStyle = baseColor;
+                ctx.fill();
+            }
 
             circleRects.push({ x: x - radius, y: y - radius, w: radius * 2, h: radius * 2 });
             drawn.push({ node, x, y, radius, isSelected, isHovered, baseColor });
@@ -410,9 +419,9 @@ export function createWorkbenchGraph({
         for (const item of ordered) {
             const { node, x, y, radius, isSelected, isHovered, baseColor } = item;
             const isTopic = node.kind === 'topic';
-            const forceShow = isTopic || isSelected || isHovered;
+            const forceShow = isSelected || isHovered;
 
-            ctx.globalAlpha = node.visible ? 1.0 : 0.32;
+            ctx.globalAlpha = node.visible ? 1.0 : 0.24;
             ctx.font = `${isTopic ? 600 : 500} 12px "IBM Plex Sans", Arial, sans-serif`;
 
             if (isTopic) {
@@ -423,7 +432,9 @@ export function createWorkbenchGraph({
                 continue;
             }
 
-            const maxWidth = Math.min(radius * 3.6, graphSim.width * 0.32);
+            if (!forceShow) continue;
+
+            const maxWidth = Math.min(radius * 4.2, graphSim.width * 0.34);
             const lines = layoutLines(ctx, node.label, maxWidth);
             const labelHeight = lines.length * lineHeight;
             const labelWidth = Math.min(

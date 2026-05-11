@@ -122,41 +122,55 @@
 
 .workbench-shell {
     display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
-    gap: var(--space-6);
-    padding: var(--space-6);
+    grid-template-columns: minmax(0, 1.24fr) minmax(18rem, 0.76fr);
+    gap: var(--space-5);
+    padding: var(--space-5);
     border-radius: var(--radius-lg);
     background:
-        radial-gradient(circle at 14% 18%, color-mix(in srgb, var(--color-signal) 16%, transparent), transparent 28%),
-        radial-gradient(circle at 84% 16%, color-mix(in srgb, var(--color-accent-strong) 12%, transparent), transparent 32%),
-        linear-gradient(145deg, color-mix(in srgb, var(--color-paper-warm) 90%, white), color-mix(in srgb, var(--color-paper-cool) 78%, transparent));
-    border-color: color-mix(in srgb, var(--color-border) 92%, transparent);
-    box-shadow: 0 24px 56px rgba(48, 35, 17, 0.12);
+        radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--color-signal) 10%, transparent), transparent 30%),
+        radial-gradient(circle at 88% 24%, color-mix(in srgb, var(--color-plum) 9%, transparent), transparent 34%),
+        linear-gradient(145deg, color-mix(in srgb, var(--color-paper-warm) 94%, white), color-mix(in srgb, var(--color-paper-cool) 82%, transparent));
+    border-color: color-mix(in srgb, var(--color-border) 88%, transparent);
+    box-shadow: 0 22px 52px rgba(48, 35, 17, 0.09);
 }
 
 .map-panel {
     position: relative;
-    min-height: 31rem;
-    border: 1px solid color-mix(in srgb, var(--color-accent-strong) 14%, var(--color-border));
+    min-height: 32rem;
+    border: 1px solid color-mix(in srgb, var(--color-accent-strong) 11%, var(--color-border));
     border-radius: var(--radius-md);
     overflow: hidden;
     background:
-        radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--color-accent-strong) 8%, transparent), transparent 42%),
-        linear-gradient(color-mix(in srgb, var(--color-accent-strong) 12%, transparent) 1px, transparent 1px),
-        linear-gradient(90deg, color-mix(in srgb, var(--color-accent-strong) 12%, transparent) 1px, transparent 1px),
-        linear-gradient(180deg, color-mix(in srgb, var(--color-paper-cool) 80%, white), color-mix(in srgb, var(--color-paper-warm) 94%, transparent));
-    background-size: 3rem 3rem;
+        radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--color-accent) 8%, transparent), transparent 30%),
+        linear-gradient(color-mix(in srgb, var(--color-accent-strong) 7%, transparent) 1px, transparent 1px),
+        linear-gradient(90deg, color-mix(in srgb, var(--color-accent-strong) 7%, transparent) 1px, transparent 1px),
+        linear-gradient(180deg, color-mix(in srgb, var(--color-paper-cool) 88%, white), color-mix(in srgb, var(--color-paper-warm) 96%, transparent));
+    background-size: 100% 100%, 4.35rem 4.35rem, 4.35rem 4.35rem, 100% 100%;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.68), inset 0 -22px 46px rgba(15, 23, 42, 0.035);
+}
+
+.map-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, color-mix(in srgb, var(--color-paper-warm) 72%, transparent), transparent 14%, transparent 86%, color-mix(in srgb, var(--color-paper-warm) 72%, transparent)),
+        linear-gradient(180deg, color-mix(in srgb, var(--color-paper-cool) 78%, transparent), transparent 16%, transparent 86%, color-mix(in srgb, var(--color-paper-warm) 72%, transparent));
 }
 
 .map-orbit {
     position: relative;
     min-height: inherit;
+    z-index: 1;
     isolation: isolate;
 }
 
 .map-canvas {
     position: absolute;
     inset: 0;
+    z-index: 1;
     width: 100%;
     height: 100%;
     display: none;
@@ -217,7 +231,7 @@
     padding: var(--space-3);
     border-radius: 50%;
     background: linear-gradient(180deg, rgba(251, 244, 231, 0.98), rgba(237, 243, 248, 0.96));
-    box-shadow: 0 16px 34px rgba(44, 35, 21, 0.12);
+    box-shadow: 0 12px 28px rgba(44, 35, 21, 0.10);
     text-align: center;
     font-size: var(--text-sm);
     line-height: 1.15;
@@ -261,17 +275,19 @@
     display: grid;
     align-content: center;
     gap: var(--space-4);
-    padding: var(--space-8);
+    padding: clamp(1.35rem, 2.2vw, 2rem);
     border-radius: var(--radius-md);
-    background: linear-gradient(160deg, color-mix(in srgb, var(--color-paper-warm) 84%, white), color-mix(in srgb, var(--color-paper-cool) 74%, transparent));
-    border-color: rgba(255, 245, 230, 0.14);
+    background:
+        linear-gradient(160deg, color-mix(in srgb, var(--color-paper-warm) 90%, white), color-mix(in srgb, var(--color-paper-cool) 82%, transparent));
+    border-color: color-mix(in srgb, var(--color-border) 78%, transparent);
+    box-shadow: 0 18px 38px rgba(15, 23, 42, 0.055);
 }
 
 .inspector-panel h3 {
     font-family: var(--font-display);
-    font-size: var(--text-2xl);
+    font-size: clamp(1.35rem, 2vw, var(--text-2xl));
     line-height: 1.04;
-    letter-spacing: -0.03em;
+    letter-spacing: 0;
 }
 
 .inspector-panel p:not(.inspector-kind) {
@@ -285,7 +301,7 @@
 }
 
 .inspector-tag {
-    border: 1px solid var(--color-border);
+    border: 1px solid color-mix(in srgb, var(--color-border) 84%, transparent);
     border-radius: 999px;
     padding: 0.35rem 0.65rem;
     color: var(--color-text-secondary);

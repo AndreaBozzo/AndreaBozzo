@@ -51,17 +51,17 @@ export const NODE_KIND_COLORS = {
 };
 
 export const NODE_KIND_RADIUS = {
-    topic: 30,
-    'case-study': 24,
-    post: 20,
-    project: 20
+    topic: 27,
+    'case-study': 21,
+    post: 18,
+    project: 18
 };
 
 export const NODE_KIND_SIM_RADIUS = {
-    topic: 6.5,
-    'case-study': 5.0,
-    post: 4.0,
-    project: 4.0
+    topic: 5.8,
+    'case-study': 4.5,
+    post: 3.8,
+    project: 3.8
 };
 
 export const SIM_WARMUP_STEPS = 60;
