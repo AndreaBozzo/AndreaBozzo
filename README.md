@@ -6,10 +6,6 @@ This repository is the public front door for that work: the landing page, the bl
 
 [Website](https://andreabozzo.github.io/AndreaBozzo/) | [Blog](https://andreabozzo.github.io/AndreaBozzo/blog/) | [LinkedIn](https://www.linkedin.com/in/andrea-bozzo-/) | [Email](mailto:andreabozzo92@gmail.com)
 
-![Climbing towards the celestial Ankh](assets/images/Climbing%20towards%20the%20celestial%20Ankh.png)
-
-_Per aspera ad data._
-
 ## What this repository contains
 
 - A handcrafted landing page at the repository root built with HTML, CSS, and JavaScript.
