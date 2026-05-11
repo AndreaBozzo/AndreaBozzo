@@ -133,6 +133,22 @@ export function createWorkbenchGraph({
         }
         if (!ensureGraphCanvas()) return;
 
+        const layoutSignature = JSON.stringify({
+            nodes: nodes.map(node => [node.id, node.kind, node.label, node.visible]),
+            edges: (edges || []).map(edge => [edge.from, edge.to, edge.kind])
+        });
+
+        if (layoutSignature === graphSim.layoutSignature) {
+            graphSim.temperature = Math.max(graphSim.temperature, 0.35);
+            graphSim.settledFrames = 0;
+            drawGraph();
+            if (!graphSim.reduceMotion) {
+                startGraphLoop();
+            }
+            return;
+        }
+        graphSim.layoutSignature = layoutSignature;
+
         const previousById = new Map(graphSim.nodes.map(n => [n.id, n]));
         let newNodeCount = 0;
         graphSim.nodes = nodes.map((node, index) => {

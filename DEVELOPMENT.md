@@ -69,6 +69,21 @@ Notes:
 - the `_site/` assembly step lives in [scripts/assemble-site.sh](scripts/assemble-site.sh) so the npm workflow stays readable
 - `npm run generate:case-studies` is available if you only need to refresh the generated `work/*` pages while editing case study content
 
+## Common Commands
+
+The repository root [Makefile](Makefile) groups the different surfaces behind stable targets:
+
+```bash
+make lint        # JS, SVG, Go vet, Rust clippy, JSON, whitespace
+make test        # Go and Rust tests
+make fmt         # Go and Rust formatting
+make fmt-check   # formatting checks only
+make check       # fmt-check + lint + test
+make build-site  # full local Pages artifact
+```
+
+Use the underlying npm, Go, Cargo, or Hugo commands directly when you need a narrower workflow; keep new repeated workflows discoverable through the Makefile.
+
 ## Go Harvester
 
 This repo now uses the Go CLI at [cmd/harvester/main.go](cmd/harvester/main.go) as the canonical generator for repository-derived content.
@@ -95,6 +110,32 @@ Package-script wrappers are also available:
 npm run harvester:readme
 npm run harvester:artifacts
 ```
+
+## Workbench JS/Rust Boundary
+
+The homepage workbench is deliberately split so the Rust/WASM bundle remains an optional accelerator, not a second frontend.
+
+JavaScript owns:
+
+- fetching JSON artifacts, loading order, service worker behavior, and error fallbacks
+- UI state such as selected node, active topic, query text, and render scheduling
+- DOM rendering, result cards, inspector updates, and canvas drawing
+- the no-WASM fallback in [assets/workbench/view-model.js](assets/workbench/view-model.js)
+
+Rust owns:
+
+- deterministic workbench derivation from a JSON payload
+- item normalization, topic detection, query parsing, ranking, topic counts, graph edges, and graph coordinates
+- optional layout ticks for the canvas simulation
+
+The browser validates the WASM surface through the exported `workbench_engine_contract()` function before using it. If the contract version is missing or incompatible, [assets/workbench/index.js](assets/workbench/index.js) keeps the site on the JavaScript fallback. When changing Rust-owned behavior, update the Rust tests and rebuild the committed WASM artifact with:
+
+```bash
+cargo test --manifest-path rust/site_engine/Cargo.toml
+npm run build:wasm
+```
+
+Avoid moving fetching, DOM decisions, styling, or user interaction policy into Rust. Avoid duplicating Rust ranking/query behavior in JavaScript except for the intentionally simpler fallback path.
 
 ## Go API Companion
 

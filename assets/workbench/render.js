@@ -8,6 +8,10 @@ export function createWorkbenchRenderer({
     buildWorkbenchViewModel,
     selectedFromItem
 }) {
+    let lastQueryStateSignature = '';
+    let lastTopicStripSignature = '';
+    let lastResultsSignature = '';
+
     function applyQuerySuggestion(suggestion) {
         const input = document.getElementById('workbench-search');
         if (!input) return;
@@ -33,12 +37,20 @@ export function createWorkbenchRenderer({
         if (!shell || !error || !suggestions) return;
 
         const queryError = viewModel.queryError || null;
+        const querySuggestions = viewModel.querySuggestions || [];
+        const queryStateSignature = JSON.stringify({
+            error: queryError?.message || '',
+            suggestions: querySuggestions
+        });
+
+        if (queryStateSignature === lastQueryStateSignature) return;
+        lastQueryStateSignature = queryStateSignature;
+
         shell.classList.toggle('is-error', Boolean(queryError));
         shell.title = queryError ? queryError.message : '';
         error.textContent = queryError ? queryError.message : '';
         error.hidden = !queryError;
 
-        const querySuggestions = viewModel.querySuggestions || [];
         suggestions.hidden = !querySuggestions.length;
         suggestions.innerHTML = querySuggestions.map(suggestion => `
             <button class="query-suggestion" type="button" data-query-suggestion="${escapeHtml(suggestion)}">${escapeHtml(suggestion)}</button>
@@ -53,6 +65,13 @@ export function createWorkbenchRenderer({
         if (!strip) return;
 
         const countsById = new Map(topicCounts.map(topic => [topic.id, topic.count]));
+        const topicStripSignature = JSON.stringify({
+            activeTopic: state.activeTopic,
+            counts: topicBlueprints.map(topic => [topic.id, countsById.get(topic.id) ?? ''])
+        });
+
+        if (topicStripSignature === lastTopicStripSignature) return;
+        lastTopicStripSignature = topicStripSignature;
 
         strip.innerHTML = topicBlueprints.map(topic => `
             <button class="topic-pill${topic.id === state.activeTopic ? ' is-active' : ''}" type="button" data-topic="${topic.id}">
@@ -93,6 +112,17 @@ export function createWorkbenchRenderer({
     function renderWorkbenchResults(results) {
         const container = document.getElementById('workbench-results');
         if (!container) return;
+
+        const resultsSignature = JSON.stringify((results || []).map(item => ({
+            id: item.id,
+            kind: item.kind,
+            title: item.title || item.label,
+            summary: item.summary || '',
+            tags: item.tags || [],
+            url: item.url || './blog/'
+        })));
+        if (resultsSignature === lastResultsSignature) return;
+        lastResultsSignature = resultsSignature;
 
         if (!results.length) {
             container.innerHTML = topicBlueprints.slice(1, 4).map(topic => `

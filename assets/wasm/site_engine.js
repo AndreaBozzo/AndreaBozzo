@@ -37,6 +37,22 @@ export function tick_layout(state_json) {
         wasm.__wbindgen_free(deferred2_0, deferred2_1, 1);
     }
 }
+
+/**
+ * @returns {string}
+ */
+export function workbench_engine_contract() {
+    let deferred1_0;
+    let deferred1_1;
+    try {
+        const ret = wasm.workbench_engine_contract();
+        deferred1_0 = ret[0];
+        deferred1_1 = ret[1];
+        return getStringFromWasm0(ret[0], ret[1]);
+    } finally {
+        wasm.__wbindgen_free(deferred1_0, deferred1_1, 1);
+    }
+}
 function __wbg_get_imports() {
     const import0 = {
         __proto__: null,

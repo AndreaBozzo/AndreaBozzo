@@ -5,12 +5,15 @@ export function build_workbench(payload_json: string): string;
 
 export function tick_layout(state_json: string): string;
 
+export function workbench_engine_contract(): string;
+
 export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
 
 export interface InitOutput {
     readonly memory: WebAssembly.Memory;
     readonly build_workbench: (a: number, b: number) => [number, number];
     readonly tick_layout: (a: number, b: number) => [number, number];
+    readonly workbench_engine_contract: () => [number, number];
     readonly __wbindgen_externrefs: WebAssembly.Table;
     readonly __wbindgen_malloc: (a: number, b: number) => number;
     readonly __wbindgen_realloc: (a: number, b: number, c: number, d: number) => number;

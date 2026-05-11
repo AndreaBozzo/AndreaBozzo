@@ -197,34 +197,29 @@ fn normalize_items(payload: &Payload) -> Vec<WorkItem> {
         if !study.status.is_empty() {
             tags.push(study.status.clone());
         }
-        for slot in &study.media_slots {
-            if !slot.label.is_empty() {
-                tags.push(slot.label.clone());
-            }
-            if !slot.kind.is_empty() {
-                tags.push(slot.kind.clone());
-            }
-            if !slot.placeholder.is_empty() {
-                tags.push(slot.placeholder.clone());
-            }
-        }
-        for section in &study.sections {
-            if !section.heading.is_empty() {
-                tags.push(section.heading.clone());
-            }
-            if !section.body.is_empty() {
-                tags.push(section.body.clone());
-            }
-        }
+        let media_text = study
+            .media_slots
+            .iter()
+            .map(|slot| format!("{} {} {}", slot.label, slot.kind, slot.placeholder))
+            .collect::<Vec<_>>()
+            .join(" ");
+        let section_text = study
+            .sections
+            .iter()
+            .map(|section| format!("{} {}", section.heading, section.body))
+            .collect::<Vec<_>>()
+            .join(" ");
         let text = format!(
-            "{} {} {} {} {} {} {}",
+            "{} {} {} {} {} {} {} {} {}",
             study.title,
             study.subtitle,
             study.summary,
             study.stack.join(" "),
             study.related_posts.join(" "),
             study.repo_url,
-            study.cover_image
+            study.cover_image,
+            media_text,
+            section_text
         );
         out.push(WorkItem {
             id: format!("case-{}", slugify(&study.slug, &title)),

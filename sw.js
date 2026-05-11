@@ -1,4 +1,4 @@
-const CACHE_NAME = 'andreabozzo-v16';
+const CACHE_NAME = 'andreabozzo-v17';
 const BASE_PATH = new URL(self.registration.scope).pathname;
 const ASSETS_TO_CACHE = [
     BASE_PATH,
@@ -28,7 +28,7 @@ const ASSETS_TO_CACHE = [
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then((cache) => cache.addAll(ASSETS_TO_CACHE))
+            .then((cache) => Promise.allSettled(ASSETS_TO_CACHE.map((asset) => cache.add(asset))))
             .then(() => self.skipWaiting())
     );
 });
@@ -63,8 +63,12 @@ self.addEventListener('fetch', (event) => {
         return;
     }
 
+    const networkTimeout = new Promise((_, reject) => {
+        setTimeout(() => reject(new Error('Network timeout')), 4500);
+    });
+
     event.respondWith(
-        fetch(request)
+        Promise.race([fetch(request), networkTimeout])
             .then((response) => {
                 const responseClone = response.clone();
 
@@ -83,8 +87,16 @@ self.addEventListener('fetch', (event) => {
                     }
 
                     if (request.destination === 'document') {
-                        return caches.match(`${BASE_PATH}index.html`);
+                        return caches.match(`${BASE_PATH}index.html`).then((fallbackResponse) => fallbackResponse || new Response('', {
+                            status: 504,
+                            statusText: 'Gateway Timeout'
+                        }));
                     }
+
+                    return new Response('', {
+                        status: 504,
+                        statusText: 'Gateway Timeout'
+                    });
                 });
             })
     );

@@ -98,6 +98,7 @@ export function createGraphState() {
         reduceMotion: false,
         settledFrames: 0,
         temperature: 1.0,
-        tickCount: 0
+        tickCount: 0,
+        layoutSignature: ''
     };
 }

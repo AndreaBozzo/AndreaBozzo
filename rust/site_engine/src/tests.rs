@@ -3,7 +3,7 @@ use crate::models::{Output, SimNode, SimState, WorkItem};
 use crate::query;
 use crate::simulation::{BOUND_HIGH, BOUND_LOW, simulate};
 use crate::workbench::score_query;
-use crate::{build_workbench, tick_layout};
+use crate::{build_workbench, tick_layout, workbench_engine_contract};
 
 fn sample_payload() -> &'static str {
     r#"{
@@ -33,6 +33,30 @@ fn malformed_json_falls_back_to_empty_output() {
     let parsed: serde_json::Value = serde_json::from_str(&out).unwrap();
     assert!(!parsed["nodes"].as_array().unwrap().is_empty());
     assert!(parsed["results"].as_array().unwrap().is_empty());
+}
+
+#[test]
+fn exposes_versioned_workbench_contract() {
+    let contract: serde_json::Value = serde_json::from_str(&workbench_engine_contract()).unwrap();
+    assert_eq!(contract["schemaVersion"], 1);
+    assert!(
+        contract["jsOwns"]
+            .as_array()
+            .unwrap()
+            .contains(&"DOM rendering".into())
+    );
+    assert!(
+        contract["rustOwns"]
+            .as_array()
+            .unwrap()
+            .contains(&"ranking".into())
+    );
+    assert!(
+        contract["exports"]
+            .as_array()
+            .unwrap()
+            .contains(&"build_workbench".into())
+    );
 }
 
 #[test]

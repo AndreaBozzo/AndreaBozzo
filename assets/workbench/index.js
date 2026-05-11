@@ -3,6 +3,8 @@ import { createWorkbenchRenderer } from './render.js';
 import { createGraphState, createWorkbenchState } from './state.js';
 import { createViewModelBuilder } from './view-model.js';
 
+const WORKBENCH_ENGINE_SCHEMA_VERSION = 1;
+
 export function createWorkbench({ siteBasePath, escapeHtml, revealLoadedCards }) {
     const state = createWorkbenchState();
     const graphSim = createGraphState();
@@ -44,6 +46,28 @@ export function createWorkbench({ siteBasePath, escapeHtml, revealLoadedCards })
         selectedFromItem
     });
 
+    function validateWorkbenchEngine(module) {
+        if (typeof module.build_workbench !== 'function') {
+            throw new Error('WASM workbench engine is missing build_workbench');
+        }
+
+        if (typeof module.workbench_engine_contract !== 'function') {
+            throw new Error('WASM workbench engine is missing its versioned contract');
+        }
+
+        const contract = JSON.parse(module.workbench_engine_contract());
+        if (contract.schemaVersion !== WORKBENCH_ENGINE_SCHEMA_VERSION) {
+            throw new Error(`Unsupported WASM workbench contract: ${contract.schemaVersion}`);
+        }
+
+        const exports = Array.isArray(contract.exports) ? contract.exports : [];
+        if (!exports.includes('build_workbench')) {
+            throw new Error('WASM workbench contract does not claim build_workbench support');
+        }
+
+        return contract;
+    }
+
     async function loadWorkbenchEngine() {
         if (workbenchEngineLoadStarted) return;
         workbenchEngineLoadStarted = true;
@@ -51,8 +75,11 @@ export function createWorkbench({ siteBasePath, escapeHtml, revealLoadedCards })
         try {
             const module = await import(`${siteBasePath}assets/wasm/site_engine.js`);
             await module.default(`${siteBasePath}assets/wasm/site_engine_bg.wasm`);
+            const contract = validateWorkbenchEngine(module);
             workbenchEngine = module.build_workbench;
-            workbenchEngineTick = typeof module.tick_layout === 'function' ? module.tick_layout : null;
+            workbenchEngineTick = contract.exports.includes('tick_layout') && typeof module.tick_layout === 'function'
+                ? module.tick_layout
+                : null;
             graphSim.enabled = true;
             renderer.renderWorkbench();
         } catch (error) {

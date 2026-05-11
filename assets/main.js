@@ -148,14 +148,52 @@ function initializeCaseStudyMediaViewer() {
 
 // ===== Scroll Reveal Animation with Intersection Observer =====
 const revealElements = document.querySelectorAll('.scroll-reveal');
+let revealObserver = null;
+
+function revealElement(element) {
+    element.classList.add('revealed');
+    revealObserver?.unobserve(element);
+}
+
+function revealVisibleElements() {
+    revealElements.forEach((element) => {
+        const rect = element.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            revealElement(element);
+        }
+    });
+}
+
+function revealHashTarget() {
+    if (!window.location.hash) return;
+
+    const target = document.getElementById(window.location.hash.slice(1));
+    const revealTarget = target?.classList.contains('scroll-reveal')
+        ? target
+        : target?.closest('.scroll-reveal');
+    if (revealTarget) {
+        revealElement(revealTarget);
+    }
+}
+
+function scrollHashTargetIntoView() {
+    if (!window.location.hash) return;
+
+    const target = document.getElementById(window.location.hash.slice(1));
+    if (!target) return;
+
+    window.scrollTo({
+        top: target.getBoundingClientRect().top + window.scrollY,
+        behavior: 'auto'
+    });
+}
 
 // Use Intersection Observer for better performance
 if ('IntersectionObserver' in window) {
-    const revealObserver = new IntersectionObserver((entries) => {
+    revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                revealObserver.unobserve(entry.target); // Stop observing once revealed
+                revealElement(entry.target);
             }
         });
     }, {
@@ -170,13 +208,27 @@ if ('IntersectionObserver' in window) {
         revealElements.forEach(el => {
             const rect = el.getBoundingClientRect();
             if (rect.top < window.innerHeight - 100) {
-                el.classList.add('revealed');
+                revealElement(el);
             }
         });
     };
     window.addEventListener('scroll', revealOnScroll, { passive: true });
     revealOnScroll();
 }
+
+requestAnimationFrame(() => {
+    revealHashTarget();
+    revealVisibleElements();
+});
+window.addEventListener('load', () => {
+    revealHashTarget();
+    revealVisibleElements();
+    requestAnimationFrame(scrollHashTargetIntoView);
+});
+window.addEventListener('hashchange', () => {
+    revealHashTarget();
+    requestAnimationFrame(scrollHashTargetIntoView);
+});
 
 // ===== Blog Posts Auto-Loading =====
 function getCurrentBlogLanguage() {
@@ -235,6 +287,21 @@ function getBlogJsonPath(lang) {
     return `${siteBasePath}blog/${relativePath}`;
 }
 
+async function fetchJson(url, { timeoutMs = 7000 } = {}) {
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), timeoutMs);
+
+    try {
+        const response = await fetch(url, { signal: controller.signal });
+        if (!response.ok) {
+            throw new Error(`Failed to fetch ${url}: ${response.status}`);
+        }
+        return await response.json();
+    } finally {
+        window.clearTimeout(timeoutId);
+    }
+}
+
 function revealLoadedCards(container, selector) {
     const items = container.querySelectorAll(selector);
 
@@ -270,12 +337,7 @@ async function loadLatestBlogPosts(forceLang = null) {
     }
 
     try {
-        const response = await fetch(getBlogJsonPath(lang));
-        if (!response.ok) {
-            throw new Error('Failed to fetch blog posts');
-        }
-
-        const posts = await response.json();
+        const posts = await fetchJson(getBlogJsonPath(lang));
 
         localStorage.setItem(cacheKey, JSON.stringify(posts));
         renderBlogPosts(posts, lang);
@@ -431,12 +493,7 @@ async function fetchContributions() {
     if (!listElement) return;
 
     try {
-        const response = await fetch(`${siteBasePath}assets/data/contributions.json`);
-        if (!response.ok) {
-            throw new Error(`Failed to fetch contributions.json: ${response.status}`);
-        }
-
-        const payload = await response.json();
+        const payload = await fetchJson(`${siteBasePath}assets/data/contributions.json`);
         const contributions = Array.isArray(payload.items) ? payload.items : [];
 
         listElement.innerHTML = '';
@@ -473,12 +530,7 @@ async function loadPapers() {
     if (!listElement) return;
 
     try {
-        const response = await fetch(`${siteBasePath}assets/data/papers.json`);
-        if (!response.ok) {
-            throw new Error(`Failed to fetch papers.json: ${response.status}`);
-        }
-
-        const payload = await response.json();
+        const payload = await fetchJson(`${siteBasePath}assets/data/papers.json`);
         const papers = Array.isArray(payload.items) ? payload.items : [];
 
         listElement.innerHTML = '';
@@ -510,12 +562,7 @@ async function loadPapers() {
 
 async function loadCaseStudies() {
     try {
-        const response = await fetch(`${siteBasePath}assets/data/case-studies.json`);
-        if (!response.ok) {
-            throw new Error(`Failed to fetch case-studies.json: ${response.status}`);
-        }
-
-        const payload = await response.json();
+        const payload = await fetchJson(`${siteBasePath}assets/data/case-studies.json`);
         workbench.state.caseStudies = Array.isArray(payload.items) ? payload.items : [];
         workbench.renderWorkbench();
     } catch (error) {
@@ -524,7 +571,9 @@ async function loadCaseStudies() {
 }
 
 // ===== Service Worker Registration =====
-if ('serviceWorker' in navigator && window.location.hostname !== 'localhost') {
+if ('serviceWorker' in navigator && shouldEnableAnalytics()) {
+    let refreshing = false;
+
     window.addEventListener('load', () => {
         navigator.serviceWorker.register(`${siteBasePath}sw.js`)
             .then((registration) => {
@@ -541,6 +590,8 @@ if ('serviceWorker' in navigator && window.location.hostname !== 'localhost') {
 
         // Ascolta aggiornamenti del SW
         navigator.serviceWorker.addEventListener('controllerchange', () => {
+            if (refreshing) return;
+            refreshing = true;
             console.log('🔄 Service Worker updated, reloading...');
             window.location.reload();
         });
@@ -566,7 +617,7 @@ document.addEventListener('DOMContentLoaded', function() {
         loadPapers();
 
         if ('requestIdleCallback' in window) {
-            requestIdleCallback(loadBlogPosts);
+            requestIdleCallback(loadBlogPosts, { timeout: 1500 });
         } else {
             setTimeout(loadBlogPosts, 100);
         }
