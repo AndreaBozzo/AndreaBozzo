@@ -89,7 +89,7 @@
     display: grid;
     gap: 0.15rem;
     padding: 0 var(--space-6);
-    border-left: 1px solid rgba(255, 245, 226, 0.12);
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
     align-content: center;
 }
 
@@ -106,7 +106,7 @@
     font-size: var(--text-xs);
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: color-mix(in srgb, var(--color-accent) 54%, #f2e9d9);
+    color: color-mix(in srgb, var(--color-accent) 54%, #e2e8f0);
     font-weight: 600;
 }
 
@@ -115,7 +115,7 @@
     font-size: var(--text-xl);
     font-weight: 700;
     letter-spacing: -0.02em;
-    color: #f6f1e7;
+    color: #ffffff;
     line-height: 1.1;
 }
 
@@ -123,17 +123,17 @@
     font-family: var(--font-body);
     font-size: var(--text-sm);
     letter-spacing: 0;
-    color: rgba(242, 233, 217, 0.74);
+    color: rgba(255, 255, 255, 0.74);
     align-self: center;
 }
 
 .hero-stats[data-state="live"] .stat-stack dd {
-    color: #f6f1e7;
+    color: #ffffff;
 }
 
 .hero-stats[data-state="disabled"] .stat-stack dd,
 .hero-stats[data-state="error"] .stat-stack dd {
-    color: rgba(242, 233, 217, 0.56);
+    color: rgba(255, 255, 255, 0.56);
 }
 
 .cta-buttons {

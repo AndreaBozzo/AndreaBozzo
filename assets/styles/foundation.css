@@ -49,8 +49,8 @@
     --color-glow-right: rgba(37, 99, 235, 0.15);
     --color-paper-warm: #ffffff;
     --color-paper-cool: #f8fafc;
-    --color-ink-panel: #f1f5f9;
-    --color-ink-panel-soft: #e2e8f0;
+    --color-ink-panel: #0f172a;
+    --color-ink-panel-soft: #1e293b;
 }
 
 [data-theme="dark"] {

@@ -82,9 +82,9 @@
 }
 
 .btn-ghost {
-    background: transparent;
-    border-color: var(--color-border);
-    color: var(--color-text-secondary);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--color-bg-secondary) 40%, transparent), color-mix(in srgb, var(--color-border) 20%, transparent));
+    border-color: color-mix(in srgb, var(--color-border) 120%, transparent);
+    color: var(--color-text-primary);
 }
 
 .btn-ghost:hover,
