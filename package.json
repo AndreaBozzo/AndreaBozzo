@@ -8,6 +8,7 @@
     "build:js": "esbuild assets/main.js --bundle --format=iife --minify --outfile=assets/main.min.js",
     "build:wasm": "bash ./scripts/build-wasm.sh",
     "generate:svg": "node ./scripts/generate-case-study-svgs.mjs",
+    "generate:og": "node ./scripts/generate-og-images.mjs",
     "generate:case-studies": "go run ./cmd/harvester generate-case-study-pages",
     "generate:contributions": "go run ./cmd/harvester generate-contributions-json",
     "harvester:artifacts": "go run ./cmd/harvester generate-static-artifacts",
@@ -16,7 +17,7 @@
     "lint:svg": "node ./scripts/validate-svg.mjs",
     "optimize:svg": "svgo -r assets/images/case-studies",
     "assemble:site": "bash ./scripts/assemble-site.sh",
-    "build:site": "npm run generate:svg && npm run build:assets && npm run build:blog && npm run harvester:artifacts && npm run assemble:site"
+    "build:site": "npm run generate:svg && npm run generate:og && npm run build:assets && npm run build:blog && npm run harvester:artifacts && npm run assemble:site"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

@@ -68,18 +68,18 @@ type caseStudyPageContext struct {
 	Next     *adjacentCaseStudy
 }
 
+const publicSiteBaseURL = "https://andreabozzo.github.io/AndreaBozzo"
+const defaultSocialImagePath = "/assets/images/og/homepage.png"
+const socialImageWidth = "1200"
+const socialImageHeight = "630"
+
 func GenerateCaseStudyPages(repoRoot string) error {
 	caseStudiesPath := filepath.Join(repoRoot, "assets", "data", "case-studies.json")
 	workDir := filepath.Join(repoRoot, "work")
 
-	raw, err := os.ReadFile(caseStudiesPath)
+	payload, err := loadCaseStudiesPayload(caseStudiesPath)
 	if err != nil {
-		return fmt.Errorf("read case studies: %w", err)
-	}
-
-	var payload caseStudiesPayload
-	if err := json.Unmarshal(raw, &payload); err != nil {
-		return fmt.Errorf("decode case studies: %w", err)
+		return err
 	}
 
 	validSlugs := make(map[string]struct{}, len(payload.Items))
@@ -134,6 +134,9 @@ func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext) []by
 	title := firstNonEmpty(study.Title, study.Slug, "Case Study")
 	displayTitle := firstNonEmpty(study.DisplayTitle, title)
 	metaDescription := firstNonEmpty(study.MetaDescription, study.Summary, study.Subtitle, title+" case study.")
+	canonicalURL := caseStudyCanonicalURL(study.Slug)
+	socialImageURL := caseStudySocialImageURL(study)
+	structuredData := caseStudyStructuredData(study, displayTitle, metaDescription, canonicalURL, socialImageURL)
 	cover := renderCaseStudyCover(study)
 	actions := resolvedActions(study)
 	navigation := renderCaseStudyNavigation(pageContext)
@@ -145,6 +148,25 @@ func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext) []by
 	buf.WriteString("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, viewport-fit=cover\">\n")
 	buf.WriteString("    <title>" + escapeHTML(title) + " | Andrea Bozzo</title>\n")
 	buf.WriteString("    <meta name=\"description\" content=\"" + escapeHTML(metaDescription) + "\">\n")
+	buf.WriteString("    <meta name=\"author\" content=\"Andrea Bozzo\">\n")
+	buf.WriteString("    <meta name=\"robots\" content=\"index, follow\">\n")
+	buf.WriteString("    <link rel=\"canonical\" href=\"" + escapeHTML(canonicalURL) + "\">\n")
+	buf.WriteString("    <meta property=\"og:locale\" content=\"en_US\">\n")
+	buf.WriteString("    <meta property=\"og:type\" content=\"article\">\n")
+	buf.WriteString("    <meta property=\"og:title\" content=\"" + escapeHTML(displayTitle) + " | Andrea Bozzo\">\n")
+	buf.WriteString("    <meta property=\"og:description\" content=\"" + escapeHTML(metaDescription) + "\">\n")
+	buf.WriteString("    <meta property=\"og:url\" content=\"" + escapeHTML(canonicalURL) + "\">\n")
+	buf.WriteString("    <meta property=\"og:site_name\" content=\"Andrea Bozzo\">\n")
+	buf.WriteString("    <meta property=\"og:image\" content=\"" + escapeHTML(socialImageURL) + "\">\n")
+	buf.WriteString("    <meta property=\"og:image:type\" content=\"image/png\">\n")
+	buf.WriteString("    <meta property=\"og:image:width\" content=\"" + socialImageWidth + "\">\n")
+	buf.WriteString("    <meta property=\"og:image:height\" content=\"" + socialImageHeight + "\">\n")
+	buf.WriteString("    <meta property=\"og:image:alt\" content=\"" + escapeHTML(displayTitle+" social card") + "\">\n")
+	buf.WriteString("    <meta name=\"twitter:card\" content=\"summary_large_image\">\n")
+	buf.WriteString("    <meta name=\"twitter:title\" content=\"" + escapeHTML(displayTitle) + " | Andrea Bozzo\">\n")
+	buf.WriteString("    <meta name=\"twitter:description\" content=\"" + escapeHTML(metaDescription) + "\">\n")
+	buf.WriteString("    <meta name=\"twitter:image\" content=\"" + escapeHTML(socialImageURL) + "\">\n")
+	buf.WriteString("    <meta name=\"twitter:image:alt\" content=\"" + escapeHTML(displayTitle+" social card") + "\">\n")
 	buf.WriteString("    <meta name=\"theme-color\" content=\"#f5efe2\">\n")
 	buf.WriteString("    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n")
 	buf.WriteString("    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n")
@@ -152,6 +174,7 @@ func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext) []by
 	buf.WriteString("    <link rel=\"icon\" type=\"image/svg+xml\" href=\"../../favicon.svg\">\n")
 	buf.WriteString("    <link rel=\"stylesheet\" href=\"../../assets/styles.min.css\">\n")
 	buf.WriteString("    <script>\n        (function() {\n            const savedTheme = localStorage.getItem('theme') || 'light';\n            document.documentElement.setAttribute('data-theme', savedTheme);\n        })();\n    </script>\n")
+	buf.WriteString("    <script type=\"application/ld+json\">" + structuredData + "</script>\n")
 	buf.WriteString("</head>\n<body>\n")
 	buf.WriteString("    <header class=\"site-header\">\n")
 	buf.WriteString("        <a href=\"../../#home\" class=\"site-brand\">AB</a>\n")
@@ -358,6 +381,54 @@ func resolveCaseStudyAssetPath(assetPath string) string {
 
 func isExternalURL(value string) bool {
 	return strings.HasPrefix(strings.ToLower(value), "http://") || strings.HasPrefix(strings.ToLower(value), "https://")
+}
+
+func caseStudyCanonicalURL(slug string) string {
+	return publicSiteBaseURL + "/work/" + strings.TrimSpace(slug) + "/"
+}
+
+func caseStudySocialImageURL(study caseStudy) string {
+	trimmedSlug := strings.TrimSpace(study.Slug)
+	if trimmedSlug == "" {
+		return publicSiteBaseURL + defaultSocialImagePath
+	}
+	return publicSiteBaseURL + "/assets/images/og/" + trimmedSlug + ".png"
+}
+
+func caseStudyStructuredData(study caseStudy, displayTitle, metaDescription, canonicalURL, socialImageURL string) string {
+	payload := map[string]any{
+		"@context":         "https://schema.org",
+		"@type":            "CreativeWork",
+		"headline":         displayTitle,
+		"name":             displayTitle,
+		"description":      metaDescription,
+		"url":              canonicalURL,
+		"image":            socialImageURL,
+		"mainEntityOfPage": canonicalURL,
+		"author": map[string]any{
+			"@type": "Person",
+			"name":  "Andrea Bozzo",
+			"url":   publicSiteBaseURL + "/",
+		},
+		"publisher": map[string]any{
+			"@type": "Person",
+			"name":  "Andrea Bozzo",
+			"url":   publicSiteBaseURL + "/",
+		},
+	}
+
+	if len(study.Stack) > 0 {
+		payload["keywords"] = strings.Join(study.Stack, ", ")
+	}
+	if study.RepoURL != "" {
+		payload["sameAs"] = []string{study.RepoURL}
+	}
+
+	encoded, err := json.Marshal(payload)
+	if err != nil {
+		return "{}"
+	}
+	return string(encoded)
 }
 
 func escapeHTML(value string) string {

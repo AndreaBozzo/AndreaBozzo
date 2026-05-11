@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://andreabozzo.github.io/AndreaBozzo/sitemap.xml
+Sitemap: https://andreabozzo.github.io/AndreaBozzo/blog/sitemap.xml

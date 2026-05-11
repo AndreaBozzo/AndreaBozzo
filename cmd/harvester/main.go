@@ -45,9 +45,9 @@ func run(args []string) error {
 
 func generateStaticArtifacts(repoRoot string) error {
 	var wg sync.WaitGroup
-	errCh := make(chan error, 2)
+	errCh := make(chan error, 3)
 
-	wg.Add(2)
+	wg.Add(3)
 	go func() {
 		defer wg.Done()
 		errCh <- harvester.GenerateContributionsJSON(repoRoot)
@@ -55,6 +55,10 @@ func generateStaticArtifacts(repoRoot string) error {
 	go func() {
 		defer wg.Done()
 		errCh <- harvester.GenerateCaseStudyPages(repoRoot)
+	}()
+	go func() {
+		defer wg.Done()
+		errCh <- harvester.GenerateRootSEOArtifacts(repoRoot)
 	}()
 
 	wg.Wait()
