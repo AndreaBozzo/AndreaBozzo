@@ -4,7 +4,8 @@ import {
     NODE_KIND_SIM_RADIUS,
     SIM_TEMP_DECAY,
     SIM_TEMP_FLOOR,
-    SIM_WARMUP_STEPS
+    SIM_WARMUP_STEPS,
+    topicBlueprints
 } from './state.js';
 
 export function createWorkbenchGraph({
@@ -25,6 +26,17 @@ export function createWorkbenchGraph({
         renderMapA11yList(nodes);
     }
 
+    function selectNode(node) {
+        if (!node) return;
+
+        state.selectedId = node.id;
+        if (node.kind === 'topic' && topicBlueprints.some(topic => topic.id === node.id)) {
+            state.activeTopic = node.id;
+        }
+
+        requestRender();
+    }
+
     function renderMapDom(nodes) {
         const map = document.getElementById('map-orbit');
         if (!map) return;
@@ -42,8 +54,10 @@ export function createWorkbenchGraph({
 
         map.querySelectorAll('[data-item-id]').forEach(button => {
             button.addEventListener('click', () => {
-                state.selectedId = button.dataset.itemId;
-                requestRender();
+                selectNode({
+                    id: button.dataset.itemId,
+                    kind: button.dataset.kind
+                });
             });
         });
     }
@@ -52,12 +66,14 @@ export function createWorkbenchGraph({
         const list = document.getElementById('map-a11y-list');
         if (!list) return;
         list.innerHTML = nodes.map(node => `
-            <li><button type="button" data-item-id="${escapeHtml(node.id)}">${escapeHtml(node.label)}</button></li>
+            <li><button type="button" data-item-id="${escapeHtml(node.id)}" data-kind="${escapeHtml(node.kind)}">${escapeHtml(node.label)}</button></li>
         `).join('');
         list.querySelectorAll('[data-item-id]').forEach(button => {
             button.addEventListener('click', () => {
-                state.selectedId = button.dataset.itemId;
-                requestRender();
+                selectNode({
+                    id: button.dataset.itemId,
+                    kind: button.dataset.kind
+                });
             });
         });
     }
@@ -534,8 +550,7 @@ export function createWorkbenchGraph({
     function onGraphClick(event) {
         const node = pickNodeAt(event.clientX, event.clientY);
         if (!node) return;
-        state.selectedId = node.id;
-        requestRender();
+        selectNode(node);
         startGraphLoop();
     }
 
