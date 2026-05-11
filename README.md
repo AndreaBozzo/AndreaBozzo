@@ -90,28 +90,3 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 <p align="center">
   <img src="metrics/contributions.svg" alt="Contribution Graph" />
 </p>
-
-## Local development
-
-For the full contributor workflow, see [DEVELOPMENT.md](DEVELOPMENT.md). The shortest local preview path is:
-
-```bash
-npm install
-npm run build:site
-python3 -m http.server --directory _site 8000
-```
-
-Then open `http://localhost:8000/`.
-
-Useful notes:
-
-- The merged GitHub Pages artifact is assembled into [_site](_site).
-- Styles are modularized under [assets/styles](assets/styles), with [assets/styles.css](assets/styles.css) as the single entrypoint for the bundled stylesheet.
-- Case-study pages under [work](work) are generated from [assets/data/case-studies.json](assets/data/case-studies.json); edit the source data rather than the generated HTML.
-- The Go harvester in [cmd/harvester](cmd/harvester) owns generated site artifacts and the auto-updated contributions section in this README.
-
-If you only want to preview the blog, run `hugo server -D -F` inside [blog](blog).
-
-## Roadmap
-
-The next phases for the site are tracked in [ROADMAP.md](ROADMAP.md), including the multi-source harvester, typed schema work, client-side live polling polish, and the terminal-native `ssh cv.andreabozzo.com` companion project.
