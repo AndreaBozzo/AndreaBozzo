@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>dataprof | Andrea Bozzo</title>
-    <meta name="description" content="A Rust library, CLI, and Python package for profiling tabular data with bounded memory, format flexibility, and machine-readable quality outputs.">
+    <meta name="description" content="A Rust library, CLI, and Python package that profiles tabular data around Arrow batches instead of notebook-only inspection patterns, producing machine-readable outputs that can live in CI and data workflows.">
     <meta name="theme-color" content="#f5efe2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +39,7 @@
             <div class="case-hero-copy">
                 <p class="eyebrow">Case Study</p>
                 <h1 class="title">dataprof</h1>
-                <p class="subtitle">High-performance data profiling with ISO 8000/25012 quality metrics.</p>
+                <p class="subtitle">Arrow-native data profiling with bounded memory and quality metrics that fit real pipelines.</p>
                 <div class="case-meta">
                     <span class="case-meta-status">Active OSS project</span>
                     <span>Rust</span>
@@ -50,52 +50,53 @@
                 </div>
             </div>
             <figure class="case-cover">
-                <img src="../../blog/images/dataprofhiglevelarchitecture.png" alt="dataprof high-level architecture diagram">
+                <img src="../../assets/images/case-studies/dataprof-architecture.png" alt="dataprof high-level architecture diagram">
             </figure>
         </section>
 
         <nav class="case-page-nav" aria-label="Case study navigation">
             <a class="btn btn-secondary" href="../../#workbench">Back to workbench</a>
-            <a class="btn btn-ghost" href="../ares-ceres/">Ares + Ceres →</a>
+            <a class="btn btn-ghost" href="../apache-rust-upstream/">Apache Rust Upstream →</a>
         </nav>
 
         <section class="case-layout">
             <article class="case-main">
                 <h2>Why it exists</h2>
-                <p>Profiling should be something teams can run in CI and scripts, not only in notebooks or ad hoc inspection sessions.</p>
+                <p>Profiling should be something a team can run inside CI, scheduled data checks, or batch workflows, not a one-off notebook ritual that falls apart on wide tables or larger files.</p>
 
                 <h2>Technical center</h2>
-                <p>The core combines bounded-memory profiling, column statistics, type and pattern detection, and ISO 8000/25012 quality dimensions across multiple input and export formats.</p>
+                <p>dataprof treats Arrow arrays and RecordBatches as the core abstraction, so column metrics, type and pattern detection, Parquet and IPC interoperability, and the future SQL layer via DataFusion all line up around the same in-memory model.</p>
 
                 <h2>Current proof points</h2>
-                <p>The repo already demonstrates selective metrics for faster runs, bounded-memory streaming, async and database feature flags, and distribution across Crates.io, docs.rs, and PyPI, so the multi-interface story is already visible in public artifacts rather than planned copy.</p>
+                <p>The public surface already shows the real shape of the project: a Rust crate, CLI, and PyPI package, selective metrics for cheaper runs, bounded-memory execution, and an Arrow-centered design story that led to two upstream arrow-rs Parquet documentation PRs rather than a private workaround.</p>
 
             </article>
 
             <aside class="case-aside">
                 <a class="btn btn-primary" href="https://github.com/AndreaBozzo/dataprof" target="_blank" rel="noopener noreferrer">Repository</a>
                 <a class="btn btn-secondary" href="../../blog/en/posts/arrowfordataprof-blog/">Related article</a>
+                <a class="btn btn-secondary" href="https://pypi.org/project/dataprof/" target="_blank" rel="noopener noreferrer">PyPI</a>
 
                 <div class="media-slots">
                     <article class="media-slot">
                         <span>Arrow path</span>
-                        <button class="media-slot-trigger" type="button" aria-haspopup="dialog" aria-label="Open full size Arrow path" data-media-src="../../blog/images/dataprof-arrow.png" data-media-alt="dataprof Arrow interoperability diagram" data-media-label="Arrow path" data-media-caption="Arrow export and zero-copy interchange.">
+                        <button class="media-slot-trigger" type="button" aria-haspopup="dialog" aria-label="Open full size Arrow path" data-media-src="../../assets/images/case-studies/dataprof-arrow.png" data-media-alt="dataprof Arrow interoperability diagram" data-media-label="Arrow path" data-media-caption="Arrow batches, zero-copy interchange, and a shorter Rust-Python bridge.">
                             <figure class="media-slot-figure">
-                                <img src="../../blog/images/dataprof-arrow.png" alt="dataprof Arrow interoperability diagram" loading="lazy">
+                                <img src="../../assets/images/case-studies/dataprof-arrow.png" alt="dataprof Arrow interoperability diagram" loading="lazy">
                             </figure>
                             <span class="media-slot-hint">Open full size</span>
                         </button>
-                        <p>Arrow export and zero-copy interchange.</p>
+                        <p>Arrow batches, zero-copy interchange, and a shorter Rust-Python bridge.</p>
                     </article>
                     <article class="media-slot">
                         <span>System architecture</span>
-                        <button class="media-slot-trigger" type="button" aria-haspopup="dialog" aria-label="Open full size System architecture" data-media-src="../../blog/images/dataprofhiglevelarchitecture.png" data-media-alt="dataprof high-level architecture diagram" data-media-label="System architecture" data-media-caption="Rust core, interfaces, and report pipeline.">
+                        <button class="media-slot-trigger" type="button" aria-haspopup="dialog" aria-label="Open full size System architecture" data-media-src="../../assets/images/case-studies/dataprof-architecture.png" data-media-alt="dataprof high-level architecture diagram" data-media-label="System architecture" data-media-caption="Rust core, interfaces, report pipeline, and Arrow at the center.">
                             <figure class="media-slot-figure">
-                                <img src="../../blog/images/dataprofhiglevelarchitecture.png" alt="dataprof high-level architecture diagram" loading="lazy">
+                                <img src="../../assets/images/case-studies/dataprof-architecture.png" alt="dataprof high-level architecture diagram" loading="lazy">
                             </figure>
                             <span class="media-slot-hint">Open full size</span>
                         </button>
-                        <p>Rust core, interfaces, and report pipeline.</p>
+                        <p>Rust core, interfaces, report pipeline, and Arrow at the center.</p>
                     </article>
                 </div>
             </aside>

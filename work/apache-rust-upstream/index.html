@@ -1,0 +1,110 @@
+<!-- Generated from assets/data/case-studies.json by cmd/harvester. Do not edit directly. -->
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Apache Rust Upstream | Andrea Bozzo</title>
+    <meta name="description" content="A contribution-oriented case study about using Apache Rust projects as the place to fix recurring system constraints: Parquet reader behavior in arrow-rs, query-engine surfaces in DataFusion, table semantics in iceberg-rust, and streaming client integration in fluss-rust.">
+    <meta name="theme-color" content="#f5efe2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../assets/styles.min.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <a href="../../#home" class="site-brand">AB</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="../../#workbench">Work</a>
+            <a href="../../blog/">Blog</a>
+            <a href="../../#projects">Open Source</a>
+            <a href="../../#papers">Papers</a>
+            <a href="../../#contact">Contact</a>
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+            <span class="theme-toggle-icon" id="theme-icon">☀️</span>
+        </button>
+    </header>
+
+    <main class="content-wrapper case-study-page">
+        <section class="case-hero">
+            <div class="case-hero-copy">
+                <p class="eyebrow">Case Study</p>
+                <h1 class="title">Apache Rust Contributions</h1>
+                <p class="subtitle">Upstream contributions across Arrow, DataFusion, Iceberg Rust, and Fluss Rust driven by real downstream system work.</p>
+                <div class="case-meta">
+                    <span class="case-meta-status">Upstream contribution track</span>
+                    <span>Apache Arrow</span>
+                    <span>DataFusion</span>
+                    <span>Iceberg Rust</span>
+                    <span>Fluss Rust</span>
+                    <span>Rust OSS</span>
+                </div>
+            </div>
+            <figure class="case-cover">
+                <img src="../../assets/images/case-studies/apache-rust-contrib-map.svg" alt="Map of contributions across arrow-rs, DataFusion, iceberg-rust, and fluss-rust">
+            </figure>
+        </section>
+
+        <nav class="case-page-nav" aria-label="Case study navigation">
+            <a class="btn btn-secondary" href="../../#workbench">Back to workbench</a>
+            <a class="btn btn-ghost" href="../dataprof/">← dataprof</a>
+            <a class="btn btn-ghost" href="../ares-ceres/">Ares + Ceres →</a>
+        </nav>
+
+        <section class="case-layout">
+            <article class="case-main">
+                <h2>Why it exists</h2>
+                <p>The value in upstream contribution work is not collecting project logos. It is using the actual substrate of your own systems as the place to remove repeated friction instead of carrying forks, custom docs, or private patches forever.</p>
+
+                <h2>Technical center</h2>
+                <p>This contribution track spans the lower layers of the Rust data stack: Parquet reader behavior and examples in arrow-rs, Arrow-native query execution surfaces in DataFusion, table metadata and interoperability concerns in iceberg-rust, and streaming client and integration work in fluss-rust.</p>
+
+                <h2>Current proof points</h2>
+                <p>The public repository already shows a concrete footprint rather than vague affiliation: 2 PRs tracked for apache/arrow-rs, 1 for apache/datafusion, 3 for apache/iceberg-rust, and 2 for apache/fluss-rust, with the Arrow and Iceberg work additionally explained in long-form articles that connect the upstream changes back to downstream tools like dataprof and streaming lakehouse experiments.</p>
+
+            </article>
+
+            <aside class="case-aside">
+                <a class="btn btn-primary" href="https://github.com/apache/arrow-rs" target="_blank" rel="noopener noreferrer">Apache Arrow</a>
+                <a class="btn btn-secondary" href="https://github.com/apache/iceberg-rust" target="_blank" rel="noopener noreferrer">Iceberg Rust</a>
+                <a class="btn btn-secondary" href="https://github.com/apache/fluss-rust" target="_blank" rel="noopener noreferrer">Fluss Rust</a>
+                <a class="btn btn-secondary" href="../../blog/en/posts/arrowfordataprof-blog/">Arrow article</a>
+
+                <div class="media-slots">
+                    <article class="media-slot">
+                        <span>Contribution map</span>
+                        <button class="media-slot-trigger" type="button" aria-haspopup="dialog" aria-label="Open full size Contribution map" data-media-src="../../assets/images/case-studies/apache-rust-contrib-map.svg" data-media-alt="Contribution map across Apache Rust projects" data-media-label="Contribution map" data-media-caption="Arrow, query execution, table metadata, and streaming client layers treated as one upstream surface.">
+                            <figure class="media-slot-figure">
+                                <img src="../../assets/images/case-studies/apache-rust-contrib-map.svg" alt="Contribution map across Apache Rust projects" loading="lazy">
+                            </figure>
+                            <span class="media-slot-hint">Open full size</span>
+                        </button>
+                        <p>Arrow, query execution, table metadata, and streaming client layers treated as one upstream surface.</p>
+                    </article>
+                    <article class="media-slot">
+                        <span>Public proof</span>
+                        <button class="media-slot-trigger" type="button" aria-haspopup="dialog" aria-label="Open full size Public proof" data-media-src="../../assets/images/case-studies/apache-rust-proof-points.svg" data-media-alt="Proof points for Apache Rust upstream contributions" data-media-label="Public proof" data-media-caption="Public README badges and long-form writing already expose the Arrow, DataFusion, Iceberg Rust, and Fluss Rust contribution trail.">
+                            <figure class="media-slot-figure">
+                                <img src="../../assets/images/case-studies/apache-rust-proof-points.svg" alt="Proof points for Apache Rust upstream contributions" loading="lazy">
+                            </figure>
+                            <span class="media-slot-hint">Open full size</span>
+                        </button>
+                        <p>Public README badges and long-form writing already expose the Arrow, DataFusion, Iceberg Rust, and Fluss Rust contribution trail.</p>
+                    </article>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <script src="../../assets/main.min.js" defer></script>
+</body>
+</html>

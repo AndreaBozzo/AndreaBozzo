@@ -7,19 +7,26 @@
     "build:css": "esbuild assets/styles.css --bundle --minify --outfile=assets/styles.min.css",
     "build:js": "esbuild assets/main.js --bundle --format=iife --minify --outfile=assets/main.min.js",
     "build:wasm": "bash ./scripts/build-wasm.sh",
+    "generate:svg": "node ./scripts/generate-case-study-svgs.mjs",
     "generate:case-studies": "go run ./cmd/harvester generate-case-study-pages",
     "generate:contributions": "go run ./cmd/harvester generate-contributions-json",
     "harvester:artifacts": "go run ./cmd/harvester generate-static-artifacts",
     "harvester:readme": "go run ./cmd/harvester update-contributions-readme",
     "lint:js": "eslint assets/main.js assets/workbench/*.js sw.js",
+    "lint:svg": "node ./scripts/validate-svg.mjs",
+    "optimize:svg": "svgo -r assets/images/case-studies",
     "assemble:site": "bash ./scripts/assemble-site.sh",
-    "build:site": "npm run build:assets && npm run build:blog && npm run harvester:artifacts && npm run assemble:site"
+    "build:site": "npm run generate:svg && npm run build:assets && npm run build:blog && npm run harvester:artifacts && npm run assemble:site"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@fontsource/ibm-plex-mono": "^5.2.7",
+    "@fontsource/ibm-plex-sans": "^5.2.8",
+    "@resvg/resvg-js": "^2.6.2",
     "esbuild": "^0.25.11",
     "eslint": "^10.3.0",
-    "globals": "^17.6.0"
+    "globals": "^17.6.0",
+    "svgo": "^4.0.1"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1"

@@ -3,14 +3,17 @@
     {
       "slug": "dataprof",
       "title": "dataprof",
-      "subtitle": "High-performance data profiling with ISO 8000/25012 quality metrics.",
-      "summary": "A Rust library, CLI, and Python package for profiling tabular data with bounded memory, format flexibility, and machine-readable quality outputs.",
+      "displayTitle": "dataprof",
+      "subtitle": "Arrow-native data profiling with bounded memory and quality metrics that fit real pipelines.",
+      "summary": "A Rust library, CLI, and Python package that profiles tabular data around Arrow batches instead of notebook-only inspection patterns, producing machine-readable outputs that can live in CI and data workflows.",
       "stack": ["Rust", "Python", "Apache Arrow", "CLI", "Data Quality"],
       "status": "Active OSS project",
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
       "relatedPosts": ["arrowfordataprof-blog"],
-      "coverImage": "../blog/images/dataprofhiglevelarchitecture.png",
+      "coverImage": "../../assets/images/case-studies/dataprof-architecture.png",
       "coverAlt": "dataprof high-level architecture diagram",
+      "coverEyebrow": "Arrow-native profiling",
+      "coverText": "A profiler that behaves more like a small analytical engine: Arrow in memory, Parquet-friendly I/O, and outputs that can survive outside notebooks.",
       "actions": [
         {
           "label": "Repository",
@@ -21,36 +24,107 @@
           "label": "Related article",
           "url": "../../blog/en/posts/arrowfordataprof-blog/",
           "style": "secondary"
+        },
+        {
+          "label": "PyPI",
+          "url": "https://pypi.org/project/dataprof/",
+          "style": "secondary"
         }
       ],
       "mediaSlots": [
         {
           "label": "Arrow path",
           "kind": "personal-photo",
-          "image": "../blog/images/dataprof-arrow.png",
+          "image": "../../assets/images/case-studies/dataprof-arrow.png",
           "alt": "dataprof Arrow interoperability diagram",
-          "caption": "Arrow export and zero-copy interchange."
+          "caption": "Arrow batches, zero-copy interchange, and a shorter Rust-Python bridge."
         },
         {
           "label": "System architecture",
           "kind": "diagram",
-          "image": "../blog/images/dataprofhiglevelarchitecture.png",
+          "image": "../../assets/images/case-studies/dataprof-architecture.png",
           "alt": "dataprof high-level architecture diagram",
-          "caption": "Rust core, interfaces, and report pipeline."
+          "caption": "Rust core, interfaces, report pipeline, and Arrow at the center."
         }
       ],
       "sections": [
         {
           "heading": "Why it exists",
-          "body": "Profiling should be something teams can run in CI and scripts, not only in notebooks or ad hoc inspection sessions."
+          "body": "Profiling should be something a team can run inside CI, scheduled data checks, or batch workflows, not a one-off notebook ritual that falls apart on wide tables or larger files."
         },
         {
           "heading": "Technical center",
-          "body": "The core combines bounded-memory profiling, column statistics, type and pattern detection, and ISO 8000/25012 quality dimensions across multiple input and export formats."
+          "body": "dataprof treats Arrow arrays and RecordBatches as the core abstraction, so column metrics, type and pattern detection, Parquet and IPC interoperability, and the future SQL layer via DataFusion all line up around the same in-memory model."
         },
         {
           "heading": "Current proof points",
-          "body": "The repo already demonstrates selective metrics for faster runs, bounded-memory streaming, async and database feature flags, and distribution across Crates.io, docs.rs, and PyPI, so the multi-interface story is already visible in public artifacts rather than planned copy."
+          "body": "The public surface already shows the real shape of the project: a Rust crate, CLI, and PyPI package, selective metrics for cheaper runs, bounded-memory execution, and an Arrow-centered design story that led to two upstream arrow-rs Parquet documentation PRs rather than a private workaround."
+        }
+      ]
+    },
+    {
+      "slug": "apache-rust-upstream",
+      "title": "Apache Rust Upstream",
+      "displayTitle": "Apache Rust Contributions",
+      "subtitle": "Upstream contributions across Arrow, DataFusion, Iceberg Rust, and Fluss Rust driven by real downstream system work.",
+      "summary": "A contribution-oriented case study about using Apache Rust projects as the place to fix recurring system constraints: Parquet reader behavior in arrow-rs, query-engine surfaces in DataFusion, table semantics in iceberg-rust, and streaming client integration in fluss-rust.",
+      "stack": ["Apache Arrow", "DataFusion", "Iceberg Rust", "Fluss Rust", "Rust OSS"],
+      "status": "Upstream contribution track",
+      "relatedPosts": ["arrowfordataprof-blog", "iceberg-risingwave-blog"],
+      "coverImage": "../../assets/images/case-studies/apache-rust-contrib-map.svg",
+      "coverAlt": "Map of contributions across arrow-rs, DataFusion, iceberg-rust, and fluss-rust",
+      "coverEyebrow": "Upstream by necessity",
+      "coverText": "When local tools hit substrate limits, the right fix is often to move one layer down and improve the underlying Apache project instead of carrying the problem privately.",
+      "actions": [
+        {
+          "label": "Apache Arrow",
+          "url": "https://github.com/apache/arrow-rs",
+          "style": "primary"
+        },
+        {
+          "label": "Iceberg Rust",
+          "url": "https://github.com/apache/iceberg-rust",
+          "style": "secondary"
+        },
+        {
+          "label": "Fluss Rust",
+          "url": "https://github.com/apache/fluss-rust",
+          "style": "secondary"
+        },
+        {
+          "label": "Arrow article",
+          "url": "../../blog/en/posts/arrowfordataprof-blog/",
+          "style": "secondary"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "label": "Contribution map",
+          "kind": "diagram",
+          "image": "../../assets/images/case-studies/apache-rust-contrib-map.svg",
+          "alt": "Contribution map across Apache Rust projects",
+          "caption": "Arrow, query execution, table metadata, and streaming client layers treated as one upstream surface."
+        },
+        {
+          "label": "Public proof",
+          "kind": "note",
+          "image": "../../assets/images/case-studies/apache-rust-proof-points.svg",
+          "alt": "Proof points for Apache Rust upstream contributions",
+          "caption": "Public README badges and long-form writing already expose the Arrow, DataFusion, Iceberg Rust, and Fluss Rust contribution trail."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Why it exists",
+          "body": "The value in upstream contribution work is not collecting project logos. It is using the actual substrate of your own systems as the place to remove repeated friction instead of carrying forks, custom docs, or private patches forever."
+        },
+        {
+          "heading": "Technical center",
+          "body": "This contribution track spans the lower layers of the Rust data stack: Parquet reader behavior and examples in arrow-rs, Arrow-native query execution surfaces in DataFusion, table metadata and interoperability concerns in iceberg-rust, and streaming client and integration work in fluss-rust."
+        },
+        {
+          "heading": "Current proof points",
+          "body": "The public repository already shows a concrete footprint rather than vague affiliation: 2 PRs tracked for apache/arrow-rs, 1 for apache/datafusion, 3 for apache/iceberg-rust, and 2 for apache/fluss-rust, with the Arrow and Iceberg work additionally explained in long-form articles that connect the upstream changes back to downstream tools like dataprof and streaming lakehouse experiments."
         }
       ]
     },
