@@ -1,0 +1,108 @@
+<!-- Generated from assets/data/case-studies.json by cmd/harvester. Do not edit directly. -->
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Lakekeeper | Andrea Bozzo</title>
+    <meta name="description" content="A case study on the Rust-native catalog layer that makes open lakehouse storage governable: table metadata, authorization, temporary credentials, and multi-engine interoperability without a JVM-heavy control plane.">
+    <meta name="theme-color" content="#f5efe2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../assets/styles.min.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <a href="../../#home" class="site-brand">AB</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="../../#workbench">Work</a>
+            <a href="../../blog/">Blog</a>
+            <a href="../../#projects">Open Source</a>
+            <a href="../../#papers">Papers</a>
+            <a href="../../#contact">Contact</a>
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+            <span class="theme-toggle-icon" id="theme-icon">☀️</span>
+        </button>
+    </header>
+
+    <main class="content-wrapper case-study-page">
+        <section class="case-hero">
+            <div class="case-hero-copy">
+                <p class="eyebrow">Case Study</p>
+                <h1 class="title">Lakekeeper</h1>
+                <p class="subtitle">An Iceberg REST catalog in Rust with vended credentials, OpenFGA, and a small operational footprint.</p>
+                <div class="case-meta">
+                    <span class="case-meta-status">Open source contribution</span>
+                    <span>Rust</span>
+                    <span>Apache Iceberg</span>
+                    <span>REST Catalog</span>
+                    <span>OpenFGA</span>
+                    <span>Lakehouse</span>
+                </div>
+            </div>
+            <figure class="case-cover">
+                <img src="../../blog/images/Lakekeeper-Overview.png" alt="Lakekeeper architecture overview">
+            </figure>
+        </section>
+
+        <nav class="case-page-nav" aria-label="Case study navigation">
+            <a class="btn btn-secondary" href="../../#workbench">Back to workbench</a>
+            <a class="btn btn-ghost" href="../lakehouse-starter-kit/">← Open Lakehouse Starter</a>
+            <a class="btn btn-ghost" href="../peek-a-boo/">Peek-a-Boo →</a>
+        </nav>
+
+        <section class="case-layout">
+            <article class="case-main">
+                <h2>Why it exists</h2>
+                <p>Object storage and open table formats are not enough on their own. A practical lakehouse still needs a catalog that can manage metadata, enforce access, and stay open enough to work across engines and deployment models.</p>
+
+                <h2>Technical center</h2>
+                <p>Lakekeeper implements the Iceberg REST catalog in Rust, pairing Postgres-backed metadata with OIDC authentication, OpenFGA authorization, vended cloud credentials, CloudEvents, and a deployment model that stays much lighter than JVM-oriented catalog stacks.</p>
+
+                <h2>Current proof points</h2>
+                <p>The public footprint is already concrete: a long-form architecture write-up, documented RisingWave interoperability, integrations with external engines and managed platforms, a monthly release cadence, and 2 merged PRs tracked in the repository README rather than a vague claim of familiarity.</p>
+
+            </article>
+
+            <aside class="case-aside">
+                <a class="btn btn-primary" href="https://github.com/lakekeeper/lakekeeper" target="_blank" rel="noopener noreferrer">Repository</a>
+                <a class="btn btn-secondary" href="../../blog/en/posts/lakekeeper-blog/">Related article</a>
+
+                <div class="media-slots">
+                    <article class="media-slot">
+                        <span>Architecture overview</span>
+                        <button class="media-slot-trigger" type="button" aria-haspopup="dialog" aria-label="Open full size Architecture overview" data-media-src="../../blog/images/Lakekeeper-Overview.png" data-media-alt="Lakekeeper architecture overview" data-media-label="Architecture overview" data-media-caption="Catalog core, storage access management, identity, and metadata flow in one Rust-native control plane.">
+                            <figure class="media-slot-figure">
+                                <img src="../../blog/images/Lakekeeper-Overview.png" alt="Lakekeeper architecture overview" loading="lazy">
+                            </figure>
+                            <span class="media-slot-hint">Open full size</span>
+                        </button>
+                        <p>Catalog core, storage access management, identity, and metadata flow in one Rust-native control plane.</p>
+                    </article>
+                    <article class="media-slot">
+                        <span>Stack position</span>
+                        <button class="media-slot-trigger" type="button" aria-haspopup="dialog" aria-label="Open full size Stack position" data-media-src="../../blog/images/Rust-Data-Stack-Complete.png" data-media-alt="Rust-native data stack diagram including Lakekeeper" data-media-label="Stack position" data-media-caption="Lakekeeper sits at the catalog and governance layer between Iceberg storage and the engines that read or write it.">
+                            <figure class="media-slot-figure">
+                                <img src="../../blog/images/Rust-Data-Stack-Complete.png" alt="Rust-native data stack diagram including Lakekeeper" loading="lazy">
+                            </figure>
+                            <span class="media-slot-hint">Open full size</span>
+                        </button>
+                        <p>Lakekeeper sits at the catalog and governance layer between Iceberg storage and the engines that read or write it.</p>
+                    </article>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <script src="../../assets/main.min.js" defer></script>
+</body>
+</html>

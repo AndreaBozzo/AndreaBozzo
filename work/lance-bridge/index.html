@@ -1,0 +1,109 @@
+<!-- Generated from assets/data/case-studies.json by cmd/harvester. Do not edit directly. -->
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Lance Bridge | Andrea Bozzo</title>
+    <meta name="description" content="A Python bridge that consumes JetStream event batches, normalizes them into a LanceModel schema, computes embeddings, and writes them into LanceDB so a live stream becomes a local semantic-search surface.">
+    <meta name="theme-color" content="#f5efe2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../assets/styles.min.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <a href="../../#home" class="site-brand">AB</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="../../#workbench">Work</a>
+            <a href="../../blog/">Blog</a>
+            <a href="../../#projects">Open Source</a>
+            <a href="../../#papers">Papers</a>
+            <a href="../../#contact">Contact</a>
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+            <span class="theme-toggle-icon" id="theme-icon">☀️</span>
+        </button>
+    </header>
+
+    <main class="content-wrapper case-study-page">
+        <section class="case-hero">
+            <div class="case-hero-copy">
+                <p class="eyebrow">Case Study</p>
+                <h1 class="title">Lance Event Bridge</h1>
+                <p class="subtitle">Semantic indexing from live event streams into LanceDB without standing up a separate vector database.</p>
+                <div class="case-meta">
+                    <span class="case-meta-status">Focused prototype</span>
+                    <span>Python</span>
+                    <span>LanceDB</span>
+                    <span>NATS JetStream</span>
+                    <span>Embeddings</span>
+                    <span>Apache Arrow</span>
+                </div>
+            </div>
+            <figure class="case-cover">
+                <img src="../../blog/images/lanceformat-cover.png" alt="Lance Format and LanceDB cover artwork">
+            </figure>
+        </section>
+
+        <nav class="case-page-nav" aria-label="Case study navigation">
+            <a class="btn btn-secondary" href="../../#workbench">Back to workbench</a>
+            <a class="btn btn-ghost" href="../peek-a-boo/">← Peek-a-Boo</a>
+            <a class="btn btn-ghost" href="../druid-datafusion-bridge/">druid-datafusion-bridge →</a>
+        </nav>
+
+        <section class="case-layout">
+            <article class="case-main">
+                <h2>Why it exists</h2>
+                <p>There is a recurring gap between live event streams and small-footprint semantic search. Many teams want embeddings over fresh events, but not the operational overhead of a separate vector database cluster.</p>
+
+                <h2>Technical center</h2>
+                <p>The bridge consumes JetStream batches, normalizes the payloads, computes embeddings with the LanceDB model registry or explicit batch embedding calls, and writes LanceModel rows into a local store that can be queried back as Arrow tables.</p>
+
+                <h2>Current proof points</h2>
+                <p>The public article already exposes the real engineering surface instead of hand-waving: the schema model, embedding flow, NATS message handler, compaction caveats, zero-copy Arrow reads, and 2 tracked PRs in lance-format/lance that show hands-on familiarity with the underlying storage internals.</p>
+
+            </article>
+
+            <aside class="case-aside">
+                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/lancedb-nephtys-bridge" target="_blank" rel="noopener noreferrer">Repository</a>
+                <a class="btn btn-secondary" href="../../blog/en/posts/lancearticle-blog/">Related article</a>
+                <a class="btn btn-secondary" href="https://github.com/lance-format/lance" target="_blank" rel="noopener noreferrer">Lance upstream</a>
+
+                <div class="media-slots">
+                    <article class="media-slot">
+                        <span>Lance format</span>
+                        <button class="media-slot-trigger" type="button" aria-haspopup="dialog" aria-label="Open full size Lance format" data-media-src="../../blog/images/lanceformat-cover.png" data-media-alt="Lance Format and LanceDB cover artwork" data-media-label="Lance format" data-media-caption="The storage side of the bridge: random-access columnar files, native vector indexing, and Arrow-first interoperability.">
+                            <figure class="media-slot-figure">
+                                <img src="../../blog/images/lanceformat-cover.png" alt="Lance Format and LanceDB cover artwork" loading="lazy">
+                            </figure>
+                            <span class="media-slot-hint">Open full size</span>
+                        </button>
+                        <p>The storage side of the bridge: random-access columnar files, native vector indexing, and Arrow-first interoperability.</p>
+                    </article>
+                    <article class="media-slot">
+                        <span>Event source</span>
+                        <button class="media-slot-trigger" type="button" aria-haspopup="dialog" aria-label="Open full size Event source" data-media-src="../../assets/images/case-studies/nephtys-connectors.svg" data-media-alt="Nephtys connector matrix card" data-media-label="Event source" data-media-caption="The streaming side: Nephtys and JetStream provide the event feed that the bridge turns into a semantically searchable local store.">
+                            <figure class="media-slot-figure">
+                                <img src="../../assets/images/case-studies/nephtys-connectors.svg" alt="Nephtys connector matrix card" loading="lazy">
+                            </figure>
+                            <span class="media-slot-hint">Open full size</span>
+                        </button>
+                        <p>The streaming side: Nephtys and JetStream provide the event feed that the bridge turns into a semantically searchable local store.</p>
+                    </article>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <script src="../../assets/main.min.js" defer></script>
+</body>
+</html>

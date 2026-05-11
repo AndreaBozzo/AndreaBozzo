@@ -1,4 +1,4 @@
-const CACHE_NAME = 'andreabozzo-v15';
+const CACHE_NAME = 'andreabozzo-v16';
 const BASE_PATH = new URL(self.registration.scope).pathname;
 const ASSETS_TO_CACHE = [
     BASE_PATH,
@@ -18,7 +18,9 @@ const ASSETS_TO_CACHE = [
     `${BASE_PATH}work/nephtys/`,
     `${BASE_PATH}work/dce/`,
     `${BASE_PATH}work/lakehouse-starter-kit/`,
+    `${BASE_PATH}work/lakekeeper/`,
     `${BASE_PATH}work/peek-a-boo/`,
+    `${BASE_PATH}work/lance-bridge/`,
     `${BASE_PATH}work/druid-datafusion-bridge/`,
     `${BASE_PATH}manifest.json`
 ];

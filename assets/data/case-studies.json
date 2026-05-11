@@ -458,6 +458,63 @@
       ]
     },
     {
+      "slug": "lakekeeper",
+      "title": "Lakekeeper",
+      "displayTitle": "Lakekeeper",
+      "subtitle": "An Iceberg REST catalog in Rust with vended credentials, OpenFGA, and a small operational footprint.",
+      "summary": "A case study on the Rust-native catalog layer that makes open lakehouse storage governable: table metadata, authorization, temporary credentials, and multi-engine interoperability without a JVM-heavy control plane.",
+      "stack": ["Rust", "Apache Iceberg", "REST Catalog", "OpenFGA", "Lakehouse"],
+      "status": "Open source contribution",
+      "repoUrl": "https://github.com/lakekeeper/lakekeeper",
+      "relatedPosts": ["lakekeeper-blog", "polarsruststack-blog"],
+      "coverImage": "../blog/images/Lakekeeper-Overview.png",
+      "coverAlt": "Lakekeeper architecture overview",
+      "coverEyebrow": "Governed lakehouse control plane",
+      "coverText": "A Rust-native catalog layer that turns object storage into a governed Iceberg system with temporary credentials, fine-grained auth, and multi-engine access.",
+      "actions": [
+        {
+          "label": "Repository",
+          "url": "https://github.com/lakekeeper/lakekeeper",
+          "style": "primary"
+        },
+        {
+          "label": "Related article",
+          "url": "../../blog/en/posts/lakekeeper-blog/",
+          "style": "secondary"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "label": "Architecture overview",
+          "kind": "diagram",
+          "image": "../blog/images/Lakekeeper-Overview.png",
+          "alt": "Lakekeeper architecture overview",
+          "caption": "Catalog core, storage access management, identity, and metadata flow in one Rust-native control plane."
+        },
+        {
+          "label": "Stack position",
+          "kind": "diagram",
+          "image": "../blog/images/Rust-Data-Stack-Complete.png",
+          "alt": "Rust-native data stack diagram including Lakekeeper",
+          "caption": "Lakekeeper sits at the catalog and governance layer between Iceberg storage and the engines that read or write it."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Why it exists",
+          "body": "Object storage and open table formats are not enough on their own. A practical lakehouse still needs a catalog that can manage metadata, enforce access, and stay open enough to work across engines and deployment models."
+        },
+        {
+          "heading": "Technical center",
+          "body": "Lakekeeper implements the Iceberg REST catalog in Rust, pairing Postgres-backed metadata with OIDC authentication, OpenFGA authorization, vended cloud credentials, CloudEvents, and a deployment model that stays much lighter than JVM-oriented catalog stacks."
+        },
+        {
+          "heading": "Current proof points",
+          "body": "The public footprint is already concrete: a long-form architecture write-up, documented RisingWave interoperability, integrations with external engines and managed platforms, a monthly release cadence, and 2 merged PRs tracked in the repository README rather than a vague claim of familiarity."
+        }
+      ]
+    },
+    {
       "slug": "peek-a-boo",
       "title": "Peek-a-Boo",
       "subtitle": "A minimalist AI agent for surgical file search and extraction.",
@@ -505,6 +562,68 @@
         {
           "heading": "Current proof points",
           "body": "The project already behaves like a benchmark-shaped prototype: four built-in missions, a generated target codebase, safety limits that prevent token blowups, and a deliberately narrow tool surface that makes the token-saving argument inspectable in code rather than only in prose."
+        }
+      ]
+    },
+    {
+      "slug": "lance-bridge",
+      "title": "Lance Bridge",
+      "displayTitle": "Lance Event Bridge",
+      "subtitle": "Semantic indexing from live event streams into LanceDB without standing up a separate vector database.",
+      "summary": "A Python bridge that consumes JetStream event batches, normalizes them into a LanceModel schema, computes embeddings, and writes them into LanceDB so a live stream becomes a local semantic-search surface.",
+      "stack": ["Python", "LanceDB", "NATS JetStream", "Embeddings", "Apache Arrow"],
+      "status": "Focused prototype",
+      "repoUrl": "https://github.com/AndreaBozzo/lancedb-nephtys-bridge",
+      "relatedPosts": ["lancearticle-blog"],
+      "coverImage": "../blog/images/lanceformat-cover.png",
+      "coverAlt": "Lance Format and LanceDB cover artwork",
+      "coverEyebrow": "Hot vector layer",
+      "coverText": "Take a live JetStream feed, embed it, and keep it queryable inside a local LanceDB store that still speaks Arrow natively.",
+      "actions": [
+        {
+          "label": "Repository",
+          "url": "https://github.com/AndreaBozzo/lancedb-nephtys-bridge",
+          "style": "primary"
+        },
+        {
+          "label": "Related article",
+          "url": "../../blog/en/posts/lancearticle-blog/",
+          "style": "secondary"
+        },
+        {
+          "label": "Lance upstream",
+          "url": "https://github.com/lance-format/lance",
+          "style": "secondary"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "label": "Lance format",
+          "kind": "diagram",
+          "image": "../blog/images/lanceformat-cover.png",
+          "alt": "Lance Format and LanceDB cover artwork",
+          "caption": "The storage side of the bridge: random-access columnar files, native vector indexing, and Arrow-first interoperability."
+        },
+        {
+          "label": "Event source",
+          "kind": "diagram",
+          "image": "../../assets/images/case-studies/nephtys-connectors.svg",
+          "alt": "Nephtys connector matrix card",
+          "caption": "The streaming side: Nephtys and JetStream provide the event feed that the bridge turns into a semantically searchable local store."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Why it exists",
+          "body": "There is a recurring gap between live event streams and small-footprint semantic search. Many teams want embeddings over fresh events, but not the operational overhead of a separate vector database cluster."
+        },
+        {
+          "heading": "Technical center",
+          "body": "The bridge consumes JetStream batches, normalizes the payloads, computes embeddings with the LanceDB model registry or explicit batch embedding calls, and writes LanceModel rows into a local store that can be queried back as Arrow tables."
+        },
+        {
+          "heading": "Current proof points",
+          "body": "The public article already exposes the real engineering surface instead of hand-waving: the schema model, embedding flow, NATS message handler, compaction caveats, zero-copy Arrow reads, and 2 tracked PRs in lance-format/lance that show hands-on familiarity with the underlying storage internals."
         }
       ]
     },
