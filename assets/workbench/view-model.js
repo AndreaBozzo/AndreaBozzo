@@ -2,6 +2,8 @@ import { itemTags, normalizeText, topicForItem } from './classify.js';
 import { topicBlueprints } from './state.js';
 
 export function createViewModelBuilder({ state, siteBasePath, getEngineOutput }) {
+    const queryFields = ['topic', 'tech', 'tag', 'kind', 'type', 'stars', 'prs', 'title', 'summary', 'text'];
+
     function getWorkbenchItems() {
         const topicItems = topicBlueprints.filter(topic => topic.id !== 'all');
         const caseStudyItems = state.caseStudies.map((study) => {
@@ -48,6 +50,92 @@ export function createViewModelBuilder({ state, siteBasePath, getEngineOutput })
         });
 
         return [...topicItems, ...caseStudyItems, ...postItems, ...contributionItems];
+    }
+
+    function uniqueSorted(values) {
+        return [...new Set(values.filter(Boolean).map(value => String(value).trim()).filter(Boolean))]
+            .sort((left, right) => left.localeCompare(right));
+    }
+
+    function closestField(input) {
+        const normalized = normalizeText(input);
+        if (!normalized) return null;
+        const scored = queryFields.map(field => {
+            let score = 0;
+            for (let index = 0; index < Math.min(field.length, normalized.length); index += 1) {
+                if (field[index] === normalized[index]) score += 1;
+            }
+            if (field.includes(normalized) || normalized.includes(field)) score += 2;
+            return { field, score };
+        }).sort((left, right) => right.score - left.score);
+        return scored[0]?.score > 0 ? scored[0].field : null;
+    }
+
+    function currentQueryToken(query) {
+        const match = String(query || '').match(/(?:^|[\s(])([^\s()]+)$/);
+        return match ? match[1] : '';
+    }
+
+    function buildSuggestionPools() {
+        const items = getWorkbenchItems();
+        const topicValues = topicBlueprints
+            .filter(topic => topic.id !== 'all')
+            .flatMap(topic => [topic.id, topic.label]);
+        const tagValues = items.flatMap(item => item.tags || []);
+        const kindValues = ['case-study', 'post', 'project'];
+
+        return {
+            topic: uniqueSorted(topicValues),
+            tech: uniqueSorted(tagValues),
+            tag: uniqueSorted(tagValues),
+            kind: kindValues,
+            type: kindValues
+        };
+    }
+
+    function buildQuerySuggestions() {
+        const token = currentQueryToken(state.query);
+        const pools = buildSuggestionPools();
+        if (!token) {
+            return ['topic:data-platforms', 'tech:Rust', 'kind:case-study', 'stars:>5000'];
+        }
+
+        const suggestions = [];
+        const [field, value = ''] = token.split(':');
+        const normalizedField = normalizeText(field);
+        const normalizedValue = normalizeText(value);
+
+        if (token.includes(':')) {
+            const knownField = queryFields.includes(normalizedField);
+            const resolvedField = knownField ? normalizedField : closestField(normalizedField);
+            if (!resolvedField) return [];
+
+            if (!knownField) {
+                suggestions.push(`${resolvedField}:${value}`);
+            }
+
+            (pools[resolvedField] || []).forEach(candidate => {
+                if (!normalizedValue || normalizeText(candidate).includes(normalizedValue)) {
+                    suggestions.push(`${resolvedField}:${candidate}`);
+                }
+            });
+
+            return uniqueSorted(suggestions).slice(0, 5);
+        }
+
+        queryFields
+            .filter(candidate => candidate.startsWith(normalizedField))
+            .forEach(candidate => suggestions.push(`${candidate}:`));
+
+        Object.entries(pools).forEach(([poolField, values]) => {
+            values.forEach(candidate => {
+                if (normalizeText(candidate).includes(normalizedField)) {
+                    suggestions.push(`${poolField}:${candidate}`);
+                }
+            });
+        });
+
+        return uniqueSorted(suggestions).slice(0, 5);
     }
 
     function buildWorkbenchPayload() {
@@ -135,7 +223,9 @@ export function createViewModelBuilder({ state, siteBasePath, getEngineOutput })
                 count: topic.id === 'all'
                     ? items.filter(item => item.kind !== 'topic').length
                     : items.filter(item => (item.topics || []).includes(topic.id)).length
-            }))
+            })),
+            queryError: null,
+            querySuggestions: buildQuerySuggestions()
         };
     }
 
@@ -143,13 +233,34 @@ export function createViewModelBuilder({ state, siteBasePath, getEngineOutput })
         const output = getEngineOutput(JSON.stringify(buildWorkbenchPayload()));
         if (output) {
             try {
-                return JSON.parse(output);
+                const parsed = JSON.parse(output);
+                parsed.querySuggestions = buildQuerySuggestions();
+                state.queryError = parsed.queryError || null;
+                state.querySuggestions = parsed.querySuggestions;
+
+                if (parsed.queryError && state.lastValidViewModel) {
+                    return {
+                        ...state.lastValidViewModel,
+                        queryError: parsed.queryError,
+                        querySuggestions: parsed.querySuggestions
+                    };
+                }
+
+                if (!parsed.queryError) {
+                    state.lastValidViewModel = parsed;
+                }
+
+                return parsed;
             } catch (error) {
                 console.warn('Rust workbench engine failed, using JavaScript fallback:', error);
             }
         }
 
-        return buildFallbackWorkbench();
+        const fallback = buildFallbackWorkbench();
+        state.queryError = fallback.queryError;
+        state.querySuggestions = fallback.querySuggestions;
+        state.lastValidViewModel = fallback;
+        return fallback;
     }
 
     return {

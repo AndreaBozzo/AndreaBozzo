@@ -156,8 +156,10 @@
                 </div>
 
                 <label class="command-search" for="workbench-search">
-                    <span class="command-search-kicker">Search</span>
-                    <input id="workbench-search" type="search" autocomplete="off" placeholder="Rust, Iceberg, scraping">
+                    <span class="command-search-kicker">Query</span>
+                    <input id="workbench-search" type="search" autocomplete="off" spellcheck="false" placeholder="tech:rust AND topic:data-platforms">
+                    <span class="query-error" id="query-error" hidden></span>
+                    <span class="query-suggestions" id="query-suggestions" aria-label="Query suggestions" hidden></span>
                 </label>
             </div>
 

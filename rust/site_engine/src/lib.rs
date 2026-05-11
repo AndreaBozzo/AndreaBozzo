@@ -5,6 +5,7 @@
 
 mod classify;
 mod models;
+mod query;
 mod simulation;
 #[cfg(test)]
 mod tests;

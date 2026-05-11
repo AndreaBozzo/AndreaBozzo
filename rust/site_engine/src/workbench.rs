@@ -2,6 +2,7 @@ use crate::classify::{tags_for_text, topics_for_text};
 use crate::models::{
     Contribution, Edge, Node, Output, Payload, ResultCard, Selected, Topic, TopicCount, WorkItem,
 };
+use crate::query;
 use crate::utils::{compact_tags, first_non_empty, slugify, small_hash, title_from_slug};
 use std::collections::{BTreeMap, HashMap, HashSet};
 
@@ -16,7 +17,19 @@ pub(crate) fn build(mut payload: Payload) -> Output {
 
     let topics = normalize_topics(std::mem::take(&mut payload.topics));
     let items = normalize_items(&payload);
-    let query = payload.query.trim().to_lowercase();
+    let query = payload.query.trim().to_string();
+    let parsed_query = if query::looks_structured(&query) {
+        query::parse(&query).map_err(Some)
+    } else {
+        Ok(None)
+    };
+    let query_error = parsed_query.as_ref().err().and_then(|error| error.clone());
+    let parsed_query = parsed_query.ok().flatten();
+    let legacy_query = if parsed_query.is_none() && query_error.is_none() {
+        query.to_lowercase()
+    } else {
+        String::new()
+    };
     let active_topic = payload.active_topic.as_str();
 
     let mut scored: Vec<(WorkItem, f32, bool)> = items
@@ -24,8 +37,19 @@ pub(crate) fn build(mut payload: Payload) -> Output {
         .map(|item| {
             let topic_match =
                 active_topic == "all" || item.topics.iter().any(|t| t == active_topic);
-            let search_score = score_query(&item, &query);
-            let visible = topic_match && (query.is_empty() || search_score > 0.0);
+            let search_score = parsed_query
+                .as_ref()
+                .map(|expr| query::evaluate(expr, &item))
+                .map(|matched| {
+                    if matched.matched {
+                        matched.score.max(1.0)
+                    } else {
+                        0.0
+                    }
+                })
+                .unwrap_or_else(|| score_query(&item, &legacy_query));
+            let has_query = !legacy_query.is_empty() || parsed_query.is_some();
+            let visible = topic_match && (!has_query || search_score > 0.0);
             let score = item.base_score + search_score + if topic_match { 2.0 } else { 0.0 };
             (item, score, visible)
         })
@@ -106,6 +130,7 @@ pub(crate) fn build(mut payload: Payload) -> Output {
         results,
         selected,
         topics: topic_counts,
+        query_error,
     }
 }
 
@@ -211,6 +236,8 @@ fn normalize_items(payload: &Payload) -> Vec<WorkItem> {
             topics: topics_for_text(&text),
             url: format!("./work/{}/", slugify(&study.slug, &study.title)),
             base_score: 7.0,
+            stars: 0.0,
+            prs: 0.0,
         });
     }
 
@@ -233,6 +260,8 @@ fn normalize_items(payload: &Payload) -> Vec<WorkItem> {
             topics: topics_for_text(&text),
             url: first_non_empty(&post.permalink, "./blog/"),
             base_score: 4.0,
+            stars: 0.0,
+            prs: 0.0,
         });
     }
 
@@ -259,6 +288,8 @@ fn normalize_contribution(out: &mut Vec<WorkItem>, contribution: &Contribution, 
         topics: topics_for_text(&text),
         url: contribution.url.clone(),
         base_score: 5.0,
+        stars: parse_metric(&contribution.stars),
+        prs: parse_metric(&contribution.prs),
     });
 }
 
@@ -276,6 +307,8 @@ fn topics_to_items(topics: &[Topic]) -> Vec<WorkItem> {
             topics: vec![topic.id.clone()],
             url: "./blog/".into(),
             base_score: 9.0,
+            stars: 0.0,
+            prs: 0.0,
         })
         .collect()
 }
@@ -284,34 +317,25 @@ pub(crate) fn score_query(item: &WorkItem, query: &str) -> f32 {
     if query.is_empty() {
         return 0.0;
     }
-    let haystack = format!(
-        "{} {} {} {} {}",
-        item.title,
-        item.label,
-        item.summary,
-        item.tags.join(" "),
-        item.topics.join(" ")
-    )
-    .to_lowercase();
-
     query
         .split_whitespace()
-        .map(|term| {
-            if item.title.to_lowercase().contains(term) {
-                4.0
-            } else if item
-                .tags
-                .iter()
-                .any(|tag| tag.to_lowercase().contains(term))
-            {
-                3.0
-            } else if haystack.contains(term) {
-                1.5
-            } else {
-                0.0
-            }
-        })
+        .map(|term| query::term_score(item, term))
         .sum()
+}
+
+fn parse_metric(value: &str) -> f32 {
+    let text = value.trim().to_ascii_lowercase();
+    if text.is_empty() {
+        return 0.0;
+    }
+    let (number, multiplier) = if let Some(base) = text.strip_suffix('k') {
+        (base, 1_000.0)
+    } else if let Some(base) = text.strip_suffix('m') {
+        (base, 1_000_000.0)
+    } else {
+        (text.as_str(), 1.0)
+    };
+    number.parse::<f32>().unwrap_or(0.0) * multiplier
 }
 
 fn layout(items: &[WorkItem]) -> BTreeMap<String, (f32, f32)> {

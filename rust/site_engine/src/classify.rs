@@ -18,6 +18,9 @@ pub(crate) fn topics_for_text(text: &str) -> Vec<String> {
             "analytics",
             "profiler",
             "contract",
+            "finops",
+            "cost",
+            "dbu",
         ],
     ) {
         topics.push("data-platforms".to_string());
@@ -65,9 +68,6 @@ pub(crate) fn topics_for_text(text: &str) -> Vec<String> {
     if contains_any(
         &haystack,
         &[
-            "finops",
-            "cost",
-            "dbu",
             "green ai",
             "edge ai",
             "machine learning",
@@ -79,7 +79,7 @@ pub(crate) fn topics_for_text(text: &str) -> Vec<String> {
             " ml ",
         ],
     ) {
-        topics.push("ai-finops".to_string());
+        topics.push("ml-systems".to_string());
     }
     if topics.is_empty() {
         topics.push("data-platforms".to_string());
@@ -102,6 +102,7 @@ pub(crate) fn tags_for_text(text: &str) -> Vec<String> {
         ("arrow", "Arrow"),
         ("polars", "Polars"),
         ("ai", "AI"),
+        ("ml", "ML"),
     ];
     candidates
         .iter()

@@ -221,17 +221,6 @@ function updateLanguageToggleUI(lang) {
     }
 }
 
-function parseCompactNumber(value) {
-    if (!value) return 0;
-
-    const normalized = value.trim().toLowerCase();
-    if (normalized.endsWith('k')) {
-        return Math.round(parseFloat(normalized.slice(0, -1)) * 1000);
-    }
-
-    return parseFloat(normalized) || 0;
-}
-
 function formatMetricCount(value) {
     if (!Number.isFinite(value)) return '--';
 
@@ -348,7 +337,7 @@ function formatBlogDate(dateString, lang) {
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         const locale = lang === 'it' ? 'it-IT' : 'en-US';
         return date.toLocaleDateString(locale, options);
-    } catch (e) {
+    } catch {
         return dateString;
     }
 }
@@ -437,7 +426,7 @@ async function loadHeroStats() {
     }
 }
 
-async function fetchContributions(username, repoName = 'AndreaBozzo', branch = 'main') {
+async function fetchContributions() {
     const listElement = document.getElementById('contributions-list');
     if (!listElement) return;
 
@@ -573,7 +562,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (hasWorkbench) {
         workbench.loadWorkbenchEngine();
         loadCaseStudies();
-        fetchContributions(defaultGitHubUsername);
+        fetchContributions();
         loadPapers();
 
         if ('requestIdleCallback' in window) {

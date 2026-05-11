@@ -35,11 +35,11 @@ export const topicBlueprints = [
         tags: ['Scraping', 'Harvesting', 'Pipelines']
     },
     {
-        id: 'ai-finops',
-        label: 'AI + FinOps',
+        id: 'ml-systems',
+        label: 'ML systems',
         kind: 'topic',
-        summary: 'The cost, architecture, and governance questions around analytical systems and AI workloads.',
-        tags: ['AI', 'FinOps', 'Lakehouse']
+        summary: 'Embedded ML, TinyML, model-facing infrastructure, and the systems work around applied AI.',
+        tags: ['TinyML', 'AI', 'Embassy', 'Robotics']
     }
 ];
 
@@ -73,6 +73,9 @@ export function createWorkbenchState() {
         initialized: false,
         activeTopic: 'all',
         query: '',
+        queryError: null,
+        querySuggestions: [],
+        lastValidViewModel: null,
         selectedId: 'data-platforms',
         posts: [],
         contributions: [],

@@ -11,11 +11,15 @@
     "generate:contributions": "go run ./cmd/harvester generate-contributions-json",
     "harvester:artifacts": "go run ./cmd/harvester generate-static-artifacts",
     "harvester:readme": "go run ./cmd/harvester update-contributions-readme",
+    "lint:js": "eslint assets/main.js assets/workbench/*.js sw.js",
     "assemble:site": "bash ./scripts/assemble-site.sh",
     "build:site": "npm run build:assets && npm run build:blog && npm run harvester:artifacts && npm run assemble:site"
   },
   "devDependencies": {
-    "esbuild": "^0.25.11"
+    "@eslint/js": "^10.0.1",
+    "esbuild": "^0.25.11",
+    "eslint": "^10.3.0",
+    "globals": "^17.6.0"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1"

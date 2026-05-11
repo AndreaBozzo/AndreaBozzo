@@ -29,7 +29,7 @@ They are recorded here so future-me does not relitigate them.
 
 ---
 
-## Phase B — Query UI on top of the existing engine
+## Phase B — Query UI on top of the existing engine ✅ Shipped
 
 **Goal:** A typed query bar over the workbench. Visible flex (visitors *type
 queries*), no Parquet, no Polars-WASM.
@@ -65,11 +65,14 @@ narratively, and the graph re-converges on the result set in real time.
 
 **Verification:**
 
-- New `query.rs` (or in-file `mod query`) unit tests covering: precedence,
+- New `query.rs` unit tests covering: precedence,
   parens, NOT, numeric comparisons, malformed input.
 - Query bar updates the graph in real time (Phase A integration check).
 - Empty/invalid queries don't crash; engine returns last valid result + error
   string.
+- The overloaded `AI + FinOps` filter has been replaced with `ML systems`;
+  FinOps/cost/DBU signals now classify under `Data platforms`, while TinyML,
+  agent, robotics, and applied-ML signals classify under `ML systems`.
 
 **Cost estimate:** ~1 weekend. Mostly parser + tests; the evaluator is small
 because the data is already in memory.

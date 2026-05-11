@@ -1,4 +1,4 @@
-const CACHE_NAME = 'andreabozzo-v13';
+const CACHE_NAME = 'andreabozzo-v14';
 const BASE_PATH = new URL(self.registration.scope).pathname;
 const ASSETS_TO_CACHE = [
     BASE_PATH,

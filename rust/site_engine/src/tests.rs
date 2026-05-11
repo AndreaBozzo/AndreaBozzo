@@ -1,5 +1,6 @@
 use crate::classify::topics_for_text;
 use crate::models::{Output, SimNode, SimState, WorkItem};
+use crate::query;
 use crate::simulation::{BOUND_HIGH, BOUND_LOW, simulate};
 use crate::workbench::score_query;
 use crate::{build_workbench, tick_layout};
@@ -53,6 +54,8 @@ fn search_ranking_prioritizes_title_matches() {
         topics: vec!["rust-systems".into()],
         url: "/".into(),
         base_score: 0.0,
+        stars: 0.0,
+        prs: 0.0,
     };
     assert!(score_query(&item, "rust") > score_query(&item, "tokio"));
 }
@@ -92,6 +95,77 @@ fn grappler_no_longer_maps_to_scraping_topic() {
     let topics = topics_for_text("Zero Grappler is an embedded TinyML crate built with Embassy");
     assert!(!topics.contains(&"scraping".to_string()));
     assert!(topics.contains(&"rust-systems".to_string()));
+    assert!(topics.contains(&"ml-systems".to_string()));
+}
+
+#[test]
+fn finops_maps_to_data_platforms_not_ml_systems() {
+    let topics = topics_for_text("FinOps and DBU cost controls for a lakehouse architecture");
+    assert!(topics.contains(&"data-platforms".to_string()));
+    assert!(!topics.contains(&"ml-systems".to_string()));
+}
+
+#[test]
+fn query_parser_respects_precedence_and_parens() {
+    let parsed = query::parse("tech:rust AND (topic:streaming OR topic:data-platforms)")
+        .unwrap()
+        .unwrap();
+    let item = WorkItem {
+        id: "x".into(),
+        kind: "project".into(),
+        label: "RisingWave".into(),
+        title: "RisingWave".into(),
+        summary: "Streaming database work".into(),
+        tags: vec!["Rust".into()],
+        topics: vec!["streaming".into()],
+        url: "/".into(),
+        base_score: 0.0,
+        stars: 9_000.0,
+        prs: 1.0,
+    };
+    assert!(query::evaluate(&parsed, &item).matched);
+}
+
+#[test]
+fn query_parser_handles_not_and_numeric_comparisons() {
+    let parsed = query::parse("stars:>50 AND NOT topic:streaming")
+        .unwrap()
+        .unwrap();
+    let item = WorkItem {
+        id: "x".into(),
+        kind: "project".into(),
+        label: "polars".into(),
+        title: "polars".into(),
+        summary: "DataFrame engine".into(),
+        tags: vec!["Rust".into()],
+        topics: vec!["data-platforms".into()],
+        url: "/".into(),
+        base_score: 0.0,
+        stars: 38_400.0,
+        prs: 3.0,
+    };
+    assert!(query::evaluate(&parsed, &item).matched);
+}
+
+#[test]
+fn query_parser_reports_malformed_input_offsets() {
+    let error =
+        query::parse("tech:rust AND (topic:streaming OR").expect_err("query should be malformed");
+    assert!(error.offset > 0);
+    assert!(error.message.contains("expected"));
+}
+
+#[test]
+fn build_workbench_surfaces_query_errors_without_crashing() {
+    let payload = r#"{
+            "topics": [{"id": "all", "label": "All work"}],
+            "contributions": [{"name": "polars", "desc": "Rust-native analytics", "url": "https://github.com/pola-rs/polars", "stars": "38.4k", "prs": "3"}],
+            "query": "stars:>"
+        }"#;
+
+    let out: serde_json::Value = serde_json::from_str(&build_workbench(payload)).unwrap();
+    assert_eq!(out["queryError"]["offset"], 6);
+    assert!(out["results"].as_array().is_some());
 }
 
 #[test]

@@ -8,6 +8,46 @@ export function createWorkbenchRenderer({
     buildWorkbenchViewModel,
     selectedFromItem
 }) {
+    function applyQuerySuggestion(suggestion) {
+        const input = document.getElementById('workbench-search');
+        if (!input) return;
+
+        const query = state.query || '';
+        const match = query.match(/(?:^|[\s(])([^\s()]+)$/);
+        if (!match) {
+            state.query = query ? `${query.trimEnd()} ${suggestion}` : suggestion;
+        } else {
+            const tokenStart = query.length - match[1].length;
+            state.query = `${query.slice(0, tokenStart)}${suggestion}`;
+        }
+
+        input.value = state.query;
+        input.focus();
+        renderWorkbench();
+    }
+
+    function renderQueryState(viewModel) {
+        const shell = document.querySelector('.command-search');
+        const error = document.getElementById('query-error');
+        const suggestions = document.getElementById('query-suggestions');
+        if (!shell || !error || !suggestions) return;
+
+        const queryError = viewModel.queryError || null;
+        shell.classList.toggle('is-error', Boolean(queryError));
+        shell.title = queryError ? queryError.message : '';
+        error.textContent = queryError ? queryError.message : '';
+        error.hidden = !queryError;
+
+        const querySuggestions = viewModel.querySuggestions || [];
+        suggestions.hidden = !querySuggestions.length;
+        suggestions.innerHTML = querySuggestions.map(suggestion => `
+            <button class="query-suggestion" type="button" data-query-suggestion="${escapeHtml(suggestion)}">${escapeHtml(suggestion)}</button>
+        `).join('');
+        suggestions.querySelectorAll('[data-query-suggestion]').forEach(button => {
+            button.addEventListener('click', () => applyQuerySuggestion(button.dataset.querySuggestion));
+        });
+    }
+
     function renderTopicStrip(topicCounts = []) {
         const strip = document.getElementById('topic-strip');
         if (!strip) return;
@@ -81,6 +121,7 @@ export function createWorkbenchRenderer({
         if (!state.initialized) return;
 
         const viewModel = buildWorkbenchViewModel();
+        renderQueryState(viewModel);
         renderTopicStrip(viewModel.topics || []);
         renderMap(viewModel.nodes || [], viewModel.edges || []);
         renderInspector(viewModel.selected || selectedFromItem(topicBlueprints[1]));

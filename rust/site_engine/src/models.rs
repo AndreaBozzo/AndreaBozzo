@@ -1,5 +1,7 @@
 use serde::{Deserialize, Serialize};
 
+use crate::query::QueryError;
+
 #[derive(Debug, Default, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub(crate) struct Payload {
@@ -115,6 +117,8 @@ pub(crate) struct WorkItem {
     pub(crate) topics: Vec<String>,
     pub(crate) url: String,
     pub(crate) base_score: f32,
+    pub(crate) stars: f32,
+    pub(crate) prs: f32,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -124,6 +128,8 @@ pub(crate) struct Output {
     pub(crate) results: Vec<ResultCard>,
     pub(crate) selected: Selected,
     pub(crate) topics: Vec<TopicCount>,
+    #[serde(rename = "queryError", skip_serializing_if = "Option::is_none")]
+    pub(crate) query_error: Option<QueryError>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]

@@ -6,7 +6,7 @@ export function topicForItem(text) {
     const haystack = normalizeText(text);
     const matches = [];
 
-    if (/(iceberg|lakehouse|pipeline|storage|lance|arrow|tabular|database|data platform|analytics|profiler|contract)/.test(haystack)) {
+    if (/(iceberg|lakehouse|pipeline|storage|lance|arrow|tabular|database|data platform|analytics|profiler|contract|finops|cost|dbu)/.test(haystack)) {
         matches.push('data-platforms');
     }
     if (/(rust|polars|tokio|axum|async|runtime|no_std|embassy|embedded)/.test(haystack)) {
@@ -18,8 +18,8 @@ export function topicForItem(text) {
     if (/(scrap|harvest|ares|ceres|schema extraction|json schema|open data portal|web scraper)/.test(haystack)) {
         matches.push('scraping');
     }
-    if (/(finops|cost|dbu|green ai|edge ai|machine learning|tinyml|llm|agent|physical ai|robotics|\bml\b)/.test(haystack)) {
-        matches.push('ai-finops');
+    if (/(green ai|edge ai|machine learning|tinyml|llm|agent|physical ai|robotics|\bml\b)/.test(haystack)) {
+        matches.push('ml-systems');
     }
 
     return matches.length ? matches : ['data-platforms'];
@@ -38,5 +38,6 @@ export function itemTags(item) {
     if (source.includes('stream')) tags.push('Streaming');
     if (source.includes('scrap') || source.includes('harvest')) tags.push('Harvesting');
     if (source.includes('ai')) tags.push('AI');
+    if (/\bml\b|machine learning|tinyml/.test(source)) tags.push('ML');
     return tags.slice(0, 4);
 }
