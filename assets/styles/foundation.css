@@ -33,24 +33,24 @@
 
     --page-max: 1200px;
 
-    --color-bg-primary: #eee1c7;
-    --color-bg-secondary: rgba(249, 241, 227, 0.84);
-    --color-bg-tertiary: #fbf4e7;
-    --color-text-primary: #171925;
-    --color-text-secondary: #4c5565;
-    --color-text-muted: #7a8291;
-    --color-border: rgba(65, 52, 31, 0.14);
-    --color-accent: #c45a27;
-    --color-accent-strong: #1e4f95;
-    --color-signal: #0e7065;
-    --color-plum: #7358ba;
-    --color-surface-shadow: 0 28px 72px rgba(54, 36, 14, 0.12);
-    --color-glow-left: rgba(219, 118, 52, 0.24);
-    --color-glow-right: rgba(48, 98, 170, 0.15);
-    --color-paper-warm: #f7efdf;
-    --color-paper-cool: #edf3f8;
-    --color-ink-panel: #1a2236;
-    --color-ink-panel-soft: #294166;
+    --color-bg-primary: #fafafa;
+    --color-bg-secondary: rgba(255, 255, 255, 0.75);
+    --color-bg-tertiary: #ffffff;
+    --color-text-primary: #0f172a;
+    --color-text-secondary: #475569;
+    --color-text-muted: #94a3b8;
+    --color-border: rgba(15, 23, 42, 0.08);
+    --color-accent: #f97316;
+    --color-accent-strong: #2563eb;
+    --color-signal: #10b981;
+    --color-plum: #8b5cf6;
+    --color-surface-shadow: 0 32px 96px rgba(15, 23, 42, 0.06);
+    --color-glow-left: rgba(249, 115, 22, 0.18);
+    --color-glow-right: rgba(37, 99, 235, 0.15);
+    --color-paper-warm: #ffffff;
+    --color-paper-cool: #f8fafc;
+    --color-ink-panel: #f1f5f9;
+    --color-ink-panel-soft: #e2e8f0;
 }
 
 [data-theme="dark"] {
@@ -176,7 +176,7 @@ body {
     background:
         radial-gradient(circle at top left, var(--color-glow-left), transparent 34%),
         radial-gradient(circle at top right, var(--color-glow-right), transparent 30%),
-        linear-gradient(180deg, color-mix(in srgb, var(--color-bg-primary) 84%, white), var(--color-bg-primary) 56%, color-mix(in srgb, var(--color-bg-primary) 88%, #d8ccb3));
+        linear-gradient(180deg, color-mix(in srgb, var(--color-bg-primary) 84%, white), var(--color-bg-primary) 56%, color-mix(in srgb, var(--color-bg-primary) 88%, var(--color-bg-tertiary)));
     color: var(--color-text-primary);
     line-height: 1.6;
     overflow-x: hidden;
