@@ -106,9 +106,9 @@
 .case-cover img {
     display: block;
     width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    object-position: center;
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
     transform-origin: center;
     border-radius: calc(var(--radius-lg) - 0.65rem);
     background: color-mix(in srgb, var(--color-bg-tertiary) 82%, transparent);
