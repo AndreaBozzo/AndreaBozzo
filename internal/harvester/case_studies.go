@@ -170,7 +170,7 @@ func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext) []by
 	buf.WriteString("    <meta name=\"theme-color\" content=\"#f5efe2\">\n")
 	buf.WriteString("    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n")
 	buf.WriteString("    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n")
-	buf.WriteString("    <link href=\"https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap\" rel=\"stylesheet\">\n")
+	buf.WriteString("    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap\" rel=\"stylesheet\">\n")
 	buf.WriteString("    <link rel=\"icon\" type=\"image/svg+xml\" href=\"../../favicon.svg\">\n")
 	buf.WriteString("    <link rel=\"stylesheet\" href=\"../../assets/styles.min.css\">\n")
 	buf.WriteString("    <script>\n        (function() {\n            const savedTheme = localStorage.getItem('theme') || 'light';\n            document.documentElement.setAttribute('data-theme', savedTheme);\n        })();\n    </script>\n")

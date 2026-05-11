@@ -52,7 +52,7 @@
     font-size: var(--text-sm);
     font-weight: 700;
     letter-spacing: 0.01em;
-    transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn:hover,
@@ -61,7 +61,7 @@
 .contact-link:focus-visible,
 .text-link:hover,
 .project-link:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.02);
 }
 
 .btn-primary {
@@ -102,6 +102,13 @@
 .contact-panel {
     border: 1px solid var(--color-border);
     box-shadow: var(--color-surface-shadow);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.focus-card:hover,
+.project-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 32px 90px rgba(0, 0, 0, 0.15);
 }
 
 .focus-card p,

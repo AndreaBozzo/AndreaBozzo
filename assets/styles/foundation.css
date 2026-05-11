@@ -1,8 +1,8 @@
 /* Foundation: tokens, theme, global resets, and shell layout. */
 
 :root {
-    --font-body: "IBM Plex Sans", "Segoe UI", sans-serif;
-    --font-display: "Space Grotesk", "IBM Plex Sans", sans-serif;
+    --font-body: "Inter", "Segoe UI", sans-serif;
+    --font-display: "Outfit", "Space Grotesk", "IBM Plex Sans", sans-serif;
 
     --text-xs: 0.75rem;
     --text-sm: 0.875rem;
@@ -54,24 +54,24 @@
 }
 
 [data-theme="dark"] {
-    --color-bg-primary: #101726;
-    --color-bg-secondary: rgba(21, 31, 50, 0.84);
-    --color-bg-tertiary: #172133;
-    --color-text-primary: #f5f1e6;
-    --color-text-secondary: #c3cad8;
-    --color-text-muted: #8d98ad;
-    --color-border: rgba(237, 231, 216, 0.12);
-    --color-accent: #ff8a4c;
-    --color-accent-strong: #91b8ff;
-    --color-signal: #62d6bd;
-    --color-plum: #c1a1ff;
-    --color-surface-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
-    --color-glow-left: rgba(255, 138, 76, 0.16);
-    --color-glow-right: rgba(110, 158, 255, 0.18);
-    --color-paper-warm: #192334;
-    --color-paper-cool: #162233;
-    --color-ink-panel: #0d1422;
-    --color-ink-panel-soft: #173053;
+    --color-bg-primary: #090e17;
+    --color-bg-secondary: rgba(14, 22, 35, 0.7);
+    --color-bg-tertiary: #111a29;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #a0aec0;
+    --color-text-muted: #718096;
+    --color-border: rgba(255, 255, 255, 0.08);
+    --color-accent: #ff6b35;
+    --color-accent-strong: #4da8da;
+    --color-signal: #00d4ff;
+    --color-plum: #b56576;
+    --color-surface-shadow: 0 32px 96px rgba(0, 0, 0, 0.6);
+    --color-glow-left: rgba(255, 107, 53, 0.16);
+    --color-glow-right: rgba(77, 168, 218, 0.18);
+    --color-paper-warm: #101826;
+    --color-paper-cool: #0b111c;
+    --color-ink-panel: #05080d;
+    --color-ink-panel-soft: #0d1421;
 }
 
 [data-theme="dark"] .site-header {
@@ -261,7 +261,9 @@ a {
     border-radius: 999px;
     background: linear-gradient(180deg, color-mix(in srgb, var(--color-paper-warm) 90%, transparent), color-mix(in srgb, var(--color-bg-secondary) 92%, transparent));
     backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
     box-shadow: 0 20px 48px rgba(51, 40, 20, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
 }
 
 .site-nav a {
