@@ -28,7 +28,7 @@
     <meta name="theme-color" content="#f5efe2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
     <link rel="stylesheet" href="../../assets/styles.min.css">
     <script>
@@ -83,13 +83,13 @@
         <section class="case-layout">
             <article class="case-main">
                 <h2>Why it exists</h2>
-                <p>Embedded ML examples often entangle hardware access, feature extraction, and inference logic, which makes reuse harder than it should be.</p>
+                <p>Embedded ML examples often entangle hardware access, feature extraction, and inference logic, which makes reuse harder than it should be. Zero Grappler exists to separate those responsibilities early, so a sensor pipeline can be reasoned about as source, transform, and inference stages instead of one tightly coupled demo that only works on a single board.</p>
 
                 <h2>Technical center</h2>
-                <p>The crate splits the pipeline into three traits, keeps buffer sizes at compile time, routes stages through Embassy channels, and avoids heap allocation entirely.</p>
+                <p>The crate splits the pipeline into three traits, keeps buffer sizes at compile time, routes stages through Embassy channels, and avoids heap allocation entirely. That structure is intentionally boring in the best embedded sense: types carry the buffer constraints, async tasks carry the scheduling model, and the runtime path stays compatible with no_std targets.</p>
 
                 <h2>Current proof points</h2>
-                <p>Even before the first full board demo, the design is already grounded by the no-allocation trait split, monomorphic Embassy task wrappers, the host-side mock example, and a documented bill of materials that keeps the first public hardware loop realistic rather than hypothetical.</p>
+                <p>Even before the first full board demo, the design is already grounded by the no-allocation trait split, monomorphic Embassy task wrappers, the host-side mock example, and a documented bill of materials that keeps the first public hardware loop realistic rather than hypothetical. The next meaningful proof is not a bigger abstraction, but a small end-to-end sensor loop that shows the trait split surviving contact with real timing and memory limits.</p>
 
             </article>
 

@@ -28,7 +28,7 @@
     <meta name="theme-color" content="#f5efe2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
     <link rel="stylesheet" href="../../assets/styles.min.css">
     <script>
@@ -83,13 +83,13 @@
         <section class="case-layout">
             <article class="case-main">
                 <h2>Why it exists</h2>
-                <p>The value in upstream contribution work is not collecting project logos. It is using the actual substrate of your own systems as the place to remove repeated friction instead of carrying forks, custom docs, or private patches forever.</p>
+                <p>The value in upstream contribution work is not collecting project logos. It is using the actual substrate of your own systems as the place to remove repeated friction instead of carrying forks, custom docs, or private patches forever. For Rust data work, that substrate is increasingly shared across projects: Arrow memory, DataFusion execution, Iceberg table metadata, and streaming clients all become part of the same practical dependency chain.</p>
 
                 <h2>Technical center</h2>
-                <p>This contribution track spans the lower layers of the Rust data stack: Parquet reader behavior and examples in arrow-rs, Arrow-native query execution surfaces in DataFusion, table metadata and interoperability concerns in iceberg-rust, and streaming client and integration work in fluss-rust.</p>
+                <p>This contribution track spans the lower layers of the Rust data stack: Parquet reader behavior and examples in arrow-rs, Arrow-native query execution surfaces in DataFusion, table metadata and interoperability concerns in iceberg-rust, and streaming client and integration work in fluss-rust. The work is deliberately close to interfaces and examples because those are the points where downstream tools either become easy to build or quietly inherit confusing edge cases.</p>
 
                 <h2>Current proof points</h2>
-                <p>The public repository already shows a concrete footprint rather than vague affiliation: 2 PRs tracked for apache/arrow-rs, 1 for apache/datafusion, 3 for apache/iceberg-rust, and 2 for apache/fluss-rust, with the Arrow and Iceberg work additionally explained in long-form articles that connect the upstream changes back to downstream tools like dataprof and streaming lakehouse experiments.</p>
+                <p>The public repository already shows a concrete footprint rather than vague affiliation: 2 PRs tracked for apache/arrow-rs, 1 for apache/datafusion, 3 for apache/iceberg-rust, and 2 for apache/fluss-rust. The Arrow and Iceberg work is also explained in long-form articles, which matters because the contribution trail is connected back to downstream tools like dataprof and streaming lakehouse experiments instead of sitting as isolated pull requests.</p>
 
             </article>
 

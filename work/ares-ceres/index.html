@@ -28,7 +28,7 @@
     <meta name="theme-color" content="#f5efe2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
     <link rel="stylesheet" href="../../assets/styles.min.css">
     <script>
@@ -83,13 +83,13 @@
         <section class="case-layout">
             <article class="case-main">
                 <h2>Why it exists</h2>
-                <p>Harvesting and scraping are different operational contracts, and treating them as the same thing usually makes both systems worse.</p>
+                <p>Harvesting and scraping are different operational contracts, and treating them as the same thing usually makes both systems worse. Ceres is about respectful, repeatable synchronization from known open-data portals, while Ares is about extracting structure from less predictable web pages where fetch behavior, schema drift, and retries have to be explicit parts of the system.</p>
 
                 <h2>Technical center</h2>
-                <p>Ceres centers on incremental portal sync and catalog durability, while Ares focuses on fetch pipelines, markdown normalization, JSON Schema extraction, retries, and queue-driven execution.</p>
+                <p>Ceres centers on incremental portal sync and catalog durability, while Ares focuses on fetch pipelines, markdown normalization, JSON Schema extraction, retries, and queue-driven execution. Splitting the tools keeps the architecture honest: one side optimizes for catalog freshness and exportability, the other for controlled extraction runs that can survive partial failures and changing page structure.</p>
 
                 <h2>Current proof points</h2>
-                <p>The distinction is already concrete in the READMEs: Ceres offers incremental portal sync, metadata-only mode, export, and optional semantic search, while Ares offers schema-driven extraction, change detection, queue workers, crawl sessions, and protected API endpoints for scrape orchestration.</p>
+                <p>The distinction is already concrete in the READMEs: Ceres offers incremental portal sync, metadata-only mode, export, and optional semantic search, while Ares offers schema-driven extraction, change detection, queue workers, crawl sessions, and protected API endpoints for scrape orchestration. Together they describe a collection stack where ingestion is not just about getting bytes, but about preserving the operational promise behind each source.</p>
 
             </article>
 

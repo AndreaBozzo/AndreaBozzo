@@ -28,7 +28,7 @@
     <meta name="theme-color" content="#f5efe2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
     <link rel="stylesheet" href="../../assets/styles.min.css">
     <script>
@@ -82,13 +82,13 @@
         <section class="case-layout">
             <article class="case-main">
                 <h2>Why it exists</h2>
-                <p>Profiling should be something a team can run inside CI, scheduled data checks, or batch workflows, not a one-off notebook ritual that falls apart on wide tables or larger files.</p>
+                <p>Profiling should be something a team can run inside CI, scheduled data checks, or batch workflows, not a one-off notebook ritual that falls apart on wide tables or larger files. dataprof exists to make the first question about a dataset cheap and repeatable: what shape is it, where are the suspicious columns, and what can be checked again the next time the file or table changes?</p>
 
                 <h2>Technical center</h2>
-                <p>dataprof treats Arrow arrays and RecordBatches as the core abstraction, so column metrics, type and pattern detection, Parquet and IPC interoperability, and the future SQL layer via DataFusion all line up around the same in-memory model.</p>
+                <p>dataprof treats Arrow arrays and RecordBatches as the core abstraction, so column metrics, type and pattern detection, Parquet and IPC interoperability, and the future SQL layer via DataFusion all line up around the same in-memory model. That choice keeps the Rust core close to modern analytical storage while still leaving clean interfaces for a CLI, a Python package, and machine-readable reports that can be consumed by other tools.</p>
 
                 <h2>Current proof points</h2>
-                <p>The public surface already shows the real shape of the project: a Rust crate, CLI, and PyPI package, selective metrics for cheaper runs, bounded-memory execution, and an Arrow-centered design story that led to two upstream arrow-rs Parquet documentation PRs rather than a private workaround.</p>
+                <p>The public surface already shows the real shape of the project: a Rust crate, CLI, and PyPI package, selective metrics for cheaper runs, bounded-memory execution, and an Arrow-centered design story that led to two upstream arrow-rs Parquet documentation PRs rather than a private workaround. The important part is not only that it profiles data, but that the project is being pushed toward the same operational places where data quality checks actually need to live.</p>
 
             </article>
 

@@ -28,7 +28,7 @@
     <meta name="theme-color" content="#f5efe2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
     <link rel="stylesheet" href="../../assets/styles.min.css">
     <script>
@@ -83,13 +83,13 @@
         <section class="case-layout">
             <article class="case-main">
                 <h2>Why it exists</h2>
-                <p>Live interfaces such as webhooks, WebSockets, SSE, and gRPC all have different operational quirks, but downstream systems still need one stable event contract.</p>
+                <p>Live interfaces such as webhooks, WebSockets, SSE, and gRPC all have different operational quirks, but downstream systems still need one stable event contract. Nephtys exists for the part of streaming work that is easy to underestimate: connectors must be configurable, observable, restartable, and boring enough that the rest of the platform can trust the events they emit.</p>
 
                 <h2>Technical center</h2>
-                <p>Nephtys manages connector lifecycles, normalizes inbound events, persists them to NATS JetStream, and exposes a REST API so stream management is operable instead of hardcoded.</p>
+                <p>Nephtys manages connector lifecycles, normalizes inbound events, persists them to NATS JetStream, and exposes a REST API so stream management is operable instead of hardcoded. The design leans on durable subjects, explicit middleware ordering, and management endpoints so each connector can be treated as an operational unit rather than a background goroutine hidden inside an application.</p>
 
                 <h2>Current proof points</h2>
-                <p>The operational story is already present in public material: supported connector matrices, middleware ordering, REST management APIs, Prometheus and Grafana support, and a UIC 2026 paper framing urban sensor ingestion as the first concrete evaluation path.</p>
+                <p>The operational story is already present in public material: supported connector matrices, middleware ordering, REST management APIs, Prometheus and Grafana support, and a UIC 2026 paper framing urban sensor ingestion as the first concrete evaluation path. That makes the project more than a connector list; it is a small control plane for turning live external interfaces into events that can be replayed, inspected, and routed downstream.</p>
 
             </article>
 

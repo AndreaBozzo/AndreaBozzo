@@ -50,15 +50,15 @@
       "sections": [
         {
           "heading": "Why it exists",
-          "body": "Profiling should be something a team can run inside CI, scheduled data checks, or batch workflows, not a one-off notebook ritual that falls apart on wide tables or larger files."
+          "body": "Profiling should be something a team can run inside CI, scheduled data checks, or batch workflows, not a one-off notebook ritual that falls apart on wide tables or larger files. dataprof exists to make the first question about a dataset cheap and repeatable: what shape is it, where are the suspicious columns, and what can be checked again the next time the file or table changes?"
         },
         {
           "heading": "Technical center",
-          "body": "dataprof treats Arrow arrays and RecordBatches as the core abstraction, so column metrics, type and pattern detection, Parquet and IPC interoperability, and the future SQL layer via DataFusion all line up around the same in-memory model."
+          "body": "dataprof treats Arrow arrays and RecordBatches as the core abstraction, so column metrics, type and pattern detection, Parquet and IPC interoperability, and the future SQL layer via DataFusion all line up around the same in-memory model. That choice keeps the Rust core close to modern analytical storage while still leaving clean interfaces for a CLI, a Python package, and machine-readable reports that can be consumed by other tools."
         },
         {
           "heading": "Current proof points",
-          "body": "The public surface already shows the real shape of the project: a Rust crate, CLI, and PyPI package, selective metrics for cheaper runs, bounded-memory execution, and an Arrow-centered design story that led to two upstream arrow-rs Parquet documentation PRs rather than a private workaround."
+          "body": "The public surface already shows the real shape of the project: a Rust crate, CLI, and PyPI package, selective metrics for cheaper runs, bounded-memory execution, and an Arrow-centered design story that led to two upstream arrow-rs Parquet documentation PRs rather than a private workaround. The important part is not only that it profiles data, but that the project is being pushed toward the same operational places where data quality checks actually need to live."
         }
       ]
     },
@@ -116,15 +116,15 @@
       "sections": [
         {
           "heading": "Why it exists",
-          "body": "The value in upstream contribution work is not collecting project logos. It is using the actual substrate of your own systems as the place to remove repeated friction instead of carrying forks, custom docs, or private patches forever."
+          "body": "The value in upstream contribution work is not collecting project logos. It is using the actual substrate of your own systems as the place to remove repeated friction instead of carrying forks, custom docs, or private patches forever. For Rust data work, that substrate is increasingly shared across projects: Arrow memory, DataFusion execution, Iceberg table metadata, and streaming clients all become part of the same practical dependency chain."
         },
         {
           "heading": "Technical center",
-          "body": "This contribution track spans the lower layers of the Rust data stack: Parquet reader behavior and examples in arrow-rs, Arrow-native query execution surfaces in DataFusion, table metadata and interoperability concerns in iceberg-rust, and streaming client and integration work in fluss-rust."
+          "body": "This contribution track spans the lower layers of the Rust data stack: Parquet reader behavior and examples in arrow-rs, Arrow-native query execution surfaces in DataFusion, table metadata and interoperability concerns in iceberg-rust, and streaming client and integration work in fluss-rust. The work is deliberately close to interfaces and examples because those are the points where downstream tools either become easy to build or quietly inherit confusing edge cases."
         },
         {
           "heading": "Current proof points",
-          "body": "The public repository already shows a concrete footprint rather than vague affiliation: 2 PRs tracked for apache/arrow-rs, 1 for apache/datafusion, 3 for apache/iceberg-rust, and 2 for apache/fluss-rust, with the Arrow and Iceberg work additionally explained in long-form articles that connect the upstream changes back to downstream tools like dataprof and streaming lakehouse experiments."
+          "body": "The public repository already shows a concrete footprint rather than vague affiliation: 2 PRs tracked for apache/arrow-rs, 1 for apache/datafusion, 3 for apache/iceberg-rust, and 2 for apache/fluss-rust. The Arrow and Iceberg work is also explained in long-form articles, which matters because the contribution trail is connected back to downstream tools like dataprof and streaming lakehouse experiments instead of sitting as isolated pull requests."
         }
       ]
     },
@@ -175,15 +175,15 @@
       "sections": [
         {
           "heading": "Why it exists",
-          "body": "Harvesting and scraping are different operational contracts, and treating them as the same thing usually makes both systems worse."
+          "body": "Harvesting and scraping are different operational contracts, and treating them as the same thing usually makes both systems worse. Ceres is about respectful, repeatable synchronization from known open-data portals, while Ares is about extracting structure from less predictable web pages where fetch behavior, schema drift, and retries have to be explicit parts of the system."
         },
         {
           "heading": "Technical center",
-          "body": "Ceres centers on incremental portal sync and catalog durability, while Ares focuses on fetch pipelines, markdown normalization, JSON Schema extraction, retries, and queue-driven execution."
+          "body": "Ceres centers on incremental portal sync and catalog durability, while Ares focuses on fetch pipelines, markdown normalization, JSON Schema extraction, retries, and queue-driven execution. Splitting the tools keeps the architecture honest: one side optimizes for catalog freshness and exportability, the other for controlled extraction runs that can survive partial failures and changing page structure."
         },
         {
           "heading": "Current proof points",
-          "body": "The distinction is already concrete in the READMEs: Ceres offers incremental portal sync, metadata-only mode, export, and optional semantic search, while Ares offers schema-driven extraction, change detection, queue workers, crawl sessions, and protected API endpoints for scrape orchestration."
+          "body": "The distinction is already concrete in the READMEs: Ceres offers incremental portal sync, metadata-only mode, export, and optional semantic search, while Ares offers schema-driven extraction, change detection, queue workers, crawl sessions, and protected API endpoints for scrape orchestration. Together they describe a collection stack where ingestion is not just about getting bytes, but about preserving the operational promise behind each source."
         }
       ]
     },
@@ -229,15 +229,15 @@
       "sections": [
         {
           "heading": "Why it matters",
-          "body": "Robotics and physical-AI systems need data platform primitives that remain understandable once experiments become real operations."
+          "body": "Robotics and physical-AI systems need data platform primitives that remain understandable once experiments become real operations. The interesting pressure is that these systems are both research environments and production candidates: teams need fast iteration, but they also need reproducible datasets, reliable jobs, and interfaces that do not collapse when multiple engineers start depending on them."
         },
         {
           "heading": "Technical center",
-          "body": "The interesting work sits at integration boundaries: how orchestration stays flexible enough for experimentation while remaining debuggable for the next engineer."
+          "body": "The interesting work sits at integration boundaries: how orchestration stays flexible enough for experimentation while remaining debuggable for the next engineer. In Mosaico that means paying attention to SDK and backend contracts, CI behavior, query ergonomics, and the places where platform code has to support messy real-world robotics workflows without hiding too much behind magic."
         },
         {
           "heading": "Current proof points",
-          "body": "This is already more than a platform summary: the visible contribution history sits exactly at the workflow seams that matter in robotics systems, where CI reliability, query ergonomics, and SDK-server compatibility determine whether data tooling remains usable by the next engineer."
+          "body": "This is already more than a platform summary: the visible contribution history sits exactly at the workflow boundaries that matter in robotics systems, where CI reliability, query ergonomics, and SDK-server compatibility determine whether data tooling remains usable by the next engineer. The case study is useful because it treats contribution work as a way to understand a platform from the inside rather than as a detached overview."
         }
       ]
     },
@@ -283,15 +283,15 @@
       "sections": [
         {
           "heading": "Why it exists",
-          "body": "Embedded ML examples often entangle hardware access, feature extraction, and inference logic, which makes reuse harder than it should be."
+          "body": "Embedded ML examples often entangle hardware access, feature extraction, and inference logic, which makes reuse harder than it should be. Zero Grappler exists to separate those responsibilities early, so a sensor pipeline can be reasoned about as source, transform, and inference stages instead of one tightly coupled demo that only works on a single board."
         },
         {
           "heading": "Technical center",
-          "body": "The crate splits the pipeline into three traits, keeps buffer sizes at compile time, routes stages through Embassy channels, and avoids heap allocation entirely."
+          "body": "The crate splits the pipeline into three traits, keeps buffer sizes at compile time, routes stages through Embassy channels, and avoids heap allocation entirely. That structure is intentionally boring in the best embedded sense: types carry the buffer constraints, async tasks carry the scheduling model, and the runtime path stays compatible with no_std targets."
         },
         {
           "heading": "Current proof points",
-          "body": "Even before the first full board demo, the design is already grounded by the no-allocation trait split, monomorphic Embassy task wrappers, the host-side mock example, and a documented bill of materials that keeps the first public hardware loop realistic rather than hypothetical."
+          "body": "Even before the first full board demo, the design is already grounded by the no-allocation trait split, monomorphic Embassy task wrappers, the host-side mock example, and a documented bill of materials that keeps the first public hardware loop realistic rather than hypothetical. The next meaningful proof is not a bigger abstraction, but a small end-to-end sensor loop that shows the trait split surviving contact with real timing and memory limits."
         }
       ]
     },
@@ -336,15 +336,15 @@
       "sections": [
         {
           "heading": "Why it exists",
-          "body": "Live interfaces such as webhooks, WebSockets, SSE, and gRPC all have different operational quirks, but downstream systems still need one stable event contract."
+          "body": "Live interfaces such as webhooks, WebSockets, SSE, and gRPC all have different operational quirks, but downstream systems still need one stable event contract. Nephtys exists for the part of streaming work that is easy to underestimate: connectors must be configurable, observable, restartable, and boring enough that the rest of the platform can trust the events they emit."
         },
         {
           "heading": "Technical center",
-          "body": "Nephtys manages connector lifecycles, normalizes inbound events, persists them to NATS JetStream, and exposes a REST API so stream management is operable instead of hardcoded."
+          "body": "Nephtys manages connector lifecycles, normalizes inbound events, persists them to NATS JetStream, and exposes a REST API so stream management is operable instead of hardcoded. The design leans on durable subjects, explicit middleware ordering, and management endpoints so each connector can be treated as an operational unit rather than a background goroutine hidden inside an application."
         },
         {
           "heading": "Current proof points",
-          "body": "The operational story is already present in public material: supported connector matrices, middleware ordering, REST management APIs, Prometheus and Grafana support, and a UIC 2026 paper framing urban sensor ingestion as the first concrete evaluation path."
+          "body": "The operational story is already present in public material: supported connector matrices, middleware ordering, REST management APIs, Prometheus and Grafana support, and a UIC 2026 paper framing urban sensor ingestion as the first concrete evaluation path. That makes the project more than a connector list; it is a small control plane for turning live external interfaces into events that can be replayed, inspected, and routed downstream."
         }
       ]
     },
@@ -389,15 +389,15 @@
       "sections": [
         {
           "heading": "Why it exists",
-          "body": "Profiling is useful after the fact, but data platforms also need an explicit way to define what must be true before pipelines keep moving."
+          "body": "Profiling is useful after the fact, but data platforms also need an explicit way to define what must be true before pipelines keep moving. DCE extends the dataprof line of work toward enforcement: instead of only describing a dataset, the system should be able to fail a run when contracts around schema, quality, or table semantics are violated."
         },
         {
           "heading": "Technical center",
-          "body": "DCE grows out of dataprof by moving from observation to enforcement: contract definitions, validation commands, and table-format-aware checks become the center of the workflow."
+          "body": "DCE grows out of dataprof by moving from observation to enforcement: contract definitions, validation commands, and table-format-aware checks become the center of the workflow. The technical challenge is keeping contracts expressive enough for real data platforms while making them practical to run from a CLI, CI job, or future orchestration layer without creating another heavyweight governance product."
         },
         {
           "heading": "Current proof points",
-          "body": "The shift from profiler to contract engine is already visible in the public repo through Iceberg-aware validation, explicit known limitations for non-Iceberg formats, 194 tests across packages, and a roadmap that makes the next steps in SQL execution and multi-format validation explicit."
+          "body": "The shift from profiler to contract engine is already visible in the public repo through Iceberg-aware validation, explicit known limitations for non-Iceberg formats, 194 tests across packages, and a roadmap that makes the next steps in SQL execution and multi-format validation explicit. The useful signal is that limitations are documented alongside the implementation, which keeps the project honest about what can be enforced today and what still needs engineering work."
         }
       ]
     },
@@ -445,15 +445,15 @@
       "sections": [
         {
           "heading": "Why it exists",
-          "body": "Small teams often need a usable lakehouse before they need platform complexity, so the real challenge is choosing a stack that starts light without painting the team into a corner."
+          "body": "Small teams often need a usable lakehouse before they need platform complexity, so the real challenge is choosing a stack that starts light without painting the team into a corner. This starter exists for the moment before a team has a full platform group: they still need ingestion, transformations, dashboards, and object storage, but they need them in a shape that can be understood and replaced piece by piece."
         },
         {
           "heading": "Technical center",
-          "body": "The project combines dlt ingestion, dbt transformations, Superset dashboards, and MinIO-backed object storage into a setup that is intentionally simple to start and expandable later."
+          "body": "The project combines dlt ingestion, dbt transformations, Superset dashboards, and MinIO-backed object storage into a setup that is intentionally simple to start and expandable later. Each component has a clear job: dlt moves data in, dbt makes transformations explicit, Superset gives immediate analytical feedback, and MinIO keeps the storage path close to S3-compatible production patterns."
         },
         {
           "heading": "Current proof points",
-          "body": "The repo already contains the first real artifact set: a published screenshot, a runnable compose stack, an example dlt API pipeline, staged dbt models, and local credentials for MinIO and Superset that make the small-team bootstrap path concrete rather than aspirational."
+          "body": "The repo already contains the first real artifact set: a published screenshot, a runnable compose stack, an example dlt API pipeline, staged dbt models, and local credentials for MinIO and Superset that make the small-team bootstrap path concrete rather than aspirational. The important next pressure is documentation and examples that show how a small starter can grow toward stronger catalog, quality, and cost controls without losing its plain local setup."
         }
       ]
     },
@@ -502,15 +502,15 @@
       "sections": [
         {
           "heading": "Why it exists",
-          "body": "Object storage and open table formats are not enough on their own. A practical lakehouse still needs a catalog that can manage metadata, enforce access, and stay open enough to work across engines and deployment models."
+          "body": "Object storage and open table formats are not enough on their own. A practical lakehouse still needs a catalog that can manage metadata, enforce access, and stay open enough to work across engines and deployment models. Lakekeeper matters because it puts the control plane around Iceberg tables into a Rust-native service that can be reasoned about as infrastructure rather than as an opaque extension of a compute engine."
         },
         {
           "heading": "Technical center",
-          "body": "Lakekeeper implements the Iceberg REST catalog in Rust, pairing Postgres-backed metadata with OIDC authentication, OpenFGA authorization, vended cloud credentials, CloudEvents, and a deployment model that stays much lighter than JVM-oriented catalog stacks."
+          "body": "Lakekeeper implements the Iceberg REST catalog in Rust, pairing Postgres-backed metadata with OIDC authentication, OpenFGA authorization, vended cloud credentials, CloudEvents, and a deployment model that stays much lighter than JVM-oriented catalog stacks. The architecture is interesting because the catalog is not only a lookup service: it becomes the place where identity, temporary storage access, namespace management, and cross-engine interoperability meet."
         },
         {
           "heading": "Current proof points",
-          "body": "The public footprint is already concrete: a long-form architecture write-up, documented RisingWave interoperability, integrations with external engines and managed platforms, a monthly release cadence, and 2 merged PRs tracked in the repository README rather than a vague claim of familiarity."
+          "body": "The public footprint is already concrete: a long-form architecture write-up, documented RisingWave interoperability, integrations with external engines and managed platforms, a monthly release cadence, and 2 merged PRs tracked in the repository README rather than a vague claim of familiarity. The case study is especially useful as a catalog-level counterpart to the Rust data stack work: it shows where table metadata, governance, and engine access stop being abstract and become operational interfaces."
         }
       ]
     },
@@ -553,15 +553,15 @@
       "sections": [
         {
           "heading": "Why it exists",
-          "body": "A lot of code search tasks do not need a full-repo embedding or a giant prompt, they need a cheap agent that can ask narrower questions in sequence."
+          "body": "A lot of code search tasks do not need a full-repo embedding or a giant prompt, they need a cheap agent that can ask narrower questions in sequence. Peek-a-Boo exists for that narrow but common class of work: find the relevant files, inspect just enough context, and produce an answer without turning the entire repository into model input."
         },
         {
           "heading": "Technical center",
-          "body": "Peek-a-Boo keeps the tool surface intentionally small, leaning on grep-like operations and focused traversal so the model spends tokens on synthesis instead of raw repository context."
+          "body": "Peek-a-Boo keeps the tool surface intentionally small, leaning on grep-like operations and focused traversal so the model spends tokens on synthesis instead of raw repository context. The constraint is the product: by limiting available actions and bounding search, the agent has to behave more like a careful code auditor than a broad summarizer."
         },
         {
           "heading": "Current proof points",
-          "body": "The project already behaves like a benchmark-shaped prototype: four built-in missions, a generated target codebase, safety limits that prevent token blowups, and a deliberately narrow tool surface that makes the token-saving argument inspectable in code rather than only in prose."
+          "body": "The project already behaves like a benchmark-shaped prototype: four built-in missions, a generated target codebase, safety limits that prevent token blowups, and a deliberately narrow tool surface that makes the token-saving argument inspectable in code rather than only in prose. That makes it a useful experiment in agent ergonomics because the success criterion is not model cleverness in the abstract, but whether the tool loop finds the right evidence with less context waste."
         }
       ]
     },
@@ -615,15 +615,15 @@
       "sections": [
         {
           "heading": "Why it exists",
-          "body": "There is a recurring gap between live event streams and small-footprint semantic search. Many teams want embeddings over fresh events, but not the operational overhead of a separate vector database cluster."
+          "body": "There is a recurring gap between live event streams and small-footprint semantic search. Many teams want embeddings over fresh events, but not the operational overhead of a separate vector database cluster. Lance Bridge explores the thinner path: keep the event feed durable in JetStream, then project selected events into a local LanceDB store that can be searched semantically without becoming a whole new platform."
         },
         {
           "heading": "Technical center",
-          "body": "The bridge consumes JetStream batches, normalizes the payloads, computes embeddings with the LanceDB model registry or explicit batch embedding calls, and writes LanceModel rows into a local store that can be queried back as Arrow tables."
+          "body": "The bridge consumes JetStream batches, normalizes the payloads, computes embeddings with the LanceDB model registry or explicit batch embedding calls, and writes LanceModel rows into a local store that can be queried back as Arrow tables. The technical center is the handoff: stream events need stable identifiers, payload normalization, embedding metadata, and storage layout choices that still make later compaction and zero-copy reads possible."
         },
         {
           "heading": "Current proof points",
-          "body": "The public article already exposes the real engineering surface instead of hand-waving: the schema model, embedding flow, NATS message handler, compaction caveats, zero-copy Arrow reads, and 2 tracked PRs in lance-format/lance that show hands-on familiarity with the underlying storage internals."
+          "body": "The public article already exposes the real engineering surface instead of hand-waving: the schema model, embedding flow, NATS message handler, compaction caveats, zero-copy Arrow reads, and 2 tracked PRs in lance-format/lance that show hands-on familiarity with the underlying storage internals. The bridge is intentionally small, but it connects two useful ideas: event systems are good at freshness, and Lance is good at local analytical and vector access."
         }
       ]
     },
@@ -667,15 +667,15 @@
       "sections": [
         {
           "heading": "Why it exists",
-          "body": "Query engines become more reusable when storage formats can be inspected directly instead of only through the original serving system."
+          "body": "Query engines become more reusable when storage formats can be inspected directly instead of only through the original serving system. Druid segments contain years of useful analytical engineering, but they are usually approached through a running Druid cluster; this project asks what becomes possible when those segment files can be read directly by a Rust query stack."
         },
         {
           "heading": "Technical center",
-          "body": "The library reads Druid segment structures such as index.dr data and maps them into DataFusion table and execution abstractions, aiming for vectorized Arrow-friendly execution where possible."
+          "body": "The library reads Druid segment structures such as index.dr data and maps them into DataFusion table and execution abstractions, aiming for vectorized Arrow-friendly execution where possible. The hard part is translating storage internals, dictionaries, metrics, and bitmap-oriented access patterns into DataFusion abstractions without pretending the original format was designed as a simple Arrow file."
         },
         {
           "heading": "Current proof points",
-          "body": "Even as a work in progress, the evaluation surface is already concrete: a dedicated segment parser layer, DataFusion `TableProvider` and `ExecutionPlan` adapters, Wikipedia segment fixtures, and integration tests around offline segment access rather than hand-wavy architectural claims."
+          "body": "Even as a work in progress, the evaluation surface is already concrete: a dedicated segment parser layer, DataFusion `TableProvider` and `ExecutionPlan` adapters, Wikipedia segment fixtures, and integration tests around offline segment access rather than hand-wavy architectural claims. The current value is exploratory but specific: each parser and adapter clarifies how much of Druid's segment model can be exposed through modern Arrow and DataFusion interfaces."
         }
       ]
     },
@@ -712,19 +712,19 @@
       "sections": [
         {
           "heading": "Why it exists",
-          "body": "A personal site should not be a thin profile page if the work itself is systems work. This repository is meant to function as a public front door, a writing archive, and a concrete example of how I like to structure tools and platforms."
+          "body": "A personal site should not be a thin profile page if the work itself is systems work. This repository is meant to function as a public front door, a writing archive, and a concrete example of how I like to structure tools and platforms. The site is therefore treated as a real system: content is generated from structured sources, the workbench has a Rust/WASM engine behind it, and the deployment path is part of the story rather than an afterthought."
         },
         {
           "heading": "System shape",
-          "body": "The root site is plain HTML, CSS, and JavaScript, the long-form writing lives in a Hugo blog, the interactive workbench logic is mirrored between JavaScript and Rust compiled to WebAssembly, and generated work pages come from structured JSON rather than hand-maintained HTML."
+          "body": "The root site is plain HTML, CSS, and JavaScript, the long-form writing lives in a Hugo blog, the interactive workbench logic is mirrored between JavaScript and Rust compiled to WebAssembly, and generated work pages come from structured JSON rather than hand-maintained HTML. That split keeps the public surface fast and inspectable while allowing richer tooling behind it: Go generators build artifacts, the blog keeps long-form posts organized, and the homepage can behave like a small application."
         },
         {
           "heading": "Technical center",
-          "body": "The repository now uses a Go harvester to generate case-study and contribution artifacts, GitHub Actions to assemble and publish the static site on GitHub Pages, and a small Go API on Vercel to expose live GitHub stats and badge endpoints that the homepage can consume."
+          "body": "The repository now uses a Go harvester to generate case-study and contribution artifacts, GitHub Actions to assemble and publish the static site on GitHub Pages, and a small Go API on Vercel to expose live GitHub stats and badge endpoints that the homepage can consume. The technical center is the boundary between static reliability and live data: most of the site remains cacheable and simple, while the companion API handles the pieces that genuinely need to change."
         },
         {
           "heading": "Current proof points",
-          "body": "The repository already exposes the whole public system path: structured JSON and the Go harvester generate work and contribution artifacts, Hugo builds the blog, the workbench logic is mirrored in JavaScript and Rust/WASM, and GitHub Pages plus the Vercel API split static delivery from live GitHub stats."
+          "body": "The repository already exposes the whole public system path: structured JSON and the Go harvester generate work and contribution artifacts, Hugo builds the blog, the workbench logic is mirrored in JavaScript and Rust/WASM, and GitHub Pages plus the Vercel API split static delivery from live GitHub stats. That makes the site useful both as a portfolio and as an inspectable implementation of the same design preferences shown in the work itself: typed inputs, generated outputs, small services, and clear deployment boundaries."
         }
       ]
     }

@@ -28,7 +28,7 @@
     <meta name="theme-color" content="#f5efe2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
     <link rel="stylesheet" href="../../assets/styles.min.css">
     <script>
@@ -83,13 +83,13 @@
         <section class="case-layout">
             <article class="case-main">
                 <h2>Why it exists</h2>
-                <p>Object storage and open table formats are not enough on their own. A practical lakehouse still needs a catalog that can manage metadata, enforce access, and stay open enough to work across engines and deployment models.</p>
+                <p>Object storage and open table formats are not enough on their own. A practical lakehouse still needs a catalog that can manage metadata, enforce access, and stay open enough to work across engines and deployment models. Lakekeeper matters because it puts the control plane around Iceberg tables into a Rust-native service that can be reasoned about as infrastructure rather than as an opaque extension of a compute engine.</p>
 
                 <h2>Technical center</h2>
-                <p>Lakekeeper implements the Iceberg REST catalog in Rust, pairing Postgres-backed metadata with OIDC authentication, OpenFGA authorization, vended cloud credentials, CloudEvents, and a deployment model that stays much lighter than JVM-oriented catalog stacks.</p>
+                <p>Lakekeeper implements the Iceberg REST catalog in Rust, pairing Postgres-backed metadata with OIDC authentication, OpenFGA authorization, vended cloud credentials, CloudEvents, and a deployment model that stays much lighter than JVM-oriented catalog stacks. The architecture is interesting because the catalog is not only a lookup service: it becomes the place where identity, temporary storage access, namespace management, and cross-engine interoperability meet.</p>
 
                 <h2>Current proof points</h2>
-                <p>The public footprint is already concrete: a long-form architecture write-up, documented RisingWave interoperability, integrations with external engines and managed platforms, a monthly release cadence, and 2 merged PRs tracked in the repository README rather than a vague claim of familiarity.</p>
+                <p>The public footprint is already concrete: a long-form architecture write-up, documented RisingWave interoperability, integrations with external engines and managed platforms, a monthly release cadence, and 2 merged PRs tracked in the repository README rather than a vague claim of familiarity. The case study is especially useful as a catalog-level counterpart to the Rust data stack work: it shows where table metadata, governance, and engine access stop being abstract and become operational interfaces.</p>
 
             </article>
 

@@ -28,7 +28,7 @@
     <meta name="theme-color" content="#f5efe2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
     <link rel="stylesheet" href="../../assets/styles.min.css">
     <script>
@@ -83,13 +83,13 @@
         <section class="case-layout">
             <article class="case-main">
                 <h2>Why it exists</h2>
-                <p>There is a recurring gap between live event streams and small-footprint semantic search. Many teams want embeddings over fresh events, but not the operational overhead of a separate vector database cluster.</p>
+                <p>There is a recurring gap between live event streams and small-footprint semantic search. Many teams want embeddings over fresh events, but not the operational overhead of a separate vector database cluster. Lance Bridge explores the thinner path: keep the event feed durable in JetStream, then project selected events into a local LanceDB store that can be searched semantically without becoming a whole new platform.</p>
 
                 <h2>Technical center</h2>
-                <p>The bridge consumes JetStream batches, normalizes the payloads, computes embeddings with the LanceDB model registry or explicit batch embedding calls, and writes LanceModel rows into a local store that can be queried back as Arrow tables.</p>
+                <p>The bridge consumes JetStream batches, normalizes the payloads, computes embeddings with the LanceDB model registry or explicit batch embedding calls, and writes LanceModel rows into a local store that can be queried back as Arrow tables. The technical center is the handoff: stream events need stable identifiers, payload normalization, embedding metadata, and storage layout choices that still make later compaction and zero-copy reads possible.</p>
 
                 <h2>Current proof points</h2>
-                <p>The public article already exposes the real engineering surface instead of hand-waving: the schema model, embedding flow, NATS message handler, compaction caveats, zero-copy Arrow reads, and 2 tracked PRs in lance-format/lance that show hands-on familiarity with the underlying storage internals.</p>
+                <p>The public article already exposes the real engineering surface instead of hand-waving: the schema model, embedding flow, NATS message handler, compaction caveats, zero-copy Arrow reads, and 2 tracked PRs in lance-format/lance that show hands-on familiarity with the underlying storage internals. The bridge is intentionally small, but it connects two useful ideas: event systems are good at freshness, and Lance is good at local analytical and vector access.</p>
 
             </article>
 

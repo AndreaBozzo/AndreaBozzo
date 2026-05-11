@@ -28,7 +28,7 @@
     <meta name="theme-color" content="#f5efe2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
     <link rel="stylesheet" href="../../assets/styles.min.css">
     <script>
@@ -83,13 +83,13 @@
         <section class="case-layout">
             <article class="case-main">
                 <h2>Why it exists</h2>
-                <p>Small teams often need a usable lakehouse before they need platform complexity, so the real challenge is choosing a stack that starts light without painting the team into a corner.</p>
+                <p>Small teams often need a usable lakehouse before they need platform complexity, so the real challenge is choosing a stack that starts light without painting the team into a corner. This starter exists for the moment before a team has a full platform group: they still need ingestion, transformations, dashboards, and object storage, but they need them in a shape that can be understood and replaced piece by piece.</p>
 
                 <h2>Technical center</h2>
-                <p>The project combines dlt ingestion, dbt transformations, Superset dashboards, and MinIO-backed object storage into a setup that is intentionally simple to start and expandable later.</p>
+                <p>The project combines dlt ingestion, dbt transformations, Superset dashboards, and MinIO-backed object storage into a setup that is intentionally simple to start and expandable later. Each component has a clear job: dlt moves data in, dbt makes transformations explicit, Superset gives immediate analytical feedback, and MinIO keeps the storage path close to S3-compatible production patterns.</p>
 
                 <h2>Current proof points</h2>
-                <p>The repo already contains the first real artifact set: a published screenshot, a runnable compose stack, an example dlt API pipeline, staged dbt models, and local credentials for MinIO and Superset that make the small-team bootstrap path concrete rather than aspirational.</p>
+                <p>The repo already contains the first real artifact set: a published screenshot, a runnable compose stack, an example dlt API pipeline, staged dbt models, and local credentials for MinIO and Superset that make the small-team bootstrap path concrete rather than aspirational. The important next pressure is documentation and examples that show how a small starter can grow toward stronger catalog, quality, and cost controls without losing its plain local setup.</p>
 
             </article>
 
