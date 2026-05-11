@@ -28,28 +28,28 @@
 </style>
 <rect width="1200" height="900" rx="40" fill="#F4ECE0"/>
 <rect x="48" y="48" width="1104" height="804" rx="34" fill="#FBF7F1" stroke="#DCCDB8" stroke-width="2"/>
-<text x="84" y="110" fill="#1E2B4A" font-size="24" font-weight="700" font-family="AB Sans" letter-spacing="4"><tspan x="84.0" dy="0">CONNECTOR SURFACE</tspan></text>
-<text x="84" y="166" fill="#1A2340" font-size="48" font-weight="700" font-family="AB Sans"><tspan x="84.0" dy="0">One ingress shape, five</tspan><tspan x="84.0" dy="52">real-time entry points</tspan></text>
-<text x="84" y="258" fill="#5F6576" font-size="22" font-weight="400" font-family="AB Sans"><tspan x="84.0" dy="0">Nephtys keeps the connector edge diverse</tspan><tspan x="84.0" dy="24">while preserving one durable event contract</tspan><tspan x="84.0" dy="24">downstream.</tspan></text>
+<text x="84" y="110" fill="#1E2B4A" font-size="24" font-weight="700" font-family="AB Sans" data-ab-max-width="900" data-ab-font-size="24" data-ab-font-weight="700" data-ab-letter-spacing="4" data-ab-kind="sans" letter-spacing="4"><tspan x="84.0" dy="0">CONNECTOR SURFACE</tspan></text>
+<text x="84" y="166" fill="#1A2340" font-size="48" font-weight="700" font-family="AB Sans" data-ab-max-width="720" data-ab-font-size="48" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="84.0" dy="0">One ingress shape, five</tspan><tspan x="84.0" dy="52">real-time entry points</tspan></text>
+<text x="84" y="258" fill="#5F6576" font-size="22" font-weight="400" font-family="AB Sans" data-ab-max-width="520" data-ab-font-size="22" data-ab-font-weight="400" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="84.0" dy="0">Nephtys keeps the connector edge diverse while</tspan><tspan x="84.0" dy="24">preserving one durable event contract downstream.</tspan></text>
 <rect x="466" y="320" width="268" height="264" rx="36" fill="#1E2B4A" stroke="#1E2B4A"/>
-<text x="496" y="406" fill="#F7F3EA" font-size="40" font-weight="700" font-family="AB Sans"><tspan x="496.0" dy="0">JetStream</tspan></text>
-<text x="512" y="446" fill="#D5DCE7" font-size="22" font-weight="400" font-family="AB Sans"><tspan x="553.7" dy="0">events +</tspan><tspan x="559.5" dy="28">configs</tspan></text>
-<text x="492" y="518" fill="#E4B66C" font-size="15" font-weight="400" font-family="AB Sans" letter-spacing="2"><tspan x="554.8" dy="0">FILTER →</tspan><tspan x="528.9" dy="19">TRANSFORM →</tspan><tspan x="568.1" dy="19">DEDUP</tspan></text>
+<text x="496" y="406" fill="#F7F3EA" font-size="40" font-weight="700" font-family="AB Sans" data-ab-max-width="208" data-ab-font-size="40" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="501.2" dy="0">JetStream</tspan></text>
+<text x="512" y="446" fill="#D5DCE7" font-size="22" font-weight="400" font-family="AB Sans" data-ab-max-width="176" data-ab-font-size="22" data-ab-font-weight="400" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="519.9" dy="0">events + configs</tspan></text>
+<text x="492" y="518" fill="#E4B66C" font-size="16" font-weight="400" font-family="AB Sans" data-ab-max-width="216" data-ab-font-size="16" data-ab-font-weight="400" data-ab-letter-spacing="2" data-ab-kind="sans" letter-spacing="2"><tspan x="494.9" dy="0">FILTER → TRANSFORM →</tspan><tspan x="570.3" dy="20">DEDUP</tspan></text>
 <rect x="114" y="320" width="210" height="86" rx="24" fill="#F5F8FB" stroke="#C9D8E6"/>
-<text x="136" y="372" fill="#23476A" font-size="28" font-weight="700" font-family="AB Sans"><tspan x="140.3" dy="0">WebSocket</tspan></text>
+<text x="136" y="372" fill="#23476A" font-size="28" font-weight="700" font-family="AB Sans" data-ab-max-width="166" data-ab-font-size="28" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="143.8" dy="0">WebSocket</tspan></text>
 <rect x="114" y="446" width="210" height="86" rx="24" fill="#F7FBF6" stroke="#C6D8C9"/>
-<text x="136" y="498" fill="#3A6C49" font-size="28" font-weight="700" font-family="AB Sans"><tspan x="188.4" dy="0">SSE</tspan></text>
+<text x="136" y="498" fill="#3A6C49" font-size="28" font-weight="700" font-family="AB Sans" data-ab-max-width="166" data-ab-font-size="28" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="193.0" dy="0">SSE</tspan></text>
 <rect x="114" y="572" width="210" height="86" rx="24" fill="#FFF9F0" stroke="#E0CBA7"/>
-<text x="136" y="624" fill="#A56A24" font-size="28" font-weight="700" font-family="AB Sans"><tspan x="178.1" dy="0">REST</tspan></text>
+<text x="136" y="624" fill="#A56A24" font-size="28" font-weight="700" font-family="AB Sans" data-ab-max-width="166" data-ab-font-size="28" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="184.2" dy="0">REST</tspan></text>
 <rect x="876" y="320" width="210" height="86" rx="24" fill="#FFF3EE" stroke="#E0C0B5"/>
-<text x="898" y="372" fill="#9C5E49" font-size="28" font-weight="700" font-family="AB Sans"><tspan x="917.2" dy="0">Webhook</tspan></text>
+<text x="898" y="372" fill="#9C5E49" font-size="28" font-weight="700" font-family="AB Sans" data-ab-max-width="166" data-ab-font-size="28" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="918.8" dy="0">Webhook</tspan></text>
 <rect x="876" y="446" width="210" height="86" rx="24" fill="#F1F0FB" stroke="#CEC9E7"/>
-<text x="898" y="498" fill="#57518D" font-size="28" font-weight="700" font-family="AB Sans"><tspan x="941.9" dy="0">gRPC</tspan></text>
+<text x="898" y="498" fill="#57518D" font-size="28" font-weight="700" font-family="AB Sans" data-ab-max-width="166" data-ab-font-size="28" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="945.5" dy="0">gRPC</tspan></text>
 <path d="M324 363C392 363 394 362 454 404" stroke="#7BA3BF" stroke-width="8" stroke-linecap="round"/>
 <path d="M324 489C392 489 394 488 454 444" stroke="#8BB59A" stroke-width="8" stroke-linecap="round"/>
 <path d="M324 615C392 615 394 614 454 484" stroke="#D19F59" stroke-width="8" stroke-linecap="round"/>
 <path d="M734 404C790 362 792 363 876 363" stroke="#D9B17A" stroke-width="8" stroke-linecap="round"/>
 <path d="M734 444C790 488 792 489 876 489" stroke="#9B87C8" stroke-width="8" stroke-linecap="round"/>
 <rect x="112" y="720" width="974" height="92" rx="24" fill="#FFF9F0" stroke="#DCCDB8"/>
-<text x="148" y="764" fill="#5F6576" font-size="22" font-weight="400" font-family="AB Sans"><tspan x="148.0" dy="0">Configurable through the REST API, with one pipeline shape regardless of</tspan><tspan x="148.0" dy="26">whether the source is push- or pull-based.</tspan></text>
+<text x="148" y="764" fill="#5F6576" font-size="22" font-weight="400" font-family="AB Sans" data-ab-max-width="900" data-ab-font-size="22" data-ab-font-weight="400" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="148.0" dy="0">Configurable through the REST API, with one pipeline shape regardless of whether the</tspan><tspan x="148.0" dy="26">source is push- or pull-based.</tspan></text>
 </svg>

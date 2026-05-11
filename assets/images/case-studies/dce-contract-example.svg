@@ -28,30 +28,30 @@
 </style>
 <rect width="1200" height="900" rx="40" fill="#F4ECE0"/>
 <rect x="48" y="48" width="1104" height="804" rx="34" fill="#FBF7F1" stroke="#DCCDB8" stroke-width="2"/>
-<text x="84" y="110" fill="#1E2B4A" font-size="24" font-weight="700" font-family="AB Sans" letter-spacing="4"><tspan x="84.0" dy="0">CONTRACT SHAPE</tspan></text>
-<text x="84" y="178" fill="#1A2340" font-size="54" font-weight="700" font-family="AB Sans"><tspan x="84.0" dy="0">A data contract as a public artifact</tspan></text>
+<text x="84" y="110" fill="#1E2B4A" font-size="24" font-weight="700" font-family="AB Sans" data-ab-max-width="900" data-ab-font-size="24" data-ab-font-weight="700" data-ab-letter-spacing="4" data-ab-kind="sans" letter-spacing="4"><tspan x="84.0" dy="0">CONTRACT SHAPE</tspan></text>
+<text x="84" y="178" fill="#1A2340" font-size="54" font-weight="700" font-family="AB Sans" data-ab-max-width="1032" data-ab-font-size="54" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="84.0" dy="0">A data contract as a public artifact</tspan></text>
 <rect x="84" y="246" width="566" height="520" rx="34" fill="#FFF9F0" stroke="#E0CBA7"/>
 <rect x="704" y="246" width="412" height="520" rx="34" fill="#F5F8FB" stroke="#C9D8E6"/>
-<text x="122" y="304" fill="#A56A24" font-size="20" font-weight="700" font-family="AB Sans" letter-spacing="3"><tspan x="122.0" dy="0">SCHEMA</tspan></text>
-<text x="122" y="362" fill="#1B2746" font-size="34" font-weight="700" font-family="AB Sans"><tspan x="122.0" dy="0">user_events</tspan></text>
+<text x="122" y="304" fill="#A56A24" font-size="20" font-weight="700" font-family="AB Sans" data-ab-max-width="200" data-ab-font-size="20" data-ab-font-weight="700" data-ab-letter-spacing="3" data-ab-kind="sans" letter-spacing="3"><tspan x="122.0" dy="0">SCHEMA</tspan></text>
+<text x="122" y="362" fill="#1B2746" font-size="34" font-weight="700" font-family="AB Sans" data-ab-max-width="320" data-ab-font-size="34" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="122.0" dy="0">user_events</tspan></text>
 <rect x="122" y="404" width="198" height="56" rx="18" fill="#F5F8FB" stroke="#C9D8E6"/>
 <rect x="336" y="404" width="240" height="56" rx="18" fill="#F7FBF6" stroke="#C6D8C9"/>
-<text x="144" y="439" fill="#2F6E95" font-size="20" font-weight="400" font-family="AB Sans"><tspan x="144.0" dy="0">format: iceberg</tspan></text>
-<text x="356" y="439" fill="#3A6C49" font-size="20" font-weight="400" font-family="AB Sans"><tspan x="356.0" dy="0">owner:</tspan><tspan x="356.0" dy="26">analytics-team</tspan></text>
+<text x="144" y="439" fill="#2F6E95" font-size="20" font-weight="400" font-family="AB Sans" data-ab-max-width="154" data-ab-font-size="20" data-ab-font-weight="400" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="144.0" dy="0">format: iceberg</tspan></text>
+<text x="356" y="439" fill="#3A6C49" font-size="19" font-weight="400" font-family="AB Sans" data-ab-max-width="200" data-ab-font-size="19" data-ab-font-weight="400" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="356.0" dy="0">owner: analytics-team</tspan></text>
 <rect x="122" y="492" width="454" height="76" rx="24" fill="#FBF7F1" stroke="#DCCDB8"/>
-<text x="148" y="538" fill="#1B2746" font-size="26" font-weight="700" font-family="AB Sans"><tspan x="148.0" dy="0">user_id</tspan></text>
-<text x="332" y="538" fill="#5F6576" font-size="22" font-weight="400" font-family="AB Sans"><tspan x="332.0" dy="0">string · required</tspan></text>
+<text x="148" y="538" fill="#1B2746" font-size="26" font-weight="700" font-family="AB Sans" data-ab-max-width="180" data-ab-font-size="26" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="148.0" dy="0">user_id</tspan></text>
+<text x="332" y="538" fill="#5F6576" font-size="22" font-weight="400" font-family="AB Sans" data-ab-max-width="210" data-ab-font-size="22" data-ab-font-weight="400" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="332.0" dy="0">string · required</tspan></text>
 <rect x="122" y="588" width="454" height="118" rx="24" fill="#FBF7F1" stroke="#DCCDB8"/>
-<text x="148" y="634" fill="#1B2746" font-size="26" font-weight="700" font-family="AB Sans"><tspan x="148.0" dy="0">event_type</tspan></text>
-<text x="148" y="674" fill="#5F6576" font-size="22" font-weight="400" font-family="AB Sans"><tspan x="148.0" dy="0">allowed values: click · view ·</tspan><tspan x="148.0" dy="26">purchase</tspan></text>
-<text x="742" y="304" fill="#2F6E95" font-size="20" font-weight="700" font-family="AB Sans" letter-spacing="3"><tspan x="742.0" dy="0">QUALITY</tspan><tspan x="742.0" dy="26">CHECKS</tspan></text>
+<text x="148" y="634" fill="#1B2746" font-size="26" font-weight="700" font-family="AB Sans" data-ab-max-width="180" data-ab-font-size="26" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="148.0" dy="0">event_type</tspan></text>
+<text x="148" y="674" fill="#5F6576" font-size="22" font-weight="400" font-family="AB Sans" data-ab-max-width="390" data-ab-font-size="22" data-ab-font-weight="400" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="148.0" dy="0">allowed values: click · view · purchase</tspan></text>
+<text x="742" y="304" fill="#2F6E95" font-size="20" font-weight="700" font-family="AB Sans" data-ab-max-width="220" data-ab-font-size="20" data-ab-font-weight="700" data-ab-letter-spacing="3" data-ab-kind="sans" letter-spacing="3"><tspan x="742.0" dy="0">QUALITY CHECKS</tspan></text>
 <rect x="742" y="352" width="336" height="108" rx="28" fill="#FFFFFF" stroke="#D8E3EE"/>
-<text x="774" y="408" fill="#1B2746" font-size="28" font-weight="700" font-family="AB Sans"><tspan x="774.0" dy="0">Completeness</tspan></text>
-<text x="774" y="444" fill="#5F6576" font-size="21" font-weight="400" font-family="AB Sans"><tspan x="774.0" dy="0">threshold: 0.99</tspan></text>
+<text x="774" y="408" fill="#1B2746" font-size="28" font-weight="700" font-family="AB Sans" data-ab-max-width="260" data-ab-font-size="28" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="774.0" dy="0">Completeness</tspan></text>
+<text x="774" y="444" fill="#5F6576" font-size="21" font-weight="400" font-family="AB Sans" data-ab-max-width="260" data-ab-font-size="21" data-ab-font-weight="400" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="774.0" dy="0">threshold: 0.99</tspan></text>
 <rect x="742" y="490" width="336" height="108" rx="28" fill="#FFFFFF" stroke="#D8E3EE"/>
-<text x="774" y="546" fill="#1B2746" font-size="28" font-weight="700" font-family="AB Sans"><tspan x="774.0" dy="0">Freshness</tspan></text>
-<text x="774" y="582" fill="#5F6576" font-size="21" font-weight="400" font-family="AB Sans"><tspan x="774.0" dy="0">max delay: 1h</tspan></text>
+<text x="774" y="546" fill="#1B2746" font-size="28" font-weight="700" font-family="AB Sans" data-ab-max-width="260" data-ab-font-size="28" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="774.0" dy="0">Freshness</tspan></text>
+<text x="774" y="582" fill="#5F6576" font-size="21" font-weight="400" font-family="AB Sans" data-ab-max-width="260" data-ab-font-size="21" data-ab-font-weight="400" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="774.0" dy="0">max delay: 1h</tspan></text>
 <rect x="742" y="628" width="336" height="108" rx="28" fill="#FFFFFF" stroke="#D8E3EE"/>
-<text x="774" y="684" fill="#1B2746" font-size="28" font-weight="700" font-family="AB Sans"><tspan x="774.0" dy="0">Execution target</tspan></text>
-<text x="774" y="720" fill="#5F6576" font-size="21" font-weight="400" font-family="AB Sans"><tspan x="774.0" dy="0">Iceberg table with typed</tspan><tspan x="774.0" dy="24">fields and rule checks</tspan></text>
+<text x="774" y="684" fill="#1B2746" font-size="28" font-weight="700" font-family="AB Sans" data-ab-max-width="260" data-ab-font-size="28" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="774.0" dy="0">Execution target</tspan></text>
+<text x="774" y="720" fill="#5F6576" font-size="21" font-weight="400" font-family="AB Sans" data-ab-max-width="260" data-ab-font-size="21" data-ab-font-weight="400" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="774.0" dy="0">Iceberg table with typed</tspan><tspan x="774.0" dy="24">fields and rule checks</tspan></text>
 </svg>

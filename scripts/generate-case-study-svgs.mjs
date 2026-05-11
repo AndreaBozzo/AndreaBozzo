@@ -1,6 +1,8 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 
+import opentype from 'opentype.js';
+
 const SIZE = { width: 1200, height: 900 };
 const FONT = {
   sans: 'AB Sans',
@@ -23,6 +25,16 @@ const FONT_ASSETS = Object.fromEntries(
       base64: buffer.toString('base64'),
     }];
   }),
+);
+
+function parseFont(filePath) {
+  const buffer = readFileSync(filePath);
+  const arrayBuffer = buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength);
+  return opentype.parse(arrayBuffer);
+}
+
+const FONT_METRICS = Object.fromEntries(
+  Object.entries(FONT_FILES).map(([key, filePath]) => [key, parseFont(filePath)]),
 );
 
 const COLORS = {
@@ -68,55 +80,27 @@ function fontMetricKey(options = {}) {
   return bold ? 'sansBold' : 'sansRegular';
 }
 
-function charFactor(character, kind) {
-  if (kind === 'mono') {
-    return 0.6;
-  }
-  if (character === ' ') {
-    return 0.33;
-  }
-  if (',.;:'.includes(character)) {
-    return 0.22;
-  }
-  if ('!|iIljtfr'.includes(character)) {
-    return 0.29;
-  }
-  if ('mwMWQOG@#%&'.includes(character)) {
-    return 0.82;
-  }
-  if ('()[]{}\\/'.includes(character)) {
-    return 0.36;
-  }
-  if ('-_+=~'.includes(character)) {
-    return 0.42;
-  }
-  if (/[0-9]/.test(character)) {
-    return 0.54;
-  }
-  if (/[A-Z]/.test(character)) {
-    return 0.64;
-  }
-  return 0.53;
-}
-
 function measureText(text, options = {}) {
   const fontSize = options.fontSize ?? 16;
   const letterSpacing = options.letterSpacing ?? 0;
-  const kind = options.kind ?? 'sans';
-  let width = 0;
-  for (const character of text) {
-    width += charFactor(character, kind) * fontSize;
+  const metricKey = fontMetricKey(options);
+  const font = FONT_METRICS[metricKey];
+  if (!font) {
+    throw new Error(`Missing font metrics for ${metricKey}`);
   }
-  if (text.length > 1) {
-    width += (text.length - 1) * letterSpacing;
+
+  const normalized = String(text);
+  const advanceWidth = font.stringToGlyphs(normalized).reduce((sum, glyph) => sum + glyph.advanceWidth, 0);
+  let width = (advanceWidth / font.unitsPerEm) * fontSize;
+  if (normalized.length > 1) {
+    width += (normalized.length - 1) * letterSpacing;
   }
-  if (fontMetricKey(options).endsWith('Bold')) {
-    width *= 1.03;
-  }
-  return width * 1.14;
+  return width;
 }
 
-function breakToken(token, maxWidth, options) {
+const TOKEN_BREAK_DELIMITERS = new Set(['/', '-', '.']);
+
+function breakTokenByCharacter(token, maxWidth, options) {
   const parts = [];
   let current = '';
   for (const character of token) {
@@ -132,6 +116,34 @@ function breakToken(token, maxWidth, options) {
     parts.push(current);
   }
   return parts;
+}
+
+function splitTokenAtPreferredBoundaries(token) {
+  const parts = [];
+  let start = 0;
+  for (let index = 0; index < token.length; index += 1) {
+    if (TOKEN_BREAK_DELIMITERS.has(token[index])) {
+      parts.push(token.slice(start, index + 1));
+      start = index + 1;
+    }
+  }
+  if (start < token.length) {
+    parts.push(token.slice(start));
+  }
+  return parts.filter(Boolean);
+}
+
+function breakToken(token, maxWidth, options) {
+  const preferredParts = splitTokenAtPreferredBoundaries(token);
+  if (preferredParts.length > 1) {
+    return preferredParts.flatMap((part) => (
+      measureText(part, options) > maxWidth
+        ? breakTokenByCharacter(part, maxWidth, options)
+        : [part]
+    ));
+  }
+
+  return breakTokenByCharacter(token, maxWidth, options);
 }
 
 function wrapText(text, maxWidth, options = {}) {
@@ -151,21 +163,27 @@ function wrapText(text, maxWidth, options = {}) {
       continue;
     }
 
-    if (current) {
-      lines.push(current);
-      current = '';
-    }
-
     if (measureText(word, options) <= maxWidth) {
+      if (current) {
+        lines.push(current);
+      }
       current = word;
       continue;
     }
 
     const pieces = breakToken(word, maxWidth, options);
-    while (pieces.length > 1) {
-      lines.push(pieces.shift());
+    let firstPiece = true;
+    for (const piece of pieces) {
+      const separator = current && firstPiece ? ' ' : '';
+      const pieceCandidate = current ? `${current}${separator}${piece}` : piece;
+      if (current && measureText(pieceCandidate, options) > maxWidth) {
+        lines.push(current);
+        current = piece;
+      } else {
+        current = pieceCandidate;
+      }
+      firstPiece = false;
     }
-    current = pieces[0] ?? '';
   }
 
   if (current) {
@@ -228,6 +246,7 @@ function textBlock({
   const { lines, fontSize: fittedFontSize } = fitLines(text, width, {
     fontSize,
     minFontSize,
+    fontWeight,
     maxLines,
     maxHeight,
     lineHeight,
@@ -242,17 +261,35 @@ function textBlock({
     .map((lineText, index) => {
       let lineX = x;
       if (align === 'center') {
-        lineX = x + (width - measureText(lineText, { fontSize: fittedFontSize, letterSpacing, kind })) / 2;
+        lineX = x + (width - measureText(lineText, {
+          fontSize: fittedFontSize,
+          fontWeight,
+          letterSpacing,
+          kind,
+        })) / 2;
       } else if (align === 'right') {
-        lineX = x + width - measureText(lineText, { fontSize: fittedFontSize, letterSpacing, kind });
+        lineX = x + width - measureText(lineText, {
+          fontSize: fittedFontSize,
+          fontWeight,
+          letterSpacing,
+          kind,
+        });
       }
       const dy = index === 0 ? 0 : computedLineHeight;
       return `<tspan x="${lineX.toFixed(1)}" dy="${dy}">${escapeXml(lineText)}</tspan>`;
     })
     .join('');
 
+  const metadata = [
+    `data-ab-max-width="${width}"`,
+    `data-ab-font-size="${fittedFontSize}"`,
+    `data-ab-font-weight="${fontWeight}"`,
+    `data-ab-letter-spacing="${letterSpacing}"`,
+    `data-ab-kind="${kind}"`,
+  ].join(' ');
+
   return {
-    svg: `<text x="${x}" y="${y}" fill="${fill}" font-size="${fittedFontSize}" font-weight="${fontWeight}" font-family="${fontFamily}"${letterSpacingAttr}>${tspans}</text>`,
+    svg: `<text x="${x}" y="${y}" fill="${fill}" font-size="${fittedFontSize}" font-weight="${fontWeight}" font-family="${fontFamily}" ${metadata}${letterSpacingAttr}>${tspans}</text>`,
     height: lines.length * computedLineHeight,
     fontSize: fittedFontSize,
   };
@@ -439,8 +476,8 @@ function renderDceContractExample() {
   parts.push(textBlock({ x: 122, y: 362, width: 320, text: 'user_events', fontSize: 34, minFontSize: 30, fill: '#1B2746', fontFamily: FONT.display, fontWeight: 700, kind: 'sans', maxLines: 1 }).svg);
   parts.push(rect(122, 404, 198, 56, COLORS.blueBg, COLORS.blueStroke, 18));
   parts.push(rect(336, 404, 240, 56, COLORS.greenBg, COLORS.greenStroke, 18));
-  parts.push(textBlock({ x: 144, y: 439, width: 154, text: 'format: iceberg', fontSize: 22, minFontSize: 20, fill: COLORS.blueInk, fontFamily: FONT.sans, kind: 'sans', maxLines: 1 }).svg);
-  parts.push(textBlock({ x: 356, y: 439, width: 200, text: 'owner: analytics-team', fontSize: 22, minFontSize: 20, fill: COLORS.greenInk, fontFamily: FONT.sans, kind: 'sans', maxLines: 1 }).svg);
+  parts.push(textBlock({ x: 144, y: 439, width: 154, text: 'format: iceberg', fontSize: 20, minFontSize: 18, fill: COLORS.blueInk, fontFamily: FONT.sans, kind: 'sans', maxLines: 1 }).svg);
+  parts.push(textBlock({ x: 356, y: 439, width: 200, text: 'owner: analytics-team', fontSize: 20, minFontSize: 18, fill: COLORS.greenInk, fontFamily: FONT.sans, kind: 'sans', maxLines: 1 }).svg);
   parts.push(rect(122, 492, 454, 76, COLORS.frame, COLORS.frameStroke, 24));
   parts.push(textBlock({ x: 148, y: 538, width: 180, text: 'user_id', fontSize: 26, fill: '#1B2746', fontFamily: FONT.sans, fontWeight: 700, kind: 'sans', maxLines: 1 }).svg);
   parts.push(textBlock({ x: 332, y: 538, width: 210, text: 'string · required', fontSize: 22, fill: COLORS.muted, fontFamily: FONT.sans, kind: 'sans', maxLines: 1 }).svg);
@@ -470,7 +507,7 @@ function renderDruidQueryDemo() {
   parts.push(title('Offline segment, live SQL', 1032, 178, 54));
   parts.push(rect(84, 256, 1032, 156, COLORS.blueBg, COLORS.blueStroke, 32));
   parts.push(textBlock({ x: 118, y: 314, width: 240, text: 'REGISTER', fontSize: 20, fill: COLORS.blueInk, fontFamily: FONT.sans, fontWeight: 700, letterSpacing: 3, kind: 'sans' }).svg);
-  parts.push(textBlock({ x: 118, y: 350, width: 720, text: 'DruidTableProvider::try_new("path/to/segment/index.dr")', fontSize: 24, minFontSize: 20, lineHeight: 30, fill: '#1B2746', fontFamily: FONT.mono, fontWeight: 700, kind: 'mono', maxLines: 3 }).svg);
+  parts.push(textBlock({ x: 118, y: 350, width: 860, text: 'DruidTableProvider::try_new("path/to/segment/index.dr")', fontSize: 24, minFontSize: 20, lineHeight: 30, fill: '#1B2746', fontFamily: FONT.mono, fontWeight: 700, kind: 'mono', maxLines: 3 }).svg);
   parts.push(rect(84, 446, 1032, 256, COLORS.amberBg, COLORS.amberStroke, 32));
   parts.push(textBlock({ x: 118, y: 504, width: 220, text: 'QUERY', fontSize: 20, fill: COLORS.amberInk, fontFamily: FONT.sans, fontWeight: 700, letterSpacing: 3, kind: 'sans' }).svg);
   parts.push(textBlock({ x: 118, y: 562, width: 820, text: 'SELECT * FROM druid_table LIMIT 10;', fontSize: 34, minFontSize: 28, lineHeight: 38, fill: '#1B2746', fontFamily: FONT.mono, fontWeight: 700, kind: 'mono', maxLines: 2 }).svg);
@@ -527,30 +564,30 @@ function renderLakehouseSetupFlow() {
   parts.push(eyebrow('BOOTSTRAP FLOW'));
   parts.push(title('Small-team lakehouse, staged in four moves', 900, 172, 50));
   const steps = [
-    [90, 220, 220, COLORS.amberBg, COLORS.amberStroke, COLORS.amberInk, 'STEP 1', 'python -m venv .venv'],
-    [350, 220, 250, COLORS.blueBg, COLORS.blueStroke, COLORS.blueInk, 'STEP 2', 'pip install -r requirements.txt'],
-    [640, 220, 240, COLORS.greenBg, COLORS.greenStroke, COLORS.greenInk, 'STEP 3', 'docker-compose up -d'],
-    [920, 220, 190, COLORS.roseBg, COLORS.roseStroke, COLORS.roseInk, 'STEP 4', 'dbt run'],
+    [90, 220, 220, COLORS.amberBg, COLORS.amberStroke, COLORS.amberInk, 'STEP 1', 'python -m venv .venv', 24, 18],
+    [336, 220, 264, COLORS.blueBg, COLORS.blueStroke, COLORS.blueInk, 'STEP 2', 'pip install -r requirements.txt', 21, 18],
+    [626, 220, 264, COLORS.greenBg, COLORS.greenStroke, COLORS.greenInk, 'STEP 3', 'docker-compose up -d', 21, 18],
+    [916, 220, 194, COLORS.roseBg, COLORS.roseStroke, COLORS.roseInk, 'STEP 4', 'dbt run', 24, 18],
   ];
-  for (const [x, y, width, fill, stroke, ink, stepLabel, command] of steps) {
+  for (const [x, y, width, fill, stroke, ink, stepLabel, command, commandFontSize, commandMinFontSize] of steps) {
     parts.push(rect(x, y, width, 136, fill, stroke, 28));
     parts.push(textBlock({ x: x + 30, y: y + 54, width: width - 60, text: stepLabel, fontSize: 18, fill: ink, fontFamily: FONT.sans, fontWeight: 700, letterSpacing: 3, kind: 'sans' }).svg);
-    parts.push(textBlock({ x: x + 30, y: y + 92, width: width - 60, text: command, fontSize: 24, minFontSize: 18, lineHeight: 28, fill: '#1B2746', fontFamily: FONT.mono, fontWeight: 700, kind: 'mono', maxLines: 3 }).svg);
+    parts.push(textBlock({ x: x + 30, y: y + 92, width: width - 60, text: command, fontSize: commandFontSize, minFontSize: commandMinFontSize, lineHeight: 28, fill: '#1B2746', fontFamily: FONT.mono, fontWeight: 700, kind: 'mono', maxLines: 3 }).svg);
   }
-  parts.push(line(310, 288, 346, 288, '#C79A57'));
-  parts.push(line(600, 288, 636, 288, '#7BA3BF'));
-  parts.push(line(880, 288, 916, 288, '#8BB59A'));
+  parts.push(line(310, 288, 336, 288, '#C79A57'));
+  parts.push(line(600, 288, 626, 288, '#7BA3BF'));
+  parts.push(line(890, 288, 916, 288, '#8BB59A'));
   parts.push(rect(90, 470, 1020, 288, COLORS.amberBg, COLORS.amberStroke, 34));
   parts.push(textBlock({ x: 126, y: 532, width: 320, text: 'Service surface', fontSize: 36, fill: COLORS.ink, fontFamily: FONT.display, fontWeight: 700, kind: 'sans', maxLines: 1 }).svg);
   const services = [
-    [126, 592, 'MinIO console', ':9001'],
-    [460, 592, 'Superset', ':8088'],
-    [794, 592, 'Example pipeline', 'python dlt/pipelines/example_api.py'],
+    [126, 592, 260, 'MinIO console', ':9001'],
+    [406, 592, 190, 'Superset', ':8088'],
+    [616, 592, 500, 'Example pipeline', 'python dlt/pipelines/example_api.py'],
   ];
-  for (const [x, y, label, value] of services) {
-    parts.push(rect(x, y, 280, 116, COLORS.frame, COLORS.frameStroke, 24));
-    parts.push(textBlock({ x: x + 28, y: y + 50, width: 224, text: label, fontSize: 28, minFontSize: 24, fill: '#1B2746', fontFamily: FONT.sans, fontWeight: 700, kind: 'sans', maxLines: 2 }).svg);
-    parts.push(textBlock({ x: x + 28, y: y + 84, width: 224, text: value, fontSize: 21, minFontSize: 18, lineHeight: 24, fill: COLORS.muted, fontFamily: label === 'Example pipeline' ? FONT.mono : FONT.mono, kind: label === 'Example pipeline' ? 'mono' : 'mono', maxLines: 3 }).svg);
+  for (const [x, y, width, label, value] of services) {
+    parts.push(rect(x, y, width, 116, COLORS.frame, COLORS.frameStroke, 24));
+    parts.push(textBlock({ x: x + 28, y: y + 50, width: width - 56, text: label, fontSize: 28, minFontSize: 24, fill: '#1B2746', fontFamily: FONT.sans, fontWeight: 700, kind: 'sans', maxLines: 2 }).svg);
+    parts.push(textBlock({ x: x + 28, y: y + 84, width: width - 56, text: value, fontSize: 21, minFontSize: 18, lineHeight: 24, fill: COLORS.muted, fontFamily: FONT.mono, kind: 'mono', maxLines: 3 }).svg);
   }
   parts.push('</svg>');
   return parts.join('\n');

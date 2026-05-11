@@ -28,27 +28,27 @@
 </style>
 <rect width="1200" height="900" rx="40" fill="#F4ECE0"/>
 <rect x="48" y="48" width="1104" height="804" rx="34" fill="#FBF7F1" stroke="#DCCDB8" stroke-width="2"/>
-<text x="84" y="110" fill="#1E2B4A" font-size="24" font-weight="700" font-family="AB Sans" letter-spacing="4"><tspan x="84.0" dy="0">ANATOMY</tspan></text>
-<text x="84" y="166" fill="#1A2340" font-size="48" font-weight="700" font-family="AB Sans"><tspan x="84.0" dy="0">How one offline segment becomes a</tspan><tspan x="84.0" dy="52">queryable table</tspan></text>
+<text x="84" y="110" fill="#1E2B4A" font-size="24" font-weight="700" font-family="AB Sans" data-ab-max-width="900" data-ab-font-size="24" data-ab-font-weight="700" data-ab-letter-spacing="4" data-ab-kind="sans" letter-spacing="4"><tspan x="84.0" dy="0">ANATOMY</tspan></text>
+<text x="84" y="166" fill="#1A2340" font-size="48" font-weight="700" font-family="AB Sans" data-ab-max-width="940" data-ab-font-size="48" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="84.0" dy="0">How one offline segment becomes a</tspan><tspan x="84.0" dy="52">queryable table</tspan></text>
 <rect x="96" y="288" width="244" height="118" rx="28" fill="#FFF9F0" stroke="#E0CBA7"/>
-<text x="132" y="340" fill="#A56A24" font-size="18" font-weight="700" font-family="AB Sans" letter-spacing="3"><tspan x="132.0" dy="0">SEGMENT</tspan><tspan x="132.0" dy="23">FILE</tspan></text>
-<text x="132" y="382" fill="#1B2746" font-size="28" font-weight="700" font-family="AB Sans"><tspan x="132.0" dy="0">index.dr</tspan></text>
+<text x="132" y="340" fill="#A56A24" font-size="18" font-weight="700" font-family="AB Sans" data-ab-max-width="160" data-ab-font-size="18" data-ab-font-weight="700" data-ab-letter-spacing="3" data-ab-kind="sans" letter-spacing="3"><tspan x="132.0" dy="0">SEGMENT</tspan><tspan x="132.0" dy="23">FILE</tspan></text>
+<text x="132" y="382" fill="#1B2746" font-size="28" font-weight="700" font-family="AB Sans" data-ab-max-width="170" data-ab-font-size="28" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="132.0" dy="0">index.dr</tspan></text>
 <rect x="96" y="438" width="244" height="118" rx="28" fill="#FFF9F0" stroke="#E0CBA7"/>
-<text x="132" y="532" fill="#1B2746" font-size="28" font-weight="700" font-family="AB Sans"><tspan x="132.0" dy="0">metadata.dr</tspan></text>
+<text x="132" y="532" fill="#1B2746" font-size="28" font-weight="700" font-family="AB Sans" data-ab-max-width="170" data-ab-font-size="28" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="132.0" dy="0">metadata.dr</tspan></text>
 <rect x="96" y="588" width="244" height="118" rx="28" fill="#FFF9F0" stroke="#E0CBA7"/>
-<text x="132" y="682" fill="#1B2746" font-size="28" font-weight="700" font-family="AB Sans"><tspan x="132.0" dy="0">version.bin</tspan></text>
+<text x="132" y="682" fill="#1B2746" font-size="28" font-weight="700" font-family="AB Sans" data-ab-max-width="170" data-ab-font-size="28" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="132.0" dy="0">version.bin</tspan></text>
 <rect x="456" y="316" width="280" height="96" rx="24" fill="#F5F8FB" stroke="#C9D8E6"/>
-<text x="490" y="374" fill="#2F6E95" font-size="28" font-weight="700" font-family="AB Sans"><tspan x="511.9" dy="0">Dictionaries</tspan></text>
+<text x="490" y="374" fill="#2F6E95" font-size="28" font-weight="700" font-family="AB Sans" data-ab-max-width="212" data-ab-font-size="28" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="516.8" dy="0">Dictionaries</tspan></text>
 <rect x="456" y="458" width="280" height="96" rx="24" fill="#F5F8FB" stroke="#C9D8E6"/>
-<text x="490" y="516" fill="#2F6E95" font-size="28" font-weight="700" font-family="AB Sans"><tspan x="543.7" dy="0">Metrics</tspan></text>
+<text x="490" y="516" fill="#2F6E95" font-size="28" font-weight="700" font-family="AB Sans" data-ab-max-width="212" data-ab-font-size="28" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="547.4" dy="0">Metrics</tspan></text>
 <rect x="456" y="600" width="280" height="96" rx="24" fill="#F5F8FB" stroke="#C9D8E6"/>
-<text x="490" y="658" fill="#2F6E95" font-size="28" font-weight="700" font-family="AB Sans"><tspan x="538.1" dy="0">Bitmaps</tspan></text>
+<text x="490" y="658" fill="#2F6E95" font-size="28" font-weight="700" font-family="AB Sans" data-ab-max-width="212" data-ab-font-size="28" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="541.2" dy="0">Bitmaps</tspan></text>
 <rect x="848" y="390" width="264" height="214" rx="32" fill="#1E2B4A" stroke="#1E2B4A"/>
-<text x="888" y="472" fill="#F7F3EA" font-size="40" font-weight="700" font-family="AB Sans"><tspan x="921.4" dy="0">Arrow</tspan></text>
-<text x="892" y="514" fill="#DCE4EE" font-size="20" font-weight="400" font-family="AB Sans"><tspan x="901.3" dy="0">TableProvider +</tspan><tspan x="907.2" dy="24">ExecutionPlan</tspan></text>
+<text x="888" y="472" fill="#F7F3EA" font-size="40" font-weight="700" font-family="AB Sans" data-ab-max-width="184" data-ab-font-size="40" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="922.0" dy="0">Arrow</tspan></text>
+<text x="892" y="514" fill="#DCE4EE" font-size="20" font-weight="400" font-family="AB Sans" data-ab-max-width="176" data-ab-font-size="20" data-ab-font-weight="400" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="908.9" dy="0">TableProvider +</tspan><tspan x="915.8" dy="24">ExecutionPlan</tspan></text>
 <path d="M340 346H432" stroke="#C79A57" stroke-width="8" stroke-linecap="round"/>
 <path d="M340 496H432" stroke="#C79A57" stroke-width="8" stroke-linecap="round"/>
 <path d="M340 646H432" stroke="#C79A57" stroke-width="8" stroke-linecap="round"/>
 <path d="M736 506H818" stroke="#7BA3BF" stroke-width="8" stroke-linecap="round"/>
-<text x="84" y="792" fill="#5F6576" font-size="23" font-weight="400" font-family="AB Sans"><tspan x="84.0" dy="0">The bridge is useful because storage internals become reusable query surfaces</tspan><tspan x="84.0" dy="27">instead of data that only the original serving system understands.</tspan></text>
+<text x="84" y="792" fill="#5F6576" font-size="23" font-weight="400" font-family="AB Sans" data-ab-max-width="1020" data-ab-font-size="23" data-ab-font-weight="400" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="84.0" dy="0">The bridge is useful because storage internals become reusable query surfaces instead of data</tspan><tspan x="84.0" dy="27">that only the original serving system understands.</tspan></text>
 </svg>

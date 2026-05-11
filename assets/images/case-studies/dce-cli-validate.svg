@@ -28,17 +28,17 @@
 </style>
 <rect width="1200" height="900" rx="40" fill="#F4ECE0"/>
 <rect x="48" y="48" width="1104" height="804" rx="34" fill="#FBF7F1" stroke="#DCCDB8" stroke-width="2"/>
-<text x="84" y="110" fill="#1E2B4A" font-size="24" font-weight="700" font-family="AB Sans" letter-spacing="4"><tspan x="84.0" dy="0">CLI PATH</tspan></text>
-<text x="84" y="178" fill="#1A2340" font-size="54" font-weight="700" font-family="AB Sans"><tspan x="84.0" dy="0">Three public command surfaces</tspan></text>
+<text x="84" y="110" fill="#1E2B4A" font-size="24" font-weight="700" font-family="AB Sans" data-ab-max-width="900" data-ab-font-size="24" data-ab-font-weight="700" data-ab-letter-spacing="4" data-ab-kind="sans" letter-spacing="4"><tspan x="84.0" dy="0">CLI PATH</tspan></text>
+<text x="84" y="178" fill="#1A2340" font-size="54" font-weight="700" font-family="AB Sans" data-ab-max-width="1032" data-ab-font-size="54" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="84.0" dy="0">Three public command surfaces</tspan></text>
 <rect x="84" y="246" width="1032" height="128" rx="30" fill="#FFF9F0" stroke="#E0CBA7"/>
-<text x="118" y="298" fill="#A56A24" font-size="20" font-weight="700" font-family="AB Sans" letter-spacing="3"><tspan x="118.0" dy="0">VALIDATE</tspan></text>
-<text x="118" y="334" fill="#1B2746" font-size="30" font-weight="700" font-family="AB Mono"><tspan x="118.0" dy="0">dce validate contract.yml</tspan></text>
-<text x="760" y="324" fill="#5F6576" font-size="20" font-weight="400" font-family="AB Sans"><tspan x="760.0" dy="0">schema-only ·</tspan><tspan x="760.0" dy="22">sample-size · strict · json</tspan></text>
+<text x="118" y="298" fill="#A56A24" font-size="20" font-weight="700" font-family="AB Sans" data-ab-max-width="260" data-ab-font-size="20" data-ab-font-weight="700" data-ab-letter-spacing="3" data-ab-kind="sans" letter-spacing="3"><tspan x="118.0" dy="0">VALIDATE</tspan></text>
+<text x="118" y="334" fill="#1B2746" font-size="30" font-weight="700" font-family="AB Mono" data-ab-max-width="580" data-ab-font-size="30" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="mono"><tspan x="118.0" dy="0">dce validate contract.yml</tspan></text>
+<text x="760" y="324" fill="#5F6576" font-size="20" font-weight="400" font-family="AB Sans" data-ab-max-width="280" data-ab-font-size="20" data-ab-font-weight="400" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="760.0" dy="0">schema-only · sample-size ·</tspan><tspan x="760.0" dy="22">strict · json</tspan></text>
 <rect x="84" y="420" width="1032" height="128" rx="30" fill="#F5F8FB" stroke="#C9D8E6"/>
-<text x="118" y="472" fill="#2F6E95" font-size="20" font-weight="700" font-family="AB Sans" letter-spacing="3"><tspan x="118.0" dy="0">INIT</tspan></text>
-<text x="118" y="508" fill="#1B2746" font-size="30" font-weight="700" font-family="AB Mono"><tspan x="118.0" dy="0">dce init &lt;catalog&gt; --namespace</tspan><tspan x="118.0" dy="32">analytics --table events</tspan></text>
+<text x="118" y="472" fill="#2F6E95" font-size="20" font-weight="700" font-family="AB Sans" data-ab-max-width="260" data-ab-font-size="20" data-ab-font-weight="700" data-ab-letter-spacing="3" data-ab-kind="sans" letter-spacing="3"><tspan x="118.0" dy="0">INIT</tspan></text>
+<text x="118" y="508" fill="#1B2746" font-size="30" font-weight="700" font-family="AB Mono" data-ab-max-width="820" data-ab-font-size="30" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="mono"><tspan x="118.0" dy="0">dce init &lt;catalog&gt; --namespace analytics</tspan><tspan x="118.0" dy="32">--table events</tspan></text>
 <rect x="84" y="594" width="1032" height="128" rx="30" fill="#F7FBF6" stroke="#C6D8C9"/>
-<text x="118" y="646" fill="#3A6C49" font-size="20" font-weight="700" font-family="AB Sans" letter-spacing="3"><tspan x="118.0" dy="0">CHECK</tspan></text>
-<text x="118" y="682" fill="#1B2746" font-size="30" font-weight="700" font-family="AB Mono"><tspan x="118.0" dy="0">dce check contract.yml</tspan></text>
-<text x="84" y="776" fill="#5F6576" font-size="24" font-weight="400" font-family="AB Sans"><tspan x="84.0" dy="0">The public CLI already covers validation, generation, and syntax checks</tspan><tspan x="84.0" dy="28">without hiding the workflow behind a separate UI.</tspan></text>
+<text x="118" y="646" fill="#3A6C49" font-size="20" font-weight="700" font-family="AB Sans" data-ab-max-width="260" data-ab-font-size="20" data-ab-font-weight="700" data-ab-letter-spacing="3" data-ab-kind="sans" letter-spacing="3"><tspan x="118.0" dy="0">CHECK</tspan></text>
+<text x="118" y="682" fill="#1B2746" font-size="30" font-weight="700" font-family="AB Mono" data-ab-max-width="820" data-ab-font-size="30" data-ab-font-weight="700" data-ab-letter-spacing="0" data-ab-kind="mono"><tspan x="118.0" dy="0">dce check contract.yml</tspan></text>
+<text x="84" y="776" fill="#5F6576" font-size="24" font-weight="400" font-family="AB Sans" data-ab-max-width="900" data-ab-font-size="24" data-ab-font-weight="400" data-ab-letter-spacing="0" data-ab-kind="sans"><tspan x="84.0" dy="0">The public CLI already covers validation, generation, and syntax checks without</tspan><tspan x="84.0" dy="28">hiding the workflow behind a separate UI.</tspan></text>
 </svg>
