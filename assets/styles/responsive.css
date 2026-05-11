@@ -254,14 +254,13 @@
         margin-bottom: var(--space-5);
     }
 
-    .topic-strip {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        padding-bottom: var(--space-2);
+    .graph-status {
+        align-items: flex-start;
+        flex-direction: column;
     }
 
-    .topic-pill {
-        flex: 0 0 auto;
+    .graph-reset {
+        width: 100%;
     }
 
     .workbench-shell {

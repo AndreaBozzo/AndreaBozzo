@@ -76,7 +76,7 @@ export function createWorkbenchState() {
         queryError: null,
         querySuggestions: [],
         lastValidViewModel: null,
-        selectedId: 'data-platforms',
+        selectedId: '',
         posts: [],
         contributions: [],
         caseStudies: []

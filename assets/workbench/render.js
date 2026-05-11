@@ -9,7 +9,7 @@ export function createWorkbenchRenderer({
     selectedFromItem
 }) {
     let lastQueryStateSignature = '';
-    let lastTopicStripSignature = '';
+    let lastGraphStatusSignature = '';
     let lastResultsSignature = '';
 
     function applyQuerySuggestion(suggestion) {
@@ -60,33 +60,42 @@ export function createWorkbenchRenderer({
         });
     }
 
-    function renderTopicStrip(topicCounts = []) {
-        const strip = document.getElementById('topic-strip');
-        if (!strip) return;
+    function resetToAllWork() {
+        state.activeTopic = 'all';
+        state.selectedId = '';
+        renderWorkbench();
+    }
+
+    function renderGraphStatus(topicCounts = []) {
+        const status = document.getElementById('graph-status');
+        if (!status) return;
 
         const countsById = new Map(topicCounts.map(topic => [topic.id, topic.count]));
-        const topicStripSignature = JSON.stringify({
+        const activeTopic = topicBlueprints.find(topic => topic.id === state.activeTopic) || topicBlueprints[0];
+        const activeCount = countsById.get(activeTopic.id) ?? '';
+        const graphStatusSignature = JSON.stringify({
             activeTopic: state.activeTopic,
-            counts: topicBlueprints.map(topic => [topic.id, countsById.get(topic.id) ?? ''])
+            activeCount
         });
 
-        if (topicStripSignature === lastTopicStripSignature) return;
-        lastTopicStripSignature = topicStripSignature;
+        if (graphStatusSignature === lastGraphStatusSignature) return;
+        lastGraphStatusSignature = graphStatusSignature;
 
-        strip.innerHTML = topicBlueprints.map(topic => `
-            <button class="topic-pill${topic.id === state.activeTopic ? ' is-active' : ''}" type="button" data-topic="${topic.id}">
-                ${escapeHtml(topic.label)} <span>${escapeHtml(countsById.get(topic.id) ?? '')}</span>
-            </button>
-        `).join('');
+        const isAllWork = activeTopic.id === 'all';
+        const detail = isAllWork
+            ? 'Select a thread node in the graph to focus the archive.'
+            : `${activeCount} related item${activeCount === 1 ? '' : 's'} in this thread.`;
 
-        strip.querySelectorAll('[data-topic]').forEach(button => {
-            button.addEventListener('click', () => {
-                state.activeTopic = button.dataset.topic;
-                const topic = topicBlueprints.find(item => item.id === state.activeTopic);
-                if (topic && topic.id !== 'all') state.selectedId = topic.id;
-                renderWorkbench();
-            });
-        });
+        status.innerHTML = `
+            <div class="graph-status-copy">
+                <span class="graph-status-label">${isAllWork ? 'Graph selector' : 'Selected thread'}</span>
+                <strong>${escapeHtml(activeTopic.label)}</strong>
+                <span>${escapeHtml(detail)}</span>
+            </div>
+            ${isAllWork ? '' : '<button class="graph-reset" type="button">Show all</button>'}
+        `;
+
+        status.querySelector('.graph-reset')?.addEventListener('click', resetToAllWork);
     }
 
     function renderInspector(selected) {
@@ -152,7 +161,7 @@ export function createWorkbenchRenderer({
 
         const viewModel = buildWorkbenchViewModel();
         renderQueryState(viewModel);
-        renderTopicStrip(viewModel.topics || []);
+        renderGraphStatus(viewModel.topics || []);
         renderMap(viewModel.nodes || [], viewModel.edges || []);
         renderInspector(viewModel.selected || selectedFromItem(topicBlueprints[1]));
         renderWorkbenchResults(viewModel.results || []);
