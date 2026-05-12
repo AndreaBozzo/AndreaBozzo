@@ -89,13 +89,47 @@ export function createWorkbench({ siteBasePath, escapeHtml, revealLoadedCards })
 
     function initializeWorkbench() {
         const search = document.getElementById('workbench-search');
+        const clearSearch = document.getElementById('workbench-search-clear');
         const map = document.getElementById('map-orbit');
         if (!search || !map || state.initialized) return false;
 
         state.initialized = true;
-        search.addEventListener('input', () => {
-            state.query = search.value;
+
+        const setQuery = (query) => {
+            state.query = query;
+            search.value = query;
             renderer.renderWorkbench();
+        };
+
+        search.addEventListener('input', () => {
+            setQuery(search.value);
+        });
+
+        clearSearch?.addEventListener('click', () => {
+            setQuery('');
+            search.focus();
+        });
+
+        document.querySelectorAll('[data-search-query]').forEach((button) => {
+            button.addEventListener('click', () => {
+                setQuery(button.dataset.searchQuery || '');
+                search.focus();
+            });
+        });
+
+        document.addEventListener('keydown', (event) => {
+            const target = event.target;
+            const isTyping = target instanceof HTMLInputElement
+                || target instanceof HTMLTextAreaElement
+                || target?.isContentEditable;
+            if (event.key === '/' && !isTyping) {
+                event.preventDefault();
+                search.focus();
+            }
+            if (event.key === 'Escape' && document.activeElement === search && state.query) {
+                event.preventDefault();
+                setQuery('');
+            }
         });
 
         renderer.renderWorkbench();
@@ -117,12 +151,18 @@ export function createWorkbench({ siteBasePath, escapeHtml, revealLoadedCards })
         renderer.renderWorkbench();
     }
 
+    function setPapers(papers) {
+        state.papers = Array.isArray(papers) ? papers : [];
+        renderer.renderWorkbench();
+    }
+
     return {
         renderWorkbench: renderer.renderWorkbench,
         initializeWorkbench,
         loadWorkbenchEngine,
         setPosts,
         setContributions,
-        setCaseStudies
+        setCaseStudies,
+        setPapers
     };
 }

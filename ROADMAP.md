@@ -47,7 +47,9 @@ paths and better cross-surface discovery.
    should stay visible without requiring users to understand the workbench.
 4. **Unified search / discovery.** Promote the workbench from a scoped filter
    into a site-level command palette that can search case studies, blog posts,
-   open-source contributions, papers, and topics from one input.
+   open-source contributions, papers, and topics from one input. Initial pass:
+   the homepage search now indexes all of those surfaces; remaining polish is
+   command-palette ergonomics.
 5. **Internationalization consistency.** Decide whether the root site remains
    intentionally English-only or gains Italian summaries for the homepage and
    case studies. The blog is already bilingual, so the root surface should make

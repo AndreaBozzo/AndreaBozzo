@@ -457,7 +457,7 @@
 }
 
 .contact-panel .section-title {
-    max-width: 14ch;
+    max-width: 16ch;
     line-height: 0.98;
     color: var(--color-text-primary);
 }
@@ -469,20 +469,20 @@
 
 .contact-links {
     margin-top: var(--space-8);
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-4);
-    flex-wrap: wrap;
 }
 
 .contact-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 8.5rem;
-    padding: 0.95rem 1.4rem;
+    display: grid;
+    align-content: start;
+    gap: var(--space-2);
+    min-width: 0;
+    padding: var(--space-5);
     text-decoration: none;
     border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
     background: linear-gradient(180deg, color-mix(in srgb, var(--color-paper-warm) 92%, transparent), color-mix(in srgb, var(--color-bg-secondary) 90%, transparent));
     color: var(--color-text-primary);
     font-weight: 700;
@@ -492,6 +492,20 @@
 .contact-link:hover,
 .contact-link:focus-visible {
     border-color: color-mix(in srgb, var(--color-accent) 56%, var(--color-border));
+}
+
+.contact-route span {
+    color: var(--color-accent-strong);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.contact-route strong {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.45;
 }
 
 .blog-skeleton,

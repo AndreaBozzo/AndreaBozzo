@@ -569,6 +569,7 @@ async function loadPapers() {
             listElement.appendChild(paperItem);
         });
 
+        workbench.setPapers(papers);
         revealLoadedCards(listElement, '.content-card-enter');
     } catch (error) {
         console.error('Failed to load papers:', error);

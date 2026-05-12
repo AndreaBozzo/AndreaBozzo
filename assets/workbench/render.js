@@ -34,11 +34,13 @@ export function createWorkbenchRenderer({
         const shell = document.querySelector('.command-search');
         const error = document.getElementById('query-error');
         const suggestions = document.getElementById('query-suggestions');
+        const clearSearch = document.getElementById('workbench-search-clear');
         if (!shell || !error || !suggestions) return;
 
         const queryError = viewModel.queryError || null;
         const querySuggestions = viewModel.querySuggestions || [];
         const queryStateSignature = JSON.stringify({
+            query: state.query || '',
             error: queryError?.message || '',
             suggestions: querySuggestions
         });
@@ -50,6 +52,9 @@ export function createWorkbenchRenderer({
         shell.title = queryError ? queryError.message : '';
         error.textContent = queryError ? queryError.message : '';
         error.hidden = !queryError;
+        if (clearSearch) {
+            clearSearch.disabled = !state.query;
+        }
 
         suggestions.hidden = !querySuggestions.length;
         suggestions.innerHTML = querySuggestions.map(suggestion => `
@@ -83,8 +88,8 @@ export function createWorkbenchRenderer({
 
         const isAllWork = activeTopic.id === 'all';
         const detail = isAllWork
-            ? 'Click a thread node in the graph to focus the archive — the query above then filters within it.'
-            : `${activeCount} related item${activeCount === 1 ? '' : 's'} in this thread. The query above filters within it.`;
+            ? 'Search across case studies, writing, open source, and papers — or click a thread node to narrow the surface.'
+            : `${activeCount} related item${activeCount === 1 ? '' : 's'} in this thread. The query above searches within it.`;
 
         status.innerHTML = `
             <div class="graph-status-copy">
@@ -107,12 +112,12 @@ export function createWorkbenchRenderer({
 
         if (!kind || !title || !summary || !tags || !link) return;
 
-        kind.textContent = selected.kind === 'post' ? 'Writing' : selected.kind === 'project' ? 'Open source' : selected.kind === 'case-study' ? 'Case study' : 'Thread';
+        kind.textContent = selected.kind === 'post' ? 'Writing' : selected.kind === 'project' ? 'Open source' : selected.kind === 'paper' ? 'Paper' : selected.kind === 'case-study' ? 'Case study' : 'Thread';
         title.textContent = selected.title || selected.label;
         summary.textContent = selected.summary;
         tags.innerHTML = (selected.tags || []).map(tag => `<span class="inspector-tag">${escapeHtml(tag)}</span>`).join('');
         link.href = selected.url || './blog/';
-        link.textContent = selected.kind === 'project' ? 'View project' : selected.kind === 'post' ? 'Read note' : selected.kind === 'case-study' ? 'Open case study' : 'Browse related writing';
+        link.textContent = selected.kind === 'project' ? 'View project' : selected.kind === 'paper' ? 'View companion repo' : selected.kind === 'post' ? 'Read note' : selected.kind === 'case-study' ? 'Open case study' : 'Browse related writing';
         const external = /^https?:\/\//.test(link.href) && !link.href.startsWith(window.location.origin);
         link.target = external ? '_blank' : '';
         link.rel = external ? 'noopener noreferrer' : '';
@@ -145,8 +150,8 @@ export function createWorkbenchRenderer({
         }
 
         container.innerHTML = results.map(item => `
-            <a class="result-card content-card-enter" href="${escapeHtml(item.url || './blog/')}" ${item.kind === 'project' ? 'target="_blank" rel="noopener noreferrer"' : ''}>
-                <span class="result-meta">${item.kind === 'project' ? 'Open source' : item.kind === 'case-study' ? 'Case study' : 'Writing'}</span>
+            <a class="result-card content-card-enter" href="${escapeHtml(item.url || './blog/')}" ${item.kind === 'project' || item.kind === 'paper' ? 'target="_blank" rel="noopener noreferrer"' : ''}>
+                <span class="result-meta">${item.kind === 'project' ? 'Open source' : item.kind === 'paper' ? 'Paper' : item.kind === 'case-study' ? 'Case study' : 'Writing'}</span>
                 <h3>${escapeHtml(item.title || item.label)}</h3>
                 <p>${escapeHtml(item.summary || '')}</p>
                 ${(item.tags || []).length ? `<div class="result-tags">${item.tags.slice(0, 3).map(tag => `<span class="result-tag">${escapeHtml(tag)}</span>`).join('')}</div>` : ''}

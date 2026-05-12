@@ -14,6 +14,8 @@ pub(crate) struct Payload {
     #[serde(default)]
     pub(crate) case_studies: Vec<CaseStudy>,
     #[serde(default)]
+    pub(crate) papers: Vec<Paper>,
+    #[serde(default)]
     pub(crate) active_topic: String,
     #[serde(default)]
     pub(crate) query: String,
@@ -118,6 +120,20 @@ pub(crate) struct CaseSection {
     pub(crate) heading: String,
     #[serde(default)]
     pub(crate) body: String,
+}
+
+#[derive(Debug, Default, Clone, Deserialize)]
+pub(crate) struct Paper {
+    #[serde(default)]
+    pub(crate) kicker: String,
+    #[serde(default)]
+    pub(crate) name: String,
+    #[serde(default)]
+    pub(crate) desc: String,
+    #[serde(default)]
+    pub(crate) meta: String,
+    #[serde(default)]
+    pub(crate) url: String,
 }
 
 #[derive(Debug, Clone)]

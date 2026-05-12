@@ -48,8 +48,22 @@ export function createViewModelBuilder({ state, siteBasePath, getEngineOutput })
                 url: contrib.url
             };
         });
+        const paperItems = state.papers.map((paper, index) => {
+            const title = paper.name || 'Reviewed paper';
+            const text = `${paper.kicker || ''} ${title} ${paper.desc || ''} ${paper.meta || ''}`;
+            return {
+                id: `paper-${index}-${normalizeText(title).replace(/[^a-z0-9]+/g, '-')}`,
+                kind: 'paper',
+                label: title,
+                title,
+                summary: paper.desc || paper.meta || 'Reviewed paper and companion repository.',
+                tags: itemTags({ title, summary: `${paper.desc || ''} ${paper.meta || ''}` }),
+                topics: topicForItem(text),
+                url: paper.url
+            };
+        });
 
-        return [...topicItems, ...caseStudyItems, ...postItems, ...contributionItems];
+        return [...topicItems, ...caseStudyItems, ...postItems, ...contributionItems, ...paperItems];
     }
 
     function uniqueSorted(values) {
@@ -82,7 +96,7 @@ export function createViewModelBuilder({ state, siteBasePath, getEngineOutput })
             .filter(topic => topic.id !== 'all')
             .flatMap(topic => [topic.id, topic.label]);
         const tagValues = items.flatMap(item => item.tags || []);
-        const kindValues = ['case-study', 'post', 'project'];
+        const kindValues = ['case-study', 'paper', 'post', 'project'];
 
         return {
             topic: uniqueSorted(topicValues),
@@ -97,7 +111,7 @@ export function createViewModelBuilder({ state, siteBasePath, getEngineOutput })
         const token = currentQueryToken(state.query);
         const pools = buildSuggestionPools();
         if (!token) {
-            return ['topic:data-platforms', 'tech:Rust', 'kind:case-study', 'stars:>5000'];
+            return ['kind:case-study', 'kind:paper', 'kind:project', 'topic:data-platforms', 'tech:Rust'];
         }
 
         const suggestions = [];
@@ -144,6 +158,7 @@ export function createViewModelBuilder({ state, siteBasePath, getEngineOutput })
             posts: state.posts,
             contributions: state.contributions,
             caseStudies: state.caseStudies,
+            papers: state.papers,
             activeTopic: state.activeTopic,
             query: state.query,
             selectedId: state.selectedId

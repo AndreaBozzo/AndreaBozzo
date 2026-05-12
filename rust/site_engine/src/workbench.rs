@@ -1,6 +1,7 @@
 use crate::classify::{tags_for_text, topics_for_text};
 use crate::models::{
-    Contribution, Edge, Node, Output, Payload, ResultCard, Selected, Topic, TopicCount, WorkItem,
+    Contribution, Edge, Node, Output, Paper, Payload, ResultCard, Selected, Topic, TopicCount,
+    WorkItem,
 };
 use crate::query;
 use crate::utils::{compact_tags, first_non_empty, slugify, small_hash, title_from_slug};
@@ -272,6 +273,10 @@ fn normalize_items(payload: &Payload) -> Vec<WorkItem> {
         normalize_contribution(&mut out, contribution, index);
     }
 
+    for (index, paper) in payload.papers.iter().enumerate() {
+        normalize_paper(&mut out, paper, index);
+    }
+
     out
 }
 
@@ -293,6 +298,27 @@ fn normalize_contribution(out: &mut Vec<WorkItem>, contribution: &Contribution, 
         base_score: 5.0,
         stars: parse_metric(&contribution.stars),
         prs: parse_metric(&contribution.prs),
+    });
+}
+
+fn normalize_paper(out: &mut Vec<WorkItem>, paper: &Paper, index: usize) {
+    let title = first_non_empty(&paper.name, "Reviewed paper");
+    let text = format!(
+        "{} {} {} {}",
+        paper.kicker, paper.name, paper.desc, paper.meta
+    );
+    out.push(WorkItem {
+        id: format!("paper-{index}-{}", slugify("", &title)),
+        kind: "paper".into(),
+        label: title.clone(),
+        title,
+        summary: first_non_empty(&paper.desc, &paper.meta),
+        tags: compact_tags(tags_for_text(&text), 4),
+        topics: topics_for_text(&text),
+        url: paper.url.clone(),
+        base_score: 4.5,
+        stars: 0.0,
+        prs: 0.0,
     });
 }
 
@@ -347,6 +373,7 @@ fn layout(items: &[WorkItem]) -> BTreeMap<String, (f32, f32)> {
         ("case-study", 72.0, 50.0, 24.0),
         ("post", 38.0, 58.0, 28.0),
         ("project", 28.0, 42.0, 22.0),
+        ("paper", 64.0, 72.0, 18.0),
     ];
     let mut by_kind: BTreeMap<&str, Vec<&WorkItem>> = BTreeMap::new();
     for item in items {

@@ -263,6 +263,10 @@
         flex-direction: column;
     }
 
+    .command-search-row {
+        grid-template-columns: 1fr;
+    }
+
     .graph-reset {
         width: 100%;
     }
@@ -286,7 +290,8 @@
     }
 
     .map-node[data-kind="post"],
-    .map-node[data-kind="project"] {
+    .map-node[data-kind="project"],
+    .map-node[data-kind="paper"] {
         --node-size: 4.55rem;
     }
 
@@ -298,6 +303,7 @@
     .contact-links {
         flex-direction: column;
         gap: var(--space-3);
+        grid-template-columns: 1fr;
     }
 
     .btn,
@@ -413,6 +419,7 @@
     .project-item:hover,
     .focus-card:hover,
     .audience-path:hover,
+    .search-quick-actions button:hover,
     .hero-art:hover .hero-art-frame,
     .site-brand:hover,
     .theme-toggle:hover {

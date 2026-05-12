@@ -21,6 +21,9 @@ fn sample_payload() -> &'static str {
 			"caseStudies": [
 				{"slug": "dataprof", "title": "dataprof", "summary": "Arrow-powered data profiler", "stack": ["Rust", "Apache Arrow"]}
 			],
+			"papers": [
+				{"kicker": "IEEE ScalCom 2026", "name": "scalcom2026-dataprof", "desc": "Benchmark suite for edge AI telemetry profiling", "meta": "Edge AI · Energy profiling", "url": "https://github.com/AndreaBozzo/scalcom2026-dataprof"}
+			],
 			"activeTopic": "rust-systems",
 			"query": "rust",
 			"selectedId": "case-dataprof"
@@ -190,6 +193,25 @@ fn build_workbench_surfaces_query_errors_without_crashing() {
     let out: serde_json::Value = serde_json::from_str(&build_workbench(payload)).unwrap();
     assert_eq!(out["queryError"]["offset"], 6);
     assert!(out["results"].as_array().is_some());
+}
+
+#[test]
+fn build_workbench_indexes_papers_for_site_search() {
+    let payload = r#"{
+            "topics": [{"id": "all", "label": "All work"}, {"id": "ml-systems", "label": "ML systems"}],
+            "papers": [
+                {"kicker": "IEEE ScalCom 2026", "name": "scalcom2026-dataprof", "desc": "Benchmark suite for edge AI telemetry profiling", "meta": "Edge AI · Energy profiling", "url": "https://github.com/AndreaBozzo/scalcom2026-dataprof"}
+            ],
+            "query": "kind:paper"
+        }"#;
+
+    let out: Output = serde_json::from_str(&build_workbench(payload)).unwrap();
+    assert!(out.results.iter().any(|item| item.kind == "paper"));
+    assert!(
+        out.topics
+            .iter()
+            .any(|topic| topic.id == "ml-systems" && topic.count == 1)
+    );
 }
 
 #[test]
