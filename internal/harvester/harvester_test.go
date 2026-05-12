@@ -4,9 +4,14 @@ import (
 	"context"
 	"io"
 	"net/http"
+	"net/http/httptest"
+	"os"
+	"path/filepath"
 	"strings"
 	"testing"
 	"time"
+
+	"github.com/AndreaBozzo/AndreaBozzo/internal/harvester/schema"
 )
 
 type roundTripFunc func(*http.Request) (*http.Response, error)
@@ -39,6 +44,215 @@ func TestResolveCaseStudyAssetPath(t *testing.T) {
 	got := resolveCaseStudyAssetPath("../blog/images/diagram.png")
 	if got != "../../blog/images/diagram.png" {
 		t.Fatalf("unexpected cover path: %s", got)
+	}
+}
+
+func TestBlogSourceFetchBuildsWritingIndex(t *testing.T) {
+	repoRoot := t.TempDir()
+	writeTestFile(t, filepath.Join(repoRoot, "assets", "data", "case-studies.json"), `{
+  "items": [
+    {"slug": "dataprof", "relatedPosts": ["arrowfordataprof-blog"]}
+  ]
+}`)
+	writeTestFile(t, filepath.Join(repoRoot, "blog", "content", "posts", "arrowfordataprof-blog.en.md"), `---
+title: "Designing Around Arrow"
+date: 2026-02-05
+draft: false
+tags: ["Rust", "Apache Arrow"]
+categories: ["Data Engineering"]
+description: "A post about Arrow."
+summary: "A short Arrow design story."
+---
+
+## Hello
+
+This post has enough Markdown to count a few words and [one link](https://example.com).
+`)
+
+	payload, err := BlogSource{RepoRoot: repoRoot}.Fetch(context.Background())
+	if err != nil {
+		t.Fatalf("Fetch returned error: %v", err)
+	}
+
+	index, ok := payload.(schema.WritingIndexV1)
+	if !ok {
+		t.Fatalf("unexpected payload type %T", payload)
+	}
+	if index.SchemaVersion != schema.VersionV1 {
+		t.Fatalf("unexpected schema version %q", index.SchemaVersion)
+	}
+	if len(index.Items) != 1 {
+		t.Fatalf("expected one writing item, got %d", len(index.Items))
+	}
+
+	item := index.Items[0]
+	if item.ID != "arrowfordataprof-blog:en" {
+		t.Fatalf("unexpected id %q", item.ID)
+	}
+	if item.URL != "./blog/en/posts/arrowfordataprof-blog/" {
+		t.Fatalf("unexpected url %q", item.URL)
+	}
+	if item.PublishedAt != "2026-02-05T00:00:00Z" {
+		t.Fatalf("unexpected publishedAt %q", item.PublishedAt)
+	}
+	if strings.Join(item.Tags, ",") != "Rust,Apache Arrow" {
+		t.Fatalf("unexpected tags %#v", item.Tags)
+	}
+	if strings.Join(item.RelatedCaseStudies, ",") != "dataprof" {
+		t.Fatalf("unexpected related case studies %#v", item.RelatedCaseStudies)
+	}
+	if item.WordCount == 0 || item.ReadingMinutes != 1 {
+		t.Fatalf("unexpected reading metrics: words=%d minutes=%d", item.WordCount, item.ReadingMinutes)
+	}
+}
+
+func TestBlogSourceSkipsDraftPosts(t *testing.T) {
+	repoRoot := t.TempDir()
+	writeTestFile(t, filepath.Join(repoRoot, "assets", "data", "case-studies.json"), `{"items":[]}`)
+	writeTestFile(t, filepath.Join(repoRoot, "blog", "content", "posts", "draft-post.it.md"), `---
+title: "Draft"
+date: 2026-02-05
+draft: true
+---
+
+Draft body.
+`)
+
+	payload, err := BlogSource{RepoRoot: repoRoot}.Fetch(context.Background())
+	if err != nil {
+		t.Fatalf("Fetch returned error: %v", err)
+	}
+	index := payload.(schema.WritingIndexV1)
+	if len(index.Items) != 0 {
+		t.Fatalf("expected draft to be skipped, got %d items", len(index.Items))
+	}
+}
+
+func TestPackageRegistrySourceFetchesPyPIAndCrates(t *testing.T) {
+	repoRoot := t.TempDir()
+	writeTestFile(t, filepath.Join(repoRoot, "assets", "data", "package-sources.json"), `{
+  "$schemaVersion": "v1",
+  "packages": [
+    {"ecosystem": "pypi", "name": "dataprof", "relatedCaseStudies": ["dataprof"]},
+    {"ecosystem": "crates.io", "name": "ares-core", "repositoryUrl": "https://github.com/AndreaBozzo/Ares", "relatedCaseStudies": ["ares-ceres"]}
+  ]
+}`)
+
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
+		if req.Header.Get("User-Agent") == "" {
+			t.Fatal("expected registry user agent")
+		}
+		w.Header().Set("Content-Type", "application/json")
+		switch req.URL.Path {
+		case "/pypi/dataprof/json":
+			_, _ = io.WriteString(w, `{
+  "info": {
+    "name": "dataprof",
+    "version": "0.7.1",
+    "summary": "Fast data profiling",
+    "project_url": "https://pypi.org/project/dataprof/",
+    "requires_python": ">=3.8",
+    "project_urls": {"Source": "https://github.com/AndreaBozzo/dataprof"}
+  },
+  "urls": [
+    {"upload_time_iso_8601": "2026-04-10T09:56:35.268261Z"}
+  ]
+}`)
+		case "/api/v1/crates/ares-core":
+			_, _ = io.WriteString(w, `{
+  "crate": {
+    "name": "ares-core",
+    "newest_version": "0.3.0",
+    "description": "Core types for Ares",
+    "downloads": 229,
+    "recent_downloads": 12,
+    "updated_at": "2026-03-01T09:00:00Z"
+  },
+  "versions": [
+    {"num": "0.3.0", "created_at": "2026-03-01T08:00:00Z", "updated_at": "2026-03-01T09:00:00Z", "license": "MIT"}
+  ]
+}`)
+		default:
+			http.NotFound(w, req)
+		}
+	}))
+	defer server.Close()
+
+	payload, err := PackageRegistrySource{
+		RepoRoot:      repoRoot,
+		HTTPClient:    server.Client(),
+		PyPIBaseURL:   server.URL,
+		CratesBaseURL: server.URL,
+	}.Fetch(context.Background())
+	if err != nil {
+		t.Fatalf("Fetch returned error: %v", err)
+	}
+
+	index, ok := payload.(schema.PackageRegistryIndexV1)
+	if !ok {
+		t.Fatalf("unexpected payload type %T", payload)
+	}
+	if len(index.Items) != 2 {
+		t.Fatalf("expected two package items, got %d", len(index.Items))
+	}
+
+	cratesItem := index.Items[0]
+	if cratesItem.ID != "crates.io:ares-core" {
+		t.Fatalf("unexpected first item id %q", cratesItem.ID)
+	}
+	if cratesItem.RepositoryURL != "https://github.com/AndreaBozzo/Ares" {
+		t.Fatalf("expected configured repository override, got %q", cratesItem.RepositoryURL)
+	}
+	if cratesItem.DownloadsTotal == nil || *cratesItem.DownloadsTotal != 229 {
+		t.Fatalf("unexpected crates downloads %#v", cratesItem.DownloadsTotal)
+	}
+	if cratesItem.PublishedAt != "2026-03-01T08:00:00Z" {
+		t.Fatalf("unexpected crates publishedAt %q", cratesItem.PublishedAt)
+	}
+
+	pypiItem := index.Items[1]
+	if pypiItem.ID != "pypi:dataprof" {
+		t.Fatalf("unexpected second item id %q", pypiItem.ID)
+	}
+	if pypiItem.RepositoryURL != "https://github.com/AndreaBozzo/dataprof" {
+		t.Fatalf("unexpected pypi repository %q", pypiItem.RepositoryURL)
+	}
+	if pypiItem.PublishedAt != "2026-04-10T09:56:35Z" {
+		t.Fatalf("unexpected pypi publishedAt %q", pypiItem.PublishedAt)
+	}
+}
+
+func TestPackageRegistrySourceFiltersEcosystem(t *testing.T) {
+	repoRoot := t.TempDir()
+	writeTestFile(t, filepath.Join(repoRoot, "assets", "data", "package-sources.json"), `{
+  "$schemaVersion": "v1",
+  "packages": [
+    {"ecosystem": "pypi", "name": "dataprof"},
+    {"ecosystem": "crates.io", "name": "dataprof"}
+  ]
+}`)
+
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		if req.URL.Path != "/pypi/dataprof/json" {
+			t.Fatalf("unexpected request path %s", req.URL.Path)
+		}
+		_, _ = io.WriteString(w, `{"info":{"name":"dataprof","version":"0.7.1","summary":"Fast data profiling","project_url":"https://pypi.org/project/dataprof/"},"urls":[]}`)
+	}))
+	defer server.Close()
+
+	payload, err := PackageRegistrySource{
+		RepoRoot:    repoRoot,
+		Ecosystems:  map[string]bool{"pypi": true},
+		HTTPClient:  server.Client(),
+		PyPIBaseURL: server.URL,
+	}.Fetch(context.Background())
+	if err != nil {
+		t.Fatalf("Fetch returned error: %v", err)
+	}
+	index := payload.(schema.PackageRegistryIndexV1)
+	if len(index.Items) != 1 || index.Items[0].Ecosystem != "pypi" {
+		t.Fatalf("unexpected filtered items %#v", index.Items)
 	}
 }
 
@@ -143,5 +357,15 @@ func TestIsGitHubRateLimited(t *testing.T) {
 	resp = &http.Response{Header: http.Header{}}
 	if isGitHubRateLimited(resp) {
 		t.Fatal("expected response without rate-limit header not to be rate limited")
+	}
+}
+
+func writeTestFile(t *testing.T, path, content string) {
+	t.Helper()
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		t.Fatalf("create parent dir for %s: %v", path, err)
+	}
+	if err := os.WriteFile(path, []byte(content), 0o644); err != nil {
+		t.Fatalf("write %s: %v", path, err)
 	}
 }

@@ -123,6 +123,11 @@ export function createWorkbench({ siteBasePath, escapeHtml, revealLoadedCards })
         renderer.renderWorkbench();
     }
 
+    function setPackages(packages) {
+        state.packages = Array.isArray(packages) ? packages : [];
+        renderer.renderWorkbench();
+    }
+
     return {
         renderWorkbench: renderer.renderWorkbench,
         initializeWorkbench,
@@ -130,6 +135,7 @@ export function createWorkbench({ siteBasePath, escapeHtml, revealLoadedCards })
         setPosts,
         setContributions,
         setCaseStudies,
-        setPapers
+        setPapers,
+        setPackages
     };
 }

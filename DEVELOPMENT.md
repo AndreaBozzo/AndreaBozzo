@@ -100,8 +100,14 @@ Available commands:
 ```bash
 go run ./cmd/harvester update-contributions-readme
 go run ./cmd/harvester generate-contributions-json
+go run ./cmd/harvester generate-writing-index
+go run ./cmd/harvester generate-package-registry-index
+go run ./cmd/harvester generate-contract-artifacts
 go run ./cmd/harvester generate-case-study-pages
 go run ./cmd/harvester generate-static-artifacts
+go run ./cmd/harvester ingest --source blog
+go run ./cmd/harvester ingest --source packages
+go run ./cmd/harvester ingest --all
 ```
 
 Package-script wrappers are also available:
@@ -109,7 +115,13 @@ Package-script wrappers are also available:
 ```bash
 npm run harvester:readme
 npm run harvester:artifacts
+npm run generate:writing
+npm run generate:packages
+npm run generate:contracts
+npm run validate:data
 ```
+
+`npm run validate:data` is the same AJV-based contract gate that runs in the Pages workflow before deploy.
 
 ## Workbench JS/Rust Boundary
 

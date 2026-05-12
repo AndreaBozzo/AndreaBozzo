@@ -121,14 +121,29 @@ wire because that fits the actual volume.
 
 **New sources:**
 
-1. **Dev.to** API: `https://dev.to/api/articles?username=...` — public, no
-   auth, returns reads/reactions.
-2. **Medium**: no public API. RSS feed at
-   `https://medium.com/feed/@user` gives titles + dates. Clap counts require
-   scraping (fragile, may skip).
-3. **CI runtimes**: GitHub Actions API per repo — workflow run durations.
-   Aggregate to median/p95 per workflow.
-4. *Defer* "weather/uptime" — fun but not portfolio-relevant.
+1. **Local Hugo blog index**: parse front matter from
+   [`blog/content/posts/`](blog/content/posts/) and emit writing records with
+   language, tags, dates, summaries, word counts, and related project links.
+   This replaces Dev.to/Medium because the repo-hosted blog is the canonical
+   writing archive.
+2. **GitHub contributions + repositories**: keep the existing external merged
+   PR tracking, then add owned-repository metadata: stars, forks, topics,
+   primary language, pushed date, and releases for selected repos.
+3. **Package registries**: enrich published OSS packages from **PyPI** and
+   **crates.io**. Skip npm unless there is an actual package to track later.
+4. **CI runtimes**: GitHub Actions API per repo — workflow run durations.
+   Aggregate to median/p95 per workflow and expose recent build health.
+5. **Research/publication metadata**: keep
+   [`assets/data/papers.json`](assets/data/papers.json) as the curated source
+   of truth, with optional DOI/ORCID/OpenAlex enrichment only when stable
+   identifiers exist.
+
+**Non-goals for this phase:**
+
+- Dev.to and Medium mirrors — not used, so they would create fake surface area.
+- LinkedIn, Google Scholar, or clap/view-count scraping — fragile and noisy.
+- npm registry ingestion — no current package surface.
+- Weather/uptime widgets — fun but not portfolio-relevant.
 
 **Schema layer:**
 
@@ -153,8 +168,12 @@ wire because that fits the actual volume.
   refactored to fit the interface — no behavioural change, just shape.
 - Per-source rate-limiting, retry, and **idempotent caching** (write-through
   cache to `.harvester-cache/` so dev runs don't hammer APIs).
-- New subcommands: `harvester ingest --source dev.to`,
-  `harvester ingest --all`.
+- New subcommands: `harvester ingest --source blog`,
+  `harvester ingest --source packages`, `harvester ingest --source github`,
+  `harvester ingest --source ci`, and `harvester ingest --all`.
+  PyPI and crates.io are configured under the unified `packages` source so the
+  generated package artifact cannot be accidentally replaced by a partial
+  ecosystem-only run.
 - Daily cron in
   [`.github/workflows/update-contributions.yml`](.github/workflows/update-contributions.yml)
   extended to run `--all`.
@@ -175,8 +194,8 @@ wire because that fits the actual volume.
 - Vercel preview from `vercel.ts` returns identical responses to the current
   `vercel.json`-based deployment for `/api/github/stats` and
   `/api/github/badge`.
-- Frontend renders new Dev.to / CI-runtime data on the homepage and graph
-  (some new tech/topic nodes appear).
+- Frontend renders new blog, package-registry, GitHub, and CI-runtime data on
+  the homepage and graph (some new tech/topic nodes appear).
 
 **Cost estimate:** 2–3 weekends. The boring middle: schema codegen, source
 interface, cache layer, CI gate.

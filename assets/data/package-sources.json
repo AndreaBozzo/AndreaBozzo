@@ -1,0 +1,65 @@
+{
+  "$schemaVersion": "v1",
+  "packages": [
+    {
+      "ecosystem": "pypi",
+      "name": "dataprof",
+      "relatedCaseStudies": ["dataprof"]
+    },
+    {
+      "ecosystem": "crates.io",
+      "name": "dataprof",
+      "relatedCaseStudies": ["dataprof"]
+    },
+    {
+      "ecosystem": "crates.io",
+      "name": "ceres-search",
+      "relatedCaseStudies": ["ares-ceres"]
+    },
+    {
+      "ecosystem": "crates.io",
+      "name": "ceres-core",
+      "relatedCaseStudies": ["ares-ceres"]
+    },
+    {
+      "ecosystem": "crates.io",
+      "name": "ceres-db",
+      "relatedCaseStudies": ["ares-ceres"]
+    },
+    {
+      "ecosystem": "crates.io",
+      "name": "ceres-client",
+      "relatedCaseStudies": ["ares-ceres"]
+    },
+    {
+      "ecosystem": "crates.io",
+      "name": "ares-core",
+      "repositoryUrl": "https://github.com/AndreaBozzo/Ares",
+      "relatedCaseStudies": ["ares-ceres"]
+    },
+    {
+      "ecosystem": "crates.io",
+      "name": "ares-db",
+      "repositoryUrl": "https://github.com/AndreaBozzo/Ares",
+      "relatedCaseStudies": ["ares-ceres"]
+    },
+    {
+      "ecosystem": "crates.io",
+      "name": "ares-api",
+      "repositoryUrl": "https://github.com/AndreaBozzo/Ares",
+      "relatedCaseStudies": ["ares-ceres"]
+    },
+    {
+      "ecosystem": "crates.io",
+      "name": "ares-cli",
+      "repositoryUrl": "https://github.com/AndreaBozzo/Ares",
+      "relatedCaseStudies": ["ares-ceres"]
+    },
+    {
+      "ecosystem": "crates.io",
+      "name": "ares-client",
+      "repositoryUrl": "https://github.com/AndreaBozzo/Ares",
+      "relatedCaseStudies": ["ares-ceres"]
+    }
+  ]
+}

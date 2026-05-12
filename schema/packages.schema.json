@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://andreabozzo.dev/schema/packages.schema.json",
+  "title": "PackageRegistryIndexV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schemaVersion", "generatedAt", "source", "items"],
+  "properties": {
+    "$schemaVersion": {
+      "const": "v1"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/PackageItemV1"
+      }
+    }
+  },
+  "$defs": {
+    "PackageItemV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "ecosystem", "name", "displayName", "summary", "version", "url"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ecosystem": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "displayName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "summary": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "repositoryUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "documentationUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "homepageUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "license": {
+          "type": "string"
+        },
+        "runtimeRequirement": {
+          "type": "string"
+        },
+        "publishedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "downloadsTotal": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "recentDownloads": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "relatedCaseStudies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

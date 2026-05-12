@@ -11,6 +11,38 @@ export function createWorkbenchRenderer({
     let lastQueryErrorSignature = '';
     let lastResultsSignature = '';
 
+    function kindLabel(kind) {
+        return kind === 'post'
+            ? 'Writing'
+            : kind === 'project'
+                ? 'Open source'
+                : kind === 'paper'
+                    ? 'Paper'
+                    : kind === 'package'
+                        ? 'Package'
+                        : kind === 'case-study'
+                            ? 'Case study'
+                            : 'Thread';
+    }
+
+    function linkLabel(kind) {
+        return kind === 'project'
+            ? 'View project'
+            : kind === 'paper'
+                ? 'View companion repo'
+                : kind === 'package'
+                    ? 'View package'
+                    : kind === 'post'
+                        ? 'Read note'
+                        : kind === 'case-study'
+                            ? 'Open case study'
+                            : 'Browse related writing';
+    }
+
+    function opensExternal(kind) {
+        return kind === 'project' || kind === 'paper' || kind === 'package';
+    }
+
     function renderQueryState(viewModel) {
         const shell = document.querySelector('.command-search');
         const error = document.getElementById('query-error');
@@ -37,12 +69,12 @@ export function createWorkbenchRenderer({
 
         if (!kind || !title || !summary || !tags || !link) return;
 
-        kind.textContent = selected.kind === 'post' ? 'Writing' : selected.kind === 'project' ? 'Open source' : selected.kind === 'paper' ? 'Paper' : selected.kind === 'case-study' ? 'Case study' : 'Thread';
+        kind.textContent = kindLabel(selected.kind);
         title.textContent = selected.title || selected.label;
         summary.textContent = selected.summary;
         tags.innerHTML = (selected.tags || []).map(tag => `<span class="inspector-tag">${escapeHtml(tag)}</span>`).join('');
         link.href = selected.url || './blog/';
-        link.textContent = selected.kind === 'project' ? 'View project' : selected.kind === 'paper' ? 'View companion repo' : selected.kind === 'post' ? 'Read note' : selected.kind === 'case-study' ? 'Open case study' : 'Browse related writing';
+        link.textContent = linkLabel(selected.kind);
         const external = /^https?:\/\//.test(link.href) && !link.href.startsWith(window.location.origin);
         link.target = external ? '_blank' : '';
         link.rel = external ? 'noopener noreferrer' : '';
@@ -94,8 +126,8 @@ export function createWorkbenchRenderer({
         }
 
         container.innerHTML = threadFilterCard + results.map(item => `
-            <a class="result-card content-card-enter" href="${escapeHtml(item.url || './blog/')}" ${item.kind === 'project' || item.kind === 'paper' ? 'target="_blank" rel="noopener noreferrer"' : ''}>
-                <span class="result-meta">${item.kind === 'project' ? 'Open source' : item.kind === 'paper' ? 'Paper' : item.kind === 'case-study' ? 'Case study' : 'Writing'}</span>
+            <a class="result-card content-card-enter" href="${escapeHtml(item.url || './blog/')}" ${opensExternal(item.kind) ? 'target="_blank" rel="noopener noreferrer"' : ''}>
+                <span class="result-meta">${kindLabel(item.kind)}</span>
                 <h3>${escapeHtml(item.title || item.label)}</h3>
                 <p>${escapeHtml(item.summary || '')}</p>
                 ${(item.tags || []).length ? `<div class="result-tags">${item.tags.slice(0, 3).map(tag => `<span class="result-tag">${escapeHtml(tag)}</span>`).join('')}</div>` : ''}

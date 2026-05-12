@@ -42,7 +42,7 @@ build-site: ## Build the full GitHub Pages artifact under _site/.
 	npm run build:site
 
 .PHONY: generate
-generate: generate-svg generate-og generate-case-studies generate-contributions ## Regenerate static source-driven artifacts.
+generate: generate-svg generate-og generate-case-studies generate-contributions generate-writing generate-packages generate-contracts ## Regenerate static source-driven artifacts.
 
 .PHONY: generate-svg
 generate-svg: ## Regenerate case-study SVG assets.
@@ -60,12 +60,24 @@ generate-case-studies: ## Regenerate work/* case-study pages.
 generate-contributions: ## Regenerate homepage contribution data.
 	npm run generate:contributions
 
+.PHONY: generate-writing
+generate-writing: ## Regenerate the schema-versioned writing index.
+	npm run generate:writing
+
+.PHONY: generate-packages
+generate-packages: ## Regenerate schema-versioned package registry metadata.
+	npm run generate:packages
+
+.PHONY: generate-contracts
+generate-contracts: ## Regenerate schema and TypeScript contract artifacts.
+	npm run generate:contracts
+
 .PHONY: harvester-artifacts
 harvester-artifacts: ## Generate combined harvester static artifacts.
 	npm run harvester:artifacts
 
 .PHONY: lint
-lint: lint-js lint-svg lint-go lint-rust lint-json lint-whitespace ## Run all lints.
+lint: lint-js lint-svg lint-go lint-rust lint-json lint-contracts lint-whitespace ## Run all lints.
 
 .PHONY: lint-js
 lint-js: ## Lint JavaScript.
@@ -85,7 +97,11 @@ lint-rust: ## Run Rust clippy with warnings denied.
 
 .PHONY: lint-json
 lint-json: ## Validate checked-in JSON data files.
-	jq empty assets/data/case-studies.json assets/data/papers.json assets/data/contributions.json package.json
+	jq empty assets/data/case-studies.json assets/data/papers.json assets/data/contributions.json assets/data/writing.json assets/data/package-sources.json assets/data/packages.json package.json
+
+.PHONY: lint-contracts
+lint-contracts: ## Validate schema-versioned JSON against committed schemas.
+	npm run validate:data
 
 .PHONY: lint-whitespace
 lint-whitespace: ## Check patch whitespace.

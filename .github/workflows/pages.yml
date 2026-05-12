@@ -48,6 +48,9 @@ jobs:
       - name: Install root-site dependencies
         run: npm ci
 
+      - name: Validate schema-versioned data
+        run: npm run validate:data
+
       - name: Build merged site
         run: npm run build:site
 

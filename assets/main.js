@@ -577,6 +577,15 @@ async function loadPapers() {
     }
 }
 
+async function loadPackages() {
+    try {
+        const payload = await fetchJson(`${siteBasePath}assets/data/packages.json`);
+        workbench.setPackages(Array.isArray(payload.items) ? payload.items : []);
+    } catch (error) {
+        console.error('Failed to load packages:', error);
+    }
+}
+
 async function loadCaseStudies() {
     try {
         const payload = await fetchJson(`${siteBasePath}assets/data/case-studies.json`);
@@ -631,6 +640,7 @@ document.addEventListener('DOMContentLoaded', function() {
         loadCaseStudies();
         fetchContributions();
         loadPapers();
+        loadPackages();
 
         if ('requestIdleCallback' in window) {
             requestIdleCallback(loadBlogPosts, { timeout: 1500 });

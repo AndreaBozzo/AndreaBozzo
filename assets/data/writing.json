@@ -1,0 +1,725 @@
+{
+  "$schemaVersion": "v1",
+  "generatedAt": "2026-05-12T14:51:26Z",
+  "source": "blog/content/posts",
+  "items": [
+    {
+      "id": "finops-ai-lakehouse-blog:en",
+      "slug": "finops-ai-lakehouse-blog",
+      "language": "en",
+      "title": "FinOps for AI Data Platforms in 2026: Databricks vs AWS-Native vs DIY Iceberg on Top of Your Warehouse",
+      "summary": "Three lakehouse stacks for adding AI/ML and streaming on top of an existing warehouse, compared through a FinOps lens: DBUs, DPUs, TB-scanned, S3 GB-month, and egress, walked through real workload patterns with 2026 prices.",
+      "description": "A FinOps-first comparison of Databricks, AWS Glue/Athena with Iceberg, and a DIY Iceberg stack for adding AI/ML and streaming on top of an existing warehouse, with 2026 USD/EUR cost anchors.",
+      "publishedAt": "2026-05-07T10:00:00Z",
+      "url": "./blog/en/posts/finops-ai-lakehouse-blog/",
+      "sourcePath": "blog/content/posts/finops-ai-lakehouse-blog.en.md",
+      "tags": [
+        "Data Engineering",
+        "FinOps",
+        "Databricks",
+        "AWS",
+        "Apache Iceberg",
+        "Lakehouse",
+        "AI",
+        "Streaming"
+      ],
+      "categories": [
+        "Data Engineering",
+        "FinOps"
+      ],
+      "relatedCaseStudies": [
+        "lakehouse-starter-kit"
+      ],
+      "wordCount": 4105,
+      "readingMinutes": 19
+    },
+    {
+      "id": "finops-ai-lakehouse-blog:it",
+      "slug": "finops-ai-lakehouse-blog",
+      "language": "it",
+      "title": "FinOps per Piattaforme Dati AI nel 2026: Databricks vs AWS-Native vs Iceberg DIY sul Tuo Warehouse",
+      "summary": "Tre stack lakehouse per aggiungere AI/ML e streaming sopra un warehouse esistente, confrontati con una lente FinOps: DBU, DPU, TB scansionati, S3 GB-mese ed egress, applicati a workload reali con i prezzi 2026.",
+      "description": "Un confronto FinOps-first tra Databricks, AWS Glue/Athena con Iceberg e uno stack Iceberg DIY per aggiungere AI/ML e streaming sopra un warehouse esistente, con i prezzi 2026 in USD ed EUR.",
+      "publishedAt": "2026-05-07T10:00:00Z",
+      "url": "./blog/posts/finops-ai-lakehouse-blog/",
+      "sourcePath": "blog/content/posts/finops-ai-lakehouse-blog.it.md",
+      "tags": [
+        "Data Engineering",
+        "FinOps",
+        "Databricks",
+        "AWS",
+        "Apache Iceberg",
+        "Lakehouse",
+        "AI",
+        "Streaming"
+      ],
+      "categories": [
+        "Data Engineering",
+        "FinOps"
+      ],
+      "relatedCaseStudies": [
+        "lakehouse-starter-kit"
+      ],
+      "wordCount": 4305,
+      "readingMinutes": 20
+    },
+    {
+      "id": "embassyembeddedml-blog:en",
+      "slug": "embassyembeddedml-blog",
+      "language": "en",
+      "title": "Zero Grappler: Data-Pipeline Thinking on a Microcontroller (Draft Notes from Before the Hardware Arrives)",
+      "summary": "Zero Grappler is a small no_std crate that applies a data-pipeline mindset to embedded ML: three traits, two async tasks, compile-time buffer sizing, zero allocations. This post is about the design choices — not yet a hardware report. The Pico 2 W smoke test on real silicon is still ahead of me.",
+      "description": "An experiment in carrying data-systems abstractions — sources, transforms, back-pressure — down to 520 KB of SRAM with Rust and Embassy. The crate compiles and runs on the host; the hardware bring-up is the next chapter.",
+      "publishedAt": "2026-04-21T00:00:00Z",
+      "url": "./blog/en/posts/embassyembeddedml-blog/",
+      "sourcePath": "blog/content/posts/embassyembeddedml-blog.en.md",
+      "tags": [
+        "rust",
+        "embassy",
+        "embedded",
+        "no-std",
+        "embedded-ml",
+        "data-pipelines"
+      ],
+      "categories": [
+        "Embedded",
+        "Rust",
+        "Open Source"
+      ],
+      "relatedCaseStudies": [
+        "zero-grappler"
+      ],
+      "wordCount": 1978,
+      "readingMinutes": 9
+    },
+    {
+      "id": "embassyembeddedml-blog:it",
+      "slug": "embassyembeddedml-blog",
+      "language": "it",
+      "title": "Zero Grappler: Pensare per Data-Pipeline su un Microcontrollore (Appunti Bozza prima dell'arrivo dell'hardware)",
+      "summary": "Zero Grappler è un piccolo crate no_std che applica la mentalità delle pipeline di dati all'ML embedded: tre tratti, due task async, dimensionamento dei buffer a tempo di compilazione, zero allocazioni. Questo post riguarda le scelte di design — non è ancora un report sull'hardware. Lo smoke test su silicio reale con il Pico 2 W è ancora davanti a me.",
+      "description": "Un esperimento nel portare le astrazioni dei sistemi dati — sorgenti, trasformazioni, back-pressure — su 520 KB di SRAM con Rust ed Embassy. Il crate compila e gira sull'host; il bring-up sull'hardware è il prossimo capitolo.",
+      "publishedAt": "2026-04-21T00:00:00Z",
+      "url": "./blog/posts/embassyembeddedml-blog/",
+      "sourcePath": "blog/content/posts/embassyembeddedml-blog.it.md",
+      "tags": [
+        "rust",
+        "embassy",
+        "embedded",
+        "no-std",
+        "embedded-ml",
+        "data-pipelines"
+      ],
+      "categories": [
+        "Embedded",
+        "Rust",
+        "Open Source"
+      ],
+      "relatedCaseStudies": [
+        "zero-grappler"
+      ],
+      "wordCount": 2019,
+      "readingMinutes": 10
+    },
+    {
+      "id": "lancearticle-blog:en",
+      "slug": "lancearticle-blog",
+      "language": "en",
+      "title": "Lance Format and LanceDB: Columnar Storage for the Embedding Age",
+      "summary": "Lance is a columnar storage format built for machine learning workloads — fast random access, native vector indexing, and zero-copy Arrow integration. This article walks through the format itself, how LanceDB builds on top of it, and how I wired it into a live NATS stream to build a simple semantic search layer over real-time events.",
+      "description": "Lance is a columnar format built for ML workloads — fast random access, native vector indexing, and zero-copy Arrow integration. This article walks through the format, LanceDB, and wiring it into a live NATS stream.",
+      "publishedAt": "2026-04-07T00:00:00Z",
+      "url": "./blog/en/posts/lancearticle-blog/",
+      "sourcePath": "blog/content/posts/lancearticle-blog.en.md",
+      "tags": [
+        "lancedb",
+        "lance-format",
+        "embeddings",
+        "apache-arrow",
+        "data-engineering",
+        "nats"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Open Source"
+      ],
+      "relatedCaseStudies": [
+        "lance-bridge"
+      ],
+      "wordCount": 1386,
+      "readingMinutes": 7
+    },
+    {
+      "id": "lancearticle-blog:it",
+      "slug": "lancearticle-blog",
+      "language": "it",
+      "title": "Lance Format e LanceDB: Storage Columnar per l'Era degli Embedding",
+      "summary": "Lance è un formato di storage columnar costruito per i workload di machine learning — accesso casuale veloce, indicizzazione vettoriale nativa e integrazione Arrow zero-copy. Questo articolo esplora il formato stesso, come LanceDB ci costruisce sopra, e come l'ho collegato a uno stream NATS live per costruire un layer di ricerca semantica su eventi in tempo reale.",
+      "description": "Lance è un formato columnar costruito per i workload ML — accesso casuale veloce, indicizzazione vettoriale nativa e integrazione Arrow zero-copy. Questo articolo esplora il formato, LanceDB, e come l'ho collegato a uno stream NATS in tempo reale.",
+      "publishedAt": "2026-04-07T00:00:00Z",
+      "url": "./blog/posts/lancearticle-blog/",
+      "sourcePath": "blog/content/posts/lancearticle-blog.it.md",
+      "tags": [
+        "lancedb",
+        "lance-format",
+        "embeddings",
+        "apache-arrow",
+        "data-engineering",
+        "nats"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Open Source"
+      ],
+      "relatedCaseStudies": [
+        "lance-bridge"
+      ],
+      "wordCount": 1460,
+      "readingMinutes": 7
+    },
+    {
+      "id": "tabularmlpipes-blog:en",
+      "slug": "tabularmlpipes-blog",
+      "language": "en",
+      "title": "Guardrails for Tabular ML: A Data Engineer's Take on Data Leakage, Poisoning, and Brittle Pipelines",
+      "summary": "Most ML pipeline failures are not exotic model bugs — they are data issues that nobody encoded as checks. This article walks through building guardrails using pandas, Apache DataFusion, data contracts, and the Arrow C Data Interface.",
+      "publishedAt": "2026-03-23T00:00:00Z",
+      "url": "./blog/en/posts/tabularmlpipes-blog/",
+      "sourcePath": "blog/content/posts/tabularmlpipes-blog.en.md",
+      "tags": [
+        "machine-learning",
+        "data-engineering",
+        "apache-arrow",
+        "datafusion",
+        "data-quality"
+      ],
+      "categories": [],
+      "wordCount": 1929,
+      "readingMinutes": 9
+    },
+    {
+      "id": "tabularmlpipes-blog:it",
+      "slug": "tabularmlpipes-blog",
+      "language": "it",
+      "title": "Guardrail per il ML Tabulare: la prospettiva di un Data Engineer su Data Leakage, Poisoning e Pipeline Fragili",
+      "summary": "La maggior parte dei fallimenti nelle pipeline ML non nasce da bug esotici del modello, ma da problemi di dati mai codificati come controlli. In questo articolo vediamo come costruire guardrail con pandas, Apache DataFusion, contratti dati e Arrow C Data Interface.",
+      "publishedAt": "2026-03-23T00:00:00Z",
+      "url": "./blog/posts/tabularmlpipes-blog/",
+      "sourcePath": "blog/content/posts/tabularmlpipes-blog.it.md",
+      "tags": [
+        "machine-learning",
+        "data-engineering",
+        "apache-arrow",
+        "datafusion",
+        "data-quality"
+      ],
+      "categories": [],
+      "wordCount": 1936,
+      "readingMinutes": 9
+    },
+    {
+      "id": "1yearofclaude-blog:en",
+      "slug": "1yearofclaude-blog",
+      "language": "en",
+      "title": "1 Year of Claude Code: An Interview",
+      "summary": "Claude interviews Andrea Bozzo about a full year of using Claude Code in the terminal — the workflow, the custom skills, the rough edges, and the nuked database.",
+      "description": "A technical interview about one year of using Claude Code as a daily engineering tool",
+      "publishedAt": "2026-03-05T11:00:00Z",
+      "url": "./blog/en/posts/1yearofclaude-blog/",
+      "sourcePath": "blog/content/posts/1yearofclaude-blog.en.md",
+      "tags": [
+        "Claude Code",
+        "AI",
+        "Developer Tools",
+        "Workflow"
+      ],
+      "categories": [
+        "AI",
+        "Developer Tools"
+      ],
+      "wordCount": 1409,
+      "readingMinutes": 7
+    },
+    {
+      "id": "1yearofclaude-blog:it",
+      "slug": "1yearofclaude-blog",
+      "language": "it",
+      "title": "1 Anno di Claude Code: Un'Intervista",
+      "summary": "Claude intervista Andrea Bozzo su un anno intero di utilizzo di Claude Code nel terminale — il workflow, le custom skill, gli spigoli vivi e il database distrutto.",
+      "description": "Un'intervista tecnica su un anno di utilizzo quotidiano di Claude Code come strumento di ingegneria",
+      "publishedAt": "2026-03-05T11:00:00Z",
+      "url": "./blog/posts/1yearofclaude-blog/",
+      "sourcePath": "blog/content/posts/1yearofclaude-blog.it.md",
+      "tags": [
+        "Claude Code",
+        "AI",
+        "Developer Tools",
+        "Workflow"
+      ],
+      "categories": [
+        "AI",
+        "Developer Tools"
+      ],
+      "wordCount": 1398,
+      "readingMinutes": 7
+    },
+    {
+      "id": "harvesting-vs-scraping-blog:en",
+      "slug": "harvesting-vs-scraping-blog",
+      "language": "en",
+      "title": "Harvesting vs Scraping: Building Both Sides in Rust with Ares and Ceres",
+      "summary": "Two Rust projects, one conceptual divide. Ares fetches arbitrary web pages and uses LLMs to extract structured data; Ceres harvests metadata from CKAN portals and indexes it semantically. Together they show what it looks like to move from scraping scripts to production data pipelines.",
+      "description": "How building a web scraper (Ares) and an open-data harvester (Ceres) clarified the line between scraping as a technique and harvesting as a product.",
+      "publishedAt": "2026-02-20T11:00:00Z",
+      "url": "./blog/en/posts/harvesting-vs-scraping-blog/",
+      "sourcePath": "blog/content/posts/harvesting-vs-scraping-blog.en.md",
+      "tags": [
+        "Rust",
+        "Data Engineering",
+        "Web Scraping",
+        "Open Data",
+        "LLM",
+        "PostgreSQL"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Open Source"
+      ],
+      "relatedCaseStudies": [
+        "ares-ceres"
+      ],
+      "wordCount": 2469,
+      "readingMinutes": 12
+    },
+    {
+      "id": "harvesting-vs-scraping-blog:it",
+      "slug": "harvesting-vs-scraping-blog",
+      "language": "it",
+      "title": "Harvesting vs Scraping: Costruire Entrambi i Lati in Rust con Ares e Ceres",
+      "summary": "Due progetti Rust, una divisione concettuale. Ares recupera pagine web arbitrarie e usa LLM per estrarre dati strutturati; Ceres raccoglie metadati da portali CKAN e li indicizza semanticamente. Insieme mostrano il passaggio da script di scraping a pipeline dati production-ready.",
+      "description": "Come aver costruito uno scraper web (Ares) e un harvester di open data (Ceres) ha chiarito il confine tra scraping come tecnica e harvesting come prodotto.",
+      "publishedAt": "2026-02-20T11:00:00Z",
+      "url": "./blog/posts/harvesting-vs-scraping-blog/",
+      "sourcePath": "blog/content/posts/harvesting-vs-scraping-blog.it.md",
+      "tags": [
+        "Rust",
+        "Data Engineering",
+        "Web Scraping",
+        "Open Data",
+        "LLM",
+        "PostgreSQL"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Open Source"
+      ],
+      "relatedCaseStudies": [
+        "ares-ceres"
+      ],
+      "wordCount": 2577,
+      "readingMinutes": 12
+    },
+    {
+      "id": "arrowfordataprof-blog:en",
+      "slug": "arrowfordataprof-blog",
+      "language": "en",
+      "title": "Designing a Data Profiler Around Apache Arrow: Lessons from dataprof",
+      "summary": "A design story of dataprof: why I built a profiler around Apache Arrow, how it changed the architecture, and how this journey led to contributions to arrow-rs' Parquet reader.",
+      "description": "How choosing Apache Arrow as the core data model turned a simple dataset profiler into a small analytical engine, and what it taught me about columnar design.",
+      "publishedAt": "2026-02-05T00:00:00Z",
+      "url": "./blog/en/posts/arrowfordataprof-blog/",
+      "sourcePath": "blog/content/posts/arrowfordataprof-blog.en.md",
+      "tags": [
+        "Rust",
+        "Python",
+        "Apache Arrow",
+        "DataFusion",
+        "Parquet",
+        "Columnar"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Open Source"
+      ],
+      "relatedCaseStudies": [
+        "apache-rust-upstream",
+        "dataprof"
+      ],
+      "wordCount": 2350,
+      "readingMinutes": 11
+    },
+    {
+      "id": "arrowfordataprof-blog:it",
+      "slug": "arrowfordataprof-blog",
+      "language": "it",
+      "title": "Progettare un Data Profiler attorno ad Apache Arrow: Lezioni da dataprof",
+      "summary": "Una storia di design di dataprof: perché ho costruito un profiler attorno ad Apache Arrow, come ha cambiato l'architettura, e come questo percorso mi ha portato a contribuire al lettore Parquet di arrow-rs.",
+      "description": "Come la scelta di Apache Arrow come modello di dati centrale ha trasformato un semplice data profiler in un piccolo motore analitico, e cosa mi ha insegnato sul design columnar.",
+      "publishedAt": "2026-02-05T00:00:00Z",
+      "url": "./blog/posts/arrowfordataprof-blog/",
+      "sourcePath": "blog/content/posts/arrowfordataprof-blog.it.md",
+      "tags": [
+        "Rust",
+        "Python",
+        "Apache Arrow",
+        "DataFusion",
+        "Parquet",
+        "Columnar"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Open Source"
+      ],
+      "relatedCaseStudies": [
+        "apache-rust-upstream",
+        "dataprof"
+      ],
+      "wordCount": 2494,
+      "readingMinutes": 12
+    },
+    {
+      "id": "asyncpythonrust-blog:en",
+      "slug": "asyncpythonrust-blog",
+      "language": "en",
+      "title": "Async in Python and Rust: Two Worlds, One Keyword",
+      "summary": "A technical exploration of async/await in Python and Rust: how the same syntax hides completely different execution models, with practical examples from contributions to Tokio and Python projects.",
+      "description": "Why async/await looks the same in Python and Rust but hides radically different philosophies: from asyncio's generous runtime to Tokio's zero-cost state machines",
+      "publishedAt": "2026-01-22T11:00:00Z",
+      "url": "./blog/en/posts/asyncpythonrust-blog/",
+      "sourcePath": "blog/content/posts/asyncpythonrust-blog.en.md",
+      "tags": [
+        "Rust",
+        "Python",
+        "Async",
+        "Tokio",
+        "asyncio",
+        "Concurrency",
+        "Performance"
+      ],
+      "categories": [
+        "Software Engineering",
+        "Open Source"
+      ],
+      "wordCount": 2410,
+      "readingMinutes": 11
+    },
+    {
+      "id": "asyncpythonrust-blog:it",
+      "slug": "asyncpythonrust-blog",
+      "language": "it",
+      "title": "Async in Python e Rust: Due Mondi, Una Sola Keyword",
+      "summary": "Un'esplorazione tecnica di async/await in Python e Rust: come la stessa sintassi nasconda modelli di esecuzione completamente diversi, con esempi pratici da contributi a Tokio e progetti Python.",
+      "description": "Perché async/await sembra uguale in Python e Rust ma nasconde filosofie radicalmente diverse: dal runtime generoso di asyncio alle state machine zero-cost di Tokio",
+      "publishedAt": "2026-01-22T11:00:00Z",
+      "url": "./blog/posts/asyncpythonrust-blog/",
+      "sourcePath": "blog/content/posts/asyncpythonrust-blog.it.md",
+      "tags": [
+        "Rust",
+        "Python",
+        "Async",
+        "Tokio",
+        "asyncio",
+        "Concurrency",
+        "Performance"
+      ],
+      "categories": [
+        "Software Engineering",
+        "Open Source"
+      ],
+      "wordCount": 2475,
+      "readingMinutes": 12
+    },
+    {
+      "id": "mosaico-blog:en",
+      "slug": "mosaico-blog",
+      "language": "en",
+      "title": "Mosaico: The Data Platform for Robotics and Physical AI Written in Rust",
+      "summary": "A deep dive into Mosaico, the robotics data platform written in Rust: client-server architecture, semantic ontologies, data-oriented debugging, my journey within it, and the integration with Data Contract Engine.",
+      "description": "Mosaico is an open-source data platform for Robotics and Physical AI that combines a high-performance Rust backend with a Python SDK for ROS 2. Let's explore the architecture, integration patterns, and my journey contributing to the project.",
+      "publishedAt": "2026-01-06T11:00:00Z",
+      "url": "./blog/en/posts/mosaico-blog/",
+      "sourcePath": "blog/content/posts/mosaico-blog.en.md",
+      "tags": [
+        "Rust",
+        "Python",
+        "Robotics",
+        "Data Platform",
+        "Physical AI",
+        "Open Source",
+        "Data Engineering"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Open Source",
+        "Robotics"
+      ],
+      "relatedCaseStudies": [
+        "mosaico"
+      ],
+      "wordCount": 2963,
+      "readingMinutes": 14
+    },
+    {
+      "id": "mosaico-blog:it",
+      "slug": "mosaico-blog",
+      "language": "it",
+      "title": "Mosaico: La Piattaforma Dati per Robotica e Physical AI scritta in Rust",
+      "summary": "Un'esplorazione approfondita di Mosaico, la piattaforma dati per robotica scritta in Rust: architettura client-server, ontologie semantiche, data-oriented debugging ed il mio viaggio in esso, l'integrazione con Data Contract Engine.",
+      "description": "Mosaico è una piattaforma dati open-source per Robotica e Physical AI che combina un backend Rust ad alte prestazioni con un SDK Python per ROS 2. Esploriamo l'architettura, i pattern di integrazione, e il mio percorso di contribuzione al progetto.",
+      "publishedAt": "2026-01-06T11:00:00Z",
+      "url": "./blog/posts/mosaico-blog/",
+      "sourcePath": "blog/content/posts/mosaico-blog.it.md",
+      "tags": [
+        "Rust",
+        "Python",
+        "Robotics",
+        "Data Platform",
+        "Physical AI",
+        "Open Source",
+        "Data Engineering"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Open Source",
+        "Robotics"
+      ],
+      "relatedCaseStudies": [
+        "mosaico"
+      ],
+      "wordCount": 3041,
+      "readingMinutes": 14
+    },
+    {
+      "id": "ceres-blog:en",
+      "slug": "ceres-blog",
+      "language": "en",
+      "title": "Ceres: Semantic Search for Open Data",
+      "summary": "Ceres is a semantic search engine for CKAN portals. Built in Rust with Tokio and PostgreSQL+pgvector, it bridges the gap between how people search and how public administrations name their datasets.",
+      "description": "How Ceres solves the discoverability problem in European open data portals with semantic search, Rust and PostgreSQL+pgvector",
+      "publishedAt": "2025-12-20T11:00:00Z",
+      "url": "./blog/en/posts/ceres-blog/",
+      "sourcePath": "blog/content/posts/ceres-blog.en.md",
+      "tags": [
+        "Rust",
+        "Data Engineering",
+        "Semantic Search",
+        "Open Data",
+        "CKAN",
+        "PostgreSQL",
+        "pgvector"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Open Source"
+      ],
+      "relatedCaseStudies": [
+        "ares-ceres"
+      ],
+      "wordCount": 1240,
+      "readingMinutes": 6
+    },
+    {
+      "id": "ceres-blog:it",
+      "slug": "ceres-blog",
+      "language": "it",
+      "title": "Ceres: Semantic Search per i Dati Aperti",
+      "summary": "Ceres è un motore di ricerca semantico per portali CKAN. Costruito in Rust con Tokio e PostgreSQL+pgvector, affronta il gap tra come le persone cercano e come le PA nominano i dataset.",
+      "description": "Come Ceres risolve il problema della discoverability nei portali open data europei con ricerca semantica, Rust e PostgreSQL+pgvector",
+      "publishedAt": "2025-12-20T11:00:00Z",
+      "url": "./blog/posts/ceres-blog/",
+      "sourcePath": "blog/content/posts/ceres-blog.it.md",
+      "tags": [
+        "Rust",
+        "Data Engineering",
+        "Semantic Search",
+        "Open Data",
+        "CKAN",
+        "PostgreSQL",
+        "pgvector"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Open Source"
+      ],
+      "relatedCaseStudies": [
+        "ares-ceres"
+      ],
+      "wordCount": 1256,
+      "readingMinutes": 6
+    },
+    {
+      "id": "polarsruststack-blog:en",
+      "slug": "polarsruststack-blog",
+      "language": "en",
+      "title": "Closing the Rust Circle: High-Performance Data Analysis with Polars",
+      "summary": "Polars completes the Rust data engineering ecosystem: lazy evaluation, Apache Arrow, and native Iceberg V3 integration for performant analytics that compete with distributed clusters. The third pillar of the RisingWave + Lakekeeper + Polars stack.",
+      "description": "Completing the Rust-native data engineering stack: how Polars closes the circle by offering high-performance single-node analytics, integrating seamlessly with RisingWave and Lakekeeper to build a modern lakehouse without JVM",
+      "publishedAt": "2025-12-03T11:00:00Z",
+      "url": "./blog/en/posts/polarsruststack-blog/",
+      "sourcePath": "blog/content/posts/polarsruststack-blog.en.md",
+      "tags": [
+        "Rust",
+        "Data Engineering",
+        "Apache Iceberg",
+        "Polars",
+        "Analytics",
+        "Data Science",
+        "Lakehouse"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Open Source"
+      ],
+      "relatedCaseStudies": [
+        "lakekeeper"
+      ],
+      "wordCount": 2855,
+      "readingMinutes": 13
+    },
+    {
+      "id": "polarsruststack-blog:it",
+      "slug": "polarsruststack-blog",
+      "language": "it",
+      "title": "Chiudere il Cerchio Rust: Analisi Dati ad Alte Prestazioni con Polars",
+      "summary": "Polars completa l'ecosistema Rust data engineering: lazy evaluation, Apache Arrow, e integrazione nativa con Iceberg V3 per analytics performanti che competono con cluster distribuiti. Il terzo pilastro dello stack RisingWave + Lakekeeper + Polars.",
+      "description": "Completare lo stack Rust-native per data engineering: come Polars chiude il cerchio offrendo analytics ad alte prestazioni su singolo nodo, integrando perfettamente con RisingWave e Lakekeeper per costruire un lakehouse moderno senza JVM",
+      "publishedAt": "2025-12-03T11:00:00Z",
+      "url": "./blog/posts/polarsruststack-blog/",
+      "sourcePath": "blog/content/posts/polarsruststack-blog.it.md",
+      "tags": [
+        "Rust",
+        "Data Engineering",
+        "Apache Iceberg",
+        "Polars",
+        "Analytics",
+        "Data Science",
+        "Lakehouse"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Open Source"
+      ],
+      "relatedCaseStudies": [
+        "lakekeeper"
+      ],
+      "wordCount": 2983,
+      "readingMinutes": 14
+    },
+    {
+      "id": "lakekeeper-blog:en",
+      "slug": "lakekeeper-blog",
+      "language": "en",
+      "title": "Lakekeeper: The Apache Iceberg REST Catalog Written in Rust",
+      "summary": "An exploration of Lakekeeper, the Iceberg REST catalog in Rust that completes the data engineering ecosystem: enterprise security with vended credentials, multi-tenancy, and RisingWave integration to build streaming lakehouses without JVM",
+      "description": "Lakekeeper is the REST catalog for Apache Iceberg written in Rust: vended credentials, OpenFGA, lightweight deployment, and RisingWave integration for a fully Rust-native lakehouse",
+      "publishedAt": "2025-11-22T11:00:00Z",
+      "url": "./blog/en/posts/lakekeeper-blog/",
+      "sourcePath": "blog/content/posts/lakekeeper-blog.en.md",
+      "tags": [
+        "Rust",
+        "Data Engineering",
+        "Apache Iceberg",
+        "Lakekeeper",
+        "Catalog",
+        "Security",
+        "Multi-Tenancy"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Open Source"
+      ],
+      "relatedCaseStudies": [
+        "lakekeeper"
+      ],
+      "wordCount": 2060,
+      "readingMinutes": 10
+    },
+    {
+      "id": "lakekeeper-blog:it",
+      "slug": "lakekeeper-blog",
+      "language": "it",
+      "title": "Lakekeeper: il Catalogo REST di Apache Iceberg scritto in Rust",
+      "summary": "Un'esplorazione di Lakekeeper, il catalogo REST Iceberg in Rust che completa l'ecosistema data engineering: sicurezza enterprise con vended credentials, multi-tenancy, e integrazione con RisingWave per costruire streaming lakehouse senza JVM",
+      "description": "Lakekeeper è il catalogo REST per Apache Iceberg scritto in Rust: vended credentials, OpenFGA, deployment lightweight e integrazione con RisingWave per un lakehouse completamente Rust-native",
+      "publishedAt": "2025-11-22T11:00:00Z",
+      "url": "./blog/posts/lakekeeper-blog/",
+      "sourcePath": "blog/content/posts/lakekeeper-blog.it.md",
+      "tags": [
+        "Rust",
+        "Data Engineering",
+        "Apache Iceberg",
+        "Lakekeeper",
+        "Catalog",
+        "Security",
+        "Multi-Tenancy"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Open Source"
+      ],
+      "relatedCaseStudies": [
+        "lakekeeper"
+      ],
+      "wordCount": 2098,
+      "readingMinutes": 10
+    },
+    {
+      "id": "iceberg-risingwave-blog:en",
+      "slug": "iceberg-risingwave-blog",
+      "language": "en",
+      "title": "RisingWave and Iceberg-Rust: When Real-Time Streaming Meets Modern Data Lake",
+      "summary": "The partnership between RisingWave and Iceberg-Rust represents a window into where modern data engineering is heading: real-time CDC streaming, intelligent hybrid delete strategy, and a performant Rust ecosystem challenging JVM dominance.",
+      "description": "How RisingWave and Apache Iceberg Rust are revolutionizing modern data lakehouse architecture with real-time streaming, hybrid delete strategy, and an end-to-end Rust ecosystem",
+      "publishedAt": "2025-11-10T11:00:00Z",
+      "url": "./blog/en/posts/iceberg-risingwave-blog/",
+      "sourcePath": "blog/content/posts/iceberg-risingwave-blog.en.md",
+      "tags": [
+        "Rust",
+        "Data Engineering",
+        "Apache Iceberg",
+        "RisingWave",
+        "Streaming",
+        "Lakehouse",
+        "CDC"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Open Source"
+      ],
+      "relatedCaseStudies": [
+        "apache-rust-upstream"
+      ],
+      "wordCount": 1423,
+      "readingMinutes": 7
+    },
+    {
+      "id": "iceberg-risingwave-blog:it",
+      "slug": "iceberg-risingwave-blog",
+      "language": "it",
+      "title": "RisingWave e Iceberg-Rust: Quando il Real-Time Streaming Incontra il Modern Data Lake",
+      "summary": "La partnership tra RisingWave e Iceberg-Rust rappresenta una finestra su dove sta andando il data engineering moderno: streaming CDC real-time, hybrid delete strategy intelligente, e un ecosistema Rust performante che sfida il dominio JVM.",
+      "description": "Come RisingWave e Apache Iceberg Rust stanno rivoluzionando l'architettura dei data lakehouse moderni con streaming real-time, hybrid delete strategy, e un ecosistema Rust end-to-end",
+      "publishedAt": "2025-11-10T11:00:00Z",
+      "url": "./blog/posts/iceberg-risingwave-blog/",
+      "sourcePath": "blog/content/posts/iceberg-risingwave-blog.it.md",
+      "tags": [
+        "Rust",
+        "Data Engineering",
+        "Apache Iceberg",
+        "RisingWave",
+        "Streaming",
+        "Lakehouse",
+        "CDC"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Open Source"
+      ],
+      "relatedCaseStudies": [
+        "apache-rust-upstream"
+      ],
+      "wordCount": 1521,
+      "readingMinutes": 7
+    }
+  ]
+}

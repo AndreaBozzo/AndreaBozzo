@@ -1,0 +1,205 @@
+{
+  "$schemaVersion": "v1",
+  "generatedAt": "2026-05-12T14:51:28Z",
+  "source": "assets/data/package-sources.json",
+  "items": [
+    {
+      "id": "crates.io:ares-api",
+      "ecosystem": "crates.io",
+      "name": "ares-api",
+      "displayName": "ares-api",
+      "summary": "HTTP server for Ares AI scraper",
+      "version": "0.3.0",
+      "url": "https://crates.io/crates/ares-api",
+      "repositoryUrl": "https://github.com/AndreaBozzo/Ares",
+      "license": "Apache-2.0",
+      "publishedAt": "2026-04-29T13:31:36Z",
+      "updatedAt": "2026-04-29T13:31:36Z",
+      "downloadsTotal": 44,
+      "recentDownloads": 44,
+      "relatedCaseStudies": [
+        "ares-ceres"
+      ]
+    },
+    {
+      "id": "crates.io:ares-cli",
+      "ecosystem": "crates.io",
+      "name": "ares-cli",
+      "displayName": "ares-cli",
+      "summary": "CLI entry point for Ares AI scraper",
+      "version": "0.3.0",
+      "url": "https://crates.io/crates/ares-cli",
+      "repositoryUrl": "https://github.com/AndreaBozzo/Ares",
+      "license": "Apache-2.0",
+      "publishedAt": "2026-04-29T13:29:02Z",
+      "updatedAt": "2026-04-29T13:29:02Z",
+      "downloadsTotal": 51,
+      "recentDownloads": 51,
+      "relatedCaseStudies": [
+        "ares-ceres"
+      ]
+    },
+    {
+      "id": "crates.io:ares-client",
+      "ecosystem": "crates.io",
+      "name": "ares-client",
+      "displayName": "ares-client",
+      "summary": "HTTP fetcher, HTML cleaner, and LLM extraction client for Ares",
+      "version": "0.3.0",
+      "url": "https://crates.io/crates/ares-client",
+      "repositoryUrl": "https://github.com/AndreaBozzo/Ares",
+      "license": "Apache-2.0",
+      "publishedAt": "2026-04-29T13:24:56Z",
+      "updatedAt": "2026-04-29T13:24:56Z",
+      "downloadsTotal": 143,
+      "recentDownloads": 143,
+      "relatedCaseStudies": [
+        "ares-ceres"
+      ]
+    },
+    {
+      "id": "crates.io:ares-core",
+      "ecosystem": "crates.io",
+      "name": "ares-core",
+      "displayName": "ares-core",
+      "summary": "Core types, traits, and error handling for Ares AI scraper",
+      "version": "0.3.0",
+      "url": "https://crates.io/crates/ares-core",
+      "repositoryUrl": "https://github.com/AndreaBozzo/Ares",
+      "license": "Apache-2.0",
+      "publishedAt": "2026-04-29T13:22:56Z",
+      "updatedAt": "2026-04-29T13:22:56Z",
+      "downloadsTotal": 229,
+      "recentDownloads": 229,
+      "relatedCaseStudies": [
+        "ares-ceres"
+      ]
+    },
+    {
+      "id": "crates.io:ares-db",
+      "ecosystem": "crates.io",
+      "name": "ares-db",
+      "displayName": "ares-db",
+      "summary": "PostgreSQL repository layer for Ares AI scraper",
+      "version": "0.3.0",
+      "url": "https://crates.io/crates/ares-db",
+      "repositoryUrl": "https://github.com/AndreaBozzo/Ares",
+      "license": "Apache-2.0",
+      "publishedAt": "2026-04-29T13:26:38Z",
+      "updatedAt": "2026-04-29T13:26:38Z",
+      "downloadsTotal": 143,
+      "recentDownloads": 143,
+      "relatedCaseStudies": [
+        "ares-ceres"
+      ]
+    },
+    {
+      "id": "crates.io:ceres-client",
+      "ecosystem": "crates.io",
+      "name": "ceres-client",
+      "displayName": "ceres-client",
+      "summary": "HTTP clients for Ceres portal harvesters and embedding providers",
+      "version": "0.3.5",
+      "url": "https://crates.io/crates/ceres-client",
+      "repositoryUrl": "https://github.com/AndreaBozzo/Ceres",
+      "license": "Apache-2.0",
+      "publishedAt": "2026-03-30T17:11:26Z",
+      "updatedAt": "2026-03-30T17:11:26Z",
+      "downloadsTotal": 261,
+      "recentDownloads": 172,
+      "relatedCaseStudies": [
+        "ares-ceres"
+      ]
+    },
+    {
+      "id": "crates.io:ceres-core",
+      "ecosystem": "crates.io",
+      "name": "ceres-core",
+      "displayName": "ceres-core",
+      "summary": "Core types, harvesting logic, and services for Ceres",
+      "version": "0.3.5",
+      "url": "https://crates.io/crates/ceres-core",
+      "repositoryUrl": "https://github.com/AndreaBozzo/Ceres",
+      "license": "Apache-2.0",
+      "publishedAt": "2026-03-30T17:09:26Z",
+      "updatedAt": "2026-03-30T17:09:26Z",
+      "downloadsTotal": 419,
+      "recentDownloads": 284,
+      "relatedCaseStudies": [
+        "ares-ceres"
+      ]
+    },
+    {
+      "id": "crates.io:ceres-db",
+      "ecosystem": "crates.io",
+      "name": "ceres-db",
+      "displayName": "ceres-db",
+      "summary": "Database repository layer for Ceres with pgvector support",
+      "version": "0.3.5",
+      "url": "https://crates.io/crates/ceres-db",
+      "repositoryUrl": "https://github.com/AndreaBozzo/Ceres",
+      "license": "Apache-2.0",
+      "publishedAt": "2026-03-30T17:13:16Z",
+      "updatedAt": "2026-03-30T17:13:16Z",
+      "downloadsTotal": 259,
+      "recentDownloads": 172,
+      "relatedCaseStudies": [
+        "ares-ceres"
+      ]
+    },
+    {
+      "id": "crates.io:ceres-search",
+      "ecosystem": "crates.io",
+      "name": "ceres-search",
+      "displayName": "ceres-search",
+      "summary": "Command-line interface for harvesting, embedding, and searching with Ceres",
+      "version": "0.3.5",
+      "url": "https://crates.io/crates/ceres-search",
+      "repositoryUrl": "https://github.com/AndreaBozzo/Ceres",
+      "license": "Apache-2.0",
+      "publishedAt": "2026-03-30T17:15:12Z",
+      "updatedAt": "2026-03-30T17:15:12Z",
+      "downloadsTotal": 92,
+      "recentDownloads": 54,
+      "relatedCaseStudies": [
+        "ares-ceres"
+      ]
+    },
+    {
+      "id": "crates.io:dataprof",
+      "ecosystem": "crates.io",
+      "name": "dataprof",
+      "displayName": "dataprof",
+      "summary": "High-performance data profiler with ISO 8000/25012 quality metrics for CSV, JSON/JSONL, and Parquet files",
+      "version": "0.7.1",
+      "url": "https://crates.io/crates/dataprof",
+      "repositoryUrl": "https://github.com/AndreaBozzo/dataprof",
+      "documentationUrl": "https://docs.rs/dataprof",
+      "homepageUrl": "https://github.com/AndreaBozzo/dataprof",
+      "license": "MIT OR Apache-2.0",
+      "publishedAt": "2026-04-10T09:38:54Z",
+      "updatedAt": "2026-04-10T09:38:54Z",
+      "downloadsTotal": 4459,
+      "recentDownloads": 152,
+      "relatedCaseStudies": [
+        "dataprof"
+      ]
+    },
+    {
+      "id": "pypi:dataprof",
+      "ecosystem": "pypi",
+      "name": "dataprof",
+      "displayName": "dataprof",
+      "summary": "Fast, lightweight data profiling and quality assessment library",
+      "version": "0.7.1",
+      "url": "https://pypi.org/project/dataprof/",
+      "repositoryUrl": "https://github.com/AndreaBozzo/dataprof",
+      "homepageUrl": "https://github.com/AndreaBozzo/dataprof",
+      "runtimeRequirement": "\u003e=3.8",
+      "publishedAt": "2026-04-10T09:56:35Z",
+      "relatedCaseStudies": [
+        "dataprof"
+      ]
+    }
+  ]
+}

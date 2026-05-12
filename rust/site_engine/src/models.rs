@@ -16,6 +16,8 @@ pub(crate) struct Payload {
     #[serde(default)]
     pub(crate) papers: Vec<Paper>,
     #[serde(default)]
+    pub(crate) packages: Vec<Package>,
+    #[serde(default)]
     pub(crate) active_topic: String,
     #[serde(default)]
     pub(crate) query: String,
@@ -134,6 +136,37 @@ pub(crate) struct Paper {
     pub(crate) meta: String,
     #[serde(default)]
     pub(crate) url: String,
+}
+
+#[derive(Debug, Default, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub(crate) struct Package {
+    #[serde(default)]
+    pub(crate) id: String,
+    #[serde(default)]
+    pub(crate) ecosystem: String,
+    #[serde(default)]
+    pub(crate) name: String,
+    #[serde(default)]
+    pub(crate) display_name: String,
+    #[serde(default)]
+    pub(crate) summary: String,
+    #[serde(default)]
+    pub(crate) version: String,
+    #[serde(default)]
+    pub(crate) url: String,
+    #[serde(default)]
+    pub(crate) repository_url: String,
+    #[serde(default)]
+    pub(crate) homepage_url: String,
+    #[serde(default)]
+    pub(crate) documentation_url: String,
+    #[serde(default)]
+    pub(crate) license: String,
+    #[serde(default)]
+    pub(crate) runtime_requirement: String,
+    #[serde(default)]
+    pub(crate) related_case_studies: Vec<String>,
 }
 
 #[derive(Debug, Clone)]

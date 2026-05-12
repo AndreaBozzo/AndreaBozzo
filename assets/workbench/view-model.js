@@ -61,7 +61,25 @@ export function createViewModelBuilder({ state, siteBasePath, getEngineOutput })
             };
         });
 
-        return [...topicItems, ...caseStudyItems, ...postItems, ...contributionItems, ...paperItems];
+        const packageItems = state.packages.map((pkg, index) => {
+            const title = pkg.displayName || pkg.name || 'Published package';
+            const metrics = [pkg.version, pkg.license, pkg.ecosystem, pkg.runtimeRequirement]
+                .filter(Boolean)
+                .join(' ');
+            const text = `${title} ${pkg.summary || ''} ${metrics} ${(pkg.relatedCaseStudies || []).join(' ')}`;
+            return {
+                id: `package-${index}-${normalizeText(pkg.id || title).replace(/[^a-z0-9]+/g, '-')}`,
+                kind: 'package',
+                label: title,
+                title,
+                summary: pkg.summary || `${pkg.ecosystem || 'Package'} package ${pkg.version ? `version ${pkg.version}` : 'metadata'}.`,
+                tags: [pkg.ecosystem, pkg.version, pkg.license, pkg.runtimeRequirement].filter(Boolean).slice(0, 4),
+                topics: topicForItem(text),
+                url: pkg.url || pkg.repositoryUrl || pkg.homepageUrl || './blog/'
+            };
+        });
+
+        return [...topicItems, ...caseStudyItems, ...postItems, ...contributionItems, ...paperItems, ...packageItems];
     }
 
     function buildWorkbenchPayload() {
@@ -71,6 +89,7 @@ export function createViewModelBuilder({ state, siteBasePath, getEngineOutput })
             contributions: state.contributions,
             caseStudies: state.caseStudies,
             papers: state.papers,
+            packages: state.packages,
             activeTopic: state.activeTopic,
             query: state.query,
             selectedId: state.selectedId

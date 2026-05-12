@@ -51,7 +51,8 @@ export const NODE_KIND_COLORS = {
     'case-study': '#7358ba',
     post: '#1e4f95',
     project: '#0e7065',
-    paper: '#9f5a1a'
+    paper: '#9f5a1a',
+    package: '#c2410c'
 };
 
 export const NODE_KIND_RADIUS = {
@@ -59,7 +60,8 @@ export const NODE_KIND_RADIUS = {
     'case-study': 21,
     post: 18,
     project: 18,
-    paper: 18
+    paper: 18,
+    package: 18
 };
 
 export const NODE_KIND_SIM_RADIUS = {
@@ -67,7 +69,8 @@ export const NODE_KIND_SIM_RADIUS = {
     'case-study': 4.5,
     post: 3.8,
     project: 3.8,
-    paper: 3.8
+    paper: 3.8,
+    package: 3.8
 };
 
 export const SIM_WARMUP_STEPS = 60;
@@ -85,7 +88,8 @@ export function createWorkbenchState() {
         posts: [],
         contributions: [],
         caseStudies: [],
-        papers: []
+        papers: [],
+        packages: []
     };
 }
 

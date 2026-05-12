@@ -24,6 +24,9 @@ fn sample_payload() -> &'static str {
 			"papers": [
 				{"kicker": "IEEE ScalCom 2026", "name": "scalcom2026-dataprof", "desc": "Benchmark suite for edge AI telemetry profiling", "meta": "Edge AI · Energy profiling", "url": "https://github.com/AndreaBozzo/scalcom2026-dataprof"}
 			],
+            "packages": [
+                {"id": "pypi:dataprof", "ecosystem": "pypi", "name": "dataprof", "displayName": "dataprof", "summary": "Fast data profiler", "version": "0.7.1", "url": "https://pypi.org/project/dataprof/", "license": "MIT", "runtimeRequirement": ">=3.8", "relatedCaseStudies": ["dataprof"]}
+            ],
 			"activeTopic": "rust-systems",
 			"query": "rust",
 			"selectedId": "case-dataprof"

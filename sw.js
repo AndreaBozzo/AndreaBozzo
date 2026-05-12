@@ -1,4 +1,4 @@
-const CACHE_NAME = 'andreabozzo-v20';
+const CACHE_NAME = 'andreabozzo-v22';
 const BASE_PATH = new URL(self.registration.scope).pathname;
 const ASSETS_TO_CACHE = [
     BASE_PATH,
@@ -8,6 +8,8 @@ const ASSETS_TO_CACHE = [
     `${BASE_PATH}assets/data/case-studies.json`,
     `${BASE_PATH}assets/data/contributions.json`,
     `${BASE_PATH}assets/data/papers.json`,
+    `${BASE_PATH}assets/data/writing.json`,
+    `${BASE_PATH}assets/data/packages.json`,
     `${BASE_PATH}assets/wasm/site_engine.js`,
     `${BASE_PATH}assets/wasm/site_engine_bg.wasm`,
     `${BASE_PATH}work/dataprof/`,

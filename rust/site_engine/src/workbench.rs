@@ -1,7 +1,7 @@
 use crate::classify::{tags_for_text, topics_for_text};
 use crate::models::{
-    Contribution, Edge, Node, Output, Paper, Payload, ResultCard, Selected, Topic, TopicCount,
-    WorkItem,
+    Contribution, Edge, Node, Output, Package, Paper, Payload, ResultCard, Selected, Topic,
+    TopicCount, WorkItem,
 };
 use crate::query;
 use crate::utils::{compact_tags, first_non_empty, slugify, small_hash, title_from_slug};
@@ -277,6 +277,10 @@ fn normalize_items(payload: &Payload) -> Vec<WorkItem> {
         normalize_paper(&mut out, paper, index);
     }
 
+    for (index, package) in payload.packages.iter().enumerate() {
+        normalize_package(&mut out, package, index);
+    }
+
     out
 }
 
@@ -317,6 +321,55 @@ fn normalize_paper(out: &mut Vec<WorkItem>, paper: &Paper, index: usize) {
         topics: topics_for_text(&text),
         url: paper.url.clone(),
         base_score: 4.5,
+        stars: 0.0,
+        prs: 0.0,
+    });
+}
+
+fn normalize_package(out: &mut Vec<WorkItem>, package: &Package, index: usize) {
+    let title = first_non_empty(&package.display_name, &package.name);
+    let summary = if package.summary.trim().is_empty() {
+        match (package.ecosystem.trim().is_empty(), package.version.trim().is_empty()) {
+            (false, false) => format!("{} package v{}", package.ecosystem, package.version),
+            (false, true) => format!("{} package", package.ecosystem),
+            _ => "Published package metadata".into(),
+        }
+    } else {
+        package.summary.clone()
+    };
+    let text = format!(
+        "{} {} {} {} {} {} {} {}",
+        package.display_name,
+        package.name,
+        package.summary,
+        package.ecosystem,
+        package.version,
+        package.license,
+        package.runtime_requirement,
+        package.related_case_studies.join(" ")
+    );
+    let mut tags = vec![
+        package.ecosystem.clone(),
+        package.version.clone(),
+        package.license.clone(),
+        package.runtime_requirement.clone(),
+    ];
+    if tags.iter().all(|tag| tag.trim().is_empty()) {
+        tags = tags_for_text(&text);
+    }
+    out.push(WorkItem {
+        id: format!("package-{index}-{}", slugify(&package.id, &title)),
+        kind: "package".into(),
+        label: title.clone(),
+        title,
+        summary,
+        tags: compact_tags(tags, 4),
+        topics: topics_for_text(&text),
+        url: first_non_empty(
+            &package.url,
+            &first_non_empty(&package.repository_url, &first_non_empty(&package.homepage_url, &package.documentation_url)),
+        ),
+        base_score: 4.8,
         stars: 0.0,
         prs: 0.0,
     });
@@ -374,6 +427,7 @@ fn layout(items: &[WorkItem]) -> BTreeMap<String, (f32, f32)> {
         ("post", 38.0, 58.0, 28.0),
         ("project", 28.0, 42.0, 22.0),
         ("paper", 64.0, 72.0, 18.0),
+        ("package", 76.0, 28.0, 18.0),
     ];
     let mut by_kind: BTreeMap<&str, Vec<&WorkItem>> = BTreeMap::new();
     for item in items {
