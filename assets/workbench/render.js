@@ -9,7 +9,6 @@ export function createWorkbenchRenderer({
     selectedFromItem
 }) {
     let lastQueryErrorSignature = '';
-    let lastGraphStatusSignature = '';
     let lastResultsSignature = '';
 
     function renderQueryState(viewModel) {
@@ -27,44 +26,6 @@ export function createWorkbenchRenderer({
         shell.title = queryError ? queryError.message : '';
         error.textContent = queryError ? queryError.message : '';
         error.hidden = !queryError;
-    }
-
-    function resetToAllWork() {
-        state.activeTopic = 'all';
-        state.selectedId = '';
-        renderWorkbench();
-    }
-
-    function renderGraphStatus(topicCounts = []) {
-        const status = document.getElementById('graph-status');
-        if (!status) return;
-
-        const countsById = new Map(topicCounts.map(topic => [topic.id, topic.count]));
-        const activeTopic = topicBlueprints.find(topic => topic.id === state.activeTopic) || topicBlueprints[0];
-        const activeCount = countsById.get(activeTopic.id) ?? '';
-        const graphStatusSignature = JSON.stringify({
-            activeTopic: state.activeTopic,
-            activeCount
-        });
-
-        if (graphStatusSignature === lastGraphStatusSignature) return;
-        lastGraphStatusSignature = graphStatusSignature;
-
-        const isAllWork = activeTopic.id === 'all';
-        const detail = isAllWork
-            ? 'Search across case studies, writing, open source, and papers — or click a thread node to narrow the surface.'
-            : `${activeCount} related item${activeCount === 1 ? '' : 's'} in this thread. The query above searches within it.`;
-
-        status.innerHTML = `
-            <div class="graph-status-copy">
-                <span class="graph-status-label">Active thread</span>
-                <strong>${escapeHtml(activeTopic.label)}</strong>
-                <span>${escapeHtml(detail)}</span>
-            </div>
-            ${isAllWork ? '' : '<button class="graph-reset" type="button">Show all</button>'}
-        `;
-
-        status.querySelector('.graph-reset')?.addEventListener('click', resetToAllWork);
     }
 
     function renderInspector(selected) {
@@ -87,10 +48,13 @@ export function createWorkbenchRenderer({
         link.rel = external ? 'noopener noreferrer' : '';
     }
 
-    function renderWorkbenchResults(results) {
+    function renderWorkbenchResults(results, topicCounts = []) {
         const container = document.getElementById('workbench-results');
         if (!container) return;
 
+        const activeTopic = topicBlueprints.find(topic => topic.id === state.activeTopic) || topicBlueprints[0];
+        const activeCount = topicCounts.find(topic => topic.id === activeTopic.id)?.count;
+        const showThreadFilter = activeTopic.id !== 'all';
         const resultsSignature = JSON.stringify((results || []).map(item => ({
             id: item.id,
             kind: item.kind,
@@ -98,22 +62,38 @@ export function createWorkbenchRenderer({
             summary: item.summary || '',
             tags: item.tags || [],
             url: item.url || './blog/'
-        })));
+        })).concat([{
+            activeTopic: activeTopic.id,
+            activeCount
+        }]));
         if (resultsSignature === lastResultsSignature) return;
         lastResultsSignature = resultsSignature;
 
+        const threadFilterCard = showThreadFilter ? `
+            <button class="result-card thread-filter-card" type="button">
+                <span class="result-meta">Thread filter</span>
+                <h3>${escapeHtml(activeTopic.label)}</h3>
+                <p>${escapeHtml(activeCount ? `${activeCount} related item${activeCount === 1 ? '' : 's'} shown. Click to show everything again.` : 'Click to show everything again.')}</p>
+            </button>
+        ` : '';
+
         if (!results.length) {
-            container.innerHTML = topicBlueprints.slice(1, 4).map(topic => `
+            container.innerHTML = threadFilterCard + topicBlueprints.slice(1, 4).map(topic => `
                 <article class="result-card">
                     <span class="result-meta">Thread</span>
                     <h3>${escapeHtml(topic.label)}</h3>
                     <p>${escapeHtml(topic.summary)}</p>
                 </article>
             `).join('');
+            container.querySelector('.thread-filter-card')?.addEventListener('click', () => {
+                state.activeTopic = 'all';
+                state.selectedId = '';
+                renderWorkbench();
+            });
             return;
         }
 
-        container.innerHTML = results.map(item => `
+        container.innerHTML = threadFilterCard + results.map(item => `
             <a class="result-card content-card-enter" href="${escapeHtml(item.url || './blog/')}" ${item.kind === 'project' || item.kind === 'paper' ? 'target="_blank" rel="noopener noreferrer"' : ''}>
                 <span class="result-meta">${item.kind === 'project' ? 'Open source' : item.kind === 'paper' ? 'Paper' : item.kind === 'case-study' ? 'Case study' : 'Writing'}</span>
                 <h3>${escapeHtml(item.title || item.label)}</h3>
@@ -122,6 +102,11 @@ export function createWorkbenchRenderer({
             </a>
         `).join('');
 
+        container.querySelector('.thread-filter-card')?.addEventListener('click', () => {
+            state.activeTopic = 'all';
+            state.selectedId = '';
+            renderWorkbench();
+        });
         revealLoadedCards(container, '.content-card-enter');
     }
 
@@ -130,10 +115,9 @@ export function createWorkbenchRenderer({
 
         const viewModel = buildWorkbenchViewModel();
         renderQueryState(viewModel);
-        renderGraphStatus(viewModel.topics || []);
         renderMap(viewModel.nodes || [], viewModel.edges || []);
         renderInspector(viewModel.selected || selectedFromItem(topicBlueprints[1]));
-        renderWorkbenchResults(viewModel.results || []);
+        renderWorkbenchResults(viewModel.results || [], viewModel.topics || []);
     }
 
     return {

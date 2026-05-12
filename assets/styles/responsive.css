@@ -8,7 +8,6 @@
     .case-hero,
     .case-layout,
     .proof-grid,
-    .focus-grid,
     .papers-list,
     .projects-list,
     .workbench-results {
@@ -74,7 +73,6 @@
     .system-view,
     .workbench,
     .case-study-page,
-    .currently,
     .blog-preview,
     .papers,
     .projects,
@@ -257,15 +255,6 @@
         margin-bottom: var(--space-5);
     }
 
-    .graph-status {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .graph-reset {
-        width: 100%;
-    }
-
     .workbench-shell {
         padding: var(--space-4);
     }
@@ -305,7 +294,6 @@
         width: 100%;
     }
 
-    .focus-grid,
     .proof-grid,
     .workbench-results,
     .papers-list,
@@ -314,7 +302,6 @@
         gap: var(--space-4);
     }
 
-    .focus-card,
     .proof-item,
     .workbench-shell,
     .inspector-panel,
@@ -356,7 +343,6 @@
 @media (max-width: 760px) and (min-height: 880px) {
     .workbench,
     .proof-strip,
-    .currently,
     .blog-preview,
     .papers,
     .projects,
@@ -368,7 +354,6 @@
         margin-bottom: var(--space-10);
     }
 
-    .focus-grid,
     .proof-grid,
     .workbench-results,
     .papers-list,
@@ -409,7 +394,6 @@
     .result-card:hover,
     .map-node:hover,
     .project-item:hover,
-    .focus-card:hover,
     .hero-art:hover .hero-art-frame,
     .site-brand:hover,
     .theme-toggle:hover {
@@ -494,7 +478,6 @@
     .hero,
     .proof-strip,
     .workbench,
-    .currently,
     .blog-preview,
     .projects,
     .contact {
@@ -531,9 +514,6 @@
         border-top-color: rgba(145, 184, 255, 0.14);
     }
 
-    .focus-card {
-        padding: var(--space-5);
-    }
 }
 
 @media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {

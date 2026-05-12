@@ -62,44 +62,6 @@
     font-weight: 700;
 }
 
-.graph-status {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-4);
-    margin-bottom: var(--space-5);
-    padding: 0.85rem 1rem;
-    border: 1px solid color-mix(in srgb, var(--color-accent-strong) 12%, var(--color-border));
-    border-radius: var(--radius-md);
-    background: linear-gradient(180deg, color-mix(in srgb, var(--color-paper-cool) 84%, transparent), color-mix(in srgb, var(--color-bg-secondary) 90%, transparent));
-}
-
-.graph-status-copy {
-    display: flex;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-    min-width: 0;
-    color: var(--color-text-secondary);
-    font-size: var(--text-sm);
-}
-
-.graph-status-label {
-    color: var(--color-text-muted);
-    font-size: var(--text-xs);
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-}
-
-.graph-status strong {
-    color: var(--color-text-primary);
-    font-family: var(--font-display);
-    font-size: var(--text-lg);
-    line-height: 1.1;
-}
-
-.graph-reset,
 .map-node {
     appearance: none;
     border: 1px solid var(--color-border);
@@ -107,21 +69,6 @@
     cursor: pointer;
     font-weight: 700;
     transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease, opacity 180ms ease;
-}
-
-.graph-reset {
-    flex: 0 0 auto;
-    min-height: 2.25rem;
-    padding: 0.45rem 0.8rem;
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--color-paper-warm) 88%, white);
-    font: 700 var(--text-xs) / 1.1 var(--font-body);
-}
-
-.graph-reset:hover,
-.graph-reset:focus-visible {
-    border-color: color-mix(in srgb, var(--color-accent) 54%, var(--color-border));
-    background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 15%, var(--color-paper-warm)), color-mix(in srgb, var(--color-accent-strong) 10%, var(--color-paper-cool)));
 }
 
 .workbench-shell {
@@ -329,6 +276,19 @@
     text-decoration: none;
     background: linear-gradient(150deg, color-mix(in srgb, var(--color-paper-cool) 78%, white), color-mix(in srgb, var(--color-paper-warm) 92%, transparent));
     transition: transform 180ms ease, border-color 180ms ease;
+}
+
+button.result-card {
+    appearance: none;
+    border-color: color-mix(in srgb, var(--color-accent-strong) 24%, var(--color-border));
+    color: var(--color-text-primary);
+    cursor: pointer;
+    font: inherit;
+    text-align: left;
+}
+
+.thread-filter-card {
+    background: linear-gradient(150deg, color-mix(in srgb, var(--color-accent) 11%, var(--color-paper-cool)), color-mix(in srgb, var(--color-bg-secondary) 92%, transparent));
 }
 
 .result-card:hover,

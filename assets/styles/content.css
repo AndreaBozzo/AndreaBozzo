@@ -1,4 +1,4 @@
-/* Focus cards, blog, projects, papers, contact, and shared motion states. */
+/* Blog, projects, papers, contact, and shared motion states. */
 
 .proof-strip {
     display: grid;
@@ -55,64 +55,6 @@
     text-transform: uppercase;
 }
 
-.focus-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--space-6);
-}
-
-.focus-card {
-    padding: var(--space-8);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--color-border);
-    background: linear-gradient(145deg, color-mix(in srgb, var(--color-paper-warm) 90%, white), color-mix(in srgb, var(--color-bg-secondary) 86%, transparent));
-    box-shadow: 0 16px 40px rgba(48, 35, 17, 0.06);
-    backdrop-filter: blur(14px);
-    transition: border-color 180ms ease, transform 180ms ease, background-color 180ms ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.focus-card:nth-child(2) {
-    background: linear-gradient(145deg, color-mix(in srgb, var(--color-paper-cool) 84%, white), color-mix(in srgb, var(--color-bg-secondary) 86%, transparent));
-}
-
-.focus-card:nth-child(3) {
-    background: linear-gradient(145deg, color-mix(in srgb, var(--color-paper-warm) 78%, white), color-mix(in srgb, var(--color-paper-cool) 44%, transparent));
-}
-
-.focus-card::before {
-    content: "";
-    position: absolute;
-    inset: 0 0 auto 0;
-    height: 0.4rem;
-    background: linear-gradient(90deg, var(--color-accent), color-mix(in srgb, var(--color-accent-strong) 68%, var(--color-accent)));
-}
-
-.focus-card:nth-child(2)::before {
-    background: linear-gradient(90deg, var(--color-accent-strong), color-mix(in srgb, var(--color-signal) 74%, var(--color-accent-strong)));
-}
-
-.focus-card:nth-child(3)::before {
-    background: linear-gradient(90deg, var(--color-signal), color-mix(in srgb, var(--color-plum) 62%, var(--color-signal)));
-}
-
-.focus-card:hover {
-    transform: translateY(-2px);
-    border-color: color-mix(in srgb, var(--color-accent) 38%, var(--color-border));
-}
-
-.focus-index {
-    display: block;
-    margin-bottom: var(--space-4);
-    font-family: var(--font-display);
-    font-size: var(--text-sm);
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    color: var(--color-accent);
-}
-
-.focus-card h3,
 .panel-title {
     font-size: var(--text-xl);
     margin-bottom: var(--space-4);
