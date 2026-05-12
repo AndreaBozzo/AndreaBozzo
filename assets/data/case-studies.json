@@ -39,6 +39,19 @@
           "style": "secondary"
         }
       ],
+      "ciWorkflowFocus": [
+        "CI",
+        "Benchmarks",
+        "Deploy Benchmark Reports"
+      ],
+      "proofMetrics": [
+        {
+          "label": "Upstream proof",
+          "value": "2 arrow-rs PRs",
+          "detail": "The Arrow and Parquet story is reinforced upstream instead of hidden behind a private workaround.",
+          "url": "../../work/apache-rust-upstream/"
+        }
+      ],
       "mediaSlots": [
         {
           "label": "Arrow path",
@@ -233,6 +246,9 @@
           "url": "../../blog/en/posts/harvesting-vs-scraping-blog/",
           "style": "secondary"
         }
+      ],
+      "ciWorkflowFocus": [
+        "CI"
       ],
       "mediaSlots": [
         {
@@ -1116,6 +1132,31 @@
           "label": "Companion API",
           "url": "https://andrea-bozzo.vercel.app/api/github/stats?username=AndreaBozzo",
           "style": "secondary"
+        }
+      ],
+      "ciWorkflowFocus": [
+        "Deploy static content to Pages",
+        "Update External Contributions",
+        "GitHub Metrics"
+      ],
+      "proofMetrics": [
+        {
+          "label": "Generated surfaces",
+          "value": "Pages + Hugo + Go harvester",
+          "detail": "The public repo already exposes the full path from structured inputs to generated public artifacts."
+        },
+        {
+          "label": "Search/runtime split",
+          "value": "JS + Rust/WASM workbench",
+          "detail": "The site keeps semantic discovery inspectable without forcing every metric into the graph."
+        }
+      ],
+      "operationalSignals": [
+        {
+          "label": "Live companion API",
+          "value": "Stats + badge endpoints",
+          "detail": "Static delivery stays on Pages while changing data lives in a small Go API on Vercel.",
+          "url": "https://andrea-bozzo.vercel.app/api/github/stats?username=AndreaBozzo"
         }
       ],
       "sections": [

@@ -38,6 +38,8 @@ func run(args []string) error {
 		return harvester.GenerateWritingIndex(context.Background(), repoRoot)
 	case "generate-package-registry-index":
 		return harvester.GeneratePackageRegistryIndex(context.Background(), repoRoot)
+	case "generate-ci-runtime-index":
+		return harvester.GenerateCIRuntimeIndex(context.Background(), repoRoot)
 	case "generate-contract-artifacts":
 		return harvester.GenerateContractArtifacts(repoRoot)
 	case "generate-case-study-pages":
@@ -53,24 +55,24 @@ func run(args []string) error {
 
 func generateStaticArtifacts(repoRoot string) error {
 	var wg sync.WaitGroup
-	errCh := make(chan error, 4)
+	errCh := make(chan error, 3)
 
-	wg.Add(4)
+	wg.Add(3)
 	go func() {
 		defer wg.Done()
 		errCh <- harvester.GenerateContributionsJSON(repoRoot)
 	}()
 	go func() {
 		defer wg.Done()
+		if err := harvester.RunAllSources(context.Background(), repoRoot); err != nil {
+			errCh <- err
+			return
+		}
 		errCh <- harvester.GenerateCaseStudyPages(repoRoot)
 	}()
 	go func() {
 		defer wg.Done()
 		errCh <- harvester.GenerateRootSEOArtifacts(repoRoot)
-	}()
-	go func() {
-		defer wg.Done()
-		errCh <- harvester.RunAllSources(context.Background(), repoRoot)
 	}()
 
 	wg.Wait()
@@ -106,5 +108,5 @@ func usageError() error {
 }
 
 func usageText() string {
-	return "harvester is the unified Go CLI for repo data generation.\n\nUsage:\n  go run ./cmd/harvester <subcommand>\n\nSubcommands:\n  ingest --source blog\n  ingest --source packages\n  ingest --all\n  update-contributions-readme\n  generate-contributions-json\n  generate-writing-index\n  generate-package-registry-index\n  generate-contract-artifacts\n  generate-case-study-pages\n  generate-static-artifacts\n"
+	return "harvester is the unified Go CLI for repo data generation.\n\nUsage:\n  go run ./cmd/harvester <subcommand>\n\nSubcommands:\n  ingest --source blog\n  ingest --source packages\n  ingest --source ci\n  ingest --all\n  update-contributions-readme\n  generate-contributions-json\n  generate-writing-index\n  generate-package-registry-index\n  generate-ci-runtime-index\n  generate-contract-artifacts\n  generate-case-study-pages\n  generate-static-artifacts\n"
 }

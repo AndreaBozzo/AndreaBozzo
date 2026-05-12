@@ -26,6 +26,11 @@ They are recorded here so future-me does not relitigate them.
 - **No new Cargo deps for the simulation.** Handwritten spring-electrical
   forces are ~150 lines; pulling in a physics engine like `rapier2d` would be
   wrong-tool flex.
+- **The graph stays semantic, not a raw metrics sink.** New numeric or
+  operational stats should default to case-study proof panels, repository
+  summaries, or dedicated site modules. The graph can consume derived
+  relationships or topic signals from those datasets, but not become a dumping
+  ground for badges, counters, and CI timings.
 
 ---
 
@@ -138,6 +143,20 @@ wire because that fits the actual volume.
    of truth, with optional DOI/ORCID/OpenAlex enrichment only when stable
    identifiers exist.
 
+**Presentation strategy:**
+
+- The workbench should keep indexing the semantic entities: case studies,
+  posts, packages, papers, contributions, and topics.
+- New stats from package registries or GitHub should primarily reinforce the
+  relevant case study: proof points, artifact strips, repo summaries, or
+  inspector content that explains why the number matters.
+- CI runtime data should land in dedicated build-health surfaces, not as raw
+  graph payload: for example the relevant case study, the site/system case
+  study, or a compact homepage operational panel.
+- The graph may still react to new data indirectly via derived topics,
+  relationships, or curated selections, but raw counters/timings are not the
+  default presentation layer.
+
 **Non-goals for this phase:**
 
 - Dev.to and Medium mirrors — not used, so they would create fake surface area.
@@ -194,8 +213,9 @@ wire because that fits the actual volume.
 - Vercel preview from `vercel.ts` returns identical responses to the current
   `vercel.json`-based deployment for `/api/github/stats` and
   `/api/github/badge`.
-- Frontend renders new blog, package-registry, GitHub, and CI-runtime data on
-  the homepage and graph (some new tech/topic nodes appear).
+- Frontend routes new blog, package-registry, GitHub, and CI-runtime data into
+  search, case-study proof surfaces, and dedicated operational modules; the
+  graph only absorbs the derived relationships that genuinely improve discovery.
 
 **Cost estimate:** 2–3 weekends. The boring middle: schema codegen, source
 interface, cache layer, CI gate.
@@ -204,7 +224,8 @@ interface, cache layer, CI gate.
 
 ## Phase D — Client-side polling polish
 
-**Goal:** Make the graph feel alive at near-zero cost.
+**Goal:** Make the site feel alive at near-zero cost without turning the graph
+into a live metrics dashboard.
 
 **Why polling, not SSE:** Discussed above. Vercel function cost + connection
 limits make SSE the wrong primitive at this scale.
@@ -214,19 +235,21 @@ limits make SSE the wrong primitive at this scale.
 1. Every 30s while tab is visible
    (`document.visibilityState === 'visible'`), fetch
    `/api/github/stats`.
-2. Diff against the last response. If new stars/repos/etc., briefly highlight
-   the relevant node (CSS pulse on the canvas node + drop sparkle particles
-   for ~1.5s).
+2. Diff against the last response and update small proof surfaces: homepage
+  stats, case-study proof panels, or compact build-health modules.
 3. Backoff to 5min when the tab is hidden.
 4. Respect `prefers-reduced-motion` — silent state update, no pulse.
+5. If graph-specific animation still feels worth it later, gate it behind a
+  stronger graph interaction model rather than coupling it to every new stat.
 
-**No backend changes.** This is a frontend-only phase; Vercel function and
-cache headers stay as-is.
+**No backend changes.** This is still a frontend-only phase; Vercel function
+and cache headers stay as-is.
 
 **Verification:**
 
 - Open site, wait 30s, see network call. Star one of the repos from another
-  browser; within 30s, watch the matching node pulse.
+  browser; within 30s, watch the relevant proof surface update without needing
+  to reinterpret the graph.
 - DevTools → throttle to "Offline" → no console errors, polling pauses
   gracefully.
 - Lighthouse: no regression vs. Phase A.

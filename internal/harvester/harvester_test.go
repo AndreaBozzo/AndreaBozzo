@@ -297,6 +297,247 @@ func TestRenderCaseStudyPageIncludesLocalNavigationButtons(t *testing.T) {
 	}
 }
 
+func TestRenderCaseStudyPageIncludesProofMetricsAndOperationalSignals(t *testing.T) {
+	body := string(renderCaseStudyPage(caseStudy{
+		Slug:     "demo",
+		Title:    "Demo",
+		Subtitle: "Example",
+		Sections: []caseStudySection{{Heading: "Why", Body: "Because"}},
+		ProofMetrics: []caseStudyDatum{{
+			Label:  "Packages",
+			Value:  "PyPI + crate",
+			Detail: "Public release surfaces attached to the project.",
+		}},
+		OperationalSignals: []caseStudyDatum{{
+			Label:  "CI health",
+			Value:  "Green builds",
+			Detail: "Workflow state should stay near the case study, not in the graph.",
+			URL:    "https://example.com/actions",
+		}},
+	}, caseStudyPageContext{}, time.Unix(0, 0).UTC()))
+
+	if !strings.Contains(body, "Proof metrics") || !strings.Contains(body, "Operational signals") {
+		t.Fatalf("expected data group headings to render")
+	}
+	if !strings.Contains(body, "PyPI + crate") || !strings.Contains(body, "Green builds") {
+		t.Fatalf("expected data group values to render")
+	}
+	if !strings.Contains(body, "https://example.com/actions") {
+		t.Fatalf("expected operational signal link to render")
+	}
+}
+
+func TestGenerateCaseStudyPagesEnrichesFromPackageAndCIRuntimeArtifacts(t *testing.T) {
+	repoRoot := t.TempDir()
+	writeTestFile(t, filepath.Join(repoRoot, "assets", "data", "case-studies.json"), `{
+	"items": [
+		{
+			"slug": "dataprof",
+			"title": "dataprof",
+			"subtitle": "Example",
+			"repoUrl": "https://github.com/AndreaBozzo/dataprof",
+			"sections": [{"heading": "Why", "body": "Because"}]
+		}
+	]
+}`)
+	writeTestFile(t, filepath.Join(repoRoot, "assets", "data", "packages.json"), `{
+	"$schemaVersion": "v1",
+	"generatedAt": "2026-05-12T10:00:00Z",
+	"source": "assets/data/package-sources.json",
+	"items": [
+		{
+			"id": "pypi:dataprof",
+			"ecosystem": "pypi",
+			"name": "dataprof",
+			"displayName": "dataprof",
+			"summary": "Fast data profiling",
+			"version": "0.7.1",
+			"url": "https://pypi.org/project/dataprof/",
+			"repositoryUrl": "https://github.com/AndreaBozzo/dataprof",
+			"relatedCaseStudies": ["dataprof"]
+		}
+	]
+}`)
+	writeTestFile(t, filepath.Join(repoRoot, "assets", "data", "ci-runtimes.json"), `{
+	"$schemaVersion": "v1",
+	"generatedAt": "2026-05-12T10:00:00Z",
+	"source": "github-actions",
+	"items": [
+		{
+			"caseStudySlug": "dataprof",
+			"repoFullName": "AndreaBozzo/dataprof",
+			"repoUrl": "https://github.com/AndreaBozzo/dataprof",
+			"workflowName": "test",
+			"workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/workflows/test.yml",
+			"runsSampled": 12,
+			"medianDurationSeconds": 245,
+			"p95DurationSeconds": 481,
+			"successRate": 0.92,
+			"latestConclusion": "success",
+			"latestStatus": "completed",
+			"latestRunAt": "2026-05-12T09:40:00Z"
+		}
+	]
+}`)
+
+	if err := GenerateCaseStudyPages(repoRoot); err != nil {
+		t.Fatalf("GenerateCaseStudyPages returned error: %v", err)
+	}
+
+	body, err := os.ReadFile(filepath.Join(repoRoot, "work", "dataprof", "index.html"))
+	if err != nil {
+		t.Fatalf("read generated case study page: %v", err)
+	}
+	rendered := string(body)
+	if !strings.Contains(rendered, "Published packages") || !strings.Contains(rendered, "1 package on PyPI") {
+		t.Fatalf("expected generated package proof metric, got %q", rendered)
+	}
+	if !strings.Contains(rendered, "test") || !strings.Contains(rendered, "92% success") {
+		t.Fatalf("expected generated CI operational signal")
+	}
+}
+
+func TestBuildCIOperationalSignalsPrefersConfiguredWorkflowFocus(t *testing.T) {
+	study := caseStudy{
+		Slug:            "dataprof",
+		RepoURL:         "https://github.com/AndreaBozzo/dataprof",
+		CIWorkflowFocus: []string{"CI", "Benchmarks", "Deploy Benchmark Reports"},
+	}
+	signals := buildCIOperationalSignals(study, []schema.CIRuntimeItemV1{
+		{
+			CaseStudySlug:         "dataprof",
+			RepoURL:               study.RepoURL,
+			WorkflowName:          "Pull Request Labeler",
+			WorkflowPath:          ".github/workflows/labeler.yml",
+			WorkflowURL:           "https://example.com/labeler",
+			RunsSampled:           8,
+			MedianDurationSeconds: 12,
+			P95DurationSeconds:    20,
+			SuccessRate:           1,
+			LatestConclusion:      "success",
+			LatestRunAt:           "2026-05-12T12:00:00Z",
+		},
+		{
+			CaseStudySlug:         "dataprof",
+			RepoURL:               study.RepoURL,
+			WorkflowName:          "Deploy Benchmark Reports",
+			WorkflowPath:          ".github/workflows/benchmarks-deploy.yml",
+			WorkflowURL:           "https://example.com/deploy-benchmarks",
+			RunsSampled:           4,
+			MedianDurationSeconds: 95,
+			P95DurationSeconds:    150,
+			SuccessRate:           1,
+			LatestConclusion:      "success",
+			LatestRunAt:           "2026-05-11T12:00:00Z",
+		},
+		{
+			CaseStudySlug:         "dataprof",
+			RepoURL:               study.RepoURL,
+			WorkflowName:          "Benchmarks",
+			WorkflowPath:          ".github/workflows/benchmarks.yml",
+			WorkflowURL:           "https://example.com/benchmarks",
+			RunsSampled:           6,
+			MedianDurationSeconds: 240,
+			P95DurationSeconds:    420,
+			SuccessRate:           1,
+			LatestConclusion:      "success",
+			LatestRunAt:           "2026-05-10T12:00:00Z",
+		},
+		{
+			CaseStudySlug:         "dataprof",
+			RepoURL:               study.RepoURL,
+			WorkflowName:          "CI",
+			WorkflowPath:          ".github/workflows/ci.yml",
+			WorkflowURL:           "https://example.com/ci",
+			RunsSampled:           12,
+			MedianDurationSeconds: 180,
+			P95DurationSeconds:    320,
+			SuccessRate:           0.92,
+			LatestConclusion:      "success",
+			LatestRunAt:           "2026-05-09T12:00:00Z",
+		},
+	})
+
+	if len(signals) != 3 {
+		t.Fatalf("expected 3 focused CI signals, got %d", len(signals))
+	}
+	if signals[0].Label != "CI" || signals[1].Label != "Benchmarks" || signals[2].Label != "Deploy Benchmark Reports" {
+		t.Fatalf("unexpected focused workflow order: %#v", signals)
+	}
+	for _, signal := range signals {
+		if signal.Label == "Pull Request Labeler" {
+			t.Fatalf("expected noisy automation workflow to be excluded from focused signals")
+		}
+	}
+}
+
+func TestCIRuntimeSourceFetchesWorkflowMetrics(t *testing.T) {
+	repoRoot := t.TempDir()
+	writeTestFile(t, filepath.Join(repoRoot, "assets", "data", "case-studies.json"), `{
+  "items": [
+    {
+      "slug": "dataprof",
+      "title": "dataprof",
+      "subtitle": "Example",
+      "repoUrl": "https://github.com/AndreaBozzo/dataprof",
+      "sections": [{"heading": "Why", "body": "Because"}]
+    }
+  ]
+}`)
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/repos/AndreaBozzo/dataprof/actions/runs" {
+			t.Fatalf("unexpected path %s", r.URL.Path)
+		}
+		w.Header().Set("Content-Type", "application/json")
+		_, _ = w.Write([]byte(`{
+  "workflow_runs": [
+    {
+      "name": "test",
+      "path": ".github/workflows/test.yml",
+      "html_url": "https://github.com/AndreaBozzo/dataprof/actions/runs/1",
+      "status": "completed",
+      "conclusion": "success",
+      "run_started_at": "2026-05-12T09:00:00Z",
+      "updated_at": "2026-05-12T09:04:05Z"
+    },
+    {
+      "name": "test",
+      "path": ".github/workflows/test.yml",
+      "html_url": "https://github.com/AndreaBozzo/dataprof/actions/runs/2",
+      "status": "completed",
+      "conclusion": "failure",
+      "run_started_at": "2026-05-11T09:00:00Z",
+      "updated_at": "2026-05-11T09:08:01Z"
+    }
+  ]
+}`))
+	}))
+	defer server.Close()
+
+	source := CIRuntimeSource{RepoRoot: repoRoot, HTTPClient: server.Client(), APIBaseURL: server.URL}
+	payload, err := source.Fetch(context.Background())
+	if err != nil {
+		t.Fatalf("Fetch returned error: %v", err)
+	}
+	index, ok := payload.(schema.CIRuntimeIndexV1)
+	if !ok {
+		t.Fatalf("expected CIRuntimeIndexV1 payload, got %T", payload)
+	}
+	if len(index.Items) != 1 {
+		t.Fatalf("expected one workflow metric, got %d", len(index.Items))
+	}
+	item := index.Items[0]
+	if item.WorkflowName != "test" || item.RunsSampled != 2 {
+		t.Fatalf("unexpected workflow summary: %+v", item)
+	}
+	if item.MedianDurationSeconds != 245 || item.P95DurationSeconds != 481 {
+		t.Fatalf("unexpected durations: %+v", item)
+	}
+	if item.SuccessRate != 0.5 {
+		t.Fatalf("unexpected success rate: %+v", item)
+	}
+}
+
 func TestReplaceBetweenMarkers(t *testing.T) {
 	content := "before <!-- X:START -->\nold\n<!-- X:END --> after"
 	updated, err := replaceBetweenMarkers(content, "<!-- X:START -->", "<!-- X:END -->", "new")

@@ -242,6 +242,73 @@
     width: 100%;
 }
 
+.case-data-group {
+    display: grid;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border: 1px solid color-mix(in srgb, var(--color-accent) 18%, var(--color-border));
+    border-radius: var(--radius-md);
+    background:
+        linear-gradient(155deg, color-mix(in srgb, var(--color-paper-warm) 94%, white), color-mix(in srgb, var(--color-bg-secondary) 92%, transparent));
+}
+
+.case-data-kicker {
+    margin: 0;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.case-data-intro {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+}
+
+.case-data-list {
+    display: grid;
+    gap: var(--space-3);
+}
+
+.case-datum,
+.case-datum-link {
+    display: grid;
+    gap: 0.35rem;
+    padding: var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--color-bg-tertiary) 82%, transparent);
+    text-decoration: none;
+}
+
+.case-datum-link:hover,
+.case-datum-link:focus-visible {
+    border-color: color-mix(in srgb, var(--color-accent) 28%, var(--color-border));
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-accent) 12%, transparent);
+}
+
+.case-datum-label {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.case-datum-value {
+    color: var(--color-text-primary);
+    font-size: var(--text-base);
+    line-height: 1.1;
+}
+
+.case-datum-detail {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+}
+
 .media-slots {
     display: grid;
     gap: var(--space-4);

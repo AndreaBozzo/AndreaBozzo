@@ -22,12 +22,20 @@ func GenerateContractArtifacts(repoRoot string) error {
 			content: packagesSchemaJSON,
 		},
 		{
+			path:    filepath.Join(repoRoot, "schema", "ci-runtimes.schema.json"),
+			content: ciRuntimesSchemaJSON,
+		},
+		{
 			path:    filepath.Join(repoRoot, "assets", "types", "writing.d.ts"),
 			content: writingTypes,
 		},
 		{
 			path:    filepath.Join(repoRoot, "assets", "types", "packages.d.ts"),
 			content: packagesTypes,
+		},
+		{
+			path:    filepath.Join(repoRoot, "assets", "types", "ci-runtimes.d.ts"),
+			content: ciRuntimesTypes,
 		},
 	}
 
@@ -257,6 +265,103 @@ const packagesSchemaJSON = `{
 }
 `
 
+const ciRuntimesSchemaJSON = `{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://andreabozzo.dev/schema/ci-runtimes.schema.json",
+  "title": "CIRuntimeIndexV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schemaVersion", "generatedAt", "source", "items"],
+  "properties": {
+    "$schemaVersion": {
+      "const": "v1"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/CIRuntimeItemV1"
+      }
+    }
+  },
+  "$defs": {
+    "CIRuntimeItemV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "caseStudySlug",
+        "repoFullName",
+        "repoUrl",
+        "workflowName",
+        "runsSampled",
+        "medianDurationSeconds",
+        "p95DurationSeconds",
+        "successRate"
+      ],
+      "properties": {
+        "caseStudySlug": {
+          "type": "string",
+          "minLength": 1
+        },
+        "repoFullName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "repoUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "workflowName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workflowPath": {
+          "type": "string"
+        },
+        "workflowUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "runsSampled": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "medianDurationSeconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "p95DurationSeconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "successRate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "latestStatus": {
+          "type": "string"
+        },
+        "latestConclusion": {
+          "type": "string"
+        },
+        "latestRunAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}
+`
+
 const writingTypes = `export interface WritingItemV1 {
   id: string;
   slug: string;
@@ -307,6 +412,30 @@ export interface PackageRegistryIndexV1 {
   generatedAt: string;
   source: string;
   items: PackageItemV1[];
+}
+`
+
+const ciRuntimesTypes = `export interface CIRuntimeItemV1 {
+  caseStudySlug: string;
+  repoFullName: string;
+  repoUrl: string;
+  workflowName: string;
+  workflowPath?: string;
+  workflowUrl?: string;
+  runsSampled: number;
+  medianDurationSeconds: number;
+  p95DurationSeconds: number;
+  successRate: number;
+  latestStatus?: string;
+  latestConclusion?: string;
+  latestRunAt?: string;
+}
+
+export interface CIRuntimeIndexV1 {
+  $schemaVersion: 'v1';
+  generatedAt: string;
+  source: string;
+  items: CIRuntimeItemV1[];
 }
 `
 

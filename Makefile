@@ -42,7 +42,7 @@ build-site: ## Build the full GitHub Pages artifact under _site/.
 	npm run build:site
 
 .PHONY: generate
-generate: generate-svg generate-og generate-case-studies generate-contributions generate-writing generate-packages generate-contracts ## Regenerate static source-driven artifacts.
+generate: generate-svg generate-og generate-case-studies generate-contributions generate-writing generate-packages generate-ci generate-contracts ## Regenerate static source-driven artifacts.
 
 .PHONY: generate-svg
 generate-svg: ## Regenerate case-study SVG assets.
@@ -67,6 +67,10 @@ generate-writing: ## Regenerate the schema-versioned writing index.
 .PHONY: generate-packages
 generate-packages: ## Regenerate schema-versioned package registry metadata.
 	npm run generate:packages
+
+.PHONY: generate-ci
+generate-ci: ## Regenerate schema-versioned CI runtime metadata.
+	npm run generate:ci
 
 .PHONY: generate-contracts
 generate-contracts: ## Regenerate schema and TypeScript contract artifacts.
@@ -97,7 +101,7 @@ lint-rust: ## Run Rust clippy with warnings denied.
 
 .PHONY: lint-json
 lint-json: ## Validate checked-in JSON data files.
-	jq empty assets/data/case-studies.json assets/data/papers.json assets/data/contributions.json assets/data/writing.json assets/data/package-sources.json assets/data/packages.json package.json
+	jq empty assets/data/case-studies.json assets/data/papers.json assets/data/contributions.json assets/data/writing.json assets/data/package-sources.json assets/data/packages.json assets/data/ci-runtimes.json package.json
 
 .PHONY: lint-contracts
 lint-contracts: ## Validate schema-versioned JSON against committed schemas.
