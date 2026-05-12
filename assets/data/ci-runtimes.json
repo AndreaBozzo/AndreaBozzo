@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-12T15:25:07Z",
+  "generatedAt": "2026-05-12T15:36:12Z",
   "source": "case-study repoUrl GitHub Actions runs",
   "items": [
     {
@@ -9,14 +9,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/AndreaBozzo",
       "workflowName": "Deploy static content to Pages",
       "workflowPath": ".github/workflows/pages.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/25742628038",
+      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/25744420541",
       "runsSampled": 18,
       "medianDurationSeconds": 64,
       "p95DurationSeconds": 170,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-05-12T14:56:42Z"
+      "latestRunAt": "2026-05-12T15:27:33Z"
     },
     {
       "caseStudySlug": "andreabozzo-site",

@@ -79,8 +79,11 @@ function validateMeasuredText(filePath, source) {
     const kind = getAttribute(attributes, 'data-ab-kind') ?? 'sans';
     const tspanPattern = /<tspan\b[^>]*>([\s\S]*?)<\/tspan>/g;
 
-    for (const [, rawText] of content.matchAll(tspanPattern)) {
-      const text = decodeXml(rawText);
+    const tspanTexts = [...content.matchAll(tspanPattern)].map(([, rawText]) => decodeXml(rawText));
+    const inlineText = decodeXml(content.replace(/<[^>]+>/g, '').trim());
+    const lineTexts = tspanTexts.length > 0 ? tspanTexts : inlineText ? [inlineText] : [];
+
+    for (const text of lineTexts) {
       const width = measureText(text, { kind, fontSize, fontWeight, letterSpacing });
       if (width > maxWidth + TEXT_WIDTH_EPSILON) {
         throw new Error(`Text overflow detected in ${filePath}: \"${text}\" is ${width.toFixed(2)}px wide for a ${maxWidth}px slot`);
@@ -116,7 +119,7 @@ function collectSvgFiles(path) {
 }
 
 const targets = process.argv.slice(2);
-const roots = targets.length > 0 ? targets : ['assets/images/case-studies'];
+const roots = targets.length > 0 ? targets : ['assets/images/case-studies', 'assets/images/andreabozzo-system-diagram.svg'];
 const svgFiles = roots.flatMap(collectSvgFiles);
 
 if (svgFiles.length === 0) {
@@ -142,6 +145,10 @@ for (const filePath of svgFiles) {
       }
     }
 
+    validateMeasuredText(filePath, source);
+  }
+
+  if (source.includes('data-ab-max-width=')) {
     validateMeasuredText(filePath, source);
   }
 
