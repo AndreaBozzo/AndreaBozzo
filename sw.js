@@ -1,4 +1,4 @@
-const CACHE_NAME = 'andreabozzo-v17';
+const CACHE_NAME = 'andreabozzo-v18';
 const BASE_PATH = new URL(self.registration.scope).pathname;
 const ASSETS_TO_CACHE = [
     BASE_PATH,
@@ -47,60 +47,67 @@ self.addEventListener('activate', (event) => {
     );
 });
 
+// Strategy:
+// - documents (HTML navigations): network-first with a short timeout, fall back to cache.
+//   Keeps the user on fresh content but never strands them when offline.
+// - everything else (CSS/JS/WASM/JSON/images): cache-first, with a background refresh.
+//   Static assets are content-addressed via build, so stale-while-revalidate is safe.
 self.addEventListener('fetch', (event) => {
     const { request } = event;
     const requestUrl = new URL(request.url);
 
-    if (!request.url.startsWith(self.location.origin)) {
+    if (!request.url.startsWith(self.location.origin)) return;
+    if (request.url.includes('api.github.com')) return;
+    if (requestUrl.pathname === `${BASE_PATH}api` || requestUrl.pathname.startsWith(`${BASE_PATH}api/`)) return;
+
+    if (request.destination === 'document') {
+        event.respondWith(networkFirstDocument(request));
         return;
     }
 
-    if (request.url.includes('api.github.com')) {
-        return;
-    }
+    event.respondWith(cacheFirst(request));
+});
 
-    if (requestUrl.pathname === `${BASE_PATH}api` || requestUrl.pathname.startsWith(`${BASE_PATH}api/`)) {
-        return;
-    }
-
+function networkFirstDocument(request) {
     const networkTimeout = new Promise((_, reject) => {
         setTimeout(() => reject(new Error('Network timeout')), 4500);
     });
 
-    event.respondWith(
-        Promise.race([fetch(request), networkTimeout])
+    return Promise.race([fetch(request), networkTimeout])
+        .then((response) => {
+            if (response.status === 200) {
+                const clone = response.clone();
+                caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
+            }
+            return response;
+        })
+        .catch(() =>
+            caches.match(request).then((cached) =>
+                cached
+                || caches.match(`${BASE_PATH}index.html`).then((fallback) => fallback || gatewayTimeout())
+            )
+        );
+}
+
+function cacheFirst(request) {
+    return caches.match(request).then((cached) => {
+        const networkFetch = fetch(request)
             .then((response) => {
-                const responseClone = response.clone();
-
-                if (response.status === 200) {
-                    caches.open(CACHE_NAME).then((cache) => {
-                        cache.put(request, responseClone);
-                    });
+                if (response && response.status === 200) {
+                    const clone = response.clone();
+                    caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
                 }
-
                 return response;
             })
-            .catch(() => {
-                return caches.match(request).then((cachedResponse) => {
-                    if (cachedResponse) {
-                        return cachedResponse;
-                    }
+            .catch(() => cached);
 
-                    if (request.destination === 'document') {
-                        return caches.match(`${BASE_PATH}index.html`).then((fallbackResponse) => fallbackResponse || new Response('', {
-                            status: 504,
-                            statusText: 'Gateway Timeout'
-                        }));
-                    }
+        return cached || networkFetch;
+    });
+}
 
-                    return new Response('', {
-                        status: 504,
-                        statusText: 'Gateway Timeout'
-                    });
-                });
-            })
-    );
-});
+function gatewayTimeout() {
+    return new Response('', { status: 504, statusText: 'Gateway Timeout' });
+}
 
 self.addEventListener('message', (event) => {
     if (event.data.action === 'skipWaiting') {

@@ -245,6 +245,10 @@ export function createWorkbenchGraph({
     }
 
     function stepSimulationJS() {
+        // Mirror of rust/site_engine/src/simulation.rs. Constants below MUST stay
+        // in sync with the Rust copy so behavior is identical with or without WASM.
+        // The Rust version is authoritative; keep this fallback for browsers where
+        // WASM fails to load.
         const REPULSION = 8;
         const SPRING_K = 0.18;
         const SPRING_REST = 16;
@@ -368,14 +372,31 @@ export function createWorkbenchGraph({
         };
     }
 
+    function readThemeTokens() {
+        const styles = getComputedStyle(document.documentElement);
+        const read = (name, fallback) => styles.getPropertyValue(name).trim() || fallback;
+        return {
+            accent: read('--color-accent', '#f97316'),
+            accentStrong: read('--color-accent-strong', '#2563eb'),
+            nodeFill: read('--color-bg-tertiary', '#ffffff'),
+            textPrimary: read('--color-text-primary', '#0f172a'),
+            textMuted: read('--color-text-muted', '#94a3b8')
+        };
+    }
+
     function drawGraph() {
         const ctx = graphSim.ctx;
         if (!ctx) return;
         ctx.clearRect(0, 0, graphSim.width, graphSim.height);
 
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        const edgeStroke = isDark ? 'rgba(170, 190, 220, 0.10)' : 'rgba(60, 70, 95, 0.07)';
-        const edgeStrokeActive = isDark ? 'rgba(249, 115, 22, 0.72)' : 'rgba(196, 90, 39, 0.58)';
+        const tokens = readThemeTokens();
+        const edgeStroke = isDark
+            ? `color-mix(in srgb, ${tokens.textMuted} 22%, transparent)`
+            : `color-mix(in srgb, ${tokens.textMuted} 14%, transparent)`;
+        const edgeStrokeActive = `color-mix(in srgb, ${tokens.accent} ${isDark ? 72 : 58}%, transparent)`;
+        // Topic ring color tracks --color-accent so node hues stay in sync with the palette.
+        const topicColor = tokens.accent || NODE_KIND_COLORS.topic;
 
         const nodeById = new Map(graphSim.nodes.map(n => [n.id, n]));
         const selectedId = state.selectedId;
@@ -400,25 +421,26 @@ export function createWorkbenchGraph({
 
         const circleRects = [];
         const drawn = [];
+        const haloColor = `color-mix(in srgb, ${tokens.accent} ${isDark ? 18 : 14}%, transparent)`;
         for (const node of graphSim.nodes) {
             const { x, y } = nodeToPixel(node);
             const radius = NODE_KIND_RADIUS[node.kind] || 18;
             const isSelected = node.id === selectedId;
             const isHovered = node.id === graphSim.hoveredId;
-            const baseColor = NODE_KIND_COLORS[node.kind] || '#444';
+            const baseColor = node.kind === 'topic' ? topicColor : (NODE_KIND_COLORS[node.kind] || '#444');
 
             ctx.globalAlpha = node.visible ? 1.0 : 0.24;
 
             if (isSelected || isHovered) {
                 ctx.beginPath();
                 ctx.arc(x, y, radius + 7, 0, Math.PI * 2);
-                ctx.fillStyle = isDark ? 'rgba(249, 115, 22, 0.18)' : 'rgba(249, 115, 22, 0.14)';
+                ctx.fillStyle = haloColor;
                 ctx.fill();
             }
 
             ctx.beginPath();
             ctx.arc(x, y, radius, 0, Math.PI * 2);
-            ctx.fillStyle = isDark ? '#111a29' : '#fffaf2';
+            ctx.fillStyle = tokens.nodeFill;
             ctx.fill();
             ctx.strokeStyle = baseColor;
             ctx.lineWidth = isSelected ? 3 : 1.55;
@@ -492,7 +514,7 @@ export function createWorkbenchGraph({
             }
 
             labelRects.push(candidate);
-            ctx.fillStyle = isDark ? '#e8eef5' : '#1a2236';
+            ctx.fillStyle = tokens.textPrimary;
             ctx.textAlign = 'left';
             ctx.textBaseline = 'top';
             for (let i = 0; i < lines.length; i++) {

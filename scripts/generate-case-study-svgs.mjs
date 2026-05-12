@@ -80,6 +80,12 @@ function fontMetricKey(options = {}) {
   return bold ? 'sansBold' : 'sansRegular';
 }
 
+// Browser rendering applies kerning and ligatures that opentype.js's raw
+// glyph-advance sum does not. The net effect is small (typically -1% to +1%)
+// but unsigned, so we add a conservative pad to keep measurements an upper
+// bound on what a browser will draw. Mirrored in scripts/validate-svg.mjs.
+const MEASUREMENT_SAFETY_PAD = 1.012;
+
 function measureText(text, options = {}) {
   const fontSize = options.fontSize ?? 16;
   const letterSpacing = options.letterSpacing ?? 0;
@@ -95,7 +101,7 @@ function measureText(text, options = {}) {
   if (normalized.length > 1) {
     width += (normalized.length - 1) * letterSpacing;
   }
-  return width;
+  return width * MEASUREMENT_SAFETY_PAD;
 }
 
 const TOKEN_BREAK_DELIMITERS = new Set(['/', '-', '.']);
@@ -114,6 +120,13 @@ function breakTokenByCharacter(token, maxWidth, options) {
   }
   if (current) {
     parts.push(current);
+  }
+  // Any single-character piece that overflows the slot cannot be made to fit
+  // by wrapping. Surface this immediately rather than emitting silent overflow.
+  for (const part of parts) {
+    if (measureText(part, options) > maxWidth) {
+      return null;
+    }
   }
   return parts;
 }
@@ -136,16 +149,24 @@ function splitTokenAtPreferredBoundaries(token) {
 function breakToken(token, maxWidth, options) {
   const preferredParts = splitTokenAtPreferredBoundaries(token);
   if (preferredParts.length > 1) {
-    return preferredParts.flatMap((part) => (
-      measureText(part, options) > maxWidth
-        ? breakTokenByCharacter(part, maxWidth, options)
-        : [part]
-    ));
+    const flat = [];
+    for (const part of preferredParts) {
+      if (measureText(part, options) <= maxWidth) {
+        flat.push(part);
+        continue;
+      }
+      const broken = breakTokenByCharacter(part, maxWidth, options);
+      if (!broken) return null;
+      flat.push(...broken);
+    }
+    return flat;
   }
 
   return breakTokenByCharacter(token, maxWidth, options);
 }
 
+// Returns an array of lines that ALL fit within maxWidth, or null if no
+// wrapping at this fontSize could keep every line within maxWidth.
 function wrapText(text, maxWidth, options = {}) {
   const normalized = String(text).trim();
   if (!normalized) {
@@ -172,6 +193,7 @@ function wrapText(text, maxWidth, options = {}) {
     }
 
     const pieces = breakToken(word, maxWidth, options);
+    if (!pieces) return null;
     let firstPiece = true;
     for (const piece of pieces) {
       const separator = current && firstPiece ? ' ' : '';
@@ -193,10 +215,16 @@ function wrapText(text, maxWidth, options = {}) {
   return lines;
 }
 
+// Returns the largest font size in [minFontSize, fontSize] where the wrapped
+// text fits both the width and the height/line budgets, with every line
+// individually within maxWidth. Returns null if no size satisfies the
+// constraints — the caller MUST treat that as a hard failure rather than
+// emitting overflowing text.
 function fitLines(text, maxWidth, config) {
-  let fontSize = config.fontSize;
-  while (fontSize >= (config.minFontSize ?? fontSize)) {
+  const minFontSize = config.minFontSize ?? config.fontSize;
+  for (let fontSize = config.fontSize; fontSize >= minFontSize; fontSize -= 1) {
     const lines = wrapText(text, maxWidth, { ...config, fontSize });
+    if (!lines) continue;
     const computedLineHeight = config.lineHeight
       ? Math.round(config.lineHeight * (fontSize / config.fontSize))
       : Math.round(fontSize * 1.28);
@@ -205,13 +233,8 @@ function fitLines(text, maxWidth, config) {
     if (withinLineLimit && withinHeightLimit) {
       return { lines, fontSize };
     }
-    fontSize -= 1;
   }
-
-  return {
-    lines: wrapText(text, maxWidth, { ...config, fontSize: config.minFontSize ?? config.fontSize }),
-    fontSize: config.minFontSize ?? config.fontSize,
-  };
+  return null;
 }
 
 function rect(x, y, width, height, fill, stroke, radius = 28) {
@@ -241,18 +264,37 @@ function textBlock({
   kind = 'sans',
   maxLines,
   maxHeight,
+  cellBox,
   align = 'left',
 }) {
-  const { lines, fontSize: fittedFontSize } = fitLines(text, width, {
+  // When the caller hands us a cellBox (the visible container the text must
+  // never escape), derive maxHeight from the cell so vertical containment is
+  // checked at fit time. y is the baseline of the first line, so available
+  // vertical room is cellBottom - (y - ascent). Approximate ascent as fontSize.
+  const cellMaxHeight = cellBox
+    ? Math.max(0, (cellBox.y + cellBox.height) - (y - fontSize * 0.8))
+    : null;
+  const effectiveMaxHeight = [maxHeight, cellMaxHeight].filter((v) => Number.isFinite(v) && v > 0);
+  const heightBudget = effectiveMaxHeight.length ? Math.min(...effectiveMaxHeight) : undefined;
+
+  const fitted = fitLines(text, width, {
     fontSize,
     minFontSize,
     fontWeight,
     maxLines,
-    maxHeight,
+    maxHeight: heightBudget,
     lineHeight,
     letterSpacing,
     kind,
   });
+
+  if (!fitted) {
+    throw new Error(
+      `textBlock: cannot fit text within slot.\n  text:        "${text}"\n  slot width:  ${width}\n  height budget: ${heightBudget ?? 'unbounded'}\n  fontSize range: [${minFontSize}, ${fontSize}]\n  maxLines:    ${maxLines ?? 'unbounded'}\nIncrease width/height, raise maxLines, lower minFontSize, or shorten the copy.`,
+    );
+  }
+
+  const { lines, fontSize: fittedFontSize } = fitted;
   const computedLineHeight = lineHeight
     ? Math.round(lineHeight * (fittedFontSize / fontSize))
     : Math.round(fittedFontSize * 1.28);
@@ -280,18 +322,34 @@ function textBlock({
     })
     .join('');
 
-  const metadata = [
+  const blockHeight = lines.length * computedLineHeight;
+  // textBottom = baseline of last line + descent. fontSize*0.25 is a rough
+  // descent estimate that holds for both Plex Sans and Mono.
+  const textBottom = y + (lines.length - 1) * computedLineHeight + fittedFontSize * 0.25;
+
+  const metadataParts = [
     `data-ab-max-width="${width}"`,
     `data-ab-font-size="${fittedFontSize}"`,
     `data-ab-font-weight="${fontWeight}"`,
     `data-ab-letter-spacing="${letterSpacing}"`,
     `data-ab-kind="${kind}"`,
-  ].join(' ');
+    `data-ab-text-bottom="${textBottom.toFixed(1)}"`,
+  ];
+  if (cellBox) {
+    metadataParts.push(
+      `data-ab-cell-x="${cellBox.x}"`,
+      `data-ab-cell-y="${cellBox.y}"`,
+      `data-ab-cell-width="${cellBox.width}"`,
+      `data-ab-cell-height="${cellBox.height}"`,
+    );
+  }
+  const metadata = metadataParts.join(' ');
 
   return {
     svg: `<text x="${x}" y="${y}" fill="${fill}" font-size="${fittedFontSize}" font-weight="${fontWeight}" font-family="${fontFamily}" ${metadata}${letterSpacingAttr}>${tspans}</text>`,
-    height: lines.length * computedLineHeight,
+    height: blockHeight,
     fontSize: fittedFontSize,
+    textBottom,
   };
 }
 
@@ -404,7 +462,8 @@ function renderDceCliValidate() {
   ];
 
   for (const row of rows) {
-    parts.push(rect(84, row.y, 1032, 128, row.fill, row.stroke, 30));
+    const rowCell = { x: 84, y: row.y, width: 1032, height: 128 };
+    parts.push(rect(rowCell.x, rowCell.y, rowCell.width, rowCell.height, row.fill, row.stroke, 30));
     parts.push(textBlock({
       x: 118,
       y: row.y + 52,
@@ -417,6 +476,7 @@ function renderDceCliValidate() {
       letterSpacing: 3,
       kind: 'sans',
       maxLines: 1,
+      cellBox: rowCell,
     }).svg);
     parts.push(textBlock({
       x: 118,
@@ -431,6 +491,7 @@ function renderDceCliValidate() {
       fontWeight: 700,
       kind: 'mono',
       maxLines: 2,
+      cellBox: rowCell,
     }).svg);
     if (row.meta) {
       parts.push(textBlock({
@@ -445,6 +506,7 @@ function renderDceCliValidate() {
         fontFamily: FONT.sans,
         kind: 'sans',
         maxLines: 2,
+        cellBox: rowCell,
       }).svg);
     }
   }
@@ -618,9 +680,10 @@ function renderNephtysRestPoller() {
     [886, 306, 220, '#F2FAF4', '#BED7C1', '#5C8E63', 'DURABILITY', 'JetStream'],
   ];
   for (const [x, y, width, fill, stroke, ink, label, value] of topCards) {
-    parts.push(rect(x, y, width, 126, fill, stroke, 28));
-    parts.push(textBlock({ x: x + 32, y: y + 52, width: width - 64, text: label, fontSize: 20, fill: ink, fontFamily: FONT.sans, fontWeight: 700, letterSpacing: 3, kind: 'sans' }).svg);
-    parts.push(textBlock({ x: x + 32, y: y + 96, width: width - 64, text: value, fontSize: 34, minFontSize: 28, fill: '#1B2746', fontFamily: FONT.display, fontWeight: 700, kind: 'sans', maxLines: 2 }).svg);
+    const cardCell = { x, y, width, height: 126 };
+    parts.push(rect(cardCell.x, cardCell.y, cardCell.width, cardCell.height, fill, stroke, 28));
+    parts.push(textBlock({ x: x + 24, y: y + 52, width: width - 48, text: label, fontSize: 20, fill: ink, fontFamily: FONT.sans, fontWeight: 700, letterSpacing: 3, kind: 'sans', maxLines: 1, cellBox: cardCell }).svg);
+    parts.push(textBlock({ x: x + 24, y: y + 100, width: width - 48, text: value, fontSize: 32, minFontSize: 22, fill: '#1B2746', fontFamily: FONT.display, fontWeight: 700, kind: 'sans', maxLines: 1, cellBox: cardCell }).svg);
   }
   parts.push('<path d="M314 369C388 369 398 369 486 369" stroke="url(#nephtysFlow)" stroke-width="10" stroke-linecap="round"/>');
   parts.push('<path d="M716 369C794 369 804 369 886 369" stroke="url(#nephtysFlow)" stroke-width="10" stroke-linecap="round"/>');
@@ -720,10 +783,11 @@ function renderApacheRustContribMap() {
     parts.push(textBlock({ x: x + 30, y: 226, width: 188, text: heading, fontSize: 28, minFontSize: 24, fill: '#172033', fontFamily: FONT.display, fontWeight: 700, kind: 'sans', maxLines: 1 }).svg);
     parts.push(textBlock({ x: x + 30, y: 262, width: 188, text: body, fontSize: 17, minFontSize: 16, lineHeight: 22, fill: '#172033', fontFamily: FONT.sans, kind: 'sans', maxLines: 3 }).svg);
   }
-  parts.push('  <rect x="120" y="400" width="960" height="188" rx="26" fill="#fffdf8" stroke="#172033" stroke-width="3"/>');
-  parts.push(textBlock({ x: 154, y: 446, width: 340, text: 'What ties them together', fontSize: 26, fill: '#172033', fontFamily: FONT.display, fontWeight: 700, kind: 'sans', maxLines: 1 }).svg);
-  parts.push(textBlock({ x: 154, y: 488, width: 600, text: 'Downstream project pain becomes upstream improvement:', fontSize: 22, minFontSize: 20, lineHeight: 28, fill: '#172033', fontFamily: FONT.sans, kind: 'sans', maxLines: 2 }).svg);
-  parts.push(textBlock({ x: 154, y: 548, width: 820, text: 'profilers need better Parquet behavior, query layers need cleaner Arrow plumbing, lakehouse stacks need stronger table semantics, and streaming stacks need usable Rust clients.', fontSize: 20, minFontSize: 18, lineHeight: 26, fill: '#42506b', fontFamily: FONT.sans, kind: 'sans', maxLines: 4 }).svg);
+  const tiesCell = { x: 120, y: 400, width: 960, height: 188 };
+  parts.push(`  <rect x="${tiesCell.x}" y="${tiesCell.y}" width="${tiesCell.width}" height="${tiesCell.height}" rx="26" fill="#fffdf8" stroke="#172033" stroke-width="3"/>`);
+  parts.push(textBlock({ x: 154, y: 446, width: 340, text: 'What ties them together', fontSize: 26, fill: '#172033', fontFamily: FONT.display, fontWeight: 700, kind: 'sans', maxLines: 1, cellBox: tiesCell }).svg);
+  parts.push(textBlock({ x: 154, y: 488, width: 880, text: 'Downstream project pain becomes upstream improvement:', fontSize: 22, minFontSize: 20, lineHeight: 28, fill: '#172033', fontFamily: FONT.sans, kind: 'sans', maxLines: 1, cellBox: tiesCell }).svg);
+  parts.push(textBlock({ x: 154, y: 530, width: 880, text: 'profilers need better Parquet behavior, query layers need cleaner Arrow plumbing, lakehouse stacks need stronger table semantics, and streaming stacks need usable Rust clients.', fontSize: 18, minFontSize: 15, lineHeight: 24, fill: '#42506b', fontFamily: FONT.sans, kind: 'sans', maxLines: 3, cellBox: tiesCell }).svg);
   parts.push(textBlock({ x: 72, y: 650, width: 920, text: 'The common thread is not logo collection. It is fixing recurring system constraints in the real upstream projects.', fontSize: 18, minFontSize: 17, lineHeight: 24, fill: '#42506b', fontFamily: FONT.sans, kind: 'sans', maxLines: 3 }).svg);
   parts.push('</svg>');
   return parts.join('\n');

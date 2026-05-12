@@ -4,13 +4,29 @@ import (
 	"encoding/json"
 	"net/http"
 	"strings"
+	"sync"
 )
 
 const defaultUsername = "AndreaBozzo"
 
+var (
+	sharedClientOnce sync.Once
+	sharedClient     *Client
+)
+
+// SharedClient returns a process-wide Client. Reusing a single Client preserves
+// the in-process summary cache across requests on the same Fluid Compute
+// instance — without it, each handler invocation would create a fresh cache.
+func SharedClient() *Client {
+	sharedClientOnce.Do(func() {
+		sharedClient = NewClient()
+	})
+	return sharedClient
+}
+
 func StatsHandler(client *Client) http.HandlerFunc {
 	if client == nil {
-		client = NewClient()
+		client = SharedClient()
 	}
 
 	return func(w http.ResponseWriter, r *http.Request) {
@@ -43,7 +59,7 @@ func StatsHandler(client *Client) http.HandlerFunc {
 
 func BadgeHandler(client *Client) http.HandlerFunc {
 	if client == nil {
-		client = NewClient()
+		client = SharedClient()
 	}
 
 	return func(w http.ResponseWriter, r *http.Request) {

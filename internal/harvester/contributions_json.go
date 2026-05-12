@@ -1,6 +1,7 @@
 package harvester
 
 import (
+	"encoding/json"
 	"fmt"
 	"net/url"
 	"os"
@@ -14,28 +15,34 @@ import (
 
 var contributionBadgePattern = regexp.MustCompile(`<a href="([^"]+)"><img src="([^"]+)"[^>]*alt="([^"]+)"/?></a>`)
 
-var contributionDescriptions = map[string]string{
-	"apache/arrow-rs":                             "Rust-side work in the Arrow ecosystem around columnar data and query plumbing.",
-	"apache/datafusion":                           "Query engine fixes and improvements in the Arrow-native SQL execution stack.",
-	"apache/fluss-rust":                           "Client and integration work in the Fluss streaming ecosystem.",
-	"apache/iceberg-rust":                         "Rust contributions around Apache Iceberg tables, metadata, and interoperability.",
-	"beelzebub-labs/beelzebub":                    "Infrastructure-facing fixes and implementation work in a production-oriented platform project.",
-	"cortexflow/cortexbrain":                      "Implementation work across infrastructure and automation-oriented platform tooling.",
-	"datapizza-labs/datapizza-ai":                 "Applied AI engineering work across product integrations and developer-facing features.",
-	"informagico/fantavibe":                       "Targeted upstream fixes and improvements in a smaller community project.",
-	"italia-opensource/awesome-italia-opensource": "Curation and contribution work supporting the Italian open source ecosystem.",
-	"lakekeeper/lakekeeper":                       "Lakehouse catalog and metadata contributions around operational reliability.",
-	"lance-format/lance":                          "Columnar storage and vector-data work in the Lance ecosystem.",
-	"mosaico-labs/mosaico":                        "Contributions across AI workflow orchestration and open tooling.",
-	"pganalyze/pg_query.rs":                       "Rust and Postgres parsing work in a low-level developer tooling library.",
-	"piopy/fantacalcio-py":                        "Small but concrete fixes in a Python project with an active user base.",
-	"pola-rs/polars":                              "Rust-native analytics work across DataFrame performance, ergonomics, and engine behavior.",
-	"risingwavelabs/risingwave":                   "Streaming database contributions across query behavior, engine details, and developer workflow.",
-	"rust-ita/rust-docs-it":                       "Community translation and upkeep work for Italian Rust documentation.",
-	"supabase/etl":                                "Data ingestion and transformation contributions in a production-facing ETL stack.",
-	"tokio-rs/axum":                               "Web framework contributions around routing, ergonomics, and service integration in Rust.",
-	"tokio-rs/tokio":                              "Async runtime improvements around Rust concurrency, scheduling, and developer ergonomics.",
-	"vakamo-labs/openfga-client":                  "Client-library fixes and interface improvements around authorization tooling.",
+// Matches the message segment of a decoded shields.io badge:
+//
+//	label-message-color
+//
+// where `-` inside label/message is escaped as `--`. We capture the stars and
+// PR count from the message after the project name (the label).
+//
+// Example decoded source: "polars-⭐ 38.5k | 3 PR-informational?style=..."
+var contributionMetricsPattern = regexp.MustCompile(`⭐\s*([^\s|]+)\s*\|\s*(\d+)\s*PR`)
+
+type contributionDescriptionsFile struct {
+	Descriptions map[string]string `json:"descriptions"`
+}
+
+func loadContributionDescriptions(repoRoot string) (map[string]string, error) {
+	path := filepath.Join(repoRoot, "assets", "data", "contribution-descriptions.json")
+	raw, err := os.ReadFile(path)
+	if err != nil {
+		return nil, fmt.Errorf("read contribution descriptions: %w", err)
+	}
+	var payload contributionDescriptionsFile
+	if err := json.Unmarshal(raw, &payload); err != nil {
+		return nil, fmt.Errorf("decode contribution descriptions: %w", err)
+	}
+	if payload.Descriptions == nil {
+		return map[string]string{}, nil
+	}
+	return payload.Descriptions, nil
 }
 
 type contributionJSONItem struct {
@@ -61,6 +68,11 @@ func GenerateContributionsJSON(repoRoot string) error {
 		return fmt.Errorf("read README.md: %w", err)
 	}
 
+	descriptions, err := loadContributionDescriptions(repoRoot)
+	if err != nil {
+		return err
+	}
+
 	block, err := extractBetweenMarkers(string(readme), "<!-- EXTERNAL_CONTRIBUTIONS:START -->", "<!-- EXTERNAL_CONTRIBUTIONS:END -->")
 	if err != nil {
 		return err
@@ -83,7 +95,7 @@ func GenerateContributionsJSON(repoRoot string) error {
 			URL:   match[1],
 			Stars: stars,
 			PRs:   prs,
-			Desc:  contributionDescription(match[1], match[3]),
+			Desc:  contributionDescription(descriptions, match[1], match[3]),
 		})
 	}
 
@@ -112,9 +124,9 @@ func decodeBadgeSource(src string) (string, error) {
 	return decoded, nil
 }
 
-func contributionDescription(repoURL, name string) string {
+func contributionDescription(descriptions map[string]string, repoURL, name string) string {
 	if key := repositoryKey(repoURL); key != "" {
-		if desc, ok := contributionDescriptions[key]; ok {
+		if desc, ok := descriptions[key]; ok {
 			return desc
 		}
 	}
@@ -134,31 +146,11 @@ func repositoryKey(repoURL string) string {
 }
 
 func extractContributionMetrics(badgeSource string) (string, string) {
-	withoutStyle := regexp.MustCompile(`-informational.*$`).ReplaceAllString(badgeSource, "")
-	pieces := strings.Split(withoutStyle, "-")
-	metricsSegment := ""
-	if len(pieces) > 0 {
-		metricsSegment = pieces[len(pieces)-1]
+	match := contributionMetricsPattern.FindStringSubmatch(badgeSource)
+	if len(match) < 3 {
+		return "0", "0"
 	}
-	metricParts := strings.Split(metricsSegment, "|")
-	starsPart := ""
-	prsPart := ""
-	if len(metricParts) > 0 {
-		starsPart = strings.TrimSpace(metricParts[0])
-	}
-	if len(metricParts) > 1 {
-		prsPart = strings.TrimSpace(metricParts[1])
-	}
-
-	stars := strings.TrimSpace(strings.TrimPrefix(starsPart, "⭐"))
-	prs := strings.TrimSpace(strings.TrimSuffix(prsPart, "PR"))
-	if stars == "" {
-		stars = "0"
-	}
-	if prs == "" {
-		prs = "0"
-	}
-	return stars, prs
+	return strings.TrimSpace(match[1]), strings.TrimSpace(match[2])
 }
 
 func parseCompactNumber(value string) float64 {

@@ -43,8 +43,11 @@ export const topicBlueprints = [
     }
 ];
 
+// Fallback palette used when CSS tokens are unavailable. Drawing code in
+// graph.js resolves the topic color from --color-accent at render time so it
+// tracks the active theme.
 export const NODE_KIND_COLORS = {
-    topic: '#c45a27',
+    topic: '#f97316',
     'case-study': '#7358ba',
     post: '#1e4f95',
     project: '#0e7065'

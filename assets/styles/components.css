@@ -67,12 +67,12 @@
 .btn-primary {
     background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 94%, white), color-mix(in srgb, var(--color-accent-strong) 64%, var(--color-accent)));
     color: #fff7f2;
-    box-shadow: 0 18px 40px rgba(196, 90, 39, 0.24);
+    box-shadow: 0 18px 40px color-mix(in srgb, var(--color-accent) 28%, transparent);
 }
 
 .btn-primary:hover,
 .btn-primary:focus-visible {
-    box-shadow: 0 24px 50px rgba(196, 90, 39, 0.3);
+    box-shadow: 0 24px 50px color-mix(in srgb, var(--color-accent) 36%, transparent);
 }
 
 .btn-secondary {

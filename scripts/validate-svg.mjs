@@ -23,6 +23,9 @@ const FONT_METRICS = Object.fromEntries(
   Object.entries(FONT_FILES).map(([key, filePath]) => [key, parseFont(filePath)]),
 );
 const TEXT_WIDTH_EPSILON = 1;
+// Must match MEASUREMENT_SAFETY_PAD in scripts/generate-case-study-svgs.mjs so
+// the validator agrees with the generator about what "fits".
+const MEASUREMENT_SAFETY_PAD = 1.012;
 
 function fontMetricKey(kind, fontWeight) {
   const bold = Number(fontWeight ?? 400) >= 700;
@@ -45,7 +48,7 @@ function measureText(text, { kind, fontSize, fontWeight, letterSpacing }) {
   if (normalized.length > 1) {
     width += (normalized.length - 1) * letterSpacing;
   }
-  return width;
+  return width * MEASUREMENT_SAFETY_PAD;
 }
 
 function decodeXml(text) {
@@ -81,6 +84,19 @@ function validateMeasuredText(filePath, source) {
       const width = measureText(text, { kind, fontSize, fontWeight, letterSpacing });
       if (width > maxWidth + TEXT_WIDTH_EPSILON) {
         throw new Error(`Text overflow detected in ${filePath}: \"${text}\" is ${width.toFixed(2)}px wide for a ${maxWidth}px slot`);
+      }
+    }
+
+    // Vertical containment: when a cellBox is declared, the last line's bottom
+    // must stay inside the cell. Catches paragraphs that wrap past a card edge.
+    const cellYRaw = getAttribute(attributes, 'data-ab-cell-y');
+    const cellHeightRaw = getAttribute(attributes, 'data-ab-cell-height');
+    const textBottomRaw = getAttribute(attributes, 'data-ab-text-bottom');
+    if (cellYRaw !== null && cellHeightRaw !== null && textBottomRaw !== null) {
+      const cellBottom = Number(cellYRaw) + Number(cellHeightRaw);
+      const textBottom = Number(textBottomRaw);
+      if (textBottom > cellBottom + TEXT_WIDTH_EPSILON) {
+        throw new Error(`Vertical overflow in ${filePath}: text extends to y=${textBottom.toFixed(1)} but its cell ends at y=${cellBottom.toFixed(1)} (overflow by ${(textBottom - cellBottom).toFixed(1)}px)`);
       }
     }
   }

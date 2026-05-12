@@ -1,6 +1,9 @@
 use crate::models::{SimResult, SimState};
 use std::collections::HashMap;
 
+// Authoritative simulation constants. The JS fallback in
+// assets/workbench/graph.js (stepSimulationJS) mirrors these — keep both copies
+// in sync so behavior is identical with or without WASM.
 const REPULSION: f32 = 8.0;
 const SPRING_K: f32 = 0.18;
 const SPRING_REST: f32 = 16.0;

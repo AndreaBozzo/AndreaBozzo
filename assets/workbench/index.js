@@ -102,10 +102,27 @@ export function createWorkbench({ siteBasePath, escapeHtml, revealLoadedCards })
         return true;
     }
 
+    function setPosts(posts) {
+        state.posts = Array.isArray(posts) ? posts : [];
+        renderer.renderWorkbench();
+    }
+
+    function setContributions(contributions) {
+        state.contributions = Array.isArray(contributions) ? contributions : [];
+        renderer.renderWorkbench();
+    }
+
+    function setCaseStudies(caseStudies) {
+        state.caseStudies = Array.isArray(caseStudies) ? caseStudies : [];
+        renderer.renderWorkbench();
+    }
+
     return {
-        state,
         renderWorkbench: renderer.renderWorkbench,
         initializeWorkbench,
-        loadWorkbenchEngine
+        loadWorkbenchEngine,
+        setPosts,
+        setContributions,
+        setCaseStudies
     };
 }

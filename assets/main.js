@@ -65,7 +65,7 @@ function getCompanionApiBase() {
 
 function syncThemeColor(theme) {
     const themeColorMeta = document.querySelector('meta[name="theme-color"]:not([media])');
-    const color = theme === 'dark' ? '#101726' : '#f5efe2';
+    const color = theme === 'dark' ? '#090e17' : '#fafafa';
 
     if (themeColorMeta) {
         themeColorMeta.setAttribute('content', color);
@@ -314,35 +314,52 @@ function revealLoadedCards(container, selector) {
     });
 }
 
+function blogCacheKey(lang) {
+    return `blog_posts_${lang}`;
+}
+
+function readBlogCache(lang) {
+    const raw = localStorage.getItem(blogCacheKey(lang));
+    if (!raw) return null;
+    try {
+        const entry = JSON.parse(raw);
+        if (!entry || entry.date !== new Date().toDateString() || !Array.isArray(entry.posts)) {
+            return null;
+        }
+        return entry.posts;
+    } catch {
+        localStorage.removeItem(blogCacheKey(lang));
+        return null;
+    }
+}
+
+function writeBlogCache(lang, posts) {
+    try {
+        localStorage.setItem(blogCacheKey(lang), JSON.stringify({
+            date: new Date().toDateString(),
+            posts
+        }));
+    } catch {
+        // localStorage may be full or disabled; silently skip.
+    }
+}
+
 async function loadLatestBlogPosts(forceLang = null) {
     const lang = forceLang || getCurrentBlogLanguage();
-
-    // Update toggle UI
     updateLanguageToggleUI(lang);
 
-    const cacheKey = `blog_posts_${lang}_` + new Date().toDateString();
-    const cached = localStorage.getItem(cacheKey);
-
+    const cached = readBlogCache(lang);
     if (cached) {
-        try {
-            const posts = JSON.parse(cached);
-            renderBlogPosts(posts, lang);
-            workbench.state.posts = posts;
-            workbench.renderWorkbench();
-            return;
-        } catch (e) {
-            console.warn('Failed to parse cached blog posts:', e);
-            localStorage.removeItem(cacheKey);
-        }
+        renderBlogPosts(cached, lang);
+        workbench.setPosts(cached);
+        return;
     }
 
     try {
         const posts = await fetchJson(getBlogJsonPath(lang));
-
-        localStorage.setItem(cacheKey, JSON.stringify(posts));
+        writeBlogCache(lang, posts);
         renderBlogPosts(posts, lang);
-        workbench.state.posts = posts;
-        workbench.renderWorkbench();
+        workbench.setPosts(posts);
     } catch (error) {
         console.error('Failed to load blog posts:', error);
         showBlogError(lang);
@@ -516,8 +533,7 @@ async function fetchContributions() {
                 listElement.appendChild(projectItem);
             });
 
-        workbench.state.contributions = contributions;
-        workbench.renderWorkbench();
+        workbench.setContributions(contributions);
         revealLoadedCards(listElement, '.content-card-enter');
     } catch (error) {
         console.error('Failed to fetch GitHub contributions:', error);
@@ -563,8 +579,7 @@ async function loadPapers() {
 async function loadCaseStudies() {
     try {
         const payload = await fetchJson(`${siteBasePath}assets/data/case-studies.json`);
-        workbench.state.caseStudies = Array.isArray(payload.items) ? payload.items : [];
-        workbench.renderWorkbench();
+        workbench.setCaseStudies(Array.isArray(payload.items) ? payload.items : []);
     } catch (error) {
         console.error('Failed to load case studies:', error);
     }

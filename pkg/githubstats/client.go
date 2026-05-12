@@ -10,15 +10,30 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 )
 
 const defaultAPIBaseURL = "https://api.github.com"
 
+// summaryCacheTTL bounds in-process memoization of FetchSummary results.
+// Matches the s-maxage advertised by StatsHandler so HTTP and in-process caches
+// expire together. Fluid Compute reuses function instances across requests,
+// so this collapses many calls per cold instance into one GitHub round-trip.
+const summaryCacheTTL = 5 * time.Minute
+
 type Client struct {
 	baseURL    string
 	httpClient *http.Client
 	token      string
+
+	cacheMu sync.Mutex
+	cache   map[string]cachedSummary
+}
+
+type cachedSummary struct {
+	summary   Summary
+	expiresAt time.Time
 }
 
 type userResponse struct {
@@ -53,12 +68,36 @@ func NewClientWithBaseURL(baseURL string, httpClient *http.Client) *Client {
 		baseURL:    strings.TrimRight(baseURL, "/"),
 		httpClient: httpClient,
 		token:      firstNonEmpty(strings.TrimSpace(os.Getenv("GITHUB_API_TOKEN")), strings.TrimSpace(os.Getenv("GITHUB_TOKEN"))),
+		cache:      make(map[string]cachedSummary),
+	}
+}
+
+func (client *Client) cachedSummary(username string) (Summary, bool) {
+	client.cacheMu.Lock()
+	defer client.cacheMu.Unlock()
+	entry, ok := client.cache[username]
+	if !ok || time.Now().After(entry.expiresAt) {
+		return Summary{}, false
+	}
+	return entry.summary, true
+}
+
+func (client *Client) storeSummary(username string, summary Summary) {
+	client.cacheMu.Lock()
+	defer client.cacheMu.Unlock()
+	client.cache[username] = cachedSummary{
+		summary:   summary,
+		expiresAt: time.Now().Add(summaryCacheTTL),
 	}
 }
 
 func (client *Client) FetchSummary(ctx context.Context, username string) (Summary, error) {
 	if strings.TrimSpace(username) == "" {
 		return Summary{}, fmt.Errorf("username is required")
+	}
+
+	if summary, ok := client.cachedSummary(username); ok {
+		return summary, nil
 	}
 
 	var user userResponse
@@ -94,6 +133,7 @@ func (client *Client) FetchSummary(ctx context.Context, username string) (Summar
 		}
 	}
 
+	client.storeSummary(username, summary)
 	return summary, nil
 }
 
