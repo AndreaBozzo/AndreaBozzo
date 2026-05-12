@@ -4,6 +4,7 @@ date: 2026-02-05
 draft: false
 tags: ["Rust", "Python", "Apache Arrow", "DataFusion", "Parquet", "Columnar"]
 categories: ["Data Engineering", "Open Source"]
+keywords: ["Rust", "Python", "Apache Arrow", "DataFusion", "Parquet", "Columnar", "Data Engineering", "Open Source"]
 description: "How choosing Apache Arrow as the core data model turned a simple dataset profiler into a small analytical engine, and what it taught me about columnar design."
 summary: "A design story of dataprof: why I built a profiler around Apache Arrow, how it changed the architecture, and how this journey led to contributions to arrow-rs' Parquet reader."
 author: "Andrea Bozzo"

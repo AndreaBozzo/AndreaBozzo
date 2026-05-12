@@ -4,6 +4,7 @@ date: 2026-02-20T12:00:00+01:00
 draft: false
 tags: ["Rust", "Data Engineering", "Web Scraping", "Open Data", "LLM", "PostgreSQL"]
 categories: ["Data Engineering", "Open Source"]
+keywords: ["Rust", "Data Engineering", "Web Scraping", "Open Data", "LLM", "PostgreSQL", "Open Source"]
 description: "Come aver costruito uno scraper web (Ares) e un harvester di open data (Ceres) ha chiarito il confine tra scraping come tecnica e harvesting come prodotto."
 summary: "Due progetti Rust, una divisione concettuale. Ares recupera pagine web arbitrarie e usa LLM per estrarre dati strutturati; Ceres raccoglie metadati da portali CKAN e li indicizza semanticamente. Insieme mostrano il passaggio da script di scraping a pipeline dati production-ready."
 author: "Andrea Bozzo"

@@ -4,6 +4,7 @@ date: 2026-04-07
 draft: false
 tags: ["lancedb", "lance-format", "embeddings", "apache-arrow", "data-engineering", "nats"]
 categories: ["Data Engineering", "Open Source"]
+keywords: ["lancedb", "lance-format", "embeddings", "apache-arrow", "data-engineering", "nats", "Data Engineering", "Open Source"]
 description: "Lance is a columnar format built for ML workloads — fast random access, native vector indexing, and zero-copy Arrow integration. This article walks through the format, LanceDB, and wiring it into a live NATS stream."
 summary: "Lance is a columnar storage format built for machine learning workloads — fast random access, native vector indexing, and zero-copy Arrow integration. This article walks through the format itself, how LanceDB builds on top of it, and how I wired it into a live NATS stream to build a simple semantic search layer over real-time events."
 author: "Andrea Bozzo"

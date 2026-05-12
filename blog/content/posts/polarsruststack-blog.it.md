@@ -4,6 +4,7 @@ date: 2025-12-03T12:00:00+01:00
 draft: false
 tags: ["Rust", "Data Engineering", "Apache Iceberg", "Polars", "Analytics", "Data Science", "Lakehouse"]
 categories: ["Data Engineering", "Open Source"]
+keywords: ["Rust", "Data Engineering", "Apache Iceberg", "Polars", "Analytics", "Data Science", "Lakehouse", "Open Source"]
 description: "Completare lo stack Rust-native per data engineering: come Polars chiude il cerchio offrendo analytics ad alte prestazioni su singolo nodo, integrando perfettamente con RisingWave e Lakekeeper per costruire un lakehouse moderno senza JVM"
 summary: "Polars completa l'ecosistema Rust data engineering: lazy evaluation, Apache Arrow, e integrazione nativa con Iceberg V3 per analytics performanti che competono con cluster distribuiti. Il terzo pilastro dello stack RisingWave + Lakekeeper + Polars."
 author: "Andrea Bozzo"

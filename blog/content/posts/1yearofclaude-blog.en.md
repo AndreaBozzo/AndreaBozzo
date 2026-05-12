@@ -4,6 +4,7 @@ date: 2026-03-05T12:00:00+01:00
 draft: false
 tags: ["Claude Code", "AI", "Developer Tools", "Workflow"]
 categories: ["AI", "Developer Tools"]
+keywords: ["Claude Code", "AI", "Developer Tools", "Workflow"]
 description: "A technical interview about one year of using Claude Code as a daily engineering tool"
 summary: "Claude interviews Andrea Bozzo about a full year of using Claude Code in the terminal — the workflow, the custom skills, the rough edges, and the nuked database."
 author: "Andrea Bozzo"

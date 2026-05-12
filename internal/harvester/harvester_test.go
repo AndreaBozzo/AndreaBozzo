@@ -51,7 +51,7 @@ func TestRenderCaseStudyPageIncludesPapersNav(t *testing.T) {
 		CoverImage: "../blog/images/demo.png",
 		Stack:      []string{"Go", "CLI"},
 		Sections:   []caseStudySection{{Heading: "Why", Body: "Because"}},
-	}, caseStudyPageContext{}))
+	}, caseStudyPageContext{}, time.Unix(0, 0).UTC()))
 
 	if !strings.Contains(body, "../../#papers") {
 		t.Fatalf("expected papers navigation link")
@@ -73,7 +73,7 @@ func TestRenderCaseStudyPageIncludesLocalNavigationButtons(t *testing.T) {
 	}, caseStudyPageContext{
 		Previous: &adjacentCaseStudy{Title: "Previous", URL: "../previous/"},
 		Next:     &adjacentCaseStudy{Title: "Next", URL: "../next/"},
-	}))
+	}, time.Unix(0, 0).UTC()))
 
 	if !strings.Contains(body, "Back to workbench") {
 		t.Fatalf("expected a back-to-workbench button")

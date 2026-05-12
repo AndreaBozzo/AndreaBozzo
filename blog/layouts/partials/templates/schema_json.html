@@ -75,71 +75,86 @@
         {{- $socialImagePath = $baseCandidate -}}
       {{- end -}}
     {{- end -}}
-  {{- end -}}
 {{- end -}}
+{{- end -}}
+{{- $keywords := slice -}}
+{{- with .Params.keywords -}}
+  {{- $keywords = . -}}
+{{- else -}}
+  {{- $keywords = union (.Params.tags | default (slice)) (.Params.categories | default (slice)) -}}
+{{- end -}}
+{{- $articleSections := .Params.categories | default (slice) -}}
+{{- $authorURL := site.Params.authorURL | default site.Home.Permalink -}}
+{{- $publisherName := site.Params.author | default site.Title -}}
+{{- $publisherType := (site.Params.schema.publisherType | default "Organization") | title -}}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": {{ .Title | plainify}},
-  "name": "{{ .Title | plainify }}",
-  "description": {{ with .Description | plainify }}{{ . }}{{ else }}{{ .Summary | plainify  }}{{ end -}},
-  "keywords": [
-    {{- if .Params.keywords }}
-    {{ range $i, $e := .Params.keywords }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}
-    {{- else }}
-    {{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}
-    {{- end }}
-  ],
+  "headline": {{ .Title | plainify | jsonify | safeJS }},
+  "name": {{ .Title | plainify | jsonify | safeJS }},
+  "description": {{ with .Description | plainify }}{{ . | jsonify | safeJS }}{{ else }}{{ .Summary | plainify | jsonify | safeJS }}{{ end -}},
+  "keywords": {{ $keywords | jsonify | safeJS }},
   "articleBody": {{ .Content | safeJS | htmlUnescape | plainify }},
-  "wordCount" : "{{ .WordCount }}",
-  "inLanguage": {{ .Language.Lang | default "en-us" }},
+  "wordCount": {{ .WordCount }},
+  "articleSection": {{ $articleSections | jsonify | safeJS }},
+  "inLanguage": {{ .Language.Lang | default "en-us" | jsonify | safeJS }},
   {{ if $socialImagePath -}}
-  "image": {{ $socialImagePath | absURL }},
+  "image": {{ $socialImagePath | absURL | jsonify | safeJS }},
   {{ else if .Params.cover.image -}}
   "image":
     {{- if (ne .Params.cover.relative true) -}}
-    {{ .Params.cover.image | absURL }},
+    {{ .Params.cover.image | absURL | jsonify | safeJS }},
     {{- else -}}
-    {{ (path.Join .RelPermalink .Params.cover.image ) | absURL }},
+    {{ (path.Join .RelPermalink .Params.cover.image ) | absURL | jsonify | safeJS }},
     {{- end}}
   {{- else }}
     {{- $images := partial "templates/_funcs/get-page-images" . -}}
     {{- with index $images 0 -}}
-  "image": {{ .Permalink }},
+  "image": {{ .Permalink | jsonify | safeJS }},
     {{- end }}
   {{- end -}}
-  "datePublished": {{ .PublishDate }},
-  "dateModified": {{ .Lastmod }},
-  {{- with (.Params.author | default site.Params.author) }}
+  "datePublished": {{ .PublishDate | jsonify | safeJS }},
+  "dateModified": {{ .Lastmod | jsonify | safeJS }},
+  {{- $authors := (.Params.author | default site.Params.author) }}
   "author":
-    {{- if (or (eq (printf "%T" .) "[]string") (eq (printf "%T" .) "[]interface {}")) -}}
-  [{{- range $i, $v := . -}}
+    {{- if (or (eq (printf "%T" $authors) "[]string") (eq (printf "%T" $authors) "[]interface {}")) -}}
+  [{{- range $i, $v := $authors -}}
   {{- if $i }}, {{end -}}
   {
     "@type": "Person",
-    "name": {{ $v }}
+    "name": {{ $v | jsonify | safeJS }},
+    "url": {{ $authorURL | jsonify | safeJS }}
   }
   {{- end }}],
     {{- else -}}
   {
     "@type": "Person",
-    "name": {{ . }}
+    "name": {{ $authors | jsonify | safeJS }},
+    "url": {{ $authorURL | jsonify | safeJS }}
   },
     {{- end -}}
-  {{- end }}
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": {{ .Permalink | safeHTML }}
+    "@id": {{ .Permalink | jsonify | safeJS }}
   },
+  {{- if eq $publisherType "Person" }}
   "publisher": {
-    "@type": "{{- ( site.Params.schema.publisherType | default "Organization") | title -}}",
-    "name": {{ site.Title }},
+    "@type": "Person",
+    "name": {{ $publisherName | jsonify | safeJS }},
+    "url": {{ $authorURL | jsonify | safeJS }},
+    "image": {{ site.Params.assets.favicon | default "favicon.ico" | absURL | jsonify | safeJS }}
+  }
+  {{- else }}
+  "publisher": {
+    "@type": {{ $publisherType | jsonify | safeJS }},
+    "name": {{ $publisherName | jsonify | safeJS }},
     "logo": {
       "@type": "ImageObject",
-      "url": {{ site.Params.assets.favicon | default "favicon.ico" | absURL }}
+      "url": {{ site.Params.assets.favicon | default "favicon.ico" | absURL | jsonify | safeJS }}
     }
   }
+  {{- end }}
 }
 </script>
 {{- end }}

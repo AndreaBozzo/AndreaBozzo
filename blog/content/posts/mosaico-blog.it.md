@@ -4,6 +4,7 @@ date: 2026-01-06T12:00:00+01:00
 draft: false
 tags: ["Rust", "Python", "Robotics", "Data Platform", "Physical AI", "Open Source", "Data Engineering"]
 categories: ["Data Engineering", "Open Source", "Robotics"]
+keywords: ["Rust", "Python", "Robotics", "Data Platform", "Physical AI", "Open Source", "Data Engineering"]
 description: "Mosaico è una piattaforma dati open-source per Robotica e Physical AI che combina un backend Rust ad alte prestazioni con un SDK Python per ROS 2. Esploriamo l'architettura, i pattern di integrazione, e il mio percorso di contribuzione al progetto."
 summary: "Un'esplorazione approfondita di Mosaico, la piattaforma dati per robotica scritta in Rust: architettura client-server, ontologie semantiche, data-oriented debugging ed il mio viaggio in esso, l'integrazione con Data Contract Engine."
 author: "Andrea Bozzo"

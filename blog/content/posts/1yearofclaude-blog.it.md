@@ -4,6 +4,7 @@ date: 2026-03-05T12:00:00+01:00
 draft: false
 tags: ["Claude Code", "AI", "Developer Tools", "Workflow"]
 categories: ["AI", "Developer Tools"]
+keywords: ["Claude Code", "AI", "Developer Tools", "Workflow"]
 description: "Un'intervista tecnica su un anno di utilizzo quotidiano di Claude Code come strumento di ingegneria"
 summary: "Claude intervista Andrea Bozzo su un anno intero di utilizzo di Claude Code nel terminale — il workflow, le custom skill, gli spigoli vivi e il database distrutto."
 author: "Andrea Bozzo"

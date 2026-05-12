@@ -1,0 +1,18 @@
+{{- /*
+    SEO extensions on top of PaperMod's defaults.
+
+    1. hreflang="x-default" — PaperMod emits hreflang for every translation but not the
+       x-default fallback. Adding it tells Google which URL to serve when none of the
+       declared language matches the user. Convention: use the English version since
+       it's the broader-reach locale; fall back to the current permalink if no EN
+       translation exists.
+*/ -}}
+
+{{- /* x-default points at the English translation when available, otherwise the page itself. */ -}}
+{{- $xDefault := .Permalink -}}
+{{- range .AllTranslations -}}
+  {{- if eq .Lang "en" -}}
+    {{- $xDefault = .Permalink -}}
+  {{- end -}}
+{{- end -}}
+<link rel="alternate" hreflang="x-default" href="{{ $xDefault }}">

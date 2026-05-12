@@ -4,6 +4,7 @@ date: 2025-11-10T12:00:00+01:00
 draft: false
 tags: ["Rust", "Data Engineering", "Apache Iceberg", "RisingWave", "Streaming", "Lakehouse", "CDC"]
 categories: ["Data Engineering", "Open Source"]
+keywords: ["Rust", "Data Engineering", "Apache Iceberg", "RisingWave", "Streaming", "Lakehouse", "CDC", "Open Source"]
 description: "Come RisingWave e Apache Iceberg Rust stanno rivoluzionando l'architettura dei data lakehouse moderni con streaming real-time, hybrid delete strategy, e un ecosistema Rust end-to-end"
 summary: "La partnership tra RisingWave e Iceberg-Rust rappresenta una finestra su dove sta andando il data engineering moderno: streaming CDC real-time, hybrid delete strategy intelligente, e un ecosistema Rust performante che sfida il dominio JVM."
 author: "Andrea Bozzo"

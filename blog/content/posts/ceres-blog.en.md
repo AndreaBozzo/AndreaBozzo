@@ -4,6 +4,7 @@ date: 2025-12-20T12:00:00+01:00
 draft: false
 tags: ["Rust", "Data Engineering", "Semantic Search", "Open Data", "CKAN", "PostgreSQL", "pgvector"]
 categories: ["Data Engineering", "Open Source"]
+keywords: ["Rust", "Data Engineering", "Semantic Search", "Open Data", "CKAN", "PostgreSQL", "pgvector", "Open Source"]
 description: "How Ceres solves the discoverability problem in European open data portals with semantic search, Rust and PostgreSQL+pgvector"
 summary: "Ceres is a semantic search engine for CKAN portals. Built in Rust with Tokio and PostgreSQL+pgvector, it bridges the gap between how people search and how public administrations name their datasets."
 author: "Andrea Bozzo"

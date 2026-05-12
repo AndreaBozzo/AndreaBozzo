@@ -9,6 +9,7 @@ import (
 	"path/filepath"
 	"sort"
 	"strings"
+	"time"
 )
 
 type caseStudiesPayload struct {
@@ -109,17 +110,25 @@ func GenerateCaseStudyPages(repoRoot string) error {
 		return err
 	}
 
+	lastmod := caseStudiesLastmod(caseStudiesPath)
 	for idx, study := range payload.Items {
 		outputDir := filepath.Join(workDir, study.Slug)
 		if err := os.MkdirAll(outputDir, 0o755); err != nil {
 			return fmt.Errorf("create %s: %w", outputDir, err)
 		}
-		if err := os.WriteFile(filepath.Join(outputDir, "index.html"), renderCaseStudyPage(study, pageContextForStudy(payload.Items, idx)), 0o644); err != nil {
+		if err := os.WriteFile(filepath.Join(outputDir, "index.html"), renderCaseStudyPage(study, pageContextForStudy(payload.Items, idx), lastmod), 0o644); err != nil {
 			return fmt.Errorf("write case study page for %s: %w", study.Slug, err)
 		}
 	}
 
 	return nil
+}
+
+func caseStudiesLastmod(caseStudiesPath string) time.Time {
+	if info, err := os.Stat(caseStudiesPath); err == nil {
+		return info.ModTime().UTC()
+	}
+	return time.Now().UTC()
 }
 
 func removeStaleCaseStudyDirs(workDir string, validSlugs map[string]struct{}) error {
@@ -142,13 +151,13 @@ func removeStaleCaseStudyDirs(workDir string, validSlugs map[string]struct{}) er
 	return nil
 }
 
-func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext) []byte {
+func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext, lastmod time.Time) []byte {
 	title := firstNonEmpty(study.Title, study.Slug, "Case Study")
 	displayTitle := firstNonEmpty(study.DisplayTitle, title)
 	metaDescription := firstNonEmpty(study.MetaDescription, study.Summary, study.Subtitle, title+" case study.")
 	canonicalURL := caseStudyCanonicalURL(study.Slug)
 	socialImageURL := caseStudySocialImageURL(study)
-	structuredData := caseStudyStructuredData(study, displayTitle, metaDescription, canonicalURL, socialImageURL)
+	structuredData := caseStudyStructuredData(study, displayTitle, metaDescription, canonicalURL, socialImageURL, lastmod)
 	cover := renderCaseStudyCover(study)
 	actions := resolvedActions(study)
 	navigation := renderCaseStudyNavigation(pageContext)
@@ -163,7 +172,10 @@ func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext) []by
 	buf.WriteString("    <meta name=\"author\" content=\"Andrea Bozzo\">\n")
 	buf.WriteString("    <meta name=\"robots\" content=\"index, follow\">\n")
 	buf.WriteString("    <link rel=\"canonical\" href=\"" + escapeHTML(canonicalURL) + "\">\n")
+	buf.WriteString("    <link rel=\"alternate\" hreflang=\"en\" href=\"" + escapeHTML(canonicalURL) + "\">\n")
+	buf.WriteString("    <link rel=\"alternate\" hreflang=\"x-default\" href=\"" + escapeHTML(canonicalURL) + "\">\n")
 	buf.WriteString("    <meta property=\"og:locale\" content=\"en_US\">\n")
+	buf.WriteString("    <meta property=\"og:locale:alternate\" content=\"it_IT\">\n")
 	buf.WriteString("    <meta property=\"og:type\" content=\"article\">\n")
 	buf.WriteString("    <meta property=\"og:title\" content=\"" + escapeHTML(displayTitle) + " | Andrea Bozzo\">\n")
 	buf.WriteString("    <meta property=\"og:description\" content=\"" + escapeHTML(metaDescription) + "\">\n")
@@ -459,16 +471,23 @@ func caseStudySocialImageURL(study caseStudy) string {
 	return publicSiteBaseURL + "/assets/images/og/" + trimmedSlug + ".png"
 }
 
-func caseStudyStructuredData(study caseStudy, displayTitle, metaDescription, canonicalURL, socialImageURL string) string {
+func caseStudyStructuredData(study caseStudy, displayTitle, metaDescription, canonicalURL, socialImageURL string, lastmod time.Time) string {
 	payload := map[string]any{
 		"@context":         "https://schema.org",
 		"@type":            "CreativeWork",
+		"additionalType":   "https://schema.org/CaseStudy",
 		"headline":         displayTitle,
 		"name":             displayTitle,
 		"description":      metaDescription,
 		"url":              canonicalURL,
 		"image":            socialImageURL,
 		"mainEntityOfPage": canonicalURL,
+		"dateModified":     lastmod.Format(time.RFC3339),
+		"inLanguage":       "en",
+		"isPartOf": map[string]any{
+			"@type": "WebSite",
+			"@id":   publicSiteBaseURL + "/",
+		},
 		"author": map[string]any{
 			"@type": "Person",
 			"name":  "Andrea Bozzo",
@@ -481,8 +500,14 @@ func caseStudyStructuredData(study caseStudy, displayTitle, metaDescription, can
 		},
 	}
 
-	if len(study.Stack) > 0 {
-		payload["keywords"] = strings.Join(study.Stack, ", ")
+	stack := normalizedStrings(study.Stack)
+	if len(stack) > 0 {
+		payload["keywords"] = strings.Join(stack, ", ")
+		payload["mentions"] = stackMentions(stack)
+	}
+	relatedLinks := relatedBlogPostPermalinks(study.RelatedPosts)
+	if len(relatedLinks) > 0 {
+		payload["relatedLink"] = relatedLinks
 	}
 	if study.RepoURL != "" {
 		payload["sameAs"] = []string{study.RepoURL}
@@ -493,6 +518,47 @@ func caseStudyStructuredData(study caseStudy, displayTitle, metaDescription, can
 		return "{}"
 	}
 	return string(encoded)
+}
+
+func relatedBlogPostPermalinks(slugs []string) []string {
+	links := make([]string, 0, len(slugs))
+	for _, slug := range normalizedStrings(slugs) {
+		if isExternalURL(slug) {
+			links = append(links, slug)
+			continue
+		}
+		links = append(links, publicSiteBaseURL+"/blog/en/posts/"+strings.Trim(slug, "/")+"/")
+	}
+	return links
+}
+
+func stackMentions(stack []string) []map[string]string {
+	mentions := make([]map[string]string, 0, len(stack))
+	for _, name := range stack {
+		mentions = append(mentions, map[string]string{
+			"@type": "Thing",
+			"name":  name,
+		})
+	}
+	return mentions
+}
+
+func normalizedStrings(values []string) []string {
+	seen := make(map[string]struct{}, len(values))
+	normalized := make([]string, 0, len(values))
+	for _, value := range values {
+		trimmed := strings.TrimSpace(value)
+		if trimmed == "" {
+			continue
+		}
+		key := strings.ToLower(trimmed)
+		if _, ok := seen[key]; ok {
+			continue
+		}
+		seen[key] = struct{}{}
+		normalized = append(normalized, trimmed)
+	}
+	return normalized
 }
 
 func escapeHTML(value string) string {

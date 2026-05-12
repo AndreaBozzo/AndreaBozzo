@@ -4,6 +4,7 @@ date: 2026-01-22T12:00:00+01:00
 draft: false
 tags: ["Rust", "Python", "Async", "Tokio", "asyncio", "Concurrency", "Performance"]
 categories: ["Software Engineering", "Open Source"]
+keywords: ["Rust", "Python", "Async", "Tokio", "asyncio", "Concurrency", "Performance", "Software Engineering", "Open Source"]
 description: "Perché async/await sembra uguale in Python e Rust ma nasconde filosofie radicalmente diverse: dal runtime generoso di asyncio alle state machine zero-cost di Tokio"
 summary: "Un'esplorazione tecnica di async/await in Python e Rust: come la stessa sintassi nasconda modelli di esecuzione completamente diversi, con esempi pratici da contributi a Tokio e progetti Python."
 author: "Andrea Bozzo"

@@ -4,6 +4,7 @@ date: 2025-11-22T12:00:00+01:00
 draft: false
 tags: ["Rust", "Data Engineering", "Apache Iceberg", "Lakekeeper", "Catalog", "Security", "Multi-Tenancy"]
 categories: ["Data Engineering", "Open Source"]
+keywords: ["Rust", "Data Engineering", "Apache Iceberg", "Lakekeeper", "Catalog", "Security", "Multi-Tenancy", "Open Source"]
 description: "Lakekeeper is the REST catalog for Apache Iceberg written in Rust: vended credentials, OpenFGA, lightweight deployment, and RisingWave integration for a fully Rust-native lakehouse"
 summary: "An exploration of Lakekeeper, the Iceberg REST catalog in Rust that completes the data engineering ecosystem: enterprise security with vended credentials, multi-tenancy, and RisingWave integration to build streaming lakehouses without JVM"
 author: "Andrea Bozzo"

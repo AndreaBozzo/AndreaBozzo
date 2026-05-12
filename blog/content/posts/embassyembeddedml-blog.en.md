@@ -4,6 +4,7 @@ date: 2026-04-21
 draft: false
 tags: ["rust", "embassy", "embedded", "no-std", "embedded-ml", "data-pipelines"]
 categories: ["Embedded", "Rust", "Open Source"]
+keywords: ["rust", "embassy", "embedded", "no-std", "embedded-ml", "data-pipelines", "Embedded", "Rust", "Open Source"]
 description: "An experiment in carrying data-systems abstractions — sources, transforms, back-pressure — down to 520 KB of SRAM with Rust and Embassy. The crate compiles and runs on the host; the hardware bring-up is the next chapter."
 summary: "Zero Grappler is a small no_std crate that applies a data-pipeline mindset to embedded ML: three traits, two async tasks, compile-time buffer sizing, zero allocations. This post is about the design choices — not yet a hardware report. The Pico 2 W smoke test on real silicon is still ahead of me."
 author: "Andrea Bozzo"

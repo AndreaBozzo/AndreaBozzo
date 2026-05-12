@@ -32,6 +32,7 @@ title = "Andrea Bozzo"
 description = "Blog tecnico su Data Engineering, Rust, Go e tecnologie open source"
 keywords = ["Data Engineering", "Rust", "Go", "Python", "Open Source", "Apache Spark", "DuckDB", "Lakehouse"]
 author = "Andrea Bozzo"
+authorURL = "https://andreabozzo.github.io/AndreaBozzo/"
 DateFormat = "2 January 2006"
 defaultTheme = "auto"
 disableThemeToggle = false
@@ -54,12 +55,16 @@ tocopen = true
 [params.profileMode]
 enabled = false
 
+[params.schema]
+publisherType = "Person"
+
 [languages.it.params]
 env = "production"
 title = "Andrea Bozzo"
 description = "Blog tecnico su Data Engineering, Rust, Go e tecnologie open source"
 keywords = ["Data Engineering", "Rust", "Go", "Python", "Open Source", "Apache Spark", "DuckDB", "Lakehouse"]
 author = "Andrea Bozzo"
+authorURL = "https://andreabozzo.github.io/AndreaBozzo/"
 DateFormat = "2 January 2006"
 
 [languages.it.params.homeInfoParams]
@@ -78,6 +83,7 @@ title = "Andrea Bozzo"
 description = "Technical blog about Data Engineering, Rust, Go and open source technologies"
 keywords = ["Data Engineering", "Rust", "Go", "Python", "Open Source", "Apache Spark", "DuckDB", "Lakehouse"]
 author = "Andrea Bozzo"
+authorURL = "https://andreabozzo.github.io/AndreaBozzo/"
 DateFormat = "January 2, 2006"
 
 [languages.en.params.homeInfoParams]

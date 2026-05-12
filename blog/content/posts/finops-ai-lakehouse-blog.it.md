@@ -4,6 +4,7 @@ date: 2026-05-07T12:00:00+02:00
 draft: false
 tags: ["Data Engineering", "FinOps", "Databricks", "AWS", "Apache Iceberg", "Lakehouse", "AI", "Streaming"]
 categories: ["Data Engineering", "FinOps"]
+keywords: ["Data Engineering", "FinOps", "Databricks", "AWS", "Apache Iceberg", "Lakehouse", "AI", "Streaming"]
 description: "Un confronto FinOps-first tra Databricks, AWS Glue/Athena con Iceberg e uno stack Iceberg DIY per aggiungere AI/ML e streaming sopra un warehouse esistente, con i prezzi 2026 in USD ed EUR."
 summary: "Tre stack lakehouse per aggiungere AI/ML e streaming sopra un warehouse esistente, confrontati con una lente FinOps: DBU, DPU, TB scansionati, S3 GB-mese ed egress, applicati a workload reali con i prezzi 2026."
 author: "Andrea Bozzo"
