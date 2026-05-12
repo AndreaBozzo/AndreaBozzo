@@ -114,6 +114,76 @@
     background: color-mix(in srgb, var(--color-bg-tertiary) 82%, transparent);
 }
 
+.system-anatomy {
+    margin: 0 0 var(--space-8);
+    padding: clamp(1.4rem, 2.5vw, 2rem);
+    border: 1px solid color-mix(in srgb, var(--color-accent-strong) 14%, var(--color-border));
+    border-radius: var(--radius-lg);
+    background:
+        radial-gradient(circle at 8% 0%, color-mix(in srgb, var(--color-accent) 10%, transparent), transparent 32%),
+        linear-gradient(155deg, color-mix(in srgb, var(--color-paper-warm) 92%, white), color-mix(in srgb, var(--color-paper-cool) 80%, transparent));
+    box-shadow: 0 20px 48px rgba(40, 49, 66, 0.08);
+}
+
+.system-anatomy .eyebrow {
+    margin-bottom: var(--space-5);
+}
+
+.system-anatomy-rows {
+    display: grid;
+    gap: var(--space-4);
+}
+
+.system-anatomy-row {
+    display: grid;
+    grid-template-columns: minmax(6.5rem, 9rem) minmax(0, 1fr);
+    gap: var(--space-5);
+    align-items: baseline;
+    padding-top: var(--space-3);
+    border-top: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+}
+
+.system-anatomy-row:first-child {
+    padding-top: 0;
+    border-top: 0;
+}
+
+.system-anatomy-row dt {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.system-anatomy-row dd {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.system-anatomy-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-bg-tertiary) 84%, transparent);
+    color: var(--color-text-primary);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+@media (max-width: 760px) {
+    .system-anatomy-row {
+        grid-template-columns: 1fr;
+        gap: var(--space-2);
+    }
+}
+
 .case-page-nav {
     display: flex;
     flex-wrap: wrap;

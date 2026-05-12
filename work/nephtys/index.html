@@ -25,7 +25,7 @@
     <meta name="twitter:description" content="A Go service that ingests WebSocket, webhook, SSE, and gRPC streams, normalizes events, and publishes them to NATS JetStream with durable persistence and operational metrics.">
     <meta name="twitter:image" content="https://andreabozzo.github.io/AndreaBozzo/assets/images/og/nephtys.png">
     <meta name="twitter:image:alt" content="Nephtys social card">
-    <meta name="theme-color" content="#f5efe2">
+    <meta name="theme-color" content="#fafafa">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
@@ -72,6 +72,48 @@
             <figure class="case-cover">
                 <img src="../../assets/images/case-studies/nephtys-logo.png" alt="Nephtys project logo" style="object-position: 48% 54%; transform: scale(1.42)">
             </figure>
+        </section>
+
+        <section class="system-anatomy" aria-label="System anatomy">
+            <p class="eyebrow">System anatomy</p>
+            <dl class="system-anatomy-rows">
+                <div class="system-anatomy-row">
+                    <dt>Inputs</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">WebSocket / SSE feeds</span>
+                        <span class="system-anatomy-chip">Webhooks + gRPC streams</span>
+                        <span class="system-anatomy-chip">REST connector configs</span>
+                        <span class="system-anatomy-chip">Source credentials</span>
+                    </dd>
+                </div>
+                <div class="system-anatomy-row">
+                    <dt>Core</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">Go service per connector</span>
+                        <span class="system-anatomy-chip">Event normalizer + middleware</span>
+                        <span class="system-anatomy-chip">NATS JetStream publisher</span>
+                        <span class="system-anatomy-chip">REST control plane</span>
+                    </dd>
+                </div>
+                <div class="system-anatomy-row">
+                    <dt>Outputs</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">Durable JetStream subjects</span>
+                        <span class="system-anatomy-chip">Prometheus metrics</span>
+                        <span class="system-anatomy-chip">Grafana dashboards</span>
+                        <span class="system-anatomy-chip">Replayable event log</span>
+                    </dd>
+                </div>
+                <div class="system-anatomy-row">
+                    <dt>Constraints</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">Restartable connectors</span>
+                        <span class="system-anatomy-chip">Explicit middleware order</span>
+                        <span class="system-anatomy-chip">Operable, not hidden</span>
+                        <span class="system-anatomy-chip">One event contract downstream</span>
+                    </dd>
+                </div>
+            </dl>
         </section>
 
         <nav class="case-page-nav" aria-label="Case study navigation">

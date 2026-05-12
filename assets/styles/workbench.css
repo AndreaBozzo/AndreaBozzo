@@ -50,6 +50,12 @@
     color: color-mix(in srgb, var(--color-text-muted) 72%, transparent);
 }
 
+.command-search-hint {
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+    line-height: 1.35;
+}
+
 .query-error {
     color: #9f2f2a;
     font-size: var(--text-xs);

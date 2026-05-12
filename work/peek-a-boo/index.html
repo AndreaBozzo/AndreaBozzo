@@ -25,7 +25,7 @@
     <meta name="twitter:description" content="A Python agent that uses focused grep and ls operations to answer codebase questions with lower token cost than broad repository scans.">
     <meta name="twitter:image" content="https://andreabozzo.github.io/AndreaBozzo/assets/images/og/peek-a-boo.png">
     <meta name="twitter:image:alt" content="Peek-a-Boo social card">
-    <meta name="theme-color" content="#f5efe2">
+    <meta name="theme-color" content="#fafafa">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
@@ -72,6 +72,48 @@
             <figure class="case-cover">
                 <img src="../../assets/images/case-studies/peek-a-boo-run.png" alt="Peek-a-Boo example mission run">
             </figure>
+        </section>
+
+        <section class="system-anatomy" aria-label="System anatomy">
+            <p class="eyebrow">System anatomy</p>
+            <dl class="system-anatomy-rows">
+                <div class="system-anatomy-row">
+                    <dt>Inputs</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">Target codebase tree</span>
+                        <span class="system-anatomy-chip">Natural-language mission</span>
+                        <span class="system-anatomy-chip">Token + step budgets</span>
+                        <span class="system-anatomy-chip">Allowed tool surface</span>
+                    </dd>
+                </div>
+                <div class="system-anatomy-row">
+                    <dt>Core</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">Python agent loop</span>
+                        <span class="system-anatomy-chip">Focused grep / ls primitives</span>
+                        <span class="system-anatomy-chip">Mission-shaped prompts</span>
+                        <span class="system-anatomy-chip">Bounded traversal</span>
+                    </dd>
+                </div>
+                <div class="system-anatomy-row">
+                    <dt>Outputs</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">Answers with evidence paths</span>
+                        <span class="system-anatomy-chip">Run telemetry</span>
+                        <span class="system-anatomy-chip">Token-cost summary</span>
+                        <span class="system-anatomy-chip">Reproducible benchmark runs</span>
+                    </dd>
+                </div>
+                <div class="system-anatomy-row">
+                    <dt>Constraints</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">Small tool surface by design</span>
+                        <span class="system-anatomy-chip">Hard step + token caps</span>
+                        <span class="system-anatomy-chip">No embeddings</span>
+                        <span class="system-anatomy-chip">No whole-repo context</span>
+                    </dd>
+                </div>
+            </dl>
         </section>
 
         <nav class="case-page-nav" aria-label="Case study navigation">

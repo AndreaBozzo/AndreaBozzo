@@ -25,7 +25,7 @@
     <meta name="twitter:description" content="An open starter environment for small teams that combines ingestion, transformation, storage, and dashboards in a light but expandable lakehouse setup.">
     <meta name="twitter:image" content="https://andreabozzo.github.io/AndreaBozzo/assets/images/og/lakehouse-starter-kit.png">
     <meta name="twitter:image:alt" content="Open Lakehouse Starter social card">
-    <meta name="theme-color" content="#f5efe2">
+    <meta name="theme-color" content="#fafafa">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
@@ -72,6 +72,48 @@
             <figure class="case-cover">
                 <img src="../../assets/images/case-studies/lakehouse-screen-01.png" alt="Open Lakehouse Starter screenshot">
             </figure>
+        </section>
+
+        <section class="system-anatomy" aria-label="System anatomy">
+            <p class="eyebrow">System anatomy</p>
+            <dl class="system-anatomy-rows">
+                <div class="system-anatomy-row">
+                    <dt>Inputs</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">Source APIs (via dlt)</span>
+                        <span class="system-anatomy-chip">Raw object storage</span>
+                        <span class="system-anatomy-chip">dbt model definitions</span>
+                        <span class="system-anatomy-chip">Local credentials</span>
+                    </dd>
+                </div>
+                <div class="system-anatomy-row">
+                    <dt>Core</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">dlt ingestion</span>
+                        <span class="system-anatomy-chip">dbt transformations</span>
+                        <span class="system-anatomy-chip">Superset dashboards</span>
+                        <span class="system-anatomy-chip">MinIO S3-compatible storage</span>
+                    </dd>
+                </div>
+                <div class="system-anatomy-row">
+                    <dt>Outputs</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">Staged + marted tables</span>
+                        <span class="system-anatomy-chip">Live dashboards</span>
+                        <span class="system-anatomy-chip">Local lakehouse stack</span>
+                        <span class="system-anatomy-chip">Compose-up reproducibility</span>
+                    </dd>
+                </div>
+                <div class="system-anatomy-row">
+                    <dt>Constraints</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">Small-team scale</span>
+                        <span class="system-anatomy-chip">Replaceable components</span>
+                        <span class="system-anatomy-chip">No platform team required</span>
+                        <span class="system-anatomy-chip">S3-compatible by default</span>
+                    </dd>
+                </div>
+            </dl>
         </section>
 
         <nav class="case-page-nav" aria-label="Case study navigation">

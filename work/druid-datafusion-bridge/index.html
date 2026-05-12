@@ -25,7 +25,7 @@
     <meta name="twitter:description" content="A Rust bridge that reads Druid segment files directly and exposes them to DataFusion as queryable tables without requiring a running Druid cluster.">
     <meta name="twitter:image" content="https://andreabozzo.github.io/AndreaBozzo/assets/images/og/druid-datafusion-bridge.png">
     <meta name="twitter:image:alt" content="Druid Segment Bridge social card">
-    <meta name="theme-color" content="#f5efe2">
+    <meta name="theme-color" content="#fafafa">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
@@ -72,6 +72,48 @@
             <figure class="case-cover">
                 <img src="../../assets/images/case-studies/druid-datafusion-bridge-logo.png" alt="druid-datafusion-bridge project logo">
             </figure>
+        </section>
+
+        <section class="system-anatomy" aria-label="System anatomy">
+            <p class="eyebrow">System anatomy</p>
+            <dl class="system-anatomy-rows">
+                <div class="system-anatomy-row">
+                    <dt>Inputs</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">Druid segment files (index.dr)</span>
+                        <span class="system-anatomy-chip">Wikipedia segment fixtures</span>
+                        <span class="system-anatomy-chip">DataFusion SessionContext</span>
+                        <span class="system-anatomy-chip">Test query plans</span>
+                    </dd>
+                </div>
+                <div class="system-anatomy-row">
+                    <dt>Core</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">Segment parser layer</span>
+                        <span class="system-anatomy-chip">TableProvider adapter</span>
+                        <span class="system-anatomy-chip">ExecutionPlan adapter</span>
+                        <span class="system-anatomy-chip">Arrow-friendly conversion</span>
+                    </dd>
+                </div>
+                <div class="system-anatomy-row">
+                    <dt>Outputs</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">DataFusion-queryable tables</span>
+                        <span class="system-anatomy-chip">Integration test results</span>
+                        <span class="system-anatomy-chip">Offline segment access</span>
+                        <span class="system-anatomy-chip">Translated dictionaries + metrics</span>
+                    </dd>
+                </div>
+                <div class="system-anatomy-row">
+                    <dt>Constraints</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">No running Druid cluster needed</span>
+                        <span class="system-anatomy-chip">Vectorized where feasible</span>
+                        <span class="system-anatomy-chip">Work-in-progress evaluation</span>
+                        <span class="system-anatomy-chip">Format quirks preserved</span>
+                    </dd>
+                </div>
+            </dl>
         </section>
 
         <nav class="case-page-nav" aria-label="Case study navigation">

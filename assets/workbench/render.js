@@ -83,12 +83,12 @@ export function createWorkbenchRenderer({
 
         const isAllWork = activeTopic.id === 'all';
         const detail = isAllWork
-            ? 'Select a thread node in the graph to focus the archive.'
-            : `${activeCount} related item${activeCount === 1 ? '' : 's'} in this thread.`;
+            ? 'Click a thread node in the graph to focus the archive — the query above then filters within it.'
+            : `${activeCount} related item${activeCount === 1 ? '' : 's'} in this thread. The query above filters within it.`;
 
         status.innerHTML = `
             <div class="graph-status-copy">
-                <span class="graph-status-label">${isAllWork ? 'Graph selector' : 'Selected thread'}</span>
+                <span class="graph-status-label">Active thread</span>
                 <strong>${escapeHtml(activeTopic.label)}</strong>
                 <span>${escapeHtml(detail)}</span>
             </div>

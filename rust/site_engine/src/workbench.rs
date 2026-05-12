@@ -209,8 +209,15 @@ fn normalize_items(payload: &Payload) -> Vec<WorkItem> {
             .map(|section| format!("{} {}", section.heading, section.body))
             .collect::<Vec<_>>()
             .join(" ");
+        let anatomy_text = [
+            study.system_anatomy.inputs.join(" "),
+            study.system_anatomy.core.join(" "),
+            study.system_anatomy.outputs.join(" "),
+            study.system_anatomy.constraints.join(" "),
+        ]
+        .join(" ");
         let text = format!(
-            "{} {} {} {} {} {} {} {} {}",
+            "{} {} {} {} {} {} {} {} {} {}",
             study.title,
             study.subtitle,
             study.summary,
@@ -219,7 +226,8 @@ fn normalize_items(payload: &Payload) -> Vec<WorkItem> {
             study.repo_url,
             study.cover_image,
             media_text,
-            section_text
+            section_text,
+            anatomy_text
         );
         out.push(WorkItem {
             id: format!("case-{}", slugify(&study.slug, &title)),

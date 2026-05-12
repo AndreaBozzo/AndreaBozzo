@@ -25,7 +25,7 @@
     <meta name="twitter:description" content="A case study on the Rust-native catalog layer that makes open lakehouse storage governable: table metadata, authorization, temporary credentials, and multi-engine interoperability without a JVM-heavy control plane.">
     <meta name="twitter:image" content="https://andreabozzo.github.io/AndreaBozzo/assets/images/og/lakekeeper.png">
     <meta name="twitter:image:alt" content="Lakekeeper social card">
-    <meta name="theme-color" content="#f5efe2">
+    <meta name="theme-color" content="#fafafa">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
@@ -72,6 +72,48 @@
             <figure class="case-cover">
                 <img src="../../blog/images/Lakekeeper-Overview.png" alt="Lakekeeper architecture overview">
             </figure>
+        </section>
+
+        <section class="system-anatomy" aria-label="System anatomy">
+            <p class="eyebrow">System anatomy</p>
+            <dl class="system-anatomy-rows">
+                <div class="system-anatomy-row">
+                    <dt>Inputs</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">Iceberg REST requests</span>
+                        <span class="system-anatomy-chip">OIDC identities</span>
+                        <span class="system-anatomy-chip">Cloud storage credentials</span>
+                        <span class="system-anatomy-chip">OpenFGA authorization model</span>
+                    </dd>
+                </div>
+                <div class="system-anatomy-row">
+                    <dt>Core</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">Rust REST catalog service</span>
+                        <span class="system-anatomy-chip">Postgres-backed metadata</span>
+                        <span class="system-anatomy-chip">Vended credentials issuer</span>
+                        <span class="system-anatomy-chip">CloudEvents emitter</span>
+                    </dd>
+                </div>
+                <div class="system-anatomy-row">
+                    <dt>Outputs</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">Iceberg table metadata</span>
+                        <span class="system-anatomy-chip">Temporary storage credentials</span>
+                        <span class="system-anatomy-chip">Cross-engine query access</span>
+                        <span class="system-anatomy-chip">Audit + change events</span>
+                    </dd>
+                </div>
+                <div class="system-anatomy-row">
+                    <dt>Constraints</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">No JVM</span>
+                        <span class="system-anatomy-chip">Monthly release cadence</span>
+                        <span class="system-anatomy-chip">Multi-engine interoperability</span>
+                        <span class="system-anatomy-chip">Identity-aware by default</span>
+                    </dd>
+                </div>
+            </dl>
         </section>
 
         <nav class="case-page-nav" aria-label="Case study navigation">

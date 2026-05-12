@@ -25,7 +25,7 @@
     <meta name="twitter:description" content="A Rust-native engine for defining, validating, and enforcing data contracts across modern table formats, shifting quality checks from after-the-fact profiling to contract execution.">
     <meta name="twitter:image" content="https://andreabozzo.github.io/AndreaBozzo/assets/images/og/dce.png">
     <meta name="twitter:image:alt" content="DCE social card">
-    <meta name="theme-color" content="#f5efe2">
+    <meta name="theme-color" content="#fafafa">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
@@ -72,6 +72,48 @@
             <figure class="case-cover">
                 <img src="../../assets/images/case-studies/dce-logo.png" alt="DCE project logo" style="object-position: 50% 56%; transform: scale(1.68)">
             </figure>
+        </section>
+
+        <section class="system-anatomy" aria-label="System anatomy">
+            <p class="eyebrow">System anatomy</p>
+            <dl class="system-anatomy-rows">
+                <div class="system-anatomy-row">
+                    <dt>Inputs</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">contract.yml files</span>
+                        <span class="system-anatomy-chip">Iceberg tables</span>
+                        <span class="system-anatomy-chip">Sample dataset slices</span>
+                        <span class="system-anatomy-chip">CI / orchestration triggers</span>
+                    </dd>
+                </div>
+                <div class="system-anatomy-row">
+                    <dt>Core</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">Contract validation engine</span>
+                        <span class="system-anatomy-chip">Format-aware checks</span>
+                        <span class="system-anatomy-chip">dataprof profiler core</span>
+                        <span class="system-anatomy-chip">CLI commands (validate / init / check)</span>
+                    </dd>
+                </div>
+                <div class="system-anatomy-row">
+                    <dt>Outputs</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">Pass/fail exit code</span>
+                        <span class="system-anatomy-chip">Structured violation reports</span>
+                        <span class="system-anatomy-chip">Schema + quality verdicts</span>
+                        <span class="system-anatomy-chip">Documented limitations</span>
+                    </dd>
+                </div>
+                <div class="system-anatomy-row">
+                    <dt>Constraints</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">Iceberg-first</span>
+                        <span class="system-anatomy-chip">Documented format gaps</span>
+                        <span class="system-anatomy-chip">Lightweight, no governance UI</span>
+                        <span class="system-anatomy-chip">CI-friendly</span>
+                    </dd>
+                </div>
+            </dl>
         </section>
 
         <nav class="case-page-nav" aria-label="Case study navigation">

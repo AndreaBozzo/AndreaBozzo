@@ -25,7 +25,7 @@
     <meta name="twitter:description" content="A prototype crate for wiring async sources, DSP transforms, and inference stages together through Embassy channels with zero allocations.">
     <meta name="twitter:image" content="https://andreabozzo.github.io/AndreaBozzo/assets/images/og/zero-grappler.png">
     <meta name="twitter:image:alt" content="Zero Grappler social card">
-    <meta name="theme-color" content="#f5efe2">
+    <meta name="theme-color" content="#fafafa">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
@@ -72,6 +72,48 @@
             <figure class="case-cover">
                 <img src="../../blog/images/zerograpplerarchitecture.png" alt="Zero Grappler pipeline architecture">
             </figure>
+        </section>
+
+        <section class="system-anatomy" aria-label="System anatomy">
+            <p class="eyebrow">System anatomy</p>
+            <dl class="system-anatomy-rows">
+                <div class="system-anatomy-row">
+                    <dt>Inputs</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">Async sensor sources</span>
+                        <span class="system-anatomy-chip">Compile-time buffer sizes</span>
+                        <span class="system-anatomy-chip">Embassy executor</span>
+                        <span class="system-anatomy-chip">Board hardware (target)</span>
+                    </dd>
+                </div>
+                <div class="system-anatomy-row">
+                    <dt>Core</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">Source / Transform / Inference traits</span>
+                        <span class="system-anatomy-chip">Embassy channels</span>
+                        <span class="system-anatomy-chip">Monomorphic task wrappers</span>
+                        <span class="system-anatomy-chip">Zero-allocation runtime</span>
+                    </dd>
+                </div>
+                <div class="system-anatomy-row">
+                    <dt>Outputs</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">Inference results downstream</span>
+                        <span class="system-anatomy-chip">Host-side mock outputs</span>
+                        <span class="system-anatomy-chip">Bill-of-materials reference</span>
+                        <span class="system-anatomy-chip">Reusable pipeline crate</span>
+                    </dd>
+                </div>
+                <div class="system-anatomy-row">
+                    <dt>Constraints</dt>
+                    <dd>
+                        <span class="system-anatomy-chip">no_std</span>
+                        <span class="system-anatomy-chip">No heap</span>
+                        <span class="system-anatomy-chip">Single-board first</span>
+                        <span class="system-anatomy-chip">Types carry buffer sizes</span>
+                    </dd>
+                </div>
+            </dl>
         </section>
 
         <nav class="case-page-nav" aria-label="Case study navigation">

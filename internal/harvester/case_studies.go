@@ -36,6 +36,18 @@ type caseStudy struct {
 	Actions            []caseStudyAction  `json:"actions"`
 	MediaSlots         []mediaSlot        `json:"mediaSlots"`
 	Sections           []caseStudySection `json:"sections"`
+	SystemAnatomy      *systemAnatomy     `json:"systemAnatomy,omitempty"`
+}
+
+// systemAnatomy is the scannable "what this system is" block rendered above
+// the prose sections on each case study page. Each field is an array of short
+// noun phrases (~5-60 chars). Empty arrays render an empty row; nil systemAnatomy
+// suppresses the block entirely (backward-compatible with older entries).
+type systemAnatomy struct {
+	Inputs      []string `json:"inputs"`
+	Core        []string `json:"core"`
+	Outputs     []string `json:"outputs"`
+	Constraints []string `json:"constraints"`
 }
 
 type caseStudyAction struct {
@@ -206,6 +218,7 @@ func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext) []by
 	buf.WriteString("            </div>\n")
 	buf.Write(cover)
 	buf.WriteString("        </section>\n\n")
+	buf.Write(renderSystemAnatomy(study.SystemAnatomy))
 	buf.Write(navigation)
 	buf.WriteString("\n")
 	buf.WriteString("        <section class=\"case-layout\">\n")
@@ -257,6 +270,57 @@ func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext) []by
 	buf.WriteString("    <script src=\"../../assets/main.min.js\" defer></script>\n")
 	buf.WriteString("</body>\n</html>\n")
 
+	return buf.Bytes()
+}
+
+// renderSystemAnatomy emits the labeled "what this system is" block. The four
+// rows render as a stable grid even when individual lists are empty, so a
+// case study with only inputs+core still reads coherently. Returns an empty
+// slice when the case study omits systemAnatomy entirely.
+func renderSystemAnatomy(anatomy *systemAnatomy) []byte {
+	if anatomy == nil {
+		return nil
+	}
+	rows := []struct {
+		label string
+		items []string
+	}{
+		{"Inputs", anatomy.Inputs},
+		{"Core", anatomy.Core},
+		{"Outputs", anatomy.Outputs},
+		{"Constraints", anatomy.Constraints},
+	}
+
+	hasContent := false
+	for _, row := range rows {
+		if len(row.items) > 0 {
+			hasContent = true
+			break
+		}
+	}
+	if !hasContent {
+		return nil
+	}
+
+	var buf bytes.Buffer
+	buf.WriteString("        <section class=\"system-anatomy\" aria-label=\"System anatomy\">\n")
+	buf.WriteString("            <p class=\"eyebrow\">System anatomy</p>\n")
+	buf.WriteString("            <dl class=\"system-anatomy-rows\">\n")
+	for _, row := range rows {
+		if len(row.items) == 0 {
+			continue
+		}
+		buf.WriteString("                <div class=\"system-anatomy-row\">\n")
+		buf.WriteString("                    <dt>" + escapeHTML(row.label) + "</dt>\n")
+		buf.WriteString("                    <dd>\n")
+		for _, item := range row.items {
+			buf.WriteString("                        <span class=\"system-anatomy-chip\">" + escapeHTML(item) + "</span>\n")
+		}
+		buf.WriteString("                    </dd>\n")
+		buf.WriteString("                </div>\n")
+	}
+	buf.WriteString("            </dl>\n")
+	buf.WriteString("        </section>\n\n")
 	return buf.Bytes()
 }
 

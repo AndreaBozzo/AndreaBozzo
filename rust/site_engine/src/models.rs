@@ -86,6 +86,20 @@ pub(crate) struct CaseStudy {
     pub(crate) media_slots: Vec<MediaSlot>,
     #[serde(default)]
     pub(crate) sections: Vec<CaseSection>,
+    #[serde(default)]
+    pub(crate) system_anatomy: SystemAnatomy,
+}
+
+#[derive(Debug, Default, Clone, Deserialize)]
+pub(crate) struct SystemAnatomy {
+    #[serde(default)]
+    pub(crate) inputs: Vec<String>,
+    #[serde(default)]
+    pub(crate) core: Vec<String>,
+    #[serde(default)]
+    pub(crate) outputs: Vec<String>,
+    #[serde(default)]
+    pub(crate) constraints: Vec<String>,
 }
 
 #[derive(Debug, Default, Clone, Deserialize)]
