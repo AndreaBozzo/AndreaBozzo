@@ -55,42 +55,6 @@
     text-transform: uppercase;
 }
 
-.audience-paths {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--space-3);
-    padding-top: var(--space-2);
-}
-
-.audience-path {
-    display: grid;
-    gap: var(--space-1);
-    padding: var(--space-4) var(--space-5);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    text-decoration: none;
-    background: color-mix(in srgb, var(--color-bg-secondary) 78%, transparent);
-    transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
-}
-
-.audience-path:hover,
-.audience-path:focus-visible {
-    transform: translateY(-2px);
-    border-color: color-mix(in srgb, var(--color-accent) 44%, var(--color-border));
-}
-
-.audience-path span {
-    color: var(--color-text-muted);
-    font-size: var(--text-xs);
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-}
-
-.audience-path strong {
-    color: var(--color-text-primary);
-}
-
 .focus-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -469,20 +433,20 @@
 
 .contact-links {
     margin-top: var(--space-8);
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: flex;
+    justify-content: center;
     gap: var(--space-4);
+    flex-wrap: wrap;
 }
 
 .contact-link {
-    display: grid;
-    align-content: start;
-    gap: var(--space-2);
-    min-width: 0;
-    padding: var(--space-5);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 8.5rem;
+    padding: 0.95rem 1.4rem;
     text-decoration: none;
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
     background: linear-gradient(180deg, color-mix(in srgb, var(--color-paper-warm) 92%, transparent), color-mix(in srgb, var(--color-bg-secondary) 90%, transparent));
     color: var(--color-text-primary);
     font-weight: 700;
@@ -492,20 +456,6 @@
 .contact-link:hover,
 .contact-link:focus-visible {
     border-color: color-mix(in srgb, var(--color-accent) 56%, var(--color-border));
-}
-
-.contact-route span {
-    color: var(--color-accent-strong);
-    font-size: var(--text-xs);
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-}
-
-.contact-route strong {
-    color: var(--color-text-secondary);
-    font-size: var(--text-sm);
-    line-height: 1.45;
 }
 
 .blog-skeleton,

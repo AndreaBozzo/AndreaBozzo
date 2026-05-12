@@ -8,61 +8,25 @@ export function createWorkbenchRenderer({
     buildWorkbenchViewModel,
     selectedFromItem
 }) {
-    let lastQueryStateSignature = '';
+    let lastQueryErrorSignature = '';
     let lastGraphStatusSignature = '';
     let lastResultsSignature = '';
-
-    function applyQuerySuggestion(suggestion) {
-        const input = document.getElementById('workbench-search');
-        if (!input) return;
-
-        const query = state.query || '';
-        const match = query.match(/(?:^|[\s(])([^\s()]+)$/);
-        if (!match) {
-            state.query = query ? `${query.trimEnd()} ${suggestion}` : suggestion;
-        } else {
-            const tokenStart = query.length - match[1].length;
-            state.query = `${query.slice(0, tokenStart)}${suggestion}`;
-        }
-
-        input.value = state.query;
-        input.focus();
-        renderWorkbench();
-    }
 
     function renderQueryState(viewModel) {
         const shell = document.querySelector('.command-search');
         const error = document.getElementById('query-error');
-        const suggestions = document.getElementById('query-suggestions');
-        const clearSearch = document.getElementById('workbench-search-clear');
-        if (!shell || !error || !suggestions) return;
+        if (!shell || !error) return;
 
         const queryError = viewModel.queryError || null;
-        const querySuggestions = viewModel.querySuggestions || [];
-        const queryStateSignature = JSON.stringify({
-            query: state.query || '',
-            error: queryError?.message || '',
-            suggestions: querySuggestions
-        });
+        const queryErrorSignature = queryError?.message || '';
 
-        if (queryStateSignature === lastQueryStateSignature) return;
-        lastQueryStateSignature = queryStateSignature;
+        if (queryErrorSignature === lastQueryErrorSignature) return;
+        lastQueryErrorSignature = queryErrorSignature;
 
         shell.classList.toggle('is-error', Boolean(queryError));
         shell.title = queryError ? queryError.message : '';
         error.textContent = queryError ? queryError.message : '';
         error.hidden = !queryError;
-        if (clearSearch) {
-            clearSearch.disabled = !state.query;
-        }
-
-        suggestions.hidden = !querySuggestions.length;
-        suggestions.innerHTML = querySuggestions.map(suggestion => `
-            <button class="query-suggestion" type="button" data-query-suggestion="${escapeHtml(suggestion)}">${escapeHtml(suggestion)}</button>
-        `).join('');
-        suggestions.querySelectorAll('[data-query-suggestion]').forEach(button => {
-            button.addEventListener('click', () => applyQuerySuggestion(button.dataset.querySuggestion));
-        });
     }
 
     function resetToAllWork() {

@@ -8,7 +8,6 @@
     .case-hero,
     .case-layout,
     .proof-grid,
-    .audience-paths,
     .focus-grid,
     .papers-list,
     .projects-list,
@@ -263,10 +262,6 @@
         flex-direction: column;
     }
 
-    .command-search-row {
-        grid-template-columns: 1fr;
-    }
-
     .graph-reset {
         width: 100%;
     }
@@ -303,7 +298,6 @@
     .contact-links {
         flex-direction: column;
         gap: var(--space-3);
-        grid-template-columns: 1fr;
     }
 
     .btn,
@@ -313,7 +307,6 @@
 
     .focus-grid,
     .proof-grid,
-    .audience-paths,
     .workbench-results,
     .papers-list,
     .projects-list,
@@ -377,7 +370,6 @@
 
     .focus-grid,
     .proof-grid,
-    .audience-paths,
     .workbench-results,
     .papers-list,
     .projects-list,
@@ -418,8 +410,6 @@
     .map-node:hover,
     .project-item:hover,
     .focus-card:hover,
-    .audience-path:hover,
-    .search-quick-actions button:hover,
     .hero-art:hover .hero-art-frame,
     .site-brand:hover,
     .theme-toggle:hover {

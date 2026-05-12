@@ -42,14 +42,13 @@ paths and better cross-surface discovery.
 2. **Proof layer.** Surface a compact proof path before the exploratory
    workbench: one built system, one upstream contribution track, one writing
    archive. Each proof item should link to a deeper asset.
-3. **Recruiter / collaborator path.** Make the next click obvious for three
-   audiences: technical reviewers, recruiters, and collaborators. These links
-   should stay visible without requiring users to understand the workbench.
+3. **Business inquiries / recruiter path.** Keep contact routing simple:
+   business inquiries, recruiters, and public proof. Avoid duplicating contact
+   CTAs in multiple bars.
 4. **Unified search / discovery.** Promote the workbench from a scoped filter
-   into a site-level command palette that can search case studies, blog posts,
-   open-source contributions, papers, and topics from one input. Initial pass:
-   the homepage search now indexes all of those surfaces; remaining polish is
-   command-palette ergonomics.
+   into site-level search across case studies, blog posts, open-source
+   contributions, papers, and topics. Keep the UI to one search input plus
+   results; avoid extra helper bars unless usage proves they are needed.
 5. **Internationalization consistency.** Decide whether the root site remains
    intentionally English-only or gains Italian summaries for the homepage and
    case studies. The blog is already bilingual, so the root surface should make

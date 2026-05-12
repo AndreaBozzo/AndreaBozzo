@@ -80,7 +80,6 @@ export function createWorkbenchState() {
         activeTopic: 'all',
         query: '',
         queryError: null,
-        querySuggestions: [],
         lastValidViewModel: null,
         selectedId: '',
         posts: [],
