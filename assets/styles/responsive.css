@@ -7,6 +7,8 @@
     .workbench-shell,
     .case-hero,
     .case-layout,
+    .proof-grid,
+    .audience-paths,
     .focus-grid,
     .papers-list,
     .projects-list,
@@ -69,6 +71,7 @@
     }
 
     .hero,
+    .proof-strip,
     .system-view,
     .workbench,
     .case-study-page,
@@ -98,6 +101,7 @@
     }
 
     .blog-layout,
+    .proof-item,
     .projects-list,
     .papers-list {
         padding: var(--space-5);
@@ -302,6 +306,8 @@
     }
 
     .focus-grid,
+    .proof-grid,
+    .audience-paths,
     .workbench-results,
     .papers-list,
     .projects-list,
@@ -310,6 +316,7 @@
     }
 
     .focus-card,
+    .proof-item,
     .workbench-shell,
     .inspector-panel,
     .result-card,
@@ -349,6 +356,7 @@
 
 @media (max-width: 760px) and (min-height: 880px) {
     .workbench,
+    .proof-strip,
     .currently,
     .blog-preview,
     .papers,
@@ -362,6 +370,8 @@
     }
 
     .focus-grid,
+    .proof-grid,
+    .audience-paths,
     .workbench-results,
     .papers-list,
     .projects-list,
@@ -402,6 +412,7 @@
     .map-node:hover,
     .project-item:hover,
     .focus-card:hover,
+    .audience-path:hover,
     .hero-art:hover .hero-art-frame,
     .site-brand:hover,
     .theme-toggle:hover {
@@ -484,6 +495,7 @@
     }
 
     .hero,
+    .proof-strip,
     .workbench,
     .currently,
     .blog-preview,

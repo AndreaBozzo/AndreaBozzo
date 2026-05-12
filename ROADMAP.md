@@ -29,6 +29,35 @@ They are recorded here so future-me does not relitigate them.
 
 ---
 
+## Near-Term Websuite Focus
+
+These are the product priorities for the next public-site passes. SEO metadata
+work is no longer the main bottleneck; the site now needs sharper visitor
+paths and better cross-surface discovery.
+
+1. **Clear positioning.** Keep the homepage first viewport explicit:
+   Andrea builds Rust/Python/Go data infrastructure, open-source tools,
+   lakehouse systems, and technical writing for engineers. Avoid letting the
+   "living map" metaphor carry the value proposition by itself.
+2. **Proof layer.** Surface a compact proof path before the exploratory
+   workbench: one built system, one upstream contribution track, one writing
+   archive. Each proof item should link to a deeper asset.
+3. **Recruiter / collaborator path.** Make the next click obvious for three
+   audiences: technical reviewers, recruiters, and collaborators. These links
+   should stay visible without requiring users to understand the workbench.
+4. **Unified search / discovery.** Promote the workbench from a scoped filter
+   into a site-level command palette that can search case studies, blog posts,
+   open-source contributions, papers, and topics from one input.
+5. **Internationalization consistency.** Decide whether the root site remains
+   intentionally English-only or gains Italian summaries for the homepage and
+   case studies. The blog is already bilingual, so the root surface should make
+   that language boundary deliberate.
+
+Deferred for later evaluation: editorial curation beyond the proof layer and
+automated Lighthouse/visual smoke testing.
+
+---
+
 ## Phase B — Query UI on top of the existing engine ✅ Shipped
 
 **Goal:** A typed query bar over the workbench. Visible flex (visitors *type

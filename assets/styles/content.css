@@ -1,5 +1,96 @@
 /* Focus cards, blog, projects, papers, contact, and shared motion states. */
 
+.proof-strip {
+    display: grid;
+    gap: var(--space-8);
+}
+
+.proof-heading {
+    display: grid;
+    gap: var(--space-4);
+    max-width: 52rem;
+}
+
+.proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-5);
+}
+
+.proof-item {
+    display: grid;
+    align-content: start;
+    gap: var(--space-3);
+    padding: var(--space-6);
+    border: 1px solid color-mix(in srgb, var(--color-accent-strong) 12%, var(--color-border));
+    border-radius: var(--radius-md);
+    background: linear-gradient(150deg, color-mix(in srgb, var(--color-paper-warm) 92%, white), color-mix(in srgb, var(--color-paper-cool) 76%, transparent));
+    box-shadow: 0 18px 42px rgba(33, 51, 83, 0.08);
+}
+
+.proof-item:nth-child(2) {
+    border-color: color-mix(in srgb, var(--color-accent) 15%, var(--color-border));
+    background: linear-gradient(150deg, color-mix(in srgb, var(--color-paper-cool) 92%, white), color-mix(in srgb, var(--color-paper-warm) 78%, transparent));
+}
+
+.proof-item h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    line-height: 1.1;
+}
+
+.proof-item p {
+    color: var(--color-text-secondary);
+}
+
+.proof-kicker {
+    width: fit-content;
+    padding: 0.34rem 0.62rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-accent-strong) 9%, white);
+    color: var(--color-accent-strong);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.audience-paths {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-3);
+    padding-top: var(--space-2);
+}
+
+.audience-path {
+    display: grid;
+    gap: var(--space-1);
+    padding: var(--space-4) var(--space-5);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    background: color-mix(in srgb, var(--color-bg-secondary) 78%, transparent);
+    transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.audience-path:hover,
+.audience-path:focus-visible {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--color-accent) 44%, var(--color-border));
+}
+
+.audience-path span {
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.audience-path strong {
+    color: var(--color-text-primary);
+}
+
 .focus-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
