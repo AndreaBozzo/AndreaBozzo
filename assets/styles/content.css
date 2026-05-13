@@ -179,8 +179,18 @@
 }
 
 .language-toggle {
-    display: flex;
+    display: inline-flex;
+    align-items: center;
     justify-content: flex-end;
+    gap: var(--space-2);
+}
+
+.language-toggle-label {
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 .lang-btn {

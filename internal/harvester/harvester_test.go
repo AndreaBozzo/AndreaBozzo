@@ -270,8 +270,8 @@ func TestRenderCaseStudyPageIncludesPapersNav(t *testing.T) {
 	if !strings.Contains(body, "../../#papers") {
 		t.Fatalf("expected papers navigation link")
 	}
-	if !strings.Contains(body, `data-language-toggle`) || !strings.Contains(body, `data-blog-link`) {
-		t.Fatalf("expected site-level language controls in case-study header")
+	if strings.Contains(body, `data-language-toggle`) || strings.Contains(body, `site-lang-btn`) {
+		t.Fatalf("case-study header should not expose a site language switch before the page is localized")
 	}
 	if strings.Contains(body, `og:locale:alternate`) {
 		t.Fatalf("case-study pages should not advertise a locale alternate without a translated page")

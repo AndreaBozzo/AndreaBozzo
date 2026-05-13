@@ -230,33 +230,36 @@ window.addEventListener('hashchange', () => {
     requestAnimationFrame(scrollHashTargetIntoView);
 });
 
-// ===== Site Language Preference and Blog Posts Auto-Loading =====
-const supportedSiteLanguages = new Set(['en', 'it']);
-const siteLanguageStorageKey = 'site_language_preference';
+// ===== Writing Language Preference and Blog Posts Auto-Loading =====
+const supportedWritingLanguages = new Set(['en', 'it']);
+const writingLanguageStorageKey = 'writing_language_preference';
 const legacyBlogLanguageStorageKey = 'blog_language_preference';
+const legacySiteLanguageStorageKey = 'site_language_preference';
 
-function normalizeSiteLanguage(lang) {
+function normalizeWritingLanguage(lang) {
     const normalized = String(lang || '').toLowerCase().split('-')[0];
-    return supportedSiteLanguages.has(normalized) ? normalized : '';
+    return supportedWritingLanguages.has(normalized) ? normalized : '';
 }
 
 function detectBrowserLanguage() {
-    const userLang = normalizeSiteLanguage(navigator.language || navigator.userLanguage);
+    const userLang = normalizeWritingLanguage(navigator.language || navigator.userLanguage);
     return userLang === 'it' ? 'it' : 'en';
 }
 
-function getCurrentSiteLanguage() {
-    const savedLang = normalizeSiteLanguage(localStorage.getItem(siteLanguageStorageKey));
+function getCurrentWritingLanguage() {
+    const savedLang = normalizeWritingLanguage(localStorage.getItem(writingLanguageStorageKey));
     if (savedLang) return savedLang;
 
-    const legacySavedLang = normalizeSiteLanguage(localStorage.getItem(legacyBlogLanguageStorageKey));
+    const legacySavedLang = normalizeWritingLanguage(
+        localStorage.getItem(legacyBlogLanguageStorageKey) || localStorage.getItem(legacySiteLanguageStorageKey)
+    );
     if (legacySavedLang) return legacySavedLang;
 
     return detectBrowserLanguage();
 }
 
-function persistSiteLanguage(lang) {
-    localStorage.setItem(siteLanguageStorageKey, lang);
+function persistWritingLanguage(lang) {
+    localStorage.setItem(writingLanguageStorageKey, lang);
     localStorage.setItem(legacyBlogLanguageStorageKey, lang);
 }
 
@@ -265,10 +268,10 @@ function getBlogPathForLanguage(lang) {
     return `${basePath}blog/${lang === 'en' ? 'en/' : ''}`;
 }
 
-function updateLanguagePreferenceUI(lang) {
-    document.documentElement.setAttribute('data-language', lang);
+function updateWritingLanguageUI(lang) {
+    document.documentElement.setAttribute('data-writing-language', lang);
 
-    document.querySelectorAll('[data-language-toggle]').forEach((button) => {
+    document.querySelectorAll('[data-writing-language-toggle]').forEach((button) => {
         const text = button.querySelector('[data-lang-text]');
         if (text) {
             text.textContent = lang.toUpperCase();
@@ -286,12 +289,12 @@ function updateLanguagePreferenceUI(lang) {
     });
 }
 
-function toggleSiteLanguage() {
-    const currentLang = getCurrentSiteLanguage();
+function toggleWritingLanguage() {
+    const currentLang = getCurrentWritingLanguage();
     const newLang = currentLang === 'it' ? 'en' : 'it';
 
-    persistSiteLanguage(newLang);
-    updateLanguagePreferenceUI(newLang);
+    persistWritingLanguage(newLang);
+    updateWritingLanguageUI(newLang);
 
     if (document.getElementById('blog-grid')) {
         loadLatestBlogPosts(newLang);
@@ -299,14 +302,13 @@ function toggleSiteLanguage() {
 }
 
 window.toggleTheme = toggleTheme;
-window.toggleBlogLanguage = toggleSiteLanguage;
-window.toggleSiteLanguage = toggleSiteLanguage;
+window.toggleBlogLanguage = toggleWritingLanguage;
 
-function initializeLanguagePreference() {
-    const lang = getCurrentSiteLanguage();
-    updateLanguagePreferenceUI(lang);
-    document.querySelectorAll('[data-language-toggle]').forEach((button) => {
-        button.addEventListener('click', toggleSiteLanguage);
+function initializeWritingLanguagePreference() {
+    const lang = getCurrentWritingLanguage();
+    updateWritingLanguageUI(lang);
+    document.querySelectorAll('[data-writing-language-toggle]').forEach((button) => {
+        button.addEventListener('click', toggleWritingLanguage);
     });
 }
 
@@ -382,8 +384,8 @@ function writeBlogCache(lang, posts) {
 }
 
 async function loadLatestBlogPosts(forceLang = null) {
-    const lang = normalizeSiteLanguage(forceLang) || getCurrentSiteLanguage();
-    updateLanguagePreferenceUI(lang);
+    const lang = normalizeWritingLanguage(forceLang) || getCurrentWritingLanguage();
+    updateWritingLanguageUI(lang);
 
     const cached = readBlogCache(lang);
     if (cached) {
@@ -699,7 +701,7 @@ if ('serviceWorker' in navigator && shouldEnableAnalytics()) {
 // ===== Initialize =====
 document.addEventListener('DOMContentLoaded', function() {
     initializeThemeToggle();
-    initializeLanguagePreference();
+    initializeWritingLanguagePreference();
     if (shouldEnableAnalytics()) {
         inject();
     }

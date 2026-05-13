@@ -2,7 +2,7 @@
     (function() {
         const currentLanguage = '{{ .Lang }}';
         const supportedLanguages = new Set(['en', 'it']);
-        const storageKeys = ['site_language_preference', 'blog_language_preference'];
+        const storageKeys = ['writing_language_preference', 'blog_language_preference'];
 
         function normalizeLanguage(value) {
             const normalized = String(value || '').toLowerCase().split('-')[0];

@@ -115,14 +115,9 @@
             <a href="#papers">Papers</a>
             <a href="#contact">Contact</a>
         </nav>
-        <div class="site-actions" aria-label="Site preferences">
-            <button class="lang-btn site-lang-btn" type="button" data-language-toggle aria-label="Switch writing language">
-                <span data-lang-text>EN</span>
-            </button>
-            <button class="theme-toggle" type="button" aria-label="Toggle color theme">
-                <span class="theme-toggle-icon" id="theme-icon">☀️</span>
-            </button>
-        </div>
+        <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+            <span class="theme-toggle-icon" id="theme-icon">☀️</span>
+        </button>
     </header>
 
     <main class="content-wrapper">
@@ -290,7 +285,8 @@
                     <div class="blog-header">
                         <h3 class="panel-title">Latest writing</h3>
                         <div class="language-toggle">
-                            <button class="lang-btn" type="button" data-language-toggle aria-label="Switch writing language">
+                            <span class="language-toggle-label">Writing language</span>
+                            <button class="lang-btn" type="button" data-writing-language-toggle aria-label="Switch writing language">
                                 <span data-lang-text>EN</span>
                             </button>
                         </div>
