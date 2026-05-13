@@ -179,6 +179,7 @@ pub(crate) struct WorkItem {
     pub(crate) tags: Vec<String>,
     pub(crate) topics: Vec<String>,
     pub(crate) url: String,
+    pub(crate) selection_group: String,
     pub(crate) base_score: f32,
     pub(crate) stars: f32,
     pub(crate) prs: f32,

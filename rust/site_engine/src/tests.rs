@@ -83,6 +83,7 @@ fn search_ranking_prioritizes_title_matches() {
         tags: vec!["Python".into()],
         topics: vec!["rust-systems".into()],
         url: "/".into(),
+        selection_group: String::new(),
         base_score: 0.0,
         stars: 0.0,
         prs: 0.0,
@@ -149,6 +150,7 @@ fn query_parser_respects_precedence_and_parens() {
         tags: vec!["Rust".into()],
         topics: vec!["streaming".into()],
         url: "/".into(),
+        selection_group: String::new(),
         base_score: 0.0,
         stars: 9_000.0,
         prs: 1.0,
@@ -170,6 +172,7 @@ fn query_parser_handles_not_and_numeric_comparisons() {
         tags: vec!["Rust".into()],
         topics: vec!["data-platforms".into()],
         url: "/".into(),
+        selection_group: String::new(),
         base_score: 0.0,
         stars: 38_400.0,
         prs: 3.0,
@@ -233,6 +236,39 @@ fn build_emits_edges_from_items_to_topics() {
             "edge target should be a topic node"
         );
     }
+}
+
+#[test]
+fn package_graph_selection_does_not_hide_ceres_when_ares_fills_the_cap() {
+    let payload = r#"{
+            "topics": [
+                {"id": "all", "label": "All work"},
+                {"id": "scraping", "label": "Harvesting", "summary": "Collection systems"}
+            ],
+            "packages": [
+                {"id": "crates.io:ares-api", "ecosystem": "crates.io", "name": "ares-api", "displayName": "ares-api", "summary": "HTTP server for Ares", "version": "0.3.0", "repositoryUrl": "https://github.com/AndreaBozzo/Ares", "relatedCaseStudies": ["ares-ceres"]},
+                {"id": "crates.io:ares-cli", "ecosystem": "crates.io", "name": "ares-cli", "displayName": "ares-cli", "summary": "CLI for Ares", "version": "0.3.0", "repositoryUrl": "https://github.com/AndreaBozzo/Ares", "relatedCaseStudies": ["ares-ceres"]},
+                {"id": "crates.io:ares-client", "ecosystem": "crates.io", "name": "ares-client", "displayName": "ares-client", "summary": "Client for Ares", "version": "0.3.0", "repositoryUrl": "https://github.com/AndreaBozzo/Ares", "relatedCaseStudies": ["ares-ceres"]},
+                {"id": "crates.io:ares-core", "ecosystem": "crates.io", "name": "ares-core", "displayName": "ares-core", "summary": "Core for Ares", "version": "0.3.0", "repositoryUrl": "https://github.com/AndreaBozzo/Ares", "relatedCaseStudies": ["ares-ceres"]},
+                {"id": "crates.io:ares-db", "ecosystem": "crates.io", "name": "ares-db", "displayName": "ares-db", "summary": "DB for Ares", "version": "0.3.0", "repositoryUrl": "https://github.com/AndreaBozzo/Ares", "relatedCaseStudies": ["ares-ceres"]},
+                {"id": "crates.io:ceres-client", "ecosystem": "crates.io", "name": "ceres-client", "displayName": "ceres-client", "summary": "Client for Ceres", "version": "0.3.5", "repositoryUrl": "https://github.com/AndreaBozzo/Ceres", "relatedCaseStudies": ["ares-ceres"]},
+                {"id": "crates.io:ceres-core", "ecosystem": "crates.io", "name": "ceres-core", "displayName": "ceres-core", "summary": "Core for Ceres", "version": "0.3.5", "repositoryUrl": "https://github.com/AndreaBozzo/Ceres", "relatedCaseStudies": ["ares-ceres"]},
+                {"id": "crates.io:ceres-db", "ecosystem": "crates.io", "name": "ceres-db", "displayName": "ceres-db", "summary": "DB for Ceres", "version": "0.3.5", "repositoryUrl": "https://github.com/AndreaBozzo/Ceres", "relatedCaseStudies": ["ares-ceres"]},
+                {"id": "crates.io:ceres-search", "ecosystem": "crates.io", "name": "ceres-search", "displayName": "ceres-search", "summary": "Search for Ceres", "version": "0.3.5", "repositoryUrl": "https://github.com/AndreaBozzo/Ceres", "relatedCaseStudies": ["ares-ceres"]}
+            ],
+            "activeTopic": "scraping"
+        }"#;
+
+    let out: Output = serde_json::from_str(&build_workbench(payload)).unwrap();
+    let package_labels: Vec<&str> = out
+        .nodes
+        .iter()
+        .filter(|node| node.kind == "package")
+        .map(|node| node.label.as_str())
+        .collect();
+
+    assert!(package_labels.iter().any(|label| label.starts_with("ares-")));
+    assert!(package_labels.iter().any(|label| label.starts_with("ceres-")));
 }
 
 #[test]

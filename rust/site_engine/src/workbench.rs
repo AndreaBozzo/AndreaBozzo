@@ -66,16 +66,35 @@ pub(crate) fn build(mut payload: Payload) -> Output {
 
     let mut graph_items = topics_to_items(&topics);
     let mut by_kind_counts: HashMap<&str, usize> = HashMap::new();
+    let mut package_groups_seen: HashSet<&str> = HashSet::new();
+    let mut deferred_packages: Vec<(&WorkItem, f32, bool)> = Vec::new();
     let per_kind_cap = 5;
     for (item, score, visible) in &scored {
         let count = by_kind_counts.entry(item.kind.as_str()).or_insert(0);
         if *count >= per_kind_cap {
             continue;
         }
+
+        if item.kind == "package"
+            && !item.selection_group.trim().is_empty()
+            && !package_groups_seen.insert(item.selection_group.as_str())
+        {
+            deferred_packages.push((item, *score, *visible));
+            continue;
+        }
+
         *count += 1;
-        let mut cloned = item.clone();
-        cloned.base_score = *score + if *visible { 10.0 } else { 0.0 };
-        graph_items.push(cloned);
+        push_graph_item(&mut graph_items, item, *score, *visible);
+    }
+
+    if let Some(count) = by_kind_counts.get_mut("package") {
+        for (item, score, visible) in deferred_packages {
+            if *count >= per_kind_cap {
+                break;
+            }
+            *count += 1;
+            push_graph_item(&mut graph_items, item, score, visible);
+        }
     }
     graph_items.truncate(20);
 
@@ -133,6 +152,12 @@ pub(crate) fn build(mut payload: Payload) -> Output {
         topics: topic_counts,
         query_error,
     }
+}
+
+fn push_graph_item(graph_items: &mut Vec<WorkItem>, item: &WorkItem, score: f32, visible: bool) {
+    let mut cloned = item.clone();
+    cloned.base_score = score + if visible { 10.0 } else { 0.0 };
+    graph_items.push(cloned);
 }
 
 fn derive_edges(items: &[WorkItem]) -> Vec<Edge> {
@@ -239,6 +264,7 @@ fn normalize_items(payload: &Payload) -> Vec<WorkItem> {
             tags: compact_tags(tags, 4),
             topics: topics_for_text(&text),
             url: format!("./work/{}/", slugify(&study.slug, &study.title)),
+            selection_group: String::new(),
             base_score: 7.0,
             stars: 0.0,
             prs: 0.0,
@@ -263,6 +289,7 @@ fn normalize_items(payload: &Payload) -> Vec<WorkItem> {
             tags: compact_tags(post.tags.clone(), 4),
             topics: topics_for_text(&text),
             url: first_non_empty(&post.permalink, "./blog/"),
+            selection_group: String::new(),
             base_score: 4.0,
             stars: 0.0,
             prs: 0.0,
@@ -299,6 +326,7 @@ fn normalize_contribution(out: &mut Vec<WorkItem>, contribution: &Contribution, 
         tags: compact_tags(tags_for_text(&text), 4),
         topics: topics_for_text(&text),
         url: contribution.url.clone(),
+        selection_group: String::new(),
         base_score: 5.0,
         stars: parse_metric(&contribution.stars),
         prs: parse_metric(&contribution.prs),
@@ -320,6 +348,7 @@ fn normalize_paper(out: &mut Vec<WorkItem>, paper: &Paper, index: usize) {
         tags: compact_tags(tags_for_text(&text), 4),
         topics: topics_for_text(&text),
         url: paper.url.clone(),
+        selection_group: String::new(),
         base_score: 4.5,
         stars: 0.0,
         prs: 0.0,
@@ -357,6 +386,19 @@ fn normalize_package(out: &mut Vec<WorkItem>, package: &Package, index: usize) {
     if tags.iter().all(|tag| tag.trim().is_empty()) {
         tags = tags_for_text(&text);
     }
+    let selection_group = if package.repository_url.trim().is_empty() {
+        first_non_empty(
+            package
+                .related_case_studies
+                .first()
+                .map(String::as_str)
+                .unwrap_or(""),
+            &package.id,
+        )
+        .to_string()
+    } else {
+        package.repository_url.clone()
+    };
     out.push(WorkItem {
         id: format!("package-{index}-{}", slugify(&package.id, &title)),
         kind: "package".into(),
@@ -369,6 +411,7 @@ fn normalize_package(out: &mut Vec<WorkItem>, package: &Package, index: usize) {
             &package.url,
             &first_non_empty(&package.repository_url, &first_non_empty(&package.homepage_url, &package.documentation_url)),
         ),
+        selection_group,
         base_score: 4.8,
         stars: 0.0,
         prs: 0.0,
@@ -388,6 +431,7 @@ fn topics_to_items(topics: &[Topic]) -> Vec<WorkItem> {
             tags: topic.tags.clone(),
             topics: vec![topic.id.clone()],
             url: "./blog/".into(),
+            selection_group: String::new(),
             base_score: 9.0,
             stars: 0.0,
             prs: 0.0,
