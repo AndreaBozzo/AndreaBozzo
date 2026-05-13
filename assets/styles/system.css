@@ -11,8 +11,8 @@
     background:
         radial-gradient(circle at 14% 18%, color-mix(in srgb, var(--color-accent) 16%, transparent), transparent 28%),
         radial-gradient(circle at 88% 16%, color-mix(in srgb, var(--color-accent-strong) 14%, transparent), transparent 32%),
-        linear-gradient(145deg, color-mix(in srgb, var(--color-paper-warm) 88%, white), color-mix(in srgb, var(--color-paper-cool) 76%, transparent));
-    box-shadow: 0 28px 68px rgba(52, 37, 16, 0.12);
+        linear-gradient(145deg, color-mix(in srgb, var(--color-paper-warm) 88%, var(--color-bg-tertiary)), color-mix(in srgb, var(--color-paper-cool) 76%, transparent));
+    box-shadow: 0 28px 68px var(--color-shadow-medium);
     overflow: hidden;
 }
 
@@ -58,8 +58,8 @@
     padding: var(--space-5);
     border-radius: var(--radius-md);
     border: 1px solid color-mix(in srgb, var(--color-border) 84%, transparent);
-    background: linear-gradient(160deg, color-mix(in srgb, var(--color-bg-tertiary) 92%, white), color-mix(in srgb, var(--color-bg-secondary) 94%, transparent));
-    box-shadow: 0 14px 30px rgba(58, 42, 18, 0.08);
+    background: linear-gradient(160deg, color-mix(in srgb, var(--color-bg-tertiary) 92%, var(--color-paper-warm)), color-mix(in srgb, var(--color-bg-secondary) 94%, transparent));
+    box-shadow: 0 14px 30px var(--color-shadow-soft);
     position: relative;
     overflow: hidden;
 }
@@ -100,9 +100,9 @@
     gap: var(--space-4);
     padding: var(--space-2);
     border-radius: calc(var(--radius-xl) - 0.3rem);
-    border: 1px solid rgba(36, 54, 88, 0.14);
-    background: linear-gradient(180deg, rgba(255, 252, 244, 0.9), rgba(240, 244, 249, 0.84));
-    box-shadow: 0 22px 50px rgba(22, 20, 18, 0.12);
+    border: 1px solid color-mix(in srgb, var(--color-accent-strong) 14%, var(--color-border));
+    background: linear-gradient(180deg, color-mix(in srgb, var(--color-paper-warm) 92%, var(--color-bg-tertiary)), color-mix(in srgb, var(--color-paper-cool) 86%, var(--color-bg-tertiary)));
+    box-shadow: 0 22px 50px var(--color-shadow-medium);
     position: relative;
     z-index: 1;
     align-content: start;
@@ -115,7 +115,7 @@
     height: auto;
     display: block;
     border-radius: calc(var(--radius-lg) - 0.4rem);
-    background: rgba(255, 255, 255, 0.6);
+    background: var(--color-glass-highlight);
 }
 
 .system-diagram figcaption {

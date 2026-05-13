@@ -121,8 +121,8 @@
     border-radius: var(--radius-lg);
     background:
         radial-gradient(circle at 8% 0%, color-mix(in srgb, var(--color-accent) 10%, transparent), transparent 32%),
-        linear-gradient(155deg, color-mix(in srgb, var(--color-paper-warm) 92%, white), color-mix(in srgb, var(--color-paper-cool) 80%, transparent));
-    box-shadow: 0 20px 48px rgba(40, 49, 66, 0.08);
+        linear-gradient(155deg, color-mix(in srgb, var(--color-paper-warm) 92%, var(--color-bg-tertiary)), color-mix(in srgb, var(--color-paper-cool) 80%, transparent));
+    box-shadow: 0 20px 48px var(--color-shadow-soft);
 }
 
 .system-anatomy .eyebrow {
@@ -301,8 +301,8 @@
     border-radius: var(--radius-lg);
     background:
         radial-gradient(circle at 92% 0%, color-mix(in srgb, var(--color-accent-strong) 10%, transparent), transparent 36%),
-        linear-gradient(165deg, color-mix(in srgb, var(--color-paper-warm) 92%, white), color-mix(in srgb, var(--color-paper-cool) 80%, transparent));
-    box-shadow: 0 20px 48px rgba(40, 49, 66, 0.08);
+        linear-gradient(165deg, color-mix(in srgb, var(--color-paper-warm) 92%, var(--color-bg-tertiary)), color-mix(in srgb, var(--color-paper-cool) 80%, transparent));
+    box-shadow: 0 20px 48px var(--color-shadow-soft);
     display: grid;
     gap: var(--space-5);
 }
@@ -565,7 +565,7 @@
     border: 1px solid color-mix(in srgb, var(--color-accent) 18%, var(--color-border));
     border-radius: var(--radius-md);
     background:
-        linear-gradient(155deg, color-mix(in srgb, var(--color-paper-warm) 94%, white), color-mix(in srgb, var(--color-bg-secondary) 92%, transparent));
+        linear-gradient(155deg, color-mix(in srgb, var(--color-paper-warm) 94%, var(--color-bg-tertiary)), color-mix(in srgb, var(--color-bg-secondary) 92%, transparent));
 }
 
 .case-data-kicker {
@@ -673,7 +673,7 @@
 }
 
 .media-slot-trigger:focus-visible {
-    outline: 2px solid color-mix(in srgb, var(--color-accent-strong) 64%, white);
+    outline: 2px solid color-mix(in srgb, var(--color-accent-strong) 64%, var(--color-inverse));
     outline-offset: 0.35rem;
     border-radius: calc(var(--radius-md) - 0.2rem);
 }
@@ -726,7 +726,7 @@
 .media-viewer-backdrop {
     position: absolute;
     inset: 0;
-    background: rgba(13, 20, 34, 0.82);
+    background: var(--color-overlay);
     backdrop-filter: blur(10px);
 }
 
@@ -738,10 +738,10 @@
     width: min(100%, 72rem);
     max-height: calc(100vh - clamp(2rem, 8vw, 4rem));
     padding: clamp(1rem, 3vw, 1.5rem);
-    border: 1px solid color-mix(in srgb, var(--color-border) 88%, white);
+    border: 1px solid color-mix(in srgb, var(--color-border) 88%, var(--color-bg-tertiary));
     border-radius: var(--radius-lg);
-    background: color-mix(in srgb, var(--color-bg-secondary) 96%, white);
-    box-shadow: 0 36px 100px rgba(6, 10, 19, 0.35);
+    background: color-mix(in srgb, var(--color-bg-secondary) 96%, var(--color-bg-tertiary));
+    box-shadow: 0 36px 100px var(--color-shadow-strong);
 }
 
 .media-viewer-close {

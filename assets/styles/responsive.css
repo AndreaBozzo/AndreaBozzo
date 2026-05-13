@@ -242,7 +242,7 @@
     }
 
     [data-theme="dark"] .hero-stats .stat-stack {
-        border-top-color: rgba(145, 184, 255, 0.14);
+        border-top-color: color-mix(in srgb, var(--color-accent-strong) 14%, transparent);
     }
 
     .subtitle {
@@ -510,7 +510,7 @@
     }
 
     [data-theme="dark"] .hero-stats .stat:nth-child(3) {
-        border-top-color: rgba(145, 184, 255, 0.14);
+        border-top-color: color-mix(in srgb, var(--color-accent-strong) 14%, transparent);
     }
 
 }

@@ -14,12 +14,12 @@
     padding: var(--space-4);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
-    background: linear-gradient(145deg, color-mix(in srgb, var(--color-paper-cool) 82%, white), color-mix(in srgb, var(--color-bg-secondary) 90%, transparent));
-    box-shadow: 0 18px 42px rgba(48, 35, 17, 0.08);
+    background: linear-gradient(145deg, color-mix(in srgb, var(--color-paper-cool) 82%, var(--color-bg-tertiary)), color-mix(in srgb, var(--color-bg-secondary) 90%, transparent));
+    box-shadow: 0 18px 42px var(--color-shadow-soft);
 }
 
 .command-search.is-error {
-    border-color: color-mix(in srgb, #c7372f 58%, var(--color-border));
+    border-color: color-mix(in srgb, var(--color-danger) 58%, var(--color-border));
 }
 
 .command-search-kicker,
@@ -42,7 +42,7 @@
 }
 
 .command-search.is-error input {
-    text-decoration: underline wavy #c7372f 0.08em;
+    text-decoration: underline wavy var(--color-danger) 0.08em;
     text-underline-offset: 0.28em;
 }
 
@@ -57,7 +57,7 @@
 }
 
 .query-error {
-    color: #9f2f2a;
+    color: var(--color-danger-strong);
     font-size: var(--text-xs);
     font-weight: 700;
 }
@@ -80,9 +80,9 @@
     background:
         radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--color-signal) 10%, transparent), transparent 30%),
         radial-gradient(circle at 88% 24%, color-mix(in srgb, var(--color-plum) 9%, transparent), transparent 34%),
-        linear-gradient(145deg, color-mix(in srgb, var(--color-paper-warm) 94%, white), color-mix(in srgb, var(--color-paper-cool) 82%, transparent));
+        linear-gradient(145deg, color-mix(in srgb, var(--color-paper-warm) 94%, var(--color-bg-tertiary)), color-mix(in srgb, var(--color-paper-cool) 82%, transparent));
     border-color: color-mix(in srgb, var(--color-border) 88%, transparent);
-    box-shadow: 0 22px 52px rgba(48, 35, 17, 0.09);
+    box-shadow: 0 22px 52px var(--color-shadow-soft);
 }
 
 .map-panel {
@@ -95,9 +95,9 @@
         radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--color-accent) 8%, transparent), transparent 30%),
         linear-gradient(color-mix(in srgb, var(--color-accent-strong) 7%, transparent) 1px, transparent 1px),
         linear-gradient(90deg, color-mix(in srgb, var(--color-accent-strong) 7%, transparent) 1px, transparent 1px),
-        linear-gradient(180deg, color-mix(in srgb, var(--color-paper-cool) 88%, white), color-mix(in srgb, var(--color-paper-warm) 96%, transparent));
+        linear-gradient(180deg, color-mix(in srgb, var(--color-paper-cool) 88%, var(--color-bg-tertiary)), color-mix(in srgb, var(--color-paper-warm) 96%, transparent));
     background-size: 100% 100%, 4.35rem 4.35rem, 4.35rem 4.35rem, 100% 100%;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.68), inset 0 -22px 46px rgba(15, 23, 42, 0.035);
+    box-shadow: inset 0 1px 0 var(--color-glass-highlight), inset 0 -22px 46px color-mix(in srgb, var(--color-shadow-soft) 44%, transparent);
 }
 
 .map-panel::after {
@@ -181,8 +181,8 @@
     aspect-ratio: 1;
     padding: var(--space-3);
     border-radius: 50%;
-    background: linear-gradient(180deg, rgba(251, 244, 231, 0.98), rgba(237, 243, 248, 0.96));
-    box-shadow: 0 12px 28px rgba(44, 35, 21, 0.10);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--color-paper-warm) 94%, var(--color-plum)), color-mix(in srgb, var(--color-paper-cool) 94%, var(--color-bg-tertiary)));
+    box-shadow: 0 12px 28px var(--color-shadow-medium);
     text-align: center;
     font-size: var(--text-sm);
     line-height: 1.15;
@@ -229,9 +229,9 @@
     padding: clamp(1.35rem, 2.2vw, 2rem);
     border-radius: var(--radius-md);
     background:
-        linear-gradient(160deg, color-mix(in srgb, var(--color-paper-warm) 90%, white), color-mix(in srgb, var(--color-paper-cool) 82%, transparent));
+        linear-gradient(160deg, color-mix(in srgb, var(--color-paper-warm) 90%, var(--color-bg-tertiary)), color-mix(in srgb, var(--color-paper-cool) 82%, transparent));
     border-color: color-mix(in srgb, var(--color-border) 78%, transparent);
-    box-shadow: 0 18px 38px rgba(15, 23, 42, 0.055);
+    box-shadow: 0 18px 38px var(--color-shadow-soft);
 }
 
 .inspector-panel h3 {
@@ -274,7 +274,7 @@
     padding: var(--space-6);
     border-radius: var(--radius-md);
     text-decoration: none;
-    background: linear-gradient(150deg, color-mix(in srgb, var(--color-paper-cool) 78%, white), color-mix(in srgb, var(--color-paper-warm) 92%, transparent));
+    background: linear-gradient(150deg, color-mix(in srgb, var(--color-paper-cool) 78%, var(--color-bg-tertiary)), color-mix(in srgb, var(--color-paper-warm) 92%, transparent));
     transition: transform 180ms ease, border-color 180ms ease;
 }
 

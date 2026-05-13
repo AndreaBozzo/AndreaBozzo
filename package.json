@@ -19,6 +19,7 @@
     "harvester:artifacts": "go run ./cmd/harvester generate-static-artifacts",
     "harvester:readme": "go run ./cmd/harvester update-contributions-readme",
     "lint:js": "eslint assets/main.js assets/workbench/*.js sw.js",
+    "lint:css-tokens": "node ./scripts/check-css-tokens.mjs",
     "validate:data": "ajv validate --spec=draft2020 -c ajv-formats -s schema/writing.schema.json -d assets/data/writing.json && ajv validate --spec=draft2020 -c ajv-formats -s schema/packages.schema.json -d assets/data/packages.json && ajv validate --spec=draft2020 -c ajv-formats -s schema/ci-runtimes.schema.json -d assets/data/ci-runtimes.json",
     "lint:svg": "node ./scripts/validate-svg.mjs",
     "optimize:svg": "svgo -r assets/images/case-studies",

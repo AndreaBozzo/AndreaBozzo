@@ -65,7 +65,7 @@ function getCompanionApiBase() {
 
 function syncThemeColor(theme) {
     const themeColorMeta = document.querySelector('meta[name="theme-color"]:not([media])');
-    const color = theme === 'dark' ? '#090e17' : '#fafafa';
+    const color = theme === 'dark' ? '#071411' : '#f7faf6';
 
     if (themeColorMeta) {
         themeColorMeta.setAttribute('content', color);

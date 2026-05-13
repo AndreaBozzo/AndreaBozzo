@@ -63,8 +63,8 @@
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 94%, white), color-mix(in srgb, var(--color-accent-strong) 64%, var(--color-accent)));
-    color: #fff7f2;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 94%, var(--color-bg-tertiary)), color-mix(in srgb, var(--color-accent-strong) 64%, var(--color-accent)));
+    color: var(--color-on-accent);
     box-shadow: 0 18px 40px color-mix(in srgb, var(--color-accent) 28%, transparent);
 }
 
@@ -104,7 +104,7 @@
 
 .project-item:hover {
     transform: translateY(-4px);
-    box-shadow: 0 32px 90px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 32px 90px var(--color-shadow-medium);
 }
 
 .project-desc,

@@ -376,11 +376,11 @@ export function createWorkbenchGraph({
         const styles = getComputedStyle(document.documentElement);
         const read = (name, fallback) => styles.getPropertyValue(name).trim() || fallback;
         return {
-            accent: read('--color-accent', '#f97316'),
-            accentStrong: read('--color-accent-strong', '#2563eb'),
+            accent: read('--color-accent', '#00a98f'),
+            accentStrong: read('--color-accent-strong', '#007f6d'),
             nodeFill: read('--color-bg-tertiary', '#ffffff'),
-            textPrimary: read('--color-text-primary', '#0f172a'),
-            textMuted: read('--color-text-muted', '#94a3b8')
+            textPrimary: read('--color-text-primary', '#10201c'),
+            textMuted: read('--color-text-muted', '#7f948c')
         };
     }
 
@@ -427,7 +427,7 @@ export function createWorkbenchGraph({
             const radius = NODE_KIND_RADIUS[node.kind] || 18;
             const isSelected = node.id === selectedId;
             const isHovered = node.id === graphSim.hoveredId;
-            const baseColor = node.kind === 'topic' ? topicColor : (NODE_KIND_COLORS[node.kind] || '#444');
+            const baseColor = node.kind === 'topic' ? topicColor : (NODE_KIND_COLORS[node.kind] || tokens.textMuted);
 
             ctx.globalAlpha = node.visible ? 1.0 : 0.24;
 

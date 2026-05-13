@@ -47,12 +47,12 @@ export const topicBlueprints = [
 // graph.js resolves the topic color from --color-accent at render time so it
 // tracks the active theme.
 export const NODE_KIND_COLORS = {
-    topic: '#f97316',
-    'case-study': '#7358ba',
-    post: '#1e4f95',
-    project: '#0e7065',
-    paper: '#9f5a1a',
-    package: '#c2410c'
+    topic: '#00a98f',
+    'case-study': '#2f7d6f',
+    post: '#386d58',
+    project: '#007f6d',
+    paper: '#6fbf73',
+    package: '#d89b4a'
 };
 
 export const NODE_KIND_RADIUS = {
