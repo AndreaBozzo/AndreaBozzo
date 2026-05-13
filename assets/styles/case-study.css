@@ -315,6 +315,16 @@
     margin-top: var(--space-4);
 }
 
+.case-gallery {
+    margin-top: var(--space-8);
+}
+
+.case-gallery .media-slots {
+    grid-template-columns: repeat(auto-fit, minmax(min(24rem, 100%), 1fr));
+    gap: var(--space-5);
+    margin-top: 0;
+}
+
 .media-slot {
     display: grid;
     gap: var(--space-3);

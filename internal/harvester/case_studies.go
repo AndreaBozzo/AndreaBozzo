@@ -637,32 +637,9 @@ func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext, last
 	}
 	buf.Write(renderCaseStudyDataGroup("Proof metrics", "Concrete public proof, attached to this project rather than pushed into the graph.", study.ProofMetrics))
 	buf.Write(renderCaseStudyDataGroup("Operational signals", "Workflow and runtime signals that belong next to the system they describe.", study.OperationalSignals))
-	if len(study.MediaSlots) > 0 {
-		buf.WriteString("\n                <div class=\"media-slots\">\n")
-		for _, slot := range study.MediaSlots {
-			label := firstNonEmpty(slot.Label, "Media")
-			caption := firstNonEmpty(slot.Caption, slot.Placeholder)
-			buf.WriteString("                    <article class=\"media-slot\">\n")
-			buf.WriteString("                        <span>" + escapeHTML(label) + "</span>\n")
-			if slot.Image != "" {
-				imagePath := resolveCaseStudyAssetPath(slot.Image)
-				altText := firstNonEmpty(slot.Alt, label)
-				buf.WriteString("                        <button class=\"media-slot-trigger\" type=\"button\" aria-haspopup=\"dialog\" aria-label=\"Open full size " + escapeHTML(label) + "\" data-media-src=\"" + escapeHTML(imagePath) + "\" data-media-alt=\"" + escapeHTML(altText) + "\" data-media-label=\"" + escapeHTML(label) + "\" data-media-caption=\"" + escapeHTML(caption) + "\">\n")
-				buf.WriteString("                            <figure class=\"media-slot-figure\">\n")
-				buf.WriteString("                                <img src=\"" + escapeHTML(imagePath) + "\" alt=\"" + escapeHTML(altText) + "\" loading=\"lazy\">\n")
-				buf.WriteString("                            </figure>\n")
-				buf.WriteString("                            <span class=\"media-slot-hint\">Open full size</span>\n")
-				buf.WriteString("                        </button>\n")
-			}
-			if caption != "" {
-				buf.WriteString("                        <p>" + escapeHTML(caption) + "</p>\n")
-			}
-			buf.WriteString("                    </article>\n")
-		}
-		buf.WriteString("                </div>\n")
-	}
 	buf.WriteString("            </aside>\n")
 	buf.WriteString("        </section>\n")
+	buf.Write(renderCaseStudyMediaGallery(study.MediaSlots))
 	buf.WriteString("    </main>\n\n")
 	buf.WriteString("    <script src=\"../../assets/main.min.js\" defer></script>\n")
 	buf.WriteString("</body>\n</html>\n")
@@ -715,6 +692,39 @@ func renderCaseStudyDataGroup(title, intro string, items []caseStudyDatum) []byt
 	}
 	buf.WriteString("                    </div>\n")
 	buf.WriteString("                </section>\n")
+	return buf.Bytes()
+}
+
+func renderCaseStudyMediaGallery(slots []mediaSlot) []byte {
+	if len(slots) == 0 {
+		return nil
+	}
+
+	var buf bytes.Buffer
+	buf.WriteString("\n        <section class=\"case-gallery\" aria-label=\"Diagrams\">\n")
+	buf.WriteString("            <div class=\"media-slots\">\n")
+	for _, slot := range slots {
+		label := firstNonEmpty(slot.Label, "Media")
+		caption := firstNonEmpty(slot.Caption, slot.Placeholder)
+		buf.WriteString("                <article class=\"media-slot\">\n")
+		buf.WriteString("                    <span>" + escapeHTML(label) + "</span>\n")
+		if slot.Image != "" {
+			imagePath := resolveCaseStudyAssetPath(slot.Image)
+			altText := firstNonEmpty(slot.Alt, label)
+			buf.WriteString("                    <button class=\"media-slot-trigger\" type=\"button\" aria-haspopup=\"dialog\" aria-label=\"Open full size " + escapeHTML(label) + "\" data-media-src=\"" + escapeHTML(imagePath) + "\" data-media-alt=\"" + escapeHTML(altText) + "\" data-media-label=\"" + escapeHTML(label) + "\" data-media-caption=\"" + escapeHTML(caption) + "\">\n")
+			buf.WriteString("                        <figure class=\"media-slot-figure\">\n")
+			buf.WriteString("                            <img src=\"" + escapeHTML(imagePath) + "\" alt=\"" + escapeHTML(altText) + "\" loading=\"lazy\">\n")
+			buf.WriteString("                        </figure>\n")
+			buf.WriteString("                        <span class=\"media-slot-hint\">Open full size</span>\n")
+			buf.WriteString("                    </button>\n")
+		}
+		if caption != "" {
+			buf.WriteString("                    <p>" + escapeHTML(caption) + "</p>\n")
+		}
+		buf.WriteString("                </article>\n")
+	}
+	buf.WriteString("            </div>\n")
+	buf.WriteString("        </section>\n\n")
 	return buf.Bytes()
 }
 

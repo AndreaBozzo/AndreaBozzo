@@ -126,7 +126,8 @@
     .case-cover,
     .case-layout,
     .case-main,
-    .case-aside {
+    .case-aside,
+    .case-gallery {
         width: calc(100vw - (var(--space-4) * 2));
         max-width: calc(100vw - (var(--space-4) * 2));
     }
