@@ -39,20 +39,20 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 <p>
 <a href="https://github.com/pola-rs/polars"><img src="https://img.shields.io/badge/polars-%E2%AD%90%2038.5k%20%7C%203%20PR-informational?style=flat-square" alt="polars"/></a>
   <a href="https://github.com/risingwavelabs/risingwave"><img src="https://img.shields.io/badge/risingwave-%E2%AD%90%209.0k%20%7C%201%20PR-informational?style=flat-square" alt="risingwave"/></a>
-  <a href="https://github.com/apache/datafusion"><img src="https://img.shields.io/badge/datafusion-%E2%AD%90%208.7k%20%7C%201%20PR-informational?style=flat-square" alt="datafusion"/></a>
+  <a href="https://github.com/apache/datafusion"><img src="https://img.shields.io/badge/datafusion-%E2%AD%90%208.8k%20%7C%201%20PR-informational?style=flat-square" alt="datafusion"/></a>
   <a href="https://github.com/lance-format/lance"><img src="https://img.shields.io/badge/lance-%E2%AD%90%206.4k%20%7C%202%20PR-informational?style=flat-square" alt="lance"/></a>
   <a href="https://github.com/apache/arrow-rs"><img src="https://img.shields.io/badge/arrow--rs-%E2%AD%90%203.5k%20%7C%202%20PR-informational?style=flat-square" alt="arrow-rs"/></a>
   <a href="https://github.com/supabase/etl"><img src="https://img.shields.io/badge/etl-%E2%AD%90%202.2k%20%7C%202%20PR-informational?style=flat-square" alt="etl"/></a>
   <a href="https://github.com/lakekeeper/lakekeeper"><img src="https://img.shields.io/badge/lakekeeper-%E2%AD%90%201.3k%20%7C%202%20PR-informational?style=flat-square" alt="lakekeeper"/></a>
   <a href="https://github.com/pganalyze/pg_query.rs"><img src="https://img.shields.io/badge/pg__query.rs-%E2%AD%90%20234%20%7C%201%20PR-informational?style=flat-square" alt="pg_query.rs"/></a>
-  <a href="https://github.com/apache/fluss-rust"><img src="https://img.shields.io/badge/fluss--rust-%E2%AD%90%2049%20%7C%202%20PR-informational?style=flat-square" alt="fluss-rust"/></a>
-  <a href="https://github.com/ArchAI-Labs/medha"><img src="https://img.shields.io/badge/medha-%E2%AD%90%2020%20%7C%201%20PR-informational?style=flat-square" alt="medha"/></a>
+  <a href="https://github.com/apache/fluss-rust"><img src="https://img.shields.io/badge/fluss--rust-%E2%AD%90%2050%20%7C%202%20PR-informational?style=flat-square" alt="fluss-rust"/></a>
+  <a href="https://github.com/ArchAI-Labs/medha"><img src="https://img.shields.io/badge/medha-%E2%AD%90%2021%20%7C%201%20PR-informational?style=flat-square" alt="medha"/></a>
 </p>
 
 ### 🦀 Rust Tooling
 
 <p>
-<a href="https://github.com/tokio-rs/tokio"><img src="https://img.shields.io/badge/tokio-%E2%AD%90%2031.9k%20%7C%202%20PR-informational?style=flat-square" alt="tokio"/></a>
+<a href="https://github.com/tokio-rs/tokio"><img src="https://img.shields.io/badge/tokio-%E2%AD%90%2032.0k%20%7C%202%20PR-informational?style=flat-square" alt="tokio"/></a>
   <a href="https://github.com/tokio-rs/axum"><img src="https://img.shields.io/badge/axum-%E2%AD%90%2025.9k%20%7C%201%20PR-informational?style=flat-square" alt="axum"/></a>
   <a href="https://github.com/apache/iceberg-rust"><img src="https://img.shields.io/badge/iceberg--rust-%E2%AD%90%201.3k%20%7C%203%20PR-informational?style=flat-square" alt="iceberg-rust"/></a>
   <a href="https://github.com/vakamo-labs/openfga-client"><img src="https://img.shields.io/badge/openfga--client-%E2%AD%90%207%20%7C%201%20PR-informational?style=flat-square" alt="openfga-client"/></a>
@@ -63,7 +63,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <p>
 <a href="https://github.com/datapizza-labs/datapizza-ai"><img src="https://img.shields.io/badge/datapizza--ai-%E2%AD%90%202.2k%20%7C%205%20PR-informational?style=flat-square" alt="datapizza-ai"/></a>
-  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-%E2%AD%90%20859%20%7C%2010%20PR-informational?style=flat-square" alt="mosaico"/></a>
+  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-%E2%AD%90%20860%20%7C%2010%20PR-informational?style=flat-square" alt="mosaico"/></a>
 </p>
 
 ### 🛠️ Infrastructure
