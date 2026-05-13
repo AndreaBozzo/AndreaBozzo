@@ -451,6 +451,22 @@ function escapeHtml(text) {
     return value.replace(/[&<>"']/g, m => map[m]);
 }
 
+function formatRelativeDate(input) {
+    if (!input) return '';
+    const date = new Date(input);
+    if (Number.isNaN(date.getTime())) return '';
+    const now = new Date();
+    const diffMs = now.getTime() - date.getTime();
+    const days = Math.floor(diffMs / 86400000);
+    if (days < 1) return 'today';
+    if (days === 1) return 'yesterday';
+    if (days < 30) return `${days} days ago`;
+    const months = Math.floor(days / 30);
+    if (months < 12) return months === 1 ? '1 month ago' : `${months} months ago`;
+    const years = Math.floor(days / 365);
+    return years === 1 ? '1 year ago' : `${years} years ago`;
+}
+
 const workbench = createWorkbench({
     siteBasePath,
     escapeHtml,
@@ -524,10 +540,30 @@ async function fetchContributions() {
             .forEach((contrib) => {
                 const projectItem = document.createElement('article');
                 projectItem.className = 'project-item content-card-enter';
+
+                const prList = Array.isArray(contrib.prList) ? contrib.prList : [];
+                const prRowsHtml = prList.map((pr) => {
+                    const mergedDate = formatRelativeDate(pr.mergedAt);
+                    const number = pr.number ? `#${pr.number}` : '';
+                    return `
+                        <li class="project-pr">
+                            <a class="project-pr-link" href="${pr.url}" target="_blank" rel="noopener noreferrer">
+                                <span class="project-pr-state" aria-label="merged">merged</span>
+                                <span class="project-pr-title">${escapeHtml(pr.title)}</span>
+                                <span class="project-pr-meta">${escapeHtml(number)}${mergedDate ? ` · ${escapeHtml(mergedDate)}` : ''}</span>
+                            </a>
+                        </li>
+                    `;
+                }).join('');
+
+                const recency = formatRelativeDate(contrib.lastPRMergedAt);
+                const recencyHtml = recency ? ` · last merge ${escapeHtml(recency)}` : '';
+
                 projectItem.innerHTML = `
                     <h3 class="project-name">${escapeHtml(contrib.name)}</h3>
                     <p class="project-desc">${escapeHtml(contrib.desc)}</p>
-                    <p class="project-contrib">⭐ ${escapeHtml(contrib.stars)} stars · ${escapeHtml(contrib.prs)} PR${contrib.prs !== '1' ? 's' : ''}</p>
+                    <p class="project-contrib">⭐ ${escapeHtml(contrib.stars)} stars · ${escapeHtml(contrib.prs)} PR${contrib.prs !== '1' ? 's' : ''}${recencyHtml}</p>
+                    ${prRowsHtml ? `<ul class="project-prs">${prRowsHtml}</ul>` : ''}
                     <a href="${contrib.url}" class="project-link" target="_blank" rel="noopener noreferrer">View project</a>
                 `;
                 listElement.appendChild(projectItem);

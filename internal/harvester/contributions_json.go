@@ -46,11 +46,22 @@ func loadContributionDescriptions(repoRoot string) (map[string]string, error) {
 }
 
 type contributionJSONItem struct {
-	Name  string `json:"name"`
-	URL   string `json:"url"`
-	Stars string `json:"stars"`
-	PRs   string `json:"prs"`
-	Desc  string `json:"desc"`
+	Name           string               `json:"name"`
+	URL            string               `json:"url"`
+	Stars          string               `json:"stars"`
+	PRs            string               `json:"prs"`
+	Desc           string               `json:"desc"`
+	Language       string               `json:"language,omitempty"`
+	Topics         []string             `json:"topics,omitempty"`
+	LastPRMergedAt string               `json:"lastPRMergedAt,omitempty"`
+	PRList         []contributionPRJSON `json:"prList,omitempty"`
+}
+
+type contributionPRJSON struct {
+	Title    string `json:"title"`
+	Number   int    `json:"number"`
+	URL      string `json:"url"`
+	MergedAt string `json:"mergedAt,omitempty"`
 }
 
 type contributionsJSONPayload struct {
@@ -62,6 +73,10 @@ type contributionsJSONPayload struct {
 func GenerateContributionsJSON(repoRoot string) error {
 	readmePath := filepath.Join(repoRoot, "README.md")
 	outputPath := filepath.Join(repoRoot, "assets", "data", "contributions.json")
+
+	if contributionsJSONIsFresh(outputPath) {
+		return nil
+	}
 
 	readme, err := os.ReadFile(readmePath)
 	if err != nil {
@@ -113,6 +128,28 @@ func GenerateContributionsJSON(repoRoot string) error {
 	}
 
 	return writeJSONFile(outputPath, payload)
+}
+
+// contributionsJSONIsFresh reports whether assets/data/contributions.json was
+// already produced by the GitHub-search path (UpdateContributionsREADME), in
+// which case it carries richer per-PR data than the README-badge fallback can
+// reconstruct. The probe is "does at least one item have a non-empty prList",
+// which only the API path emits.
+func contributionsJSONIsFresh(path string) bool {
+	raw, err := os.ReadFile(path)
+	if err != nil {
+		return false
+	}
+	var payload contributionsJSONPayload
+	if err := json.Unmarshal(raw, &payload); err != nil {
+		return false
+	}
+	for _, item := range payload.Items {
+		if len(item.PRList) > 0 {
+			return true
+		}
+	}
+	return false
 }
 
 func decodeBadgeSource(src string) (string, error) {

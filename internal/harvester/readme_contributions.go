@@ -50,7 +50,15 @@ type githubPRSearchResponse struct {
 }
 
 type githubPullRequest struct {
-	RepositoryURL string `json:"repository_url"`
+	RepositoryURL  string `json:"repository_url"`
+	Title          string `json:"title"`
+	Number         int    `json:"number"`
+	HTMLURL        string `json:"html_url"`
+	State          string `json:"state"`
+	ClosedAt       string `json:"closed_at"`
+	PullRequestRef struct {
+		MergedAt string `json:"merged_at"`
+	} `json:"pull_request"`
 }
 
 type githubRepoInfo struct {
@@ -70,6 +78,15 @@ type contributionRepo struct {
 	Topics   []string
 	Language string
 	PRCount  int
+	PRs      []contributionPR
+}
+
+type contributionPR struct {
+	Title    string
+	Number   int
+	URL      string
+	State    string
+	MergedAt string
 }
 
 type githubClient struct {
@@ -119,7 +136,95 @@ func UpdateContributionsREADME(ctx context.Context, repoRoot, username string) e
 		return fmt.Errorf("write README.md: %w", err)
 	}
 
+	if err := writeContributionsJSON(repoRoot, repoMap); err != nil {
+		return fmt.Errorf("write contributions.json: %w", err)
+	}
+
 	return nil
+}
+
+const contributionPRsPerRepo = 5
+
+func writeContributionsJSON(repoRoot string, repoMap map[string]contributionRepo) error {
+	descriptions, err := loadContributionDescriptions(repoRoot)
+	if err != nil {
+		return err
+	}
+
+	repos := make([]contributionRepo, 0, len(repoMap))
+	for _, repo := range repoMap {
+		repos = append(repos, repo)
+	}
+	sort.Slice(repos, func(i, j int) bool {
+		if repos[i].Stars != repos[j].Stars {
+			return repos[i].Stars > repos[j].Stars
+		}
+		return repos[i].FullName < repos[j].FullName
+	})
+
+	limit := 4
+	if len(repos) < limit {
+		limit = len(repos)
+	}
+
+	items := make([]contributionJSONItem, 0, limit)
+	for _, repo := range repos[:limit] {
+		shortName := shortRepoName(repo.FullName)
+		prList := buildPRJSONList(repo.PRs)
+		items = append(items, contributionJSONItem{
+			Name:           shortName,
+			URL:            repo.URL,
+			Stars:          formatCompactInt(repo.Stars),
+			PRs:            strconv.Itoa(repo.PRCount),
+			Desc:           contributionDescription(descriptions, repo.URL, shortName),
+			Language:       repo.Language,
+			Topics:         repo.Topics,
+			LastPRMergedAt: latestMergedAt(repo.PRs),
+			PRList:         prList,
+		})
+	}
+
+	payload := contributionsJSONPayload{
+		GeneratedAt: time.Now().UTC().Format(time.RFC3339),
+		Source:      "github.com/search/issues?author=AndreaBozzo+is:merged",
+		Items:       items,
+	}
+
+	outputPath := filepath.Join(repoRoot, "assets", "data", "contributions.json")
+	return writeJSONFile(outputPath, payload)
+}
+
+func buildPRJSONList(prs []contributionPR) []contributionPRJSON {
+	limit := contributionPRsPerRepo
+	if len(prs) < limit {
+		limit = len(prs)
+	}
+	list := make([]contributionPRJSON, 0, limit)
+	for _, pr := range prs[:limit] {
+		list = append(list, contributionPRJSON{
+			Title:    pr.Title,
+			Number:   pr.Number,
+			URL:      pr.URL,
+			MergedAt: normalizeRegistryTime(pr.MergedAt),
+		})
+	}
+	return list
+}
+
+func latestMergedAt(prs []contributionPR) string {
+	if len(prs) == 0 {
+		return ""
+	}
+	// PRs are already sorted descending by mergedAt in fetchContributionRepos.
+	return normalizeRegistryTime(prs[0].MergedAt)
+}
+
+func shortRepoName(fullName string) string {
+	parts := strings.SplitN(fullName, "/", 2)
+	if len(parts) == 2 {
+		return parts[1]
+	}
+	return fullName
 }
 
 func (client githubClient) fetchAllMergedPRs(ctx context.Context, username string) ([]githubPullRequest, error) {
@@ -205,7 +310,21 @@ func (client githubClient) fetchContributionRepos(ctx context.Context, prs []git
 			}
 		}
 		repo.PRCount++
+		repo.PRs = append(repo.PRs, contributionPR{
+			Title:    pr.Title,
+			Number:   pr.Number,
+			URL:      pr.HTMLURL,
+			State:    pr.State,
+			MergedAt: pr.PullRequestRef.MergedAt,
+		})
 		repoData[info.FullName] = repo
+	}
+
+	for fullName, repo := range repoData {
+		sort.Slice(repo.PRs, func(i, j int) bool {
+			return parseTimeOrZero(repo.PRs[i].MergedAt).After(parseTimeOrZero(repo.PRs[j].MergedAt))
+		})
+		repoData[fullName] = repo
 	}
 
 	return repoData, nil
