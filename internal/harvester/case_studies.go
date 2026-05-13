@@ -617,12 +617,6 @@ func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext, last
 	buf.Write(navigation)
 	buf.WriteString("\n")
 	buf.WriteString("        <section class=\"case-layout\">\n")
-	buf.WriteString("            <article class=\"case-main\">\n")
-	for _, section := range study.Sections {
-		buf.WriteString("                <h2>" + escapeHTML(firstNonEmpty(section.Heading, "Section")) + "</h2>\n")
-		buf.WriteString("                <p>" + escapeHTML(section.Body) + "</p>\n\n")
-	}
-	buf.WriteString("            </article>\n\n")
 	buf.WriteString("            <aside class=\"case-aside\">\n")
 	for _, action := range actions {
 		style := action.Style
@@ -638,8 +632,14 @@ func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext, last
 	buf.Write(renderCaseStudyDataGroup("Proof metrics", "Concrete public proof, attached to this project rather than pushed into the graph.", study.ProofMetrics))
 	buf.Write(renderCaseStudyDataGroup("Operational signals", "Workflow and runtime signals that belong next to the system they describe.", study.OperationalSignals))
 	buf.WriteString("            </aside>\n")
-	buf.WriteString("        </section>\n")
+	buf.WriteString("            <article class=\"case-main\">\n")
+	for _, section := range study.Sections {
+		buf.WriteString("                <h2>" + escapeHTML(firstNonEmpty(section.Heading, "Section")) + "</h2>\n")
+		buf.WriteString("                <p>" + escapeHTML(section.Body) + "</p>\n\n")
+	}
+	buf.WriteString("            </article>\n")
 	buf.Write(renderCaseStudyMediaGallery(study.MediaSlots))
+	buf.WriteString("        </section>\n")
 	buf.WriteString("    </main>\n\n")
 	buf.WriteString("    <script src=\"../../assets/main.min.js\" defer></script>\n")
 	buf.WriteString("</body>\n</html>\n")

@@ -6,7 +6,6 @@
     .workbench-heading,
     .workbench-shell,
     .case-hero,
-    .case-layout,
     .proof-grid,
     .papers-list,
     .projects-list,
@@ -16,6 +15,13 @@
 
     .blog-grid {
         grid-template-columns: 1fr;
+    }
+
+    .case-aside {
+        float: none;
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: var(--space-6);
     }
 }
 
@@ -147,18 +153,10 @@
         width: 100%;
     }
 
-    .case-layout {
-        gap: var(--space-5);
-    }
-
     .case-main,
     .case-aside {
         padding: var(--space-6);
         border-radius: var(--radius-md);
-    }
-
-    .case-aside {
-        position: static;
     }
 
     .media-viewer-dialog {

@@ -126,6 +126,10 @@
         </nav>
 
         <section class="case-layout">
+            <aside class="case-aside">
+                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/zero-grappler" target="_blank" rel="noopener noreferrer">Repository</a>
+                <a class="btn btn-secondary" href="../../blog/en/posts/embassyembeddedml-blog/">Related article</a>
+            </aside>
             <article class="case-main">
                 <h2>Why it exists</h2>
                 <p>Embedded ML examples often entangle hardware access, feature extraction, and inference logic, which makes reuse harder than it should be. Zero Grappler exists to separate those responsibilities early, so a sensor pipeline can be reasoned about as source, transform, and inference stages instead of one tightly coupled demo that only works on a single board.</p>
@@ -137,12 +141,6 @@
                 <p>Even before the first full board demo, the design is already grounded by the no-allocation trait split, monomorphic Embassy task wrappers, the host-side mock example, and a documented bill of materials that keeps the first public hardware loop realistic rather than hypothetical. The next meaningful proof is not a bigger abstraction, but a small end-to-end sensor loop that shows the trait split surviving contact with real timing and memory limits.</p>
 
             </article>
-
-            <aside class="case-aside">
-                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/zero-grappler" target="_blank" rel="noopener noreferrer">Repository</a>
-                <a class="btn btn-secondary" href="../../blog/en/posts/embassyembeddedml-blog/">Related article</a>
-            </aside>
-        </section>
 
         <section class="case-gallery" aria-label="Diagrams">
             <div class="media-slots">
@@ -169,6 +167,7 @@
             </div>
         </section>
 
+        </section>
     </main>
 
     <script src="../../assets/main.min.js" defer></script>

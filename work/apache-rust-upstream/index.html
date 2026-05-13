@@ -126,6 +126,12 @@
         </nav>
 
         <section class="case-layout">
+            <aside class="case-aside">
+                <a class="btn btn-primary" href="https://github.com/apache/arrow-rs" target="_blank" rel="noopener noreferrer">Apache Arrow</a>
+                <a class="btn btn-secondary" href="https://github.com/apache/iceberg-rust" target="_blank" rel="noopener noreferrer">Iceberg Rust</a>
+                <a class="btn btn-secondary" href="https://github.com/apache/fluss-rust" target="_blank" rel="noopener noreferrer">Fluss Rust</a>
+                <a class="btn btn-secondary" href="../../blog/en/posts/arrowfordataprof-blog/">Arrow article</a>
+            </aside>
             <article class="case-main">
                 <h2>Why it exists</h2>
                 <p>The value in upstream contribution work is not collecting project logos. It is using the actual substrate of your own systems as the place to remove repeated friction instead of carrying forks, custom docs, or private patches forever. For Rust data work, that substrate is increasingly shared across projects: Arrow memory, DataFusion execution, Iceberg table metadata, and streaming clients all become part of the same practical dependency chain.</p>
@@ -137,14 +143,6 @@
                 <p>The public repository already shows a concrete footprint rather than vague affiliation: 2 PRs tracked for apache/arrow-rs, 1 for apache/datafusion, 3 for apache/iceberg-rust, and 2 for apache/fluss-rust. The Arrow and Iceberg work is also explained in long-form articles, which matters because the contribution trail is connected back to downstream tools like dataprof and streaming lakehouse experiments instead of sitting as isolated pull requests.</p>
 
             </article>
-
-            <aside class="case-aside">
-                <a class="btn btn-primary" href="https://github.com/apache/arrow-rs" target="_blank" rel="noopener noreferrer">Apache Arrow</a>
-                <a class="btn btn-secondary" href="https://github.com/apache/iceberg-rust" target="_blank" rel="noopener noreferrer">Iceberg Rust</a>
-                <a class="btn btn-secondary" href="https://github.com/apache/fluss-rust" target="_blank" rel="noopener noreferrer">Fluss Rust</a>
-                <a class="btn btn-secondary" href="../../blog/en/posts/arrowfordataprof-blog/">Arrow article</a>
-            </aside>
-        </section>
 
         <section class="case-gallery" aria-label="Diagrams">
             <div class="media-slots">
@@ -171,6 +169,7 @@
             </div>
         </section>
 
+        </section>
     </main>
 
     <script src="../../assets/main.min.js" defer></script>

@@ -125,21 +125,6 @@
         </nav>
 
         <section class="case-layout">
-            <article class="case-main">
-                <h2>Why it exists</h2>
-                <p>A personal site should not be a thin profile page if the work itself is systems work. This repository is meant to function as a public front door, a writing archive, and a concrete example of how I like to structure tools and platforms. The site is therefore treated as a real system: content is generated from structured sources, the workbench has a Rust/WASM engine behind it, and the deployment path is part of the story rather than an afterthought.</p>
-
-                <h2>System shape</h2>
-                <p>The root site is plain HTML, CSS, and JavaScript, the long-form writing lives in a Hugo blog, the interactive workbench logic is mirrored between JavaScript and Rust compiled to WebAssembly, and generated work pages come from structured JSON rather than hand-maintained HTML. That split keeps the public surface fast and inspectable while allowing richer tooling behind it: Go generators build artifacts, the blog keeps long-form posts organized, and the homepage can behave like a small application.</p>
-
-                <h2>Technical center</h2>
-                <p>The repository now uses a Go harvester to generate case-study and contribution artifacts, GitHub Actions to assemble and publish the static site on GitHub Pages, and a small Go API on Vercel to expose live GitHub stats and badge endpoints that the homepage can consume. The technical center is the boundary between static reliability and live data: most of the site remains cacheable and simple, while the companion API handles the pieces that genuinely need to change.</p>
-
-                <h2>Current proof points</h2>
-                <p>The repository already exposes the whole public system path: structured JSON and the Go harvester generate work and contribution artifacts, Hugo builds the blog, the workbench logic is mirrored in JavaScript and Rust/WASM, and GitHub Pages plus the Vercel API split static delivery from live GitHub stats. That makes the site useful both as a portfolio and as an inspectable implementation of the same design preferences shown in the work itself: typed inputs, generated outputs, small services, and clear deployment boundaries.</p>
-
-            </article>
-
             <aside class="case-aside">
                 <a class="btn btn-primary" href="https://github.com/AndreaBozzo/AndreaBozzo" target="_blank" rel="noopener noreferrer">Repository</a>
                 <a class="btn btn-secondary" href="https://andreabozzo.github.io/AndreaBozzo/" target="_blank" rel="noopener noreferrer">Live site</a>
@@ -189,6 +174,20 @@
                     </div>
                 </section>
             </aside>
+            <article class="case-main">
+                <h2>Why it exists</h2>
+                <p>A personal site should not be a thin profile page if the work itself is systems work. This repository is meant to function as a public front door, a writing archive, and a concrete example of how I like to structure tools and platforms. The site is therefore treated as a real system: content is generated from structured sources, the workbench has a Rust/WASM engine behind it, and the deployment path is part of the story rather than an afterthought.</p>
+
+                <h2>System shape</h2>
+                <p>The root site is plain HTML, CSS, and JavaScript, the long-form writing lives in a Hugo blog, the interactive workbench logic is mirrored between JavaScript and Rust compiled to WebAssembly, and generated work pages come from structured JSON rather than hand-maintained HTML. That split keeps the public surface fast and inspectable while allowing richer tooling behind it: Go generators build artifacts, the blog keeps long-form posts organized, and the homepage can behave like a small application.</p>
+
+                <h2>Technical center</h2>
+                <p>The repository now uses a Go harvester to generate case-study and contribution artifacts, GitHub Actions to assemble and publish the static site on GitHub Pages, and a small Go API on Vercel to expose live GitHub stats and badge endpoints that the homepage can consume. The technical center is the boundary between static reliability and live data: most of the site remains cacheable and simple, while the companion API handles the pieces that genuinely need to change.</p>
+
+                <h2>Current proof points</h2>
+                <p>The repository already exposes the whole public system path: structured JSON and the Go harvester generate work and contribution artifacts, Hugo builds the blog, the workbench logic is mirrored in JavaScript and Rust/WASM, and GitHub Pages plus the Vercel API split static delivery from live GitHub stats. That makes the site useful both as a portfolio and as an inspectable implementation of the same design preferences shown in the work itself: typed inputs, generated outputs, small services, and clear deployment boundaries.</p>
+
+            </article>
         </section>
     </main>
 

@@ -126,18 +126,6 @@
         </nav>
 
         <section class="case-layout">
-            <article class="case-main">
-                <h2>Why it exists</h2>
-                <p>Profiling is useful after the fact, but data platforms also need an explicit way to define what must be true before pipelines keep moving. DCE extends the dataprof line of work toward enforcement: instead of only describing a dataset, the system should be able to fail a run when contracts around schema, quality, or table semantics are violated.</p>
-
-                <h2>Technical center</h2>
-                <p>DCE grows out of dataprof by moving from observation to enforcement: contract definitions, validation commands, and table-format-aware checks become the center of the workflow. The technical challenge is keeping contracts expressive enough for real data platforms while making them practical to run from a CLI, CI job, or future orchestration layer without creating another heavyweight governance product.</p>
-
-                <h2>Current proof points</h2>
-                <p>The shift from profiler to contract engine is already visible in the public repo through Iceberg-aware validation, explicit known limitations for non-Iceberg formats, 194 tests across packages, and a roadmap that makes the next steps in SQL execution and multi-format validation explicit. The useful signal is that limitations are documented alongside the implementation, which keeps the project honest about what can be enforced today and what still needs engineering work.</p>
-
-            </article>
-
             <aside class="case-aside">
                 <a class="btn btn-primary" href="https://github.com/AndreaBozzo/dce" target="_blank" rel="noopener noreferrer">Repository</a>
 
@@ -163,7 +151,17 @@
                     </div>
                 </section>
             </aside>
-        </section>
+            <article class="case-main">
+                <h2>Why it exists</h2>
+                <p>Profiling is useful after the fact, but data platforms also need an explicit way to define what must be true before pipelines keep moving. DCE extends the dataprof line of work toward enforcement: instead of only describing a dataset, the system should be able to fail a run when contracts around schema, quality, or table semantics are violated.</p>
+
+                <h2>Technical center</h2>
+                <p>DCE grows out of dataprof by moving from observation to enforcement: contract definitions, validation commands, and table-format-aware checks become the center of the workflow. The technical challenge is keeping contracts expressive enough for real data platforms while making them practical to run from a CLI, CI job, or future orchestration layer without creating another heavyweight governance product.</p>
+
+                <h2>Current proof points</h2>
+                <p>The shift from profiler to contract engine is already visible in the public repo through Iceberg-aware validation, explicit known limitations for non-Iceberg formats, 194 tests across packages, and a roadmap that makes the next steps in SQL execution and multi-format validation explicit. The useful signal is that limitations are documented alongside the implementation, which keeps the project honest about what can be enforced today and what still needs engineering work.</p>
+
+            </article>
 
         <section class="case-gallery" aria-label="Diagrams">
             <div class="media-slots">
@@ -190,6 +188,7 @@
             </div>
         </section>
 
+        </section>
     </main>
 
     <script src="../../assets/main.min.js" defer></script>

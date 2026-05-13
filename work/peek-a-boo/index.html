@@ -126,6 +126,9 @@
         </nav>
 
         <section class="case-layout">
+            <aside class="case-aside">
+                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/Peek-a-Boo" target="_blank" rel="noopener noreferrer">Repository</a>
+            </aside>
             <article class="case-main">
                 <h2>Why it exists</h2>
                 <p>A lot of code search tasks do not need a full-repo embedding or a giant prompt, they need a cheap agent that can ask narrower questions in sequence. Peek-a-Boo exists for that narrow but common class of work: find the relevant files, inspect just enough context, and produce an answer without turning the entire repository into model input.</p>
@@ -137,11 +140,6 @@
                 <p>The project already behaves like a benchmark-shaped prototype: four built-in missions, a generated target codebase, safety limits that prevent token blowups, and a deliberately narrow tool surface that makes the token-saving argument inspectable in code rather than only in prose. That makes it a useful experiment in agent ergonomics because the success criterion is not model cleverness in the abstract, but whether the tool loop finds the right evidence with less context waste.</p>
 
             </article>
-
-            <aside class="case-aside">
-                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/Peek-a-Boo" target="_blank" rel="noopener noreferrer">Repository</a>
-            </aside>
-        </section>
 
         <section class="case-gallery" aria-label="Diagrams">
             <div class="media-slots">
@@ -168,6 +166,7 @@
             </div>
         </section>
 
+        </section>
     </main>
 
     <script src="../../assets/main.min.js" defer></script>
