@@ -1,0 +1,209 @@
+{
+  "$schemaVersion": "v1",
+  "generatedAt": "2026-05-13T10:31:43Z",
+  "source": "assets/data/dataset-sources.json",
+  "items": [
+    {
+      "id": "huggingface:AndreaBozzo/ceres-open-data-index",
+      "provider": "huggingface",
+      "slug": "AndreaBozzo/ceres-open-data-index",
+      "displayName": "Ceres Open Data Index",
+      "url": "https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index",
+      "license": "apache-2.0",
+      "summary": "\n\t\n\t\t\n\t\tCeres Open Data Index\n\t\n\nA curated, deduplicated index of 890,143 open datasets from 32 open data portals across 13 countries plus international sources. This is the largest aggregated open data metadata index available as a single downloadable resource.\n\n\t\n\t\t\n\t\tDataset Description\n\t\n\nThis dataset contains normalized metadata from government and institutional open data portals. It was harvested by Ceres, a search engine for open data, via CKAN and DCAT-AP APIs. Metadata has been… See the full description on the dataset page: https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index.",
+      "languages": [
+        "it",
+        "uk",
+        "en",
+        "de",
+        "fr",
+        "es",
+        "ro",
+        "ja"
+      ],
+      "tags": [
+        "open-data",
+        "ckan",
+        "dcat",
+        "government",
+        "metadata",
+        "geospatial"
+      ],
+      "snapshotDate": "2026-03-30",
+      "lastModified": "2026-03-30T14:00:23Z",
+      "downloads": 176,
+      "likes": 1,
+      "totalRecords": 890143,
+      "uniqueRecords": 814616,
+      "duplicateRecords": 75527,
+      "filteredRecords": 10331,
+      "sourceCount": 32,
+      "countryCount": 15,
+      "sources": [
+        {
+          "name": "us-federal",
+          "url": "https://catalog.data.gov",
+          "count": 399462
+        },
+        {
+          "name": "australia",
+          "url": "https://data.gov.au/data",
+          "count": 118546
+        },
+        {
+          "name": "france",
+          "url": "https://data.gouv.fr",
+          "count": 72208
+        },
+        {
+          "name": "dati-gov-it",
+          "url": "https://dati.gov.it/opendata",
+          "count": 69603
+        },
+        {
+          "name": "canada",
+          "url": "https://open.canada.ca/data",
+          "count": 46683
+        },
+        {
+          "name": "ukraine",
+          "url": "https://data.gov.ua",
+          "count": 40055
+        },
+        {
+          "name": "hdx",
+          "url": "https://data.humdata.org",
+          "count": 26842
+        },
+        {
+          "name": "nrw",
+          "url": "https://ckan.open.nrw.de",
+          "count": 23353
+        },
+        {
+          "name": "ireland",
+          "url": "https://data.gov.ie",
+          "count": 20677
+        },
+        {
+          "name": "switzerland",
+          "url": "https://ckan.opendata.swiss",
+          "count": 12931
+        },
+        {
+          "name": "toscana",
+          "url": "https://dati.toscana.it",
+          "count": 12675
+        },
+        {
+          "name": "tokyo",
+          "url": "https://catalog.data.metro.tokyo.lg.jp",
+          "count": 8609
+        },
+        {
+          "name": "victoria",
+          "url": "https://discover.data.vic.gov.au",
+          "count": 5451
+        },
+        {
+          "name": "marche",
+          "url": "https://dati.regione.marche.it",
+          "count": 5427
+        },
+        {
+          "name": "data-gov-ro",
+          "url": "https://data.gov.ro",
+          "count": 4880
+        },
+        {
+          "name": "british-columbia",
+          "url": "https://catalogue.data.gov.bc.ca",
+          "count": 3334
+        },
+        {
+          "name": "emilia-romagna",
+          "url": "https://dati.emilia-romagna.it",
+          "count": 3118
+        },
+        {
+          "name": "aragon",
+          "url": "https://opendata.aragon.es/ckan",
+          "count": 2882
+        },
+        {
+          "name": "chile",
+          "url": "https://datos.gob.cl",
+          "count": 2815
+        },
+        {
+          "name": "milano",
+          "url": "https://dati.comune.milano.it",
+          "count": 2580
+        },
+        {
+          "name": "luxembourg",
+          "url": "https://data.public.lu",
+          "count": 2505
+        },
+        {
+          "name": "puglia",
+          "url": "https://dati.puglia.it/ckan",
+          "count": 1782
+        },
+        {
+          "name": "trentino",
+          "url": "https://dati.trentino.it",
+          "count": 1377
+        },
+        {
+          "name": "umbria",
+          "url": "https://dati.regione.umbria.it",
+          "count": 448
+        },
+        {
+          "name": "lazio",
+          "url": "https://dati.lazio.it",
+          "count": 403
+        },
+        {
+          "name": "roma",
+          "url": "https://dati.comune.roma.it/catalog",
+          "count": 365
+        },
+        {
+          "name": "campania",
+          "url": "https://dati.regione.campania.it/ckan",
+          "count": 351
+        },
+        {
+          "name": "rostock",
+          "url": "https://www.opendata-hro.de",
+          "count": 280
+        },
+        {
+          "name": "sicilia",
+          "url": "https://dati.regione.sicilia.it",
+          "count": 186
+        },
+        {
+          "name": "genova",
+          "url": "https://dati.comune.genova.it",
+          "count": 158
+        },
+        {
+          "name": "liguria",
+          "url": "https://dati.regione.liguria.it",
+          "count": 124
+        },
+        {
+          "name": "napoli",
+          "url": "https://dati.comune.napoli.it",
+          "count": 33
+        }
+      ],
+      "relatedCaseStudies": [
+        "ares-ceres"
+      ]
+    }
+  ]
+}

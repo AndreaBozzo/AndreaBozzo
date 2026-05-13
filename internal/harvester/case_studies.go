@@ -40,9 +40,10 @@ type caseStudy struct {
 	CIWorkflowFocus    []string           `json:"ciWorkflowFocus,omitempty"`
 	ProofMetrics       []caseStudyDatum   `json:"proofMetrics,omitempty"`
 	OperationalSignals []caseStudyDatum   `json:"operationalSignals,omitempty"`
-	MediaSlots         []mediaSlot        `json:"mediaSlots"`
-	Sections           []caseStudySection `json:"sections"`
-	SystemAnatomy      *systemAnatomy     `json:"systemAnatomy,omitempty"`
+	MediaSlots         []mediaSlot              `json:"mediaSlots"`
+	Sections           []caseStudySection       `json:"sections"`
+	SystemAnatomy      *systemAnatomy           `json:"systemAnatomy,omitempty"`
+	Datasets           []schema.DatasetItemV1   `json:"-"`
 }
 
 type caseStudyDatum struct {
@@ -149,6 +150,10 @@ func enrichCaseStudiesFromArtifacts(repoRoot string, items []caseStudy) ([]caseS
 	if err != nil {
 		return nil, err
 	}
+	datasetIndex, err := loadDatasetIndex(repoRoot)
+	if err != nil {
+		return nil, err
+	}
 
 	enriched := make([]caseStudy, len(items))
 	copy(enriched, items)
@@ -161,9 +166,36 @@ func enrichCaseStudiesFromArtifacts(repoRoot string, items []caseStudy) ([]caseS
 			enriched[idx].OperationalSignals,
 			buildCIOperationalSignals(enriched[idx], ciIndex.Items),
 		)
+		enriched[idx].Datasets = datasetsForCaseStudy(enriched[idx], datasetIndex.Items)
 	}
 
 	return enriched, nil
+}
+
+func loadDatasetIndex(repoRoot string) (schema.DatasetIndexV1, error) {
+	raw, err := os.ReadFile(datasetOutputPath(repoRoot))
+	if err != nil {
+		if os.IsNotExist(err) {
+			return schema.DatasetIndexV1{}, nil
+		}
+		return schema.DatasetIndexV1{}, fmt.Errorf("read dataset index: %w", err)
+	}
+
+	var index schema.DatasetIndexV1
+	if err := json.Unmarshal(raw, &index); err != nil {
+		return schema.DatasetIndexV1{}, fmt.Errorf("decode dataset index: %w", err)
+	}
+	return index, nil
+}
+
+func datasetsForCaseStudy(study caseStudy, items []schema.DatasetItemV1) []schema.DatasetItemV1 {
+	matched := make([]schema.DatasetItemV1, 0)
+	for _, item := range items {
+		if containsFold(item.RelatedCaseStudies, study.Slug) {
+			matched = append(matched, item)
+		}
+	}
+	return matched
 }
 
 func loadPackageRegistryIndex(repoRoot string) (schema.PackageRegistryIndexV1, error) {
@@ -614,6 +646,7 @@ func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext, last
 	buf.Write(cover)
 	buf.WriteString("        </section>\n\n")
 	buf.Write(renderSystemAnatomy(study.SystemAnatomy))
+	buf.Write(renderCaseStudyDatasets(study.Datasets))
 	buf.Write(navigation)
 	buf.WriteString("\n")
 	buf.WriteString("        <section class=\"case-layout\">\n")
@@ -728,6 +761,191 @@ func renderCaseStudyMediaGallery(slots []mediaSlot) []byte {
 	buf.WriteString("            </div>\n")
 	buf.WriteString("        </section>\n\n")
 	return buf.Bytes()
+}
+
+func renderCaseStudyDatasets(items []schema.DatasetItemV1) []byte {
+	if len(items) == 0 {
+		return nil
+	}
+
+	var buf bytes.Buffer
+	for _, item := range items {
+		buf.Write(renderCaseStudyDataset(item))
+	}
+	return buf.Bytes()
+}
+
+func renderCaseStudyDataset(item schema.DatasetItemV1) []byte {
+	var buf bytes.Buffer
+	buf.WriteString("        <section class=\"case-dataset\" aria-label=\"" + escapeHTML(item.DisplayName+" dataset") + "\">\n")
+	buf.WriteString("            <header class=\"case-dataset-header\">\n")
+	buf.WriteString("                <p class=\"eyebrow\">Public dataset</p>\n")
+	buf.WriteString("                <h2 class=\"case-dataset-title\">" + escapeHTML(item.DisplayName) + "</h2>\n")
+	buf.WriteString("                <p class=\"case-dataset-meta\">\n")
+	if strings.TrimSpace(item.License) != "" {
+		buf.WriteString("                    <span class=\"case-dataset-badge\">" + escapeHTML(item.License) + "</span>\n")
+	}
+	if strings.TrimSpace(item.SnapshotDate) != "" {
+		buf.WriteString("                    <span class=\"case-dataset-meta-item\">Snapshot " + escapeHTML(item.SnapshotDate) + "</span>\n")
+	} else if strings.TrimSpace(item.LastModified) != "" {
+		buf.WriteString("                    <span class=\"case-dataset-meta-item\">Updated " + escapeHTML(formatDateOnly(item.LastModified)) + "</span>\n")
+	}
+	if strings.TrimSpace(item.Provider) != "" {
+		buf.WriteString("                    <span class=\"case-dataset-meta-item\">Hosted on " + escapeHTML(humanProviderName(item.Provider)) + "</span>\n")
+	}
+	buf.WriteString("                </p>\n")
+	buf.WriteString("            </header>\n")
+
+	tiles := datasetStatTiles(item)
+	if len(tiles) > 0 {
+		buf.WriteString("            <ul class=\"case-dataset-stats\">\n")
+		for _, tile := range tiles {
+			buf.WriteString("                <li class=\"case-dataset-stat\">\n")
+			buf.WriteString("                    <span class=\"case-dataset-stat-value\">" + escapeHTML(tile.Value) + "</span>\n")
+			buf.WriteString("                    <span class=\"case-dataset-stat-label\">" + escapeHTML(tile.Label) + "</span>\n")
+			if tile.Detail != "" {
+				buf.WriteString("                    <span class=\"case-dataset-stat-detail\">" + escapeHTML(tile.Detail) + "</span>\n")
+			}
+			buf.WriteString("                </li>\n")
+		}
+		buf.WriteString("            </ul>\n")
+	}
+
+	if len(item.Sources) > 0 {
+		topSources, otherCount, otherTotal := topDatasetSources(item.Sources, 6)
+		maxCount := topSources[0].Count
+		buf.WriteString("            <div class=\"case-dataset-sources\">\n")
+		buf.WriteString("                <p class=\"case-dataset-sources-kicker\">Top contributing portals</p>\n")
+		buf.WriteString("                <ol class=\"case-dataset-bars\">\n")
+		for _, src := range topSources {
+			percent := 0
+			if maxCount > 0 {
+				percent = int(float64(src.Count) / float64(maxCount) * 100.0)
+			}
+			if percent < 4 {
+				percent = 4
+			}
+			buf.WriteString("                    <li class=\"case-dataset-bar\">\n")
+			buf.WriteString("                        <span class=\"case-dataset-bar-name\">" + escapeHTML(humanPortalName(src.Name)) + "</span>\n")
+			buf.WriteString("                        <span class=\"case-dataset-bar-track\"><span class=\"case-dataset-bar-fill\" style=\"width: " + fmt.Sprintf("%d", percent) + "%;\"></span></span>\n")
+			buf.WriteString("                        <span class=\"case-dataset-bar-count\">" + escapeHTML(formatCompactInt(src.Count)) + "</span>\n")
+			buf.WriteString("                    </li>\n")
+		}
+		buf.WriteString("                </ol>\n")
+		if otherCount > 0 {
+			buf.WriteString("                <p class=\"case-dataset-sources-tail\">+ " + fmt.Sprintf("%d", otherCount) + " more portals · " + escapeHTML(formatCompactInt(otherTotal)) + " additional datasets</p>\n")
+		}
+		buf.WriteString("            </div>\n")
+	}
+
+	if strings.TrimSpace(item.URL) != "" {
+		buf.WriteString("            <p class=\"case-dataset-actions\">\n")
+		buf.WriteString("                <a class=\"btn btn-primary\" href=\"" + escapeHTML(item.URL) + "\" target=\"_blank\" rel=\"noopener noreferrer\">Open on " + escapeHTML(humanProviderName(item.Provider)) + "</a>\n")
+		buf.WriteString("            </p>\n")
+	}
+
+	buf.WriteString("        </section>\n\n")
+	return buf.Bytes()
+}
+
+type datasetStatTile struct {
+	Value  string
+	Label  string
+	Detail string
+}
+
+func datasetStatTiles(item schema.DatasetItemV1) []datasetStatTile {
+	tiles := make([]datasetStatTile, 0, 4)
+	if item.TotalRecords != nil {
+		detail := ""
+		if item.DuplicateRecords != nil && *item.DuplicateRecords > 0 {
+			detail = formatCompactInt(*item.DuplicateRecords) + " cross-portal duplicates flagged"
+		}
+		tiles = append(tiles, datasetStatTile{
+			Value:  formatCompactInt(*item.TotalRecords),
+			Label:  "Datasets indexed",
+			Detail: detail,
+		})
+	}
+	if item.UniqueRecords != nil {
+		tiles = append(tiles, datasetStatTile{
+			Value: formatCompactInt(*item.UniqueRecords),
+			Label: "Unique after dedup",
+		})
+	}
+	if item.SourceCount != nil {
+		tiles = append(tiles, datasetStatTile{
+			Value: fmt.Sprintf("%d", *item.SourceCount),
+			Label: "Open-data portals",
+		})
+	}
+	if item.CountryCount != nil {
+		tiles = append(tiles, datasetStatTile{
+			Value: fmt.Sprintf("%d", *item.CountryCount),
+			Label: "Countries + international",
+		})
+	}
+	return tiles
+}
+
+func topDatasetSources(sources []schema.DatasetSourceV1, limit int) ([]schema.DatasetSourceV1, int, int) {
+	if limit <= 0 || len(sources) <= limit {
+		return sources, 0, 0
+	}
+	top := sources[:limit]
+	tail := sources[limit:]
+	tailTotal := 0
+	for _, src := range tail {
+		tailTotal += src.Count
+	}
+	return top, len(tail), tailTotal
+}
+
+func humanPortalName(name string) string {
+	value := strings.TrimSpace(name)
+	if value == "" {
+		return "portal"
+	}
+	switch strings.ToLower(value) {
+	case "us-federal":
+		return "data.gov (US federal)"
+	case "australia":
+		return "data.gov.au"
+	case "france":
+		return "data.gouv.fr"
+	case "dati-gov-it":
+		return "dati.gov.it"
+	case "canada":
+		return "open.canada.ca"
+	case "ukraine":
+		return "data.gov.ua"
+	case "hdx":
+		return "Humanitarian Data Exchange"
+	case "nrw":
+		return "Open.NRW (Germany)"
+	case "ireland":
+		return "data.gov.ie"
+	case "switzerland":
+		return "opendata.swiss"
+	}
+	return value
+}
+
+func humanProviderName(provider string) string {
+	switch strings.ToLower(strings.TrimSpace(provider)) {
+	case "huggingface":
+		return "Hugging Face"
+	default:
+		return firstNonEmpty(strings.TrimSpace(provider), "provider")
+	}
+}
+
+func formatDateOnly(value string) string {
+	parsed, err := time.Parse(time.RFC3339, strings.TrimSpace(value))
+	if err != nil {
+		return value
+	}
+	return parsed.UTC().Format("2006-01-02")
 }
 
 // renderSystemAnatomy emits the "what this system is" block as a pipeline-flow

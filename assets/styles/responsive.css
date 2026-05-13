@@ -128,7 +128,8 @@
     .case-content,
     .case-main,
     .case-aside,
-    .case-gallery {
+    .case-gallery,
+    .case-dataset {
         width: calc(100vw - (var(--space-4) * 2));
         max-width: calc(100vw - (var(--space-4) * 2));
     }

@@ -14,6 +14,7 @@
     "generate:writing": "go run ./cmd/harvester generate-writing-index",
     "generate:packages": "go run ./cmd/harvester generate-package-registry-index",
     "generate:ci": "go run ./cmd/harvester generate-ci-runtime-index",
+    "generate:datasets": "go run ./cmd/harvester generate-dataset-index",
     "generate:contracts": "go run ./cmd/harvester generate-contract-artifacts",
     "harvester:artifacts": "go run ./cmd/harvester generate-static-artifacts",
     "harvester:readme": "go run ./cmd/harvester update-contributions-readme",

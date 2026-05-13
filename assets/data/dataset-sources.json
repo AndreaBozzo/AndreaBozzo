@@ -1,0 +1,12 @@
+{
+  "$schemaVersion": "v1",
+  "datasets": [
+    {
+      "provider": "huggingface",
+      "slug": "AndreaBozzo/ceres-open-data-index",
+      "displayName": "Ceres Open Data Index",
+      "metadataPath": "metadata.json",
+      "relatedCaseStudies": ["ares-ceres"]
+    }
+  ]
+}

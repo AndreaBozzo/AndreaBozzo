@@ -12,7 +12,7 @@ type Source interface {
 	Fetch(ctx context.Context) (any, error)
 }
 
-var allSourceNames = []string{"blog", "packages", "ci"}
+var allSourceNames = []string{"blog", "packages", "ci", "datasets"}
 
 func RunSource(ctx context.Context, repoRoot string, source Source) error {
 	payload, err := source.Fetch(ctx)
@@ -50,6 +50,8 @@ func sourceByName(repoRoot, name string) (Source, error) {
 		return PackageRegistrySource{RepoRoot: repoRoot}, nil
 	case "ci", "ci-runtimes":
 		return CIRuntimeSource{RepoRoot: repoRoot}, nil
+	case "datasets":
+		return DatasetSource{RepoRoot: repoRoot}, nil
 	default:
 		return nil, fmt.Errorf("unknown source %q", name)
 	}
@@ -65,4 +67,8 @@ func packageRegistryOutputPath(repoRoot string) string {
 
 func ciRuntimeOutputPath(repoRoot string) string {
 	return filepath.Join(repoRoot, "assets", "data", "ci-runtimes.json")
+}
+
+func datasetOutputPath(repoRoot string) string {
+	return filepath.Join(repoRoot, "assets", "data", "datasets.json")
 }
