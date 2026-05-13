@@ -79,44 +79,44 @@
 
         <section class="system-anatomy" aria-label="System anatomy">
             <p class="eyebrow">System anatomy</p>
-            <dl class="system-anatomy-rows">
-                <div class="system-anatomy-row">
-                    <dt>Inputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Async sensor sources</span>
-                        <span class="system-anatomy-chip">Compile-time buffer sizes</span>
-                        <span class="system-anatomy-chip">Embassy executor</span>
-                        <span class="system-anatomy-chip">Board hardware (target)</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Core</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Source / Transform / Inference traits</span>
-                        <span class="system-anatomy-chip">Embassy channels</span>
-                        <span class="system-anatomy-chip">Monomorphic task wrappers</span>
-                        <span class="system-anatomy-chip">Zero-allocation runtime</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Outputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Inference results downstream</span>
-                        <span class="system-anatomy-chip">Host-side mock outputs</span>
-                        <span class="system-anatomy-chip">Bill-of-materials reference</span>
-                        <span class="system-anatomy-chip">Reusable pipeline crate</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Constraints</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">no_std</span>
-                        <span class="system-anatomy-chip">No heap</span>
-                        <span class="system-anatomy-chip">Single-board first</span>
-                        <span class="system-anatomy-chip">Types carry buffer sizes</span>
-                    </dd>
-                </div>
-            </dl>
+            <ol class="system-flow">
+                <li class="system-flow-stage" data-stage="inputs">
+                    <p class="system-flow-stage-label">Inputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Async sensor sources</li>
+                        <li>Compile-time buffer sizes</li>
+                        <li>Embassy executor</li>
+                        <li>Board hardware (target)</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="core">
+                    <p class="system-flow-stage-label">Core</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Source / Transform / Inference traits</li>
+                        <li>Embassy channels</li>
+                        <li>Monomorphic task wrappers</li>
+                        <li>Zero-allocation runtime</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="outputs">
+                    <p class="system-flow-stage-label">Outputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Inference results downstream</li>
+                        <li>Host-side mock outputs</li>
+                        <li>Bill-of-materials reference</li>
+                        <li>Reusable pipeline crate</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="system-flow-rail">
+                <span class="system-flow-rail-label">Constraints</span>
+                <ul class="system-flow-rail-chips">
+                    <li>no_std</li>
+                    <li>No heap</li>
+                    <li>Single-board first</li>
+                    <li>Types carry buffer sizes</li>
+                </ul>
+            </div>
         </section>
 
         <nav class="case-page-nav" aria-label="Case study navigation">

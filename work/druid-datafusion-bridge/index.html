@@ -79,44 +79,44 @@
 
         <section class="system-anatomy" aria-label="System anatomy">
             <p class="eyebrow">System anatomy</p>
-            <dl class="system-anatomy-rows">
-                <div class="system-anatomy-row">
-                    <dt>Inputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Druid segment files (index.dr)</span>
-                        <span class="system-anatomy-chip">Wikipedia segment fixtures</span>
-                        <span class="system-anatomy-chip">DataFusion SessionContext</span>
-                        <span class="system-anatomy-chip">Test query plans</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Core</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Segment parser layer</span>
-                        <span class="system-anatomy-chip">TableProvider adapter</span>
-                        <span class="system-anatomy-chip">ExecutionPlan adapter</span>
-                        <span class="system-anatomy-chip">Arrow-friendly conversion</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Outputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">DataFusion-queryable tables</span>
-                        <span class="system-anatomy-chip">Integration test results</span>
-                        <span class="system-anatomy-chip">Offline segment access</span>
-                        <span class="system-anatomy-chip">Translated dictionaries + metrics</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Constraints</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">No running Druid cluster needed</span>
-                        <span class="system-anatomy-chip">Vectorized where feasible</span>
-                        <span class="system-anatomy-chip">Work-in-progress evaluation</span>
-                        <span class="system-anatomy-chip">Format quirks preserved</span>
-                    </dd>
-                </div>
-            </dl>
+            <ol class="system-flow">
+                <li class="system-flow-stage" data-stage="inputs">
+                    <p class="system-flow-stage-label">Inputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Druid segment files (index.dr)</li>
+                        <li>Wikipedia segment fixtures</li>
+                        <li>DataFusion SessionContext</li>
+                        <li>Test query plans</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="core">
+                    <p class="system-flow-stage-label">Core</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Segment parser layer</li>
+                        <li>TableProvider adapter</li>
+                        <li>ExecutionPlan adapter</li>
+                        <li>Arrow-friendly conversion</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="outputs">
+                    <p class="system-flow-stage-label">Outputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>DataFusion-queryable tables</li>
+                        <li>Integration test results</li>
+                        <li>Offline segment access</li>
+                        <li>Translated dictionaries + metrics</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="system-flow-rail">
+                <span class="system-flow-rail-label">Constraints</span>
+                <ul class="system-flow-rail-chips">
+                    <li>No running Druid cluster needed</li>
+                    <li>Vectorized where feasible</li>
+                    <li>Work-in-progress evaluation</li>
+                    <li>Format quirks preserved</li>
+                </ul>
+            </div>
         </section>
 
         <nav class="case-page-nav" aria-label="Case study navigation">

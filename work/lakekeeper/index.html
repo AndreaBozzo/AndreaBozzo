@@ -79,44 +79,44 @@
 
         <section class="system-anatomy" aria-label="System anatomy">
             <p class="eyebrow">System anatomy</p>
-            <dl class="system-anatomy-rows">
-                <div class="system-anatomy-row">
-                    <dt>Inputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Iceberg REST requests</span>
-                        <span class="system-anatomy-chip">OIDC identities</span>
-                        <span class="system-anatomy-chip">Cloud storage credentials</span>
-                        <span class="system-anatomy-chip">OpenFGA authorization model</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Core</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Rust REST catalog service</span>
-                        <span class="system-anatomy-chip">Postgres-backed metadata</span>
-                        <span class="system-anatomy-chip">Vended credentials issuer</span>
-                        <span class="system-anatomy-chip">CloudEvents emitter</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Outputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Iceberg table metadata</span>
-                        <span class="system-anatomy-chip">Temporary storage credentials</span>
-                        <span class="system-anatomy-chip">Cross-engine query access</span>
-                        <span class="system-anatomy-chip">Audit + change events</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Constraints</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">No JVM</span>
-                        <span class="system-anatomy-chip">Monthly release cadence</span>
-                        <span class="system-anatomy-chip">Multi-engine interoperability</span>
-                        <span class="system-anatomy-chip">Identity-aware by default</span>
-                    </dd>
-                </div>
-            </dl>
+            <ol class="system-flow">
+                <li class="system-flow-stage" data-stage="inputs">
+                    <p class="system-flow-stage-label">Inputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Iceberg REST requests</li>
+                        <li>OIDC identities</li>
+                        <li>Cloud storage credentials</li>
+                        <li>OpenFGA authorization model</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="core">
+                    <p class="system-flow-stage-label">Core</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Rust REST catalog service</li>
+                        <li>Postgres-backed metadata</li>
+                        <li>Vended credentials issuer</li>
+                        <li>CloudEvents emitter</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="outputs">
+                    <p class="system-flow-stage-label">Outputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Iceberg table metadata</li>
+                        <li>Temporary storage credentials</li>
+                        <li>Cross-engine query access</li>
+                        <li>Audit + change events</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="system-flow-rail">
+                <span class="system-flow-rail-label">Constraints</span>
+                <ul class="system-flow-rail-chips">
+                    <li>No JVM</li>
+                    <li>Monthly release cadence</li>
+                    <li>Multi-engine interoperability</li>
+                    <li>Identity-aware by default</li>
+                </ul>
+            </div>
         </section>
 
         <nav class="case-page-nav" aria-label="Case study navigation">

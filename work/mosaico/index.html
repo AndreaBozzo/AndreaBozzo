@@ -79,44 +79,44 @@
 
         <section class="system-anatomy" aria-label="System anatomy">
             <p class="eyebrow">System anatomy</p>
-            <dl class="system-anatomy-rows">
-                <div class="system-anatomy-row">
-                    <dt>Inputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Robotics datasets</span>
-                        <span class="system-anatomy-chip">SDK calls</span>
-                        <span class="system-anatomy-chip">CI signals</span>
-                        <span class="system-anatomy-chip">Backend job definitions</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Core</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">SDK / backend contract surface</span>
-                        <span class="system-anatomy-chip">Query ergonomics layer</span>
-                        <span class="system-anatomy-chip">Job orchestration boundary</span>
-                        <span class="system-anatomy-chip">Integration tests</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Outputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Reproducible dataset runs</span>
-                        <span class="system-anatomy-chip">Stable SDK responses</span>
-                        <span class="system-anatomy-chip">Green CI builds</span>
-                        <span class="system-anatomy-chip">Public PR trail</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Constraints</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Multi-team consumption</span>
-                        <span class="system-anatomy-chip">Research + prod dual use</span>
-                        <span class="system-anatomy-chip">No magical abstractions</span>
-                        <span class="system-anatomy-chip">Debuggable failure modes</span>
-                    </dd>
-                </div>
-            </dl>
+            <ol class="system-flow">
+                <li class="system-flow-stage" data-stage="inputs">
+                    <p class="system-flow-stage-label">Inputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Robotics datasets</li>
+                        <li>SDK calls</li>
+                        <li>CI signals</li>
+                        <li>Backend job definitions</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="core">
+                    <p class="system-flow-stage-label">Core</p>
+                    <ul class="system-flow-stage-items">
+                        <li>SDK / backend contract surface</li>
+                        <li>Query ergonomics layer</li>
+                        <li>Job orchestration boundary</li>
+                        <li>Integration tests</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="outputs">
+                    <p class="system-flow-stage-label">Outputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Reproducible dataset runs</li>
+                        <li>Stable SDK responses</li>
+                        <li>Green CI builds</li>
+                        <li>Public PR trail</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="system-flow-rail">
+                <span class="system-flow-rail-label">Constraints</span>
+                <ul class="system-flow-rail-chips">
+                    <li>Multi-team consumption</li>
+                    <li>Research + prod dual use</li>
+                    <li>No magical abstractions</li>
+                    <li>Debuggable failure modes</li>
+                </ul>
+            </div>
         </section>
 
         <nav class="case-page-nav" aria-label="Case study navigation">

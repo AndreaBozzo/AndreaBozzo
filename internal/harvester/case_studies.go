@@ -730,53 +730,66 @@ func renderCaseStudyMediaGallery(slots []mediaSlot) []byte {
 	return buf.Bytes()
 }
 
-// renderSystemAnatomy emits the labeled "what this system is" block. The four
-// rows render as a stable grid even when individual lists are empty, so a
-// case study with only inputs+core still reads coherently. Returns an empty
-// slice when the case study omits systemAnatomy entirely.
+// renderSystemAnatomy emits the "what this system is" block as a pipeline-flow
+// diagram: Inputs → Core → Outputs as 3 horizontal stages, with Constraints as
+// a footer rail. Empty stages are skipped; the chevron between stages is purely
+// presentational (CSS ::after) so the omission is invisible. Returns nil when
+// the case study omits systemAnatomy entirely.
 func renderSystemAnatomy(anatomy *systemAnatomy) []byte {
 	if anatomy == nil {
 		return nil
 	}
-	rows := []struct {
+	stages := []struct {
+		key   string
 		label string
 		items []string
 	}{
-		{"Inputs", anatomy.Inputs},
-		{"Core", anatomy.Core},
-		{"Outputs", anatomy.Outputs},
-		{"Constraints", anatomy.Constraints},
+		{"inputs", "Inputs", anatomy.Inputs},
+		{"core", "Core", anatomy.Core},
+		{"outputs", "Outputs", anatomy.Outputs},
 	}
 
-	hasContent := false
-	for _, row := range rows {
-		if len(row.items) > 0 {
-			hasContent = true
+	hasStage := false
+	for _, stage := range stages {
+		if len(stage.items) > 0 {
+			hasStage = true
 			break
 		}
 	}
-	if !hasContent {
+	if !hasStage && len(anatomy.Constraints) == 0 {
 		return nil
 	}
 
 	var buf bytes.Buffer
 	buf.WriteString("        <section class=\"system-anatomy\" aria-label=\"System anatomy\">\n")
 	buf.WriteString("            <p class=\"eyebrow\">System anatomy</p>\n")
-	buf.WriteString("            <dl class=\"system-anatomy-rows\">\n")
-	for _, row := range rows {
-		if len(row.items) == 0 {
-			continue
+	if hasStage {
+		buf.WriteString("            <ol class=\"system-flow\">\n")
+		for _, stage := range stages {
+			if len(stage.items) == 0 {
+				continue
+			}
+			buf.WriteString("                <li class=\"system-flow-stage\" data-stage=\"" + stage.key + "\">\n")
+			buf.WriteString("                    <p class=\"system-flow-stage-label\">" + escapeHTML(stage.label) + "</p>\n")
+			buf.WriteString("                    <ul class=\"system-flow-stage-items\">\n")
+			for _, item := range stage.items {
+				buf.WriteString("                        <li>" + escapeHTML(item) + "</li>\n")
+			}
+			buf.WriteString("                    </ul>\n")
+			buf.WriteString("                </li>\n")
 		}
-		buf.WriteString("                <div class=\"system-anatomy-row\">\n")
-		buf.WriteString("                    <dt>" + escapeHTML(row.label) + "</dt>\n")
-		buf.WriteString("                    <dd>\n")
-		for _, item := range row.items {
-			buf.WriteString("                        <span class=\"system-anatomy-chip\">" + escapeHTML(item) + "</span>\n")
-		}
-		buf.WriteString("                    </dd>\n")
-		buf.WriteString("                </div>\n")
+		buf.WriteString("            </ol>\n")
 	}
-	buf.WriteString("            </dl>\n")
+	if len(anatomy.Constraints) > 0 {
+		buf.WriteString("            <div class=\"system-flow-rail\">\n")
+		buf.WriteString("                <span class=\"system-flow-rail-label\">Constraints</span>\n")
+		buf.WriteString("                <ul class=\"system-flow-rail-chips\">\n")
+		for _, item := range anatomy.Constraints {
+			buf.WriteString("                    <li>" + escapeHTML(item) + "</li>\n")
+		}
+		buf.WriteString("                </ul>\n")
+		buf.WriteString("            </div>\n")
+	}
 	buf.WriteString("        </section>\n\n")
 	return buf.Bytes()
 }

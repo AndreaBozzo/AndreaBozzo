@@ -79,44 +79,44 @@
 
         <section class="system-anatomy" aria-label="System anatomy">
             <p class="eyebrow">System anatomy</p>
-            <dl class="system-anatomy-rows">
-                <div class="system-anatomy-row">
-                    <dt>Inputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">contract.yml files</span>
-                        <span class="system-anatomy-chip">Iceberg tables</span>
-                        <span class="system-anatomy-chip">Sample dataset slices</span>
-                        <span class="system-anatomy-chip">CI / orchestration triggers</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Core</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Contract validation engine</span>
-                        <span class="system-anatomy-chip">Format-aware checks</span>
-                        <span class="system-anatomy-chip">dataprof profiler core</span>
-                        <span class="system-anatomy-chip">CLI commands (validate / init / check)</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Outputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Pass/fail exit code</span>
-                        <span class="system-anatomy-chip">Structured violation reports</span>
-                        <span class="system-anatomy-chip">Schema + quality verdicts</span>
-                        <span class="system-anatomy-chip">Documented limitations</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Constraints</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Iceberg-first</span>
-                        <span class="system-anatomy-chip">Documented format gaps</span>
-                        <span class="system-anatomy-chip">Lightweight, no governance UI</span>
-                        <span class="system-anatomy-chip">CI-friendly</span>
-                    </dd>
-                </div>
-            </dl>
+            <ol class="system-flow">
+                <li class="system-flow-stage" data-stage="inputs">
+                    <p class="system-flow-stage-label">Inputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>contract.yml files</li>
+                        <li>Iceberg tables</li>
+                        <li>Sample dataset slices</li>
+                        <li>CI / orchestration triggers</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="core">
+                    <p class="system-flow-stage-label">Core</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Contract validation engine</li>
+                        <li>Format-aware checks</li>
+                        <li>dataprof profiler core</li>
+                        <li>CLI commands (validate / init / check)</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="outputs">
+                    <p class="system-flow-stage-label">Outputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Pass/fail exit code</li>
+                        <li>Structured violation reports</li>
+                        <li>Schema + quality verdicts</li>
+                        <li>Documented limitations</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="system-flow-rail">
+                <span class="system-flow-rail-label">Constraints</span>
+                <ul class="system-flow-rail-chips">
+                    <li>Iceberg-first</li>
+                    <li>Documented format gaps</li>
+                    <li>Lightweight, no governance UI</li>
+                    <li>CI-friendly</li>
+                </ul>
+            </div>
         </section>
 
         <nav class="case-page-nav" aria-label="Case study navigation">

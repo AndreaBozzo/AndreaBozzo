@@ -79,44 +79,44 @@
 
         <section class="system-anatomy" aria-label="System anatomy">
             <p class="eyebrow">System anatomy</p>
-            <dl class="system-anatomy-rows">
-                <div class="system-anatomy-row">
-                    <dt>Inputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Open-data portals (CKAN/DCAT)</span>
-                        <span class="system-anatomy-chip">Arbitrary web pages</span>
-                        <span class="system-anatomy-chip">JSON Schemas</span>
-                        <span class="system-anatomy-chip">Crawl session configs</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Core</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Ceres: incremental sync engine</span>
-                        <span class="system-anatomy-chip">Ares: fetch + extract pipeline</span>
-                        <span class="system-anatomy-chip">Queue-driven workers</span>
-                        <span class="system-anatomy-chip">LLM extraction with retries</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Outputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Catalog dumps + exports</span>
-                        <span class="system-anatomy-chip">Schema-validated rows</span>
-                        <span class="system-anatomy-chip">Change-detection events</span>
-                        <span class="system-anatomy-chip">Optional semantic index</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Constraints</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Polite fetch behavior</span>
-                        <span class="system-anatomy-chip">Resumable runs</span>
-                        <span class="system-anatomy-chip">Schema-first contract</span>
-                        <span class="system-anatomy-chip">Two separate tools by design</span>
-                    </dd>
-                </div>
-            </dl>
+            <ol class="system-flow">
+                <li class="system-flow-stage" data-stage="inputs">
+                    <p class="system-flow-stage-label">Inputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Open-data portals (CKAN/DCAT)</li>
+                        <li>Arbitrary web pages</li>
+                        <li>JSON Schemas</li>
+                        <li>Crawl session configs</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="core">
+                    <p class="system-flow-stage-label">Core</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Ceres: incremental sync engine</li>
+                        <li>Ares: fetch + extract pipeline</li>
+                        <li>Queue-driven workers</li>
+                        <li>LLM extraction with retries</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="outputs">
+                    <p class="system-flow-stage-label">Outputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Catalog dumps + exports</li>
+                        <li>Schema-validated rows</li>
+                        <li>Change-detection events</li>
+                        <li>Optional semantic index</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="system-flow-rail">
+                <span class="system-flow-rail-label">Constraints</span>
+                <ul class="system-flow-rail-chips">
+                    <li>Polite fetch behavior</li>
+                    <li>Resumable runs</li>
+                    <li>Schema-first contract</li>
+                    <li>Two separate tools by design</li>
+                </ul>
+            </div>
         </section>
 
         <nav class="case-page-nav" aria-label="Case study navigation">

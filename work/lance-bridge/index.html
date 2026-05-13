@@ -79,44 +79,44 @@
 
         <section class="system-anatomy" aria-label="System anatomy">
             <p class="eyebrow">System anatomy</p>
-            <dl class="system-anatomy-rows">
-                <div class="system-anatomy-row">
-                    <dt>Inputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">JetStream event batches</span>
-                        <span class="system-anatomy-chip">LanceModel schema</span>
-                        <span class="system-anatomy-chip">Embedding model (registry or batch)</span>
-                        <span class="system-anatomy-chip">Local LanceDB store path</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Core</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Python NATS consumer</span>
-                        <span class="system-anatomy-chip">Payload normalizer</span>
-                        <span class="system-anatomy-chip">Embedding computation</span>
-                        <span class="system-anatomy-chip">LanceModel writer</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Outputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">LanceDB tables</span>
-                        <span class="system-anatomy-chip">Arrow-native query surface</span>
-                        <span class="system-anatomy-chip">Vector + semantic search</span>
-                        <span class="system-anatomy-chip">Compaction-ready storage</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Constraints</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Local-first, no vector DB cluster</span>
-                        <span class="system-anatomy-chip">Zero-copy reads</span>
-                        <span class="system-anatomy-chip">Stable event identifiers</span>
-                        <span class="system-anatomy-chip">Embedding metadata required</span>
-                    </dd>
-                </div>
-            </dl>
+            <ol class="system-flow">
+                <li class="system-flow-stage" data-stage="inputs">
+                    <p class="system-flow-stage-label">Inputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>JetStream event batches</li>
+                        <li>LanceModel schema</li>
+                        <li>Embedding model (registry or batch)</li>
+                        <li>Local LanceDB store path</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="core">
+                    <p class="system-flow-stage-label">Core</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Python NATS consumer</li>
+                        <li>Payload normalizer</li>
+                        <li>Embedding computation</li>
+                        <li>LanceModel writer</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="outputs">
+                    <p class="system-flow-stage-label">Outputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>LanceDB tables</li>
+                        <li>Arrow-native query surface</li>
+                        <li>Vector + semantic search</li>
+                        <li>Compaction-ready storage</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="system-flow-rail">
+                <span class="system-flow-rail-label">Constraints</span>
+                <ul class="system-flow-rail-chips">
+                    <li>Local-first, no vector DB cluster</li>
+                    <li>Zero-copy reads</li>
+                    <li>Stable event identifiers</li>
+                    <li>Embedding metadata required</li>
+                </ul>
+            </div>
         </section>
 
         <nav class="case-page-nav" aria-label="Case study navigation">

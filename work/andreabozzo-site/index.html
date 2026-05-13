@@ -79,44 +79,44 @@
 
         <section class="system-anatomy" aria-label="System anatomy">
             <p class="eyebrow">System anatomy</p>
-            <dl class="system-anatomy-rows">
-                <div class="system-anatomy-row">
-                    <dt>Inputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Structured JSON sources</span>
-                        <span class="system-anatomy-chip">Hugo blog content</span>
-                        <span class="system-anatomy-chip">README contribution badges</span>
-                        <span class="system-anatomy-chip">Live GitHub API</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Core</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Go harvester + generators</span>
-                        <span class="system-anatomy-chip">Rust/WASM workbench engine</span>
-                        <span class="system-anatomy-chip">Hugo blog build</span>
-                        <span class="system-anatomy-chip">Vercel-hosted Go API</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Outputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Generated case-study pages</span>
-                        <span class="system-anatomy-chip">Static GitHub Pages site</span>
-                        <span class="system-anatomy-chip">Live stats + badge endpoints</span>
-                        <span class="system-anatomy-chip">Interactive knowledge graph</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Constraints</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Static-first delivery</span>
-                        <span class="system-anatomy-chip">Live API only where needed</span>
-                        <span class="system-anatomy-chip">Typed inputs everywhere</span>
-                        <span class="system-anatomy-chip">No CMS, no SPA framework</span>
-                    </dd>
-                </div>
-            </dl>
+            <ol class="system-flow">
+                <li class="system-flow-stage" data-stage="inputs">
+                    <p class="system-flow-stage-label">Inputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Structured JSON sources</li>
+                        <li>Hugo blog content</li>
+                        <li>README contribution badges</li>
+                        <li>Live GitHub API</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="core">
+                    <p class="system-flow-stage-label">Core</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Go harvester + generators</li>
+                        <li>Rust/WASM workbench engine</li>
+                        <li>Hugo blog build</li>
+                        <li>Vercel-hosted Go API</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="outputs">
+                    <p class="system-flow-stage-label">Outputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Generated case-study pages</li>
+                        <li>Static GitHub Pages site</li>
+                        <li>Live stats + badge endpoints</li>
+                        <li>Interactive knowledge graph</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="system-flow-rail">
+                <span class="system-flow-rail-label">Constraints</span>
+                <ul class="system-flow-rail-chips">
+                    <li>Static-first delivery</li>
+                    <li>Live API only where needed</li>
+                    <li>Typed inputs everywhere</li>
+                    <li>No CMS, no SPA framework</li>
+                </ul>
+            </div>
         </section>
 
         <nav class="case-page-nav" aria-label="Case study navigation">

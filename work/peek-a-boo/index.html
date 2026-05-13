@@ -79,44 +79,44 @@
 
         <section class="system-anatomy" aria-label="System anatomy">
             <p class="eyebrow">System anatomy</p>
-            <dl class="system-anatomy-rows">
-                <div class="system-anatomy-row">
-                    <dt>Inputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Target codebase tree</span>
-                        <span class="system-anatomy-chip">Natural-language mission</span>
-                        <span class="system-anatomy-chip">Token + step budgets</span>
-                        <span class="system-anatomy-chip">Allowed tool surface</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Core</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Python agent loop</span>
-                        <span class="system-anatomy-chip">Focused grep / ls primitives</span>
-                        <span class="system-anatomy-chip">Mission-shaped prompts</span>
-                        <span class="system-anatomy-chip">Bounded traversal</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Outputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Answers with evidence paths</span>
-                        <span class="system-anatomy-chip">Run telemetry</span>
-                        <span class="system-anatomy-chip">Token-cost summary</span>
-                        <span class="system-anatomy-chip">Reproducible benchmark runs</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Constraints</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Small tool surface by design</span>
-                        <span class="system-anatomy-chip">Hard step + token caps</span>
-                        <span class="system-anatomy-chip">No embeddings</span>
-                        <span class="system-anatomy-chip">No whole-repo context</span>
-                    </dd>
-                </div>
-            </dl>
+            <ol class="system-flow">
+                <li class="system-flow-stage" data-stage="inputs">
+                    <p class="system-flow-stage-label">Inputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Target codebase tree</li>
+                        <li>Natural-language mission</li>
+                        <li>Token + step budgets</li>
+                        <li>Allowed tool surface</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="core">
+                    <p class="system-flow-stage-label">Core</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Python agent loop</li>
+                        <li>Focused grep / ls primitives</li>
+                        <li>Mission-shaped prompts</li>
+                        <li>Bounded traversal</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="outputs">
+                    <p class="system-flow-stage-label">Outputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Answers with evidence paths</li>
+                        <li>Run telemetry</li>
+                        <li>Token-cost summary</li>
+                        <li>Reproducible benchmark runs</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="system-flow-rail">
+                <span class="system-flow-rail-label">Constraints</span>
+                <ul class="system-flow-rail-chips">
+                    <li>Small tool surface by design</li>
+                    <li>Hard step + token caps</li>
+                    <li>No embeddings</li>
+                    <li>No whole-repo context</li>
+                </ul>
+            </div>
         </section>
 
         <nav class="case-page-nav" aria-label="Case study navigation">

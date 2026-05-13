@@ -79,44 +79,44 @@
 
         <section class="system-anatomy" aria-label="System anatomy">
             <p class="eyebrow">System anatomy</p>
-            <dl class="system-anatomy-rows">
-                <div class="system-anatomy-row">
-                    <dt>Inputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Parquet / CSV / JSON files</span>
-                        <span class="system-anatomy-chip">Arrow RecordBatches</span>
-                        <span class="system-anatomy-chip">Streaming or batch tables</span>
-                        <span class="system-anatomy-chip">CLI flags or Python kwargs</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Core</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Rust profiler engine</span>
-                        <span class="system-anatomy-chip">Arrow-native column metrics</span>
-                        <span class="system-anatomy-chip">DataFusion SQL layer (in progress)</span>
-                        <span class="system-anatomy-chip">Selective-metric scheduler</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Outputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Machine-readable JSON report</span>
-                        <span class="system-anatomy-chip">CLI exit code for CI gating</span>
-                        <span class="system-anatomy-chip">Python dataclass results</span>
-                        <span class="system-anatomy-chip">Type / pattern signatures</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Constraints</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Bounded memory</span>
-                        <span class="system-anatomy-chip">No JVM, no notebook</span>
-                        <span class="system-anatomy-chip">Wide-table safe</span>
-                        <span class="system-anatomy-chip">Runs offline</span>
-                    </dd>
-                </div>
-            </dl>
+            <ol class="system-flow">
+                <li class="system-flow-stage" data-stage="inputs">
+                    <p class="system-flow-stage-label">Inputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Parquet / CSV / JSON files</li>
+                        <li>Arrow RecordBatches</li>
+                        <li>Streaming or batch tables</li>
+                        <li>CLI flags or Python kwargs</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="core">
+                    <p class="system-flow-stage-label">Core</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Rust profiler engine</li>
+                        <li>Arrow-native column metrics</li>
+                        <li>DataFusion SQL layer (in progress)</li>
+                        <li>Selective-metric scheduler</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="outputs">
+                    <p class="system-flow-stage-label">Outputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Machine-readable JSON report</li>
+                        <li>CLI exit code for CI gating</li>
+                        <li>Python dataclass results</li>
+                        <li>Type / pattern signatures</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="system-flow-rail">
+                <span class="system-flow-rail-label">Constraints</span>
+                <ul class="system-flow-rail-chips">
+                    <li>Bounded memory</li>
+                    <li>No JVM, no notebook</li>
+                    <li>Wide-table safe</li>
+                    <li>Runs offline</li>
+                </ul>
+            </div>
         </section>
 
         <nav class="case-page-nav" aria-label="Case study navigation">

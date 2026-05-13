@@ -79,44 +79,44 @@
 
         <section class="system-anatomy" aria-label="System anatomy">
             <p class="eyebrow">System anatomy</p>
-            <dl class="system-anatomy-rows">
-                <div class="system-anatomy-row">
-                    <dt>Inputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">WebSocket / SSE feeds</span>
-                        <span class="system-anatomy-chip">Webhooks + gRPC streams</span>
-                        <span class="system-anatomy-chip">REST connector configs</span>
-                        <span class="system-anatomy-chip">Source credentials</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Core</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Go service per connector</span>
-                        <span class="system-anatomy-chip">Event normalizer + middleware</span>
-                        <span class="system-anatomy-chip">NATS JetStream publisher</span>
-                        <span class="system-anatomy-chip">REST control plane</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Outputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Durable JetStream subjects</span>
-                        <span class="system-anatomy-chip">Prometheus metrics</span>
-                        <span class="system-anatomy-chip">Grafana dashboards</span>
-                        <span class="system-anatomy-chip">Replayable event log</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Constraints</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Restartable connectors</span>
-                        <span class="system-anatomy-chip">Explicit middleware order</span>
-                        <span class="system-anatomy-chip">Operable, not hidden</span>
-                        <span class="system-anatomy-chip">One event contract downstream</span>
-                    </dd>
-                </div>
-            </dl>
+            <ol class="system-flow">
+                <li class="system-flow-stage" data-stage="inputs">
+                    <p class="system-flow-stage-label">Inputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>WebSocket / SSE feeds</li>
+                        <li>Webhooks + gRPC streams</li>
+                        <li>REST connector configs</li>
+                        <li>Source credentials</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="core">
+                    <p class="system-flow-stage-label">Core</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Go service per connector</li>
+                        <li>Event normalizer + middleware</li>
+                        <li>NATS JetStream publisher</li>
+                        <li>REST control plane</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="outputs">
+                    <p class="system-flow-stage-label">Outputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Durable JetStream subjects</li>
+                        <li>Prometheus metrics</li>
+                        <li>Grafana dashboards</li>
+                        <li>Replayable event log</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="system-flow-rail">
+                <span class="system-flow-rail-label">Constraints</span>
+                <ul class="system-flow-rail-chips">
+                    <li>Restartable connectors</li>
+                    <li>Explicit middleware order</li>
+                    <li>Operable, not hidden</li>
+                    <li>One event contract downstream</li>
+                </ul>
+            </div>
         </section>
 
         <nav class="case-page-nav" aria-label="Case study navigation">

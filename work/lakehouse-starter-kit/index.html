@@ -79,44 +79,44 @@
 
         <section class="system-anatomy" aria-label="System anatomy">
             <p class="eyebrow">System anatomy</p>
-            <dl class="system-anatomy-rows">
-                <div class="system-anatomy-row">
-                    <dt>Inputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Source APIs (via dlt)</span>
-                        <span class="system-anatomy-chip">Raw object storage</span>
-                        <span class="system-anatomy-chip">dbt model definitions</span>
-                        <span class="system-anatomy-chip">Local credentials</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Core</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">dlt ingestion</span>
-                        <span class="system-anatomy-chip">dbt transformations</span>
-                        <span class="system-anatomy-chip">Superset dashboards</span>
-                        <span class="system-anatomy-chip">MinIO S3-compatible storage</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Outputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Staged + marted tables</span>
-                        <span class="system-anatomy-chip">Live dashboards</span>
-                        <span class="system-anatomy-chip">Local lakehouse stack</span>
-                        <span class="system-anatomy-chip">Compose-up reproducibility</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Constraints</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Small-team scale</span>
-                        <span class="system-anatomy-chip">Replaceable components</span>
-                        <span class="system-anatomy-chip">No platform team required</span>
-                        <span class="system-anatomy-chip">S3-compatible by default</span>
-                    </dd>
-                </div>
-            </dl>
+            <ol class="system-flow">
+                <li class="system-flow-stage" data-stage="inputs">
+                    <p class="system-flow-stage-label">Inputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Source APIs (via dlt)</li>
+                        <li>Raw object storage</li>
+                        <li>dbt model definitions</li>
+                        <li>Local credentials</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="core">
+                    <p class="system-flow-stage-label">Core</p>
+                    <ul class="system-flow-stage-items">
+                        <li>dlt ingestion</li>
+                        <li>dbt transformations</li>
+                        <li>Superset dashboards</li>
+                        <li>MinIO S3-compatible storage</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="outputs">
+                    <p class="system-flow-stage-label">Outputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Staged + marted tables</li>
+                        <li>Live dashboards</li>
+                        <li>Local lakehouse stack</li>
+                        <li>Compose-up reproducibility</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="system-flow-rail">
+                <span class="system-flow-rail-label">Constraints</span>
+                <ul class="system-flow-rail-chips">
+                    <li>Small-team scale</li>
+                    <li>Replaceable components</li>
+                    <li>No platform team required</li>
+                    <li>S3-compatible by default</li>
+                </ul>
+            </div>
         </section>
 
         <nav class="case-page-nav" aria-label="Case study navigation">

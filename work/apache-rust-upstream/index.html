@@ -79,44 +79,44 @@
 
         <section class="system-anatomy" aria-label="System anatomy">
             <p class="eyebrow">System anatomy</p>
-            <dl class="system-anatomy-rows">
-                <div class="system-anatomy-row">
-                    <dt>Inputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Downstream system pain</span>
-                        <span class="system-anatomy-chip">Public Apache codebases</span>
-                        <span class="system-anatomy-chip">Issue trackers + design docs</span>
-                        <span class="system-anatomy-chip">Reproducible failure cases</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Core</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">arrow-rs Parquet reader work</span>
-                        <span class="system-anatomy-chip">DataFusion query surfaces</span>
-                        <span class="system-anatomy-chip">iceberg-rust table semantics</span>
-                        <span class="system-anatomy-chip">fluss-rust streaming clients</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Outputs</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Merged PRs (2 / 1 / 3 / 2)</span>
-                        <span class="system-anatomy-chip">Documentation examples</span>
-                        <span class="system-anatomy-chip">Long-form write-ups</span>
-                        <span class="system-anatomy-chip">Reusable upstream substrate</span>
-                    </dd>
-                </div>
-                <div class="system-anatomy-row">
-                    <dt>Constraints</dt>
-                    <dd>
-                        <span class="system-anatomy-chip">Public review process</span>
-                        <span class="system-anatomy-chip">No private forks</span>
-                        <span class="system-anatomy-chip">Compat with downstream tools</span>
-                        <span class="system-anatomy-chip">Long iteration cycles</span>
-                    </dd>
-                </div>
-            </dl>
+            <ol class="system-flow">
+                <li class="system-flow-stage" data-stage="inputs">
+                    <p class="system-flow-stage-label">Inputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Downstream system pain</li>
+                        <li>Public Apache codebases</li>
+                        <li>Issue trackers + design docs</li>
+                        <li>Reproducible failure cases</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="core">
+                    <p class="system-flow-stage-label">Core</p>
+                    <ul class="system-flow-stage-items">
+                        <li>arrow-rs Parquet reader work</li>
+                        <li>DataFusion query surfaces</li>
+                        <li>iceberg-rust table semantics</li>
+                        <li>fluss-rust streaming clients</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="outputs">
+                    <p class="system-flow-stage-label">Outputs</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Merged PRs (2 / 1 / 3 / 2)</li>
+                        <li>Documentation examples</li>
+                        <li>Long-form write-ups</li>
+                        <li>Reusable upstream substrate</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="system-flow-rail">
+                <span class="system-flow-rail-label">Constraints</span>
+                <ul class="system-flow-rail-chips">
+                    <li>Public review process</li>
+                    <li>No private forks</li>
+                    <li>Compat with downstream tools</li>
+                    <li>Long iteration cycles</li>
+                </ul>
+            </div>
         </section>
 
         <nav class="case-page-nav" aria-label="Case study navigation">
