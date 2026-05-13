@@ -126,32 +126,18 @@
         </nav>
 
         <section class="case-layout">
-            <aside class="case-aside">
-                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/druid-datafusion-bridge" target="_blank" rel="noopener noreferrer">Repository</a>
+            <div class="case-content">
+                <article class="case-main">
+                    <h2>Why it exists</h2>
+                    <p>Query engines become more reusable when storage formats can be inspected directly instead of only through the original serving system. Druid segments contain years of useful analytical engineering, but they are usually approached through a running Druid cluster; this project asks what becomes possible when those segment files can be read directly by a Rust query stack.</p>
 
-                <section class="case-data-group" aria-label="Operational signals">
-                    <p class="case-data-kicker">Operational signals</p>
-                    <p class="case-data-intro">Workflow and runtime signals that belong next to the system they describe.</p>
-                    <div class="case-data-list">
-                        <a class="case-datum case-datum-link" href="https://github.com/AndreaBozzo/druid-datafusion-bridge/actions/runs/21569327556" target="_blank" rel="noopener noreferrer">
-                            <span class="case-datum-label">CI</span>
-                            <strong class="case-datum-value">med 1m 41s · p95 2m 45s</strong>
-                            <p class="case-datum-detail">latest success · 50% success · 2 runs sampled</p>
-                        </a>
-                    </div>
-                </section>
-            </aside>
-            <article class="case-main">
-                <h2>Why it exists</h2>
-                <p>Query engines become more reusable when storage formats can be inspected directly instead of only through the original serving system. Druid segments contain years of useful analytical engineering, but they are usually approached through a running Druid cluster; this project asks what becomes possible when those segment files can be read directly by a Rust query stack.</p>
+                    <h2>Technical center</h2>
+                    <p>The library reads Druid segment structures such as index.dr data and maps them into DataFusion table and execution abstractions, aiming for vectorized Arrow-friendly execution where possible. The hard part is translating storage internals, dictionaries, metrics, and bitmap-oriented access patterns into DataFusion abstractions without pretending the original format was designed as a simple Arrow file.</p>
 
-                <h2>Technical center</h2>
-                <p>The library reads Druid segment structures such as index.dr data and maps them into DataFusion table and execution abstractions, aiming for vectorized Arrow-friendly execution where possible. The hard part is translating storage internals, dictionaries, metrics, and bitmap-oriented access patterns into DataFusion abstractions without pretending the original format was designed as a simple Arrow file.</p>
+                    <h2>Current proof points</h2>
+                    <p>Even as a work in progress, the evaluation surface is already concrete: a dedicated segment parser layer, DataFusion `TableProvider` and `ExecutionPlan` adapters, Wikipedia segment fixtures, and integration tests around offline segment access rather than hand-wavy architectural claims. The current value is exploratory but specific: each parser and adapter clarifies how much of Druid&#39;s segment model can be exposed through modern Arrow and DataFusion interfaces.</p>
 
-                <h2>Current proof points</h2>
-                <p>Even as a work in progress, the evaluation surface is already concrete: a dedicated segment parser layer, DataFusion `TableProvider` and `ExecutionPlan` adapters, Wikipedia segment fixtures, and integration tests around offline segment access rather than hand-wavy architectural claims. The current value is exploratory but specific: each parser and adapter clarifies how much of Druid&#39;s segment model can be exposed through modern Arrow and DataFusion interfaces.</p>
-
-            </article>
+                </article>
 
         <section class="case-gallery" aria-label="Diagrams">
             <div class="media-slots">
@@ -178,6 +164,22 @@
             </div>
         </section>
 
+            </div>
+            <aside class="case-aside">
+                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/druid-datafusion-bridge" target="_blank" rel="noopener noreferrer">Repository</a>
+
+                <section class="case-data-group" aria-label="Operational signals">
+                    <p class="case-data-kicker">Operational signals</p>
+                    <p class="case-data-intro">Workflow and runtime signals that belong next to the system they describe.</p>
+                    <div class="case-data-list">
+                        <a class="case-datum case-datum-link" href="https://github.com/AndreaBozzo/druid-datafusion-bridge/actions/runs/21569327556" target="_blank" rel="noopener noreferrer">
+                            <span class="case-datum-label">CI</span>
+                            <strong class="case-datum-value">med 1m 41s · p95 2m 45s</strong>
+                            <p class="case-datum-detail">latest success · 50% success · 2 runs sampled</p>
+                        </a>
+                    </div>
+                </section>
+            </aside>
         </section>
     </main>
 

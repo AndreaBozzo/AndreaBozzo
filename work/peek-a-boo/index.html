@@ -126,20 +126,18 @@
         </nav>
 
         <section class="case-layout">
-            <aside class="case-aside">
-                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/Peek-a-Boo" target="_blank" rel="noopener noreferrer">Repository</a>
-            </aside>
-            <article class="case-main">
-                <h2>Why it exists</h2>
-                <p>A lot of code search tasks do not need a full-repo embedding or a giant prompt, they need a cheap agent that can ask narrower questions in sequence. Peek-a-Boo exists for that narrow but common class of work: find the relevant files, inspect just enough context, and produce an answer without turning the entire repository into model input.</p>
+            <div class="case-content">
+                <article class="case-main">
+                    <h2>Why it exists</h2>
+                    <p>A lot of code search tasks do not need a full-repo embedding or a giant prompt, they need a cheap agent that can ask narrower questions in sequence. Peek-a-Boo exists for that narrow but common class of work: find the relevant files, inspect just enough context, and produce an answer without turning the entire repository into model input.</p>
 
-                <h2>Technical center</h2>
-                <p>Peek-a-Boo keeps the tool surface intentionally small, leaning on grep-like operations and focused traversal so the model spends tokens on synthesis instead of raw repository context. The constraint is the product: by limiting available actions and bounding search, the agent has to behave more like a careful code auditor than a broad summarizer.</p>
+                    <h2>Technical center</h2>
+                    <p>Peek-a-Boo keeps the tool surface intentionally small, leaning on grep-like operations and focused traversal so the model spends tokens on synthesis instead of raw repository context. The constraint is the product: by limiting available actions and bounding search, the agent has to behave more like a careful code auditor than a broad summarizer.</p>
 
-                <h2>Current proof points</h2>
-                <p>The project already behaves like a benchmark-shaped prototype: four built-in missions, a generated target codebase, safety limits that prevent token blowups, and a deliberately narrow tool surface that makes the token-saving argument inspectable in code rather than only in prose. That makes it a useful experiment in agent ergonomics because the success criterion is not model cleverness in the abstract, but whether the tool loop finds the right evidence with less context waste.</p>
+                    <h2>Current proof points</h2>
+                    <p>The project already behaves like a benchmark-shaped prototype: four built-in missions, a generated target codebase, safety limits that prevent token blowups, and a deliberately narrow tool surface that makes the token-saving argument inspectable in code rather than only in prose. That makes it a useful experiment in agent ergonomics because the success criterion is not model cleverness in the abstract, but whether the tool loop finds the right evidence with less context waste.</p>
 
-            </article>
+                </article>
 
         <section class="case-gallery" aria-label="Diagrams">
             <div class="media-slots">
@@ -166,6 +164,10 @@
             </div>
         </section>
 
+            </div>
+            <aside class="case-aside">
+                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/Peek-a-Boo" target="_blank" rel="noopener noreferrer">Repository</a>
+            </aside>
         </section>
     </main>
 

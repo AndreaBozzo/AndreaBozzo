@@ -126,6 +126,45 @@
         </nav>
 
         <section class="case-layout">
+            <div class="case-content">
+                <article class="case-main">
+                    <h2>Why it exists</h2>
+                    <p>Harvesting and scraping are different operational contracts, and treating them as the same thing usually makes both systems worse. Ceres is about respectful, repeatable synchronization from known open-data portals, while Ares is about extracting structure from less predictable web pages where fetch behavior, schema drift, and retries have to be explicit parts of the system.</p>
+
+                    <h2>Technical center</h2>
+                    <p>Ceres centers on incremental portal sync and catalog durability, while Ares focuses on fetch pipelines, markdown normalization, JSON Schema extraction, retries, and queue-driven execution. Splitting the tools keeps the architecture honest: one side optimizes for catalog freshness and exportability, the other for controlled extraction runs that can survive partial failures and changing page structure.</p>
+
+                    <h2>Current proof points</h2>
+                    <p>The distinction is already concrete in the READMEs: Ceres offers incremental portal sync, metadata-only mode, export, and optional semantic search, while Ares offers schema-driven extraction, change detection, queue workers, crawl sessions, and protected API endpoints for scrape orchestration. Together they describe a collection stack where ingestion is not just about getting bytes, but about preserving the operational promise behind each source.</p>
+
+                </article>
+
+        <section class="case-gallery" aria-label="Diagrams">
+            <div class="media-slots">
+                <article class="media-slot">
+                    <span>Ares pipeline</span>
+                    <button class="media-slot-trigger" type="button" aria-haspopup="dialog" aria-label="Open full size Ares pipeline" data-media-src="../../blog/images/Ares_scraping_pipeline.png" data-media-alt="Ares scraping pipeline diagram" data-media-label="Ares pipeline" data-media-caption="Fetch, normalize, extract, persist.">
+                        <figure class="media-slot-figure">
+                            <img src="../../blog/images/Ares_scraping_pipeline.png" alt="Ares scraping pipeline diagram" loading="lazy">
+                        </figure>
+                        <span class="media-slot-hint">Open full size</span>
+                    </button>
+                    <p>Fetch, normalize, extract, persist.</p>
+                </article>
+                <article class="media-slot">
+                    <span>Ceres architecture</span>
+                    <button class="media-slot-trigger" type="button" aria-haspopup="dialog" aria-label="Open full size Ceres architecture" data-media-src="../../blog/images/Ceres_architecture.png" data-media-alt="Ceres architecture diagram" data-media-label="Ceres architecture" data-media-caption="Harvest, catalog, search, and export.">
+                        <figure class="media-slot-figure">
+                            <img src="../../blog/images/Ceres_architecture.png" alt="Ceres architecture diagram" loading="lazy">
+                        </figure>
+                        <span class="media-slot-hint">Open full size</span>
+                    </button>
+                    <p>Harvest, catalog, search, and export.</p>
+                </article>
+            </div>
+        </section>
+
+            </div>
             <aside class="case-aside">
                 <a class="btn btn-primary" href="https://github.com/AndreaBozzo/Ceres" target="_blank" rel="noopener noreferrer">Ceres repository</a>
                 <a class="btn btn-secondary" href="https://github.com/AndreaBozzo/Ares" target="_blank" rel="noopener noreferrer">Ares repository</a>
@@ -160,43 +199,6 @@
                     </div>
                 </section>
             </aside>
-            <article class="case-main">
-                <h2>Why it exists</h2>
-                <p>Harvesting and scraping are different operational contracts, and treating them as the same thing usually makes both systems worse. Ceres is about respectful, repeatable synchronization from known open-data portals, while Ares is about extracting structure from less predictable web pages where fetch behavior, schema drift, and retries have to be explicit parts of the system.</p>
-
-                <h2>Technical center</h2>
-                <p>Ceres centers on incremental portal sync and catalog durability, while Ares focuses on fetch pipelines, markdown normalization, JSON Schema extraction, retries, and queue-driven execution. Splitting the tools keeps the architecture honest: one side optimizes for catalog freshness and exportability, the other for controlled extraction runs that can survive partial failures and changing page structure.</p>
-
-                <h2>Current proof points</h2>
-                <p>The distinction is already concrete in the READMEs: Ceres offers incremental portal sync, metadata-only mode, export, and optional semantic search, while Ares offers schema-driven extraction, change detection, queue workers, crawl sessions, and protected API endpoints for scrape orchestration. Together they describe a collection stack where ingestion is not just about getting bytes, but about preserving the operational promise behind each source.</p>
-
-            </article>
-
-        <section class="case-gallery" aria-label="Diagrams">
-            <div class="media-slots">
-                <article class="media-slot">
-                    <span>Ares pipeline</span>
-                    <button class="media-slot-trigger" type="button" aria-haspopup="dialog" aria-label="Open full size Ares pipeline" data-media-src="../../blog/images/Ares_scraping_pipeline.png" data-media-alt="Ares scraping pipeline diagram" data-media-label="Ares pipeline" data-media-caption="Fetch, normalize, extract, persist.">
-                        <figure class="media-slot-figure">
-                            <img src="../../blog/images/Ares_scraping_pipeline.png" alt="Ares scraping pipeline diagram" loading="lazy">
-                        </figure>
-                        <span class="media-slot-hint">Open full size</span>
-                    </button>
-                    <p>Fetch, normalize, extract, persist.</p>
-                </article>
-                <article class="media-slot">
-                    <span>Ceres architecture</span>
-                    <button class="media-slot-trigger" type="button" aria-haspopup="dialog" aria-label="Open full size Ceres architecture" data-media-src="../../blog/images/Ceres_architecture.png" data-media-alt="Ceres architecture diagram" data-media-label="Ceres architecture" data-media-caption="Harvest, catalog, search, and export.">
-                        <figure class="media-slot-figure">
-                            <img src="../../blog/images/Ceres_architecture.png" alt="Ceres architecture diagram" loading="lazy">
-                        </figure>
-                        <span class="media-slot-hint">Open full size</span>
-                    </button>
-                    <p>Harvest, catalog, search, and export.</p>
-                </article>
-            </div>
-        </section>
-
         </section>
     </main>
 

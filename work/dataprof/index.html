@@ -125,6 +125,45 @@
         </nav>
 
         <section class="case-layout">
+            <div class="case-content">
+                <article class="case-main">
+                    <h2>Why it exists</h2>
+                    <p>Profiling should be something a team can run inside CI, scheduled data checks, or batch workflows, not a one-off notebook ritual that falls apart on wide tables or larger files. dataprof exists to make the first question about a dataset cheap and repeatable: what shape is it, where are the suspicious columns, and what can be checked again the next time the file or table changes?</p>
+
+                    <h2>Technical center</h2>
+                    <p>dataprof treats Arrow arrays and RecordBatches as the core abstraction, so column metrics, type and pattern detection, Parquet and IPC interoperability, and the future SQL layer via DataFusion all line up around the same in-memory model. That choice keeps the Rust core close to modern analytical storage while still leaving clean interfaces for a CLI, a Python package, and machine-readable reports that can be consumed by other tools.</p>
+
+                    <h2>Current proof points</h2>
+                    <p>The public surface already shows the real shape of the project: a Rust crate, CLI, and PyPI package, selective metrics for cheaper runs, bounded-memory execution, and an Arrow-centered design story that led to two upstream arrow-rs Parquet documentation PRs rather than a private workaround. The important part is not only that it profiles data, but that the project is being pushed toward the same operational places where data quality checks actually need to live.</p>
+
+                </article>
+
+        <section class="case-gallery" aria-label="Diagrams">
+            <div class="media-slots">
+                <article class="media-slot">
+                    <span>Arrow path</span>
+                    <button class="media-slot-trigger" type="button" aria-haspopup="dialog" aria-label="Open full size Arrow path" data-media-src="../../assets/images/case-studies/dataprof-arrow.png" data-media-alt="dataprof Arrow interoperability diagram" data-media-label="Arrow path" data-media-caption="Arrow batches, zero-copy interchange, and a shorter Rust-Python bridge.">
+                        <figure class="media-slot-figure">
+                            <img src="../../assets/images/case-studies/dataprof-arrow.png" alt="dataprof Arrow interoperability diagram" loading="lazy">
+                        </figure>
+                        <span class="media-slot-hint">Open full size</span>
+                    </button>
+                    <p>Arrow batches, zero-copy interchange, and a shorter Rust-Python bridge.</p>
+                </article>
+                <article class="media-slot">
+                    <span>System architecture</span>
+                    <button class="media-slot-trigger" type="button" aria-haspopup="dialog" aria-label="Open full size System architecture" data-media-src="../../assets/images/case-studies/dataprof-architecture.png" data-media-alt="dataprof high-level architecture diagram" data-media-label="System architecture" data-media-caption="Rust core, interfaces, report pipeline, and Arrow at the center.">
+                        <figure class="media-slot-figure">
+                            <img src="../../assets/images/case-studies/dataprof-architecture.png" alt="dataprof high-level architecture diagram" loading="lazy">
+                        </figure>
+                        <span class="media-slot-hint">Open full size</span>
+                    </button>
+                    <p>Rust core, interfaces, report pipeline, and Arrow at the center.</p>
+                </article>
+            </div>
+        </section>
+
+            </div>
             <aside class="case-aside">
                 <a class="btn btn-primary" href="https://github.com/AndreaBozzo/dataprof" target="_blank" rel="noopener noreferrer">Repository</a>
                 <a class="btn btn-secondary" href="../../blog/en/posts/arrowfordataprof-blog/">Related article</a>
@@ -174,43 +213,6 @@
                     </div>
                 </section>
             </aside>
-            <article class="case-main">
-                <h2>Why it exists</h2>
-                <p>Profiling should be something a team can run inside CI, scheduled data checks, or batch workflows, not a one-off notebook ritual that falls apart on wide tables or larger files. dataprof exists to make the first question about a dataset cheap and repeatable: what shape is it, where are the suspicious columns, and what can be checked again the next time the file or table changes?</p>
-
-                <h2>Technical center</h2>
-                <p>dataprof treats Arrow arrays and RecordBatches as the core abstraction, so column metrics, type and pattern detection, Parquet and IPC interoperability, and the future SQL layer via DataFusion all line up around the same in-memory model. That choice keeps the Rust core close to modern analytical storage while still leaving clean interfaces for a CLI, a Python package, and machine-readable reports that can be consumed by other tools.</p>
-
-                <h2>Current proof points</h2>
-                <p>The public surface already shows the real shape of the project: a Rust crate, CLI, and PyPI package, selective metrics for cheaper runs, bounded-memory execution, and an Arrow-centered design story that led to two upstream arrow-rs Parquet documentation PRs rather than a private workaround. The important part is not only that it profiles data, but that the project is being pushed toward the same operational places where data quality checks actually need to live.</p>
-
-            </article>
-
-        <section class="case-gallery" aria-label="Diagrams">
-            <div class="media-slots">
-                <article class="media-slot">
-                    <span>Arrow path</span>
-                    <button class="media-slot-trigger" type="button" aria-haspopup="dialog" aria-label="Open full size Arrow path" data-media-src="../../assets/images/case-studies/dataprof-arrow.png" data-media-alt="dataprof Arrow interoperability diagram" data-media-label="Arrow path" data-media-caption="Arrow batches, zero-copy interchange, and a shorter Rust-Python bridge.">
-                        <figure class="media-slot-figure">
-                            <img src="../../assets/images/case-studies/dataprof-arrow.png" alt="dataprof Arrow interoperability diagram" loading="lazy">
-                        </figure>
-                        <span class="media-slot-hint">Open full size</span>
-                    </button>
-                    <p>Arrow batches, zero-copy interchange, and a shorter Rust-Python bridge.</p>
-                </article>
-                <article class="media-slot">
-                    <span>System architecture</span>
-                    <button class="media-slot-trigger" type="button" aria-haspopup="dialog" aria-label="Open full size System architecture" data-media-src="../../assets/images/case-studies/dataprof-architecture.png" data-media-alt="dataprof high-level architecture diagram" data-media-label="System architecture" data-media-caption="Rust core, interfaces, report pipeline, and Arrow at the center.">
-                        <figure class="media-slot-figure">
-                            <img src="../../assets/images/case-studies/dataprof-architecture.png" alt="dataprof high-level architecture diagram" loading="lazy">
-                        </figure>
-                        <span class="media-slot-hint">Open full size</span>
-                    </button>
-                    <p>Rust core, interfaces, report pipeline, and Arrow at the center.</p>
-                </article>
-            </div>
-        </section>
-
         </section>
     </main>
 

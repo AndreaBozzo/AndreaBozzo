@@ -126,33 +126,18 @@
         </nav>
 
         <section class="case-layout">
-            <aside class="case-aside">
-                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/mosaico" target="_blank" rel="noopener noreferrer">Repository</a>
-                <a class="btn btn-secondary" href="../../blog/en/posts/mosaico-blog/">Related article</a>
+            <div class="case-content">
+                <article class="case-main">
+                    <h2>Why it matters</h2>
+                    <p>Robotics and physical-AI systems need data platform primitives that remain understandable once experiments become real operations. The interesting pressure is that these systems are both research environments and production candidates: teams need fast iteration, but they also need reproducible datasets, reliable jobs, and interfaces that do not collapse when multiple engineers start depending on them.</p>
 
-                <section class="case-data-group" aria-label="Operational signals">
-                    <p class="case-data-kicker">Operational signals</p>
-                    <p class="case-data-intro">Workflow and runtime signals that belong next to the system they describe.</p>
-                    <div class="case-data-list">
-                        <a class="case-datum case-datum-link" href="https://github.com/AndreaBozzo/mosaico/actions/runs/20788222390" target="_blank" rel="noopener noreferrer">
-                            <span class="case-datum-label">tests</span>
-                            <strong class="case-datum-value">med 2m 5s · p95 7m 16s</strong>
-                            <p class="case-datum-detail">latest success · 100% success · 4 runs sampled</p>
-                        </a>
-                    </div>
-                </section>
-            </aside>
-            <article class="case-main">
-                <h2>Why it matters</h2>
-                <p>Robotics and physical-AI systems need data platform primitives that remain understandable once experiments become real operations. The interesting pressure is that these systems are both research environments and production candidates: teams need fast iteration, but they also need reproducible datasets, reliable jobs, and interfaces that do not collapse when multiple engineers start depending on them.</p>
+                    <h2>Technical center</h2>
+                    <p>The interesting work sits at integration boundaries: how orchestration stays flexible enough for experimentation while remaining debuggable for the next engineer. In Mosaico that means paying attention to SDK and backend contracts, CI behavior, query ergonomics, and the places where platform code has to support messy real-world robotics workflows without hiding too much behind magic.</p>
 
-                <h2>Technical center</h2>
-                <p>The interesting work sits at integration boundaries: how orchestration stays flexible enough for experimentation while remaining debuggable for the next engineer. In Mosaico that means paying attention to SDK and backend contracts, CI behavior, query ergonomics, and the places where platform code has to support messy real-world robotics workflows without hiding too much behind magic.</p>
+                    <h2>Current proof points</h2>
+                    <p>This is already more than a platform summary: the visible contribution history sits exactly at the workflow boundaries that matter in robotics systems, where CI reliability, query ergonomics, and SDK-server compatibility determine whether data tooling remains usable by the next engineer. The case study is useful because it treats contribution work as a way to understand a platform from the inside rather than as a detached overview.</p>
 
-                <h2>Current proof points</h2>
-                <p>This is already more than a platform summary: the visible contribution history sits exactly at the workflow boundaries that matter in robotics systems, where CI reliability, query ergonomics, and SDK-server compatibility determine whether data tooling remains usable by the next engineer. The case study is useful because it treats contribution work as a way to understand a platform from the inside rather than as a detached overview.</p>
-
-            </article>
+                </article>
 
         <section class="case-gallery" aria-label="Diagrams">
             <div class="media-slots">
@@ -179,6 +164,23 @@
             </div>
         </section>
 
+            </div>
+            <aside class="case-aside">
+                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/mosaico" target="_blank" rel="noopener noreferrer">Repository</a>
+                <a class="btn btn-secondary" href="../../blog/en/posts/mosaico-blog/">Related article</a>
+
+                <section class="case-data-group" aria-label="Operational signals">
+                    <p class="case-data-kicker">Operational signals</p>
+                    <p class="case-data-intro">Workflow and runtime signals that belong next to the system they describe.</p>
+                    <div class="case-data-list">
+                        <a class="case-datum case-datum-link" href="https://github.com/AndreaBozzo/mosaico/actions/runs/20788222390" target="_blank" rel="noopener noreferrer">
+                            <span class="case-datum-label">tests</span>
+                            <strong class="case-datum-value">med 2m 5s · p95 7m 16s</strong>
+                            <p class="case-datum-detail">latest success · 100% success · 4 runs sampled</p>
+                        </a>
+                    </div>
+                </section>
+            </aside>
         </section>
     </main>
 

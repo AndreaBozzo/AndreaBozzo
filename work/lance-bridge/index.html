@@ -126,22 +126,18 @@
         </nav>
 
         <section class="case-layout">
-            <aside class="case-aside">
-                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/lancedb-nephtys-bridge" target="_blank" rel="noopener noreferrer">Repository</a>
-                <a class="btn btn-secondary" href="../../blog/en/posts/lancearticle-blog/">Related article</a>
-                <a class="btn btn-secondary" href="https://github.com/lance-format/lance" target="_blank" rel="noopener noreferrer">Lance upstream</a>
-            </aside>
-            <article class="case-main">
-                <h2>Why it exists</h2>
-                <p>There is a recurring gap between live event streams and small-footprint semantic search. Many teams want embeddings over fresh events, but not the operational overhead of a separate vector database cluster. Lance Bridge explores the thinner path: keep the event feed durable in JetStream, then project selected events into a local LanceDB store that can be searched semantically without becoming a whole new platform.</p>
+            <div class="case-content">
+                <article class="case-main">
+                    <h2>Why it exists</h2>
+                    <p>There is a recurring gap between live event streams and small-footprint semantic search. Many teams want embeddings over fresh events, but not the operational overhead of a separate vector database cluster. Lance Bridge explores the thinner path: keep the event feed durable in JetStream, then project selected events into a local LanceDB store that can be searched semantically without becoming a whole new platform.</p>
 
-                <h2>Technical center</h2>
-                <p>The bridge consumes JetStream batches, normalizes the payloads, computes embeddings with the LanceDB model registry or explicit batch embedding calls, and writes LanceModel rows into a local store that can be queried back as Arrow tables. The technical center is the handoff: stream events need stable identifiers, payload normalization, embedding metadata, and storage layout choices that still make later compaction and zero-copy reads possible.</p>
+                    <h2>Technical center</h2>
+                    <p>The bridge consumes JetStream batches, normalizes the payloads, computes embeddings with the LanceDB model registry or explicit batch embedding calls, and writes LanceModel rows into a local store that can be queried back as Arrow tables. The technical center is the handoff: stream events need stable identifiers, payload normalization, embedding metadata, and storage layout choices that still make later compaction and zero-copy reads possible.</p>
 
-                <h2>Current proof points</h2>
-                <p>The public article already exposes the real engineering surface instead of hand-waving: the schema model, embedding flow, NATS message handler, compaction caveats, zero-copy Arrow reads, and 2 tracked PRs in lance-format/lance that show hands-on familiarity with the underlying storage internals. The bridge is intentionally small, but it connects two useful ideas: event systems are good at freshness, and Lance is good at local analytical and vector access.</p>
+                    <h2>Current proof points</h2>
+                    <p>The public article already exposes the real engineering surface instead of hand-waving: the schema model, embedding flow, NATS message handler, compaction caveats, zero-copy Arrow reads, and 2 tracked PRs in lance-format/lance that show hands-on familiarity with the underlying storage internals. The bridge is intentionally small, but it connects two useful ideas: event systems are good at freshness, and Lance is good at local analytical and vector access.</p>
 
-            </article>
+                </article>
 
         <section class="case-gallery" aria-label="Diagrams">
             <div class="media-slots">
@@ -168,6 +164,12 @@
             </div>
         </section>
 
+            </div>
+            <aside class="case-aside">
+                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/lancedb-nephtys-bridge" target="_blank" rel="noopener noreferrer">Repository</a>
+                <a class="btn btn-secondary" href="../../blog/en/posts/lancearticle-blog/">Related article</a>
+                <a class="btn btn-secondary" href="https://github.com/lance-format/lance" target="_blank" rel="noopener noreferrer">Lance upstream</a>
+            </aside>
         </section>
     </main>
 

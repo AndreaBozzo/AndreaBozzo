@@ -126,43 +126,18 @@
         </nav>
 
         <section class="case-layout">
-            <aside class="case-aside">
-                <a class="btn btn-primary" href="https://github.com/lakekeeper/lakekeeper" target="_blank" rel="noopener noreferrer">Repository</a>
-                <a class="btn btn-secondary" href="../../blog/en/posts/lakekeeper-blog/">Related article</a>
+            <div class="case-content">
+                <article class="case-main">
+                    <h2>Why it exists</h2>
+                    <p>Object storage and open table formats are not enough on their own. A practical lakehouse still needs a catalog that can manage metadata, enforce access, and stay open enough to work across engines and deployment models. Lakekeeper matters because it puts the control plane around Iceberg tables into a Rust-native service that can be reasoned about as infrastructure rather than as an opaque extension of a compute engine.</p>
 
-                <section class="case-data-group" aria-label="Operational signals">
-                    <p class="case-data-kicker">Operational signals</p>
-                    <p class="case-data-intro">Workflow and runtime signals that belong next to the system they describe.</p>
-                    <div class="case-data-list">
-                        <a class="case-datum case-datum-link" href="https://github.com/lakekeeper/lakekeeper/actions/runs/25735135578" target="_blank" rel="noopener noreferrer">
-                            <span class="case-datum-label">integration tests</span>
-                            <strong class="case-datum-value">med 1h 58m · p95 2h 5m</strong>
-                            <p class="case-datum-detail">latest success · 100% success · 2 runs sampled</p>
-                        </a>
-                        <a class="case-datum case-datum-link" href="https://github.com/lakekeeper/lakekeeper/actions/runs/25735135631" target="_blank" rel="noopener noreferrer">
-                            <span class="case-datum-label">Examples Test [auth]</span>
-                            <strong class="case-datum-value">med 52m 22s · p95 1h 10m</strong>
-                            <p class="case-datum-detail">latest success · 100% success · 2 runs sampled</p>
-                        </a>
-                        <a class="case-datum case-datum-link" href="https://github.com/lakekeeper/lakekeeper/actions/runs/25735135637" target="_blank" rel="noopener noreferrer">
-                            <span class="case-datum-label">Test Lakekeeper migrations</span>
-                            <strong class="case-datum-value">med 54m 11s · p95 1h 2m</strong>
-                            <p class="case-datum-detail">latest success · 100% success · 2 runs sampled</p>
-                        </a>
-                    </div>
-                </section>
-            </aside>
-            <article class="case-main">
-                <h2>Why it exists</h2>
-                <p>Object storage and open table formats are not enough on their own. A practical lakehouse still needs a catalog that can manage metadata, enforce access, and stay open enough to work across engines and deployment models. Lakekeeper matters because it puts the control plane around Iceberg tables into a Rust-native service that can be reasoned about as infrastructure rather than as an opaque extension of a compute engine.</p>
+                    <h2>Technical center</h2>
+                    <p>Lakekeeper implements the Iceberg REST catalog in Rust, pairing Postgres-backed metadata with OIDC authentication, OpenFGA authorization, vended cloud credentials, CloudEvents, and a deployment model that stays much lighter than JVM-oriented catalog stacks. The architecture is interesting because the catalog is not only a lookup service: it becomes the place where identity, temporary storage access, namespace management, and cross-engine interoperability meet.</p>
 
-                <h2>Technical center</h2>
-                <p>Lakekeeper implements the Iceberg REST catalog in Rust, pairing Postgres-backed metadata with OIDC authentication, OpenFGA authorization, vended cloud credentials, CloudEvents, and a deployment model that stays much lighter than JVM-oriented catalog stacks. The architecture is interesting because the catalog is not only a lookup service: it becomes the place where identity, temporary storage access, namespace management, and cross-engine interoperability meet.</p>
+                    <h2>Current proof points</h2>
+                    <p>The public footprint is already concrete: a long-form architecture write-up, documented RisingWave interoperability, integrations with external engines and managed platforms, a monthly release cadence, and 2 merged PRs tracked in the repository README rather than a vague claim of familiarity. The case study is especially useful as a catalog-level counterpart to the Rust data stack work: it shows where table metadata, governance, and engine access stop being abstract and become operational interfaces.</p>
 
-                <h2>Current proof points</h2>
-                <p>The public footprint is already concrete: a long-form architecture write-up, documented RisingWave interoperability, integrations with external engines and managed platforms, a monthly release cadence, and 2 merged PRs tracked in the repository README rather than a vague claim of familiarity. The case study is especially useful as a catalog-level counterpart to the Rust data stack work: it shows where table metadata, governance, and engine access stop being abstract and become operational interfaces.</p>
-
-            </article>
+                </article>
 
         <section class="case-gallery" aria-label="Diagrams">
             <div class="media-slots">
@@ -189,6 +164,33 @@
             </div>
         </section>
 
+            </div>
+            <aside class="case-aside">
+                <a class="btn btn-primary" href="https://github.com/lakekeeper/lakekeeper" target="_blank" rel="noopener noreferrer">Repository</a>
+                <a class="btn btn-secondary" href="../../blog/en/posts/lakekeeper-blog/">Related article</a>
+
+                <section class="case-data-group" aria-label="Operational signals">
+                    <p class="case-data-kicker">Operational signals</p>
+                    <p class="case-data-intro">Workflow and runtime signals that belong next to the system they describe.</p>
+                    <div class="case-data-list">
+                        <a class="case-datum case-datum-link" href="https://github.com/lakekeeper/lakekeeper/actions/runs/25735135578" target="_blank" rel="noopener noreferrer">
+                            <span class="case-datum-label">integration tests</span>
+                            <strong class="case-datum-value">med 1h 58m · p95 2h 5m</strong>
+                            <p class="case-datum-detail">latest success · 100% success · 2 runs sampled</p>
+                        </a>
+                        <a class="case-datum case-datum-link" href="https://github.com/lakekeeper/lakekeeper/actions/runs/25735135631" target="_blank" rel="noopener noreferrer">
+                            <span class="case-datum-label">Examples Test [auth]</span>
+                            <strong class="case-datum-value">med 52m 22s · p95 1h 10m</strong>
+                            <p class="case-datum-detail">latest success · 100% success · 2 runs sampled</p>
+                        </a>
+                        <a class="case-datum case-datum-link" href="https://github.com/lakekeeper/lakekeeper/actions/runs/25735135637" target="_blank" rel="noopener noreferrer">
+                            <span class="case-datum-label">Test Lakekeeper migrations</span>
+                            <strong class="case-datum-value">med 54m 11s · p95 1h 2m</strong>
+                            <p class="case-datum-detail">latest success · 100% success · 2 runs sampled</p>
+                        </a>
+                    </div>
+                </section>
+            </aside>
         </section>
     </main>
 

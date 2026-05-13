@@ -126,21 +126,18 @@
         </nav>
 
         <section class="case-layout">
-            <aside class="case-aside">
-                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/LakehouseStarterKit" target="_blank" rel="noopener noreferrer">Repository</a>
-                <a class="btn btn-secondary" href="../../blog/en/posts/finops-ai-lakehouse-blog/">Related article</a>
-            </aside>
-            <article class="case-main">
-                <h2>Why it exists</h2>
-                <p>Small teams often need a usable lakehouse before they need platform complexity, so the real challenge is choosing a stack that starts light without painting the team into a corner. This starter exists for the moment before a team has a full platform group: they still need ingestion, transformations, dashboards, and object storage, but they need them in a shape that can be understood and replaced piece by piece.</p>
+            <div class="case-content">
+                <article class="case-main">
+                    <h2>Why it exists</h2>
+                    <p>Small teams often need a usable lakehouse before they need platform complexity, so the real challenge is choosing a stack that starts light without painting the team into a corner. This starter exists for the moment before a team has a full platform group: they still need ingestion, transformations, dashboards, and object storage, but they need them in a shape that can be understood and replaced piece by piece.</p>
 
-                <h2>Technical center</h2>
-                <p>The project combines dlt ingestion, dbt transformations, Superset dashboards, and MinIO-backed object storage into a setup that is intentionally simple to start and expandable later. Each component has a clear job: dlt moves data in, dbt makes transformations explicit, Superset gives immediate analytical feedback, and MinIO keeps the storage path close to S3-compatible production patterns.</p>
+                    <h2>Technical center</h2>
+                    <p>The project combines dlt ingestion, dbt transformations, Superset dashboards, and MinIO-backed object storage into a setup that is intentionally simple to start and expandable later. Each component has a clear job: dlt moves data in, dbt makes transformations explicit, Superset gives immediate analytical feedback, and MinIO keeps the storage path close to S3-compatible production patterns.</p>
 
-                <h2>Current proof points</h2>
-                <p>The repo already contains the first real artifact set: a published screenshot, a runnable compose stack, an example dlt API pipeline, staged dbt models, and local credentials for MinIO and Superset that make the small-team bootstrap path concrete rather than aspirational. The important next pressure is documentation and examples that show how a small starter can grow toward stronger catalog, quality, and cost controls without losing its plain local setup.</p>
+                    <h2>Current proof points</h2>
+                    <p>The repo already contains the first real artifact set: a published screenshot, a runnable compose stack, an example dlt API pipeline, staged dbt models, and local credentials for MinIO and Superset that make the small-team bootstrap path concrete rather than aspirational. The important next pressure is documentation and examples that show how a small starter can grow toward stronger catalog, quality, and cost controls without losing its plain local setup.</p>
 
-            </article>
+                </article>
 
         <section class="case-gallery" aria-label="Diagrams">
             <div class="media-slots">
@@ -167,6 +164,11 @@
             </div>
         </section>
 
+            </div>
+            <aside class="case-aside">
+                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/LakehouseStarterKit" target="_blank" rel="noopener noreferrer">Repository</a>
+                <a class="btn btn-secondary" href="../../blog/en/posts/finops-ai-lakehouse-blog/">Related article</a>
+            </aside>
         </section>
     </main>
 

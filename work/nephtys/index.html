@@ -126,42 +126,18 @@
         </nav>
 
         <section class="case-layout">
-            <aside class="case-aside">
-                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/Nephtys" target="_blank" rel="noopener noreferrer">Repository</a>
+            <div class="case-content">
+                <article class="case-main">
+                    <h2>Why it exists</h2>
+                    <p>Live interfaces such as webhooks, WebSockets, SSE, and gRPC all have different operational quirks, but downstream systems still need one stable event contract. Nephtys exists for the part of streaming work that is easy to underestimate: connectors must be configurable, observable, restartable, and boring enough that the rest of the platform can trust the events they emit.</p>
 
-                <section class="case-data-group" aria-label="Operational signals">
-                    <p class="case-data-kicker">Operational signals</p>
-                    <p class="case-data-intro">Workflow and runtime signals that belong next to the system they describe.</p>
-                    <div class="case-data-list">
-                        <a class="case-datum case-datum-link" href="https://github.com/AndreaBozzo/Nephtys/actions/runs/25622955244" target="_blank" rel="noopener noreferrer">
-                            <span class="case-datum-label">CI</span>
-                            <strong class="case-datum-value">med 35s · p95 44s</strong>
-                            <p class="case-datum-detail">latest success · 56% success · 9 runs sampled</p>
-                        </a>
-                        <a class="case-datum case-datum-link" href="https://github.com/AndreaBozzo/Nephtys/actions/runs/25608968649" target="_blank" rel="noopener noreferrer">
-                            <span class="case-datum-label">Copilot code review</span>
-                            <strong class="case-datum-value">med 3m 51s · p95 3m 51s</strong>
-                            <p class="case-datum-detail">latest success · 100% success · 1 runs sampled</p>
-                        </a>
-                        <a class="case-datum case-datum-link" href="https://github.com/AndreaBozzo/Nephtys/actions/runs/25622954875" target="_blank" rel="noopener noreferrer">
-                            <span class="case-datum-label">Push on main</span>
-                            <strong class="case-datum-value">med 1m 25s · p95 1m 26s</strong>
-                            <p class="case-datum-detail">latest success · 100% success · 5 runs sampled</p>
-                        </a>
-                    </div>
-                </section>
-            </aside>
-            <article class="case-main">
-                <h2>Why it exists</h2>
-                <p>Live interfaces such as webhooks, WebSockets, SSE, and gRPC all have different operational quirks, but downstream systems still need one stable event contract. Nephtys exists for the part of streaming work that is easy to underestimate: connectors must be configurable, observable, restartable, and boring enough that the rest of the platform can trust the events they emit.</p>
+                    <h2>Technical center</h2>
+                    <p>Nephtys manages connector lifecycles, normalizes inbound events, persists them to NATS JetStream, and exposes a REST API so stream management is operable instead of hardcoded. The design leans on durable subjects, explicit middleware ordering, and management endpoints so each connector can be treated as an operational unit rather than a background goroutine hidden inside an application.</p>
 
-                <h2>Technical center</h2>
-                <p>Nephtys manages connector lifecycles, normalizes inbound events, persists them to NATS JetStream, and exposes a REST API so stream management is operable instead of hardcoded. The design leans on durable subjects, explicit middleware ordering, and management endpoints so each connector can be treated as an operational unit rather than a background goroutine hidden inside an application.</p>
+                    <h2>Current proof points</h2>
+                    <p>The operational story is already present in public material: supported connector matrices, middleware ordering, REST management APIs, Prometheus and Grafana support, and a UIC 2026 paper framing urban sensor ingestion as the first concrete evaluation path. That makes the project more than a connector list; it is a small control plane for turning live external interfaces into events that can be replayed, inspected, and routed downstream.</p>
 
-                <h2>Current proof points</h2>
-                <p>The operational story is already present in public material: supported connector matrices, middleware ordering, REST management APIs, Prometheus and Grafana support, and a UIC 2026 paper framing urban sensor ingestion as the first concrete evaluation path. That makes the project more than a connector list; it is a small control plane for turning live external interfaces into events that can be replayed, inspected, and routed downstream.</p>
-
-            </article>
+                </article>
 
         <section class="case-gallery" aria-label="Diagrams">
             <div class="media-slots">
@@ -188,6 +164,32 @@
             </div>
         </section>
 
+            </div>
+            <aside class="case-aside">
+                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/Nephtys" target="_blank" rel="noopener noreferrer">Repository</a>
+
+                <section class="case-data-group" aria-label="Operational signals">
+                    <p class="case-data-kicker">Operational signals</p>
+                    <p class="case-data-intro">Workflow and runtime signals that belong next to the system they describe.</p>
+                    <div class="case-data-list">
+                        <a class="case-datum case-datum-link" href="https://github.com/AndreaBozzo/Nephtys/actions/runs/25622955244" target="_blank" rel="noopener noreferrer">
+                            <span class="case-datum-label">CI</span>
+                            <strong class="case-datum-value">med 35s · p95 44s</strong>
+                            <p class="case-datum-detail">latest success · 56% success · 9 runs sampled</p>
+                        </a>
+                        <a class="case-datum case-datum-link" href="https://github.com/AndreaBozzo/Nephtys/actions/runs/25608968649" target="_blank" rel="noopener noreferrer">
+                            <span class="case-datum-label">Copilot code review</span>
+                            <strong class="case-datum-value">med 3m 51s · p95 3m 51s</strong>
+                            <p class="case-datum-detail">latest success · 100% success · 1 runs sampled</p>
+                        </a>
+                        <a class="case-datum case-datum-link" href="https://github.com/AndreaBozzo/Nephtys/actions/runs/25622954875" target="_blank" rel="noopener noreferrer">
+                            <span class="case-datum-label">Push on main</span>
+                            <strong class="case-datum-value">med 1m 25s · p95 1m 26s</strong>
+                            <p class="case-datum-detail">latest success · 100% success · 5 runs sampled</p>
+                        </a>
+                    </div>
+                </section>
+            </aside>
         </section>
     </main>
 
