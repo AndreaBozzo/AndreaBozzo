@@ -12,7 +12,6 @@
     <link rel="alternate" hreflang="en" href="https://andreabozzo.github.io/AndreaBozzo/work/lakekeeper/">
     <link rel="alternate" hreflang="x-default" href="https://andreabozzo.github.io/AndreaBozzo/work/lakekeeper/">
     <meta property="og:locale" content="en_US">
-    <meta property="og:locale:alternate" content="it_IT">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Lakekeeper | Andrea Bozzo">
     <meta property="og:description" content="A case study on the Rust-native catalog layer that makes open lakehouse storage governable: table metadata, authorization, temporary credentials, and multi-engine interoperability without a JVM-heavy control plane.">
@@ -32,6 +31,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="prefetch" href="../../blog/">
+    <link rel="prefetch" href="../../blog/en/">
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
     <link rel="stylesheet" href="../../assets/styles.min.css">
     <script>
@@ -47,14 +48,19 @@
         <a href="../../#home" class="site-brand">AB</a>
         <nav class="site-nav" aria-label="Primary navigation">
             <a href="../../#workbench">Work</a>
-            <a href="../../blog/">Blog</a>
+            <a href="../../blog/en/" data-blog-link>Blog</a>
             <a href="../../#projects">Open Source</a>
             <a href="../../#papers">Papers</a>
             <a href="../../#contact">Contact</a>
         </nav>
-        <button class="theme-toggle" type="button" aria-label="Toggle color theme">
-            <span class="theme-toggle-icon" id="theme-icon">☀️</span>
-        </button>
+        <div class="site-actions" aria-label="Site preferences">
+            <button class="lang-btn site-lang-btn" type="button" data-language-toggle aria-label="Switch writing language">
+                <span data-lang-text>EN</span>
+            </button>
+            <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+                <span class="theme-toggle-icon" id="theme-icon">☀️</span>
+            </button>
+        </div>
     </header>
 
     <main class="content-wrapper case-study-page">

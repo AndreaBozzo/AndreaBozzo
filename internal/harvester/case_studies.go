@@ -19,31 +19,31 @@ type caseStudiesPayload struct {
 }
 
 type caseStudy struct {
-	Slug               string             `json:"slug"`
-	Title              string             `json:"title"`
-	DisplayTitle       string             `json:"displayTitle"`
-	Subtitle           string             `json:"subtitle"`
-	Summary            string             `json:"summary"`
-	MetaDescription    string             `json:"metaDescription"`
-	Status             string             `json:"status"`
-	RepoURL            string             `json:"repoUrl"`
-	RelatedPosts       []string           `json:"relatedPosts"`
-	CoverImage         string             `json:"coverImage"`
-	CoverAlt           string             `json:"coverAlt"`
-	CoverImageScale    string             `json:"coverImageScale"`
-	CoverImagePosition string             `json:"coverImagePosition"`
-	CoverEyebrow       string             `json:"coverEyebrow"`
-	CoverTitle         string             `json:"coverTitle"`
-	CoverText          string             `json:"coverText"`
-	Stack              []string           `json:"stack"`
-	Actions            []caseStudyAction  `json:"actions"`
-	CIWorkflowFocus    []string           `json:"ciWorkflowFocus,omitempty"`
-	ProofMetrics       []caseStudyDatum   `json:"proofMetrics,omitempty"`
-	OperationalSignals []caseStudyDatum   `json:"operationalSignals,omitempty"`
-	MediaSlots         []mediaSlot              `json:"mediaSlots"`
-	Sections           []caseStudySection       `json:"sections"`
-	SystemAnatomy      *systemAnatomy           `json:"systemAnatomy,omitempty"`
-	Datasets           []schema.DatasetItemV1   `json:"-"`
+	Slug               string                 `json:"slug"`
+	Title              string                 `json:"title"`
+	DisplayTitle       string                 `json:"displayTitle"`
+	Subtitle           string                 `json:"subtitle"`
+	Summary            string                 `json:"summary"`
+	MetaDescription    string                 `json:"metaDescription"`
+	Status             string                 `json:"status"`
+	RepoURL            string                 `json:"repoUrl"`
+	RelatedPosts       []string               `json:"relatedPosts"`
+	CoverImage         string                 `json:"coverImage"`
+	CoverAlt           string                 `json:"coverAlt"`
+	CoverImageScale    string                 `json:"coverImageScale"`
+	CoverImagePosition string                 `json:"coverImagePosition"`
+	CoverEyebrow       string                 `json:"coverEyebrow"`
+	CoverTitle         string                 `json:"coverTitle"`
+	CoverText          string                 `json:"coverText"`
+	Stack              []string               `json:"stack"`
+	Actions            []caseStudyAction      `json:"actions"`
+	CIWorkflowFocus    []string               `json:"ciWorkflowFocus,omitempty"`
+	ProofMetrics       []caseStudyDatum       `json:"proofMetrics,omitempty"`
+	OperationalSignals []caseStudyDatum       `json:"operationalSignals,omitempty"`
+	MediaSlots         []mediaSlot            `json:"mediaSlots"`
+	Sections           []caseStudySection     `json:"sections"`
+	SystemAnatomy      *systemAnatomy         `json:"systemAnatomy,omitempty"`
+	Datasets           []schema.DatasetItemV1 `json:"-"`
 }
 
 type caseStudyDatum struct {
@@ -590,7 +590,6 @@ func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext, last
 	buf.WriteString("    <link rel=\"alternate\" hreflang=\"en\" href=\"" + escapeHTML(canonicalURL) + "\">\n")
 	buf.WriteString("    <link rel=\"alternate\" hreflang=\"x-default\" href=\"" + escapeHTML(canonicalURL) + "\">\n")
 	buf.WriteString("    <meta property=\"og:locale\" content=\"en_US\">\n")
-	buf.WriteString("    <meta property=\"og:locale:alternate\" content=\"it_IT\">\n")
 	buf.WriteString("    <meta property=\"og:type\" content=\"article\">\n")
 	buf.WriteString("    <meta property=\"og:title\" content=\"" + escapeHTML(displayTitle) + " | Andrea Bozzo\">\n")
 	buf.WriteString("    <meta property=\"og:description\" content=\"" + escapeHTML(metaDescription) + "\">\n")
@@ -610,6 +609,8 @@ func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext, last
 	buf.WriteString("    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n")
 	buf.WriteString("    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n")
 	buf.WriteString("    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap\" rel=\"stylesheet\">\n")
+	buf.WriteString("    <link rel=\"prefetch\" href=\"../../blog/\">\n")
+	buf.WriteString("    <link rel=\"prefetch\" href=\"../../blog/en/\">\n")
 	buf.WriteString("    <link rel=\"icon\" type=\"image/svg+xml\" href=\"../../favicon.svg\">\n")
 	buf.WriteString("    <link rel=\"stylesheet\" href=\"../../assets/styles.min.css\">\n")
 	buf.WriteString("    <script>\n        (function() {\n            const savedTheme = localStorage.getItem('theme') || 'light';\n            document.documentElement.setAttribute('data-theme', savedTheme);\n        })();\n    </script>\n")
@@ -619,14 +620,19 @@ func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext, last
 	buf.WriteString("        <a href=\"../../#home\" class=\"site-brand\">AB</a>\n")
 	buf.WriteString("        <nav class=\"site-nav\" aria-label=\"Primary navigation\">\n")
 	buf.WriteString("            <a href=\"../../#workbench\">Work</a>\n")
-	buf.WriteString("            <a href=\"../../blog/\">Blog</a>\n")
+	buf.WriteString("            <a href=\"../../blog/en/\" data-blog-link>Blog</a>\n")
 	buf.WriteString("            <a href=\"../../#projects\">Open Source</a>\n")
 	buf.WriteString("            <a href=\"../../#papers\">Papers</a>\n")
 	buf.WriteString("            <a href=\"../../#contact\">Contact</a>\n")
 	buf.WriteString("        </nav>\n")
-	buf.WriteString("        <button class=\"theme-toggle\" type=\"button\" aria-label=\"Toggle color theme\">\n")
-	buf.WriteString("            <span class=\"theme-toggle-icon\" id=\"theme-icon\">☀️</span>\n")
-	buf.WriteString("        </button>\n")
+	buf.WriteString("        <div class=\"site-actions\" aria-label=\"Site preferences\">\n")
+	buf.WriteString("            <button class=\"lang-btn site-lang-btn\" type=\"button\" data-language-toggle aria-label=\"Switch writing language\">\n")
+	buf.WriteString("                <span data-lang-text>EN</span>\n")
+	buf.WriteString("            </button>\n")
+	buf.WriteString("            <button class=\"theme-toggle\" type=\"button\" aria-label=\"Toggle color theme\">\n")
+	buf.WriteString("                <span class=\"theme-toggle-icon\" id=\"theme-icon\">☀️</span>\n")
+	buf.WriteString("            </button>\n")
+	buf.WriteString("        </div>\n")
 	buf.WriteString("    </header>\n\n")
 	buf.WriteString("    <main class=\"content-wrapper case-study-page\">\n")
 	buf.WriteString("        <section class=\"case-hero\">\n")

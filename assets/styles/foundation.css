@@ -94,6 +94,7 @@
 }
 
 [data-theme="dark"] .site-brand,
+[data-theme="dark"] .site-lang-btn,
 [data-theme="dark"] .theme-toggle,
 [data-theme="dark"] .hero-stats {
     background: linear-gradient(180deg, rgba(20, 31, 49, 0.92), rgba(14, 22, 36, 0.9));
@@ -246,6 +247,8 @@ a {
 
 .site-brand:hover,
 .site-brand:focus-visible,
+.site-lang-btn:hover,
+.site-lang-btn:focus-visible,
 .theme-toggle:hover,
 .theme-toggle:focus-visible {
     transform: translateY(-2px);
@@ -278,6 +281,22 @@ a {
 .site-nav a:hover,
 .site-nav a:focus-visible {
     color: var(--color-text-primary);
+}
+
+.site-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.lang-btn.site-lang-btn {
+    min-width: 3rem;
+    min-height: 3rem;
+    padding: 0;
+    justify-content: center;
+    box-shadow: 0 18px 40px rgba(51, 40, 20, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.42);
+    backdrop-filter: blur(18px);
+    transition: transform 180ms ease, border-color 180ms ease;
 }
 
 .theme-toggle {

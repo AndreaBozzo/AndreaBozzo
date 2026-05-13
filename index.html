@@ -8,8 +8,9 @@
     <meta name="author" content="Andrea Bozzo">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://andreabozzo.github.io/AndreaBozzo/">
+    <link rel="alternate" hreflang="en" href="https://andreabozzo.github.io/AndreaBozzo/">
+    <link rel="alternate" hreflang="x-default" href="https://andreabozzo.github.io/AndreaBozzo/">
     <meta property="og:locale" content="en_US">
-    <meta property="og:locale:alternate" content="it_IT">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Andrea Bozzo | Rust, Python, Go Data Infrastructure">
     <meta property="og:description" content="Andrea Bozzo builds Rust, Python, and Go data infrastructure: open-source tools, lakehouse systems, and technical writing for engineers.">
@@ -39,6 +40,7 @@
     <link rel="preload" href="assets/main.min.js" as="script">
     <link rel="preload" href="assets/images/Climbing%20towards%20the%20celestial%20Ankh.png" as="image" fetchpriority="high">
     <link rel="prefetch" href="./blog/">
+    <link rel="prefetch" href="./blog/en/">
     <link rel="alternate" type="application/rss+xml" title="Andrea Bozzo · Blog (EN)" href="https://andreabozzo.github.io/AndreaBozzo/blog/en/index.xml">
     <link rel="alternate" type="application/rss+xml" title="Andrea Bozzo · Blog (IT)" href="https://andreabozzo.github.io/AndreaBozzo/blog/index.xml">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -60,17 +62,31 @@
                     "url": "https://andreabozzo.github.io/AndreaBozzo/",
                     "image": "https://andreabozzo.github.io/AndreaBozzo/assets/images/og/homepage.png",
                     "jobTitle": "Data Engineer",
-                    "knowsAbout": ["Data Engineering", "Rust", "Python", "Go", "Lakehouse", "Analytics Engineering", "Open Source"]
+                    "knowsAbout": ["Data Engineering", "Rust", "Python", "Go", "Lakehouse", "Analytics Engineering", "Open Source"],
+                    "sameAs": [
+                        "https://github.com/AndreaBozzo",
+                        "https://www.linkedin.com/in/andrea-bozzo-/",
+                        "https://andreabozzo.github.io/AndreaBozzo/blog/"
+                    ]
                 },
                 {
                     "@type": "WebSite",
                     "name": "Andrea Bozzo",
                     "url": "https://andreabozzo.github.io/AndreaBozzo/",
+                    "inLanguage": "en",
                     "description": "Andrea Bozzo builds Rust, Python, and Go data infrastructure: open-source tools, lakehouse systems, and technical writing for engineers.",
                     "publisher": {
                         "@type": "Person",
                         "name": "Andrea Bozzo"
-                    }
+                    },
+                    "hasPart": [
+                        {
+                            "@type": "Blog",
+                            "name": "Andrea Bozzo | Blog",
+                            "url": "https://andreabozzo.github.io/AndreaBozzo/blog/en/",
+                            "inLanguage": ["en", "it"]
+                        }
+                    ]
                 }
             ]
         }
@@ -94,14 +110,19 @@
         <a href="#home" class="site-brand">AB</a>
         <nav class="site-nav" aria-label="Primary navigation">
             <a href="#workbench">Work</a>
-            <a href="./blog/">Blog</a>
+            <a href="./blog/en/" data-blog-link>Blog</a>
             <a href="#projects">Open Source</a>
             <a href="#papers">Papers</a>
             <a href="#contact">Contact</a>
         </nav>
-        <button class="theme-toggle" type="button" aria-label="Toggle color theme">
-            <span class="theme-toggle-icon" id="theme-icon">☀️</span>
-        </button>
+        <div class="site-actions" aria-label="Site preferences">
+            <button class="lang-btn site-lang-btn" type="button" data-language-toggle aria-label="Switch writing language">
+                <span data-lang-text>EN</span>
+            </button>
+            <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+                <span class="theme-toggle-icon" id="theme-icon">☀️</span>
+            </button>
+        </div>
     </header>
 
     <main class="content-wrapper">
@@ -262,16 +283,15 @@
                     <p class="eyebrow">Journal</p>
                     <h2 class="section-title">Blog</h2>
                     <p class="section-lead">Longer writeups, project notes, and experiments live here.</p>
-                    <a href="./blog/" class="text-link">Browse every post</a>
+                    <a href="./blog/en/" class="text-link" data-blog-link>Browse every post</a>
                 </div>
 
                 <div class="blog-panel">
                     <div class="blog-header">
                         <h3 class="panel-title">Latest writing</h3>
                         <div class="language-toggle">
-                            <button id="lang-toggle-btn" class="lang-btn" type="button" onclick="toggleBlogLanguage()">
-                                <span id="lang-icon">🇮🇹</span>
-                                <span id="lang-text">IT</span>
+                            <button class="lang-btn" type="button" data-language-toggle aria-label="Switch writing language">
+                                <span data-lang-text>EN</span>
                             </button>
                         </div>
                     </div>

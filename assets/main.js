@@ -230,47 +230,84 @@ window.addEventListener('hashchange', () => {
     requestAnimationFrame(scrollHashTargetIntoView);
 });
 
-// ===== Blog Posts Auto-Loading =====
-function getCurrentBlogLanguage() {
-    // Check if user has manually selected a language
-    const savedLang = localStorage.getItem('blog_language_preference');
-    if (savedLang) return savedLang;
+// ===== Site Language Preference and Blog Posts Auto-Loading =====
+const supportedSiteLanguages = new Set(['en', 'it']);
+const siteLanguageStorageKey = 'site_language_preference';
+const legacyBlogLanguageStorageKey = 'blog_language_preference';
 
-    // Auto-detect from browser
-    const userLang = (navigator.language || navigator.userLanguage).toLowerCase();
-    const isItalian = userLang.startsWith('it');
-    return isItalian ? 'it' : 'en';
+function normalizeSiteLanguage(lang) {
+    const normalized = String(lang || '').toLowerCase().split('-')[0];
+    return supportedSiteLanguages.has(normalized) ? normalized : '';
 }
 
-function toggleBlogLanguage() {
-    const currentLang = getCurrentBlogLanguage();
+function detectBrowserLanguage() {
+    const userLang = normalizeSiteLanguage(navigator.language || navigator.userLanguage);
+    return userLang === 'it' ? 'it' : 'en';
+}
+
+function getCurrentSiteLanguage() {
+    const savedLang = normalizeSiteLanguage(localStorage.getItem(siteLanguageStorageKey));
+    if (savedLang) return savedLang;
+
+    const legacySavedLang = normalizeSiteLanguage(localStorage.getItem(legacyBlogLanguageStorageKey));
+    if (legacySavedLang) return legacySavedLang;
+
+    return detectBrowserLanguage();
+}
+
+function persistSiteLanguage(lang) {
+    localStorage.setItem(siteLanguageStorageKey, lang);
+    localStorage.setItem(legacyBlogLanguageStorageKey, lang);
+}
+
+function getBlogPathForLanguage(lang) {
+    const basePath = siteBasePath.endsWith('/') ? siteBasePath : `${siteBasePath}/`;
+    return `${basePath}blog/${lang === 'en' ? 'en/' : ''}`;
+}
+
+function updateLanguagePreferenceUI(lang) {
+    document.documentElement.setAttribute('data-language', lang);
+
+    document.querySelectorAll('[data-language-toggle]').forEach((button) => {
+        const text = button.querySelector('[data-lang-text]');
+        if (text) {
+            text.textContent = lang.toUpperCase();
+        }
+        button.setAttribute('aria-label', lang === 'it'
+            ? 'Switch writing language to English'
+            : 'Switch writing language to Italian');
+        button.setAttribute('title', lang === 'it'
+            ? 'Show English writing'
+            : 'Show Italian writing');
+    });
+
+    document.querySelectorAll('[data-blog-link]').forEach((link) => {
+        link.setAttribute('href', getBlogPathForLanguage(lang));
+    });
+}
+
+function toggleSiteLanguage() {
+    const currentLang = getCurrentSiteLanguage();
     const newLang = currentLang === 'it' ? 'en' : 'it';
 
-    // Save preference
-    localStorage.setItem('blog_language_preference', newLang);
+    persistSiteLanguage(newLang);
+    updateLanguagePreferenceUI(newLang);
 
-    // Update UI
-    updateLanguageToggleUI(newLang);
-
-    // Reload blog posts
-    loadLatestBlogPosts(newLang);
+    if (document.getElementById('blog-grid')) {
+        loadLatestBlogPosts(newLang);
+    }
 }
 
 window.toggleTheme = toggleTheme;
-window.toggleBlogLanguage = toggleBlogLanguage;
+window.toggleBlogLanguage = toggleSiteLanguage;
+window.toggleSiteLanguage = toggleSiteLanguage;
 
-function updateLanguageToggleUI(lang) {
-    const icon = document.getElementById('lang-icon');
-    const text = document.getElementById('lang-text');
-    if (!icon || !text) return;
-
-    if (lang === 'it') {
-        icon.textContent = '🇮🇹';
-        text.textContent = 'IT';
-    } else {
-        icon.textContent = '🇬🇧';
-        text.textContent = 'EN';
-    }
+function initializeLanguagePreference() {
+    const lang = getCurrentSiteLanguage();
+    updateLanguagePreferenceUI(lang);
+    document.querySelectorAll('[data-language-toggle]').forEach((button) => {
+        button.addEventListener('click', toggleSiteLanguage);
+    });
 }
 
 function formatMetricCount(value) {
@@ -345,8 +382,8 @@ function writeBlogCache(lang, posts) {
 }
 
 async function loadLatestBlogPosts(forceLang = null) {
-    const lang = forceLang || getCurrentBlogLanguage();
-    updateLanguageToggleUI(lang);
+    const lang = normalizeSiteLanguage(forceLang) || getCurrentSiteLanguage();
+    updateLanguagePreferenceUI(lang);
 
     const cached = readBlogCache(lang);
     if (cached) {
@@ -662,6 +699,7 @@ if ('serviceWorker' in navigator && shouldEnableAnalytics()) {
 // ===== Initialize =====
 document.addEventListener('DOMContentLoaded', function() {
     initializeThemeToggle();
+    initializeLanguagePreference();
     if (shouldEnableAnalytics()) {
         inject();
     }

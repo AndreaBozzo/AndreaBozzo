@@ -1,0 +1,42 @@
+<script>
+    (function() {
+        const currentLanguage = '{{ .Lang }}';
+        const supportedLanguages = new Set(['en', 'it']);
+        const storageKeys = ['site_language_preference', 'blog_language_preference'];
+
+        function normalizeLanguage(value) {
+            const normalized = String(value || '').toLowerCase().split('-')[0];
+            return supportedLanguages.has(normalized) ? normalized : '';
+        }
+
+        function persistLanguage(value) {
+            const language = normalizeLanguage(value);
+            if (!language) return;
+
+            storageKeys.forEach(function(key) {
+                localStorage.setItem(key, language);
+            });
+        }
+
+        function inferLinkLanguage(link) {
+            const label = (link.getAttribute('aria-label') || link.textContent || '').trim().toLowerCase();
+            const path = new URL(link.href, window.location.href).pathname;
+
+            if (path.includes('/en/') || label === 'en' || label.includes('english')) {
+                return 'en';
+            }
+            if (label === 'it' || label.includes('italiano')) {
+                return 'it';
+            }
+            return '';
+        }
+
+        persistLanguage(currentLanguage);
+
+        document.querySelectorAll('.lang-switch a, .i18n_list a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                persistLanguage(inferLinkLanguage(link));
+            });
+        });
+    })();
+</script>
