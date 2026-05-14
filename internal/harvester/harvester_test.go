@@ -616,3 +616,264 @@ func writeTestFile(t *testing.T, path, content string) {
 		t.Fatalf("write %s: %v", path, err)
 	}
 }
+
+func TestRenderCaseStudyEnglishEmitsNoItalianAlternateWithoutTranslation(t *testing.T) {
+	body := string(renderCaseStudyPageForLocale(caseStudy{
+		Slug:     "demo",
+		Title:    "Demo",
+		Subtitle: "Example",
+		Sections: []caseStudySection{{Heading: "Why", Body: "Because"}},
+	}, caseStudyPageContext{}, time.Unix(0, 0).UTC(), caseStudyRenderOptions{Locale: "en"}))
+
+	if !strings.Contains(body, `<html lang="en"`) {
+		t.Fatalf("expected English html lang attribute")
+	}
+	if strings.Contains(body, `hreflang="it"`) {
+		t.Fatalf("English page must not advertise an Italian alternate when no translation exists")
+	}
+	if !strings.Contains(body, `hreflang="x-default"`) {
+		t.Fatalf("expected x-default hreflang fallback")
+	}
+	if !strings.Contains(body, `data-blog-link`) {
+		t.Fatalf("expected Blog nav anchor to be flagged with data-blog-link so the writing-language toggle can retarget it")
+	}
+	if !strings.Contains(body, `"inLanguage":"en"`) {
+		t.Fatalf("expected structured data inLanguage to be en")
+	}
+}
+
+func TestRenderCaseStudyItalianEmitsReciprocalHreflang(t *testing.T) {
+	study := caseStudy{
+		Slug:     "demo",
+		Title:    "Demo",
+		Subtitle: "Example",
+		Sections: []caseStudySection{{Heading: "Why", Body: "Because"}},
+		Translations: map[string]caseStudyTranslation{
+			"it": {
+				Title:           "Demo IT",
+				MetaDescription: "Descrizione italiana",
+				Sections:        []caseStudySection{{Heading: "Perché", Body: "Perché sì"}},
+			},
+		},
+	}
+	body := string(renderCaseStudyPageForLocale(study, caseStudyPageContext{}, time.Unix(0, 0).UTC(), caseStudyRenderOptions{
+		Locale:           "it",
+		AlternateLocales: []string{"en", "it"},
+	}))
+
+	if !strings.Contains(body, `<html lang="it"`) {
+		t.Fatalf("expected Italian html lang attribute, body had: %s", body[:200])
+	}
+	if !strings.Contains(body, `https://andreabozzo.github.io/AndreaBozzo/it/work/demo/`) {
+		t.Fatalf("expected Italian canonical URL")
+	}
+	if !strings.Contains(body, `hreflang="en"`) || !strings.Contains(body, `hreflang="it"`) {
+		t.Fatalf("expected reciprocal hreflang for both locales")
+	}
+	if !strings.Contains(body, `<link rel="alternate" hreflang="x-default" href="https://andreabozzo.github.io/AndreaBozzo/work/demo/"`) {
+		t.Fatalf("expected x-default to point at the English URL")
+	}
+	if !strings.Contains(body, `og:locale:alternate" content="en_US"`) {
+		t.Fatalf("expected og:locale:alternate for the English counterpart")
+	}
+	if !strings.Contains(body, "Demo IT") {
+		t.Fatalf("expected Italian title in page body")
+	}
+	if !strings.Contains(body, "Perché sì") {
+		t.Fatalf("expected Italian section body")
+	}
+	if !strings.Contains(body, `../../../assets/styles.min.css`) {
+		t.Fatalf("expected Italian page to use three-level rootRel for assets")
+	}
+	if !strings.Contains(body, `"inLanguage":"it"`) {
+		t.Fatalf("expected structured data inLanguage to be it")
+	}
+}
+
+func TestGenerateCaseStudyPagesEmitsItalianOnlyWhenIndexable(t *testing.T) {
+	repoRoot := t.TempDir()
+	writeTestFile(t, filepath.Join(repoRoot, "assets", "data", "case-studies.json"), `{
+  "items": [
+    {
+      "slug": "dataprof",
+      "title": "dataprof",
+      "subtitle": "Example",
+      "sections": [{"heading": "Why", "body": "Because"}],
+      "translations": {
+        "it": {
+          "title": "dataprof IT",
+          "metaDescription": "Profilazione Arrow-nativa in Italia",
+          "sections": [{"heading": "Perché", "body": "Perché sì"}]
+        }
+      }
+    },
+    {
+      "slug": "mosaico",
+      "title": "mosaico",
+      "subtitle": "No translation",
+      "sections": [{"heading": "Why", "body": "Because"}]
+    },
+    {
+      "slug": "partial",
+      "title": "partial",
+      "subtitle": "Partial translation",
+      "sections": [{"heading": "Why", "body": "Because"}],
+      "translations": {
+        "it": {
+          "title": "parziale"
+        }
+      }
+    }
+  ]
+}`)
+
+	if err := GenerateCaseStudyPages(repoRoot); err != nil {
+		t.Fatalf("GenerateCaseStudyPages returned error: %v", err)
+	}
+
+	mustExist := func(p string) {
+		t.Helper()
+		if _, err := os.Stat(p); err != nil {
+			t.Fatalf("expected %s to exist: %v", p, err)
+		}
+	}
+	mustNotExist := func(p string) {
+		t.Helper()
+		if _, err := os.Stat(p); !os.IsNotExist(err) {
+			t.Fatalf("expected %s to NOT exist (err=%v)", p, err)
+		}
+	}
+
+	mustExist(filepath.Join(repoRoot, "work", "dataprof", "index.html"))
+	mustExist(filepath.Join(repoRoot, "work", "mosaico", "index.html"))
+	mustExist(filepath.Join(repoRoot, "work", "partial", "index.html"))
+	mustExist(filepath.Join(repoRoot, "it", "work", "dataprof", "index.html"))
+	mustNotExist(filepath.Join(repoRoot, "it", "work", "mosaico"))
+	mustNotExist(filepath.Join(repoRoot, "it", "work", "partial"))
+
+	enBody, err := os.ReadFile(filepath.Join(repoRoot, "work", "dataprof", "index.html"))
+	if err != nil {
+		t.Fatalf("read English dataprof page: %v", err)
+	}
+	if !strings.Contains(string(enBody), `hreflang="it"`) {
+		t.Fatalf("English dataprof page should advertise Italian alternate")
+	}
+	mosaicoEN, err := os.ReadFile(filepath.Join(repoRoot, "work", "mosaico", "index.html"))
+	if err != nil {
+		t.Fatalf("read English mosaico page: %v", err)
+	}
+	if strings.Contains(string(mosaicoEN), `hreflang="it"`) {
+		t.Fatalf("English mosaico page should NOT advertise Italian alternate without a translation")
+	}
+}
+
+func TestApplyLocaleOverridesFallsBackOnEmptyFields(t *testing.T) {
+	study := caseStudy{
+		Slug:    "demo",
+		Title:   "Demo EN",
+		Summary: "English summary",
+		Stack:   []string{"Rust"},
+		Translations: map[string]caseStudyTranslation{
+			"it": {
+				Title: "Demo IT",
+			},
+		},
+	}
+	view := applyLocaleOverrides(study, "it")
+	if view.Title != "Demo IT" {
+		t.Fatalf("expected Italian title override, got %q", view.Title)
+	}
+	if view.Summary != "English summary" {
+		t.Fatalf("expected English summary to fall through, got %q", view.Summary)
+	}
+	if len(view.Stack) != 1 || view.Stack[0] != "Rust" {
+		t.Fatalf("expected English stack to fall through, got %v", view.Stack)
+	}
+}
+
+func TestValidateLocalizationAcceptsReciprocalAlternates(t *testing.T) {
+	siteRoot := t.TempDir()
+	enURL := "https://example.com/work/demo/"
+	itURL := "https://example.com/it/work/demo/"
+	enPage := localizationFixture(enURL, enURL, map[string]string{"en": enURL, "it": itURL, "x-default": enURL})
+	itPage := localizationFixture(itURL, itURL, map[string]string{"en": enURL, "it": itURL, "x-default": enURL})
+	writeTestFile(t, filepath.Join(siteRoot, "work", "demo", "index.html"), enPage)
+	writeTestFile(t, filepath.Join(siteRoot, "it", "work", "demo", "index.html"), itPage)
+
+	if err := ValidateLocalization(siteRoot); err != nil {
+		t.Fatalf("expected no validation errors, got: %v", err)
+	}
+}
+
+func TestValidateLocalizationRejectsMissingCounterpart(t *testing.T) {
+	siteRoot := t.TempDir()
+	enURL := "https://example.com/work/demo/"
+	itURL := "https://example.com/it/work/demo/"
+	// English page claims an Italian counterpart that was never generated.
+	enPage := localizationFixture(enURL, enURL, map[string]string{"en": enURL, "it": itURL, "x-default": enURL})
+	writeTestFile(t, filepath.Join(siteRoot, "work", "demo", "index.html"), enPage)
+
+	err := ValidateLocalization(siteRoot)
+	if err == nil {
+		t.Fatal("expected validation to fail when alternate is missing")
+	}
+	if !strings.Contains(err.Error(), itURL) {
+		t.Fatalf("expected error to mention missing target %s, got %v", itURL, err)
+	}
+}
+
+func TestValidateLocalizationRejectsNonReciprocal(t *testing.T) {
+	siteRoot := t.TempDir()
+	enURL := "https://example.com/work/demo/"
+	itURL := "https://example.com/it/work/demo/"
+	enPage := localizationFixture(enURL, enURL, map[string]string{"en": enURL, "it": itURL, "x-default": enURL})
+	// Italian page does NOT link back to English.
+	itPage := localizationFixture(itURL, itURL, map[string]string{"it": itURL, "x-default": enURL})
+	writeTestFile(t, filepath.Join(siteRoot, "work", "demo", "index.html"), enPage)
+	writeTestFile(t, filepath.Join(siteRoot, "it", "work", "demo", "index.html"), itPage)
+
+	err := ValidateLocalization(siteRoot)
+	if err == nil {
+		t.Fatal("expected validation to fail on non-reciprocal alternate")
+	}
+	if !strings.Contains(err.Error(), "not reciprocal") {
+		t.Fatalf("expected 'not reciprocal' in error, got %v", err)
+	}
+}
+
+func TestValidateLocalizationIgnoresEnglishOnlyPages(t *testing.T) {
+	siteRoot := t.TempDir()
+	enURL := "https://example.com/work/solo/"
+	// Self-en + x-default-en only; no Italian alternate. This is the standard
+	// English-only case-study shape and must pass validation.
+	enPage := localizationFixture(enURL, enURL, map[string]string{"en": enURL, "x-default": enURL})
+	writeTestFile(t, filepath.Join(siteRoot, "work", "solo", "index.html"), enPage)
+
+	if err := ValidateLocalization(siteRoot); err != nil {
+		t.Fatalf("expected English-only page to validate, got %v", err)
+	}
+}
+
+func localizationFixture(canonical, _ string, alternates map[string]string) string {
+	var b strings.Builder
+	b.WriteString("<!DOCTYPE html><html><head>")
+	b.WriteString(`<link rel="canonical" href="` + canonical + `">`)
+	for lang, href := range alternates {
+		b.WriteString(`<link rel="alternate" hreflang="` + lang + `" href="` + href + `">`)
+	}
+	b.WriteString("</head><body></body></html>")
+	return b.String()
+}
+
+func TestResolveCaseStudyAssetPathForRespectsItalianDepth(t *testing.T) {
+	got := resolveCaseStudyAssetPathFor("../../assets/images/foo.png", "../../../")
+	want := "../../../assets/images/foo.png"
+	if got != want {
+		t.Fatalf("expected %q, got %q", want, got)
+	}
+	got = resolveCaseStudyAssetPathFor("../blog/images/foo.png", "../../../")
+	want = "../../../blog/images/foo.png"
+	if got != want {
+		t.Fatalf("expected %q, got %q", want, got)
+	}
+}

@@ -50,6 +50,12 @@ func run(args []string) error {
 		return generateStaticArtifacts(repoRoot)
 	case "update-contributions-readme":
 		return harvester.UpdateContributionsREADME(context.Background(), repoRoot, "AndreaBozzo")
+	case "validate-localization":
+		siteRoot := repoRoot + "/_site"
+		if len(args) >= 2 && args[1] != "" {
+			siteRoot = args[1]
+		}
+		return harvester.ValidateLocalization(siteRoot)
 	default:
 		return fmt.Errorf("unknown subcommand %q\n\n%s", args[0], usageText())
 	}
@@ -110,5 +116,5 @@ func usageError() error {
 }
 
 func usageText() string {
-	return "harvester is the unified Go CLI for repo data generation.\n\nUsage:\n  go run ./cmd/harvester <subcommand>\n\nSubcommands:\n  ingest --source blog\n  ingest --source packages\n  ingest --source ci\n  ingest --source datasets\n  ingest --all\n  update-contributions-readme\n  generate-contributions-json\n  generate-writing-index\n  generate-package-registry-index\n  generate-ci-runtime-index\n  generate-dataset-index\n  generate-contract-artifacts\n  generate-case-study-pages\n  generate-static-artifacts\n"
+	return "harvester is the unified Go CLI for repo data generation.\n\nUsage:\n  go run ./cmd/harvester <subcommand>\n\nSubcommands:\n  ingest --source blog\n  ingest --source packages\n  ingest --source ci\n  ingest --source datasets\n  ingest --all\n  update-contributions-readme\n  generate-contributions-json\n  generate-writing-index\n  generate-package-registry-index\n  generate-ci-runtime-index\n  generate-dataset-index\n  generate-contract-artifacts\n  generate-case-study-pages\n  generate-static-artifacts\n  validate-localization [siteRoot]\n"
 }

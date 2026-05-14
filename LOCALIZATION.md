@@ -58,15 +58,37 @@ case studies must not show an Italian switch.
 ## Implementation Plan
 
 1. Keep the global shell English-only until `/it/` exists with translated root
-   content.
+   content. **(done)** No site-wide language switch is exposed.
 2. Keep the homepage language control scoped to the blog preview and label it as
-   writing language.
+   writing language. **(done)** Audited 2026-05-14 — the toggle lives only in
+   the blog panel, is labeled "Writing language", and writes
+   `data-writing-language` for inspection only (no CSS reads it). Nav `Blog`
+   anchors carry `data-blog-link` so the writing-language preference can
+   retarget them.
 3. Add locale support to the case-study generator:
    - render `/work/<slug>/` from English source
    - render `/it/work/<slug>/` only when the Italian translation block is present
    - emit reciprocal `hreflang` only for generated language pairs
+
+   **(done)** Inline `translations.it` block per item in
+   `assets/data/case-studies.json`. Field-level fallback is lenient, but the
+   generator refuses to emit an Italian page unless localized title,
+   meta/summary/subtitle, and at least one localized section body are present
+   (release-gate guardrail). `hreflang` and `og:locale:alternate` are emitted
+   only for the locales actually generated; `x-default` points at English.
+   Italian pages live three levels deep (`it/work/<slug>/`) and use `../../../`
+   for asset paths. Empty `it/` is pruned when no translations are indexable.
 4. Move root homepage copy into locale-aware source data and generate `/` plus
-   `/it/` from the same template.
+   `/it/` from the same template. **(deferred)** No Italian root content is
+   authored yet. Revisit when there is real content to ship at `/it/`. The
+   current homepage stays hand-authored English-only; the case-study generator
+   already produces `/it/work/<slug>/` independently.
 5. Add a localization check command that validates link reciprocity and blocks
-   fake alternates.
+   fake alternates. **(done)** `go run ./cmd/harvester validate-localization`
+   walks `_site/` (or a path passed as the second argument), extracts every
+   page's `<link rel="canonical">` and `<link rel="alternate" hreflang="...">`
+   set, and fails the build when an advertised alternate either does not
+   resolve to a generated page or fails to link back. English-only pages with
+   self-en and `x-default` are exempt. Hugo's `/blog/` subtree is skipped
+   (it owns its own translation links).
 
