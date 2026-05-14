@@ -19,31 +19,31 @@ type caseStudiesPayload struct {
 }
 
 type caseStudy struct {
-	Slug               string                 `json:"slug"`
-	Title              string                 `json:"title"`
-	DisplayTitle       string                 `json:"displayTitle"`
-	Subtitle           string                 `json:"subtitle"`
-	Summary            string                 `json:"summary"`
-	MetaDescription    string                 `json:"metaDescription"`
-	Status             string                 `json:"status"`
-	RepoURL            string                 `json:"repoUrl"`
-	RelatedPosts       []string               `json:"relatedPosts"`
-	CoverImage         string                 `json:"coverImage"`
-	CoverAlt           string                 `json:"coverAlt"`
-	CoverImageScale    string                 `json:"coverImageScale"`
-	CoverImagePosition string                 `json:"coverImagePosition"`
-	CoverEyebrow       string                 `json:"coverEyebrow"`
-	CoverTitle         string                 `json:"coverTitle"`
-	CoverText          string                 `json:"coverText"`
-	Stack              []string               `json:"stack"`
-	Actions            []caseStudyAction      `json:"actions"`
-	CIWorkflowFocus    []string               `json:"ciWorkflowFocus,omitempty"`
-	ProofMetrics       []caseStudyDatum       `json:"proofMetrics,omitempty"`
-	OperationalSignals []caseStudyDatum       `json:"operationalSignals,omitempty"`
-	MediaSlots         []mediaSlot            `json:"mediaSlots"`
-	Sections           []caseStudySection     `json:"sections"`
-	SystemAnatomy      *systemAnatomy         `json:"systemAnatomy,omitempty"`
-	Datasets           []schema.DatasetItemV1 `json:"-"`
+	Slug               string                          `json:"slug"`
+	Title              string                          `json:"title"`
+	DisplayTitle       string                          `json:"displayTitle"`
+	Subtitle           string                          `json:"subtitle"`
+	Summary            string                          `json:"summary"`
+	MetaDescription    string                          `json:"metaDescription"`
+	Status             string                          `json:"status"`
+	RepoURL            string                          `json:"repoUrl"`
+	RelatedPosts       []string                        `json:"relatedPosts"`
+	CoverImage         string                          `json:"coverImage"`
+	CoverAlt           string                          `json:"coverAlt"`
+	CoverImageScale    string                          `json:"coverImageScale"`
+	CoverImagePosition string                          `json:"coverImagePosition"`
+	CoverEyebrow       string                          `json:"coverEyebrow"`
+	CoverTitle         string                          `json:"coverTitle"`
+	CoverText          string                          `json:"coverText"`
+	Stack              []string                        `json:"stack"`
+	Actions            []caseStudyAction               `json:"actions"`
+	CIWorkflowFocus    []string                        `json:"ciWorkflowFocus,omitempty"`
+	ProofMetrics       []caseStudyDatum                `json:"proofMetrics,omitempty"`
+	OperationalSignals []caseStudyDatum                `json:"operationalSignals,omitempty"`
+	MediaSlots         []mediaSlot                     `json:"mediaSlots"`
+	Sections           []caseStudySection              `json:"sections"`
+	SystemAnatomy      *systemAnatomy                  `json:"systemAnatomy,omitempty"`
+	Datasets           []schema.DatasetItemV1          `json:"-"`
 	Translations       map[string]caseStudyTranslation `json:"translations,omitempty"`
 }
 
@@ -53,23 +53,23 @@ type caseStudy struct {
 // SEO-critical fields (Title or DisplayTitle, MetaDescription or Summary or
 // Subtitle, and at least one Section body) cannot be satisfied.
 type caseStudyTranslation struct {
-	Title              string                  `json:"title,omitempty"`
-	DisplayTitle       string                  `json:"displayTitle,omitempty"`
-	Subtitle           string                  `json:"subtitle,omitempty"`
-	Summary            string                  `json:"summary,omitempty"`
-	MetaDescription    string                  `json:"metaDescription,omitempty"`
-	Status             string                  `json:"status,omitempty"`
-	CoverAlt           string                  `json:"coverAlt,omitempty"`
-	CoverEyebrow       string                  `json:"coverEyebrow,omitempty"`
-	CoverTitle         string                  `json:"coverTitle,omitempty"`
-	CoverText          string                  `json:"coverText,omitempty"`
-	Stack              []string                `json:"stack,omitempty"`
-	Actions            []caseStudyAction       `json:"actions,omitempty"`
-	ProofMetrics       []caseStudyDatum        `json:"proofMetrics,omitempty"`
-	OperationalSignals []caseStudyDatum        `json:"operationalSignals,omitempty"`
-	MediaSlots         []mediaSlot             `json:"mediaSlots,omitempty"`
-	Sections           []caseStudySection      `json:"sections,omitempty"`
-	SystemAnatomy      *systemAnatomy          `json:"systemAnatomy,omitempty"`
+	Title              string             `json:"title,omitempty"`
+	DisplayTitle       string             `json:"displayTitle,omitempty"`
+	Subtitle           string             `json:"subtitle,omitempty"`
+	Summary            string             `json:"summary,omitempty"`
+	MetaDescription    string             `json:"metaDescription,omitempty"`
+	Status             string             `json:"status,omitempty"`
+	CoverAlt           string             `json:"coverAlt,omitempty"`
+	CoverEyebrow       string             `json:"coverEyebrow,omitempty"`
+	CoverTitle         string             `json:"coverTitle,omitempty"`
+	CoverText          string             `json:"coverText,omitempty"`
+	Stack              []string           `json:"stack,omitempty"`
+	Actions            []caseStudyAction  `json:"actions,omitempty"`
+	ProofMetrics       []caseStudyDatum   `json:"proofMetrics,omitempty"`
+	OperationalSignals []caseStudyDatum   `json:"operationalSignals,omitempty"`
+	MediaSlots         []mediaSlot        `json:"mediaSlots,omitempty"`
+	Sections           []caseStudySection `json:"sections,omitempty"`
+	SystemAnatomy      *systemAnatomy     `json:"systemAnatomy,omitempty"`
 }
 
 type caseStudyDatum struct {
@@ -205,6 +205,12 @@ func mergeTranslatedActions(src, tr []caseStudyAction) []caseStudyAction {
 		if i < len(tr) {
 			if v := strings.TrimSpace(tr[i].Label); v != "" {
 				merged.Label = v
+			}
+			if v := strings.TrimSpace(tr[i].URL); v != "" {
+				merged.URL = v
+			}
+			if v := strings.TrimSpace(tr[i].Style); v != "" {
+				merged.Style = v
 			}
 		}
 		out = append(out, merged)
@@ -454,7 +460,7 @@ func localeFilteredStudies(items []caseStudy, locale string) []caseStudy {
 	out := make([]caseStudy, 0, len(items))
 	for _, study := range items {
 		if hasIndexableTranslation(study, locale) {
-			out = append(out, study)
+			out = append(out, applyLocaleOverrides(study, locale))
 		}
 	}
 	return out
@@ -897,9 +903,8 @@ func removeStaleCaseStudyDirs(workDir string, validSlugs map[string]struct{}) er
 // caseStudyRenderOptions carries per-page rendering context that is locale- or
 // alternate-link dependent.
 type caseStudyRenderOptions struct {
-	Locale            string
-	AlternateLocales  []string
-	AlternateBySlug   map[string]struct{}
+	Locale           string
+	AlternateLocales []string
 }
 
 func renderCaseStudyPage(study caseStudy, pageContext caseStudyPageContext, lastmod time.Time) []byte {
@@ -974,7 +979,7 @@ func renderCaseStudyPageForLocale(study caseStudy, pageContext caseStudyPageCont
 	buf.WriteString("        <a href=\"" + rootRel + "#home\" class=\"site-brand\">AB</a>\n")
 	buf.WriteString("        <nav class=\"site-nav\" aria-label=\"" + navLabel(locale, "primary") + "\">\n")
 	buf.WriteString("            <a href=\"" + rootRel + "#workbench\">" + navLabel(locale, "work") + "</a>\n")
-	buf.WriteString("            <a href=\"" + rootRel + "blog/en/\" data-blog-link>" + navLabel(locale, "blog") + "</a>\n")
+	buf.WriteString("            <a href=\"" + rootRel + localeBlogIndexPath(locale) + "\" data-blog-link>" + navLabel(locale, "blog") + "</a>\n")
 	buf.WriteString("            <a href=\"" + rootRel + "#projects\">" + navLabel(locale, "open_source") + "</a>\n")
 	buf.WriteString("            <a href=\"" + rootRel + "#papers\">" + navLabel(locale, "papers") + "</a>\n")
 	buf.WriteString("            <a href=\"" + rootRel + "#contact\">" + navLabel(locale, "contact") + "</a>\n")
@@ -1139,89 +1144,103 @@ func ogLocaleFor(locale string) string {
 	}
 }
 
+func localeBlogIndexPath(locale string) string {
+	if locale == "it" {
+		return "blog/"
+	}
+	return "blog/en/"
+}
+
+func localeBlogPostPath(locale, slug string) string {
+	if locale == "it" {
+		return "blog/posts/" + slug + "/"
+	}
+	return "blog/en/posts/" + slug + "/"
+}
+
 // navLabel returns a localized string for a small fixed set of UI/SEO labels
 // rendered by the case-study template. Falls back to English if the locale is
 // not configured.
 func navLabel(locale, key string) string {
 	en := map[string]string{
-		"primary":                   "Primary navigation",
-		"work":                      "Work",
-		"blog":                      "Blog",
-		"open_source":               "Open Source",
-		"papers":                    "Papers",
-		"contact":                   "Contact",
-		"toggle_theme":              "Toggle color theme",
-		"case_study_eyebrow":        "Case Study",
-		"section_fallback":          "Section",
-		"open_default":              "Open",
-		"proof_metrics_title":       "Proof metrics",
-		"proof_metrics_intro":       "Concrete public proof, attached to this project rather than pushed into the graph.",
-		"operational_signals_title": "Operational signals",
-		"operational_signals_intro": "Workflow and runtime signals that belong next to the system they describe.",
-		"action_repository":         "Repository",
-		"action_related_article":    "Related article",
-		"back_to_workbench":         "Back to workbench",
-		"diagrams_label":            "Diagrams",
-		"open_full_size":            "Open full size",
-		"system_anatomy_label":      "System anatomy",
-		"system_anatomy_inputs":     "Inputs",
-		"system_anatomy_core":       "Core",
-		"system_anatomy_outputs":    "Outputs",
-		"system_anatomy_constraints":"Constraints",
-		"case_study_navigation":     "Case study navigation",
-		"dataset_eyebrow":           "Public dataset",
-		"dataset_snapshot":          "Snapshot",
-		"dataset_updated":           "Updated",
-		"dataset_hosted_on":         "Hosted on",
-		"dataset_top_portals":       "Top contributing portals",
-		"dataset_more_portals":      "more portals",
-		"dataset_additional":        "additional datasets",
-		"dataset_open_on":           "Open on",
-		"dataset_indexed":           "Datasets indexed",
-		"dataset_unique":            "Unique after dedup",
-		"dataset_portals":           "Open-data portals",
-		"dataset_countries":         "Countries + international",
-		"dataset_duplicates_suffix": "cross-portal duplicates flagged",
+		"primary":                    "Primary navigation",
+		"work":                       "Work",
+		"blog":                       "Blog",
+		"open_source":                "Open Source",
+		"papers":                     "Papers",
+		"contact":                    "Contact",
+		"toggle_theme":               "Toggle color theme",
+		"case_study_eyebrow":         "Case Study",
+		"section_fallback":           "Section",
+		"open_default":               "Open",
+		"proof_metrics_title":        "Proof metrics",
+		"proof_metrics_intro":        "Concrete public proof, attached to this project rather than pushed into the graph.",
+		"operational_signals_title":  "Operational signals",
+		"operational_signals_intro":  "Workflow and runtime signals that belong next to the system they describe.",
+		"action_repository":          "Repository",
+		"action_related_article":     "Related article",
+		"back_to_workbench":          "Back to workbench",
+		"diagrams_label":             "Diagrams",
+		"open_full_size":             "Open full size",
+		"system_anatomy_label":       "System anatomy",
+		"system_anatomy_inputs":      "Inputs",
+		"system_anatomy_core":        "Core",
+		"system_anatomy_outputs":     "Outputs",
+		"system_anatomy_constraints": "Constraints",
+		"case_study_navigation":      "Case study navigation",
+		"dataset_eyebrow":            "Public dataset",
+		"dataset_snapshot":           "Snapshot",
+		"dataset_updated":            "Updated",
+		"dataset_hosted_on":          "Hosted on",
+		"dataset_top_portals":        "Top contributing portals",
+		"dataset_more_portals":       "more portals",
+		"dataset_additional":         "additional datasets",
+		"dataset_open_on":            "Open on",
+		"dataset_indexed":            "Datasets indexed",
+		"dataset_unique":             "Unique after dedup",
+		"dataset_portals":            "Open-data portals",
+		"dataset_countries":          "Countries + international",
+		"dataset_duplicates_suffix":  "cross-portal duplicates flagged",
 	}
 	it := map[string]string{
-		"primary":                   "Navigazione principale",
-		"work":                      "Lavori",
-		"blog":                      "Blog",
-		"open_source":               "Open Source",
-		"papers":                    "Articoli",
-		"contact":                   "Contatti",
-		"toggle_theme":              "Cambia tema colore",
-		"case_study_eyebrow":        "Case Study",
-		"section_fallback":          "Sezione",
-		"open_default":              "Apri",
-		"proof_metrics_title":       "Metriche di prova",
-		"proof_metrics_intro":       "Prove pubbliche e concrete, legate al progetto invece che spinte nel grafo.",
-		"operational_signals_title": "Segnali operativi",
-		"operational_signals_intro": "Segnali di workflow e runtime che restano accanto al sistema che descrivono.",
-		"action_repository":         "Repository",
-		"action_related_article":    "Articolo collegato",
-		"back_to_workbench":         "Torna al workbench",
-		"diagrams_label":            "Diagrammi",
-		"open_full_size":            "Apri a tutta dimensione",
-		"system_anatomy_label":      "Anatomia del sistema",
-		"system_anatomy_inputs":     "Input",
-		"system_anatomy_core":       "Core",
-		"system_anatomy_outputs":    "Output",
-		"system_anatomy_constraints":"Vincoli",
-		"case_study_navigation":     "Navigazione case study",
-		"dataset_eyebrow":           "Dataset pubblico",
-		"dataset_snapshot":          "Snapshot",
-		"dataset_updated":           "Aggiornato",
-		"dataset_hosted_on":         "Su",
-		"dataset_top_portals":       "Portali principali",
-		"dataset_more_portals":      "altri portali",
-		"dataset_additional":        "dataset aggiuntivi",
-		"dataset_open_on":           "Apri su",
-		"dataset_indexed":           "Dataset indicizzati",
-		"dataset_unique":            "Unici dopo dedup",
-		"dataset_portals":           "Portali open data",
-		"dataset_countries":         "Paesi + internazionali",
-		"dataset_duplicates_suffix": "duplicati cross-portale rilevati",
+		"primary":                    "Navigazione principale",
+		"work":                       "Lavori",
+		"blog":                       "Blog",
+		"open_source":                "Open Source",
+		"papers":                     "Articoli",
+		"contact":                    "Contatti",
+		"toggle_theme":               "Cambia tema colore",
+		"case_study_eyebrow":         "Case Study",
+		"section_fallback":           "Sezione",
+		"open_default":               "Apri",
+		"proof_metrics_title":        "Metriche di prova",
+		"proof_metrics_intro":        "Prove pubbliche e concrete, legate al progetto invece che spinte nel grafo.",
+		"operational_signals_title":  "Segnali operativi",
+		"operational_signals_intro":  "Segnali di workflow e runtime che restano accanto al sistema che descrivono.",
+		"action_repository":          "Repository",
+		"action_related_article":     "Articolo collegato",
+		"back_to_workbench":          "Torna al workbench",
+		"diagrams_label":             "Diagrammi",
+		"open_full_size":             "Apri a tutta dimensione",
+		"system_anatomy_label":       "Anatomia del sistema",
+		"system_anatomy_inputs":      "Input",
+		"system_anatomy_core":        "Core",
+		"system_anatomy_outputs":     "Output",
+		"system_anatomy_constraints": "Vincoli",
+		"case_study_navigation":      "Navigazione case study",
+		"dataset_eyebrow":            "Dataset pubblico",
+		"dataset_snapshot":           "Snapshot",
+		"dataset_updated":            "Aggiornato",
+		"dataset_hosted_on":          "Su",
+		"dataset_top_portals":        "Portali principali",
+		"dataset_more_portals":       "altri portali",
+		"dataset_additional":         "dataset aggiuntivi",
+		"dataset_open_on":            "Apri su",
+		"dataset_indexed":            "Dataset indicizzati",
+		"dataset_unique":             "Unici dopo dedup",
+		"dataset_portals":            "Portali open data",
+		"dataset_countries":          "Paesi + internazionali",
+		"dataset_duplicates_suffix":  "duplicati cross-portale rilevati",
 	}
 	if locale == "it" {
 		if v, ok := it[key]; ok {
@@ -1663,6 +1682,7 @@ func resolvedActions(study caseStudy, locale, rootRel string) []caseStudyAction 
 		copy(actions, study.Actions)
 		for i := range actions {
 			actions[i].URL = resolveCaseStudyAssetPathFor(actions[i].URL, rootRel)
+			actions[i].URL = localizeInternalURLForLocale(actions[i].URL, locale)
 			if actions[i].Style == "" {
 				if i == 0 {
 					actions[i].Style = "primary"
@@ -1683,7 +1703,7 @@ func resolvedActions(study caseStudy, locale, rootRel string) []caseStudyAction 
 		if len(actions) > 0 {
 			style = "secondary"
 		}
-		actions = append(actions, caseStudyAction{Label: navLabel(locale, "action_related_article"), URL: rootRel + "blog/en/posts/" + study.RelatedPosts[0] + "/", Style: style})
+		actions = append(actions, caseStudyAction{Label: navLabel(locale, "action_related_article"), URL: rootRel + localeBlogPostPath(locale, study.RelatedPosts[0]), Style: style})
 	}
 	return actions
 }
@@ -1701,6 +1721,7 @@ func resolveCaseStudyAssetPath(assetPath string) string {
 //   - "../../..."   : authored already two-levels-up from work/<slug>/
 //   - "../blog/..." : authored relative to work/ (one level up)
 //   - "blog/..."    : authored from the case-study directory
+//
 // External URLs and already-resolved paths pass through unchanged when the
 // English depth is preserved, but are rewritten to the page's rootRel
 // otherwise so /it/work/<slug>/ pages resolve to the same site assets.
@@ -1781,7 +1802,7 @@ func caseStudyStructuredData(study caseStudy, locale, displayTitle, metaDescript
 		payload["keywords"] = strings.Join(stack, ", ")
 		payload["mentions"] = stackMentions(stack)
 	}
-	relatedLinks := relatedBlogPostPermalinks(study.RelatedPosts)
+	relatedLinks := relatedBlogPostPermalinks(study.RelatedPosts, locale)
 	if len(relatedLinks) > 0 {
 		payload["relatedLink"] = relatedLinks
 	}
@@ -1796,16 +1817,30 @@ func caseStudyStructuredData(study caseStudy, locale, displayTitle, metaDescript
 	return string(encoded)
 }
 
-func relatedBlogPostPermalinks(slugs []string) []string {
+func relatedBlogPostPermalinks(slugs []string, locale string) []string {
 	links := make([]string, 0, len(slugs))
 	for _, slug := range normalizedStrings(slugs) {
 		if isExternalURL(slug) {
-			links = append(links, slug)
+			links = append(links, localizeInternalURLForLocale(slug, locale))
 			continue
 		}
-		links = append(links, publicSiteBaseURL+"/blog/en/posts/"+strings.Trim(slug, "/")+"/")
+		links = append(links, publicSiteBaseURL+"/"+localeBlogPostPath(locale, strings.Trim(slug, "/")))
 	}
 	return links
+}
+
+func localizeInternalURLForLocale(value, locale string) string {
+	if locale != "it" {
+		return value
+	}
+	publicEnglishBlogPrefix := publicSiteBaseURL + "/blog/en/posts/"
+	if strings.HasPrefix(value, publicEnglishBlogPrefix) {
+		return publicSiteBaseURL + "/blog/posts/" + strings.TrimPrefix(value, publicEnglishBlogPrefix)
+	}
+	if isExternalURL(value) {
+		return value
+	}
+	return strings.Replace(value, "blog/en/posts/", "blog/posts/", 1)
 }
 
 func stackMentions(stack []string) []map[string]string {

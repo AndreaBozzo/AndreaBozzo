@@ -108,5 +108,5 @@ case studies must not show an Italian switch.
    set, and fails the build when an advertised alternate either does not
    resolve to a generated page or fails to link back. English-only pages with
    self-en and `x-default` are exempt. Hugo's `/blog/` subtree is skipped
-   (it owns its own translation links).
-
+   (it owns its own translation links). `npm run build:site` runs this check
+   after assembling `_site/`, so broken alternates now fail the release path.

@@ -644,9 +644,13 @@ func TestRenderCaseStudyEnglishEmitsNoItalianAlternateWithoutTranslation(t *test
 
 func TestRenderCaseStudyItalianEmitsReciprocalHreflang(t *testing.T) {
 	study := caseStudy{
-		Slug:     "demo",
-		Title:    "Demo",
-		Subtitle: "Example",
+		Slug:         "demo",
+		Title:        "Demo",
+		Subtitle:     "Example",
+		RelatedPosts: []string{"demo-post"},
+		Actions: []caseStudyAction{
+			{Label: "Related article", URL: "../../blog/en/posts/demo-post/", Style: "secondary"},
+		},
 		Sections: []caseStudySection{{Heading: "Why", Body: "Because"}},
 		Translations: map[string]caseStudyTranslation{
 			"it": {
@@ -685,6 +689,15 @@ func TestRenderCaseStudyItalianEmitsReciprocalHreflang(t *testing.T) {
 	if !strings.Contains(body, `../../../assets/styles.min.css`) {
 		t.Fatalf("expected Italian page to use three-level rootRel for assets")
 	}
+	if !strings.Contains(body, `href="../../../blog/" data-blog-link`) {
+		t.Fatalf("expected Italian case-study nav to default to the Italian blog")
+	}
+	if !strings.Contains(body, `../../../blog/posts/demo-post/`) {
+		t.Fatalf("expected Italian related-post action to point at the Italian blog post")
+	}
+	if !strings.Contains(body, `https://andreabozzo.github.io/AndreaBozzo/blog/posts/demo-post/`) {
+		t.Fatalf("expected Italian structured data relatedLink to point at the Italian blog post")
+	}
 	if !strings.Contains(body, `"inLanguage":"it"`) {
 		t.Fatalf("expected structured data inLanguage to be it")
 	}
@@ -712,6 +725,19 @@ func TestGenerateCaseStudyPagesEmitsItalianOnlyWhenIndexable(t *testing.T) {
       "title": "mosaico",
       "subtitle": "No translation",
       "sections": [{"heading": "Why", "body": "Because"}]
+    },
+    {
+      "slug": "second",
+      "title": "Second EN",
+      "subtitle": "Second translation",
+      "sections": [{"heading": "Why", "body": "Because"}],
+      "translations": {
+        "it": {
+          "title": "Secondo IT",
+          "metaDescription": "Seconda descrizione italiana",
+          "sections": [{"heading": "Perché", "body": "Secondo corpo"}]
+        }
+      }
     },
     {
       "slug": "partial",
@@ -746,8 +772,10 @@ func TestGenerateCaseStudyPagesEmitsItalianOnlyWhenIndexable(t *testing.T) {
 
 	mustExist(filepath.Join(repoRoot, "work", "dataprof", "index.html"))
 	mustExist(filepath.Join(repoRoot, "work", "mosaico", "index.html"))
+	mustExist(filepath.Join(repoRoot, "work", "second", "index.html"))
 	mustExist(filepath.Join(repoRoot, "work", "partial", "index.html"))
 	mustExist(filepath.Join(repoRoot, "it", "work", "dataprof", "index.html"))
+	mustExist(filepath.Join(repoRoot, "it", "work", "second", "index.html"))
 	mustNotExist(filepath.Join(repoRoot, "it", "work", "mosaico"))
 	mustNotExist(filepath.Join(repoRoot, "it", "work", "partial"))
 
@@ -757,6 +785,13 @@ func TestGenerateCaseStudyPagesEmitsItalianOnlyWhenIndexable(t *testing.T) {
 	}
 	if !strings.Contains(string(enBody), `hreflang="it"`) {
 		t.Fatalf("English dataprof page should advertise Italian alternate")
+	}
+	itBody, err := os.ReadFile(filepath.Join(repoRoot, "it", "work", "dataprof", "index.html"))
+	if err != nil {
+		t.Fatalf("read Italian dataprof page: %v", err)
+	}
+	if !strings.Contains(string(itBody), `Secondo IT`) {
+		t.Fatalf("expected Italian next/previous navigation to use localized titles")
 	}
 	mosaicoEN, err := os.ReadFile(filepath.Join(repoRoot, "work", "mosaico", "index.html"))
 	if err != nil {
@@ -838,6 +873,30 @@ func TestValidateLocalizationRejectsNonReciprocal(t *testing.T) {
 	}
 	if !strings.Contains(err.Error(), "not reciprocal") {
 		t.Fatalf("expected 'not reciprocal' in error, got %v", err)
+	}
+}
+
+func TestValidateLocalizationParsesReorderedLinkAttributes(t *testing.T) {
+	siteRoot := t.TempDir()
+	enURL := "https://example.com/work/demo/"
+	itURL := "https://example.com/it/work/demo/"
+	enPage := `<!DOCTYPE html><html><head>
+<link href="` + enURL + `" data-extra="ignored" rel="canonical">
+<link href="` + enURL + `" hreflang="en" rel="alternate">
+<link href="` + itURL + `" hreflang="it" rel="alternate">
+<link href="` + enURL + `" hreflang="x-default" rel="alternate">
+</head><body></body></html>`
+	itPage := `<!DOCTYPE html><html><head>
+<link rel='canonical' href='` + itURL + `'>
+<link rel='alternate' hreflang='en' href='` + enURL + `'>
+<link rel='alternate' hreflang='it' href='` + itURL + `'>
+<link rel='alternate' hreflang='x-default' href='` + enURL + `'>
+</head><body></body></html>`
+	writeTestFile(t, filepath.Join(siteRoot, "work", "demo", "index.html"), enPage)
+	writeTestFile(t, filepath.Join(siteRoot, "it", "work", "demo", "index.html"), itPage)
+
+	if err := ValidateLocalization(siteRoot); err != nil {
+		t.Fatalf("expected reordered link attributes to validate, got: %v", err)
 	}
 }
 

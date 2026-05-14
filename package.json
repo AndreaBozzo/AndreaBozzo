@@ -24,7 +24,8 @@
     "lint:svg": "node ./scripts/validate-svg.mjs",
     "optimize:svg": "svgo -r assets/images/case-studies",
     "assemble:site": "bash ./scripts/assemble-site.sh",
-    "build:site": "npm run generate:svg && npm run generate:og && npm run build:assets && npm run build:blog && npm run harvester:artifacts && npm run assemble:site"
+    "validate:localization": "go run ./cmd/harvester validate-localization",
+    "build:site": "npm run generate:svg && npm run generate:og && npm run build:assets && npm run build:blog && npm run harvester:artifacts && npm run assemble:site && npm run validate:localization"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

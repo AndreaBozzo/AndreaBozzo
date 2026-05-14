@@ -37,11 +37,18 @@ func ValidateLocalization(siteRoot string) error {
 		if r.Canonical == "" {
 			continue
 		}
+		if existing, ok := byCanonical[r.Canonical]; ok {
+			return fmt.Errorf("localization check failed:\n  - %s and %s share canonical %s", existing.Path, r.Path, r.Canonical)
+		}
 		byCanonical[r.Canonical] = r
 	}
 
 	var problems []string
 	for _, r := range results {
+		if r.Canonical == "" && (len(r.Alternates) > 0 || r.XDefault != "") {
+			problems = append(problems, fmt.Sprintf("%s: declares hreflang alternates but has no canonical URL", r.Path))
+			continue
+		}
 		for lang, href := range r.Alternates {
 			// Self-reference is fine.
 			if href == r.Canonical {
@@ -131,9 +138,9 @@ func collectLocalizationResults(siteRoot string) ([]localizationCheckResult, err
 }
 
 var (
-	canonicalLinkRe = regexp.MustCompile(`<link\s+rel="canonical"\s+href="([^"]+)"`)
-	hreflangLinkRe  = regexp.MustCompile(`<link\s+rel="alternate"\s+hreflang="([^"]+)"\s+href="([^"]+)"`)
-	headRe          = regexp.MustCompile(`(?s)<head[^>]*>(.*?)</head>`)
+	linkTagRe = regexp.MustCompile(`(?is)<link\b[^>]*>`)
+	attrRe    = regexp.MustCompile(`(?is)\s([a-zA-Z_:][-a-zA-Z0-9_:.]*)\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)`)
+	headRe    = regexp.MustCompile(`(?s)<head[^>]*>(.*?)</head>`)
 )
 
 func extractHTMLHead(raw []byte) string {
@@ -145,18 +152,49 @@ func extractHTMLHead(raw []byte) string {
 }
 
 func extractCanonical(head string) string {
-	m := canonicalLinkRe.FindStringSubmatch(head)
-	if m == nil {
-		return ""
+	for _, tag := range linkTagRe.FindAllString(head, -1) {
+		attrs := parseHTMLTagAttrs(tag)
+		if hasRel(attrs["rel"], "canonical") {
+			return attrs["href"]
+		}
 	}
-	return m[1]
+	return ""
 }
 
 func extractHreflangAlternates(head string) map[string]string {
-	matches := hreflangLinkRe.FindAllStringSubmatch(head, -1)
-	out := make(map[string]string, len(matches))
-	for _, m := range matches {
-		out[m[1]] = m[2]
+	out := make(map[string]string)
+	for _, tag := range linkTagRe.FindAllString(head, -1) {
+		attrs := parseHTMLTagAttrs(tag)
+		if !hasRel(attrs["rel"], "alternate") {
+			continue
+		}
+		lang := strings.TrimSpace(attrs["hreflang"])
+		href := strings.TrimSpace(attrs["href"])
+		if lang == "" || href == "" {
+			continue
+		}
+		out[lang] = href
 	}
 	return out
+}
+
+func parseHTMLTagAttrs(tag string) map[string]string {
+	matches := attrRe.FindAllStringSubmatch(tag, -1)
+	attrs := make(map[string]string, len(matches))
+	for _, m := range matches {
+		key := strings.ToLower(m[1])
+		value := strings.TrimSpace(m[2])
+		value = strings.Trim(value, `"'`)
+		attrs[key] = value
+	}
+	return attrs
+}
+
+func hasRel(relValue, token string) bool {
+	for _, part := range strings.Fields(strings.ToLower(relValue)) {
+		if part == token {
+			return true
+		}
+	}
+	return false
 }

@@ -107,6 +107,10 @@ lint-json: ## Validate checked-in JSON data files.
 lint-contracts: ## Validate schema-versioned JSON against committed schemas.
 	npm run validate:data
 
+.PHONY: validate-localization
+validate-localization: ## Validate reciprocal hreflang links in the assembled site.
+	npm run validate:localization
+
 .PHONY: lint-whitespace
 lint-whitespace: ## Check patch whitespace.
 	git diff --check
