@@ -2,21 +2,11 @@
 
 Open source engineer building data platforms, developer tooling, and technical writing around Rust, Python, Go, and modern analytics systems.
 
-This repository is the public front door for that work: the landing page, the blog, the interactive workbench, the generated case studies, and the small companion API that powers live GitHub stats on the site.
+These are my projects, contributions, and writings. For more about me, see the links below.
 
 [Website](https://andreabozzo.github.io/AndreaBozzo/) | [Blog](https://andreabozzo.github.io/AndreaBozzo/blog/) | [LinkedIn](https://www.linkedin.com/in/andrea-bozzo-/) | [Email](mailto:andreabozzo92@gmail.com)
 
-## What this repository contains
-
-- A handcrafted landing page at the repository root built with HTML, CSS, and JavaScript.
-- A Hugo-powered writing archive under [blog](blog).
-- A queryable workbench whose frontend logic is mirrored between JavaScript and Rust compiled to WebAssembly.
-- Generated case-study pages under [work](work), sourced from structured data and built through the Go harvester in [cmd/harvester](cmd/harvester).
-- A small Go companion API under [api](api) for live GitHub metrics and badge endpoints.
-
-Public deployment is intentionally split: GitHub Pages serves the static site and blog, while Vercel serves only the dynamic `api/` surface.
-
-## Selected papers and companion repositories
+## Papers and companion repositories
 
 - [uic2026-nephtys](https://github.com/AndreaBozzo/uic2026-nephtys) - companion repository for the IEEE UIC 2026 short paper on Nephtys, including the sensor simulator, demo scripts, benchmark automation, and LaTeX source.
 - [scalcom2026-dataprof](https://github.com/AndreaBozzo/scalcom2026-dataprof) - IEEE ScalCom 2026 paper and benchmark suite comparing dataprof against interpreted Python profilers for scalable and sustainable edge AI telemetry profiling.
