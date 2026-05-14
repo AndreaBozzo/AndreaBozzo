@@ -1,0 +1,125 @@
+{
+  "generatedAt": "2026-05-13T10:54:21Z",
+  "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
+  "items": [
+    {
+      "name": "polars",
+      "url": "https://github.com/pola-rs/polars",
+      "stars": "38.5k",
+      "prs": "3",
+      "desc": "Rust-native analytics work across DataFrame performance, ergonomics, and engine behavior.",
+      "language": "Rust",
+      "topics": [
+        "arrow",
+        "dataframe",
+        "dataframe-library",
+        "dataframes",
+        "out-of-core",
+        "polars",
+        "python",
+        "rust"
+      ],
+      "lastPRMergedAt": "2026-01-08T00:37:40Z",
+      "prList": [
+        {
+          "title": "perf: Optimize ArrayFromIter implementations for ObjectArray",
+          "number": 25712,
+          "url": "https://github.com/pola-rs/polars/pull/25712",
+          "mergedAt": "2026-01-08T00:37:40Z"
+        },
+        {
+          "title": "docs: Fix typos in Excel and Pandas migration guides",
+          "number": 25709,
+          "url": "https://github.com/pola-rs/polars/pull/25709",
+          "mergedAt": "2025-12-09T16:46:57Z"
+        },
+        {
+          "title": "docs: Document schema parameter in meta methods",
+          "number": 25543,
+          "url": "https://github.com/pola-rs/polars/pull/25543",
+          "mergedAt": "2025-12-01T15:24:54Z"
+        }
+      ]
+    },
+    {
+      "name": "tokio",
+      "url": "https://github.com/tokio-rs/tokio",
+      "stars": "32.0k",
+      "prs": "2",
+      "desc": "Async runtime improvements around Rust concurrency, scheduling, and developer ergonomics.",
+      "language": "Rust",
+      "topics": [
+        "asynchronous",
+        "networking",
+        "rust"
+      ],
+      "lastPRMergedAt": "2026-01-19T08:12:38Z",
+      "prList": [
+        {
+          "title": "docs(time): enhance time manipulation documentation",
+          "number": 7858,
+          "url": "https://github.com/tokio-rs/tokio/pull/7858",
+          "mergedAt": "2026-01-19T08:12:38Z"
+        },
+        {
+          "title": "docs: add SyncIoBridge cross-references to copy functions",
+          "number": 7798,
+          "url": "https://github.com/tokio-rs/tokio/pull/7798",
+          "mergedAt": "2025-12-29T14:29:57Z"
+        }
+      ]
+    },
+    {
+      "name": "axum",
+      "url": "https://github.com/tokio-rs/axum",
+      "stars": "25.9k",
+      "prs": "1",
+      "desc": "Web framework contributions around routing, ergonomics, and service integration in Rust.",
+      "language": "Rust",
+      "topics": [
+        "http",
+        "routing",
+        "rust"
+      ],
+      "lastPRMergedAt": "2026-02-26T10:14:21Z",
+      "prList": [
+        {
+          "title": "fix: Return specific error message when multipart body limit is exceeded",
+          "number": 3611,
+          "url": "https://github.com/tokio-rs/axum/pull/3611",
+          "mergedAt": "2026-02-26T10:14:21Z"
+        }
+      ]
+    },
+    {
+      "name": "risingwave",
+      "url": "https://github.com/risingwavelabs/risingwave",
+      "stars": "9.0k",
+      "prs": "1",
+      "desc": "Streaming database contributions across query behavior, engine details, and developer workflow.",
+      "language": "Rust",
+      "topics": [
+        "apache-iceberg",
+        "data-engineering",
+        "database",
+        "etl-pipeline",
+        "event-streaming",
+        "kafka",
+        "materialized-view",
+        "postgresql",
+        "rust",
+        "stream-processing",
+        "webhook"
+      ],
+      "lastPRMergedAt": "2025-11-10T12:18:50Z",
+      "prList": [
+        {
+          "title": "chore(.gitignore): reorganize sections",
+          "number": 23704,
+          "url": "https://github.com/risingwavelabs/risingwave/pull/23704",
+          "mergedAt": "2025-11-10T12:18:50Z"
+        }
+      ]
+    }
+  ]
+}

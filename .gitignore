@@ -33,7 +33,6 @@ rust/**/target/
 /harvester
 assets/*.min.js
 assets/*.min.css
-assets/data/contributions.json
 !assets/data/
 !assets/data/case-studies.json
 !assets/wasm/
