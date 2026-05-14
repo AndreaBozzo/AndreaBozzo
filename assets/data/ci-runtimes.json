@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-14T08:04:55Z",
+  "generatedAt": "2026-05-14T10:54:53Z",
   "source": "case-study repoUrl GitHub Actions runs",
   "items": [
     {
@@ -9,14 +9,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/AndreaBozzo",
       "workflowName": "Deploy static content to Pages",
       "workflowPath": ".github/workflows/pages.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/25849054244",
+      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/25855747987",
       "runsSampled": 15,
       "medianDurationSeconds": 68,
-      "p95DurationSeconds": 84,
+      "p95DurationSeconds": 79,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-05-14T08:03:25Z"
+      "latestRunAt": "2026-05-14T10:45:10Z"
     },
     {
       "caseStudySlug": "andreabozzo-site",
@@ -40,12 +40,13 @@
       "workflowName": "Update External Contributions",
       "workflowPath": ".github/workflows/update-contributions.yml",
       "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/25849137775",
-      "runsSampled": 2,
-      "medianDurationSeconds": 40,
+      "runsSampled": 3,
+      "medianDurationSeconds": 45,
       "p95DurationSeconds": 1481,
-      "successRate": 0.5,
-      "latestStatus": "in_progress",
-      "latestRunAt": "2026-05-14T08:04:27Z"
+      "successRate": 0.6666666666666666,
+      "latestStatus": "completed",
+      "latestConclusion": "success",
+      "latestRunAt": "2026-05-14T08:05:00Z"
     },
     {
       "caseStudySlug": "ares-ceres",

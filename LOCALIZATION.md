@@ -5,10 +5,14 @@ actually localized. A locale control is a content contract, not a UI preference.
 
 ## Current State
 
-- The root site and generated case-study pages are English-only.
+- The root site and generated case-study pages are bilingual (English + Italian).
+  English lives at `/` and `/work/<slug>/`; Italian at `/it/` and
+  `/it/work/<slug>/`. A site-wide locale switch in the header is rendered on
+  every page that has a counterpart, never on pages that lack one.
 - The Hugo blog is bilingual: Italian lives at `/blog/`, English at `/blog/en/`.
-- The homepage blog preview may let readers choose the writing language because
-  those cards come from real localized blog indexes.
+- The homepage blog preview lets readers choose the writing language
+  independently of the site locale, because those cards come from real
+  localized blog indexes.
 
 ## Target URL Model
 
@@ -79,10 +83,24 @@ case studies must not show an Italian switch.
    Italian pages live three levels deep (`it/work/<slug>/`) and use `../../../`
    for asset paths. Empty `it/` is pruned when no translations are indexable.
 4. Move root homepage copy into locale-aware source data and generate `/` plus
-   `/it/` from the same template. **(deferred)** No Italian root content is
-   authored yet. Revisit when there is real content to ship at `/it/`. The
-   current homepage stays hand-authored English-only; the case-study generator
-   already produces `/it/work/<slug>/` independently.
+   `/it/` from the same template. **(done — light path)** Authored
+   `it/index.html` as a parallel hand-coded copy of `index.html` with full
+   Italian copy (hero, proof strip, system view, workbench, blog preview,
+   projects, papers, contact), Italian SEO metadata, `og:locale="it_IT"` with
+   reciprocal `og:locale:alternate="en_US"`, structured data
+   `inLanguage="it"`, and asset paths adjusted by one level (`../assets/…`).
+   The English root also advertises the Italian alternate. Both roots and
+   every case-study page carry a `site-locale-switch` widget styled in
+   `assets/styles/foundation.css`; the JS in `assets/main.js`
+   preserves the URL fragment when navigating between locales. The
+   case-study generator emits the same switch only when the alternate locale
+   page exists (release-gate guardrail). All 13 case studies received
+   `translations.it` blocks in `assets/data/case-studies.json` (authored via
+   `scripts/apply-case-study-it-translations.py`, kept for re-runs).
+   `pages-sitemap.xml` now lists `/it/` and `/it/work/<slug>/` URLs alongside
+   their English counterparts. The "heavy" templating path was skipped: the
+   homepage stays hand-coded; the parallel `it/index.html` is the contract.
+   Drift risk between EN/IT roots exists — review them together when editing.
 5. Add a localization check command that validates link reciprocity and blocks
    fake alternates. **(done)** `go run ./cmd/harvester validate-localization`
    walks `_site/` (or a path passed as the second argument), extracts every

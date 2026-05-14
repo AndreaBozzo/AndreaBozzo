@@ -312,6 +312,23 @@ function initializeWritingLanguagePreference() {
     });
 }
 
+// ===== Site Locale Switch (EN ↔ IT) =====
+// The widget is plain anchors that work without JS. This enhancement preserves
+// the current URL hash when navigating, so deep links to in-page sections
+// (e.g. #workbench) survive the locale flip on pages that share section IDs.
+function initializeSiteLocaleSwitch() {
+    document.querySelectorAll('[data-site-locale-switch] a[data-site-lang]').forEach((link) => {
+        link.addEventListener('click', (event) => {
+            const hash = window.location.hash;
+            if (!hash) return;
+            const href = link.getAttribute('href');
+            if (!href || href.includes('#')) return;
+            event.preventDefault();
+            window.location.href = href + hash;
+        });
+    });
+}
+
 function formatMetricCount(value) {
     if (!Number.isFinite(value)) return '--';
 
@@ -702,6 +719,7 @@ if ('serviceWorker' in navigator && shouldEnableAnalytics()) {
 document.addEventListener('DOMContentLoaded', function() {
     initializeThemeToggle();
     initializeWritingLanguagePreference();
+    initializeSiteLocaleSwitch();
     if (shouldEnableAnalytics()) {
         inject();
     }

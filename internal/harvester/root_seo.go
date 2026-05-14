@@ -41,7 +41,7 @@ func GenerateRootSEOArtifacts(repoRoot string) error {
 	if err := os.WriteFile(filepath.Join(repoRoot, "sitemap.xml"), renderSitemapIndex(lastmod), 0o644); err != nil {
 		return fmt.Errorf("write sitemap.xml: %w", err)
 	}
-	if err := os.WriteFile(filepath.Join(repoRoot, "pages-sitemap.xml"), renderPagesSitemap(payload.Items, lastmod), 0o644); err != nil {
+	if err := os.WriteFile(filepath.Join(repoRoot, "pages-sitemap.xml"), renderPagesSitemap(payload.Items, lastmod, repoRoot), 0o644); err != nil {
 		return fmt.Errorf("write pages-sitemap.xml: %w", err)
 	}
 
@@ -90,9 +90,17 @@ func renderSitemapIndex(lastmod time.Time) []byte {
 	return buf.Bytes()
 }
 
+// hasItalianRootHomepage reports whether a hand-authored it/index.html exists
+// at the repo root. Used by the sitemap to advertise /it/ only when the page
+// is actually shipped.
+func hasItalianRootHomepage(repoRoot string) bool {
+	_, err := os.Stat(filepath.Join(repoRoot, "it", "index.html"))
+	return err == nil
+}
+
 // renderPagesSitemap emits the urlset covering the homepage and every case
 // study, each tagged with lastmod so crawlers know when to recrawl.
-func renderPagesSitemap(items []caseStudy, lastmod time.Time) []byte {
+func renderPagesSitemap(items []caseStudy, lastmod time.Time, repoRoot string) []byte {
 	stamp := lastmod.Format(time.RFC3339)
 
 	type entry struct {
@@ -103,15 +111,37 @@ func renderPagesSitemap(items []caseStudy, lastmod time.Time) []byte {
 	entries := []entry{
 		{publicSiteBaseURL + "/", "weekly", "1.0"},
 	}
+	// Localized homepage roots. Only listed when an it/index.html exists; the
+	// sitemap should never advertise a page that has not been authored.
+	if hasItalianRootHomepage(repoRoot) {
+		entries = append(entries, entry{
+			loc:        publicSiteBaseURL + "/it/",
+			changefreq: "weekly",
+			priority:   "0.9",
+		})
+	}
 	for _, study := range items {
 		if strings.TrimSpace(study.Slug) == "" {
 			continue
 		}
 		entries = append(entries, entry{
-			loc:        caseStudyCanonicalURL(study.Slug),
+			loc:        localeCaseStudyCanonicalURL("en", study.Slug),
 			changefreq: "monthly",
 			priority:   "0.8",
 		})
+		for _, locale := range supportedLocales {
+			if !localeIsAlternate(locale) {
+				continue
+			}
+			if !hasIndexableTranslation(study, locale) {
+				continue
+			}
+			entries = append(entries, entry{
+				loc:        localeCaseStudyCanonicalURL(locale, study.Slug),
+				changefreq: "monthly",
+				priority:   "0.7",
+			})
+		}
 	}
 
 	var buf bytes.Buffer

@@ -979,6 +979,7 @@ func renderCaseStudyPageForLocale(study caseStudy, pageContext caseStudyPageCont
 	buf.WriteString("            <a href=\"" + rootRel + "#papers\">" + navLabel(locale, "papers") + "</a>\n")
 	buf.WriteString("            <a href=\"" + rootRel + "#contact\">" + navLabel(locale, "contact") + "</a>\n")
 	buf.WriteString("        </nav>\n")
+	buf.Write(renderCaseStudyLocaleSwitch(localized.Slug, locale, opts.AlternateLocales))
 	buf.WriteString("        <button class=\"theme-toggle\" type=\"button\" aria-label=\"" + navLabel(locale, "toggle_theme") + "\">\n")
 	buf.WriteString("            <span class=\"theme-toggle-icon\" id=\"theme-icon\">☀️</span>\n")
 	buf.WriteString("        </button>\n")
@@ -1034,6 +1035,70 @@ func renderCaseStudyPageForLocale(study caseStudy, pageContext caseStudyPageCont
 	buf.WriteString("    <script src=\"" + rootRel + "assets/main.min.js\" defer></script>\n")
 	buf.WriteString("</body>\n</html>\n")
 
+	return buf.Bytes()
+}
+
+// renderCaseStudyLocaleSwitch emits the site-wide locale switch widget for a
+// case-study page. The widget is rendered only when there is at least one
+// reciprocal locale to switch to (i.e. the page advertises an alternate). This
+// enforces the LOCALIZATION.md release gate: never expose a switch when the
+// destination would not actually exist.
+//
+// Hrefs are relative paths from the page's own location:
+//   - EN page at work/<slug>/   reaches EN root via "../../"   and IT page via "../../it/work/<slug>/"
+//   - IT page at it/work/<slug>/ reaches IT root via "../../"   and EN page via "../../../work/<slug>/"
+func renderCaseStudyLocaleSwitch(slug, locale string, alternates []string) []byte {
+	if len(alternates) <= 1 {
+		return nil
+	}
+	// Stable ordering: English first, then other locales in supportedLocales order.
+	ordered := make([]string, 0, len(alternates))
+	for _, candidate := range supportedLocales {
+		for _, alt := range alternates {
+			if alt == candidate {
+				ordered = append(ordered, candidate)
+				break
+			}
+		}
+	}
+	var buf bytes.Buffer
+	buf.WriteString("        <div class=\"site-locale-switch\" data-site-locale-switch>\n")
+	for _, alt := range ordered {
+		var href, aria string
+		switch {
+		case alt == locale && alt == "en":
+			href = "../../"
+		case alt == locale && alt == "it":
+			href = "../../"
+		case alt == "en" && locale == "it":
+			href = "../../../work/" + slug + "/"
+		case alt == "it" && locale == "en":
+			href = "../../it/work/" + slug + "/"
+		default:
+			// Self-link for unknown locales: degrade gracefully to current page.
+			href = ""
+		}
+		classes := "site-lang-btn"
+		extras := ""
+		if alt == locale {
+			classes += " is-active"
+			extras = ` aria-current="page"`
+			aria = "Site language: " + strings.ToUpper(alt)
+			if alt == "it" {
+				aria = "Lingua del sito: italiano"
+			}
+		} else {
+			if alt == "en" {
+				aria = "Switch site language to English"
+			} else if alt == "it" {
+				aria = "Cambia lingua del sito in italiano"
+			} else {
+				aria = "Switch site language"
+			}
+		}
+		buf.WriteString("            <a href=\"" + href + "\" class=\"" + classes + "\" data-site-lang=\"" + alt + "\" hreflang=\"" + alt + "\"" + extras + " aria-label=\"" + escapeHTML(aria) + "\">" + strings.ToUpper(alt) + "</a>\n")
+	}
+	buf.WriteString("        </div>\n")
 	return buf.Bytes()
 }
 

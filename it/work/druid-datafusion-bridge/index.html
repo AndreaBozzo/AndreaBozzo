@@ -1,0 +1,195 @@
+<!-- Generated from assets/data/case-studies.json by cmd/harvester. Do not edit directly. -->
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>druid-datafusion-bridge | Andrea Bozzo</title>
+    <meta name="description" content="druid-datafusion-bridge: bridge Rust che legge segmenti Apache Druid direttamente e li espone come tabelle DataFusion.">
+    <meta name="author" content="Andrea Bozzo">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://andreabozzo.github.io/AndreaBozzo/it/work/druid-datafusion-bridge/">
+    <link rel="alternate" hreflang="en" href="https://andreabozzo.github.io/AndreaBozzo/work/druid-datafusion-bridge/">
+    <link rel="alternate" hreflang="it" href="https://andreabozzo.github.io/AndreaBozzo/it/work/druid-datafusion-bridge/">
+    <link rel="alternate" hreflang="x-default" href="https://andreabozzo.github.io/AndreaBozzo/work/druid-datafusion-bridge/">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Druid Segment Bridge | Andrea Bozzo">
+    <meta property="og:description" content="druid-datafusion-bridge: bridge Rust che legge segmenti Apache Druid direttamente e li espone come tabelle DataFusion.">
+    <meta property="og:url" content="https://andreabozzo.github.io/AndreaBozzo/it/work/druid-datafusion-bridge/">
+    <meta property="og:site_name" content="Andrea Bozzo">
+    <meta property="og:image" content="https://andreabozzo.github.io/AndreaBozzo/assets/images/og/druid-datafusion-bridge.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Druid Segment Bridge social card">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Druid Segment Bridge | Andrea Bozzo">
+    <meta name="twitter:description" content="druid-datafusion-bridge: bridge Rust che legge segmenti Apache Druid direttamente e li espone come tabelle DataFusion.">
+    <meta name="twitter:image" content="https://andreabozzo.github.io/AndreaBozzo/assets/images/og/druid-datafusion-bridge.png">
+    <meta name="twitter:image:alt" content="Druid Segment Bridge social card">
+    <meta name="theme-color" content="#f7faf6">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="prefetch" href="../../../blog/">
+    <link rel="prefetch" href="../../../blog/en/">
+    <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+    <link rel="stylesheet" href="../../../assets/styles.min.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","additionalType":"https://schema.org/CaseStudy","author":{"@type":"Person","name":"Andrea Bozzo","url":"https://andreabozzo.github.io/AndreaBozzo/"},"dateModified":"2026-05-14T10:53:28Z","description":"druid-datafusion-bridge: bridge Rust che legge segmenti Apache Druid direttamente e li espone come tabelle DataFusion.","headline":"Druid Segment Bridge","image":"https://andreabozzo.github.io/AndreaBozzo/assets/images/og/druid-datafusion-bridge.png","inLanguage":"it","isPartOf":{"@id":"https://andreabozzo.github.io/AndreaBozzo/","@type":"WebSite"},"keywords":"Rust, Apache Druid, DataFusion, Arrow, Query Engine","mainEntityOfPage":"https://andreabozzo.github.io/AndreaBozzo/it/work/druid-datafusion-bridge/","mentions":[{"@type":"Thing","name":"Rust"},{"@type":"Thing","name":"Apache Druid"},{"@type":"Thing","name":"DataFusion"},{"@type":"Thing","name":"Arrow"},{"@type":"Thing","name":"Query Engine"}],"name":"Druid Segment Bridge","publisher":{"@type":"Person","name":"Andrea Bozzo","url":"https://andreabozzo.github.io/AndreaBozzo/"},"sameAs":["https://github.com/AndreaBozzo/druid-datafusion-bridge"],"url":"https://andreabozzo.github.io/AndreaBozzo/it/work/druid-datafusion-bridge/"}</script>
+</head>
+<body>
+    <header class="site-header">
+        <a href="../../../#home" class="site-brand">AB</a>
+        <nav class="site-nav" aria-label="Navigazione principale">
+            <a href="../../../#workbench">Lavori</a>
+            <a href="../../../blog/en/" data-blog-link>Blog</a>
+            <a href="../../../#projects">Open Source</a>
+            <a href="../../../#papers">Articoli</a>
+            <a href="../../../#contact">Contatti</a>
+        </nav>
+        <div class="site-locale-switch" data-site-locale-switch>
+            <a href="../../../work/druid-datafusion-bridge/" class="site-lang-btn" data-site-lang="en" hreflang="en" aria-label="Switch site language to English">EN</a>
+            <a href="../../" class="site-lang-btn is-active" data-site-lang="it" hreflang="it" aria-current="page" aria-label="Lingua del sito: italiano">IT</a>
+        </div>
+        <button class="theme-toggle" type="button" aria-label="Cambia tema colore">
+            <span class="theme-toggle-icon" id="theme-icon">☀️</span>
+        </button>
+    </header>
+
+    <main class="content-wrapper case-study-page">
+        <section class="case-hero">
+            <div class="case-hero-copy">
+                <p class="eyebrow">Case Study</p>
+                <h1 class="title">Druid Segment Bridge</h1>
+                <p class="subtitle">Interroga i segmenti Apache Druid direttamente attraverso DataFusion.</p>
+                <div class="case-meta">
+                    <span class="case-meta-status">Lavoro in corso</span>
+                    <span>Rust</span>
+                    <span>Apache Druid</span>
+                    <span>DataFusion</span>
+                    <span>Arrow</span>
+                    <span>Query Engine</span>
+                </div>
+            </div>
+            <figure class="case-cover">
+                <img src="../../../assets/images/case-studies/druid-datafusion-bridge-logo.png" alt="Logo del progetto druid-datafusion-bridge">
+            </figure>
+        </section>
+
+        <section class="system-anatomy" aria-label="Anatomia del sistema">
+            <p class="eyebrow">Anatomia del sistema</p>
+            <ol class="system-flow">
+                <li class="system-flow-stage" data-stage="inputs">
+                    <p class="system-flow-stage-label">Input</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Druid segment files (index.dr)</li>
+                        <li>Wikipedia segment fixtures</li>
+                        <li>DataFusion SessionContext</li>
+                        <li>Test query plans</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="core">
+                    <p class="system-flow-stage-label">Core</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Segment parser layer</li>
+                        <li>TableProvider adapter</li>
+                        <li>ExecutionPlan adapter</li>
+                        <li>Arrow-friendly conversion</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="outputs">
+                    <p class="system-flow-stage-label">Output</p>
+                    <ul class="system-flow-stage-items">
+                        <li>DataFusion-queryable tables</li>
+                        <li>Integration test results</li>
+                        <li>Offline segment access</li>
+                        <li>Translated dictionaries + metrics</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="system-flow-rail">
+                <span class="system-flow-rail-label">Vincoli</span>
+                <ul class="system-flow-rail-chips">
+                    <li>No running Druid cluster needed</li>
+                    <li>Vectorized where feasible</li>
+                    <li>Work-in-progress evaluation</li>
+                    <li>Format quirks preserved</li>
+                </ul>
+            </div>
+        </section>
+
+        <nav class="case-page-nav" aria-label="Navigazione case study">
+            <a class="btn btn-secondary" href="../../../#workbench">Torna al workbench</a>
+            <a class="btn btn-ghost" href="../lance-bridge/">← Lance Bridge</a>
+            <a class="btn btn-ghost" href="../andreabozzo-site/">AndreaBozzo →</a>
+        </nav>
+
+        <section class="case-layout">
+            <div class="case-content">
+                <article class="case-main">
+                    <h2>Perché esiste</h2>
+                    <p>I motori di query diventano più riutilizzabili quando i formati di storage si possono ispezionare direttamente invece che solo attraverso il sistema di serving originale. I segmenti Druid contengono anni di ingegneria analitica utile, ma sono normalmente affrontati attraverso un cluster Druid in esecuzione; questo progetto si chiede cosa diventa possibile quando quei file di segmento si possono leggere direttamente da uno stack di query Rust.</p>
+
+                    <h2>Centro tecnico</h2>
+                    <p>La libreria legge le strutture dei segmenti Druid come i dati index.dr e le mappa nelle astrazioni di tabella ed esecuzione di DataFusion, puntando a un&#39;esecuzione vettorializzata e Arrow-friendly dove possibile. La parte difficile è tradurre interni di storage, dizionari, metriche e pattern di accesso bitmap-oriented nelle astrazioni di DataFusion senza fingere che il formato originale sia stato progettato come un semplice file Arrow.</p>
+
+                    <h2>Prove correnti</h2>
+                    <p>Anche da lavoro in corso, la superficie di valutazione è già concreta: un layer parser dedicato per i segmenti, adattatori `TableProvider` ed `ExecutionPlan` per DataFusion, fixture su segmenti Wikipedia e test di integrazione sull&#39;accesso offline ai segmenti, invece di affermazioni architetturali vaghe. Il valore corrente è esplorativo ma specifico: ogni parser e adattatore chiarisce quanto del modello di segmento Druid può essere esposto attraverso le interfacce Arrow e DataFusion moderne.</p>
+
+                </article>
+
+        <section class="case-gallery" aria-label="Diagrammi">
+            <div class="media-slots">
+                <article class="media-slot">
+                    <span>Segment anatomy</span>
+                    <button class="media-slot-trigger" type="button" aria-haspopup="dialog" aria-label="Apri a tutta dimensione Segment anatomy" data-media-src="../../../assets/images/case-studies/druid-segment-anatomy.svg" data-media-alt="druid-datafusion-bridge segment anatomy card" data-media-label="Segment anatomy" data-media-caption="Smoosh files, dictionaries, metrics, and bitmaps.">
+                        <figure class="media-slot-figure">
+                            <img src="../../../assets/images/case-studies/druid-segment-anatomy.svg" alt="druid-datafusion-bridge segment anatomy card" loading="lazy">
+                        </figure>
+                        <span class="media-slot-hint">Apri a tutta dimensione</span>
+                    </button>
+                    <p>Smoosh files, dictionaries, metrics, and bitmaps.</p>
+                </article>
+                <article class="media-slot">
+                    <span>Query demo</span>
+                    <button class="media-slot-trigger" type="button" aria-haspopup="dialog" aria-label="Apri a tutta dimensione Query demo" data-media-src="../../../assets/images/case-studies/druid-query-demo.svg" data-media-alt="druid-datafusion-bridge query demo card" data-media-label="Query demo" data-media-caption="Register a segment and query it in DataFusion.">
+                        <figure class="media-slot-figure">
+                            <img src="../../../assets/images/case-studies/druid-query-demo.svg" alt="druid-datafusion-bridge query demo card" loading="lazy">
+                        </figure>
+                        <span class="media-slot-hint">Apri a tutta dimensione</span>
+                    </button>
+                    <p>Register a segment and query it in DataFusion.</p>
+                </article>
+            </div>
+        </section>
+
+            </div>
+            <aside class="case-aside">
+                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/druid-datafusion-bridge" target="_blank" rel="noopener noreferrer">Repository</a>
+
+                <section class="case-data-group" aria-label="Segnali operativi">
+                    <p class="case-data-kicker">Segnali operativi</p>
+                    <p class="case-data-intro">Segnali di workflow e runtime che restano accanto al sistema che descrivono.</p>
+                    <div class="case-data-list">
+                        <a class="case-datum case-datum-link" href="https://github.com/AndreaBozzo/druid-datafusion-bridge/actions/runs/21569327556" target="_blank" rel="noopener noreferrer">
+                            <span class="case-datum-label">CI</span>
+                            <strong class="case-datum-value">med 1m 41s · p95 2m 45s</strong>
+                            <p class="case-datum-detail">latest success · 50% success · 2 runs sampled</p>
+                        </a>
+                    </div>
+                </section>
+            </aside>
+        </section>
+    </main>
+
+    <script src="../../../assets/main.min.js" defer></script>
+</body>
+</html>
