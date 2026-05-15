@@ -1406,6 +1406,156 @@
       }
     },
     {
+      "slug": "datapizza-ai",
+      "title": "DataPizza AI",
+      "displayTitle": "DataPizza AI",
+      "subtitle": "A Python GenAI framework for production-ready agents and RAG pipelines with minimal abstraction.",
+      "summary": "An open-source Python framework that covers multi-provider LLM clients, tool-calling agents, document ingestion pipelines, and vector search — built around a less-abstraction-more-control philosophy and OpenTelemetry observability throughout.",
+      "stack": [
+        "Python",
+        "GenAI",
+        "RAG",
+        "Agents",
+        "OpenTelemetry"
+      ],
+      "status": "Active OSS project",
+      "repoUrl": "https://github.com/datapizza-labs/datapizza-ai",
+      "relatedPosts": [],
+      "coverImage": "../../assets/images/case-studies/datapizza-ai-logo.png",
+      "coverAlt": "DataPizza AI project logo",
+      "coverImageScale": "1.3",
+      "coverImagePosition": "50% 50%",
+      "coverEyebrow": "Production GenAI framework",
+      "coverText": "Multi-provider agents, document pipelines, and vector search in one composable Python package — vendor-agnostic and traced by design.",
+      "actions": [
+        {
+          "label": "Repository",
+          "url": "https://github.com/datapizza-labs/datapizza-ai",
+          "style": "primary"
+        },
+        {
+          "label": "PyPI",
+          "url": "https://pypi.org/project/datapizza-ai/",
+          "style": "secondary"
+        },
+        {
+          "label": "Docs",
+          "url": "https://docs.datapizza.ai",
+          "style": "secondary"
+        }
+      ],
+      "mediaSlots": [
+        {
+          "label": "Framework layers",
+          "kind": "diagram",
+          "image": "../../assets/images/case-studies/datapizza-ai-architecture.svg",
+          "alt": "DataPizza AI framework layers diagram",
+          "caption": "Client, agent, pipeline, and storage layers with OpenTelemetry across all of them."
+        },
+        {
+          "label": "Merged contributions",
+          "kind": "note",
+          "image": "../../assets/images/case-studies/datapizza-ai-proof-points.svg",
+          "alt": "DataPizza AI merged contributions card",
+          "caption": "5 merged PRs: async Bedrock client, ingestion list fix, parser metadata, MCP sessions, FastEmbedder refactor."
+        },
+        {
+          "label": "Project logo",
+          "kind": "screenshot",
+          "image": "../../assets/images/case-studies/datapizza-ai-logo.png",
+          "alt": "DataPizza AI logo",
+          "caption": "2 200+ stars. Active release cadence."
+        }
+      ],
+      "proofMetrics": [
+        {
+          "label": "Async foundations",
+          "value": "PR #55 + #106",
+          "detail": "Bedrock async client (a_invoke / a_stream_invoke via aioboto3) and FastEmbedder refactor to batch-native embedding with asyncio.to_thread() for correct non-blocking I/O.",
+          "url": "https://github.com/datapizza-labs/datapizza-ai/pull/55"
+        },
+        {
+          "label": "MCP persistent sessions",
+          "value": "PR #97",
+          "detail": "Async context manager on MCPClient so stateful MCP servers (database connections, auth state) keep their session across tool calls instead of resetting on every operation.",
+          "url": "https://github.com/datapizza-labs/datapizza-ai/pull/97"
+        },
+        {
+          "label": "Ingestion correctness",
+          "value": "PR #67 + #77",
+          "detail": "IngestionPipeline.run() now handles str | list[str] as its documented signature, and AzureParser / DoclingParser accept a metadata kwarg with runtime type validation.",
+          "url": "https://github.com/datapizza-labs/datapizza-ai/pull/67"
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Why it exists",
+          "body": "Most GenAI frameworks overcorrect toward magic: giant abstractions that collapse when you need to understand what is actually happening between the model call and the result. DataPizza AI starts from the other direction — keep the surface small, keep the providers swappable, and make the tracing explicit enough that a team can debug a failing RAG pipeline without reading the framework internals."
+        },
+        {
+          "heading": "Technical center",
+          "body": "The framework layers a multi-provider LLM client layer (OpenAI, Gemini, Anthropic, Mistral, Azure) under tool-calling agents, then above that a document ingestion and chunking pipeline (Docling, Azure Document Intelligence) that feeds into Qdrant-backed vector search with Cohere or FastEmbed embedders and optional reranking. Redis caching and OpenTelemetry tracing run across all layers. The architectural discipline is that provider switching, agent composition, and pipeline wiring are all done declaratively without rewriting business logic."
+        },
+        {
+          "heading": "Contribution work",
+          "body": "Five merged PRs cover the layers where the framework's less-abstraction mandate creates the most friction in practice. PR #55 added async Bedrock support (a_invoke and a_stream_invoke via aioboto3) to unblock async-first application patterns. PR #67 fixed IngestionPipeline.run() to actually accept a list of file paths as its own documented signature promised. PR #77 added a metadata parameter to AzureParser and DoclingParser with runtime type validation so pipelines can pass context through the ingestion layer without hitting a TypeError. PR #97 introduced an async context manager on MCPClient for persistent sessions, which matters for any stateful MCP server that maintains database connections or authentication state across tool calls. PR #106 refactored FastEmbedder to use fastembed's native batch processing and asyncio.to_thread() — removing duplicated logic and fixing the async path so blocking I/O no longer runs on the event loop."
+        }
+      ],
+      "systemAnatomy": {
+        "inputs": [
+          "LLM provider keys",
+          "PDF / DOCX / image docs",
+          "Natural-language prompts",
+          "Tool / function definitions"
+        ],
+        "core": [
+          "Multi-provider LLM client",
+          "Tool-calling agent loop",
+          "Document ingestion + chunking",
+          "Qdrant vector search"
+        ],
+        "outputs": [
+          "Agent responses + tool results",
+          "RAG-grounded answers",
+          "Persistent conversation state",
+          "OpenTelemetry traces"
+        ],
+        "constraints": [
+          "Vendor-agnostic by design",
+          "No hidden abstraction",
+          "Provider swap without logic rewrite",
+          "Observable throughout"
+        ]
+      },
+      "translations": {
+        "it": {
+          "title": "DataPizza AI",
+          "displayTitle": "DataPizza AI",
+          "subtitle": "Un framework Python GenAI per agenti e pipeline RAG pronti per la produzione, con astrazione minima.",
+          "summary": "Un framework Python open-source che copre client LLM multi-provider, agenti con tool-calling, pipeline di ingestion documentale e ricerca vettoriale — costruito attorno a una filosofia di meno astrazione e più controllo, con osservabilità OpenTelemetry ovunque.",
+          "metaDescription": "DataPizza AI: framework Python GenAI per agenti, RAG e pipeline documentali con client multi-provider e tracciamento OpenTelemetry.",
+          "status": "Progetto OSS attivo",
+          "coverEyebrow": "Framework GenAI per la produzione",
+          "coverText": "Agenti multi-provider, pipeline documentali e ricerca vettoriale in un pacchetto Python componibile — vendor-agnostic e tracciato per design.",
+          "coverAlt": "Logo del progetto DataPizza AI",
+          "sections": [
+            {
+              "heading": "Perché esiste",
+              "body": "La maggior parte dei framework GenAI esagera con la magia: grandi astrazioni che crollano quando hai bisogno di capire cosa sta succedendo davvero tra la chiamata al modello e il risultato. DataPizza AI parte dalla direzione opposta — tieni la superficie piccola, tieni i provider intercambiabili, e rendi il tracing abbastanza esplicito da permettere a un team di fare debug su una pipeline RAG che fallisce senza dover leggere gli interni del framework."
+            },
+            {
+              "heading": "Centro tecnico",
+              "body": "Il framework stratifica un layer di client LLM multi-provider (OpenAI, Gemini, Anthropic, Mistral, Azure) sotto agenti con tool-calling, poi sopra una pipeline di ingestion e chunking documentale (Docling, Azure Document Intelligence) che alimenta una ricerca vettoriale su Qdrant con embedder Cohere o FastEmbed e reranking opzionale. Redis caching e tracciamento OpenTelemetry girano su tutti i layer. La disciplina architetturale è che lo switch di provider, la composizione degli agenti e il cablaggio della pipeline avvengono tutti in modo dichiarativo senza riscrivere la business logic."
+            },
+            {
+              "heading": "Lavoro di contribuzione",
+              "body": "Cinque PR unite coprono i layer in cui il mandato di meno astrazione del framework crea più attrito nella pratica. La PR #55 ha aggiunto il supporto Bedrock async (a_invoke e a_stream_invoke via aioboto3) per sbloccare i pattern applicativi async-first. La PR #67 ha corretto IngestionPipeline.run() per accettare effettivamente una lista di file path come prometteva la sua stessa firma documentata. La PR #77 ha aggiunto un parametro metadata ad AzureParser e DoclingParser con validazione del tipo a runtime, così le pipeline possono passare contesto attraverso il layer di ingestion senza incorrere in un TypeError. La PR #97 ha introdotto un async context manager su MCPClient per sessioni persistenti, fondamentale per i server MCP stateful che mantengono connessioni database o stato di autenticazione tra le chiamate agli strumenti. La PR #106 ha rifattorizzato FastEmbedder per usare il batch processing nativo di fastembed e asyncio.to_thread() — eliminando logica duplicata e correggendo il percorso async in modo che l'I/O bloccante non giri più sull'event loop."
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "andreabozzo-site",
       "title": "AndreaBozzo",
       "subtitle": "A public front door that combines portfolio, blog, workbench, generators, and a companion API.",

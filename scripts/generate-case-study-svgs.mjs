@@ -833,6 +833,90 @@ function renderApacheRustProofPoints() {
   return parts.join('\n');
 }
 
+function renderDatapizzaAiProofPoints() {
+  const parts = pageStart();
+  parts.push(eyebrow('MERGED CONTRIBUTIONS'));
+  parts.push(title('5 merged PRs across async, MCP, and ingestion', 940, 166, 46));
+
+  const prs = [
+    [84,  COLORS.purpleBg, COLORS.purpleStroke, COLORS.purpleInk, '#106', 'FastEmbedder refactor', 'Batch-native embed, asyncio.to_thread() for blocking I/O, DRY async path'],
+    [84,  COLORS.blueBg,   COLORS.blueStroke,   COLORS.blueInk,   '#97',  'MCP persistent session', 'Async context manager for stateful MCP servers across tool calls'],
+    [596, COLORS.amberBg,  COLORS.amberStroke,  COLORS.amberInk,  '#77',  'Parser metadata param', 'metadata kwarg + type validation in AzureParser and DoclingParser'],
+    [596, COLORS.greenBg,  COLORS.greenStroke,  COLORS.greenInk,  '#67',  'Ingestion list support', 'IngestionPipeline.run() handles str | list[str] as documented'],
+    [596, COLORS.roseBg,   COLORS.roseStroke,   COLORS.roseInk,   '#55',  'Bedrock async client',  'a_invoke + a_stream_invoke via aioboto3 for async Bedrock usage'],
+  ];
+
+  // Two columns: PRs 0-1 left (tall cards), PRs 2-4 right (shorter cards)
+  const leftPrs  = prs.slice(0, 2);
+  const rightPrs = prs.slice(2);
+  const leftH    = 198;
+  const rightH   = 128;
+  const leftX    = 84;
+  const rightX   = 596;
+
+  leftPrs.forEach(([, fill, stroke, ink, num, heading, body], i) => {
+    const y = 248 + i * (leftH + 18);
+    const cardCell = { x: leftX, y, width: 468, height: leftH };
+    parts.push(rect(cardCell.x, cardCell.y, cardCell.width, cardCell.height, fill, stroke, 28));
+    parts.push(textBlock({ x: leftX + 28, y: y + 52, width: 100, text: num, fontSize: 20, fill: ink, fontFamily: FONT.sans, fontWeight: 700, letterSpacing: 2, kind: 'sans', maxLines: 1, cellBox: cardCell }).svg);
+    parts.push(textBlock({ x: leftX + 28, y: y + 96, width: 412, text: heading, fontSize: 28, minFontSize: 24, lineHeight: 32, fill: COLORS.ink, fontFamily: FONT.display, fontWeight: 700, kind: 'sans', maxLines: 2, cellBox: cardCell }).svg);
+    parts.push(textBlock({ x: leftX + 28, y: y + 148, width: 412, text: body, fontSize: 19, minFontSize: 17, lineHeight: 24, fill: COLORS.muted, fontFamily: FONT.sans, kind: 'sans', maxLines: 2, cellBox: cardCell }).svg);
+  });
+
+  rightPrs.forEach(([, fill, stroke, ink, num, heading, body], i) => {
+    const y = 248 + i * (rightH + 18);
+    const cardCell = { x: rightX, y, width: 520, height: rightH };
+    parts.push(rect(cardCell.x, cardCell.y, cardCell.width, cardCell.height, fill, stroke, 28));
+    parts.push(textBlock({ x: rightX + 28, y: y + 44, width: 80, text: num, fontSize: 18, fill: ink, fontFamily: FONT.sans, fontWeight: 700, letterSpacing: 2, kind: 'sans', maxLines: 1, cellBox: cardCell }).svg);
+    parts.push(textBlock({ x: rightX + 110, y: y + 50, width: 382, text: heading, fontSize: 22, minFontSize: 20, fill: COLORS.ink, fontFamily: FONT.display, fontWeight: 700, kind: 'sans', maxLines: 1, cellBox: cardCell }).svg);
+    parts.push(textBlock({ x: rightX + 28, y: y + 90, width: 464, text: body, fontSize: 18, minFontSize: 16, lineHeight: 22, fill: COLORS.muted, fontFamily: FONT.sans, kind: 'sans', maxLines: 2, cellBox: cardCell }).svg);
+  });
+
+  parts.push(rect(84, 738, 1032, 72, COLORS.darkPanel, COLORS.darkPanel, 24));
+  parts.push(textBlock({ x: 120, y: 782, width: 880, text: 'All 5 PRs merged into datapizza-labs/datapizza-ai — async foundations, MCP stateful sessions, ingestion correctness, and embedder efficiency.', fontSize: 20, minFontSize: 18, lineHeight: 24, fill: '#C8CFDA', fontFamily: FONT.sans, kind: 'sans', maxLines: 2 }).svg);
+
+  parts.push('</svg>');
+  return parts.join('\n');
+}
+
+function renderDatapizzaAiArchitecture() {
+  const parts = pageStart();
+  parts.push(eyebrow('FRAMEWORK LAYERS'));
+  parts.push(title('From LLM client to multi-agent pipelines', 940, 166, 48));
+
+  // Four main layers stacked left-to-right: Client → Agent → Pipeline → Storage
+  const layers = [
+    [84, COLORS.amberBg, COLORS.amberStroke, COLORS.amberInk, 'CLIENT', 'Multi-provider LLM', 'OpenAI · Gemini · Anthropic · Mistral · Azure'],
+    [340, COLORS.blueBg, COLORS.blueStroke, COLORS.blueInk, 'AGENT', 'Tool-calling agents', 'System prompts · function calls · multi-agent'],
+    [596, COLORS.greenBg, COLORS.greenStroke, COLORS.greenInk, 'PIPELINE', 'DAG ingestion', 'Docling · Azure DI · Chunking · RAG'],
+    [852, COLORS.purpleBg, COLORS.purpleStroke, COLORS.purpleInk, 'STORAGE', 'Vector + cache', 'Qdrant · Cohere · FastEmbed · Redis'],
+  ];
+
+  for (const [x, fill, stroke, ink, label, heading, body] of layers) {
+    const cardCell = { x, y: 240, width: 232, height: 378 };
+    parts.push(rect(cardCell.x, cardCell.y, cardCell.width, cardCell.height, fill, stroke, 28));
+    parts.push(textBlock({ x: x + 24, y: 298, width: 184, text: label, fontSize: 18, fill: ink, fontFamily: FONT.sans, fontWeight: 700, letterSpacing: 3, kind: 'sans', maxLines: 1, cellBox: cardCell }).svg);
+    parts.push(textBlock({ x: x + 24, y: 346, width: 184, text: heading, fontSize: 26, minFontSize: 22, lineHeight: 30, fill: COLORS.ink, fontFamily: FONT.display, fontWeight: 700, kind: 'sans', maxLines: 2, cellBox: cardCell }).svg);
+    parts.push(textBlock({ x: x + 24, y: 428, width: 184, text: body, fontSize: 19, minFontSize: 17, lineHeight: 24, fill: COLORS.muted, fontFamily: FONT.sans, kind: 'sans', maxLines: 4, cellBox: cardCell }).svg);
+  }
+
+  // Arrows between layers
+  parts.push(line(316, 429, 340, 429, COLORS.amberStroke, 6));
+  parts.push('<polygon points="338,429 318,419 318,439" fill="' + COLORS.amberInk + '"/>');
+  parts.push(line(572, 429, 596, 429, COLORS.blueStroke, 6));
+  parts.push('<polygon points="594,429 574,419 574,439" fill="' + COLORS.blueInk + '"/>');
+  parts.push(line(828, 429, 852, 429, COLORS.greenStroke, 6));
+  parts.push('<polygon points="850,429 830,419 830,439" fill="' + COLORS.greenInk + '"/>');
+
+  // Bottom observability bar
+  parts.push(rect(84, 666, 1032, 84, COLORS.darkPanel, COLORS.darkPanel, 24));
+  parts.push(textBlock({ x: 120, y: 716, width: 220, text: 'OBSERVABILITY', fontSize: 18, fill: COLORS.darkInk, fontFamily: FONT.sans, fontWeight: 700, letterSpacing: 3, kind: 'sans' }).svg);
+  parts.push(textBlock({ x: 360, y: 716, width: 700, text: 'OpenTelemetry tracing across all layers · zero vendor lock-in · provider switching without logic rewrite', fontSize: 20, minFontSize: 18, lineHeight: 24, fill: '#C8CFDA', fontFamily: FONT.sans, kind: 'sans', maxLines: 2 }).svg);
+
+  parts.push('</svg>');
+  return parts.join('\n');
+}
+
 const outputs = new Map([
   ['assets/images/case-studies/dce-cli-validate.svg', renderDceCliValidate()],
   ['assets/images/case-studies/dce-contract-example.svg', renderDceContractExample()],
@@ -844,6 +928,8 @@ const outputs = new Map([
   ['assets/images/case-studies/peek-a-boo-tooling.svg', renderPeekABooTooling()],
   ['assets/images/case-studies/apache-rust-contrib-map.svg', renderApacheRustContribMap()],
   ['assets/images/case-studies/apache-rust-proof-points.svg', renderApacheRustProofPoints()],
+  ['assets/images/case-studies/datapizza-ai-architecture.svg', renderDatapizzaAiArchitecture()],
+  ['assets/images/case-studies/datapizza-ai-proof-points.svg', renderDatapizzaAiProofPoints()],
 ]);
 
 for (const [relativePath, content] of outputs) {
