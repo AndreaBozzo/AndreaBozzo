@@ -158,6 +158,32 @@
       "coverAlt": "Map of contributions across arrow-rs, DataFusion, iceberg-rust, and fluss-rust",
       "coverEyebrow": "Upstream by necessity",
       "coverText": "When local tools hit substrate limits, the right fix is often to move one layer down and improve the underlying Apache project instead of carrying the problem privately.",
+      "proofMetrics": [
+        {
+          "label": "arrow-rs",
+          "value": "2 PRs",
+          "detail": "Parquet reader behavior and documentation examples in apache/arrow-rs, sourced from downstream dataprof pain points.",
+          "url": "https://github.com/apache/arrow-rs/pulls?q=is%3Apr+author%3AAndreaBozzo"
+        },
+        {
+          "label": "iceberg-rust",
+          "value": "3 PRs",
+          "detail": "Table metadata and interoperability work in apache/iceberg-rust around real downstream lakehouse experiments.",
+          "url": "https://github.com/apache/iceberg-rust/pulls?q=is%3Apr+author%3AAndreaBozzo"
+        },
+        {
+          "label": "fluss-rust",
+          "value": "2 PRs",
+          "detail": "Streaming client and integration work in apache/fluss-rust, treated as the same upstream surface as Arrow and Iceberg.",
+          "url": "https://github.com/apache/fluss-rust/pulls?q=is%3Apr+author%3AAndreaBozzo"
+        },
+        {
+          "label": "datafusion",
+          "value": "1 PR",
+          "detail": "Arrow-native query execution surface in apache/datafusion, contributed where downstream tools need a stable example.",
+          "url": "https://github.com/apache/datafusion/pulls?q=is%3Apr+author%3AAndreaBozzo"
+        }
+      ],
       "actions": [
         {
           "label": "Apache Arrow",
@@ -246,6 +272,32 @@
           "coverEyebrow": "Upstream per necessità",
           "coverText": "Quando i tool locali raggiungono i limiti del substrato, la correzione giusta è spesso scendere di un livello e migliorare il progetto Apache sottostante invece di portarsi dietro il problema in privato.",
           "coverAlt": "Mappa delle contribuzioni su arrow-rs, DataFusion, iceberg-rust e fluss-rust",
+          "proofMetrics": [
+            {
+              "label": "arrow-rs",
+              "value": "2 PR",
+              "detail": "Comportamento del reader Parquet ed esempi di documentazione in apache/arrow-rs, partendo dagli attriti reali di dataprof downstream.",
+              "url": "https://github.com/apache/arrow-rs/pulls?q=is%3Apr+author%3AAndreaBozzo"
+            },
+            {
+              "label": "iceberg-rust",
+              "value": "3 PR",
+              "detail": "Lavoro su metadata delle tabelle e interoperabilità in apache/iceberg-rust legato a esperimenti lakehouse downstream reali.",
+              "url": "https://github.com/apache/iceberg-rust/pulls?q=is%3Apr+author%3AAndreaBozzo"
+            },
+            {
+              "label": "fluss-rust",
+              "value": "2 PR",
+              "detail": "Lavoro su client streaming e integrazione in apache/fluss-rust, trattato come parte della stessa superficie upstream di Arrow e Iceberg.",
+              "url": "https://github.com/apache/fluss-rust/pulls?q=is%3Apr+author%3AAndreaBozzo"
+            },
+            {
+              "label": "datafusion",
+              "value": "1 PR",
+              "detail": "Superficie di esecuzione query Arrow-native in apache/datafusion, contribuita dove i tool downstream hanno bisogno di un esempio stabile.",
+              "url": "https://github.com/apache/datafusion/pulls?q=is%3Apr+author%3AAndreaBozzo"
+            }
+          ],
           "sections": [
             {
               "heading": "Perché esiste",
@@ -984,6 +1036,20 @@
       "coverAlt": "Lakekeeper architecture overview",
       "coverEyebrow": "Governed lakehouse control plane",
       "coverText": "A Rust-native catalog layer that turns object storage into a governed Iceberg system with temporary credentials, fine-grained auth, and multi-engine access.",
+      "proofMetrics": [
+        {
+          "label": "Upstream contributions",
+          "value": "2 merged PRs",
+          "detail": "Public PRs tracked in the Lakekeeper repository README, attached to catalog and integration surfaces rather than vague familiarity.",
+          "url": "https://github.com/lakekeeper/lakekeeper/pulls?q=is%3Apr+is%3Amerged+author%3AAndreaBozzo"
+        },
+        {
+          "label": "Engine interoperability",
+          "value": "RisingWave + multi-engine",
+          "detail": "Documented RisingWave interop and integrations with external engines and managed platforms, exercising the catalog's cross-engine promise.",
+          "url": "../../blog/en/posts/lakekeeper-blog/"
+        }
+      ],
       "actions": [
         {
           "label": "Repository",
@@ -1061,6 +1127,20 @@
           "status": "Contribuzione open source",
           "coverEyebrow": "Control plane lakehouse governato",
           "coverText": "Un layer di catalogo Rust-native che trasforma l'object storage in un sistema Iceberg governato, con credenziali temporanee, auth fine-grained e accesso multi-engine.",
+          "proofMetrics": [
+            {
+              "label": "Contribuzioni upstream",
+              "value": "2 PR unite",
+              "detail": "PR pubbliche tracciate nel README di Lakekeeper, attaccate a superfici di catalogo e integrazione invece che a una vaga familiarità.",
+              "url": "https://github.com/lakekeeper/lakekeeper/pulls?q=is%3Apr+is%3Amerged+author%3AAndreaBozzo"
+            },
+            {
+              "label": "Interoperabilità motori",
+              "value": "RisingWave + multi-engine",
+              "detail": "Interoperabilità documentata con RisingWave e integrazioni con motori esterni e piattaforme gestite, che esercitano la promessa cross-engine del catalogo.",
+              "url": "../../blog/it/posts/lakekeeper-blog/"
+            }
+          ],
           "coverAlt": "Panoramica architetturale di Lakekeeper",
           "sections": [
             {
