@@ -2,7 +2,7 @@
 
 Open source engineer building data platforms, developer tooling, and technical writing around Rust, Python, Go, and modern analytics systems.
 
-These are my projects, contributions, and writings. For more about me, see the links below.
+These are my projects, contributions, and writings. For more about me, see the links below..
 
 [Website](https://andreabozzo.github.io/AndreaBozzo/) | [Blog](https://andreabozzo.github.io/AndreaBozzo/blog/) | [LinkedIn](https://www.linkedin.com/in/andrea-bozzo-/) | [Email](mailto:andreabozzo92@gmail.com)
 
