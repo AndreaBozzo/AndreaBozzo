@@ -754,6 +754,7 @@ async function fetchContributions() {
         }
 
         contributions
+            .slice(0, 4)
             .forEach((contrib) => {
                 const projectItem = document.createElement('article');
                 projectItem.className = 'project-item content-card-enter';

@@ -171,13 +171,8 @@ func writeContributionsJSON(repoRoot string, repoMap map[string]contributionRepo
 		return repos[i].FullName < repos[j].FullName
 	})
 
-	limit := 4
-	if len(repos) < limit {
-		limit = len(repos)
-	}
-
-	items := make([]contributionJSONItem, 0, limit)
-	for _, repo := range repos[:limit] {
+	items := make([]contributionJSONItem, 0, len(repos))
+	for _, repo := range repos {
 		shortName := shortRepoName(repo.FullName)
 		prList := buildPRJSONList(repo.PRs)
 		items = append(items, contributionJSONItem{

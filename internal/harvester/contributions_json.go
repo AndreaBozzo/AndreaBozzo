@@ -120,9 +120,6 @@ func GenerateContributionsJSON(repoRoot string) error {
 	sort.Slice(items, func(i, j int) bool {
 		return parseCompactNumber(items[i].Stars) > parseCompactNumber(items[j].Stars)
 	})
-	if len(items) > 4 {
-		items = items[:4]
-	}
 
 	payload := contributionsJSONPayload{
 		SchemaVersion: schema.VersionV1,

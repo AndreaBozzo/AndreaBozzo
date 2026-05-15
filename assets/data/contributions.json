@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-15T01:07:10Z",
+  "generatedAt": "2026-05-15T11:48:05Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -119,6 +119,590 @@
           "number": 23704,
           "url": "https://github.com/risingwavelabs/risingwave/pull/23704",
           "mergedAt": "2025-11-10T12:18:50Z"
+        }
+      ]
+    },
+    {
+      "name": "datafusion",
+      "url": "https://github.com/apache/datafusion",
+      "stars": "8.8k",
+      "prs": "1",
+      "desc": "Query engine fixes and improvements in the Arrow-native SQL execution stack.",
+      "language": "Rust",
+      "topics": [
+        "arrow",
+        "big-data",
+        "dataframe",
+        "datafusion",
+        "olap",
+        "python",
+        "query-engine",
+        "rust",
+        "sql"
+      ],
+      "lastPRMergedAt": "2026-02-02T04:06:09Z",
+      "prList": [
+        {
+          "title": "Use return_field_from_args in information schema and date_trunc",
+          "number": 20079,
+          "url": "https://github.com/apache/datafusion/pull/20079",
+          "mergedAt": "2026-02-02T04:06:09Z"
+        }
+      ]
+    },
+    {
+      "name": "lance",
+      "url": "https://github.com/lance-format/lance",
+      "stars": "6.4k",
+      "prs": "2",
+      "desc": "Columnar storage and vector-data work in the Lance ecosystem.",
+      "language": "Rust",
+      "topics": [
+        "apache-arrow",
+        "computer-vision",
+        "data-analysis",
+        "data-analytics",
+        "data-centric",
+        "data-format",
+        "data-science",
+        "dataops",
+        "deep-learning",
+        "duckdb",
+        "embeddings",
+        "llms",
+        "machine-learning",
+        "mlops",
+        "python",
+        "rust"
+      ],
+      "lastPRMergedAt": "2026-01-20T22:23:36Z",
+      "prList": [
+        {
+          "title": "fix: skip missing indices in compaction rewrite",
+          "number": 5739,
+          "url": "https://github.com/lance-format/lance/pull/5739",
+          "mergedAt": "2026-01-20T22:23:36Z"
+        },
+        {
+          "title": "fix(python): correct type hint for to_tensor_fn parameter",
+          "number": 5577,
+          "url": "https://github.com/lance-format/lance/pull/5577",
+          "mergedAt": "2026-01-12T22:25:40Z"
+        }
+      ]
+    },
+    {
+      "name": "arrow-rs",
+      "url": "https://github.com/apache/arrow-rs",
+      "stars": "3.5k",
+      "prs": "2",
+      "desc": "Rust-side work in the Arrow ecosystem around columnar data and query plumbing.",
+      "language": "Rust",
+      "topics": [
+        "arrow",
+        "parquet",
+        "rust"
+      ],
+      "lastPRMergedAt": "2026-01-14T22:16:36Z",
+      "prList": [
+        {
+          "title": "docs: update examples in ArrowReaderOptions to use in-memory buffers",
+          "number": 9163,
+          "url": "https://github.com/apache/arrow-rs/pull/9163",
+          "mergedAt": "2026-01-14T22:16:36Z"
+        },
+        {
+          "title": "docs(parquet): add example for preserving dictionary encoding",
+          "number": 9116,
+          "url": "https://github.com/apache/arrow-rs/pull/9116",
+          "mergedAt": "2026-01-10T12:22:45Z"
+        }
+      ]
+    },
+    {
+      "name": "etl",
+      "url": "https://github.com/supabase/etl",
+      "stars": "2.2k",
+      "prs": "2",
+      "desc": "Data ingestion and transformation contributions in a production-facing ETL stack.",
+      "language": "Rust",
+      "topics": [
+        "logical-replication",
+        "postgres",
+        "postgresql",
+        "replication",
+        "rust",
+        "rust-lang"
+      ],
+      "lastPRMergedAt": "2025-12-22T07:36:50Z",
+      "prList": [
+        {
+          "title": "docs(etl): add documentation for CellNonOptional and ArrayCellNonOptional",
+          "number": 482,
+          "url": "https://github.com/supabase/etl/pull/482",
+          "mergedAt": "2025-12-22T07:36:50Z"
+        },
+        {
+          "title": "refactor(etl): simplify Event::has_table_id for Truncate variant",
+          "number": 480,
+          "url": "https://github.com/supabase/etl/pull/480",
+          "mergedAt": "2025-12-01T12:19:11Z"
+        }
+      ]
+    },
+    {
+      "name": "datapizza-ai",
+      "url": "https://github.com/datapizza-labs/datapizza-ai",
+      "stars": "2.2k",
+      "prs": "5",
+      "desc": "Applied AI engineering work across product integrations and developer-facing features.",
+      "language": "Python",
+      "topics": [
+        "agent",
+        "ai",
+        "genai",
+        "llm",
+        "python"
+      ],
+      "lastPRMergedAt": "2026-02-20T10:00:54Z",
+      "prList": [
+        {
+          "title": "feat(mcp): add persistent session support to MCPClient",
+          "number": 97,
+          "url": "https://github.com/datapizza-labs/datapizza-ai/pull/97",
+          "mergedAt": "2026-02-20T10:00:54Z"
+        },
+        {
+          "title": "refactor(fastembedder): simplify embed methods and fix async handling",
+          "number": 106,
+          "url": "https://github.com/datapizza-labs/datapizza-ai/pull/106",
+          "mergedAt": "2026-01-21T10:54:55Z"
+        },
+        {
+          "title": "fix: add metadata parameter support to parsers",
+          "number": 77,
+          "url": "https://github.com/datapizza-labs/datapizza-ai/pull/77",
+          "mergedAt": "2025-11-03T10:28:27Z"
+        },
+        {
+          "title": "fix: support list of file paths in IngestionPipeline.run()",
+          "number": 67,
+          "url": "https://github.com/datapizza-labs/datapizza-ai/pull/67",
+          "mergedAt": "2025-10-28T14:21:47Z"
+        },
+        {
+          "title": "feat: implement async methods in bedrock client",
+          "number": 55,
+          "url": "https://github.com/datapizza-labs/datapizza-ai/pull/55",
+          "mergedAt": "2025-10-24T07:34:11Z"
+        }
+      ]
+    },
+    {
+      "name": "beelzebub",
+      "url": "https://github.com/beelzebub-labs/beelzebub",
+      "stars": "2.0k",
+      "prs": "1",
+      "desc": "Infrastructure-facing fixes and implementation work in a production-oriented platform project.",
+      "language": "Go",
+      "topics": [
+        "acis",
+        "agentic-ai-security",
+        "cloudnative",
+        "cloudsecurity",
+        "cybersecurity",
+        "deception",
+        "decoys",
+        "framework",
+        "go",
+        "honeypot",
+        "llama",
+        "llm",
+        "llm-honeypot",
+        "llm-security",
+        "mcp",
+        "mcp-honeypot",
+        "preemptive-cybersecurity",
+        "research-project",
+        "security",
+        "whitehat"
+      ],
+      "lastPRMergedAt": "2025-11-16T13:43:07Z",
+      "prList": [
+        {
+          "title": "Fix: Close log file in Builder.Close() to prevent resource leak",
+          "number": 239,
+          "url": "https://github.com/beelzebub-labs/beelzebub/pull/239",
+          "mergedAt": "2025-11-16T13:43:07Z"
+        }
+      ]
+    },
+    {
+      "name": "lakekeeper",
+      "url": "https://github.com/lakekeeper/lakekeeper",
+      "stars": "1.3k",
+      "prs": "2",
+      "desc": "Lakehouse catalog and metadata contributions around operational reliability.",
+      "language": "Rust",
+      "topics": [
+        "catalog",
+        "data-lake",
+        "iceberg",
+        "lakehouse",
+        "lakehouse-governance",
+        "open-lakehouse",
+        "rust"
+      ],
+      "lastPRMergedAt": "2025-12-04T16:25:20Z",
+      "prList": [
+        {
+          "title": "feat: Add storage profile-level credential control flags",
+          "number": 1518,
+          "url": "https://github.com/lakekeeper/lakekeeper/pull/1518",
+          "mergedAt": "2025-12-04T16:25:20Z"
+        },
+        {
+          "title": "fix: remove redundant clone() before to_string()",
+          "number": 1489,
+          "url": "https://github.com/lakekeeper/lakekeeper/pull/1489",
+          "mergedAt": "2025-11-14T08:45:03Z"
+        }
+      ]
+    },
+    {
+      "name": "iceberg-rust",
+      "url": "https://github.com/apache/iceberg-rust",
+      "stars": "1.3k",
+      "prs": "3",
+      "desc": "Rust contributions around Apache Iceberg tables, metadata, and interoperability.",
+      "language": "Rust",
+      "topics": [
+        "apache",
+        "hacktoberfest",
+        "iceberg",
+        "rust"
+      ],
+      "lastPRMergedAt": "2026-01-15T01:06:33Z",
+      "prList": [
+        {
+          "title": "chore: Update copyright year in NOTICE files",
+          "number": 2024,
+          "url": "https://github.com/apache/iceberg-rust/pull/2024",
+          "mergedAt": "2026-01-15T01:06:33Z"
+        },
+        {
+          "title": "feat(sqllogictest): use serde derived structs for schedule parsing",
+          "number": 1953,
+          "url": "https://github.com/apache/iceberg-rust/pull/1953",
+          "mergedAt": "2025-12-25T00:45:35Z"
+        },
+        {
+          "title": "fix: Serialize `split_offsets` as null when empty",
+          "number": 1906,
+          "url": "https://github.com/apache/iceberg-rust/pull/1906",
+          "mergedAt": "2025-12-10T07:11:33Z"
+        }
+      ]
+    },
+    {
+      "name": "mosaico",
+      "url": "https://github.com/mosaico-labs/mosaico",
+      "stars": "861",
+      "prs": "10",
+      "desc": "Contributions across AI workflow orchestration and open tooling.",
+      "language": "Python",
+      "topics": [
+        "data-platform",
+        "physical-ai",
+        "robotics"
+      ],
+      "lastPRMergedAt": "2026-01-07T20:47:18Z",
+      "prList": [
+        {
+          "title": "chore(ci): split workflow into parallel jobs",
+          "number": 68,
+          "url": "https://github.com/mosaico-labs/mosaico/pull/68",
+          "mergedAt": "2026-01-07T20:47:18Z"
+        },
+        {
+          "title": "chore(ci): update GitHub Actions workflow for pull request handling and dependency versions",
+          "number": 56,
+          "url": "https://github.com/mosaico-labs/mosaico/pull/56",
+          "mergedAt": "2026-01-04T20:18:17Z"
+        },
+        {
+          "title": "fix(stats): use Option for TextStats min/max to handle empty strings correctly",
+          "number": 51,
+          "url": "https://github.com/mosaico-labs/mosaico/pull/51",
+          "mergedAt": "2026-01-03T14:41:08Z"
+        },
+        {
+          "title": "feat(server): implement list_flights endpoint for catalog discovery",
+          "number": 40,
+          "url": "https://github.com/mosaico-labs/mosaico/pull/40",
+          "mergedAt": "2025-12-22T21:16:56Z"
+        },
+        {
+          "title": "fix(sdk-py): correct __exit__ return type for mypy",
+          "number": 37,
+          "url": "https://github.com/mosaico-labs/mosaico/pull/37",
+          "mergedAt": "2025-12-22T07:42:17Z"
+        }
+      ]
+    },
+    {
+      "name": "awesome-italia-opensource",
+      "url": "https://github.com/italia-opensource/awesome-italia-opensource",
+      "stars": "326",
+      "prs": "1",
+      "desc": "Curation and contribution work supporting the Italian open source ecosystem.",
+      "language": "Python",
+      "topics": [
+        "awesome",
+        "awesome-italia",
+        "awesome-italia-opensource",
+        "awesome-list",
+        "community",
+        "italia",
+        "italia-opensource",
+        "italy",
+        "made-in-italy",
+        "open-source",
+        "opensource",
+        "opensource-projects"
+      ],
+      "lastPRMergedAt": "2025-09-08T07:49:34Z",
+      "prList": [
+        {
+          "title": "feat(opensource): added DataProfiler",
+          "number": 169,
+          "url": "https://github.com/italia-opensource/awesome-italia-opensource/pull/169",
+          "mergedAt": "2025-09-08T07:49:34Z"
+        }
+      ]
+    },
+    {
+      "name": "pg_query.rs",
+      "url": "https://github.com/pganalyze/pg_query.rs",
+      "stars": "235",
+      "prs": "1",
+      "desc": "Rust and Postgres parsing work in a low-level developer tooling library.",
+      "language": "Rust",
+      "lastPRMergedAt": "2025-12-07T16:20:46Z",
+      "prList": [
+        {
+          "title": "fix: Replace unwrap with ? in normalize()",
+          "number": 69,
+          "url": "https://github.com/pganalyze/pg_query.rs/pull/69",
+          "mergedAt": "2025-12-07T16:20:46Z"
+        }
+      ]
+    },
+    {
+      "name": "CortexBrain",
+      "url": "https://github.com/CortexFlow/CortexBrain",
+      "stars": "81",
+      "prs": "3",
+      "desc": "Implementation work across infrastructure and automation-oriented platform tooling.",
+      "language": "Rust",
+      "topics": [
+        "big-data",
+        "bpf-programs",
+        "cluster-analysis",
+        "cluster-monitoring-tool",
+        "data-science",
+        "devops",
+        "ebpf",
+        "edge-computing",
+        "in-development",
+        "k8s",
+        "kubernetes",
+        "microservices-architecture",
+        "network-analysis",
+        "network-monitoring",
+        "open-source",
+        "resource-monitoring",
+        "rust",
+        "rust-lang",
+        "service-mesh",
+        "traffic-control"
+      ],
+      "lastPRMergedAt": "2025-11-05T21:47:43Z",
+      "prList": [
+        {
+          "title": "[#119] Add cortexbrain-common crate to eliminate code duplication",
+          "number": 154,
+          "url": "https://github.com/CortexFlow/CortexBrain/pull/154",
+          "mergedAt": "2025-11-05T21:47:43Z"
+        },
+        {
+          "title": "Add CI/CD pipeline for core build checks",
+          "number": 136,
+          "url": "https://github.com/CortexFlow/CortexBrain/pull/136",
+          "mergedAt": "2025-09-02T11:35:16Z"
+        },
+        {
+          "title": "[Issue #57] Thorough cleanup of unused dependencies",
+          "number": 132,
+          "url": "https://github.com/CortexFlow/CortexBrain/pull/132",
+          "mergedAt": "2025-08-25T12:21:54Z"
+        }
+      ]
+    },
+    {
+      "name": "fluss-rust",
+      "url": "https://github.com/apache/fluss-rust",
+      "stars": "51",
+      "prs": "2",
+      "desc": "Client and integration work in the Fluss streaming ecosystem.",
+      "language": "Rust",
+      "topics": [
+        "fluss",
+        "lakehouse",
+        "python",
+        "real-time-analytics",
+        "rust",
+        "streaming"
+      ],
+      "lastPRMergedAt": "2026-01-17T01:45:00Z",
+      "prList": [
+        {
+          "title": "[client] Add lookup support for primary key tables",
+          "number": 159,
+          "url": "https://github.com/apache/fluss-rust/pull/159",
+          "mergedAt": "2026-01-17T01:45:00Z"
+        },
+        {
+          "title": "chore: add integration tests for subscribe_batch and project_by_name",
+          "number": 116,
+          "url": "https://github.com/apache/fluss-rust/pull/116",
+          "mergedAt": "2026-01-02T08:54:09Z"
+        }
+      ]
+    },
+    {
+      "name": "fantacalcio-py",
+      "url": "https://github.com/piopy/fantacalcio-py",
+      "stars": "51",
+      "prs": "4",
+      "desc": "Small but concrete fixes in a Python project with an active user base.",
+      "language": "Python",
+      "topics": [
+        "fantacalcio",
+        "fantasy-football",
+        "gazzetta",
+        "italy",
+        "predicter",
+        "python"
+      ],
+      "lastPRMergedAt": "2025-11-21T17:38:43Z",
+      "prList": [
+        {
+          "title": "Fix TypeError with OUTPUT_DIR Sentinel object",
+          "number": 14,
+          "url": "https://github.com/piopy/fantacalcio-py/pull/14",
+          "mergedAt": "2025-11-21T17:38:43Z"
+        },
+        {
+          "title": "Aggiungi esportazione automatica JSON alla CLI",
+          "number": 11,
+          "url": "https://github.com/piopy/fantacalcio-py/pull/11",
+          "mergedAt": "2025-09-13T21:37:25Z"
+        },
+        {
+          "title": "Complete fix for duplicate columns in Excel outputs",
+          "number": 8,
+          "url": "https://github.com/piopy/fantacalcio-py/pull/8",
+          "mergedAt": "2025-09-09T04:44:17Z"
+        },
+        {
+          "title": "Aggiunta interfaccia CLI per fantacalcio-py",
+          "number": 5,
+          "url": "https://github.com/piopy/fantacalcio-py/pull/5",
+          "mergedAt": "2025-09-04T19:34:58Z"
+        }
+      ]
+    },
+    {
+      "name": "medha",
+      "url": "https://github.com/ArchAI-Labs/medha",
+      "stars": "21",
+      "prs": "1",
+      "desc": "medha is one of the upstream projects where I have shipped fixes, cleanup, or implementation work.",
+      "language": "Python",
+      "lastPRMergedAt": "2026-05-11T12:37:41Z",
+      "prList": [
+        {
+          "title": "Add basic CI",
+          "number": 27,
+          "url": "https://github.com/ArchAI-Labs/medha/pull/27",
+          "mergedAt": "2026-05-11T12:37:41Z"
+        }
+      ]
+    },
+    {
+      "name": "openfga-client",
+      "url": "https://github.com/vakamo-labs/openfga-client",
+      "stars": "7",
+      "prs": "1",
+      "desc": "Client-library fixes and interface improvements around authorization tooling.",
+      "language": "Rust",
+      "lastPRMergedAt": "2025-12-30T18:36:56Z",
+      "prList": [
+        {
+          "title": "feat: add TLS support for HTTPS endpoints",
+          "number": 25,
+          "url": "https://github.com/vakamo-labs/openfga-client/pull/25",
+          "mergedAt": "2025-12-30T18:36:56Z"
+        }
+      ]
+    },
+    {
+      "name": "fantavibe",
+      "url": "https://github.com/informagico/fantavibe",
+      "stars": "6",
+      "prs": "1",
+      "desc": "Targeted upstream fixes and improvements in a smaller community project.",
+      "language": "JavaScript",
+      "lastPRMergedAt": "2025-09-10T15:08:49Z",
+      "prList": [
+        {
+          "title": "🧪 Implementa testing framework e risolve bug navigazione tab",
+          "number": 5,
+          "url": "https://github.com/informagico/fantavibe/pull/5",
+          "mergedAt": "2025-09-10T15:08:49Z"
+        }
+      ]
+    },
+    {
+      "name": "rust-docs-it",
+      "url": "https://github.com/rust-ita/rust-docs-it",
+      "stars": "2",
+      "prs": "2",
+      "desc": "Community translation and upkeep work for Italian Rust documentation.",
+      "language": "Shell",
+      "topics": [
+        "docs",
+        "italia",
+        "italian-language",
+        "rust",
+        "rust-community",
+        "rust-library",
+        "rustbook"
+      ],
+      "lastPRMergedAt": "2025-12-02T13:42:23Z",
+      "prList": [
+        {
+          "title": "[Feature] Traduzione completa Iterators (Issue #6)",
+          "number": 7,
+          "url": "https://github.com/rust-ita/rust-docs-it/pull/7",
+          "mergedAt": "2025-12-02T13:42:23Z"
+        },
+        {
+          "title": "Traduzione completa String e \u0026str (v0.4.0)",
+          "number": 4,
+          "url": "https://github.com/rust-ita/rust-docs-it/pull/4",
+          "mergedAt": "2025-11-04T19:06:37Z"
         }
       ]
     }
