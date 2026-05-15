@@ -717,6 +717,9 @@
     display: grid;
     place-items: center;
     padding: clamp(1rem, 4vw, 2rem);
+    /* Use dvh so mobile browser chrome doesn't leak the dialog past the fold. */
+    height: 100dvh;
+    overflow: hidden;
 }
 
 .media-viewer[hidden] {
@@ -734,9 +737,13 @@
     position: relative;
     z-index: 1;
     display: grid;
+    /* close button | frame (flexible) | meta — frame shrinks so caption stays visible. */
+    grid-template-rows: auto minmax(0, 1fr) auto;
     gap: var(--space-4);
     width: min(100%, 72rem);
-    max-height: calc(100vh - clamp(2rem, 8vw, 4rem));
+    /* Fill the viewer's padded box; min(0,…) keeps the dialog inside its grid cell. */
+    max-height: 100%;
+    min-height: 0;
     padding: clamp(1rem, 3vw, 1.5rem);
     border: 1px solid color-mix(in srgb, var(--color-border) 88%, var(--color-bg-tertiary));
     border-radius: var(--radius-lg);
@@ -772,7 +779,8 @@
     width: auto;
     max-width: 100%;
     height: auto;
-    max-height: min(78vh, 64rem);
+    /* Cap is the grid row, not the viewport — keeps the caption row visible. */
+    max-height: 100%;
 }
 
 .media-viewer-meta {
