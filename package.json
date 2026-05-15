@@ -20,7 +20,7 @@
     "harvester:artifacts": "go run ./cmd/harvester generate-static-artifacts",
     "refresh:data": "go run ./cmd/harvester ingest --all",
     "harvester:readme": "go run ./cmd/harvester update-contributions-readme",
-    "lint:js": "eslint assets/main.js assets/workbench/*.js sw.js",
+    "lint:js": "eslint assets/main.js assets/hero-graph.js assets/workbench/*.js sw.js",
     "lint:css-tokens": "node ./scripts/check-css-tokens.mjs",
     "validate:data": "node ./scripts/validate-data.mjs",
     "vercel:prepare-prebuilt": "node ./scripts/materialize-vercel-go-bootstraps.mjs",

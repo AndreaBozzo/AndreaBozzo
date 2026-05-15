@@ -192,31 +192,15 @@
     }
 
     .subtitle,
-    .hero-notes,
     .cta-buttons {
         width: calc(100vw - (var(--space-4) * 2));
         max-width: 22rem;
-    }
-
-    .hero-note {
-        width: 100%;
-        max-width: 100%;
     }
 
     .subtitle,
     .section-lead,
     .contact-text {
         font-size: var(--text-base);
-    }
-
-    .hero-notes {
-        grid-template-columns: 1fr;
-        gap: var(--space-3);
-        margin-top: var(--space-6);
-    }
-
-    .hero-note {
-        padding: var(--space-4) var(--space-5);
     }
 
     .eyebrow {
@@ -396,7 +380,6 @@
     .result-card:hover,
     .map-node:hover,
     .project-item:hover,
-    .hero-art:hover .hero-art-frame,
     .site-brand:hover,
     .theme-toggle:hover {
         transform: none;
@@ -529,7 +512,7 @@
         gap: var(--space-6);
     }
 
-    .hero-art-frame {
-        width: min(100%, 16rem);
+    .hero-graph {
+        width: min(100%, 18rem);
     }
 }

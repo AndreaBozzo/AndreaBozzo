@@ -154,8 +154,8 @@
     color: color-mix(in srgb, var(--color-text-secondary) 84%, var(--color-inverse));
 }
 
-[data-theme="dark"] .hero-art-frame {
-    background: linear-gradient(180deg, color-mix(in srgb, var(--color-paper-warm) 96%, transparent), color-mix(in srgb, var(--color-ink-panel-soft) 92%, transparent));
+[data-theme="dark"] .hero-graph {
+    background: radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--color-paper-warm) 96%, transparent), color-mix(in srgb, var(--color-ink-panel-soft) 92%, transparent) 78%);
     border-color: color-mix(in srgb, var(--color-accent) 20%, transparent);
 }
 

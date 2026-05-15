@@ -1,4 +1,5 @@
 import { inject } from '@vercel/analytics';
+import { mountHeroGraph } from './hero-graph.js';
 import { createWorkbench } from './workbench/index.js';
 
 // ===== Theme Toggle =====
@@ -886,6 +887,10 @@ document.addEventListener('DOMContentLoaded', function() {
         inject();
     }
     initializeCaseStudyMediaViewer();
+    const heroCanvas = document.getElementById('hero-graph-canvas');
+    if (heroCanvas) {
+        mountHeroGraph(heroCanvas);
+    }
     const loadBlogPosts = () => loadLatestBlogPosts();
     const hasWorkbench = workbench.initializeWorkbench();
 

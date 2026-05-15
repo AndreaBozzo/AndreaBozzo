@@ -29,9 +29,25 @@ export function createWorkbenchGraph({
     function selectNode(node) {
         if (!node) return;
 
+        const isTopic = node.kind === 'topic' && topicBlueprints.some(topic => topic.id === node.id);
+        const isAlreadySelected = state.selectedId === node.id;
+
+        if (isAlreadySelected) {
+            // Toggle off: clicking the same node clears the selection,
+            // and clears the thread filter when the node is a topic.
+            state.selectedId = '';
+            if (isTopic) state.activeTopic = 'all';
+            requestRender();
+            return;
+        }
+
         state.selectedId = node.id;
-        if (node.kind === 'topic' && topicBlueprints.some(topic => topic.id === node.id)) {
+        if (isTopic) {
             state.activeTopic = node.id;
+        } else {
+            // Selecting a non-topic node should not leave the user locked
+            // into a previously-active thread filter.
+            state.activeTopic = 'all';
         }
 
         requestRender();
@@ -587,7 +603,16 @@ export function createWorkbenchGraph({
 
     function onGraphClick(event) {
         const node = pickNodeAt(event.clientX, event.clientY);
-        if (!node) return;
+        if (!node) {
+            // Clicking empty canvas clears the selection and any thread filter.
+            if (state.selectedId || state.activeTopic !== 'all') {
+                state.selectedId = '';
+                state.activeTopic = 'all';
+                requestRender();
+                startGraphLoop();
+            }
+            return;
+        }
         selectNode(node);
         startGraphLoop();
     }

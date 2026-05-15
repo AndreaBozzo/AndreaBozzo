@@ -40,7 +40,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
     <link rel="preload" href="assets/styles.min.css" as="style">
     <link rel="preload" href="assets/main.min.js" as="script">
-    <link rel="preload" href="assets/images/Climbing%20towards%20the%20celestial%20Ankh.png" as="image" fetchpriority="high">
     <link rel="prefetch" href="./blog/">
     <link rel="prefetch" href="./blog/en/">
     <link rel="alternate" type="application/rss+xml" title="Andrea Bozzo · Blog (EN)" href="https://andreabozzo.github.io/AndreaBozzo/blog/en/index.xml">
@@ -134,17 +133,6 @@
                     <h1 class="title">I build data infrastructure in Rust, Python, and Go.</h1>
                     <p class="subtitle">Open-source tools, lakehouse experiments, and engineering notes from the places where pipelines, storage, and developer tooling meet.</p>
 
-                    <div class="hero-notes" aria-label="About this site">
-                        <article class="hero-note">
-                            <span class="hero-note-label">Systems</span>
-                            <p>Case studies for data profiling, Apache Rust upstream work, lakehouse tooling, and project delivery.</p>
-                        </article>
-                        <article class="hero-note">
-                            <span class="hero-note-label">Writing</span>
-                            <p>Bilingual technical notes on what I built, what broke, and what changed my mind.</p>
-                        </article>
-                    </div>
-
                     <dl class="hero-stats" id="hero-stats" data-state="idle" aria-live="polite" hidden>
                         <div class="stat">
                             <dt>Followers</dt>
@@ -171,12 +159,12 @@
                     </div>
                 </div>
 
-                <figure class="hero-art">
-                    <div class="hero-art-frame">
-                        <img src="assets/images/Climbing%20towards%20the%20celestial%20Ankh.png" alt="Pixel-art tableau of a party raising a glowing ankh between moon and sun" class="hero-image" width="1024" height="1536" fetchpriority="high" decoding="async">
+                <div class="hero-art" aria-hidden="true">
+                    <div class="hero-graph">
+                        <canvas id="hero-graph-canvas" class="hero-graph-canvas"></canvas>
                     </div>
-                    <figcaption class="hero-caption">Per aspera ad data.</figcaption>
-                </figure>
+                    <p class="hero-caption">A preview of the workbench below.</p>
+                </div>
             </div>
         </section>
 

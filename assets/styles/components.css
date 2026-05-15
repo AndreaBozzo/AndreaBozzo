@@ -28,8 +28,7 @@
 .section-lead,
 .contact-text,
 .blog-summary,
-.project-desc,
-.hero-note p {
+.project-desc {
     color: var(--color-text-secondary);
     font-size: var(--text-lg);
 }
