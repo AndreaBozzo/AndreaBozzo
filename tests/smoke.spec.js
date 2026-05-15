@@ -63,6 +63,6 @@ test('Italian routes render localized static and generated pages', async ({ page
 
   await page.goto('/it/work/andreabozzo-site/');
   await expect(page.locator('html')).toHaveAttribute('lang', 'it');
-  await expect(page.getByRole('heading', { name: /^AndreaBozzo$/i })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /^Questo sito$/i })).toBeVisible();
   await expect(page.getByText('Metriche di prova')).toBeVisible();
 });
