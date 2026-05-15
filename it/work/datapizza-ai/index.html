@@ -129,7 +129,7 @@
         <nav class="case-page-nav" aria-label="Navigazione case study">
             <a class="btn btn-secondary" href="../../../#workbench">Torna al workbench</a>
             <a class="btn btn-ghost" href="../druid-datafusion-bridge/">← druid-datafusion-bridge</a>
-            <a class="btn btn-ghost" href="../andreabozzo-site/">AndreaBozzo →</a>
+            <a class="btn btn-ghost" href="../andreabozzo-site/">Questo sito →</a>
         </nav>
 
         <section class="case-layout">
@@ -141,7 +141,7 @@
                     <h2>Centro tecnico</h2>
                     <p>Il framework stratifica un layer di client LLM multi-provider (OpenAI, Gemini, Anthropic, Mistral, Azure) sotto agenti con tool-calling, poi sopra una pipeline di ingestion e chunking documentale (Docling, Azure Document Intelligence) che alimenta una ricerca vettoriale su Qdrant con embedder Cohere o FastEmbed e reranking opzionale. Redis caching e tracciamento OpenTelemetry girano su tutti i layer. La disciplina architetturale è che lo switch di provider, la composizione degli agenti e il cablaggio della pipeline avvengono tutti in modo dichiarativo senza riscrivere la business logic.</p>
 
-                    <h2>Lavoro di contribuzione</h2>
+                    <h2>Prove correnti</h2>
                     <p>Cinque PR unite coprono i layer in cui il mandato di meno astrazione del framework crea più attrito nella pratica. La PR #55 ha aggiunto il supporto Bedrock async (a_invoke e a_stream_invoke via aioboto3) per sbloccare i pattern applicativi async-first. La PR #67 ha corretto IngestionPipeline.run() per accettare effettivamente una lista di file path come prometteva la sua stessa firma documentata. La PR #77 ha aggiunto un parametro metadata ad AzureParser e DoclingParser con validazione del tipo a runtime, così le pipeline possono passare contesto attraverso il layer di ingestion senza incorrere in un TypeError. La PR #97 ha introdotto un async context manager su MCPClient per sessioni persistenti, fondamentale per i server MCP stateful che mantengono connessioni database o stato di autenticazione tra le chiamate agli strumenti. La PR #106 ha rifattorizzato FastEmbedder per usare il batch processing nativo di fastembed e asyncio.to_thread() — eliminando logica duplicata e correggendo il percorso async in modo che l&#39;I/O bloccante non giri più sull&#39;event loop.</p>
 
                 </article>

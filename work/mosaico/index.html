@@ -135,14 +135,14 @@
         <section class="case-layout">
             <div class="case-content">
                 <article class="case-main">
-                    <h2>Why it matters</h2>
-                    <p>Robotics and physical-AI systems need data platform primitives that remain understandable once experiments become real operations. The interesting pressure is that these systems are both research environments and production candidates: teams need fast iteration, but they also need reproducible datasets, reliable jobs, and interfaces that do not collapse when multiple engineers start depending on them.</p>
+                    <h2>Why it exists</h2>
+                    <p>Robotics and physical-AI systems are both research environments and production candidates at the same time. Teams need fast iteration, but they also need reproducible datasets, reliable jobs, and interfaces that hold up once multiple engineers start depending on them. Mosaico is interesting precisely because it has to serve both modes without collapsing into either one.</p>
 
                     <h2>Technical center</h2>
-                    <p>The interesting work sits at integration boundaries: how orchestration stays flexible enough for experimentation while remaining debuggable for the next engineer. In Mosaico that means paying attention to SDK and backend contracts, CI behavior, query ergonomics, and the places where platform code has to support messy real-world robotics workflows without hiding too much behind magic.</p>
+                    <p>The contribution work sits at integration boundaries: SDK and backend contracts, CI behavior, query ergonomics, and the places where orchestration has to stay debuggable for the next engineer. Each PR targets a seam where platform code meets messy real-world robotics workflows — the spots where convenience abstractions tend to leak the most.</p>
 
                     <h2>Current proof points</h2>
-                    <p>This is already more than a platform summary: the visible contribution history sits exactly at the workflow boundaries that matter in robotics systems, where CI reliability, query ergonomics, and SDK-server compatibility determine whether data tooling remains usable by the next engineer. The case study is useful because it treats contribution work as a way to understand a platform from the inside rather than as a detached overview.</p>
+                    <p>The visible contribution history lands on the workflow boundaries that decide whether a robotics data platform stays usable across teams: CI reliability, query ergonomics, and SDK-server compatibility. The case study treats contribution work as a way to learn a platform from the inside, not as a detached summary.</p>
 
                 </article>
 

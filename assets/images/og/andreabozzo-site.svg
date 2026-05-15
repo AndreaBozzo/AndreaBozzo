@@ -19,7 +19,7 @@
     <text x="40" y="122" fill="#f6fffb" fill-opacity="0.92" font-size="34" font-weight="700" font-family="Noto Sans">AB</text>
   </g>
   <text x="88" y="112" fill="#0d3b32" font-size="22" font-weight="700" font-family="Noto Sans" letter-spacing="4">CASE STUDY</text>
-  <text x="88" y="198" fill="#10201c" font-size="64" font-weight="700" font-family="Noto Sans">AndreaBozzo</text>
+  <text x="88" y="198" fill="#10201c" font-size="64" font-weight="700" font-family="Noto Sans">This website</text>
   <text x="88" y="386" fill="#425e56" font-size="30" font-weight="400" font-family="Noto Sans">A public front door that combines portfolio, blog,</text>
 <text x="88" y="424" fill="#425e56" font-size="30" font-weight="400" font-family="Noto Sans">workbench, generators, and a companion API.</text>
   <rect x="88" y="500" width="178.63703999999998" height="44" rx="18" fill="#e3f6f0" stroke="#91d7c8"/>

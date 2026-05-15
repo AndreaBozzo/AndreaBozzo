@@ -129,7 +129,7 @@
         <nav class="case-page-nav" aria-label="Case study navigation">
             <a class="btn btn-secondary" href="../../#workbench">Back to workbench</a>
             <a class="btn btn-ghost" href="../druid-datafusion-bridge/">← druid-datafusion-bridge</a>
-            <a class="btn btn-ghost" href="../andreabozzo-site/">AndreaBozzo →</a>
+            <a class="btn btn-ghost" href="../andreabozzo-site/">This website →</a>
         </nav>
 
         <section class="case-layout">
@@ -141,7 +141,7 @@
                     <h2>Technical center</h2>
                     <p>The framework layers a multi-provider LLM client layer (OpenAI, Gemini, Anthropic, Mistral, Azure) under tool-calling agents, then above that a document ingestion and chunking pipeline (Docling, Azure Document Intelligence) that feeds into Qdrant-backed vector search with Cohere or FastEmbed embedders and optional reranking. Redis caching and OpenTelemetry tracing run across all layers. The architectural discipline is that provider switching, agent composition, and pipeline wiring are all done declaratively without rewriting business logic.</p>
 
-                    <h2>Contribution work</h2>
+                    <h2>Current proof points</h2>
                     <p>Five merged PRs cover the layers where the framework&#39;s less-abstraction mandate creates the most friction in practice. PR #55 added async Bedrock support (a_invoke and a_stream_invoke via aioboto3) to unblock async-first application patterns. PR #67 fixed IngestionPipeline.run() to actually accept a list of file paths as its own documented signature promised. PR #77 added a metadata parameter to AzureParser and DoclingParser with runtime type validation so pipelines can pass context through the ingestion layer without hitting a TypeError. PR #97 introduced an async context manager on MCPClient for persistent sessions, which matters for any stateful MCP server that maintains database connections or authentication state across tool calls. PR #106 refactored FastEmbedder to use fastembed&#39;s native batch processing and asyncio.to_thread() — removing duplicated logic and fixing the async path so blocking I/O no longer runs on the event loop.</p>
 
                 </article>

@@ -283,6 +283,8 @@
       ],
       "coverImage": "../blog/images/Ares_vs_Ceres_architecture_comparison.png",
       "coverAlt": "Ares and Ceres architecture comparison",
+      "coverEyebrow": "Two collection contracts",
+      "coverText": "Ceres synchronizes known open-data portals; Ares extracts structure from arbitrary pages. Same problem space, two operational contracts kept deliberately separate.",
       "actions": [
         {
           "label": "Ceres repository",
@@ -366,6 +368,8 @@
           "summary": "Ceres mantiene sincronizzati nel tempo i metadati dei portali, mentre Ares trasforma pagine arbitrarie in dati strutturati guidati da schema, con code, retry e change detection.",
           "metaDescription": "Ares + Ceres: due sistemi complementari per raccolta open-data ed estrazione LLM su schema, con code, retry e change detection.",
           "status": "Coppia di repo attivi",
+          "coverEyebrow": "Due contratti di raccolta",
+          "coverText": "Ceres sincronizza portali open-data noti; Ares estrae struttura da pagine arbitrarie. Stesso spazio di problema, due contratti operativi tenuti deliberatamente separati.",
           "coverAlt": "Confronto architetturale tra Ares e Ceres",
           "sections": [
             {
@@ -403,6 +407,8 @@
       ],
       "coverImage": "../blog/images/Mosaico-architecture.png",
       "coverAlt": "Mosaico architecture diagram",
+      "coverEyebrow": "Robotics data platform",
+      "coverText": "Upstream contributions at the SDK, CI, and orchestration boundaries that decide whether a research platform survives multi-team use.",
       "actions": [
         {
           "label": "Repository",
@@ -433,16 +439,16 @@
       ],
       "sections": [
         {
-          "heading": "Why it matters",
-          "body": "Robotics and physical-AI systems need data platform primitives that remain understandable once experiments become real operations. The interesting pressure is that these systems are both research environments and production candidates: teams need fast iteration, but they also need reproducible datasets, reliable jobs, and interfaces that do not collapse when multiple engineers start depending on them."
+          "heading": "Why it exists",
+          "body": "Robotics and physical-AI systems are both research environments and production candidates at the same time. Teams need fast iteration, but they also need reproducible datasets, reliable jobs, and interfaces that hold up once multiple engineers start depending on them. Mosaico is interesting precisely because it has to serve both modes without collapsing into either one."
         },
         {
           "heading": "Technical center",
-          "body": "The interesting work sits at integration boundaries: how orchestration stays flexible enough for experimentation while remaining debuggable for the next engineer. In Mosaico that means paying attention to SDK and backend contracts, CI behavior, query ergonomics, and the places where platform code has to support messy real-world robotics workflows without hiding too much behind magic."
+          "body": "The contribution work sits at integration boundaries: SDK and backend contracts, CI behavior, query ergonomics, and the places where orchestration has to stay debuggable for the next engineer. Each PR targets a seam where platform code meets messy real-world robotics workflows — the spots where convenience abstractions tend to leak the most."
         },
         {
           "heading": "Current proof points",
-          "body": "This is already more than a platform summary: the visible contribution history sits exactly at the workflow boundaries that matter in robotics systems, where CI reliability, query ergonomics, and SDK-server compatibility determine whether data tooling remains usable by the next engineer. The case study is useful because it treats contribution work as a way to understand a platform from the inside rather than as a detached overview."
+          "body": "The visible contribution history lands on the workflow boundaries that decide whether a robotics data platform stays usable across teams: CI reliability, query ergonomics, and SDK-server compatibility. The case study treats contribution work as a way to learn a platform from the inside, not as a detached summary."
         }
       ],
       "systemAnatomy": {
@@ -478,19 +484,21 @@
           "summary": "Un case study orientato alla contribuzione su confini di workflow, ergonomia per sviluppatori e superfici di integrazione di piattaforma dati in Mosaico.",
           "metaDescription": "Mosaico: contribuzioni su una piattaforma dati open per robotica e physical AI, focalizzate su workflow boundary ed ergonomia SDK.",
           "status": "Contribuzione upstream",
+          "coverEyebrow": "Piattaforma dati per robotica",
+          "coverText": "Contribuzioni upstream sui confini di SDK, CI e orchestrazione che decidono se una piattaforma di ricerca sopravvive all'uso multi-team.",
           "coverAlt": "Diagramma architetturale di Mosaico",
           "sections": [
             {
-              "heading": "Perché conta",
-              "body": "I sistemi di robotica e physical-AI hanno bisogno di primitive di piattaforma dati che restino comprensibili quando gli esperimenti diventano operazioni reali. La pressione interessante è che questi sistemi sono insieme ambienti di ricerca e candidati per la produzione: i team hanno bisogno di iterazione veloce, ma anche di dataset riproducibili, job affidabili e interfacce che non collassino quando più ingegneri iniziano a dipenderne."
+              "heading": "Perché esiste",
+              "body": "I sistemi di robotica e physical-AI sono allo stesso tempo ambienti di ricerca e candidati alla produzione. I team hanno bisogno di iterazione veloce, ma anche di dataset riproducibili, job affidabili e interfacce che reggano quando più ingegneri iniziano a dipenderne. Mosaico è interessante proprio perché deve servire entrambe le modalità senza collassare in nessuna delle due."
             },
             {
               "heading": "Centro tecnico",
-              "body": "Il lavoro interessante sta ai confini dell'integrazione: come l'orchestrazione resta flessibile abbastanza per la sperimentazione restando debug-friendly per l'ingegnere successivo. In Mosaico questo significa prestare attenzione ai contratti SDK e backend, al comportamento della CI, all'ergonomia delle query e ai punti in cui il codice di piattaforma deve supportare workflow di robotica reali e disordinati senza nascondere troppo dietro la magia."
+              "body": "Il lavoro di contribuzione sta ai confini dell'integrazione: contratti SDK e backend, comportamento della CI, ergonomia delle query e i punti in cui l'orchestrazione deve restare debug-friendly per l'ingegnere successivo. Ogni PR mira a una giuntura in cui il codice di piattaforma incontra workflow di robotica reali e disordinati — i posti dove le astrazioni di comodo perdono di più."
             },
             {
               "heading": "Prove correnti",
-              "body": "Questo è già più di un riassunto di piattaforma: la cronologia visibile delle contribuzioni cade esattamente sui confini di workflow che contano nei sistemi di robotica, dove affidabilità della CI, ergonomia delle query e compatibilità SDK-server determinano se il tooling dati resta usabile dall'ingegnere successivo. Il case study è utile perché tratta il lavoro di contribuzione come modo per capire una piattaforma dall'interno, invece che come panoramica distaccata."
+              "body": "La cronologia visibile delle contribuzioni cade sui confini di workflow che decidono se una piattaforma dati per robotica resta usabile tra team: affidabilità della CI, ergonomia delle query e compatibilità SDK-server. Il case study tratta il lavoro di contribuzione come modo per imparare una piattaforma dall'interno, non come riassunto distaccato."
             }
           ]
         }
@@ -733,7 +741,9 @@
       ],
       "status": "Pre-release engine",
       "repoUrl": "https://github.com/AndreaBozzo/dce",
-      "relatedPosts": [],
+      "relatedPosts": [
+        "tabularmlpipes-blog"
+      ],
       "coverImage": "../../assets/images/case-studies/dce-logo.png",
       "coverAlt": "DCE project logo",
       "coverImageScale": "1.68",
@@ -745,6 +755,11 @@
           "label": "Repository",
           "url": "https://github.com/AndreaBozzo/dce",
           "style": "primary"
+        },
+        {
+          "label": "Related article",
+          "url": "../../blog/en/posts/tabularmlpipes-blog/",
+          "style": "secondary"
         }
       ],
       "mediaSlots": [
@@ -1310,7 +1325,9 @@
       ],
       "status": "Work in progress",
       "repoUrl": "https://github.com/AndreaBozzo/druid-datafusion-bridge",
-      "relatedPosts": [],
+      "relatedPosts": [
+        "polarsruststack-blog"
+      ],
       "coverImage": "../../assets/images/case-studies/druid-datafusion-bridge-logo.png",
       "coverAlt": "druid-datafusion-bridge project logo",
       "coverEyebrow": "Segment-native analytics",
@@ -1320,6 +1337,11 @@
           "label": "Repository",
           "url": "https://github.com/AndreaBozzo/druid-datafusion-bridge",
           "style": "primary"
+        },
+        {
+          "label": "Related article",
+          "url": "../../blog/en/posts/polarsruststack-blog/",
+          "style": "secondary"
         }
       ],
       "mediaSlots": [
@@ -1497,7 +1519,7 @@
           "body": "The framework layers a multi-provider LLM client layer (OpenAI, Gemini, Anthropic, Mistral, Azure) under tool-calling agents, then above that a document ingestion and chunking pipeline (Docling, Azure Document Intelligence) that feeds into Qdrant-backed vector search with Cohere or FastEmbed embedders and optional reranking. Redis caching and OpenTelemetry tracing run across all layers. The architectural discipline is that provider switching, agent composition, and pipeline wiring are all done declaratively without rewriting business logic."
         },
         {
-          "heading": "Contribution work",
+          "heading": "Current proof points",
           "body": "Five merged PRs cover the layers where the framework's less-abstraction mandate creates the most friction in practice. PR #55 added async Bedrock support (a_invoke and a_stream_invoke via aioboto3) to unblock async-first application patterns. PR #67 fixed IngestionPipeline.run() to actually accept a list of file paths as its own documented signature promised. PR #77 added a metadata parameter to AzureParser and DoclingParser with runtime type validation so pipelines can pass context through the ingestion layer without hitting a TypeError. PR #97 introduced an async context manager on MCPClient for persistent sessions, which matters for any stateful MCP server that maintains database connections or authentication state across tool calls. PR #106 refactored FastEmbedder to use fastembed's native batch processing and asyncio.to_thread() — removing duplicated logic and fixing the async path so blocking I/O no longer runs on the event loop."
         }
       ],
@@ -1548,7 +1570,7 @@
               "body": "Il framework stratifica un layer di client LLM multi-provider (OpenAI, Gemini, Anthropic, Mistral, Azure) sotto agenti con tool-calling, poi sopra una pipeline di ingestion e chunking documentale (Docling, Azure Document Intelligence) che alimenta una ricerca vettoriale su Qdrant con embedder Cohere o FastEmbed e reranking opzionale. Redis caching e tracciamento OpenTelemetry girano su tutti i layer. La disciplina architetturale è che lo switch di provider, la composizione degli agenti e il cablaggio della pipeline avvengono tutti in modo dichiarativo senza riscrivere la business logic."
             },
             {
-              "heading": "Lavoro di contribuzione",
+              "heading": "Prove correnti",
               "body": "Cinque PR unite coprono i layer in cui il mandato di meno astrazione del framework crea più attrito nella pratica. La PR #55 ha aggiunto il supporto Bedrock async (a_invoke e a_stream_invoke via aioboto3) per sbloccare i pattern applicativi async-first. La PR #67 ha corretto IngestionPipeline.run() per accettare effettivamente una lista di file path come prometteva la sua stessa firma documentata. La PR #77 ha aggiunto un parametro metadata ad AzureParser e DoclingParser con validazione del tipo a runtime, così le pipeline possono passare contesto attraverso il layer di ingestion senza incorrere in un TypeError. La PR #97 ha introdotto un async context manager su MCPClient per sessioni persistenti, fondamentale per i server MCP stateful che mantengono connessioni database o stato di autenticazione tra le chiamate agli strumenti. La PR #106 ha rifattorizzato FastEmbedder per usare il batch processing nativo di fastembed e asyncio.to_thread() — eliminando logica duplicata e correggendo il percorso async in modo che l'I/O bloccante non giri più sull'event loop."
             }
           ]
@@ -1557,7 +1579,7 @@
     },
     {
       "slug": "andreabozzo-site",
-      "title": "AndreaBozzo",
+      "title": "This website",
       "subtitle": "A public front door that combines portfolio, blog, workbench, generators, and a companion API.",
       "summary": "This repository is both the personal website and the system behind it: a handcrafted landing page, a Hugo blog, a Rust/WASM knowledge workbench, Go generators for static artifacts, and a small Vercel-hosted GitHub stats API.",
       "stack": [
@@ -1662,10 +1684,10 @@
       },
       "translations": {
         "it": {
-          "title": "AndreaBozzo",
+          "title": "Questo sito",
           "subtitle": "Una porta d'ingresso pubblica che combina portfolio, blog, workbench, generatori e una companion API.",
           "summary": "Questo repository è insieme il sito personale e il sistema dietro: una landing page costruita a mano, un blog Hugo, un knowledge workbench Rust/WASM, generatori Go per artefatti statici e una piccola API GitHub stats hostata su Vercel.",
-          "metaDescription": "AndreaBozzo: il sito personale come sistema, con landing page handcrafted, blog Hugo, workbench Rust/WASM, generatori Go e API GitHub stats su Vercel.",
+          "metaDescription": "Questo sito: il portfolio personale come sistema, con landing page handcrafted, blog Hugo, workbench Rust/WASM, generatori Go e API GitHub stats su Vercel.",
           "status": "Sistema live",
           "coverEyebrow": "Portfolio come sistema",
           "coverText": "Un singolo repo che fa da landing page, blog, archivio del lavoro generato e companion API, invece di essere un sito brochure statico.",
