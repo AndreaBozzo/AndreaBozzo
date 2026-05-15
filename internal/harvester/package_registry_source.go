@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"io"
 	"net/http"
 	"net/url"
 	"os"
@@ -231,23 +232,33 @@ func (source PackageRegistrySource) getRegistryJSON(ctx context.Context, endpoin
 		client = &http.Client{Timeout: 30 * time.Second}
 	}
 
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, endpoint, nil)
-	if err != nil {
-		return fmt.Errorf("build request: %w", err)
-	}
-	req.Header.Set("Accept", "application/json")
-	req.Header.Set("User-Agent", registryUserAgent)
+	body, err := newHTTPCache(source.RepoRoot).get("registry", endpoint, func() ([]byte, error) {
+		req, err := http.NewRequestWithContext(ctx, http.MethodGet, endpoint, nil)
+		if err != nil {
+			return nil, fmt.Errorf("build request: %w", err)
+		}
+		req.Header.Set("Accept", "application/json")
+		req.Header.Set("User-Agent", registryUserAgent)
 
-	resp, err := client.Do(req)
-	if err != nil {
-		return fmt.Errorf("request %s: %w", endpoint, err)
-	}
-	defer resp.Body.Close()
+		resp, err := client.Do(req)
+		if err != nil {
+			return nil, fmt.Errorf("request %s: %w", endpoint, err)
+		}
+		defer resp.Body.Close()
 
-	if resp.StatusCode >= 300 {
-		return fmt.Errorf("%s returned %d", endpoint, resp.StatusCode)
+		body, err := io.ReadAll(resp.Body)
+		if err != nil {
+			return nil, fmt.Errorf("read response for %s: %w", endpoint, err)
+		}
+		if resp.StatusCode >= 300 {
+			return nil, fmt.Errorf("%s returned %d", endpoint, resp.StatusCode)
+		}
+		return body, nil
+	})
+	if err != nil {
+		return err
 	}
-	if err := json.NewDecoder(resp.Body).Decode(target); err != nil {
+	if err := json.Unmarshal(body, target); err != nil {
 		return fmt.Errorf("decode response for %s: %w", endpoint, err)
 	}
 	return nil

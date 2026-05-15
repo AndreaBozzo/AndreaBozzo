@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://andreabozzo.dev/schema/repo-metadata.schema.json",
+  "title": "RepositoryMetadataIndexV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schemaVersion", "generatedAt", "source", "items"],
+  "properties": {
+    "$schemaVersion": {
+      "const": "v1"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/RepositoryMetadataItemV1"
+      }
+    }
+  },
+  "$defs": {
+    "RepositoryMetadataItemV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["caseStudySlug", "repoFullName", "repoUrl", "stars", "forks"],
+      "properties": {
+        "caseStudySlug": { "type": "string", "minLength": 1 },
+        "repoFullName": { "type": "string", "minLength": 1 },
+        "repoUrl": { "type": "string", "format": "uri" },
+        "description": { "type": "string" },
+        "stars": { "type": "integer", "minimum": 0 },
+        "forks": { "type": "integer", "minimum": 0 },
+        "topics": { "type": "array", "items": { "type": "string" } },
+        "language": { "type": "string" },
+        "pushedAt": { "type": "string", "format": "date-time" },
+        "defaultBranch": { "type": "string" },
+        "relatedCaseStudies": { "type": "array", "items": { "type": "string" } },
+        "releases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["tagName", "name"],
+            "properties": {
+              "tagName": { "type": "string", "minLength": 1 },
+              "name": { "type": "string", "minLength": 1 },
+              "url": { "type": "string", "format": "uri" },
+              "publishedAt": { "type": "string", "format": "date-time" },
+              "target": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

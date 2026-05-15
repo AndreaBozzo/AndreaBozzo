@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://andreabozzo.dev/schema/contributions.schema.json",
+  "title": "ContributionsIndexV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schemaVersion", "generatedAt", "source", "items"],
+  "properties": {
+    "$schemaVersion": {
+      "const": "v1"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ContributionItemV1"
+      }
+    }
+  },
+  "$defs": {
+    "ContributionItemV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "url", "stars", "prs", "desc"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri" },
+        "stars": { "type": "string", "minLength": 1 },
+        "prs": { "type": "string", "minLength": 1 },
+        "desc": { "type": "string", "minLength": 1 },
+        "language": { "type": "string" },
+        "topics": { "type": "array", "items": { "type": "string" } },
+        "lastPRMergedAt": { "type": "string", "format": "date-time" },
+        "prList": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["title", "number", "url"],
+            "properties": {
+              "title": { "type": "string", "minLength": 1 },
+              "number": { "type": "integer", "minimum": 0 },
+              "url": { "type": "string", "format": "uri" },
+              "mergedAt": { "type": "string", "format": "date-time" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

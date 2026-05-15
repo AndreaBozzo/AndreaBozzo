@@ -26,6 +26,14 @@ func GenerateContractArtifacts(repoRoot string) error {
 			content: ciRuntimesSchemaJSON,
 		},
 		{
+			path:    filepath.Join(repoRoot, "schema", "contributions.schema.json"),
+			content: contributionsSchemaJSON,
+		},
+		{
+			path:    filepath.Join(repoRoot, "schema", "repo-metadata.schema.json"),
+			content: repoMetadataSchemaJSON,
+		},
+		{
 			path:    filepath.Join(repoRoot, "assets", "types", "writing.d.ts"),
 			content: writingTypes,
 		},
@@ -36,6 +44,14 @@ func GenerateContractArtifacts(repoRoot string) error {
 		{
 			path:    filepath.Join(repoRoot, "assets", "types", "ci-runtimes.d.ts"),
 			content: ciRuntimesTypes,
+		},
+		{
+			path:    filepath.Join(repoRoot, "assets", "types", "contributions.d.ts"),
+			content: contributionsTypes,
+		},
+		{
+			path:    filepath.Join(repoRoot, "assets", "types", "repo-metadata.d.ts"),
+			content: repoMetadataTypes,
 		},
 	}
 
@@ -362,6 +378,130 @@ const ciRuntimesSchemaJSON = `{
 }
 `
 
+const contributionsSchemaJSON = `{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://andreabozzo.dev/schema/contributions.schema.json",
+  "title": "ContributionsIndexV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schemaVersion", "generatedAt", "source", "items"],
+  "properties": {
+    "$schemaVersion": {
+      "const": "v1"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ContributionItemV1"
+      }
+    }
+  },
+  "$defs": {
+    "ContributionItemV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "url", "stars", "prs", "desc"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri" },
+        "stars": { "type": "string", "minLength": 1 },
+        "prs": { "type": "string", "minLength": 1 },
+        "desc": { "type": "string", "minLength": 1 },
+        "language": { "type": "string" },
+        "topics": { "type": "array", "items": { "type": "string" } },
+        "lastPRMergedAt": { "type": "string", "format": "date-time" },
+        "prList": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["title", "number", "url"],
+            "properties": {
+              "title": { "type": "string", "minLength": 1 },
+              "number": { "type": "integer", "minimum": 0 },
+              "url": { "type": "string", "format": "uri" },
+              "mergedAt": { "type": "string", "format": "date-time" }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`
+
+const repoMetadataSchemaJSON = `{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://andreabozzo.dev/schema/repo-metadata.schema.json",
+  "title": "RepositoryMetadataIndexV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schemaVersion", "generatedAt", "source", "items"],
+  "properties": {
+    "$schemaVersion": {
+      "const": "v1"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/RepositoryMetadataItemV1"
+      }
+    }
+  },
+  "$defs": {
+    "RepositoryMetadataItemV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["caseStudySlug", "repoFullName", "repoUrl", "stars", "forks"],
+      "properties": {
+        "caseStudySlug": { "type": "string", "minLength": 1 },
+        "repoFullName": { "type": "string", "minLength": 1 },
+        "repoUrl": { "type": "string", "format": "uri" },
+        "description": { "type": "string" },
+        "stars": { "type": "integer", "minimum": 0 },
+        "forks": { "type": "integer", "minimum": 0 },
+        "topics": { "type": "array", "items": { "type": "string" } },
+        "language": { "type": "string" },
+        "pushedAt": { "type": "string", "format": "date-time" },
+        "defaultBranch": { "type": "string" },
+        "relatedCaseStudies": { "type": "array", "items": { "type": "string" } },
+        "releases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["tagName", "name"],
+            "properties": {
+              "tagName": { "type": "string", "minLength": 1 },
+              "name": { "type": "string", "minLength": 1 },
+              "url": { "type": "string", "format": "uri" },
+              "publishedAt": { "type": "string", "format": "date-time" },
+              "target": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`
+
 const writingTypes = `export interface WritingItemV1 {
   id: string;
   slug: string;
@@ -436,6 +576,64 @@ export interface CIRuntimeIndexV1 {
   generatedAt: string;
   source: string;
   items: CIRuntimeItemV1[];
+}
+`
+
+const contributionsTypes = `export interface ContributionPRV1 {
+  title: string;
+  number: number;
+  url: string;
+  mergedAt?: string;
+}
+
+export interface ContributionItemV1 {
+  name: string;
+  url: string;
+  stars: string;
+  prs: string;
+  desc: string;
+  language?: string;
+  topics?: string[];
+  lastPRMergedAt?: string;
+  prList?: ContributionPRV1[];
+}
+
+export interface ContributionsIndexV1 {
+  $schemaVersion: 'v1';
+  generatedAt: string;
+  source: string;
+  items: ContributionItemV1[];
+}
+`
+
+const repoMetadataTypes = `export interface RepositoryReleaseV1 {
+  tagName: string;
+  name: string;
+  url?: string;
+  publishedAt?: string;
+  target?: string;
+}
+
+export interface RepositoryMetadataItemV1 {
+  caseStudySlug: string;
+  repoFullName: string;
+  repoUrl: string;
+  description?: string;
+  stars: number;
+  forks: number;
+  topics?: string[];
+  language?: string;
+  pushedAt?: string;
+  defaultBranch?: string;
+  relatedCaseStudies?: string[];
+  releases?: RepositoryReleaseV1[];
+}
+
+export interface RepositoryMetadataIndexV1 {
+  $schemaVersion: 'v1';
+  generatedAt: string;
+  source: string;
+  items: RepositoryMetadataItemV1[];
 }
 `
 

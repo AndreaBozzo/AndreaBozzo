@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"net/http"
@@ -16,9 +17,13 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/AndreaBozzo/AndreaBozzo/internal/harvester/schema"
 )
 
 var sleepFor = time.Sleep
+
+var errGitHubRateLimitRetry = errors.New("github rate limit retry")
 
 var categoryOrder = []string{"Data Ecosystem", "Rust Tooling", "AI/ML", "Infrastructure", "Other"}
 
@@ -90,14 +95,18 @@ type contributionPR struct {
 }
 
 type githubClient struct {
+	repoRoot   string
 	httpClient *http.Client
 	token      string
+	cache      httpCache
 }
 
 func UpdateContributionsREADME(ctx context.Context, repoRoot, username string) error {
 	client := githubClient{
+		repoRoot:   repoRoot,
 		httpClient: &http.Client{Timeout: 30 * time.Second},
 		token:      strings.TrimSpace(os.Getenv("GITHUB_TOKEN")),
+		cache:      newHTTPCache(repoRoot),
 	}
 
 	prs, err := client.fetchAllMergedPRs(ctx, username)
@@ -185,9 +194,10 @@ func writeContributionsJSON(repoRoot string, repoMap map[string]contributionRepo
 	}
 
 	payload := contributionsJSONPayload{
-		GeneratedAt: time.Now().UTC().Format(time.RFC3339),
-		Source:      "github.com/search/issues?author=AndreaBozzo+is:merged",
-		Items:       items,
+		SchemaVersion: schema.VersionV1,
+		GeneratedAt:   time.Now().UTC().Format(time.RFC3339),
+		Source:        "github.com/search/issues?author=AndreaBozzo+is:merged",
+		Items:         items,
 	}
 
 	outputPath := filepath.Join(repoRoot, "assets", "data", "contributions.json")
@@ -332,47 +342,56 @@ func (client githubClient) fetchContributionRepos(ctx context.Context, prs []git
 
 func (client githubClient) getJSON(ctx context.Context, endpoint string, target any) error {
 	for attempt := 0; attempt < 3; attempt++ {
-		req, err := http.NewRequestWithContext(ctx, http.MethodGet, endpoint, nil)
-		if err != nil {
-			return fmt.Errorf("build request: %w", err)
-		}
-		req.Header.Set("Accept", "application/vnd.github+json")
-		req.Header.Set("User-Agent", "andreabozzo-harvester")
-		if client.token != "" {
-			req.Header.Set("Authorization", "Bearer "+client.token)
-		}
+		body, err := client.cache.get("github", endpoint, func() ([]byte, error) {
+			req, err := http.NewRequestWithContext(ctx, http.MethodGet, endpoint, nil)
+			if err != nil {
+				return nil, fmt.Errorf("build request: %w", err)
+			}
+			req.Header.Set("Accept", "application/vnd.github+json")
+			req.Header.Set("User-Agent", "andreabozzo-harvester")
+			if client.token != "" {
+				req.Header.Set("Authorization", "Bearer "+client.token)
+			}
 
-		resp, err := client.httpClient.Do(req)
-		if err != nil {
-			return fmt.Errorf("request %s: %w", endpoint, err)
-		}
+			resp, err := client.httpClient.Do(req)
+			if err != nil {
+				return nil, fmt.Errorf("request %s: %w", endpoint, err)
+			}
 
-		if resp.StatusCode == http.StatusForbidden && isGitHubRateLimited(resp) {
-			resetAt := time.Now().Add(30 * time.Second)
-			if raw := resp.Header.Get("X-RateLimit-Reset"); raw != "" {
-				if unixSeconds, convErr := strconv.ParseInt(raw, 10, 64); convErr == nil {
-					resetAt = time.Unix(unixSeconds, 0)
+			if resp.StatusCode == http.StatusForbidden && isGitHubRateLimited(resp) {
+				resetAt := time.Now().Add(30 * time.Second)
+				if raw := resp.Header.Get("X-RateLimit-Reset"); raw != "" {
+					if unixSeconds, convErr := strconv.ParseInt(raw, 10, 64); convErr == nil {
+						resetAt = time.Unix(unixSeconds, 0)
+					}
 				}
+				_ = resp.Body.Close()
+				sleep := time.Until(resetAt)
+				if sleep < 10*time.Second {
+					sleep = 10 * time.Second
+				}
+				if sleep > 2*time.Minute {
+					sleep = 2 * time.Minute
+				}
+				sleepFor(sleep)
+				return nil, errGitHubRateLimitRetry
 			}
-			_ = resp.Body.Close()
-			sleep := time.Until(resetAt)
-			if sleep < 10*time.Second {
-				sleep = 10 * time.Second
-			}
-			if sleep > 2*time.Minute {
-				sleep = 2 * time.Minute
-			}
-			sleepFor(sleep)
-			continue
-		}
 
-		body, readErr := io.ReadAll(resp.Body)
-		_ = resp.Body.Close()
-		if readErr != nil {
-			return fmt.Errorf("read response for %s: %w", endpoint, readErr)
-		}
-		if resp.StatusCode >= 300 {
-			return fmt.Errorf("github API %s returned %d: %s", endpoint, resp.StatusCode, strings.TrimSpace(string(body)))
+			body, readErr := io.ReadAll(resp.Body)
+			_ = resp.Body.Close()
+			if readErr != nil {
+				return nil, fmt.Errorf("read response for %s: %w", endpoint, readErr)
+			}
+			if resp.StatusCode >= 300 {
+				return nil, fmt.Errorf("github API %s returned %d: %s", endpoint, resp.StatusCode, strings.TrimSpace(string(body)))
+			}
+			return body, nil
+		})
+		if err != nil {
+			if errors.Is(err, errGitHubRateLimitRetry) {
+				continue
+			}
+			return err
 		}
 		if err := json.Unmarshal(body, target); err != nil {
 			return fmt.Errorf("decode response for %s: %w", endpoint, err)

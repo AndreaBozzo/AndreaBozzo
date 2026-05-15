@@ -544,6 +544,96 @@ func TestCIRuntimeSourceFetchesWorkflowMetrics(t *testing.T) {
 	}
 }
 
+func TestOwnedRepositoryMetadataSourceFetchesOwnedReposAndUsesCache(t *testing.T) {
+	repoRoot := t.TempDir()
+	t.Setenv("HARVESTER_DISABLE_CACHE", "")
+	t.Setenv("HARVESTER_CACHE_TTL", "24h")
+	writeTestFile(t, filepath.Join(repoRoot, "assets", "data", "case-studies.json"), `{
+  "items": [
+    {
+      "slug": "dataprof",
+      "title": "dataprof",
+      "subtitle": "Example",
+      "repoUrl": "https://github.com/AndreaBozzo/dataprof",
+      "sections": [{"heading": "Why", "body": "Because"}]
+    },
+    {
+      "slug": "apache-rust-upstream",
+      "title": "Apache Rust Upstream",
+      "subtitle": "Example",
+      "repoUrl": "https://github.com/apache/arrow-rs",
+      "sections": [{"heading": "Why", "body": "Because"}]
+    }
+  ]
+}`)
+
+	requestCount := 0
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		requestCount++
+		w.Header().Set("Content-Type", "application/json")
+		switch {
+		case r.URL.Path == "/repos/AndreaBozzo/dataprof":
+			_, _ = io.WriteString(w, `{
+  "full_name": "AndreaBozzo/dataprof",
+  "html_url": "https://github.com/AndreaBozzo/dataprof",
+  "description": "Arrow-native profiling",
+  "stargazers_count": 321,
+  "forks_count": 17,
+  "topics": ["rust", "arrow", "data-quality"],
+  "language": "Rust",
+  "pushed_at": "2026-05-12T09:00:00Z",
+  "default_branch": "main"
+}`)
+		case r.URL.Path == "/repos/AndreaBozzo/dataprof/releases":
+			_, _ = io.WriteString(w, `[
+  {
+    "tag_name": "v0.7.1",
+    "name": "v0.7.1",
+    "html_url": "https://github.com/AndreaBozzo/dataprof/releases/tag/v0.7.1",
+    "published_at": "2026-05-10T10:00:00Z",
+    "draft": false,
+    "prerelease": false,
+    "target_commitish": "main"
+  }
+]`)
+		default:
+			t.Fatalf("unexpected path %s", r.URL.String())
+		}
+	}))
+	defer server.Close()
+
+	source := OwnedRepositoryMetadataSource{RepoRoot: repoRoot, HTTPClient: server.Client(), APIBaseURL: server.URL}
+	firstPayload, err := source.Fetch(context.Background())
+	if err != nil {
+		t.Fatalf("first Fetch returned error: %v", err)
+	}
+	secondPayload, err := source.Fetch(context.Background())
+	if err != nil {
+		t.Fatalf("second Fetch returned error: %v", err)
+	}
+
+	index, ok := firstPayload.(schema.RepositoryMetadataIndexV1)
+	if !ok {
+		t.Fatalf("expected RepositoryMetadataIndexV1 payload, got %T", firstPayload)
+	}
+	if len(index.Items) != 1 {
+		t.Fatalf("expected one owned repository item, got %d", len(index.Items))
+	}
+	item := index.Items[0]
+	if item.RepoFullName != "AndreaBozzo/dataprof" || item.Stars != 321 || item.Forks != 17 {
+		t.Fatalf("unexpected repository metadata item: %+v", item)
+	}
+	if len(item.Releases) != 1 || item.Releases[0].TagName != "v0.7.1" {
+		t.Fatalf("unexpected releases: %+v", item.Releases)
+	}
+	if requestCount != 2 {
+		t.Fatalf("expected cache to avoid duplicate requests, got %d requests", requestCount)
+	}
+	if _, ok := secondPayload.(schema.RepositoryMetadataIndexV1); !ok {
+		t.Fatalf("expected second payload to keep RepositoryMetadataIndexV1 type, got %T", secondPayload)
+	}
+}
+
 func TestReplaceBetweenMarkers(t *testing.T) {
 	content := "before <!-- X:START -->\nold\n<!-- X:END --> after"
 	updated, err := replaceBetweenMarkers(content, "<!-- X:START -->", "<!-- X:END -->", "new")

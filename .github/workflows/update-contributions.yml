@@ -44,6 +44,7 @@ jobs:
             assets/data/contributions.json \
             assets/data/ci-runtimes.json \
             assets/data/datasets.json \
+            assets/data/repo-metadata.json \
             work \
             it/work \
             robots.txt \

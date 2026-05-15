@@ -123,6 +123,8 @@ npm run validate:data
 
 `npm run validate:data` is the same AJV-based contract gate that runs in the Pages workflow before deploy.
 
+If you need a local `vercel deploy --prebuilt` preview for the Go API routes, use `npm run vercel:deploy:prebuilt`. The helper rewrites the generated `.vercel/output` Go functions so the compiled `bootstrap` binaries are copied out of Vercel's temporary build paths before the deploy step runs.
+
 ## Workbench JS/Rust Boundary
 
 The homepage workbench is deliberately split so the Rust/WASM bundle remains an optional accelerator, not a second frontend.

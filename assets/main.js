@@ -648,12 +648,13 @@ async function loadGeneratedProofSignals() {
     if (!strip) return;
 
     try {
-        const [packagesPayload, ciPayload, datasetsPayload, writingPayload, contributionsPayload] = await Promise.all([
+        const [packagesPayload, ciPayload, datasetsPayload, writingPayload, contributionsPayload, repoMetadataPayload] = await Promise.all([
             fetchJson(`${siteBasePath}assets/data/packages.json`),
             fetchJson(`${siteBasePath}assets/data/ci-runtimes.json`),
             fetchJson(`${siteBasePath}assets/data/datasets.json`),
             fetchJson(`${siteBasePath}assets/data/writing.json`),
-            fetchJson(`${siteBasePath}assets/data/contributions.json`)
+            fetchJson(`${siteBasePath}assets/data/contributions.json`),
+            fetchJson(`${siteBasePath}assets/data/repo-metadata.json`)
         ]);
 
         const packages = Array.isArray(packagesPayload.items) ? packagesPayload.items : [];
@@ -661,6 +662,7 @@ async function loadGeneratedProofSignals() {
         const datasets = Array.isArray(datasetsPayload.items) ? datasetsPayload.items : [];
         const writing = Array.isArray(writingPayload.items) ? writingPayload.items : [];
         const contributions = Array.isArray(contributionsPayload.items) ? contributionsPayload.items : [];
+        const repositories = Array.isArray(repoMetadataPayload.items) ? repoMetadataPayload.items : [];
 
         const totalDownloads = sumNumbers(packages, 'downloadsTotal');
         const latestGreen = ciRuns.filter(item => item.latestConclusion === 'success').length;
@@ -668,15 +670,17 @@ async function loadGeneratedProofSignals() {
         const writingSlugs = uniqueValues(writing, 'slug');
         const writingLanguages = [...uniqueValues(writing, 'language')].map(lang => lang.toUpperCase()).sort();
         const totalPRs = contributions.reduce((total, item) => total + parsePRCount(item.prs), 0);
+        const ownedRepoStars = sumNumbers(repositories, 'stars');
 
         setProofStat('proof-stat-packages', `${packages.length} ${proofText('packages', 'package')} · ${formatMetricCount(totalDownloads)} ${proofText('downloads', 'download')}`);
         setProofStat('proof-stat-ci', `${latestGreen}/${ciRuns.length} ${proofText('latest runs green', 'run recenti verdi')}`);
         setProofStat('proof-stat-datasets', `${formatMetricCount(totalRecords)} ${proofText('records', 'record')} · ${datasets.length} ${proofText('dataset', 'dataset')}`);
         setProofStat('proof-stat-writing', `${writingSlugs.size} ${proofText('posts', 'articoli')} · ${writingLanguages.join('/')}`);
-        setProofStat('proof-stat-repos', `${totalPRs} ${proofText('merged PRs', 'PR mergeate')} · ${contributions.length} repo`);
+        setProofStat('proof-stat-repos', `${formatMetricCount(ownedRepoStars)} ${proofText('owned stars', 'stelle dei repo')} · ${totalPRs} ${proofText('merged PRs', 'PR mergeate')}`);
 
         const dataprofPackages = packagesRelatedTo(packages, 'dataprof');
         const dataprofCI = ciRelatedTo(ciRuns, 'dataprof');
+        const dataprofRepo = repositories.find(item => item.caseStudySlug === 'dataprof');
         renderProofCardSignals('dataprof', [
             {
                 label: proofText('Registry', 'Registry'),
@@ -685,6 +689,12 @@ async function loadGeneratedProofSignals() {
             {
                 label: proofText('CI', 'CI'),
                 value: `${formatProofPercent(averageSuccessRate(dataprofCI))} ${proofText('success', 'successo')}`
+            },
+            {
+                label: proofText('Repository', 'Repository'),
+                value: dataprofRepo
+                    ? `${formatMetricCount(dataprofRepo.stars)} stars · ${formatMetricCount(dataprofRepo.forks)} forks`
+                    : proofText('No repo data', 'Nessun dato repo')
             }
         ]);
 

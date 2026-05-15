@@ -24,13 +24,20 @@ func enrichCaseStudiesFromArtifacts(repoRoot string, items []caseStudy) ([]caseS
 	if err != nil {
 		return nil, err
 	}
+	repoIndex, err := loadRepositoryMetadataIndex(repoRoot)
+	if err != nil {
+		return nil, err
+	}
 
 	enriched := make([]caseStudy, len(items))
 	copy(enriched, items)
 	for idx := range enriched {
 		enriched[idx].ProofMetrics = mergeGeneratedCaseStudyData(
-			enriched[idx].ProofMetrics,
-			buildPackageProofMetrics(enriched[idx], packageIndex.Items),
+			mergeGeneratedCaseStudyData(
+				enriched[idx].ProofMetrics,
+				buildPackageProofMetrics(enriched[idx], packageIndex.Items),
+			),
+			buildRepositoryProofMetrics(enriched[idx], repoIndex.Items),
 		)
 		enriched[idx].OperationalSignals = mergeGeneratedCaseStudyData(
 			enriched[idx].OperationalSignals,
@@ -40,6 +47,63 @@ func enrichCaseStudiesFromArtifacts(repoRoot string, items []caseStudy) ([]caseS
 	}
 
 	return enriched, nil
+}
+
+func buildRepositoryProofMetrics(study caseStudy, items []schema.RepositoryMetadataItemV1) []caseStudyDatum {
+	for _, item := range items {
+		if !strings.EqualFold(strings.TrimSpace(item.CaseStudySlug), strings.TrimSpace(study.Slug)) && (study.RepoURL == "" || !strings.EqualFold(strings.TrimSpace(item.RepoURL), strings.TrimSpace(study.RepoURL))) {
+			continue
+		}
+
+		metrics := []caseStudyDatum{{
+			Label:  "Repository footprint",
+			Value:  fmt.Sprintf("%s stars · %s forks", formatCompactInt(item.Stars), formatCompactInt(item.Forks)),
+			Detail: firstNonEmpty(item.Language, "GitHub repository") + repositoryTopicDetail(item.Topics),
+			URL:    item.RepoURL,
+		}}
+		if item.PushedAt != "" {
+			metrics = append(metrics, caseStudyDatum{
+				Label:  "Latest push",
+				Value:  item.PushedAt[:10],
+				Detail: fmt.Sprintf("Default branch %s", firstNonEmpty(item.DefaultBranch, "main")),
+				URL:    item.RepoURL,
+			})
+		}
+		if len(item.Releases) > 0 {
+			labels := make([]string, 0, len(item.Releases))
+			for _, release := range item.Releases {
+				label := firstNonEmpty(release.Name, release.TagName)
+				if release.PublishedAt != "" {
+					label += " (" + release.PublishedAt[:10] + ")"
+				}
+				labels = append(labels, label)
+			}
+			value := fmt.Sprintf("%d public release", len(item.Releases))
+			if len(item.Releases) != 1 {
+				value += "s"
+			}
+			metrics = append(metrics, caseStudyDatum{
+				Label:  "Selected releases",
+				Value:  value,
+				Detail: strings.Join(labels, " · "),
+				URL:    item.Releases[0].URL,
+			})
+		}
+		return metrics
+	}
+	return nil
+}
+
+func repositoryTopicDetail(topics []string) string {
+	if len(topics) == 0 {
+		return ""
+	}
+	copyTopics := append([]string(nil), topics...)
+	sort.Strings(copyTopics)
+	if len(copyTopics) > 4 {
+		copyTopics = copyTopics[:4]
+	}
+	return " · topics: " + strings.Join(copyTopics, ", ")
 }
 
 func loadDatasetIndex(repoRoot string) (schema.DatasetIndexV1, error) {

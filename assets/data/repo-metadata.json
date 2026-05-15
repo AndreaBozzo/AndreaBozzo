@@ -1,0 +1,339 @@
+{
+  "$schemaVersion": "v1",
+  "generatedAt": "2026-05-15T11:08:17Z",
+  "source": "case-study repoUrl GitHub repository metadata",
+  "items": [
+    {
+      "caseStudySlug": "andreabozzo-site",
+      "repoFullName": "AndreaBozzo/AndreaBozzo",
+      "repoUrl": "https://github.com/AndreaBozzo/AndreaBozzo",
+      "description": "My personal Repo!",
+      "stars": 0,
+      "forks": 0,
+      "topics": [
+        "analytics",
+        "data",
+        "data-engineering",
+        "data-visualization",
+        "database",
+        "datamodelling",
+        "developer-profile",
+        "github-pages",
+        "github-profile",
+        "go",
+        "interactive-animation",
+        "open-data",
+        "portfolio",
+        "python",
+        "readme-profile",
+        "rust"
+      ],
+      "language": "HTML",
+      "pushedAt": "2026-05-15T10:53:29Z",
+      "defaultBranch": "main",
+      "relatedCaseStudies": [
+        "andreabozzo-site"
+      ]
+    },
+    {
+      "caseStudySlug": "ares-ceres",
+      "repoFullName": "AndreaBozzo/Ceres",
+      "repoUrl": "https://github.com/AndreaBozzo/Ceres",
+      "description": "Harvester for open data portals",
+      "stars": 12,
+      "forks": 3,
+      "topics": [
+        "async",
+        "ckan",
+        "data-engineering",
+        "gemini-api",
+        "harvester",
+        "metadata",
+        "ml",
+        "ollama",
+        "openai-api",
+        "pgvector",
+        "rust",
+        "tokio-rs"
+      ],
+      "language": "Rust",
+      "pushedAt": "2026-05-14T21:50:57Z",
+      "defaultBranch": "master",
+      "releases": [
+        {
+          "tagName": "v0.3.5",
+          "name": "v0.3.5",
+          "url": "https://github.com/AndreaBozzo/Ceres/releases/tag/v0.3.5",
+          "publishedAt": "2026-03-30T17:18:21Z",
+          "target": "master"
+        },
+        {
+          "tagName": "v0.3.1",
+          "name": "v0.3.1",
+          "url": "https://github.com/AndreaBozzo/Ceres/releases/tag/v0.3.1",
+          "publishedAt": "2026-03-06T11:51:22Z",
+          "target": "master"
+        },
+        {
+          "tagName": "v0.3.0",
+          "name": "v0.3.0",
+          "url": "https://github.com/AndreaBozzo/Ceres/releases/tag/v0.3.0",
+          "publishedAt": "2026-02-26T09:54:32Z",
+          "target": "master"
+        }
+      ],
+      "relatedCaseStudies": [
+        "ares-ceres"
+      ]
+    },
+    {
+      "caseStudySlug": "dataprof",
+      "repoFullName": "AndreaBozzo/dataprof",
+      "repoUrl": "https://github.com/AndreaBozzo/dataprof",
+      "description": "Library and CLI for profiling tabular data",
+      "stars": 14,
+      "forks": 1,
+      "topics": [
+        "apache-arrow",
+        "async",
+        "asyncio",
+        "big-data",
+        "cli-tool",
+        "csv",
+        "data-engineering",
+        "data-quality",
+        "data-science",
+        "datafusion",
+        "eda",
+        "json",
+        "parquet-format",
+        "python",
+        "rust",
+        "simd"
+      ],
+      "language": "Rust",
+      "pushedAt": "2026-05-09T13:18:06Z",
+      "defaultBranch": "master",
+      "releases": [
+        {
+          "tagName": "v0.7.1",
+          "name": "dataprof v0.7.1",
+          "url": "https://github.com/AndreaBozzo/dataprof/releases/tag/v0.7.1",
+          "publishedAt": "2026-04-10T09:56:44Z",
+          "target": "master"
+        },
+        {
+          "tagName": "v0.7.0",
+          "name": "dataprof v0.7.0",
+          "url": "https://github.com/AndreaBozzo/dataprof/releases/tag/v0.7.0",
+          "publishedAt": "2026-04-08T10:28:40Z",
+          "target": "master"
+        },
+        {
+          "tagName": "v0.6.2",
+          "name": "dataprof v0.6.2",
+          "url": "https://github.com/AndreaBozzo/dataprof/releases/tag/v0.6.2",
+          "publishedAt": "2026-04-03T11:37:04Z",
+          "target": "master"
+        }
+      ],
+      "relatedCaseStudies": [
+        "dataprof"
+      ]
+    },
+    {
+      "caseStudySlug": "dce",
+      "repoFullName": "AndreaBozzo/dce",
+      "repoUrl": "https://github.com/AndreaBozzo/dce",
+      "description": "Define, validate, and enforce data quality contracts",
+      "stars": 0,
+      "forks": 0,
+      "topics": [
+        "data-contracts",
+        "data-engineering",
+        "data-quality",
+        "iceberg",
+        "mlops",
+        "rust",
+        "yaml"
+      ],
+      "language": "Rust",
+      "pushedAt": "2026-04-22T21:33:13Z",
+      "defaultBranch": "master",
+      "relatedCaseStudies": [
+        "dce"
+      ]
+    },
+    {
+      "caseStudySlug": "druid-datafusion-bridge",
+      "repoFullName": "AndreaBozzo/druid-datafusion-bridge",
+      "repoUrl": "https://github.com/AndreaBozzo/druid-datafusion-bridge",
+      "description": "Rust library bridging Apache Druid segment files with Apache DataFusion",
+      "stars": 0,
+      "forks": 0,
+      "topics": [
+        "data-engineering",
+        "datafusion",
+        "druid",
+        "rust",
+        "segment",
+        "smoosh"
+      ],
+      "language": "Rust",
+      "pushedAt": "2026-02-01T20:02:16Z",
+      "defaultBranch": "master",
+      "relatedCaseStudies": [
+        "druid-datafusion-bridge"
+      ]
+    },
+    {
+      "caseStudySlug": "lakehouse-starter-kit",
+      "repoFullName": "AndreaBozzo/LakehouseStarterKit",
+      "repoUrl": "https://github.com/AndreaBozzo/LakehouseStarterKit",
+      "description": "Lakehouse starter kit for small teams (1-5). Extract data with dlt, transform with dbt, visualize with Superset. S3-compatible storage with MinIO. Easy to scale.",
+      "stars": 0,
+      "forks": 0,
+      "topics": [
+        "analytics",
+        "data-engineering",
+        "data-pipeline",
+        "data-stack",
+        "dbt",
+        "dlt",
+        "duckdb",
+        "etl",
+        "lakehouse",
+        "minio",
+        "modern-data-stack",
+        "open-source",
+        "s3",
+        "starter-kit",
+        "superset"
+      ],
+      "language": "Python",
+      "pushedAt": "2025-10-26T19:54:36Z",
+      "defaultBranch": "main",
+      "releases": [
+        {
+          "tagName": "v0.0.1",
+          "name": "v0.0.1",
+          "url": "https://github.com/AndreaBozzo/LakehouseStarterKit/releases/tag/v0.0.1",
+          "publishedAt": "2025-10-20T13:04:17Z",
+          "target": "main"
+        }
+      ],
+      "relatedCaseStudies": [
+        "lakehouse-starter-kit"
+      ]
+    },
+    {
+      "caseStudySlug": "lance-bridge",
+      "repoFullName": "AndreaBozzo/lancedb-nephtys-bridge",
+      "repoUrl": "https://github.com/AndreaBozzo/lancedb-nephtys-bridge",
+      "description": "Example usage of LanceDB with Nephtys",
+      "stars": 0,
+      "forks": 0,
+      "language": "Python",
+      "pushedAt": "2026-05-05T18:57:51Z",
+      "defaultBranch": "master",
+      "relatedCaseStudies": [
+        "lance-bridge"
+      ]
+    },
+    {
+      "caseStudySlug": "mosaico",
+      "repoFullName": "AndreaBozzo/mosaico",
+      "repoUrl": "https://github.com/AndreaBozzo/mosaico",
+      "description": "Mosaico is the open-source data platform for Robotics and Physical AI",
+      "stars": 0,
+      "forks": 0,
+      "language": "Python",
+      "pushedAt": "2026-01-08T14:42:20Z",
+      "defaultBranch": "main",
+      "relatedCaseStudies": [
+        "mosaico"
+      ]
+    },
+    {
+      "caseStudySlug": "nephtys",
+      "repoFullName": "AndreaBozzo/Nephtys",
+      "repoUrl": "https://github.com/AndreaBozzo/Nephtys",
+      "description": "Edge connector for data streams",
+      "stars": 0,
+      "forks": 0,
+      "topics": [
+        "connectors",
+        "data-engineering",
+        "docker",
+        "event-driven",
+        "golang",
+        "grafana",
+        "grpc",
+        "jetstream",
+        "nats",
+        "prometheus-metrics",
+        "real-time",
+        "sse",
+        "streaming",
+        "webhooks",
+        "websocket"
+      ],
+      "language": "Go",
+      "pushedAt": "2026-05-10T07:30:43Z",
+      "defaultBranch": "main",
+      "relatedCaseStudies": [
+        "nephtys"
+      ]
+    },
+    {
+      "caseStudySlug": "peek-a-boo",
+      "repoFullName": "AndreaBozzo/Peek-a-Boo",
+      "repoUrl": "https://github.com/AndreaBozzo/Peek-a-Boo",
+      "description": "Minimalist AI agent that extracts information from files using surgical grep/ls operations to minimize token usage. Built with Datapizza + Google Gemini.",
+      "stars": 0,
+      "forks": 0,
+      "topics": [
+        "cli-tool",
+        "code-audit",
+        "datapizza-ai",
+        "file-search",
+        "gemini",
+        "grep",
+        "python",
+        "token-optimization"
+      ],
+      "language": "Python",
+      "pushedAt": "2025-12-07T20:33:58Z",
+      "defaultBranch": "main",
+      "relatedCaseStudies": [
+        "peek-a-boo"
+      ]
+    },
+    {
+      "caseStudySlug": "zero-grappler",
+      "repoFullName": "AndreaBozzo/zero-grappler",
+      "repoUrl": "https://github.com/AndreaBozzo/zero-grappler",
+      "description": "Minimal no_std async pipeline for embedded ML. Sensor, DSP, and inference traits wired through Embassy channels with zero allocations.",
+      "stars": 0,
+      "forks": 0,
+      "topics": [
+        "async",
+        "const-generics",
+        "cortex-m",
+        "edge-ai",
+        "embassy",
+        "embedded",
+        "machine-learning",
+        "no-std",
+        "rust",
+        "tinyml"
+      ],
+      "language": "Rust",
+      "pushedAt": "2026-04-11T13:05:08Z",
+      "defaultBranch": "master",
+      "relatedCaseStudies": [
+        "zero-grappler"
+      ]
+    }
+  ]
+}

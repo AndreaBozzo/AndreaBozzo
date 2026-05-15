@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"io"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -46,19 +47,19 @@ type huggingFaceDatasetResponse struct {
 	Tags         []string `json:"tags"`
 	Description  string   `json:"description"`
 	CardData     struct {
-		License       any      `json:"license"`
-		Language      []string `json:"language"`
-		Tags          []string `json:"tags"`
-		PrettyName    string   `json:"pretty_name"`
+		License    any      `json:"license"`
+		Language   []string `json:"language"`
+		Tags       []string `json:"tags"`
+		PrettyName string   `json:"pretty_name"`
 	} `json:"cardData"`
 }
 
 type ceresOpenDataMetadata struct {
-	TotalExported   int                    `json:"total_exported"`
-	TotalFiltered   int                    `json:"total_filtered"`
-	TotalDuplicates int                    `json:"total_duplicates"`
-	Portals         []ceresOpenDataPortal  `json:"portals"`
-	SnapshotDate    string                 `json:"snapshot_date"`
+	TotalExported   int                   `json:"total_exported"`
+	TotalFiltered   int                   `json:"total_filtered"`
+	TotalDuplicates int                   `json:"total_duplicates"`
+	Portals         []ceresOpenDataPortal `json:"portals"`
+	SnapshotDate    string                `json:"snapshot_date"`
 }
 
 type ceresOpenDataPortal struct {
@@ -218,38 +219,38 @@ func applyCeresMetadata(item *schema.DatasetItemV1, meta ceresOpenDataMetadata) 
 // fall into an "international" bucket so they're still counted distinctly.
 func countCountriesFromPortals(portals []ceresOpenDataPortal) int {
 	hostToCountry := map[string]string{
-		"catalog.data.gov":                  "us",
-		"data.gov.au":                       "au",
-		"data.gouv.fr":                      "fr",
-		"dati.gov.it":                       "it",
-		"open.canada.ca":                    "ca",
-		"data.gov.ua":                       "ua",
-		"data.humdata.org":                  "international",
-		"ckan.open.nrw.de":                  "de",
-		"data.gov.ie":                       "ie",
-		"ckan.opendata.swiss":               "ch",
-		"dati.toscana.it":                   "it",
-		"catalog.data.metro.tokyo.lg.jp":    "jp",
-		"discover.data.vic.gov.au":          "au",
-		"dati.regione.marche.it":            "it",
-		"data.gov.ro":                       "ro",
-		"catalogue.data.gov.bc.ca":          "ca",
-		"dati.emilia-romagna.it":            "it",
-		"opendata.aragon.es":                "es",
-		"datos.gob.cl":                      "cl",
-		"dati.comune.milano.it":             "it",
-		"data.public.lu":                    "lu",
-		"dati.puglia.it":                    "it",
-		"dati.trentino.it":                  "it",
-		"dati.regione.umbria.it":            "it",
-		"dati.lazio.it":                     "it",
-		"dati.comune.roma.it":               "it",
-		"dati.regione.campania.it":          "it",
-		"www.opendata-hro.de":               "de",
-		"dati.regione.sicilia.it":           "it",
-		"dati.comune.genova.it":             "it",
-		"dati.regione.liguria.it":           "it",
-		"dati.comune.napoli.it":             "it",
+		"catalog.data.gov":               "us",
+		"data.gov.au":                    "au",
+		"data.gouv.fr":                   "fr",
+		"dati.gov.it":                    "it",
+		"open.canada.ca":                 "ca",
+		"data.gov.ua":                    "ua",
+		"data.humdata.org":               "international",
+		"ckan.open.nrw.de":               "de",
+		"data.gov.ie":                    "ie",
+		"ckan.opendata.swiss":            "ch",
+		"dati.toscana.it":                "it",
+		"catalog.data.metro.tokyo.lg.jp": "jp",
+		"discover.data.vic.gov.au":       "au",
+		"dati.regione.marche.it":         "it",
+		"data.gov.ro":                    "ro",
+		"catalogue.data.gov.bc.ca":       "ca",
+		"dati.emilia-romagna.it":         "it",
+		"opendata.aragon.es":             "es",
+		"datos.gob.cl":                   "cl",
+		"dati.comune.milano.it":          "it",
+		"data.public.lu":                 "lu",
+		"dati.puglia.it":                 "it",
+		"dati.trentino.it":               "it",
+		"dati.regione.umbria.it":         "it",
+		"dati.lazio.it":                  "it",
+		"dati.comune.roma.it":            "it",
+		"dati.regione.campania.it":       "it",
+		"www.opendata-hro.de":            "de",
+		"dati.regione.sicilia.it":        "it",
+		"dati.comune.genova.it":          "it",
+		"dati.regione.liguria.it":        "it",
+		"dati.comune.napoli.it":          "it",
 	}
 	seen := make(map[string]struct{}, len(portals))
 	for _, portal := range portals {
@@ -299,23 +300,33 @@ func (source DatasetSource) getJSON(ctx context.Context, endpoint string, target
 		client = &http.Client{Timeout: 30 * time.Second}
 	}
 
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, endpoint, nil)
-	if err != nil {
-		return fmt.Errorf("build request: %w", err)
-	}
-	req.Header.Set("Accept", "application/json")
-	req.Header.Set("User-Agent", registryUserAgent)
+	body, err := newHTTPCache(source.RepoRoot).get("datasets", endpoint, func() ([]byte, error) {
+		req, err := http.NewRequestWithContext(ctx, http.MethodGet, endpoint, nil)
+		if err != nil {
+			return nil, fmt.Errorf("build request: %w", err)
+		}
+		req.Header.Set("Accept", "application/json")
+		req.Header.Set("User-Agent", registryUserAgent)
 
-	resp, err := client.Do(req)
-	if err != nil {
-		return fmt.Errorf("request %s: %w", endpoint, err)
-	}
-	defer resp.Body.Close()
+		resp, err := client.Do(req)
+		if err != nil {
+			return nil, fmt.Errorf("request %s: %w", endpoint, err)
+		}
+		defer resp.Body.Close()
 
-	if resp.StatusCode >= 300 {
-		return fmt.Errorf("%s returned %d", endpoint, resp.StatusCode)
+		body, err := io.ReadAll(resp.Body)
+		if err != nil {
+			return nil, fmt.Errorf("read response for %s: %w", endpoint, err)
+		}
+		if resp.StatusCode >= 300 {
+			return nil, fmt.Errorf("%s returned %d", endpoint, resp.StatusCode)
+		}
+		return body, nil
+	})
+	if err != nil {
+		return err
 	}
-	if err := json.NewDecoder(resp.Body).Decode(target); err != nil {
+	if err := json.Unmarshal(body, target); err != nil {
 		return fmt.Errorf("decode response for %s: %w", endpoint, err)
 	}
 	return nil

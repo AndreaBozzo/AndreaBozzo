@@ -101,7 +101,7 @@ lint-rust: ## Run Rust clippy with warnings denied.
 
 .PHONY: lint-json
 lint-json: ## Validate checked-in JSON data files.
-	jq empty assets/data/case-studies.json assets/data/papers.json assets/data/contributions.json assets/data/writing.json assets/data/package-sources.json assets/data/packages.json assets/data/ci-runtimes.json package.json
+	jq empty assets/data/case-studies.json assets/data/papers.json assets/data/contributions.json assets/data/writing.json assets/data/package-sources.json assets/data/packages.json assets/data/ci-runtimes.json assets/data/repo-metadata.json package.json
 
 .PHONY: lint-contracts
 lint-contracts: ## Validate schema-versioned JSON against committed schemas.

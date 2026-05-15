@@ -11,6 +11,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/AndreaBozzo/AndreaBozzo/internal/harvester/schema"
 )
 
 var contributionBadgePattern = regexp.MustCompile(`<a href="([^"]+)"><img src="([^"]+)"[^>]*alt="([^"]+)"/?></a>`)
@@ -65,9 +67,10 @@ type contributionPRJSON struct {
 }
 
 type contributionsJSONPayload struct {
-	GeneratedAt string                 `json:"generatedAt"`
-	Source      string                 `json:"source"`
-	Items       []contributionJSONItem `json:"items"`
+	SchemaVersion string                 `json:"$schemaVersion,omitempty"`
+	GeneratedAt   string                 `json:"generatedAt"`
+	Source        string                 `json:"source"`
+	Items         []contributionJSONItem `json:"items"`
 }
 
 func GenerateContributionsJSON(repoRoot string) error {
@@ -122,9 +125,10 @@ func GenerateContributionsJSON(repoRoot string) error {
 	}
 
 	payload := contributionsJSONPayload{
-		GeneratedAt: time.Now().UTC().Format(time.RFC3339),
-		Source:      "README.md#EXTERNAL_CONTRIBUTIONS",
-		Items:       items,
+		SchemaVersion: schema.VersionV1,
+		GeneratedAt:   time.Now().UTC().Format(time.RFC3339),
+		Source:        "README.md#EXTERNAL_CONTRIBUTIONS",
+		Items:         items,
 	}
 
 	return writeJSONFile(outputPath, payload)

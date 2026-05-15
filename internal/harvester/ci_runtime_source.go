@@ -133,8 +133,10 @@ func (source CIRuntimeSource) fetchRepoWorkflowMetrics(ctx context.Context, targ
 	baseURL := strings.TrimRight(firstNonEmpty(source.APIBaseURL, defaultGitHubAPIBaseURL), "/")
 	endpoint := fmt.Sprintf("%s/repos/%s/actions/runs?per_page=20", baseURL, target.RepoFullName)
 	client := githubClient{
+		repoRoot:   source.RepoRoot,
 		httpClient: source.HTTPClient,
 		token:      strings.TrimSpace(firstNonEmpty(source.Token, os.Getenv("GITHUB_TOKEN"))),
+		cache:      newHTTPCache(source.RepoRoot),
 	}
 	if client.httpClient == nil {
 		client.httpClient = &http.Client{Timeout: 30 * time.Second}

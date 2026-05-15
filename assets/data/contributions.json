@@ -1,4 +1,5 @@
 {
+  "$schemaVersion": "v1",
   "generatedAt": "2026-05-15T01:07:10Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [

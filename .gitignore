@@ -42,6 +42,7 @@ assets/*.min.css
 *.tmp
 *.temp
 .cache/
+.harvester-cache/
 
 # Virtual environments
 .env
@@ -56,3 +57,5 @@ __pycache__/
 *.pyo
 *.pyd
 *.pdb
+.vercel
+.env*.local

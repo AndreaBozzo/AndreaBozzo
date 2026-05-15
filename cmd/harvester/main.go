@@ -42,6 +42,8 @@ func run(args []string) error {
 		return harvester.GenerateCIRuntimeIndex(context.Background(), repoRoot)
 	case "generate-dataset-index":
 		return harvester.GenerateDatasetIndex(context.Background(), repoRoot)
+	case "generate-repository-metadata-index":
+		return harvester.GenerateRepositoryMetadataIndex(context.Background(), repoRoot)
 	case "generate-contract-artifacts":
 		return harvester.GenerateContractArtifacts(repoRoot)
 	case "generate-case-study-pages":
@@ -112,5 +114,5 @@ func usageError() error {
 }
 
 func usageText() string {
-	return "harvester is the unified Go CLI for repo data generation.\n\nUsage:\n  go run ./cmd/harvester <subcommand>\n\nSubcommands:\n  ingest --source blog\n  ingest --source packages\n  ingest --source ci\n  ingest --source datasets\n  ingest --all\n  update-contributions-readme\n  generate-contributions-json\n  generate-writing-index\n  generate-package-registry-index\n  generate-ci-runtime-index\n  generate-dataset-index\n  generate-contract-artifacts\n  generate-case-study-pages\n  generate-static-artifacts\n  validate-localization [siteRoot]\n"
+	return "harvester is the unified Go CLI for repo data generation.\n\nUsage:\n  go run ./cmd/harvester <subcommand>\n\nSubcommands:\n  ingest --source blog\n  ingest --source packages\n  ingest --source ci\n  ingest --source datasets\n  ingest --source repo-metadata\n  ingest --all\n  update-contributions-readme\n  generate-contributions-json\n  generate-writing-index\n  generate-package-registry-index\n  generate-ci-runtime-index\n  generate-dataset-index\n  generate-repository-metadata-index\n  generate-contract-artifacts\n  generate-case-study-pages\n  generate-static-artifacts\n  validate-localization [siteRoot]\n"
 }
