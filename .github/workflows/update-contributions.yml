@@ -31,6 +31,9 @@ jobs:
       - name: Refresh schema-versioned source data
         run: go run ./cmd/harvester ingest --all
 
+      - name: Render generated pages from refreshed data
+        run: go run ./cmd/harvester generate-static-artifacts
+
       - name: Commit and push if changed
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -40,5 +43,10 @@ jobs:
             assets/data/packages.json \
             assets/data/contributions.json \
             assets/data/ci-runtimes.json \
-            assets/data/datasets.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "docs: update external contributions [skip ci]" && git push)
+            assets/data/datasets.json \
+            work \
+            it/work \
+            robots.txt \
+            sitemap.xml \
+            pages-sitemap.xml
+          git diff --cached --quiet || (git commit -m "docs: update generated site data" && git push)

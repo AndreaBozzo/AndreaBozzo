@@ -48,8 +48,14 @@ jobs:
       - name: Install root-site dependencies
         run: npm ci
 
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
       - name: Validate schema-versioned data
         run: npm run validate:data
+
+      - name: Run visual smoke tests
+        run: npm run test:smoke
 
       - name: Build merged site
         run: npm run build:site

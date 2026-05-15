@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-15T01:07:15Z",
+  "generatedAt": "2026-05-15T10:34:16Z",
   "source": "case-study repoUrl GitHub Actions runs",
   "items": [
     {
@@ -9,14 +9,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/AndreaBozzo",
       "workflowName": "Deploy static content to Pages",
       "workflowPath": ".github/workflows/pages.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/25857235975",
-      "runsSampled": 15,
+      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/25911721282",
+      "runsSampled": 14,
       "medianDurationSeconds": 67,
       "p95DurationSeconds": 325,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-05-14T11:25:45Z"
+      "latestRunAt": "2026-05-15T09:56:15Z"
     },
     {
       "caseStudySlug": "andreabozzo-site",
@@ -40,12 +40,13 @@
       "workflowName": "Update External Contributions",
       "workflowPath": ".github/workflows/update-contributions.yml",
       "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/25894590500",
-      "runsSampled": 2,
-      "medianDurationSeconds": 40,
+      "runsSampled": 3,
+      "medianDurationSeconds": 41,
       "p95DurationSeconds": 45,
-      "successRate": 0.5,
-      "latestStatus": "in_progress",
-      "latestRunAt": "2026-05-15T01:06:48Z"
+      "successRate": 0.6666666666666666,
+      "latestStatus": "completed",
+      "latestConclusion": "success",
+      "latestRunAt": "2026-05-15T01:07:19Z"
     },
     {
       "caseStudySlug": "ares-ceres",
@@ -196,6 +197,21 @@
       "latestStatus": "completed",
       "latestConclusion": "success",
       "latestRunAt": "2026-05-09T10:28:45Z"
+    },
+    {
+      "caseStudySlug": "datapizza-ai",
+      "repoFullName": "datapizza-labs/datapizza-ai",
+      "repoUrl": "https://github.com/datapizza-labs/datapizza-ai",
+      "workflowName": "Test",
+      "workflowPath": ".github/workflows/test.yml",
+      "workflowUrl": "https://github.com/datapizza-labs/datapizza-ai/actions/runs/24958076315",
+      "runsSampled": 19,
+      "medianDurationSeconds": 72,
+      "p95DurationSeconds": 80,
+      "successRate": 0.9,
+      "latestStatus": "completed",
+      "latestConclusion": "action_required",
+      "latestRunAt": "2026-04-26T13:42:34Z"
     },
     {
       "caseStudySlug": "dataprof",

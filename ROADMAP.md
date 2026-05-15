@@ -59,8 +59,10 @@ paths and better cross-surface discovery.
    case studies. The blog is already bilingual, so the root surface should make
    that language boundary deliberate.
 
-Deferred for later evaluation: editorial curation beyond the proof layer and
-automated Lighthouse/visual smoke testing.
+Deferred for later evaluation: editorial curation beyond the proof layer.
+Automated Lighthouse/visual smoke testing has moved into the active hardening
+track because the site now has generated pages, bilingual routes, and a
+canvas/WASM surface that needs browser-level regression coverage.
 
 ---
 
@@ -114,31 +116,53 @@ because the data is already in memory.
 
 ---
 
-## Phase C — Multi-source harvester + typed schema
+## Phase C — Multi-source harvester + typed schema 🟡 Partially shipped
 
 **Goal:** Authentic ETL story without any WASM tax. Versioned schema, multiple
 sources, validation gates in CI.
+
+**Current status:** The core data platform is already in the repo. The
+harvester has a `Source` interface, `ingest --all`, schema-versioned JSON for
+writing/packages/CI/datasets, Go schema structs, generated JSON Schema and
+TypeScript contracts, package registry enrichment, CI runtime enrichment,
+dataset enrichment, and a Pages validation gate. Normal site builds now render
+from committed artifacts; live refresh is kept behind the explicit
+`ingest --all` path.
+
+**Remaining gaps before calling Phase C done:**
+
+- Add the owned-repository metadata source: stars, forks, topics, primary
+  language, pushed date, and selected releases.
+- Decide whether `contributions.json` should gain a formal `$schemaVersion`
+  contract alongside writing/packages/CI/datasets.
+- Add idempotent write-through caching for API-backed harvester sources so dev
+  refreshes do not hammer GitHub, PyPI, crates.io, or Hugging Face.
+- Finish the typed Vercel config migration from `vercel.json` to `vercel.ts`.
+- Keep routing generated proof into visible case-study/homepage surfaces rather
+  than raw graph counters.
 
 **Why this is real flex:** A single GitHub harvester is a script. Multiple
 sources behind a typed boundary, with end-to-end schema validation between
 producer and consumer, is a small data platform. The dataset stays JSON-on-the-
 wire because that fits the actual volume.
 
-**New sources:**
+**Source status:**
 
-1. **Local Hugo blog index**: parse front matter from
+1. **Local Hugo blog index — shipped**: parse front matter from
    [`blog/content/posts/`](blog/content/posts/) and emit writing records with
    language, tags, dates, summaries, word counts, and related project links.
    This replaces Dev.to/Medium because the repo-hosted blog is the canonical
    writing archive.
-2. **GitHub contributions + repositories**: keep the existing external merged
-   PR tracking, then add owned-repository metadata: stars, forks, topics,
-   primary language, pushed date, and releases for selected repos.
-3. **Package registries**: enrich published OSS packages from **PyPI** and
+2. **GitHub contributions — partially shipped**: external merged PR tracking is
+   committed as JSON and README proof. Owned-repository metadata is still the
+   missing source.
+3. **Package registries — shipped**: enrich published OSS packages from **PyPI** and
    **crates.io**. Skip npm unless there is an actual package to track later.
-4. **CI runtimes**: GitHub Actions API per repo — workflow run durations.
+4. **CI runtimes — shipped**: GitHub Actions API per repo — workflow run durations.
    Aggregate to median/p95 per workflow and expose recent build health.
-5. **Research/publication metadata**: keep
+5. **Dataset metadata — shipped**: curated dataset sources produce a generated
+   dataset index and visible case-study proof.
+6. **Research/publication metadata — curated source exists**: keep
    [`assets/data/papers.json`](assets/data/papers.json) as the curated source
    of truth, with optional DOI/ORCID/OpenAlex enrichment only when stable
    identifiers exist.
@@ -166,34 +190,36 @@ wire because that fits the actual volume.
 
 **Schema layer:**
 
-1. Define Go structs in `internal/harvester/schema/` with version tags
+1. ✅ Define Go structs in `internal/harvester/schema/` with version tags
    (e.g. `type ContributionV1 struct { ... }`).
-2. Generate JSON Schema files (`schema/*.schema.json`) via
-   `github.com/invopop/jsonschema` or equivalent.
-3. Generate TypeScript types via `quicktype` or a small hand-written codegen
+2. ✅ Generate JSON Schema files (`schema/*.schema.json`) via committed
+   contract generation.
+3. ✅ Generate TypeScript types via a small hand-written codegen
    into `assets/types/`.
-4. CI gate: schema validation runs against committed JSON in
+4. ✅ CI gate: schema validation runs against committed JSON in
    [`.github/workflows/pages.yml`](.github/workflows/pages.yml) before deploy.
-5. Schema version embedded in each JSON file as `"$schemaVersion": "v1"`.
+5. ✅ Schema version embedded in each JSON file as `"$schemaVersion": "v1"`.
    Bump on breaking changes.
 
 **Harvester structural changes** ([`cmd/harvester/`](cmd/harvester/),
 [`internal/harvester/`](internal/harvester/)):
 
-- Each source becomes a `Source` interface implementation:
+- ✅ Each source becomes a `Source` interface implementation:
   `Fetch(ctx) (Records, error)`.
 - Existing GitHub logic
   ([`internal/harvester/readme_contributions.go`](internal/harvester/readme_contributions.go))
-  refactored to fit the interface — no behavioural change, just shape.
+  remains the main exception: README contribution refresh and
+  `contributions.json` generation are still adjacent to, rather than fully
+  inside, the `Source` interface.
 - Per-source rate-limiting, retry, and **idempotent caching** (write-through
   cache to `.harvester-cache/` so dev runs don't hammer APIs).
-- New subcommands: `harvester ingest --source blog`,
-  `harvester ingest --source packages`, `harvester ingest --source github`,
-  `harvester ingest --source ci`, and `harvester ingest --all`.
+- ✅ New subcommands: `harvester ingest --source blog`,
+  `harvester ingest --source packages`, `harvester ingest --source ci`,
+  `harvester ingest --source datasets`, and `harvester ingest --all`.
   PyPI and crates.io are configured under the unified `packages` source so the
   generated package artifact cannot be accidentally replaced by a partial
   ecosystem-only run.
-- Daily cron in
+- ✅ Daily cron in
   [`.github/workflows/update-contributions.yml`](.github/workflows/update-contributions.yml)
   extended to run `--all`.
 
@@ -213,7 +239,7 @@ wire because that fits the actual volume.
 - Vercel preview from `vercel.ts` returns identical responses to the current
   `vercel.json`-based deployment for `/api/github/stats` and
   `/api/github/badge`.
-- Frontend routes new blog, package-registry, GitHub, and CI-runtime data into
+- ✅ Frontend routes new blog, package-registry, GitHub, and CI-runtime data into
   search, case-study proof surfaces, and dedicated operational modules; the
   graph only absorbs the derived relationships that genuinely improve discovery.
 
@@ -348,6 +374,7 @@ opt-in conversation about privacy.
 | [`.github/workflows/pages.yml`](.github/workflows/pages.yml) | C (schema-validation gate) |
 | [`.github/workflows/update-contributions.yml`](.github/workflows/update-contributions.yml) | C (multi-source) |
 | `vercel.json` → `vercel.ts` | C |
+| [`playwright.config.js`](playwright.config.js) + [`tests/`](tests/) | C hardening |
 | [`sw.js`](sw.js) | every phase, bump version |
 | `cmd/sshtui/` (new) | E |
 | `internal/harvester/schema/` (new) | C |

@@ -3,7 +3,9 @@ package harvester
 import (
 	"fmt"
 	"os"
+	"os/exec"
 	"path/filepath"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -129,10 +131,46 @@ func indexOfStudy(items []caseStudy, slug string) int {
 }
 
 func caseStudiesLastmod(caseStudiesPath string) time.Time {
+	if epoch := strings.TrimSpace(os.Getenv("SOURCE_DATE_EPOCH")); epoch != "" {
+		if seconds, err := strconv.ParseInt(epoch, 10, 64); err == nil {
+			return time.Unix(seconds, 0).UTC()
+		}
+	}
+
+	if stamp, ok := gitLastModified(caseStudiesPath); ok {
+		return stamp
+	}
+
 	if info, err := os.Stat(caseStudiesPath); err == nil {
 		return info.ModTime().UTC()
 	}
 	return time.Now().UTC()
+}
+
+func gitLastModified(path string) (time.Time, bool) {
+	absPath, err := filepath.Abs(path)
+	if err != nil {
+		return time.Time{}, false
+	}
+	dir := filepath.Dir(absPath)
+	rootRaw, err := exec.Command("git", "-C", dir, "rev-parse", "--show-toplevel").Output()
+	if err != nil {
+		return time.Time{}, false
+	}
+	repoRoot := strings.TrimSpace(string(rootRaw))
+	relPath, err := filepath.Rel(repoRoot, absPath)
+	if err != nil {
+		return time.Time{}, false
+	}
+	out, err := exec.Command("git", "-C", repoRoot, "log", "-1", "--format=%ct", "--", filepath.ToSlash(relPath)).Output()
+	if err != nil {
+		return time.Time{}, false
+	}
+	seconds, err := strconv.ParseInt(strings.TrimSpace(string(out)), 10, 64)
+	if err != nil || seconds <= 0 {
+		return time.Time{}, false
+	}
+	return time.Unix(seconds, 0).UTC(), true
 }
 
 func removeStaleCaseStudyDirs(workDir string, validSlugs map[string]struct{}) error {

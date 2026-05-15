@@ -8,6 +8,7 @@
     .case-hero,
     .case-layout,
     .proof-grid,
+    .proof-signal-strip,
     .papers-list,
     .projects-list,
     .workbench-results {
@@ -294,6 +295,7 @@
     }
 
     .proof-grid,
+    .proof-signal-strip,
     .workbench-results,
     .papers-list,
     .projects-list,
@@ -354,6 +356,7 @@
     }
 
     .proof-grid,
+    .proof-signal-strip,
     .workbench-results,
     .papers-list,
     .projects-list,

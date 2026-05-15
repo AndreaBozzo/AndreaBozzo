@@ -338,6 +338,30 @@ function formatMetricCount(value) {
     }).format(value);
 }
 
+function formatProofPercent(value) {
+    if (!Number.isFinite(value)) return '--';
+    return `${Math.round(value * 100)}%`;
+}
+
+function sumNumbers(items, field) {
+    return items.reduce((total, item) => {
+        const value = item?.[field];
+        return Number.isFinite(value) ? total + value : total;
+    }, 0);
+}
+
+function uniqueValues(items, field) {
+    return new Set(items.map(item => item?.[field]).filter(Boolean));
+}
+
+function proofLocale() {
+    return document.documentElement.lang === 'it' ? 'it' : 'en';
+}
+
+function proofText(en, it) {
+    return proofLocale() === 'it' ? it : en;
+}
+
 function getBlogJsonPath(lang) {
     const relativePath = lang === 'en' ? 'en/index.json' : 'index.json';
     return `${siteBasePath}blog/${relativePath}`;
@@ -577,6 +601,133 @@ async function loadHeroStats() {
     }
 }
 
+function renderProofCardSignals(name, signals) {
+    const root = document.querySelector(`[data-proof-card="${name}"]`);
+    if (!root || !Array.isArray(signals) || signals.length === 0) return;
+
+    root.innerHTML = signals.map((signal) => `
+        <div class="proof-card-signal">
+            <dt>${escapeHtml(signal.label)}</dt>
+            <dd>${escapeHtml(signal.value)}</dd>
+        </div>
+    `).join('');
+}
+
+function setProofStat(id, value) {
+    const element = document.getElementById(id);
+    if (element && value) {
+        element.textContent = value;
+    }
+}
+
+function packagesRelatedTo(items, slug) {
+    return items.filter((item) => Array.isArray(item.relatedCaseStudies) && item.relatedCaseStudies.includes(slug));
+}
+
+function ciRelatedTo(items, slug) {
+    return items.filter((item) => item.caseStudySlug === slug);
+}
+
+function averageSuccessRate(items) {
+    const rates = items.map(item => item.successRate).filter(Number.isFinite);
+    if (rates.length === 0) return null;
+    return rates.reduce((total, value) => total + value, 0) / rates.length;
+}
+
+function parsePRCount(value) {
+    const parsed = Number.parseInt(String(value || '').replace(/[^0-9]/g, ''), 10);
+    return Number.isFinite(parsed) ? parsed : 0;
+}
+
+function apacheContributionItems(items) {
+    return items.filter((item) => /arrow|datafusion|iceberg|fluss/i.test(`${item.name || ''} ${item.url || ''}`));
+}
+
+async function loadGeneratedProofSignals() {
+    const strip = document.getElementById('proof-signal-strip');
+    if (!strip) return;
+
+    try {
+        const [packagesPayload, ciPayload, datasetsPayload, writingPayload, contributionsPayload] = await Promise.all([
+            fetchJson(`${siteBasePath}assets/data/packages.json`),
+            fetchJson(`${siteBasePath}assets/data/ci-runtimes.json`),
+            fetchJson(`${siteBasePath}assets/data/datasets.json`),
+            fetchJson(`${siteBasePath}assets/data/writing.json`),
+            fetchJson(`${siteBasePath}assets/data/contributions.json`)
+        ]);
+
+        const packages = Array.isArray(packagesPayload.items) ? packagesPayload.items : [];
+        const ciRuns = Array.isArray(ciPayload.items) ? ciPayload.items : [];
+        const datasets = Array.isArray(datasetsPayload.items) ? datasetsPayload.items : [];
+        const writing = Array.isArray(writingPayload.items) ? writingPayload.items : [];
+        const contributions = Array.isArray(contributionsPayload.items) ? contributionsPayload.items : [];
+
+        const totalDownloads = sumNumbers(packages, 'downloadsTotal');
+        const latestGreen = ciRuns.filter(item => item.latestConclusion === 'success').length;
+        const totalRecords = sumNumbers(datasets, 'totalRecords');
+        const writingSlugs = uniqueValues(writing, 'slug');
+        const writingLanguages = [...uniqueValues(writing, 'language')].map(lang => lang.toUpperCase()).sort();
+        const totalPRs = contributions.reduce((total, item) => total + parsePRCount(item.prs), 0);
+
+        setProofStat('proof-stat-packages', `${packages.length} ${proofText('packages', 'package')} · ${formatMetricCount(totalDownloads)} ${proofText('downloads', 'download')}`);
+        setProofStat('proof-stat-ci', `${latestGreen}/${ciRuns.length} ${proofText('latest runs green', 'run recenti verdi')}`);
+        setProofStat('proof-stat-datasets', `${formatMetricCount(totalRecords)} ${proofText('records', 'record')} · ${datasets.length} ${proofText('dataset', 'dataset')}`);
+        setProofStat('proof-stat-writing', `${writingSlugs.size} ${proofText('posts', 'articoli')} · ${writingLanguages.join('/')}`);
+        setProofStat('proof-stat-repos', `${totalPRs} ${proofText('merged PRs', 'PR mergeate')} · ${contributions.length} repo`);
+
+        const dataprofPackages = packagesRelatedTo(packages, 'dataprof');
+        const dataprofCI = ciRelatedTo(ciRuns, 'dataprof');
+        renderProofCardSignals('dataprof', [
+            {
+                label: proofText('Registry', 'Registry'),
+                value: `${dataprofPackages.length} ${proofText('packages', 'package')} · ${formatMetricCount(sumNumbers(dataprofPackages, 'downloadsTotal'))}`
+            },
+            {
+                label: proofText('CI', 'CI'),
+                value: `${formatProofPercent(averageSuccessRate(dataprofCI))} ${proofText('success', 'successo')}`
+            }
+        ]);
+
+        const apacheItems = apacheContributionItems(contributions);
+        const apachePRs = apacheItems.reduce((total, item) => total + parsePRCount(item.prs), 0);
+        const apacheWriting = writing.filter(item => Array.isArray(item.relatedCaseStudies) && item.relatedCaseStudies.includes('apache-rust-upstream'));
+        renderProofCardSignals('apache', [
+            {
+                label: proofText('Public PRs', 'PR pubbliche'),
+                value: `${apachePRs} ${proofText('merged', 'mergeate')}`
+            },
+            {
+                label: proofText('Repos', 'Repo'),
+                value: `${apacheItems.length} Apache/Rust`
+            }
+        ]);
+
+        const totalWords = sumNumbers(writing, 'wordCount');
+        renderProofCardSignals('writing', [
+            {
+                label: proofText('Archive', 'Archivio'),
+                value: `${writingSlugs.size} ${proofText('topics', 'temi')}`
+            },
+            {
+                label: proofText('Depth', 'Profondità'),
+                value: `${formatMetricCount(totalWords)} ${proofText('words', 'parole')}`
+            }
+        ]);
+
+        if (apacheWriting.length > 0) {
+            const apacheRoot = document.querySelector('[data-proof-card="apache"]');
+            apacheRoot?.insertAdjacentHTML('beforeend', `
+                <div class="proof-card-signal">
+                    <dt>${escapeHtml(proofText('Writing', 'Scrittura'))}</dt>
+                    <dd>${escapeHtml(`${uniqueValues(apacheWriting, 'slug').size} ${proofText('related posts', 'articoli collegati')}`)}</dd>
+                </div>
+            `);
+        }
+    } catch (error) {
+        console.error('Failed to load generated proof signals:', error);
+    }
+}
+
 async function fetchContributions() {
     const listElement = document.getElementById('contributions-list');
     if (!listElement) return;
@@ -728,6 +879,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const hasWorkbench = workbench.initializeWorkbench();
 
     loadHeroStats();
+    loadGeneratedProofSignals();
 
     if (hasWorkbench) {
         workbench.loadWorkbenchEngine();

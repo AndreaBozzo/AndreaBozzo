@@ -72,10 +72,6 @@ func generateStaticArtifacts(repoRoot string) error {
 	}()
 	go func() {
 		defer wg.Done()
-		if err := harvester.RunAllSources(context.Background(), repoRoot); err != nil {
-			errCh <- err
-			return
-		}
 		errCh <- harvester.GenerateCaseStudyPages(repoRoot)
 	}()
 	go func() {
