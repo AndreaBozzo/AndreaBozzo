@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-15T10:34:05Z",
+  "generatedAt": "2026-05-16T01:02:53Z",
   "source": "blog/content/posts",
   "items": [
     {
@@ -194,6 +194,9 @@
         "data-quality"
       ],
       "categories": [],
+      "relatedCaseStudies": [
+        "dce"
+      ],
       "wordCount": 1929,
       "readingMinutes": 9
     },
@@ -214,6 +217,9 @@
         "data-quality"
       ],
       "categories": [],
+      "relatedCaseStudies": [
+        "dce"
+      ],
       "wordCount": 1936,
       "readingMinutes": 9
     },
@@ -571,6 +577,7 @@
         "Open Source"
       ],
       "relatedCaseStudies": [
+        "druid-datafusion-bridge",
         "lakekeeper"
       ],
       "wordCount": 2855,
@@ -600,6 +607,7 @@
         "Open Source"
       ],
       "relatedCaseStudies": [
+        "druid-datafusion-bridge",
         "lakekeeper"
       ],
       "wordCount": 2983,
