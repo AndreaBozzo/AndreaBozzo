@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-16T01:02:59Z",
+  "generatedAt": "2026-05-17T01:11:09Z",
   "source": "case-study repoUrl GitHub Actions runs",
   "items": [
     {
@@ -10,10 +10,10 @@
       "workflowName": "Deploy static content to Pages",
       "workflowPath": ".github/workflows/pages.yml",
       "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/25921381771",
-      "runsSampled": 14,
-      "medianDurationSeconds": 110,
+      "runsSampled": 13,
+      "medianDurationSeconds": 123,
       "p95DurationSeconds": 325,
-      "successRate": 0.8571428571428571,
+      "successRate": 0.8461538461538461,
       "latestStatus": "completed",
       "latestConclusion": "success",
       "latestRunAt": "2026-05-15T13:50:55Z"
@@ -24,14 +24,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/AndreaBozzo",
       "workflowName": "GitHub Metrics",
       "workflowPath": ".github/workflows/metrics.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/25948412113",
-      "runsSampled": 2,
+      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/25977450399",
+      "runsSampled": 3,
       "medianDurationSeconds": 170,
       "p95DurationSeconds": 180,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-05-16T00:55:04Z"
+      "latestRunAt": "2026-05-17T01:00:54Z"
     },
     {
       "caseStudySlug": "andreabozzo-site",
@@ -39,13 +39,13 @@
       "repoUrl": "https://github.com/AndreaBozzo/AndreaBozzo",
       "workflowName": "Update External Contributions",
       "workflowPath": ".github/workflows/update-contributions.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/25948650875",
+      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/25977680159",
       "runsSampled": 2,
-      "medianDurationSeconds": 41,
-      "p95DurationSeconds": 45,
+      "medianDurationSeconds": 39,
+      "p95DurationSeconds": 41,
       "successRate": 1,
       "latestStatus": "in_progress",
-      "latestRunAt": "2026-05-16T01:02:32Z"
+      "latestRunAt": "2026-05-17T01:10:42Z"
     },
     {
       "caseStudySlug": "ares-ceres",
