@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-17T01:11:02Z",
+  "generatedAt": "2026-05-18T01:12:33Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -73,7 +73,7 @@
     {
       "name": "axum",
       "url": "https://github.com/tokio-rs/axum",
-      "stars": "25.9k",
+      "stars": "26.0k",
       "prs": "1",
       "desc": "Web framework contributions around routing, ergonomics, and service integration in Rust.",
       "language": "Rust",
@@ -484,7 +484,7 @@
     {
       "name": "pg_query.rs",
       "url": "https://github.com/pganalyze/pg_query.rs",
-      "stars": "235",
+      "stars": "236",
       "prs": "1",
       "desc": "Rust and Postgres parsing work in a low-level developer tooling library.",
       "language": "Rust",
