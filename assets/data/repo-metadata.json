@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-18T01:12:48Z",
+  "generatedAt": "2026-05-19T01:12:06Z",
   "source": "case-study repoUrl GitHub repository metadata",
   "items": [
     {
@@ -29,7 +29,7 @@
         "rust"
       ],
       "language": "HTML",
-      "pushedAt": "2026-05-18T01:02:00Z",
+      "pushedAt": "2026-05-19T01:02:31Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "andreabozzo-site"
@@ -40,7 +40,7 @@
       "repoFullName": "AndreaBozzo/Ceres",
       "repoUrl": "https://github.com/AndreaBozzo/Ceres",
       "description": "Harvester for open data portals",
-      "stars": 12,
+      "stars": 13,
       "forks": 3,
       "topics": [
         "async",
@@ -57,7 +57,7 @@
         "tokio-rs"
       ],
       "language": "Rust",
-      "pushedAt": "2026-05-14T21:50:57Z",
+      "pushedAt": "2026-05-18T20:11:18Z",
       "defaultBranch": "master",
       "releases": [
         {
@@ -91,7 +91,7 @@
       "repoFullName": "AndreaBozzo/dataprof",
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
       "description": "Library and CLI for profiling tabular data",
-      "stars": 14,
+      "stars": 15,
       "forks": 1,
       "topics": [
         "apache-arrow",
