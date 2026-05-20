@@ -1,8 +1,64 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-20T01:13:24Z",
+  "generatedAt": "2026-05-20T06:19:03Z",
   "source": "blog/content/posts",
   "items": [
+    {
+      "id": "buildingapersonalwebsite-blog:en",
+      "slug": "buildingapersonalwebsite-blog",
+      "language": "en",
+      "title": "Building My Personal Mini-Site as a Real Project",
+      "summary": "How I rebuilt my personal site as a versioned, reproducible static-site system with clear separation between landing page, blog, generators, and a small Go API companion.",
+      "description": "Treating my personal site as a real project: a Hugo blog, plain HTML landing page, Go harvester, Rust/WASM workbench, and a thin Go API on Vercel - all from one repo.",
+      "publishedAt": "2026-05-20T11:00:00Z",
+      "url": "./blog/en/posts/buildingapersonalwebsite-blog/",
+      "sourcePath": "blog/content/posts/buildingapersonalwebsite-blog.en.md",
+      "tags": [
+        "Personal Site",
+        "GitHub Pages",
+        "Hugo",
+        "Go",
+        "Rust",
+        "WebAssembly"
+      ],
+      "categories": [
+        "Open Source",
+        "Web"
+      ],
+      "relatedCaseStudies": [
+        "andreabozzo-site"
+      ],
+      "wordCount": 1645,
+      "readingMinutes": 8
+    },
+    {
+      "id": "buildingapersonalwebsite-blog:it",
+      "slug": "buildingapersonalwebsite-blog",
+      "language": "it",
+      "title": "Costruire il Mio Mini-Sito Personale come un Progetto Vero",
+      "summary": "Come ho ricostruito il mio sito personale come un sistema statico versionato e riproducibile, con una separazione chiara fra landing page, blog, generatori e una piccola API Go companion.",
+      "description": "Trattare il mio sito personale come un progetto vero: un blog Hugo, una landing page in HTML puro, un harvester Go, un workbench Rust/WASM e una piccola API Go su Vercel - tutto da un solo repo.",
+      "publishedAt": "2026-05-20T11:00:00Z",
+      "url": "./blog/posts/buildingapersonalwebsite-blog/",
+      "sourcePath": "blog/content/posts/buildingapersonalwebsite-blog.it.md",
+      "tags": [
+        "Sito Personale",
+        "GitHub Pages",
+        "Hugo",
+        "Go",
+        "Rust",
+        "WebAssembly"
+      ],
+      "categories": [
+        "Open Source",
+        "Web"
+      ],
+      "relatedCaseStudies": [
+        "andreabozzo-site"
+      ],
+      "wordCount": 1705,
+      "readingMinutes": 8
+    },
     {
       "id": "finops-ai-lakehouse-blog:en",
       "slug": "finops-ai-lakehouse-blog",

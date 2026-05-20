@@ -1671,7 +1671,9 @@
       ],
       "status": "Live system",
       "repoUrl": "https://github.com/AndreaBozzo/AndreaBozzo",
-      "relatedPosts": [],
+      "relatedPosts": [
+        "buildingapersonalwebsite-blog"
+      ],
       "coverImage": "../../assets/images/andreabozzo-system-diagram.svg",
       "coverAlt": "Architecture diagram of the AndreaBozzo site showing the landing page, Hugo blog, Rust and WebAssembly workbench, Go harvester, GitHub Pages, and Vercel companion API",
       "coverEyebrow": "Portfolio as system",
@@ -1685,6 +1687,11 @@
         {
           "label": "Live site",
           "url": "https://andreabozzo.github.io/AndreaBozzo/",
+          "style": "secondary"
+        },
+        {
+          "label": "Related article",
+          "url": "../../blog/en/posts/buildingapersonalwebsite-blog/",
           "style": "secondary"
         },
         {
