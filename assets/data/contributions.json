@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-19T01:11:56Z",
+  "generatedAt": "2026-05-20T01:13:24Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -222,7 +222,7 @@
     {
       "name": "etl",
       "url": "https://github.com/supabase/etl",
-      "stars": "2.2k",
+      "stars": "2.3k",
       "prs": "2",
       "desc": "Data ingestion and transformation contributions in a production-facing ETL stack.",
       "language": "Rust",
@@ -407,7 +407,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "863",
+      "stars": "865",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",
@@ -453,7 +453,7 @@
     {
       "name": "awesome-italia-opensource",
       "url": "https://github.com/italia-opensource/awesome-italia-opensource",
-      "stars": "326",
+      "stars": "327",
       "prs": "1",
       "desc": "Curation and contribution work supporting the Italian open source ecosystem.",
       "language": "Python",

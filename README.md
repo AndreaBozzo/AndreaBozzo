@@ -21,7 +21,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 <p align="center">
   <img src="https://img.shields.io/badge/Projects-22-blue?style=flat-square" alt="Projects"/>
   <img src="https://img.shields.io/badge/PRs_Merged-51-success?style=flat-square" alt="PRs Merged"/>
-  <img src="https://img.shields.io/badge/Combined_Stars-134.9k-yellow?style=flat-square" alt="Stars"/>
+  <img src="https://img.shields.io/badge/Combined_Stars-135.0k-yellow?style=flat-square" alt="Stars"/>
 </p>
 
 ### 🔬 Data Ecosystem
@@ -32,7 +32,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
   <a href="https://github.com/apache/datafusion"><img src="https://img.shields.io/badge/datafusion-%E2%AD%90%208.8k%20%7C%201%20PR-informational?style=flat-square" alt="datafusion"/></a>
   <a href="https://github.com/lance-format/lance"><img src="https://img.shields.io/badge/lance-%E2%AD%90%206.4k%20%7C%202%20PR-informational?style=flat-square" alt="lance"/></a>
   <a href="https://github.com/apache/arrow-rs"><img src="https://img.shields.io/badge/arrow--rs-%E2%AD%90%203.5k%20%7C%202%20PR-informational?style=flat-square" alt="arrow-rs"/></a>
-  <a href="https://github.com/supabase/etl"><img src="https://img.shields.io/badge/etl-%E2%AD%90%202.2k%20%7C%202%20PR-informational?style=flat-square" alt="etl"/></a>
+  <a href="https://github.com/supabase/etl"><img src="https://img.shields.io/badge/etl-%E2%AD%90%202.3k%20%7C%202%20PR-informational?style=flat-square" alt="etl"/></a>
   <a href="https://github.com/lakekeeper/lakekeeper"><img src="https://img.shields.io/badge/lakekeeper-%E2%AD%90%201.3k%20%7C%202%20PR-informational?style=flat-square" alt="lakekeeper"/></a>
   <a href="https://github.com/pganalyze/pg_query.rs"><img src="https://img.shields.io/badge/pg__query.rs-%E2%AD%90%20236%20%7C%201%20PR-informational?style=flat-square" alt="pg_query.rs"/></a>
   <a href="https://github.com/apache/fluss-rust"><img src="https://img.shields.io/badge/fluss--rust-%E2%AD%90%2051%20%7C%202%20PR-informational?style=flat-square" alt="fluss-rust"/></a>
@@ -53,7 +53,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <p>
 <a href="https://github.com/datapizza-labs/datapizza-ai"><img src="https://img.shields.io/badge/datapizza--ai-%E2%AD%90%202.2k%20%7C%205%20PR-informational?style=flat-square" alt="datapizza-ai"/></a>
-  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-%E2%AD%90%20863%20%7C%2010%20PR-informational?style=flat-square" alt="mosaico"/></a>
+  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-%E2%AD%90%20865%20%7C%2010%20PR-informational?style=flat-square" alt="mosaico"/></a>
 </p>
 
 ### 🛠️ Infrastructure
@@ -66,7 +66,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 ### 📦 Other
 
 <p>
-<a href="https://github.com/italia-opensource/awesome-italia-opensource"><img src="https://img.shields.io/badge/awesome--italia--opensource-%E2%AD%90%20326%20%7C%201%20PR-informational?style=flat-square" alt="awesome-italia-opensource"/></a>
+<a href="https://github.com/italia-opensource/awesome-italia-opensource"><img src="https://img.shields.io/badge/awesome--italia--opensource-%E2%AD%90%20327%20%7C%201%20PR-informational?style=flat-square" alt="awesome-italia-opensource"/></a>
   <a href="https://github.com/piopy/fantacalcio-py"><img src="https://img.shields.io/badge/fantacalcio--py-%E2%AD%90%2051%20%7C%204%20PR-informational?style=flat-square" alt="fantacalcio-py"/></a>
   <a href="https://github.com/informagico/fantavibe"><img src="https://img.shields.io/badge/fantavibe-%E2%AD%90%206%20%7C%201%20PR-informational?style=flat-square" alt="fantavibe"/></a>
 </p><!-- EXTERNAL_CONTRIBUTIONS:END -->
