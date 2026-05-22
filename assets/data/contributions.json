@@ -1,12 +1,12 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-21T01:14:19Z",
+  "generatedAt": "2026-05-22T01:12:01Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
       "name": "polars",
       "url": "https://github.com/pola-rs/polars",
-      "stars": "38.5k",
+      "stars": "38.6k",
       "prs": "3",
       "desc": "Rust-native analytics work across DataFrame performance, ergonomics, and engine behavior.",
       "language": "Rust",
@@ -45,7 +45,7 @@
     {
       "name": "tokio",
       "url": "https://github.com/tokio-rs/tokio",
-      "stars": "32.0k",
+      "stars": "32.1k",
       "prs": "2",
       "desc": "Async runtime improvements around Rust concurrency, scheduling, and developer ergonomics.",
       "language": "Rust",
@@ -407,7 +407,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "865",
+      "stars": "866",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",
@@ -626,7 +626,7 @@
     {
       "name": "medha",
       "url": "https://github.com/ArchAI-Labs/medha",
-      "stars": "22",
+      "stars": "23",
       "prs": "1",
       "desc": "medha is one of the upstream projects where I have shipped fixes, cleanup, or implementation work.",
       "language": "Python",
