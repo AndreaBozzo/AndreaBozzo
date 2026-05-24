@@ -21,7 +21,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 <p align="center">
   <img src="https://img.shields.io/badge/Projects-22-blue?style=flat-square" alt="Projects"/>
   <img src="https://img.shields.io/badge/PRs_Merged-51-success?style=flat-square" alt="PRs Merged"/>
-  <img src="https://img.shields.io/badge/Combined_Stars-135.1k-yellow?style=flat-square" alt="Stars"/>
+  <img src="https://img.shields.io/badge/Combined_Stars-135.2k-yellow?style=flat-square" alt="Stars"/>
 </p>
 
 ### 🔬 Data Ecosystem
@@ -36,7 +36,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
   <a href="https://github.com/lakekeeper/lakekeeper"><img src="https://img.shields.io/badge/lakekeeper-%E2%AD%90%201.3k%20%7C%202%20PR-informational?style=flat-square" alt="lakekeeper"/></a>
   <a href="https://github.com/pganalyze/pg_query.rs"><img src="https://img.shields.io/badge/pg__query.rs-%E2%AD%90%20236%20%7C%201%20PR-informational?style=flat-square" alt="pg_query.rs"/></a>
   <a href="https://github.com/apache/fluss-rust"><img src="https://img.shields.io/badge/fluss--rust-%E2%AD%90%2051%20%7C%202%20PR-informational?style=flat-square" alt="fluss-rust"/></a>
-  <a href="https://github.com/ArchAI-Labs/medha"><img src="https://img.shields.io/badge/medha-%E2%AD%90%2023%20%7C%201%20PR-informational?style=flat-square" alt="medha"/></a>
+  <a href="https://github.com/ArchAI-Labs/medha"><img src="https://img.shields.io/badge/medha-%E2%AD%90%2025%20%7C%201%20PR-informational?style=flat-square" alt="medha"/></a>
 </p>
 
 ### 🦀 Rust Tooling
