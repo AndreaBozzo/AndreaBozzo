@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-24T01:13:51Z",
+  "generatedAt": "2026-05-25T01:15:37Z",
   "source": "assets/data/package-sources.json",
   "items": [
     {
@@ -171,16 +171,16 @@
       "name": "dataprof",
       "displayName": "dataprof",
       "summary": "High-performance data profiler with ISO 8000/25012 quality metrics for CSV, JSON/JSONL, and Parquet files",
-      "version": "0.7.1",
+      "version": "0.8.0",
       "url": "https://crates.io/crates/dataprof",
       "repositoryUrl": "https://github.com/AndreaBozzo/dataprof",
       "documentationUrl": "https://docs.rs/dataprof",
       "homepageUrl": "https://github.com/AndreaBozzo/dataprof",
       "license": "MIT OR Apache-2.0",
-      "publishedAt": "2026-04-10T09:38:54Z",
-      "updatedAt": "2026-04-10T09:38:54Z",
-      "downloadsTotal": 4459,
-      "recentDownloads": 147,
+      "publishedAt": "2026-05-24T12:55:01Z",
+      "updatedAt": "2026-05-24T12:55:01Z",
+      "downloadsTotal": 4470,
+      "recentDownloads": 158,
       "relatedCaseStudies": [
         "dataprof"
       ]
@@ -191,12 +191,12 @@
       "name": "dataprof",
       "displayName": "dataprof",
       "summary": "Fast, lightweight data profiling and quality assessment library",
-      "version": "0.7.1",
+      "version": "0.8.0",
       "url": "https://pypi.org/project/dataprof/",
       "repositoryUrl": "https://github.com/AndreaBozzo/dataprof",
       "homepageUrl": "https://github.com/AndreaBozzo/dataprof",
       "runtimeRequirement": "\u003e=3.8",
-      "publishedAt": "2026-04-10T09:56:35Z",
+      "publishedAt": "2026-05-24T12:56:49Z",
       "relatedCaseStudies": [
         "dataprof"
       ]

@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-24T01:14:02Z",
+  "generatedAt": "2026-05-25T01:15:45Z",
   "source": "case-study repoUrl GitHub repository metadata",
   "items": [
     {
@@ -29,7 +29,7 @@
         "rust"
       ],
       "language": "HTML",
-      "pushedAt": "2026-05-24T01:03:39Z",
+      "pushedAt": "2026-05-25T01:04:34Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "andreabozzo-site"
@@ -90,7 +90,7 @@
       "caseStudySlug": "dataprof",
       "repoFullName": "AndreaBozzo/dataprof",
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
-      "description": "Library and CLI for profiling tabular data",
+      "description": "Rust profiling library with PyO3 bindings",
       "stars": 15,
       "forks": 1,
       "topics": [
@@ -98,23 +98,28 @@
         "async",
         "asyncio",
         "big-data",
-        "cli-tool",
         "csv",
         "data-engineering",
         "data-quality",
         "data-science",
-        "datafusion",
-        "eda",
         "json",
+        "jsonld",
         "parquet-format",
         "python",
         "rust",
         "simd"
       ],
       "language": "Rust",
-      "pushedAt": "2026-05-23T10:29:39Z",
+      "pushedAt": "2026-05-24T18:42:50Z",
       "defaultBranch": "master",
       "releases": [
+        {
+          "tagName": "v0.8.0",
+          "name": "dataprof v0.8.0",
+          "url": "https://github.com/AndreaBozzo/dataprof/releases/tag/v0.8.0",
+          "publishedAt": "2026-05-24T12:56:58Z",
+          "target": "master"
+        },
         {
           "tagName": "v0.7.1",
           "name": "dataprof v0.7.1",
@@ -127,13 +132,6 @@
           "name": "dataprof v0.7.0",
           "url": "https://github.com/AndreaBozzo/dataprof/releases/tag/v0.7.0",
           "publishedAt": "2026-04-08T10:28:40Z",
-          "target": "master"
-        },
-        {
-          "tagName": "v0.6.2",
-          "name": "dataprof v0.6.2",
-          "url": "https://github.com/AndreaBozzo/dataprof/releases/tag/v0.6.2",
-          "publishedAt": "2026-04-03T11:37:04Z",
           "target": "master"
         }
       ],
