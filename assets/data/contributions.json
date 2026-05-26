@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-25T01:15:35Z",
+  "generatedAt": "2026-05-26T01:09:47Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -407,7 +407,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "866",
+      "stars": "869",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",
@@ -626,7 +626,7 @@
     {
       "name": "medha",
       "url": "https://github.com/ArchAI-Labs/medha",
-      "stars": "25",
+      "stars": "26",
       "prs": "1",
       "desc": "medha is one of the upstream projects where I have shipped fixes, cleanup, or implementation work.",
       "language": "Python",
