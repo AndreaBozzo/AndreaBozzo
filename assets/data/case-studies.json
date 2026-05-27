@@ -5,6 +5,7 @@
       "title": "dataprof",
       "displayTitle": "dataprof",
       "subtitle": "Arrow-native data profiling with bounded memory and quality metrics that fit real pipelines.",
+      "metaDescription": "dataprof: Arrow-native tabular data profiling as a Rust crate, CLI, and Python package, with machine-readable outputs that fit CI and data workflows.",
       "summary": "A Rust library, CLI, and Python package that profiles tabular data around Arrow batches instead of notebook-only inspection patterns, producing machine-readable outputs that can live in CI and data workflows.",
       "stack": [
         "Rust",
@@ -141,6 +142,7 @@
       "title": "Apache Rust Upstream",
       "displayTitle": "Apache Rust Contributions",
       "subtitle": "Upstream contributions across Arrow, DataFusion, Iceberg Rust, and Fluss Rust driven by real downstream system work.",
+      "metaDescription": "Upstream contributions to Apache Arrow, DataFusion, Iceberg Rust, and Fluss Rust driven by real downstream system constraints, not vague familiarity.",
       "summary": "A contribution-oriented case study about using Apache Rust projects as the place to fix recurring system constraints: Parquet reader behavior in arrow-rs, query-engine surfaces in DataFusion, table semantics in iceberg-rust, and streaming client integration in fluss-rust.",
       "stack": [
         "Apache Arrow",
@@ -672,6 +674,7 @@
       "slug": "nephtys",
       "title": "Nephtys",
       "subtitle": "A real-time connector for live event streams and edge integrations.",
+      "metaDescription": "Nephtys: a Go connector that ingests WebSocket, webhook, SSE, and gRPC streams, normalizes events, and publishes them to NATS JetStream.",
       "summary": "A Go service that ingests WebSocket, webhook, SSE, and gRPC streams, normalizes events, and publishes them to NATS JetStream with durable persistence and operational metrics.",
       "stack": [
         "Go",
@@ -783,6 +786,7 @@
       "slug": "dce",
       "title": "DCE",
       "subtitle": "Proactive data contracts enforcement built from dataprof's profiling core.",
+      "metaDescription": "DCE: a Rust-native engine for defining, validating, and enforcing data contracts across modern table formats, built from dataprof's profiling core.",
       "summary": "A Rust-native engine for defining, validating, and enforcing data contracts across modern table formats, shifting quality checks from after-the-fact profiling to contract execution.",
       "stack": [
         "Rust",
@@ -1018,6 +1022,7 @@
       "title": "Lakekeeper",
       "displayTitle": "Lakekeeper",
       "subtitle": "An Iceberg REST catalog in Rust with vended credentials, OpenFGA, and a small operational footprint.",
+      "metaDescription": "Lakekeeper: a Rust-native Iceberg REST catalog with OpenFGA authorization, vended cloud credentials, and multi-engine interoperability without a JVM.",
       "summary": "A case study on the Rust-native catalog layer that makes open lakehouse storage governable: table metadata, authorization, temporary credentials, and multi-engine interoperability without a JVM-heavy control plane.",
       "stack": [
         "Rust",
@@ -1137,8 +1142,7 @@
             {
               "label": "Interoperabilità motori",
               "value": "RisingWave + multi-engine",
-              "detail": "Interoperabilità documentata con RisingWave e integrazioni con motori esterni e piattaforme gestite, che esercitano la promessa cross-engine del catalogo.",
-              "url": "../../blog/it/posts/lakekeeper-blog/"
+              "detail": "Interoperabilità documentata con RisingWave e integrazioni con motori esterni e piattaforme gestite, che esercitano la promessa cross-engine del catalogo."
             }
           ],
           "coverAlt": "Panoramica architetturale di Lakekeeper",
@@ -1156,6 +1160,176 @@
               "body": "L'impronta pubblica è già concreta: un long-form architetturale, interoperabilità documentata con RisingWave, integrazioni con engine esterni e piattaforme managed, una cadenza di release mensile e 2 PR mergiate tracciate nel README del repository, invece di una vaga rivendicazione di familiarità. Il case study è particolarmente utile come controparte a livello di catalogo del lavoro sullo stack dati Rust: mostra dove metadata di tabella, governance e accesso degli engine smettono di essere astratti e diventano interfacce operative."
             }
           ]
+        }
+      }
+    },
+    {
+      "slug": "icebergsharp",
+      "title": "IcebergSharp",
+      "displayTitle": "IcebergSharp",
+      "subtitle": "A vendor-neutral .NET reader for Apache Iceberg tables, with no JVM in the path.",
+      "metaDescription": "IcebergSharp: a read-only .NET client for Apache Iceberg with REST catalog support, Avro manifest reader, and Arrow output, no JVM required.",
+      "summary": "A read-only .NET client for Apache Iceberg that talks to REST catalogs directly and streams Arrow batches, so analytical .NET stacks can reach lakehouse tables without a Spark or Trino sidecar.",
+      "stack": [
+        "C#",
+        ".NET 9",
+        "Apache Iceberg",
+        "Apache Arrow",
+        "REST Catalog"
+      ],
+      "status": "Phase 3 in development",
+      "repoUrl": "https://github.com/AndreaBozzo/IcebergSharp",
+      "relatedPosts": [],
+      "coverImage": "../../assets/images/case-studies/icebergsharp-logo.png",
+      "coverAlt": "IcebergSharp logo",
+      "coverEyebrow": "Iceberg for .NET, no JVM",
+      "coverText": "A focused .NET client for Apache Iceberg: REST catalog, Avro manifest reader, and Arrow output, so .NET apps can read lakehouse tables without a Spark or Trino sidecar.",
+      "actions": [
+        {
+          "label": "Repository",
+          "url": "https://github.com/AndreaBozzo/IcebergSharp",
+          "style": "primary"
+        },
+        {
+          "label": "Roadmap",
+          "url": "https://github.com/AndreaBozzo/IcebergSharp#roadmap",
+          "style": "secondary"
+        }
+      ],
+      "proofMetrics": [
+        {
+          "label": "Spec coverage",
+          "value": "Iceberg v1 + v2",
+          "detail": "Table metadata JSON parsing and Avro manifest/manifest-list reading covered by unit fixtures for both spec versions, with v3 as a stretch goal."
+        },
+        {
+          "label": "Catalog surface",
+          "value": "5 REST catalogs targeted",
+          "detail": "REST client built against Apache Polaris, Project Nessie, AWS Glue Iceberg REST, Snowflake Open Catalog, and lakekeeper, with bearer / OAuth2 client credentials / AWS SigV4 auth."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Why it exists",
+          "body": "A .NET application that wants to read an Iceberg table today has two unappealing options: spin up a JVM service like Spark Connect or Trino and pay the latency and operational cost, or go through a query engine that hides Iceberg's metadata from the caller. There is no native client that gives .NET the first-class access that pyiceberg gives Python or iceberg-rust gives Rust. IcebergSharp aims to fill that gap with a focused, read-only library that streams Arrow batches into the existing .NET analytical stack — DuckDB.NET, ML.NET, Power BI — without a JVM in the path."
+        },
+        {
+          "heading": "Technical center",
+          "body": "The project is split into small, composable packages: IcebergSharp.Core owns Iceberg v1/v2 table metadata, schemas, partition specs, snapshots, and manifest domain models; IcebergSharp.Avro is a stream-based Avro OCF reader for manifest lists and manifests with null and deflate codecs; IcebergSharp.Catalog is the read-only REST catalog client with dynamic endpoint discovery and bearer / OAuth2 / SigV4 auth. The design treats Arrow as the output substrate so the scan layer can hand record batches directly to downstream analytical tooling once Parquet reads land in Phase 5."
+        },
+        {
+          "heading": "Scope discipline",
+          "body": "Several boundaries are intentional rather than incidental. No write path: writing Iceberg correctly is roughly seventy percent of the engineering effort and ninety percent of the bugs in existing implementations, so v1 stays read-only. No merge-on-read: COW tables only, with delete files skipped under a warning. No Hive Metastore: REST catalogs only, leaving HMS to a REST adapter. No bundled SQL engine: the surface returns IAsyncEnumerable<RecordBatch> and Arrow streams and lets the caller choose the query layer. These exclusions are what keep the project from turning into a half-finished engine instead of a useful reader."
+        },
+        {
+          "heading": "Current proof points",
+          "body": "Phases 0 through 3 are landed in the repository: solution scaffolding, CI with dotnet format gating, core types and metadata, stream-based Avro manifest readers, and the read-only REST catalog client are all in place and covered by unit tests. Phases 4 and 5 — scan planning with partition and column-stats pruning, then Parquet reads with field-id resolution — are the next milestones on the way to a 1.0 NuGet release. The compatibility matrix in docs/compatibility-matrix.md tracks the catalog and storage surfaces as they move from unit-covered to live-validated."
+        }
+      ],
+      "systemAnatomy": {
+        "inputs": [
+          "Iceberg REST catalog endpoint",
+          "OAuth2 / Bearer / AWS SigV4 credentials",
+          "Iceberg v1 / v2 metadata JSON",
+          "Avro manifest list + manifest files"
+        ],
+        "core": [
+          ".NET 9 / .NET 8 multi-target",
+          "Stream-based Avro OCF reader",
+          "Read-only REST catalog client",
+          "Iceberg domain model (schemas, partitions, snapshots)"
+        ],
+        "outputs": [
+          "Table metadata + snapshots",
+          "Manifest + data-file listings",
+          "Arrow RecordBatch streams (planned)",
+          "IAsyncEnumerable scan tasks (planned)"
+        ],
+        "constraints": [
+          "No JVM in the runtime path",
+          "Read-only, COW tables only",
+          "REST catalogs only, no Hive Metastore",
+          "No bundled SQL engine"
+        ]
+      },
+      "translations": {
+        "it": {
+          "title": "IcebergSharp",
+          "subtitle": "Un client .NET vendor-neutral per leggere tabelle Apache Iceberg, senza JVM nel percorso.",
+          "summary": "Un client .NET read-only per Apache Iceberg che parla direttamente con i catalog REST e restituisce batch Arrow, così gli stack analitici .NET possono raggiungere le tabelle lakehouse senza un sidecar Spark o Trino.",
+          "metaDescription": "IcebergSharp: client .NET read-only per Apache Iceberg, catalog REST, lettura Avro dei manifest e output Arrow, senza JVM nel runtime.",
+          "status": "Fase 3 in sviluppo",
+          "coverEyebrow": "Iceberg per .NET, senza JVM",
+          "coverText": "Un client .NET focalizzato per Apache Iceberg: catalog REST, lettura Avro dei manifest e output Arrow, così le app .NET possono leggere tabelle lakehouse senza un sidecar Spark o Trino.",
+          "coverAlt": "Logo IcebergSharp",
+          "proofMetrics": [
+            {
+              "label": "Copertura della spec",
+              "value": "Iceberg v1 + v2",
+              "detail": "Parsing dei metadata JSON delle tabelle e lettura Avro dei manifest e manifest list coperti da fixture unitarie per entrambe le versioni della spec, con v3 come stretch goal."
+            },
+            {
+              "label": "Superficie di catalogo",
+              "value": "5 catalog REST come target",
+              "detail": "Client REST costruito contro Apache Polaris, Project Nessie, AWS Glue Iceberg REST, Snowflake Open Catalog e lakekeeper, con autenticazione bearer / OAuth2 client credentials / AWS SigV4."
+            }
+          ],
+          "actions": [
+            {
+              "label": "Repository",
+              "url": "https://github.com/AndreaBozzo/IcebergSharp",
+              "style": "primary"
+            },
+            {
+              "label": "Roadmap",
+              "url": "https://github.com/AndreaBozzo/IcebergSharp#roadmap",
+              "style": "secondary"
+            }
+          ],
+          "sections": [
+            {
+              "heading": "Perché esiste",
+              "body": "Un'applicazione .NET che oggi vuole leggere una tabella Iceberg ha due opzioni poco attraenti: avviare un servizio JVM come Spark Connect o Trino e pagarne il costo in latenza e operazioni, oppure passare per un motore di query che nasconde i metadata Iceberg al chiamante. Non esiste un client nativo che dia a .NET lo stesso accesso di prima classe che pyiceberg dà a Python o iceberg-rust a Rust. IcebergSharp prova a colmare questo vuoto con una libreria focalizzata, read-only, che fa fluire batch Arrow dentro lo stack analitico .NET esistente — DuckDB.NET, ML.NET, Power BI — senza una JVM nel percorso."
+            },
+            {
+              "heading": "Centro tecnico",
+              "body": "Il progetto è diviso in pacchetti piccoli e componibili: IcebergSharp.Core possiede i metadata v1/v2 delle tabelle Iceberg, gli schemi, le partition spec, gli snapshot e il modello di dominio dei manifest; IcebergSharp.Avro è un lettore Avro OCF stream-based per manifest list e manifest, con codec null e deflate; IcebergSharp.Catalog è il client REST read-only del catalog con scoperta dinamica degli endpoint e autenticazione bearer / OAuth2 / SigV4. Il design tratta Arrow come substrato di output, così il layer di scan potrà passare i record batch direttamente al tooling analitico downstream quando le letture Parquet arriveranno nella Fase 5."
+            },
+            {
+              "heading": "Disciplina di scope",
+              "body": "Diversi confini sono intenzionali, non incidentali. Niente write path: scrivere Iceberg in modo corretto è circa il settanta per cento dello sforzo ingegneristico e il novanta per cento dei bug nelle implementazioni esistenti, quindi la v1 resta read-only. Niente merge-on-read: solo tabelle COW, con i delete file saltati sotto warning. Niente Hive Metastore: solo catalog REST, lasciando HMS a un adapter REST. Niente motore SQL incluso: la superficie restituisce IAsyncEnumerable<RecordBatch> e stream Arrow, e lascia al chiamante la scelta del layer di query. Sono queste esclusioni che impediscono al progetto di diventare un motore a metà invece di un lettore utile."
+            },
+            {
+              "heading": "Prove correnti",
+              "body": "Le fasi da 0 a 3 sono già nel repository: scaffolding della solution, CI con gating dotnet format, tipi core e metadata, lettori Avro stream-based per i manifest e il client REST read-only del catalog sono tutti in posto e coperti da test unitari. Le fasi 4 e 5 — scan planning con partition pruning e column-stats pruning, poi lettura Parquet con risoluzione dei field-id — sono i prossimi milestone verso una release NuGet 1.0. La matrice di compatibilità in docs/compatibility-matrix.md traccia le superfici di catalog e storage mentre passano da unit-covered a live-validated."
+            }
+          ],
+          "systemAnatomy": {
+            "inputs": [
+              "Endpoint catalog Iceberg REST",
+              "Credenziali OAuth2 / Bearer / AWS SigV4",
+              "Metadata JSON Iceberg v1 / v2",
+              "Manifest list + manifest Avro"
+            ],
+            "core": [
+              "Multi-target .NET 9 / .NET 8",
+              "Lettore Avro OCF stream-based",
+              "Client REST read-only del catalog",
+              "Modello di dominio Iceberg (schemi, partizioni, snapshot)"
+            ],
+            "outputs": [
+              "Metadata di tabella + snapshot",
+              "Elenco manifest + data file",
+              "Stream Arrow RecordBatch (pianificato)",
+              "Task di scan IAsyncEnumerable (pianificato)"
+            ],
+            "constraints": [
+              "Niente JVM nel runtime",
+              "Read-only, solo tabelle COW",
+              "Solo catalog REST, niente Hive Metastore",
+              "Nessun motore SQL incluso"
+            ]
+          }
         }
       }
     },
@@ -1273,6 +1447,7 @@
       "title": "Lance Bridge",
       "displayTitle": "Lance Event Bridge",
       "subtitle": "Semantic indexing from live event streams into LanceDB without standing up a separate vector database.",
+      "metaDescription": "Lance Bridge: a Python service that consumes JetStream events, computes embeddings, and writes them into LanceDB for live semantic search.",
       "summary": "A Python bridge that consumes JetStream event batches, normalizes them into a LanceModel schema, computes embeddings, and writes them into LanceDB so a live stream becomes a local semantic-search surface.",
       "stack": [
         "Python",
@@ -1512,6 +1687,7 @@
       "title": "DataPizza AI",
       "displayTitle": "DataPizza AI",
       "subtitle": "A Python GenAI framework for production-ready agents and RAG pipelines with minimal abstraction.",
+      "metaDescription": "Datapizza AI: an open-source Python GenAI framework for multi-provider LLM clients, tool-calling agents, and RAG pipelines with minimal abstraction.",
       "summary": "An open-source Python framework that covers multi-provider LLM clients, tool-calling agents, document ingestion pipelines, and vector search — built around a less-abstraction-more-control philosophy and OpenTelemetry observability throughout.",
       "stack": [
         "Python",
@@ -1661,6 +1837,7 @@
       "slug": "andreabozzo-site",
       "title": "This website",
       "subtitle": "A public front door that combines portfolio, blog, workbench, generators, and a companion API.",
+      "metaDescription": "andreabozzo.github.io: a personal site combining handcrafted landing page, Hugo blog, Rust/WASM workbench, Go generators, and a companion API.",
       "summary": "This repository is both the personal website and the system behind it: a handcrafted landing page, a Hugo blog, a Rust/WASM knowledge workbench, Go generators for static artifacts, and a small Vercel-hosted GitHub stats API.",
       "stack": [
         "HTML/CSS/JS",

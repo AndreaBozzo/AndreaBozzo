@@ -226,6 +226,9 @@ func mergeTranslatedData(src, tr []caseStudyDatum) []caseStudyDatum {
 			if v := strings.TrimSpace(tr[i].Detail); v != "" {
 				merged.Detail = v
 			}
+			if v := strings.TrimSpace(tr[i].URL); v != "" {
+				merged.URL = v
+			}
 		}
 		out = append(out, merged)
 	}

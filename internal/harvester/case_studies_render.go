@@ -135,8 +135,8 @@ func renderCaseStudyPageForLocale(study caseStudy, pageContext caseStudyPageCont
 		}
 		buf.WriteString("                <a class=\"btn btn-" + style + "\" href=\"" + escapeHTML(action.URL) + "\"" + target + ">" + escapeHTML(firstNonEmpty(action.Label, navLabel(locale, "open_default"))) + "</a>\n")
 	}
-	buf.Write(renderCaseStudyDataGroup(navLabel(locale, "proof_metrics_title"), navLabel(locale, "proof_metrics_intro"), localized.ProofMetrics))
-	buf.Write(renderCaseStudyDataGroup(navLabel(locale, "operational_signals_title"), navLabel(locale, "operational_signals_intro"), localized.OperationalSignals))
+	buf.Write(renderCaseStudyDataGroup(navLabel(locale, "proof_metrics_title"), navLabel(locale, "proof_metrics_intro"), localized.ProofMetrics, rootRel, locale))
+	buf.Write(renderCaseStudyDataGroup(navLabel(locale, "operational_signals_title"), navLabel(locale, "operational_signals_intro"), localized.OperationalSignals, rootRel, locale))
 	buf.WriteString("            </aside>\n")
 	buf.WriteString("        </section>\n")
 	buf.WriteString("    </main>\n\n")

@@ -9,11 +9,14 @@ import (
 	"github.com/AndreaBozzo/AndreaBozzo/internal/harvester/schema"
 )
 
-func renderCaseStudyDataGroup(title, intro string, items []caseStudyDatum) []byte {
+func renderCaseStudyDataGroup(title, intro string, items []caseStudyDatum, rootRel, locale string) []byte {
 	filtered := make([]caseStudyDatum, 0, len(items))
 	for _, item := range items {
 		if strings.TrimSpace(item.Label) == "" && strings.TrimSpace(item.Value) == "" && strings.TrimSpace(item.Detail) == "" {
 			continue
+		}
+		if u := strings.TrimSpace(item.URL); u != "" && !isExternalURL(u) {
+			item.URL = localizeInternalURLForLocale(resolveCaseStudyAssetPathFor(u, rootRel), locale)
 		}
 		filtered = append(filtered, item)
 	}

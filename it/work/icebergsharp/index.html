@@ -1,0 +1,178 @@
+<!-- Generated from assets/data/case-studies.json by cmd/harvester. Do not edit directly. -->
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>IcebergSharp | Andrea Bozzo</title>
+    <meta name="description" content="IcebergSharp: client .NET read-only per Apache Iceberg, catalog REST, lettura Avro dei manifest e output Arrow, senza JVM nel runtime.">
+    <meta name="author" content="Andrea Bozzo">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://andreabozzo.github.io/AndreaBozzo/it/work/icebergsharp/">
+    <link rel="alternate" hreflang="en" href="https://andreabozzo.github.io/AndreaBozzo/work/icebergsharp/">
+    <link rel="alternate" hreflang="it" href="https://andreabozzo.github.io/AndreaBozzo/it/work/icebergsharp/">
+    <link rel="alternate" hreflang="x-default" href="https://andreabozzo.github.io/AndreaBozzo/work/icebergsharp/">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="IcebergSharp | Andrea Bozzo">
+    <meta property="og:description" content="IcebergSharp: client .NET read-only per Apache Iceberg, catalog REST, lettura Avro dei manifest e output Arrow, senza JVM nel runtime.">
+    <meta property="og:url" content="https://andreabozzo.github.io/AndreaBozzo/it/work/icebergsharp/">
+    <meta property="og:site_name" content="Andrea Bozzo">
+    <meta property="og:image" content="https://andreabozzo.github.io/AndreaBozzo/assets/images/og/icebergsharp.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="IcebergSharp social card">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="IcebergSharp | Andrea Bozzo">
+    <meta name="twitter:description" content="IcebergSharp: client .NET read-only per Apache Iceberg, catalog REST, lettura Avro dei manifest e output Arrow, senza JVM nel runtime.">
+    <meta name="twitter:image" content="https://andreabozzo.github.io/AndreaBozzo/assets/images/og/icebergsharp.png">
+    <meta name="twitter:image:alt" content="IcebergSharp social card">
+    <meta name="theme-color" content="#f7faf6">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="prefetch" href="../../../blog/">
+    <link rel="prefetch" href="../../../blog/en/">
+    <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+    <link rel="stylesheet" href="../../../assets/styles.min.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","additionalType":"https://schema.org/CaseStudy","author":{"@type":"Person","name":"Andrea Bozzo","url":"https://andreabozzo.github.io/AndreaBozzo/"},"dateModified":"2026-05-20T06:21:38Z","description":"IcebergSharp: client .NET read-only per Apache Iceberg, catalog REST, lettura Avro dei manifest e output Arrow, senza JVM nel runtime.","headline":"IcebergSharp","image":"https://andreabozzo.github.io/AndreaBozzo/assets/images/og/icebergsharp.png","inLanguage":"it","isPartOf":{"@id":"https://andreabozzo.github.io/AndreaBozzo/","@type":"WebSite"},"keywords":"C#, .NET 9, Apache Iceberg, Apache Arrow, REST Catalog","mainEntityOfPage":"https://andreabozzo.github.io/AndreaBozzo/it/work/icebergsharp/","mentions":[{"@type":"Thing","name":"C#"},{"@type":"Thing","name":".NET 9"},{"@type":"Thing","name":"Apache Iceberg"},{"@type":"Thing","name":"Apache Arrow"},{"@type":"Thing","name":"REST Catalog"}],"name":"IcebergSharp","publisher":{"@type":"Person","name":"Andrea Bozzo","url":"https://andreabozzo.github.io/AndreaBozzo/"},"sameAs":["https://github.com/AndreaBozzo/IcebergSharp"],"url":"https://andreabozzo.github.io/AndreaBozzo/it/work/icebergsharp/"}</script>
+</head>
+<body>
+    <header class="site-header">
+        <a href="../../../#home" class="site-brand">AB</a>
+        <nav class="site-nav" aria-label="Navigazione principale">
+            <a href="../../../#workbench">Lavori</a>
+            <a href="../../../blog/" data-blog-link>Blog</a>
+            <a href="../../../#projects">Open Source</a>
+            <a href="../../../#papers">Articoli</a>
+            <a href="../../../#contact">Contatti</a>
+        </nav>
+        <div class="site-locale-switch" data-site-locale-switch>
+            <a href="../../../work/icebergsharp/" class="site-lang-btn" data-site-lang="en" hreflang="en" aria-label="Switch site language to English">EN</a>
+            <a href="../../" class="site-lang-btn is-active" data-site-lang="it" hreflang="it" aria-current="page" aria-label="Lingua del sito: italiano">IT</a>
+        </div>
+        <button class="theme-toggle" type="button" aria-label="Cambia tema colore">
+            <span class="theme-toggle-icon" id="theme-icon">☀️</span>
+        </button>
+    </header>
+
+    <main class="content-wrapper case-study-page">
+        <section class="case-hero">
+            <div class="case-hero-copy">
+                <p class="eyebrow">Case Study</p>
+                <h1 class="title">IcebergSharp</h1>
+                <p class="subtitle">Un client .NET vendor-neutral per leggere tabelle Apache Iceberg, senza JVM nel percorso.</p>
+                <div class="case-meta">
+                    <span class="case-meta-status">Fase 3 in sviluppo</span>
+                    <span>C#</span>
+                    <span>.NET 9</span>
+                    <span>Apache Iceberg</span>
+                    <span>Apache Arrow</span>
+                    <span>REST Catalog</span>
+                </div>
+            </div>
+            <figure class="case-cover">
+                <img src="../../../assets/images/case-studies/icebergsharp-logo.png" alt="Logo IcebergSharp">
+            </figure>
+        </section>
+
+        <section class="system-anatomy" aria-label="Anatomia del sistema">
+            <p class="eyebrow">Anatomia del sistema</p>
+            <ol class="system-flow">
+                <li class="system-flow-stage" data-stage="inputs">
+                    <p class="system-flow-stage-label">Input</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Endpoint catalog Iceberg REST</li>
+                        <li>Credenziali OAuth2 / Bearer / AWS SigV4</li>
+                        <li>Metadata JSON Iceberg v1 / v2</li>
+                        <li>Manifest list + manifest Avro</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="core">
+                    <p class="system-flow-stage-label">Core</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Multi-target .NET 9 / .NET 8</li>
+                        <li>Lettore Avro OCF stream-based</li>
+                        <li>Client REST read-only del catalog</li>
+                        <li>Modello di dominio Iceberg (schemi, partizioni, snapshot)</li>
+                    </ul>
+                </li>
+                <li class="system-flow-stage" data-stage="outputs">
+                    <p class="system-flow-stage-label">Output</p>
+                    <ul class="system-flow-stage-items">
+                        <li>Metadata di tabella + snapshot</li>
+                        <li>Elenco manifest + data file</li>
+                        <li>Stream Arrow RecordBatch (pianificato)</li>
+                        <li>Task di scan IAsyncEnumerable (pianificato)</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="system-flow-rail">
+                <span class="system-flow-rail-label">Vincoli</span>
+                <ul class="system-flow-rail-chips">
+                    <li>Niente JVM nel runtime</li>
+                    <li>Read-only, solo tabelle COW</li>
+                    <li>Solo catalog REST, niente Hive Metastore</li>
+                    <li>Nessun motore SQL incluso</li>
+                </ul>
+            </div>
+        </section>
+
+        <nav class="case-page-nav" aria-label="Navigazione case study">
+            <a class="btn btn-secondary" href="../../../#workbench">Torna al workbench</a>
+            <a class="btn btn-ghost" href="../lakekeeper/">← Lakekeeper</a>
+            <a class="btn btn-ghost" href="../peek-a-boo/">Peek-a-Boo →</a>
+        </nav>
+
+        <section class="case-layout">
+            <div class="case-content">
+                <article class="case-main">
+                    <h2>Perché esiste</h2>
+                    <p>Un&#39;applicazione .NET che oggi vuole leggere una tabella Iceberg ha due opzioni poco attraenti: avviare un servizio JVM come Spark Connect o Trino e pagarne il costo in latenza e operazioni, oppure passare per un motore di query che nasconde i metadata Iceberg al chiamante. Non esiste un client nativo che dia a .NET lo stesso accesso di prima classe che pyiceberg dà a Python o iceberg-rust a Rust. IcebergSharp prova a colmare questo vuoto con una libreria focalizzata, read-only, che fa fluire batch Arrow dentro lo stack analitico .NET esistente — DuckDB.NET, ML.NET, Power BI — senza una JVM nel percorso.</p>
+
+                    <h2>Centro tecnico</h2>
+                    <p>Il progetto è diviso in pacchetti piccoli e componibili: IcebergSharp.Core possiede i metadata v1/v2 delle tabelle Iceberg, gli schemi, le partition spec, gli snapshot e il modello di dominio dei manifest; IcebergSharp.Avro è un lettore Avro OCF stream-based per manifest list e manifest, con codec null e deflate; IcebergSharp.Catalog è il client REST read-only del catalog con scoperta dinamica degli endpoint e autenticazione bearer / OAuth2 / SigV4. Il design tratta Arrow come substrato di output, così il layer di scan potrà passare i record batch direttamente al tooling analitico downstream quando le letture Parquet arriveranno nella Fase 5.</p>
+
+                    <h2>Disciplina di scope</h2>
+                    <p>Diversi confini sono intenzionali, non incidentali. Niente write path: scrivere Iceberg in modo corretto è circa il settanta per cento dello sforzo ingegneristico e il novanta per cento dei bug nelle implementazioni esistenti, quindi la v1 resta read-only. Niente merge-on-read: solo tabelle COW, con i delete file saltati sotto warning. Niente Hive Metastore: solo catalog REST, lasciando HMS a un adapter REST. Niente motore SQL incluso: la superficie restituisce IAsyncEnumerable&lt;RecordBatch&gt; e stream Arrow, e lascia al chiamante la scelta del layer di query. Sono queste esclusioni che impediscono al progetto di diventare un motore a metà invece di un lettore utile.</p>
+
+                    <h2>Prove correnti</h2>
+                    <p>Le fasi da 0 a 3 sono già nel repository: scaffolding della solution, CI con gating dotnet format, tipi core e metadata, lettori Avro stream-based per i manifest e il client REST read-only del catalog sono tutti in posto e coperti da test unitari. Le fasi 4 e 5 — scan planning con partition pruning e column-stats pruning, poi lettura Parquet con risoluzione dei field-id — sono i prossimi milestone verso una release NuGet 1.0. La matrice di compatibilità in docs/compatibility-matrix.md traccia le superfici di catalog e storage mentre passano da unit-covered a live-validated.</p>
+
+                </article>
+            </div>
+            <aside class="case-aside">
+                <a class="btn btn-primary" href="https://github.com/AndreaBozzo/IcebergSharp" target="_blank" rel="noopener noreferrer">Repository</a>
+                <a class="btn btn-secondary" href="https://github.com/AndreaBozzo/IcebergSharp#roadmap" target="_blank" rel="noopener noreferrer">Roadmap</a>
+
+                <section class="case-data-group" aria-label="Metriche di prova">
+                    <p class="case-data-kicker">Metriche di prova</p>
+                    <p class="case-data-intro">Prove pubbliche e concrete, legate al progetto invece che spinte nel grafo.</p>
+                    <div class="case-data-list">
+                        <article class="case-datum">
+                            <span class="case-datum-label">Copertura della spec</span>
+                            <strong class="case-datum-value">Iceberg v1 + v2</strong>
+                            <p class="case-datum-detail">Parsing dei metadata JSON delle tabelle e lettura Avro dei manifest e manifest list coperti da fixture unitarie per entrambe le versioni della spec, con v3 come stretch goal.</p>
+                        </article>
+                        <article class="case-datum">
+                            <span class="case-datum-label">Superficie di catalogo</span>
+                            <strong class="case-datum-value">5 catalog REST come target</strong>
+                            <p class="case-datum-detail">Client REST costruito contro Apache Polaris, Project Nessie, AWS Glue Iceberg REST, Snowflake Open Catalog e lakekeeper, con autenticazione bearer / OAuth2 client credentials / AWS SigV4.</p>
+                        </article>
+                    </div>
+                </section>
+            </aside>
+        </section>
+    </main>
+
+    <script src="../../../assets/main.min.js" defer></script>
+</body>
+</html>
