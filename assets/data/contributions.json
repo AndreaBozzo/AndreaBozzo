@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-26T01:09:47Z",
+  "generatedAt": "2026-05-27T01:14:16Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -338,6 +338,23 @@
       ]
     },
     {
+      "name": "PathOfBuilding-PoE2",
+      "url": "https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2",
+      "stars": "1.6k",
+      "prs": "1",
+      "desc": "PathOfBuilding-PoE2 is one of the upstream projects where I have shipped fixes, cleanup, or implementation work.",
+      "language": "Lua",
+      "lastPRMergedAt": "2026-05-26T09:39:12Z",
+      "prList": [
+        {
+          "title": "Clarify Linux launch instructions",
+          "number": 1822,
+          "url": "https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1822",
+          "mergedAt": "2026-05-26T09:39:12Z"
+        }
+      ]
+    },
+    {
       "name": "lakekeeper",
       "url": "https://github.com/lakekeeper/lakekeeper",
       "stars": "1.3k",
@@ -407,7 +424,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "869",
+      "stars": "868",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",

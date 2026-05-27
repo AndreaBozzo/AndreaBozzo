@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-26T01:10:01Z",
+  "generatedAt": "2026-05-27T01:14:25Z",
   "source": "case-study repoUrl GitHub repository metadata",
   "items": [
     {
@@ -29,7 +29,7 @@
         "rust"
       ],
       "language": "HTML",
-      "pushedAt": "2026-05-26T01:00:57Z",
+      "pushedAt": "2026-05-27T01:03:49Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "andreabozzo-site"
@@ -91,7 +91,7 @@
       "repoFullName": "AndreaBozzo/dataprof",
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
       "description": "Rust profiling library with PyO3 bindings",
-      "stars": 15,
+      "stars": 16,
       "forks": 1,
       "topics": [
         "apache-arrow",
