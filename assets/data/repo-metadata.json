@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-27T01:14:25Z",
+  "generatedAt": "2026-05-28T01:06:57Z",
   "source": "case-study repoUrl GitHub repository metadata",
   "items": [
     {
@@ -29,7 +29,7 @@
         "rust"
       ],
       "language": "HTML",
-      "pushedAt": "2026-05-27T01:03:49Z",
+      "pushedAt": "2026-05-28T00:58:07Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "andreabozzo-site"
@@ -182,6 +182,32 @@
       "defaultBranch": "master",
       "relatedCaseStudies": [
         "druid-datafusion-bridge"
+      ]
+    },
+    {
+      "caseStudySlug": "icebergsharp",
+      "repoFullName": "AndreaBozzo/IcebergSharp",
+      "repoUrl": "https://github.com/AndreaBozzo/IcebergSharp",
+      "description": "Vendor-neutral .NET reader for Apache Iceberg tables",
+      "stars": 1,
+      "forks": 0,
+      "topics": [
+        "apache-iceberg",
+        "csharp",
+        "data-lake",
+        "dotnet",
+        "iceberg",
+        "iceberg-table",
+        "lakehouse",
+        "net",
+        "parquet",
+        "rest-catalog"
+      ],
+      "language": "C#",
+      "pushedAt": "2026-05-25T09:25:42Z",
+      "defaultBranch": "main",
+      "relatedCaseStudies": [
+        "icebergsharp"
       ]
     },
     {
