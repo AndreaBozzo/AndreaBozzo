@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-28T01:06:51Z",
+  "generatedAt": "2026-05-29T01:16:33Z",
   "source": "assets/data/dataset-sources.json",
   "items": [
     {
@@ -10,7 +10,7 @@
       "displayName": "Ceres Open Data Index",
       "url": "https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index",
       "license": "apache-2.0",
-      "summary": "\n\t\n\t\t\n\t\tCeres Open Data Index\n\t\n\nA curated, deduplicated index of 890,143 open datasets from 32 open data portals across 13 countries plus international sources. This is the largest aggregated open data metadata index available as a single downloadable resource.\n\n\t\n\t\t\n\t\tDataset Description\n\t\n\nThis dataset contains normalized metadata from government and institutional open data portals. It was harvested by Ceres, a search engine for open data, via CKAN and DCAT-AP APIs. Metadata has been… See the full description on the dataset page: https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index.",
+      "summary": "\n\t\n\t\t\n\t\n\t\n\t\tCeres Open Data Index\n\t\n\nA curated, deduplicated index of 890,143 open datasets from 32 open data portals across 13 countries plus international sources. This is the largest aggregated open data metadata index available as a single downloadable resource.\n\n\t\n\t\t\n\t\n\t\n\t\tDataset Description\n\t\n\nThis dataset contains normalized metadata from government and institutional open data portals. It was harvested by Ceres, a search engine for open data, via CKAN and DCAT-AP APIs. Metadata has… See the full description on the dataset page: https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index.",
       "languages": [
         "it",
         "uk",
@@ -31,7 +31,7 @@
       ],
       "snapshotDate": "2026-03-30",
       "lastModified": "2026-03-30T14:00:23Z",
-      "downloads": 166,
+      "downloads": 161,
       "likes": 1,
       "totalRecords": 890143,
       "uniqueRecords": 814616,

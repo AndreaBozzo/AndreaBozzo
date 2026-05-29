@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-28T01:06:43Z",
+  "generatedAt": "2026-05-29T01:16:22Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -95,7 +95,7 @@
     {
       "name": "risingwave",
       "url": "https://github.com/risingwavelabs/risingwave",
-      "stars": "9.0k",
+      "stars": "9.1k",
       "prs": "1",
       "desc": "Streaming database contributions across query behavior, engine details, and developer workflow.",
       "language": "Rust",
@@ -340,7 +340,7 @@
     {
       "name": "PathOfBuilding-PoE2",
       "url": "https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2",
-      "stars": "1.6k",
+      "stars": "1.7k",
       "prs": "1",
       "desc": "PathOfBuilding-PoE2 is one of the upstream projects where I have shipped fixes, cleanup, or implementation work.",
       "language": "Lua",
@@ -424,7 +424,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "869",
+      "stars": "872",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",
