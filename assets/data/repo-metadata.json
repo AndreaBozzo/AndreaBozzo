@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-29T01:16:37Z",
+  "generatedAt": "2026-05-30T01:10:22Z",
   "source": "case-study repoUrl GitHub repository metadata",
   "items": [
     {
@@ -29,7 +29,7 @@
         "rust"
       ],
       "language": "HTML",
-      "pushedAt": "2026-05-29T01:06:24Z",
+      "pushedAt": "2026-05-30T01:01:28Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "andreabozzo-site"
