@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-30T01:10:19Z",
+  "generatedAt": "2026-05-31T01:18:56Z",
   "source": "case-study repoUrl GitHub Actions runs",
   "items": [
     {
@@ -24,14 +24,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/AndreaBozzo",
       "workflowName": "GitHub Metrics",
       "workflowPath": ".github/workflows/metrics.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/26669978493",
+      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/26699560246",
       "runsSampled": 9,
-      "medianDurationSeconds": 169,
+      "medianDurationSeconds": 168,
       "p95DurationSeconds": 183,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-05-30T01:01:31Z"
+      "latestRunAt": "2026-05-31T01:07:06Z"
     },
     {
       "caseStudySlug": "andreabozzo-site",
@@ -39,13 +39,13 @@
       "repoUrl": "https://github.com/AndreaBozzo/AndreaBozzo",
       "workflowName": "Update External Contributions",
       "workflowPath": ".github/workflows/update-contributions.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/26670252953",
+      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/26699800813",
       "runsSampled": 9,
       "medianDurationSeconds": 40,
       "p95DurationSeconds": 52,
       "successRate": 1,
       "latestStatus": "in_progress",
-      "latestRunAt": "2026-05-30T01:09:54Z"
+      "latestRunAt": "2026-05-31T01:18:23Z"
     },
     {
       "caseStudySlug": "ares-ceres",
