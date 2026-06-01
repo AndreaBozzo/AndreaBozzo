@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-31T01:18:47Z",
+  "generatedAt": "2026-06-01T01:21:47Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -45,7 +45,7 @@
     {
       "name": "tokio",
       "url": "https://github.com/tokio-rs/tokio",
-      "stars": "32.1k",
+      "stars": "32.2k",
       "prs": "2",
       "desc": "Async runtime improvements around Rust concurrency, scheduling, and developer ergonomics.",
       "language": "Rust",
@@ -424,7 +424,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "874",
+      "stars": "873",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",
@@ -518,7 +518,7 @@
     {
       "name": "pg_query.rs",
       "url": "https://github.com/pganalyze/pg_query.rs",
-      "stars": "236",
+      "stars": "237",
       "prs": "1",
       "desc": "Rust and Postgres parsing work in a low-level developer tooling library.",
       "language": "Rust",

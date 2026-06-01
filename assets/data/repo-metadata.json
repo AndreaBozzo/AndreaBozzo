@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-05-31T01:19:00Z",
+  "generatedAt": "2026-06-01T01:21:56Z",
   "source": "case-study repoUrl GitHub repository metadata",
   "items": [
     {
@@ -29,7 +29,7 @@
         "rust"
       ],
       "language": "HTML",
-      "pushedAt": "2026-05-31T01:07:03Z",
+      "pushedAt": "2026-06-01T01:10:49Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "andreabozzo-site"
@@ -110,9 +110,16 @@
         "simd"
       ],
       "language": "Rust",
-      "pushedAt": "2026-05-24T18:42:50Z",
+      "pushedAt": "2026-05-31T12:50:56Z",
       "defaultBranch": "master",
       "releases": [
+        {
+          "tagName": "v0.8.1",
+          "name": "dataprof v0.8.1",
+          "url": "https://github.com/AndreaBozzo/dataprof/releases/tag/v0.8.1",
+          "publishedAt": "2026-05-31T13:34:04Z",
+          "target": "master"
+        },
         {
           "tagName": "v0.8.0",
           "name": "dataprof v0.8.0",
@@ -125,13 +132,6 @@
           "name": "dataprof v0.7.1",
           "url": "https://github.com/AndreaBozzo/dataprof/releases/tag/v0.7.1",
           "publishedAt": "2026-04-10T09:56:44Z",
-          "target": "master"
-        },
-        {
-          "tagName": "v0.7.0",
-          "name": "dataprof v0.7.0",
-          "url": "https://github.com/AndreaBozzo/dataprof/releases/tag/v0.7.0",
-          "publishedAt": "2026-04-08T10:28:40Z",
           "target": "master"
         }
       ],
