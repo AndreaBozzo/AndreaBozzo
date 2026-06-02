@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-06-01T01:21:56Z",
+  "generatedAt": "2026-06-02T01:20:38Z",
   "source": "case-study repoUrl GitHub repository metadata",
   "items": [
     {
@@ -29,7 +29,7 @@
         "rust"
       ],
       "language": "HTML",
-      "pushedAt": "2026-06-01T01:10:49Z",
+      "pushedAt": "2026-06-02T01:09:41Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "andreabozzo-site"
@@ -204,7 +204,7 @@
         "rest-catalog"
       ],
       "language": "C#",
-      "pushedAt": "2026-05-25T09:25:42Z",
+      "pushedAt": "2026-06-01T21:56:45Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "icebergsharp"

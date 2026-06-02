@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-06-01T01:21:47Z",
+  "generatedAt": "2026-06-02T01:20:28Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -487,7 +487,7 @@
     {
       "name": "awesome-italia-opensource",
       "url": "https://github.com/italia-opensource/awesome-italia-opensource",
-      "stars": "327",
+      "stars": "328",
       "prs": "1",
       "desc": "Curation and contribution work supporting the Italian open source ecosystem.",
       "language": "Python",
