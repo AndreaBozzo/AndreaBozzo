@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-06-04T01:25:46Z",
+  "generatedAt": "2026-06-06T01:11:41Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -73,7 +73,7 @@
     {
       "name": "axum",
       "url": "https://github.com/tokio-rs/axum",
-      "stars": "26.1k",
+      "stars": "26.2k",
       "prs": "1",
       "desc": "Web framework contributions around routing, ergonomics, and service integration in Rust.",
       "language": "Rust",
@@ -125,7 +125,7 @@
     {
       "name": "datafusion",
       "url": "https://github.com/apache/datafusion",
-      "stars": "8.8k",
+      "stars": "8.9k",
       "prs": "1",
       "desc": "Query engine fixes and improvements in the Arrow-native SQL execution stack.",
       "language": "Rust",
@@ -424,7 +424,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "875",
+      "stars": "876",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",
