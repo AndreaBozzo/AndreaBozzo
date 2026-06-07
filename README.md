@@ -21,7 +21,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 <p align="center">
   <img src="https://img.shields.io/badge/Projects-24-blue?style=flat-square" alt="Projects"/>
   <img src="https://img.shields.io/badge/PRs_Merged-53-success?style=flat-square" alt="PRs Merged"/>
-  <img src="https://img.shields.io/badge/Combined_Stars-138.2k-yellow?style=flat-square" alt="Stars"/>
+  <img src="https://img.shields.io/badge/Combined_Stars-138.3k-yellow?style=flat-square" alt="Stars"/>
 </p>
 
 ### 🔬 Data Ecosystem
@@ -34,7 +34,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
   <a href="https://github.com/apache/arrow-rs"><img src="https://img.shields.io/badge/arrow--rs-%E2%AD%90%203.5k%20%7C%202%20PR-informational?style=flat-square" alt="arrow-rs"/></a>
   <a href="https://github.com/supabase/etl"><img src="https://img.shields.io/badge/etl-%E2%AD%90%202.3k%20%7C%202%20PR-informational?style=flat-square" alt="etl"/></a>
   <a href="https://github.com/lakekeeper/lakekeeper"><img src="https://img.shields.io/badge/lakekeeper-%E2%AD%90%201.3k%20%7C%202%20PR-informational?style=flat-square" alt="lakekeeper"/></a>
-  <a href="https://github.com/pganalyze/pg_query.rs"><img src="https://img.shields.io/badge/pg__query.rs-%E2%AD%90%20238%20%7C%201%20PR-informational?style=flat-square" alt="pg_query.rs"/></a>
+  <a href="https://github.com/pganalyze/pg_query.rs"><img src="https://img.shields.io/badge/pg__query.rs-%E2%AD%90%20239%20%7C%201%20PR-informational?style=flat-square" alt="pg_query.rs"/></a>
   <a href="https://github.com/apache/fluss-rust"><img src="https://img.shields.io/badge/fluss--rust-%E2%AD%90%2052%20%7C%202%20PR-informational?style=flat-square" alt="fluss-rust"/></a>
   <a href="https://github.com/ArchAI-Labs/medha"><img src="https://img.shields.io/badge/medha-%E2%AD%90%2027%20%7C%201%20PR-informational?style=flat-square" alt="medha"/></a>
 </p>
@@ -67,7 +67,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <p>
 <a href="https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2"><img src="https://img.shields.io/badge/PathOfBuilding--PoE2-%E2%AD%90%201.7k%20%7C%201%20PR-informational?style=flat-square" alt="PathOfBuilding-PoE2"/></a>
-  <a href="https://github.com/zornade/visura-api"><img src="https://img.shields.io/badge/visura--api-%E2%AD%90%20655%20%7C%201%20PR-informational?style=flat-square" alt="visura-api"/></a>
+  <a href="https://github.com/zornade/visura-api"><img src="https://img.shields.io/badge/visura--api-%E2%AD%90%20657%20%7C%201%20PR-informational?style=flat-square" alt="visura-api"/></a>
   <a href="https://github.com/italia-opensource/awesome-italia-opensource"><img src="https://img.shields.io/badge/awesome--italia--opensource-%E2%AD%90%20328%20%7C%201%20PR-informational?style=flat-square" alt="awesome-italia-opensource"/></a>
   <a href="https://github.com/piopy/fantacalcio-py"><img src="https://img.shields.io/badge/fantacalcio--py-%E2%AD%90%2051%20%7C%204%20PR-informational?style=flat-square" alt="fantacalcio-py"/></a>
   <a href="https://github.com/informagico/fantavibe"><img src="https://img.shields.io/badge/fantavibe-%E2%AD%90%206%20%7C%201%20PR-informational?style=flat-square" alt="fantavibe"/></a>

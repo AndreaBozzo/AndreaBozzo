@@ -1,8 +1,60 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-06-06T01:11:41Z",
+  "generatedAt": "2026-06-07T01:19:55Z",
   "source": "blog/content/posts",
   "items": [
+    {
+      "id": "brain-blog:en",
+      "slug": "brain-blog",
+      "language": "en",
+      "title": "Brain and Brain UI: A Knowledge Base You Actually Own",
+      "summary": "Brain is a Git-backed Markdown knowledge base. Brain UI is the Rust/Leptos control plane on top of it. This is the system, the connection between the two halves, a real config-driven taxonomy, and the honest reasons I'm putting the core in the open.",
+      "description": "How Brain and Brain UI turn a folder of Markdown into a knowledge base that humans and agents can both read, why I built it, and why I'm open-sourcing the core on July 1st 2026.",
+      "publishedAt": "2026-06-06T10:00:00Z",
+      "url": "./blog/en/posts/brain-blog/",
+      "sourcePath": "blog/content/posts/brain-blog.en.md",
+      "tags": [
+        "Rust",
+        "Leptos",
+        "Knowledge Base",
+        "Git",
+        "Open Source",
+        "AI"
+      ],
+      "categories": [
+        "Rust",
+        "Knowledge Management",
+        "Open Source"
+      ],
+      "wordCount": 2200,
+      "readingMinutes": 10
+    },
+    {
+      "id": "brain-blog:it",
+      "slug": "brain-blog",
+      "language": "it",
+      "title": "Brain e Brain UI: una Knowledge Base che è Davvero Tua",
+      "summary": "Brain è una knowledge base Markdown versionata in Git. Brain UI è il control plane Rust/Leptos che ci sta sopra. Questo è il sistema, il legame tra le due metà, una tassonomia reale config-driven, e le ragioni oneste per cui metto il core in chiaro.",
+      "description": "Come Brain e Brain UI trasformano una cartella di Markdown in una knowledge base che umani e agenti possono entrambi leggere, perché l'ho costruita, e perché ne rendo open source il core il 1 luglio 2026.",
+      "publishedAt": "2026-06-06T10:00:00Z",
+      "url": "./blog/posts/brain-blog/",
+      "sourcePath": "blog/content/posts/brain-blog.it.md",
+      "tags": [
+        "Rust",
+        "Leptos",
+        "Knowledge Base",
+        "Git",
+        "Open Source",
+        "AI"
+      ],
+      "categories": [
+        "Rust",
+        "Knowledge Management",
+        "Open Source"
+      ],
+      "wordCount": 2203,
+      "readingMinutes": 11
+    },
     {
       "id": "buildingapersonalwebsite-blog:en",
       "slug": "buildingapersonalwebsite-blog",

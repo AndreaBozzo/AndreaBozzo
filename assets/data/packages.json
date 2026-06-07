@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-06-06T01:11:42Z",
+  "generatedAt": "2026-06-07T01:19:56Z",
   "source": "assets/data/package-sources.json",
   "items": [
     {
@@ -51,8 +51,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-04-29T13:24:56Z",
       "updatedAt": "2026-04-29T13:24:56Z",
-      "downloadsTotal": 168,
-      "recentDownloads": 147,
+      "downloadsTotal": 170,
+      "recentDownloads": 149,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -69,8 +69,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-04-29T13:22:56Z",
       "updatedAt": "2026-04-29T13:22:56Z",
-      "downloadsTotal": 275,
-      "recentDownloads": 245,
+      "downloadsTotal": 279,
+      "recentDownloads": 249,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -87,8 +87,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-04-29T13:26:38Z",
       "updatedAt": "2026-04-29T13:26:38Z",
-      "downloadsTotal": 168,
-      "recentDownloads": 147,
+      "downloadsTotal": 170,
+      "recentDownloads": 149,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -105,8 +105,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-05-21T16:26:58Z",
       "updatedAt": "2026-05-21T16:26:58Z",
-      "downloadsTotal": 302,
-      "recentDownloads": 145,
+      "downloadsTotal": 304,
+      "recentDownloads": 147,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -123,8 +123,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-05-21T16:25:01Z",
       "updatedAt": "2026-05-21T16:25:01Z",
-      "downloadsTotal": 486,
-      "recentDownloads": 251,
+      "downloadsTotal": 490,
+      "recentDownloads": 255,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -141,8 +141,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-05-21T16:28:43Z",
       "updatedAt": "2026-05-21T16:28:43Z",
-      "downloadsTotal": 301,
-      "recentDownloads": 146,
+      "downloadsTotal": 303,
+      "recentDownloads": 148,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
