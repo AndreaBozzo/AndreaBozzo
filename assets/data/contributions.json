@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-06-14T01:22:27Z",
+  "generatedAt": "2026-06-15T01:25:22Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -73,7 +73,7 @@
     {
       "name": "axum",
       "url": "https://github.com/tokio-rs/axum",
-      "stars": "26.2k",
+      "stars": "26.3k",
       "prs": "1",
       "desc": "Web framework contributions around routing, ergonomics, and service integration in Rust.",
       "language": "Rust",
@@ -153,7 +153,7 @@
     {
       "name": "lance",
       "url": "https://github.com/lance-format/lance",
-      "stars": "6.6k",
+      "stars": "6.7k",
       "prs": "2",
       "desc": "Columnar storage and vector-data work in the Lance ecosystem.",
       "language": "Rust",
