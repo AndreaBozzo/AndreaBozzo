@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-06-15T01:25:22Z",
+  "generatedAt": "2026-06-16T01:26:19Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -357,7 +357,7 @@
     {
       "name": "lakekeeper",
       "url": "https://github.com/lakekeeper/lakekeeper",
-      "stars": "1.3k",
+      "stars": "1.4k",
       "prs": "2",
       "desc": "Lakehouse catalog and metadata contributions around operational reliability.",
       "language": "Rust",
@@ -424,7 +424,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "879",
+      "stars": "880",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",
