@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-06-16T01:26:19Z",
+  "generatedAt": "2026-06-18T01:20:39Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -340,7 +340,7 @@
     {
       "name": "PathOfBuilding-PoE2",
       "url": "https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2",
-      "stars": "1.7k",
+      "stars": "1.8k",
       "prs": "1",
       "desc": "PathOfBuilding-PoE2 is one of the upstream projects where I have shipped fixes, cleanup, or implementation work.",
       "language": "Lua",
@@ -424,7 +424,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "880",
+      "stars": "883",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",
@@ -470,7 +470,7 @@
     {
       "name": "visura-api",
       "url": "https://github.com/zornade/visura-api",
-      "stars": "658",
+      "stars": "659",
       "prs": "1",
       "desc": "visura-api is one of the upstream projects where I have shipped fixes, cleanup, or implementation work.",
       "language": "Python",
@@ -518,7 +518,7 @@
     {
       "name": "pg_query.rs",
       "url": "https://github.com/pganalyze/pg_query.rs",
-      "stars": "241",
+      "stars": "243",
       "prs": "1",
       "desc": "Rust and Postgres parsing work in a low-level developer tooling library.",
       "language": "Rust",
