@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-06-18T01:20:39Z",
+  "generatedAt": "2026-06-19T01:26:42Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -518,7 +518,7 @@
     {
       "name": "pg_query.rs",
       "url": "https://github.com/pganalyze/pg_query.rs",
-      "stars": "243",
+      "stars": "244",
       "prs": "1",
       "desc": "Rust and Postgres parsing work in a low-level developer tooling library.",
       "language": "Rust",
@@ -660,7 +660,7 @@
     {
       "name": "medha",
       "url": "https://github.com/ArchAI-Labs/medha",
-      "stars": "27",
+      "stars": "28",
       "prs": "1",
       "desc": "medha is one of the upstream projects where I have shipped fixes, cleanup, or implementation work.",
       "language": "Python",
