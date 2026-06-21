@@ -20,7 +20,10 @@
     "harvester:artifacts": "go run ./cmd/harvester generate-static-artifacts",
     "refresh:data": "go run ./cmd/harvester ingest --all",
     "harvester:readme": "go run ./cmd/harvester update-contributions-readme",
+    "doctor": "node ./scripts/doctor.mjs",
     "lint:js": "eslint assets/main.js assets/hero-graph.js assets/workbench/*.js sw.js",
+    "lint:go": "node ./scripts/run-go-workspace.mjs vet",
+    "lint:json": "node ./scripts/check-json.mjs",
     "lint:css-tokens": "node ./scripts/check-css-tokens.mjs",
     "validate:data": "node ./scripts/validate-data.mjs",
     "vercel:prepare-prebuilt": "node ./scripts/materialize-vercel-go-bootstraps.mjs",
@@ -30,6 +33,8 @@
     "assemble:site": "bash ./scripts/assemble-site.sh",
     "validate:localization": "go run ./cmd/harvester validate-localization",
     "build:site": "npm run generate:svg && npm run generate:og && npm run build:assets && npm run build:blog && npm run harvester:artifacts && npm run assemble:site && npm run validate:localization",
+    "test:go": "node ./scripts/run-go-workspace.mjs test",
+    "test:rust": "cargo test --manifest-path rust/site_engine/Cargo.toml",
     "test:smoke": "playwright test"
   },
   "devDependencies": {

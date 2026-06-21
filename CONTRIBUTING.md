@@ -24,7 +24,10 @@ Quick start:
 git clone --recursive https://github.com/AndreaBozzo/AndreaBozzo.git
 cd AndreaBozzo
 git submodule update --init --recursive
+npm run doctor
 ```
+
+`npm run doctor` is the quickest way to confirm the local toolchain, submodule state, and whether PowerShell or Windows setup gaps will block common maintainer workflows.
 
 ### Blog
 
@@ -62,6 +65,7 @@ Use the smallest relevant check for your change:
 - blog/content/theme changes: run `hugo --minify -F --config hugo.toml,hugo.github.toml` inside [blog](blog)
 - landing page changes: run `npm run build:site`, serve `_site/`, and verify the affected section in a browser
 - schema-versioned harvester data or contract changes: run `npm run validate:data` and regenerate artifacts when needed with `npm run generate:contracts`
+- local environment or cross-platform setup issues: run `npm run doctor` before digging into the code
 - workflow or documentation changes: explain the expected deploy or local-development impact in the PR
 
 ## Pull Requests

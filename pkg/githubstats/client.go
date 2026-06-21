@@ -25,6 +25,7 @@ const summaryCacheTTL = 5 * time.Minute
 type Client struct {
 	baseURL    string
 	httpClient *http.Client
+	tokenMu    sync.RWMutex
 	token      string
 
 	cacheMu sync.Mutex
@@ -70,6 +71,27 @@ func NewClientWithBaseURL(baseURL string, httpClient *http.Client) *Client {
 		token:      firstNonEmpty(strings.TrimSpace(os.Getenv("GITHUB_API_TOKEN")), strings.TrimSpace(os.Getenv("GITHUB_TOKEN"))),
 		cache:      make(map[string]cachedSummary),
 	}
+}
+
+func (client *Client) authorizationToken() string {
+	client.tokenMu.RLock()
+	defer client.tokenMu.RUnlock()
+	return client.token
+}
+
+func (client *Client) disableTokenIfMatches(token string) bool {
+	if strings.TrimSpace(token) == "" {
+		return false
+	}
+
+	client.tokenMu.Lock()
+	defer client.tokenMu.Unlock()
+	if client.token != token {
+		return false
+	}
+
+	client.token = ""
+	return true
 }
 
 func (client *Client) cachedSummary(username string) (Summary, bool) {
@@ -156,14 +178,15 @@ func (client *Client) fetchOwnedRepositories(ctx context.Context, username strin
 func (client *Client) getJSON(ctx context.Context, path string, target any) error {
 	endpoint := client.baseURL + path
 	for attempt := 0; attempt < 3; attempt++ {
+		authToken := client.authorizationToken()
 		req, err := http.NewRequestWithContext(ctx, http.MethodGet, endpoint, nil)
 		if err != nil {
 			return fmt.Errorf("build request for %s: %w", endpoint, err)
 		}
 		req.Header.Set("Accept", "application/vnd.github+json")
 		req.Header.Set("User-Agent", "andreabozzo-api")
-		if client.token != "" {
-			req.Header.Set("Authorization", "Bearer "+client.token)
+		if authToken != "" {
+			req.Header.Set("Authorization", "Bearer "+authToken)
 		}
 
 		resp, err := client.httpClient.Do(req)
@@ -177,6 +200,10 @@ func (client *Client) getJSON(ctx context.Context, path string, target any) erro
 			return fmt.Errorf("read response for %s: %w", endpoint, readErr)
 		}
 
+		if resp.StatusCode == http.StatusUnauthorized && authToken != "" && isBadCredentials(body) {
+			client.disableTokenIfMatches(authToken)
+			continue
+		}
 		if resp.StatusCode == http.StatusForbidden && isRateLimited(resp) {
 			sleepFor := rateLimitDelay(resp.Header.Get("X-RateLimit-Reset"))
 			time.Sleep(sleepFor)
@@ -192,6 +219,10 @@ func (client *Client) getJSON(ctx context.Context, path string, target any) erro
 	}
 
 	return fmt.Errorf("github API %s exceeded retry budget", endpoint)
+}
+
+func isBadCredentials(body []byte) bool {
+	return strings.Contains(strings.ToLower(string(body)), "bad credentials")
 }
 
 func isRateLimited(resp *http.Response) bool {

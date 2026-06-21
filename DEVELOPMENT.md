@@ -21,9 +21,12 @@ The deploy workflow builds the blog, copies the root landing page assets, and pu
 git clone --recursive https://github.com/AndreaBozzo/AndreaBozzo.git
 cd AndreaBozzo
 git submodule update --init --recursive
+npm run doctor
 ```
 
 The PaperMod theme is tracked as a submodule under [blog/themes/PaperMod](blog/themes/PaperMod).
+
+`npm run doctor` is the fastest way to validate the local toolchain, submodule state, and common PowerShell or Windows setup gaps before you start chasing repo-level failures.
 
 ## Work On The Blog
 
@@ -71,7 +74,19 @@ Notes:
 
 ## Common Commands
 
-The repository root [Makefile](Makefile) groups the different surfaces behind stable targets:
+The repository root [Makefile](Makefile) groups the different surfaces behind stable targets when `make` is available. If you are on PowerShell or another shell without `make`, use the npm entrypoints below instead.
+
+Cross-platform maintainer entrypoints:
+
+```bash
+npm run doctor     # verify toolchain, submodules, and local setup
+npm run lint:json  # JSON syntax check without jq
+npm run lint:go    # Go vet without make
+npm run test:go    # Go tests without make
+npm run test:rust  # Rust tests without make
+```
+
+Make targets:
 
 ```bash
 make lint        # JS, SVG, Go vet, Rust clippy, JSON, whitespace

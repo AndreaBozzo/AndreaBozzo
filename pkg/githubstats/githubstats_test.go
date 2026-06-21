@@ -49,6 +49,45 @@ func TestFetchSummaryAggregatesOwnedRepos(t *testing.T) {
 	}
 }
 
+func TestFetchSummaryFallsBackWhenTokenIsInvalid(t *testing.T) {
+	t.Setenv("GITHUB_API_TOKEN", "stale-token")
+
+	authFailures := 0
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.Header.Get("Authorization") == "Bearer stale-token" {
+			authFailures++
+			w.WriteHeader(http.StatusUnauthorized)
+			fmt.Fprint(w, `{"message":"Bad credentials","documentation_url":"https://docs.github.com/rest","status":"401"}`)
+			return
+		}
+
+		switch r.URL.Path {
+		case "/users/AndreaBozzo":
+			fmt.Fprint(w, `{"login":"AndreaBozzo","followers":12,"following":3,"public_repos":4,"public_gists":1}`)
+		case "/users/AndreaBozzo/repos":
+			fmt.Fprint(w, `[{"name":"dataprof","stargazers_count":20,"fork":false,"owner":{"login":"AndreaBozzo"}}]`)
+		default:
+			http.NotFound(w, r)
+		}
+	}))
+	defer server.Close()
+
+	client := NewClientWithBaseURL(server.URL, server.Client())
+	summary, err := client.FetchSummary(context.Background(), "AndreaBozzo")
+	if err != nil {
+		t.Fatalf("FetchSummary returned error: %v", err)
+	}
+	if summary.Username != "AndreaBozzo" || summary.TotalStars != 20 {
+		t.Fatalf("unexpected summary after auth fallback: %+v", summary)
+	}
+	if authFailures != 1 {
+		t.Fatalf("expected exactly one authenticated failure before fallback, got %d", authFailures)
+	}
+	if client.authorizationToken() != "" {
+		t.Fatal("expected invalid token to be disabled after fallback")
+	}
+}
+
 func TestStatsHandlerReturnsJSON(t *testing.T) {
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
