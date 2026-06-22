@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-06-21T01:25:13Z",
+  "generatedAt": "2026-06-22T01:25:00Z",
   "source": "assets/data/dataset-sources.json",
   "items": [
     {
@@ -10,7 +10,7 @@
       "displayName": "Ceres Open Data Index",
       "url": "https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index",
       "license": "apache-2.0",
-      "summary": "\n\t\n\t\t\n\t\n\t\n\t\tCeres Open Data Index\n\t\n\nA curated, deduplicated index of 1,757,392 open datasets from 42 open data portals across ~20 countries plus international sources (EU Open Data Portal, HDX). This is the largest aggregated open data metadata index available as a single downloadable resource.\n\n\t\n\t\t\n\t\n\t\n\t\tDataset Description\n\t\n\nThis dataset contains normalized metadata from government and institutional open data portals. It was harvested by Ceres, a harvest-first toolkit for open data, via… See the full description on the dataset page: https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index.",
+      "summary": "\n\t\n\t\t\n\t\n\t\n\t\tCeres Open Data Index\n\t\n\nA curated, deduplicated index of 1,854,596 open datasets from 47 open data portals across ~25 countries plus international sources (EU Open Data Portal, HDX). This is the largest aggregated open data metadata index available as a single downloadable resource.\n\n\t\n\t\t\n\t\n\t\n\t\tDataset Description\n\t\n\nThis dataset contains normalized metadata from government and institutional open data portals. It was harvested by Ceres, a harvest-first toolkit for open data, via… See the full description on the dataset page: https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index.",
       "languages": [
         "en",
         "it",
@@ -34,21 +34,21 @@
         "metadata",
         "geospatial"
       ],
-      "snapshotDate": "2026-06-20",
-      "lastModified": "2026-06-20T20:12:34Z",
-      "downloads": 1138,
+      "snapshotDate": "2026-06-21",
+      "lastModified": "2026-06-21T12:22:00Z",
+      "downloads": 1140,
       "likes": 1,
-      "totalRecords": 1757392,
-      "uniqueRecords": 1102561,
-      "duplicateRecords": 654831,
-      "filteredRecords": 25217,
-      "sourceCount": 42,
-      "countryCount": 25,
+      "totalRecords": 1854596,
+      "uniqueRecords": 1085079,
+      "duplicateRecords": 769517,
+      "filteredRecords": 26640,
+      "sourceCount": 47,
+      "countryCount": 30,
       "sources": [
         {
-          "name": "eu-open-data",
+          "name": "data-europa-eu",
           "url": "https://data.europa.eu",
-          "count": 666402
+          "count": 689589
         },
         {
           "name": "catalog-data-gov",
@@ -71,12 +71,17 @@
           "count": 64483
         },
         {
+          "name": "ckan-publishing-service-gov-uk",
+          "url": "https://ckan.publishing.service.gov.uk",
+          "count": 56433
+        },
+        {
           "name": "open-canada-ca",
           "url": "https://open.canada.ca/data",
           "count": 47282
         },
         {
-          "name": "spain-datos",
+          "name": "datos-gob-es",
           "url": "https://datos.gob.es",
           "count": 46998
         },
@@ -111,7 +116,7 @@
           "count": 20528
         },
         {
-          "name": "switzerland",
+          "name": "ckan-opendata-swiss",
           "url": "https://ckan.opendata.swiss",
           "count": 15441
         },
@@ -121,12 +126,17 @@
           "count": 12172
         },
         {
-          "name": "nrw",
+          "name": "ckan-open-nrw-de",
           "url": "https://ckan.open.nrw.de",
           "count": 10281
         },
         {
-          "name": "norway",
+          "name": "podatki-gov-si",
+          "url": "https://podatki.gov.si",
+          "count": 8935
+        },
+        {
+          "name": "data-norge-no",
           "url": "https://data.norge.no",
           "count": 8604
         },
@@ -136,9 +146,14 @@
           "count": 8466
         },
         {
-          "name": "czech-republic",
+          "name": "data-gov-cz",
           "url": "https://data.gov.cz",
           "count": 5815
+        },
+        {
+          "name": "www-datosabiertos-gob-pa",
+          "url": "https://www.datosabiertos.gob.pa",
+          "count": 5577
         },
         {
           "name": "discover-data-vic-gov-au",
@@ -166,7 +181,7 @@
           "count": 3019
         },
         {
-          "name": "luxembourg",
+          "name": "data-public-lu",
           "url": "https://data.public.lu",
           "count": 2676
         },
@@ -186,7 +201,12 @@
           "count": 2524
         },
         {
-          "name": "aragon",
+          "name": "www-avoindata-fi",
+          "url": "https://www.avoindata.fi/data",
+          "count": 2524
+        },
+        {
+          "name": "opendata-aragon-es",
           "url": "https://opendata.aragon.es/ckan",
           "count": 2429
         },
@@ -196,7 +216,7 @@
           "count": 1814
         },
         {
-          "name": "trentino",
+          "name": "dati-trentino-it",
           "url": "https://dati.trentino.it",
           "count": 1373
         },
@@ -204,6 +224,11 @@
           "name": "datos-gob-ar",
           "url": "https://datos.gob.ar",
           "count": 1203
+        },
+        {
+          "name": "ckan0-cf-opendata-inter-prod-toronto-ca",
+          "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca",
+          "count": 548
         },
         {
           "name": "dati-regione-umbria-it",
@@ -246,7 +271,7 @@
           "count": 123
         },
         {
-          "name": "switzerland-lindas",
+          "name": "lindas-admin-ch",
           "url": "https://lindas.admin.ch",
           "count": 64
         },
