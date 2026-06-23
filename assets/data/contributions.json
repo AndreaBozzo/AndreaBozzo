@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-06-22T01:24:41Z",
+  "generatedAt": "2026-06-23T01:10:02Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -45,7 +45,7 @@
     {
       "name": "tokio",
       "url": "https://github.com/tokio-rs/tokio",
-      "stars": "32.3k",
+      "stars": "32.4k",
       "prs": "2",
       "desc": "Async runtime improvements around Rust concurrency, scheduling, and developer ergonomics.",
       "language": "Rust",

@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-06-22T01:24:42Z",
+  "generatedAt": "2026-06-23T01:10:03Z",
   "source": "assets/data/package-sources.json",
   "items": [
     {
@@ -9,14 +9,14 @@
       "name": "ares-api",
       "displayName": "ares-api",
       "summary": "HTTP server for Ares AI scraper",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "url": "https://crates.io/crates/ares-api",
       "repositoryUrl": "https://github.com/AndreaBozzo/Ares",
       "license": "Apache-2.0",
-      "publishedAt": "2026-04-29T13:31:36Z",
-      "updatedAt": "2026-04-29T13:31:36Z",
-      "downloadsTotal": 49,
-      "recentDownloads": 36,
+      "publishedAt": "2026-06-22T14:51:46Z",
+      "updatedAt": "2026-06-22T14:51:46Z",
+      "downloadsTotal": 60,
+      "recentDownloads": 47,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -27,14 +27,14 @@
       "name": "ares-cli",
       "displayName": "ares-cli",
       "summary": "CLI entry point for Ares AI scraper",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "url": "https://crates.io/crates/ares-cli",
       "repositoryUrl": "https://github.com/AndreaBozzo/Ares",
       "license": "Apache-2.0",
-      "publishedAt": "2026-04-29T13:29:02Z",
-      "updatedAt": "2026-04-29T13:29:02Z",
-      "downloadsTotal": 57,
-      "recentDownloads": 43,
+      "publishedAt": "2026-06-22T14:49:07Z",
+      "updatedAt": "2026-06-22T14:49:07Z",
+      "downloadsTotal": 69,
+      "recentDownloads": 55,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -45,14 +45,14 @@
       "name": "ares-client",
       "displayName": "ares-client",
       "summary": "HTTP fetcher, HTML cleaner, and LLM extraction client for Ares",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "url": "https://crates.io/crates/ares-client",
       "repositoryUrl": "https://github.com/AndreaBozzo/Ares",
       "license": "Apache-2.0",
-      "publishedAt": "2026-04-29T13:24:56Z",
-      "updatedAt": "2026-04-29T13:24:56Z",
-      "downloadsTotal": 198,
-      "recentDownloads": 157,
+      "publishedAt": "2026-06-22T14:44:57Z",
+      "updatedAt": "2026-06-22T14:44:57Z",
+      "downloadsTotal": 221,
+      "recentDownloads": 178,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -63,14 +63,14 @@
       "name": "ares-core",
       "displayName": "ares-core",
       "summary": "Core types, traits, and error handling for Ares AI scraper",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "url": "https://crates.io/crates/ares-core",
       "repositoryUrl": "https://github.com/AndreaBozzo/Ares",
       "license": "Apache-2.0",
-      "publishedAt": "2026-04-29T13:22:56Z",
-      "updatedAt": "2026-04-29T13:22:56Z",
-      "downloadsTotal": 318,
-      "recentDownloads": 252,
+      "publishedAt": "2026-06-22T14:42:45Z",
+      "updatedAt": "2026-06-22T14:42:45Z",
+      "downloadsTotal": 346,
+      "recentDownloads": 276,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -81,14 +81,14 @@
       "name": "ares-db",
       "displayName": "ares-db",
       "summary": "PostgreSQL repository layer for Ares AI scraper",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "url": "https://crates.io/crates/ares-db",
       "repositoryUrl": "https://github.com/AndreaBozzo/Ares",
       "license": "Apache-2.0",
-      "publishedAt": "2026-04-29T13:26:38Z",
-      "updatedAt": "2026-04-29T13:26:38Z",
-      "downloadsTotal": 197,
-      "recentDownloads": 156,
+      "publishedAt": "2026-06-22T14:46:41Z",
+      "updatedAt": "2026-06-22T14:46:41Z",
+      "downloadsTotal": 217,
+      "recentDownloads": 174,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -99,14 +99,14 @@
       "name": "ceres-client",
       "displayName": "ceres-client",
       "summary": "HTTP clients for Ceres portal harvesters and embedding providers",
-      "version": "0.4.0",
+      "version": "0.4.2",
       "url": "https://crates.io/crates/ceres-client",
       "repositoryUrl": "https://github.com/AndreaBozzo/Ceres",
       "license": "Apache-2.0",
-      "publishedAt": "2026-05-21T16:26:58Z",
-      "updatedAt": "2026-05-21T16:26:58Z",
-      "downloadsTotal": 325,
-      "recentDownloads": 140,
+      "publishedAt": "2026-06-22T14:59:08Z",
+      "updatedAt": "2026-06-22T14:59:08Z",
+      "downloadsTotal": 351,
+      "recentDownloads": 164,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -117,14 +117,14 @@
       "name": "ceres-core",
       "displayName": "ceres-core",
       "summary": "Core types, harvesting logic, and services for Ceres",
-      "version": "0.4.0",
+      "version": "0.4.2",
       "url": "https://crates.io/crates/ceres-core",
       "repositoryUrl": "https://github.com/AndreaBozzo/Ceres",
       "license": "Apache-2.0",
-      "publishedAt": "2026-05-21T16:25:01Z",
-      "updatedAt": "2026-05-21T16:25:01Z",
-      "downloadsTotal": 525,
-      "recentDownloads": 240,
+      "publishedAt": "2026-06-22T14:57:08Z",
+      "updatedAt": "2026-06-22T14:57:08Z",
+      "downloadsTotal": 558,
+      "recentDownloads": 269,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -135,14 +135,14 @@
       "name": "ceres-db",
       "displayName": "ceres-db",
       "summary": "Database repository layer for Ceres with pgvector support",
-      "version": "0.4.0",
+      "version": "0.4.2",
       "url": "https://crates.io/crates/ceres-db",
       "repositoryUrl": "https://github.com/AndreaBozzo/Ceres",
       "license": "Apache-2.0",
-      "publishedAt": "2026-05-21T16:28:43Z",
-      "updatedAt": "2026-05-21T16:28:43Z",
-      "downloadsTotal": 324,
-      "recentDownloads": 141,
+      "publishedAt": "2026-06-22T15:00:56Z",
+      "updatedAt": "2026-06-22T15:00:56Z",
+      "downloadsTotal": 348,
+      "recentDownloads": 163,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -153,14 +153,14 @@
       "name": "ceres-search",
       "displayName": "ceres-search",
       "summary": "Command-line interface for harvesting, embedding, and searching with Ceres",
-      "version": "0.4.0",
+      "version": "0.4.2",
       "url": "https://crates.io/crates/ceres-search",
       "repositoryUrl": "https://github.com/AndreaBozzo/Ceres",
       "license": "Apache-2.0",
-      "publishedAt": "2026-05-21T16:30:34Z",
-      "updatedAt": "2026-05-21T16:30:34Z",
-      "downloadsTotal": 114,
-      "recentDownloads": 38,
+      "publishedAt": "2026-06-22T15:02:51Z",
+      "updatedAt": "2026-06-22T15:02:51Z",
+      "downloadsTotal": 130,
+      "recentDownloads": 54,
       "relatedCaseStudies": [
         "ares-ceres"
       ]

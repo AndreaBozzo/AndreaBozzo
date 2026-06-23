@@ -1,8 +1,58 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-06-22T01:24:41Z",
+  "generatedAt": "2026-06-23T01:10:02Z",
   "source": "blog/content/posts",
   "items": [
+    {
+      "id": "dlt-dbt-unity-catalog-blog:en",
+      "slug": "dlt-dbt-unity-catalog-blog",
+      "language": "en",
+      "title": "dlt + dbt on One Unity Catalog (and Why It's Not 'Two DLTs')",
+      "summary": "Python-native ingestion with dlt (dlthub), SQL transformation with dbt, and a single Unity Catalog schema as the contract between them. Notes from wiring them together on a real Databricks workspace — including the naming collision that bit me in actual code.",
+      "description": "How dlt (dlthub) ingestion and dbt transformation meet at a single Unity Catalog schema on Databricks — and why the inner pipeline here is dbt, not Delta Live Tables.",
+      "publishedAt": "2026-06-22T10:00:00Z",
+      "url": "./blog/en/posts/dlt-dbt-unity-catalog-blog/",
+      "sourcePath": "blog/content/posts/dlt-dbt-unity-catalog-blog.en.md",
+      "tags": [
+        "Data Engineering",
+        "dlt",
+        "dbt",
+        "Databricks",
+        "Unity Catalog",
+        "Lakehouse",
+        "Python"
+      ],
+      "categories": [
+        "Data Engineering"
+      ],
+      "wordCount": 1419,
+      "readingMinutes": 7
+    },
+    {
+      "id": "dlt-dbt-unity-catalog-blog:it",
+      "slug": "dlt-dbt-unity-catalog-blog",
+      "language": "it",
+      "title": "dlt + dbt su un Solo Unity Catalog (e Perché Non Sono 'Due DLT')",
+      "summary": "Ingestion Python-native con dlt (dlthub), trasformazione SQL con dbt e un singolo schema Unity Catalog come contratto tra i due. Note dal cablarli insieme su un workspace Databricks reale — inclusa la collisione di nomi che mi ha morso nel codice vero.",
+      "description": "Come l'ingestion con dlt (dlthub) e la trasformazione con dbt si incontrano su un unico schema Unity Catalog su Databricks — e perché qui la pipeline interna è dbt, non Delta Live Tables.",
+      "publishedAt": "2026-06-22T10:00:00Z",
+      "url": "./blog/posts/dlt-dbt-unity-catalog-blog/",
+      "sourcePath": "blog/content/posts/dlt-dbt-unity-catalog-blog.it.md",
+      "tags": [
+        "Data Engineering",
+        "dlt",
+        "dbt",
+        "Databricks",
+        "Unity Catalog",
+        "Lakehouse",
+        "Python"
+      ],
+      "categories": [
+        "Data Engineering"
+      ],
+      "wordCount": 1505,
+      "readingMinutes": 7
+    },
     {
       "id": "brain-blog:en",
       "slug": "brain-blog",
