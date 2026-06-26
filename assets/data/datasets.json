@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-06-25T01:12:24Z",
+  "generatedAt": "2026-06-26T01:15:32Z",
   "source": "assets/data/dataset-sources.json",
   "items": [
     {
@@ -36,7 +36,7 @@
       ],
       "snapshotDate": "2026-06-21",
       "lastModified": "2026-06-21T12:22:00Z",
-      "downloads": 1154,
+      "downloads": 3506,
       "likes": 1,
       "totalRecords": 1854596,
       "uniqueRecords": 1085079,

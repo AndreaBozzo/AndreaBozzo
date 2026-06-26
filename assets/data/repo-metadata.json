@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-06-25T01:12:26Z",
+  "generatedAt": "2026-06-26T01:15:35Z",
   "source": "case-study repoUrl GitHub repository metadata",
   "items": [
     {
@@ -29,7 +29,7 @@
         "rust"
       ],
       "language": "HTML",
-      "pushedAt": "2026-06-25T01:04:00Z",
+      "pushedAt": "2026-06-26T01:06:29Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "andreabozzo-site"
@@ -57,7 +57,7 @@
         "tokio-rs"
       ],
       "language": "Rust",
-      "pushedAt": "2026-06-24T15:48:17Z",
+      "pushedAt": "2026-06-25T14:11:47Z",
       "defaultBranch": "master",
       "releases": [
         {
