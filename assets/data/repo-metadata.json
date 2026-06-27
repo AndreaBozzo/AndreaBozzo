@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-06-26T01:15:35Z",
+  "generatedAt": "2026-06-27T01:13:01Z",
   "source": "case-study repoUrl GitHub repository metadata",
   "items": [
     {
@@ -29,7 +29,7 @@
         "rust"
       ],
       "language": "HTML",
-      "pushedAt": "2026-06-26T01:06:29Z",
+      "pushedAt": "2026-06-27T01:02:04Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "andreabozzo-site"
@@ -57,9 +57,16 @@
         "tokio-rs"
       ],
       "language": "Rust",
-      "pushedAt": "2026-06-25T14:11:47Z",
+      "pushedAt": "2026-06-26T16:51:11Z",
       "defaultBranch": "master",
       "releases": [
+        {
+          "tagName": "v0.5.0",
+          "name": "v0.5.0",
+          "url": "https://github.com/AndreaBozzo/Ceres/releases/tag/v0.5.0",
+          "publishedAt": "2026-06-26T17:03:53Z",
+          "target": "master"
+        },
         {
           "tagName": "v0.4.2",
           "name": "v0.4.2",
@@ -72,13 +79,6 @@
           "name": "v0.4.0",
           "url": "https://github.com/AndreaBozzo/Ceres/releases/tag/v0.4.0",
           "publishedAt": "2026-05-21T16:33:43Z",
-          "target": "master"
-        },
-        {
-          "tagName": "v0.3.5",
-          "name": "v0.3.5",
-          "url": "https://github.com/AndreaBozzo/Ceres/releases/tag/v0.3.5",
-          "publishedAt": "2026-03-30T17:18:21Z",
           "target": "master"
         }
       ],

@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-06-26T01:15:32Z",
+  "generatedAt": "2026-06-27T01:12:57Z",
   "source": "assets/data/dataset-sources.json",
   "items": [
     {
@@ -10,7 +10,7 @@
       "displayName": "Ceres Open Data Index",
       "url": "https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index",
       "license": "apache-2.0",
-      "summary": "\n\t\n\t\t\n\t\n\t\n\t\tCeres Open Data Index\n\t\n\nA curated, deduplicated index of 1,854,596 open datasets from 47 open data portals across ~25 countries plus international sources (EU Open Data Portal, HDX). This is the largest aggregated open data metadata index available as a single downloadable resource.\n\n\t\n\t\t\n\t\n\t\n\t\tDataset Description\n\t\n\nThis dataset contains normalized metadata from government and institutional open data portals. It was harvested by Ceres, a harvest-first toolkit for open data, via… See the full description on the dataset page: https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index.",
+      "summary": "\n\t\n\t\t\n\t\n\t\n\t\tCeres Open Data Index\n\t\n\nA curated index of 1,854,596 open datasets from 47 open data portals across ~25 countries plus international sources (EU Open Data Portal, HDX), with cross-portal duplicates flagged. This is the largest aggregated open data metadata index available as a single downloadable resource.\n\n\t\n\t\t\n\t\n\t\n\t\tDataset Description\n\t\n\nThis dataset contains normalized metadata from government and institutional open data portals. It was harvested by Ceres, a harvest-first… See the full description on the dataset page: https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index.",
       "languages": [
         "en",
         "it",
@@ -34,251 +34,199 @@
         "metadata",
         "geospatial"
       ],
-      "snapshotDate": "2026-06-21",
-      "lastModified": "2026-06-21T12:22:00Z",
-      "downloads": 3506,
+      "snapshotDate": "2026-06-26",
+      "lastModified": "2026-06-26T13:42:51Z",
+      "downloads": 3640,
       "likes": 1,
-      "totalRecords": 1854596,
-      "uniqueRecords": 1085079,
-      "duplicateRecords": 769517,
-      "filteredRecords": 26640,
       "sourceCount": 47,
-      "countryCount": 30,
       "sources": [
         {
-          "name": "data-europa-eu",
-          "url": "https://data.europa.eu",
-          "count": 689589
+          "name": "avoindata-suomi-fi",
+          "count": 0
         },
         {
           "name": "catalog-data-gov",
-          "url": "https://catalog.data.gov",
-          "count": 399597
-        },
-        {
-          "name": "www-govdata-de",
-          "url": "https://www.govdata.de/ckan",
-          "count": 146648
-        },
-        {
-          "name": "data-gov-au",
-          "url": "https://data.gov.au/data",
-          "count": 135267
-        },
-        {
-          "name": "dati-gov-it",
-          "url": "https://dati.gov.it/opendata",
-          "count": 64483
-        },
-        {
-          "name": "ckan-publishing-service-gov-uk",
-          "url": "https://ckan.publishing.service.gov.uk",
-          "count": 56433
-        },
-        {
-          "name": "open-canada-ca",
-          "url": "https://open.canada.ca/data",
-          "count": 47282
-        },
-        {
-          "name": "datos-gob-es",
-          "url": "https://datos.gob.es",
-          "count": 46998
-        },
-        {
-          "name": "data-gov-ua",
-          "url": "https://data.gov.ua",
-          "count": 36866
-        },
-        {
-          "name": "data-humdata-org",
-          "url": "https://data.humdata.org",
-          "count": 27795
-        },
-        {
-          "name": "data-gouv-fr",
-          "url": "https://data.gouv.fr",
-          "count": 21059
-        },
-        {
-          "name": "data-gov-ie",
-          "url": "https://data.gov.ie",
-          "count": 20998
-        },
-        {
-          "name": "data-overheid-nl",
-          "url": "https://data.overheid.nl/data",
-          "count": 20679
-        },
-        {
-          "name": "dados-gov-pt",
-          "url": "https://dados.gov.pt",
-          "count": 20528
-        },
-        {
-          "name": "ckan-opendata-swiss",
-          "url": "https://ckan.opendata.swiss",
-          "count": 15441
-        },
-        {
-          "name": "dati-toscana-it",
-          "url": "https://dati.toscana.it",
-          "count": 12172
-        },
-        {
-          "name": "ckan-open-nrw-de",
-          "url": "https://ckan.open.nrw.de",
-          "count": 10281
-        },
-        {
-          "name": "podatki-gov-si",
-          "url": "https://podatki.gov.si",
-          "count": 8935
-        },
-        {
-          "name": "data-norge-no",
-          "url": "https://data.norge.no",
-          "count": 8604
+          "count": 0
         },
         {
           "name": "catalog-data-metro-tokyo-lg-jp",
-          "url": "https://catalog.data.metro.tokyo.lg.jp",
-          "count": 8466
-        },
-        {
-          "name": "data-gov-cz",
-          "url": "https://data.gov.cz",
-          "count": 5815
-        },
-        {
-          "name": "www-datosabiertos-gob-pa",
-          "url": "https://www.datosabiertos.gob.pa",
-          "count": 5577
-        },
-        {
-          "name": "discover-data-vic-gov-au",
-          "url": "https://discover.data.vic.gov.au",
-          "count": 5575
-        },
-        {
-          "name": "dati-regione-marche-it",
-          "url": "https://dati.regione.marche.it",
-          "count": 5448
-        },
-        {
-          "name": "data-gov-ro",
-          "url": "https://data.gov.ro",
-          "count": 5003
+          "count": 0
         },
         {
           "name": "catalogue-data-gov-bc-ca",
-          "url": "https://catalogue.data.gov.bc.ca",
-          "count": 3343
+          "count": 0
         },
         {
-          "name": "datos-gob-cl",
-          "url": "https://datos.gob.cl",
-          "count": 3019
+          "name": "ckan-open-nrw-de",
+          "count": 0
         },
         {
-          "name": "data-public-lu",
-          "url": "https://data.public.lu",
-          "count": 2676
+          "name": "ckan-opendata-swiss",
+          "count": 0
         },
         {
-          "name": "milano",
-          "url": "https://dati.comune.milano.it",
-          "count": 2596
-        },
-        {
-          "name": "dati-emilia-romagna-it",
-          "url": "https://dati.emilia-romagna.it",
-          "count": 2577
-        },
-        {
-          "name": "avoindata-suomi-fi",
-          "url": "https://avoindata.suomi.fi/data",
-          "count": 2524
-        },
-        {
-          "name": "www-avoindata-fi",
-          "url": "https://www.avoindata.fi/data",
-          "count": 2524
-        },
-        {
-          "name": "opendata-aragon-es",
-          "url": "https://opendata.aragon.es/ckan",
-          "count": 2429
-        },
-        {
-          "name": "dati-puglia-it",
-          "url": "https://dati.puglia.it/ckan",
-          "count": 1814
-        },
-        {
-          "name": "dati-trentino-it",
-          "url": "https://dati.trentino.it",
-          "count": 1373
-        },
-        {
-          "name": "datos-gob-ar",
-          "url": "https://datos.gob.ar",
-          "count": 1203
+          "name": "ckan-publishing-service-gov-uk",
+          "count": 0
         },
         {
           "name": "ckan0-cf-opendata-inter-prod-toronto-ca",
-          "url": "https://ckan0.cf.opendata.inter.prod-toronto.ca",
-          "count": 548
+          "count": 0
         },
         {
-          "name": "dati-regione-umbria-it",
-          "url": "https://dati.regione.umbria.it",
-          "count": 446
+          "name": "dados-gov-pt",
+          "count": 0
         },
         {
-          "name": "dati-lazio-it",
-          "url": "https://dati.lazio.it",
-          "count": 402
+          "name": "data-europa-eu",
+          "count": 0
         },
         {
-          "name": "dati-comune-roma-it",
-          "url": "https://dati.comune.roma.it/catalog",
-          "count": 365
+          "name": "data-gouv-fr",
+          "count": 0
         },
         {
-          "name": "dati-regione-campania-it",
-          "url": "https://dati.regione.campania.it/ckan",
-          "count": 360
+          "name": "data-gov-au",
+          "count": 0
         },
         {
-          "name": "www-opendata-hro-de",
-          "url": "https://www.opendata-hro.de",
-          "count": 280
+          "name": "data-gov-cz",
+          "count": 0
         },
         {
-          "name": "sicilia",
-          "url": "https://dati.regione.sicilia.it",
-          "count": 192
+          "name": "data-gov-ie",
+          "count": 0
+        },
+        {
+          "name": "data-gov-ro",
+          "count": 0
+        },
+        {
+          "name": "data-gov-ua",
+          "count": 0
+        },
+        {
+          "name": "data-humdata-org",
+          "count": 0
+        },
+        {
+          "name": "data-norge-no",
+          "count": 0
+        },
+        {
+          "name": "data-overheid-nl",
+          "count": 0
+        },
+        {
+          "name": "data-public-lu",
+          "count": 0
         },
         {
           "name": "dati-comune-genova-it",
-          "url": "https://dati.comune.genova.it",
-          "count": 163
+          "count": 0
         },
         {
-          "name": "dati-regione-liguria-it",
-          "url": "https://dati.regione.liguria.it",
-          "count": 123
-        },
-        {
-          "name": "lindas-admin-ch",
-          "url": "https://lindas.admin.ch",
-          "count": 64
+          "name": "dati-comune-milano-it",
+          "count": 0
         },
         {
           "name": "dati-comune-napoli-it",
-          "url": "https://dati.comune.napoli.it",
-          "count": 36
+          "count": 0
+        },
+        {
+          "name": "dati-comune-roma-it",
+          "count": 0
+        },
+        {
+          "name": "dati-emilia-romagna-it",
+          "count": 0
+        },
+        {
+          "name": "dati-gov-it",
+          "count": 0
+        },
+        {
+          "name": "dati-lazio-it",
+          "count": 0
+        },
+        {
+          "name": "dati-puglia-it",
+          "count": 0
+        },
+        {
+          "name": "dati-regione-campania-it",
+          "count": 0
+        },
+        {
+          "name": "dati-regione-liguria-it",
+          "count": 0
+        },
+        {
+          "name": "dati-regione-marche-it",
+          "count": 0
+        },
+        {
+          "name": "dati-regione-sicilia-it",
+          "count": 0
+        },
+        {
+          "name": "dati-regione-umbria-it",
+          "count": 0
+        },
+        {
+          "name": "dati-toscana-it",
+          "count": 0
+        },
+        {
+          "name": "dati-trentino-it",
+          "count": 0
+        },
+        {
+          "name": "datos-gob-ar",
+          "count": 0
+        },
+        {
+          "name": "datos-gob-cl",
+          "count": 0
+        },
+        {
+          "name": "datos-gob-es",
+          "count": 0
+        },
+        {
+          "name": "discover-data-vic-gov-au",
+          "count": 0
+        },
+        {
+          "name": "lindas-admin-ch",
+          "count": 0
+        },
+        {
+          "name": "open-canada-ca",
+          "count": 0
+        },
+        {
+          "name": "opendata-aragon-es",
+          "count": 0
+        },
+        {
+          "name": "podatki-gov-si",
+          "count": 0
+        },
+        {
+          "name": "www-avoindata-fi",
+          "count": 0
+        },
+        {
+          "name": "www-datosabiertos-gob-pa",
+          "count": 0
+        },
+        {
+          "name": "www-govdata-de",
+          "count": 0
+        },
+        {
+          "name": "www-opendata-hro-de",
+          "count": 0
         }
       ],
       "relatedCaseStudies": [
