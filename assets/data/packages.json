@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-02T01:12:45Z",
+  "generatedAt": "2026-07-03T00:56:38Z",
   "source": "assets/data/package-sources.json",
   "items": [
     {
@@ -52,7 +52,7 @@
       "publishedAt": "2026-06-22T14:44:57Z",
       "updatedAt": "2026-06-22T14:44:57Z",
       "downloadsTotal": 230,
-      "recentDownloads": 155,
+      "recentDownloads": 153,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -70,7 +70,7 @@
       "publishedAt": "2026-06-22T14:42:45Z",
       "updatedAt": "2026-06-22T14:42:45Z",
       "downloadsTotal": 360,
-      "recentDownloads": 247,
+      "recentDownloads": 243,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -88,7 +88,7 @@
       "publishedAt": "2026-06-22T14:46:41Z",
       "updatedAt": "2026-06-22T14:46:41Z",
       "downloadsTotal": 226,
-      "recentDownloads": 151,
+      "recentDownloads": 149,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -106,7 +106,7 @@
       "publishedAt": "2026-06-26T16:57:31Z",
       "updatedAt": "2026-06-26T16:57:31Z",
       "downloadsTotal": 379,
-      "recentDownloads": 165,
+      "recentDownloads": 163,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -124,7 +124,7 @@
       "publishedAt": "2026-06-26T16:55:42Z",
       "updatedAt": "2026-06-26T16:55:42Z",
       "downloadsTotal": 597,
-      "recentDownloads": 268,
+      "recentDownloads": 264,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -142,7 +142,7 @@
       "publishedAt": "2026-06-26T16:59:08Z",
       "updatedAt": "2026-06-26T16:59:08Z",
       "downloadsTotal": 375,
-      "recentDownloads": 162,
+      "recentDownloads": 160,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -180,7 +180,7 @@
       "publishedAt": "2026-05-31T13:28:47Z",
       "updatedAt": "2026-05-31T13:28:47Z",
       "downloadsTotal": 4521,
-      "recentDownloads": 109,
+      "recentDownloads": 108,
       "relatedCaseStudies": [
         "dataprof"
       ]
