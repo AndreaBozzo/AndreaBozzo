@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-03T00:56:38Z",
+  "generatedAt": "2026-07-04T00:55:21Z",
   "source": "assets/data/package-sources.json",
   "items": [
     {
@@ -105,8 +105,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-06-26T16:57:31Z",
       "updatedAt": "2026-06-26T16:57:31Z",
-      "downloadsTotal": 379,
-      "recentDownloads": 163,
+      "downloadsTotal": 389,
+      "recentDownloads": 173,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -123,8 +123,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-06-26T16:55:42Z",
       "updatedAt": "2026-06-26T16:55:42Z",
-      "downloadsTotal": 597,
-      "recentDownloads": 264,
+      "downloadsTotal": 607,
+      "recentDownloads": 274,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -141,8 +141,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-06-26T16:59:08Z",
       "updatedAt": "2026-06-26T16:59:08Z",
-      "downloadsTotal": 375,
-      "recentDownloads": 160,
+      "downloadsTotal": 385,
+      "recentDownloads": 170,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -159,8 +159,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-06-26T17:00:53Z",
       "updatedAt": "2026-06-26T17:00:53Z",
-      "downloadsTotal": 148,
-      "recentDownloads": 58,
+      "downloadsTotal": 157,
+      "recentDownloads": 67,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -179,8 +179,8 @@
       "license": "MIT OR Apache-2.0",
       "publishedAt": "2026-05-31T13:28:47Z",
       "updatedAt": "2026-05-31T13:28:47Z",
-      "downloadsTotal": 4521,
-      "recentDownloads": 108,
+      "downloadsTotal": 4552,
+      "recentDownloads": 139,
       "relatedCaseStudies": [
         "dataprof"
       ]
