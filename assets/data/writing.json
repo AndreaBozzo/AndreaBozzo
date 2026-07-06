@@ -1,8 +1,60 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-05T01:01:20Z",
+  "generatedAt": "2026-07-06T01:01:09Z",
   "source": "blog/content/posts",
   "items": [
+    {
+      "id": "zerobus-ingest-rust-arrow-blog:en",
+      "slug": "zerobus-ingest-rust-arrow-blog",
+      "language": "en",
+      "title": "Zerobus Ingest: when Unity Catalog becomes the sink",
+      "summary": "In the dlt+dbt post the contract was a Unity Catalog schema. With Zerobus Ingest I moved the same question to the producer edge: when the sink is already a governed Delta table, do you really need a bus in the middle?",
+      "description": "A real Zerobus Ingest demo on Databricks: dedicated Unity Catalog catalog, managed Delta table on S3, Rust producer, JSON and Arrow Flight all the way to the sink.",
+      "publishedAt": "2026-07-05T10:00:00Z",
+      "url": "./blog/en/posts/zerobus-ingest-rust-arrow-blog/",
+      "sourcePath": "blog/content/posts/zerobus-ingest-rust-arrow-blog.en.md",
+      "tags": [
+        "Data Engineering",
+        "Databricks",
+        "Zerobus",
+        "Rust",
+        "Apache Arrow",
+        "Unity Catalog",
+        "Lakehouse",
+        "Streaming"
+      ],
+      "categories": [
+        "Data Engineering"
+      ],
+      "wordCount": 1940,
+      "readingMinutes": 9
+    },
+    {
+      "id": "zerobus-ingest-rust-arrow-blog:it",
+      "slug": "zerobus-ingest-rust-arrow-blog",
+      "language": "it",
+      "title": "Zerobus Ingest: quando Unity Catalog diventa il sink",
+      "summary": "Nel post dlt+dbt il contratto era uno schema Unity Catalog. Con Zerobus Ingest ho spostato la stessa domanda al bordo producer: quando il sink è già una tabella Delta governata, serve davvero un bus nel mezzo?",
+      "description": "Una demo reale di Zerobus Ingest su Databricks: catalogo Unity Catalog dedicato, tabella Delta gestita su S3, producer Rust, JSON e Arrow Flight fino al sink.",
+      "publishedAt": "2026-07-05T10:00:00Z",
+      "url": "./blog/posts/zerobus-ingest-rust-arrow-blog/",
+      "sourcePath": "blog/content/posts/zerobus-ingest-rust-arrow-blog.it.md",
+      "tags": [
+        "Data Engineering",
+        "Databricks",
+        "Zerobus",
+        "Rust",
+        "Apache Arrow",
+        "Unity Catalog",
+        "Lakehouse",
+        "Streaming"
+      ],
+      "categories": [
+        "Data Engineering"
+      ],
+      "wordCount": 1844,
+      "readingMinutes": 9
+    },
     {
       "id": "dlt-dbt-unity-catalog-blog:en",
       "slug": "dlt-dbt-unity-catalog-blog",
