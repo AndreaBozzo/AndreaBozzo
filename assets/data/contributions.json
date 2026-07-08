@@ -1,12 +1,12 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-07T00:59:22Z",
+  "generatedAt": "2026-07-08T00:50:25Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
       "name": "polars",
       "url": "https://github.com/pola-rs/polars",
-      "stars": "38.9k",
+      "stars": "39.0k",
       "prs": "3",
       "desc": "Rust-native analytics work across DataFrame performance, ergonomics, and engine behavior.",
       "language": "Rust",
@@ -73,7 +73,7 @@
     {
       "name": "axum",
       "url": "https://github.com/tokio-rs/axum",
-      "stars": "26.4k",
+      "stars": "26.5k",
       "prs": "1",
       "desc": "Web framework contributions around routing, ergonomics, and service integration in Rust.",
       "language": "Rust",
@@ -95,7 +95,7 @@
     {
       "name": "risingwave",
       "url": "https://github.com/risingwavelabs/risingwave",
-      "stars": "9.1k",
+      "stars": "9.2k",
       "prs": "1",
       "desc": "Streaming database contributions across query behavior, engine details, and developer workflow.",
       "language": "Rust",
@@ -125,7 +125,7 @@
     {
       "name": "datafusion",
       "url": "https://github.com/apache/datafusion",
-      "stars": "8.9k",
+      "stars": "9.0k",
       "prs": "1",
       "desc": "Query engine fixes and improvements in the Arrow-native SQL execution stack.",
       "language": "Rust",
@@ -424,7 +424,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "886",
+      "stars": "887",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",
