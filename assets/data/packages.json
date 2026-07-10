@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-09T00:55:27Z",
+  "generatedAt": "2026-07-10T00:54:40Z",
   "source": "assets/data/package-sources.json",
   "items": [
     {
@@ -52,7 +52,7 @@
       "publishedAt": "2026-06-22T14:44:57Z",
       "updatedAt": "2026-06-22T14:44:57Z",
       "downloadsTotal": 235,
-      "recentDownloads": 152,
+      "recentDownloads": 150,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -70,7 +70,7 @@
       "publishedAt": "2026-06-22T14:42:45Z",
       "updatedAt": "2026-06-22T14:42:45Z",
       "downloadsTotal": 369,
-      "recentDownloads": 242,
+      "recentDownloads": 239,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -88,7 +88,7 @@
       "publishedAt": "2026-06-22T14:46:41Z",
       "updatedAt": "2026-06-22T14:46:41Z",
       "downloadsTotal": 231,
-      "recentDownloads": 148,
+      "recentDownloads": 146,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -106,7 +106,7 @@
       "publishedAt": "2026-06-26T16:57:31Z",
       "updatedAt": "2026-06-26T16:57:31Z",
       "downloadsTotal": 394,
-      "recentDownloads": 172,
+      "recentDownloads": 170,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -124,7 +124,7 @@
       "publishedAt": "2026-06-26T16:55:42Z",
       "updatedAt": "2026-06-26T16:55:42Z",
       "downloadsTotal": 615,
-      "recentDownloads": 270,
+      "recentDownloads": 266,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -142,7 +142,7 @@
       "publishedAt": "2026-06-26T16:59:08Z",
       "updatedAt": "2026-06-26T16:59:08Z",
       "downloadsTotal": 390,
-      "recentDownloads": 169,
+      "recentDownloads": 167,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -171,16 +171,16 @@
       "name": "dataprof",
       "displayName": "dataprof",
       "summary": "High-performance data profiler with ISO 8000/25012 quality metrics for CSV, JSON/JSONL, and Parquet files",
-      "version": "0.8.1",
+      "version": "0.9.0",
       "url": "https://crates.io/crates/dataprof",
       "repositoryUrl": "https://github.com/AndreaBozzo/dataprof",
       "documentationUrl": "https://docs.rs/dataprof",
       "homepageUrl": "https://github.com/AndreaBozzo/dataprof",
       "license": "MIT OR Apache-2.0",
-      "publishedAt": "2026-05-31T13:28:47Z",
-      "updatedAt": "2026-05-31T13:28:47Z",
-      "downloadsTotal": 4555,
-      "recentDownloads": 107,
+      "publishedAt": "2026-07-09T16:19:08Z",
+      "updatedAt": "2026-07-09T16:19:08Z",
+      "downloadsTotal": 4573,
+      "recentDownloads": 124,
       "relatedCaseStudies": [
         "dataprof"
       ]
@@ -191,12 +191,12 @@
       "name": "dataprof",
       "displayName": "dataprof",
       "summary": "Fast, lightweight data profiling and quality assessment library",
-      "version": "0.8.1",
+      "version": "0.9.0",
       "url": "https://pypi.org/project/dataprof/",
       "repositoryUrl": "https://github.com/AndreaBozzo/dataprof",
       "homepageUrl": "https://github.com/AndreaBozzo/dataprof",
-      "runtimeRequirement": "\u003e=3.8",
-      "publishedAt": "2026-05-31T13:33:53Z",
+      "runtimeRequirement": "\u003e=3.10",
+      "publishedAt": "2026-07-09T16:21:36Z",
       "relatedCaseStudies": [
         "dataprof"
       ]

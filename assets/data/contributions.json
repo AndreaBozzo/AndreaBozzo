@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-09T00:55:26Z",
+  "generatedAt": "2026-07-10T00:54:39Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -424,7 +424,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "886",
+      "stars": "887",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",
@@ -586,7 +586,7 @@
     {
       "name": "fluss-rust",
       "url": "https://github.com/apache/fluss-rust",
-      "stars": "52",
+      "stars": "53",
       "prs": "2",
       "desc": "Client and integration work in the Fluss streaming ecosystem.",
       "language": "Rust",
