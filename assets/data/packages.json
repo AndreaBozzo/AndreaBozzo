@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-10T00:54:40Z",
+  "generatedAt": "2026-07-11T00:48:18Z",
   "source": "assets/data/package-sources.json",
   "items": [
     {
@@ -70,7 +70,7 @@
       "publishedAt": "2026-06-22T14:42:45Z",
       "updatedAt": "2026-06-22T14:42:45Z",
       "downloadsTotal": 369,
-      "recentDownloads": 239,
+      "recentDownloads": 238,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -179,8 +179,8 @@
       "license": "MIT OR Apache-2.0",
       "publishedAt": "2026-07-09T16:19:08Z",
       "updatedAt": "2026-07-09T16:19:08Z",
-      "downloadsTotal": 4573,
-      "recentDownloads": 124,
+      "downloadsTotal": 4574,
+      "recentDownloads": 125,
       "relatedCaseStudies": [
         "dataprof"
       ]
