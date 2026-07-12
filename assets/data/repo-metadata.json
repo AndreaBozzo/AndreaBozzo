@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-11T00:48:28Z",
+  "generatedAt": "2026-07-12T00:53:27Z",
   "source": "case-study repoUrl GitHub repository metadata",
   "items": [
     {
@@ -29,7 +29,7 @@
         "rust"
       ],
       "language": "HTML",
-      "pushedAt": "2026-07-11T00:43:24Z",
+      "pushedAt": "2026-07-12T00:47:37Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "andreabozzo-site"
@@ -39,25 +39,33 @@
       "caseStudySlug": "ares-ceres",
       "repoFullName": "AndreaBozzo/Ceres",
       "repoUrl": "https://github.com/AndreaBozzo/Ceres",
-      "description": "Harvester for open data portals",
+      "description": "Harvest-first Rust toolkit for open data metadata: sync 300+ portals (CKAN, DCAT, SPARQL, data.json, Socrata, OpenDataSoft, ArcGIS) into PostgreSQL, add optional local embeddings and semantic search. Ceres Open Data Index (2M+ datasets) on Hugging Face.",
       "stars": 13,
       "forks": 3,
       "topics": [
-        "async",
         "ckan",
+        "cli",
+        "data-catalog",
         "data-engineering",
-        "gemini-api",
+        "dcat",
+        "embeddings",
         "harvester",
+        "huggingface",
         "metadata",
-        "ml",
         "ollama",
-        "openai-api",
+        "open-data",
+        "open-government-data",
+        "opendatasoft",
+        "parquet",
         "pgvector",
+        "postgresql",
         "rust",
-        "tokio-rs"
+        "semantic-search",
+        "socrata",
+        "sparql"
       ],
       "language": "Rust",
-      "pushedAt": "2026-07-10T12:58:58Z",
+      "pushedAt": "2026-07-11T23:26:00Z",
       "defaultBranch": "master",
       "releases": [
         {
@@ -114,7 +122,7 @@
         "simd"
       ],
       "language": "Rust",
-      "pushedAt": "2026-07-10T18:19:16Z",
+      "pushedAt": "2026-07-11T10:46:45Z",
       "defaultBranch": "master",
       "releases": [
         {
@@ -307,7 +315,7 @@
         "websocket"
       ],
       "language": "Go",
-      "pushedAt": "2026-07-10T18:38:32Z",
+      "pushedAt": "2026-07-11T13:55:01Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "nephtys"
