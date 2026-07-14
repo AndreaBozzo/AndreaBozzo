@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-13T00:52:55Z",
+  "generatedAt": "2026-07-14T00:46:12Z",
   "source": "case-study repoUrl GitHub repository metadata",
   "items": [
     {
@@ -29,7 +29,7 @@
         "rust"
       ],
       "language": "HTML",
-      "pushedAt": "2026-07-13T00:47:24Z",
+      "pushedAt": "2026-07-14T00:41:23Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "andreabozzo-site"
@@ -122,7 +122,7 @@
         "simd"
       ],
       "language": "Rust",
-      "pushedAt": "2026-07-11T10:46:45Z",
+      "pushedAt": "2026-07-13T21:36:43Z",
       "defaultBranch": "master",
       "releases": [
         {
@@ -295,7 +295,7 @@
       "repoFullName": "AndreaBozzo/Nephtys",
       "repoUrl": "https://github.com/AndreaBozzo/Nephtys",
       "description": "Edge connector for data streams",
-      "stars": 0,
+      "stars": 1,
       "forks": 0,
       "topics": [
         "connectors",
@@ -315,7 +315,7 @@
         "websocket"
       ],
       "language": "Go",
-      "pushedAt": "2026-07-11T13:55:01Z",
+      "pushedAt": "2026-07-13T17:24:15Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "nephtys"
