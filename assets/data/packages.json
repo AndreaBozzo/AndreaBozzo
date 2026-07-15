@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-14T00:45:59Z",
+  "generatedAt": "2026-07-15T00:44:10Z",
   "source": "assets/data/package-sources.json",
   "items": [
     {
@@ -51,8 +51,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-06-22T14:44:57Z",
       "updatedAt": "2026-06-22T14:44:57Z",
-      "downloadsTotal": 239,
-      "recentDownloads": 150,
+      "downloadsTotal": 240,
+      "recentDownloads": 149,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -69,8 +69,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-06-22T14:42:45Z",
       "updatedAt": "2026-06-22T14:42:45Z",
-      "downloadsTotal": 378,
-      "recentDownloads": 240,
+      "downloadsTotal": 380,
+      "recentDownloads": 238,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -87,8 +87,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-06-22T14:46:41Z",
       "updatedAt": "2026-06-22T14:46:41Z",
-      "downloadsTotal": 235,
-      "recentDownloads": 146,
+      "downloadsTotal": 236,
+      "recentDownloads": 145,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -106,7 +106,7 @@
       "publishedAt": "2026-06-26T16:57:31Z",
       "updatedAt": "2026-06-26T16:57:31Z",
       "downloadsTotal": 398,
-      "recentDownloads": 170,
+      "recentDownloads": 168,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -124,7 +124,7 @@
       "publishedAt": "2026-06-26T16:55:42Z",
       "updatedAt": "2026-06-26T16:55:42Z",
       "downloadsTotal": 624,
-      "recentDownloads": 267,
+      "recentDownloads": 261,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -142,7 +142,7 @@
       "publishedAt": "2026-06-26T16:59:08Z",
       "updatedAt": "2026-06-26T16:59:08Z",
       "downloadsTotal": 394,
-      "recentDownloads": 167,
+      "recentDownloads": 165,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -179,8 +179,8 @@
       "license": "MIT OR Apache-2.0",
       "publishedAt": "2026-07-09T16:19:08Z",
       "updatedAt": "2026-07-09T16:19:08Z",
-      "downloadsTotal": 4578,
-      "recentDownloads": 125,
+      "downloadsTotal": 4579,
+      "recentDownloads": 126,
       "relatedCaseStudies": [
         "dataprof"
       ]
