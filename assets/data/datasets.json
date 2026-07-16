@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-15T00:44:18Z",
+  "generatedAt": "2026-07-16T00:47:19Z",
   "source": "assets/data/dataset-sources.json",
   "items": [
     {
@@ -10,38 +10,111 @@
       "displayName": "Ceres Open Data Index",
       "url": "https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index",
       "license": "apache-2.0",
-      "summary": "\n\t\n\t\t\n\t\n\t\n\t\tCeres Open Data Index\n\t\n\nA curated index of 1,854,596 open datasets from 47 open data portals across ~25 countries plus international sources (EU Open Data Portal, HDX), with cross-portal duplicates flagged. This is the largest aggregated open data metadata index available as a single downloadable resource.\n\n\t\n\t\t\n\t\n\t\n\t\tDataset Description\n\t\n\nThis dataset contains normalized metadata from government and institutional open data portals. It was harvested by Ceres, a harvest-first… See the full description on the dataset page: https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index.",
+      "summary": "\n\t\n\t\t\n\t\n\t\n\t\tCeres Open Data Index\n\t\n\nA curated index of 2,564,009 open datasets from 419 open data portals across 40+ countries plus international sources (EU Open Data Portal, HDX, Copernicus/NASA/ESA geospatial catalogs), with cross-portal duplicates flagged. This is the largest aggregated open data metadata index available as a single downloadable resource.\n\n\t\n\t\t\n\t\n\t\n\t\tDataset Description\n\t\n\nThis dataset contains normalized metadata from government and institutional open data portals. It… See the full description on the dataset page: https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index.",
       "languages": [
         "en",
-        "it",
         "de",
+        "it",
         "fr",
         "es",
         "uk",
-        "nl",
-        "pt",
-        "ja",
-        "ro",
-        "no",
         "cs",
-        "fi"
+        "nl",
+        "ja",
+        "el",
+        "pt",
+        "sk",
+        "sl",
+        "nb",
+        "fi",
+        "ro",
+        "sr",
+        "hr",
+        "lv",
+        "pl",
+        "ky",
+        "he",
+        "da",
+        "sv",
+        "id"
       ],
       "tags": [
         "open-data",
         "ckan",
         "dcat",
+        "socrata",
+        "opendatasoft",
+        "arcgis",
+        "stac",
+        "csw",
         "government",
         "metadata",
         "geospatial"
       ],
-      "snapshotDate": "2026-06-26",
-      "lastModified": "2026-06-26T13:42:51Z",
+      "snapshotDate": "2026-07-15",
+      "lastModified": "2026-07-15T15:57:02Z",
       "downloads": 4120,
       "likes": 1,
-      "sourceCount": 47,
+      "sourceCount": 419,
       "sources": [
         {
+          "name": "adds-faa-opendata-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "admin-opendatani-gov-uk",
+          "count": 0
+        },
+        {
+          "name": "aerialphoto-drcMetro-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "aix-en-provence-opendatasoft-com",
+          "count": 0
+        },
+        {
+          "name": "alianza-amazonica-aarimo-SZF-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "amboseli-ecosystem-geospatial-hub-AWF-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "api-stac-worldpop-org",
+          "count": 0
+        },
+        {
           "name": "avoindata-suomi-fi",
+          "count": 0
+        },
+        {
+          "name": "azgeo-open-data-agic-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "berkshire-steps-berkshire-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "brevard-gis-open-data-hub-brevardbocc-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "buspriority-ddot-dc-gov",
+          "count": 0
+        },
+        {
+          "name": "cachan-opendatasoft-com",
+          "count": 0
+        },
+        {
+          "name": "canadian-county-geographic-information-center-canadiancounty-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "cartes-gouv-fr",
           "count": 0
         },
         {
@@ -53,7 +126,79 @@
           "count": 0
         },
         {
+          "name": "catalog-sarawak-gov-my",
+          "count": 0
+        },
+        {
+          "name": "catalogue-SaintJohn-opendata-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "catalogue-cioos-ca",
+          "count": 0
+        },
+        {
           "name": "catalogue-data-gov-bc-ca",
+          "count": 0
+        },
+        {
+          "name": "cclean--amarine-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "chester-county-s-gis-hub-chesco-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "citizen-problem-reporter-13-LOGIS-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "city-of-brandon-drp-emergency-management-operations-EsriCanada-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "city-of-bridgeport-gis-hub-BridgeportCT-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "city-of-greenville-dashboard-GreenvilleTx-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "city-of-paterson-patersonnj-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "city-of-stuart-open-data-StuartFL-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "city-of-vancouver-wa-geo-hub-CityOfVancouver-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "city-of-winchester-open-data-1-winchestercity-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "citydata-mesaaz-gov",
+          "count": 0
+        },
+        {
+          "name": "cityobservatory-birmingham-gov-uk",
+          "count": 0
+        },
+        {
+          "name": "cityofsalinas-opendatasoft-com",
+          "count": 0
+        },
+        {
+          "name": "ckan-a2gov-org",
+          "count": 0
+        },
+        {
+          "name": "ckan-americaview-org",
           "count": 0
         },
         {
@@ -73,7 +218,191 @@
           "count": 0
         },
         {
+          "name": "claims-NVDataMiner-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "coc-fsc-org",
+          "count": 0
+        },
+        {
+          "name": "community-gis-portal-seabrooktx-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "cos-data-seattle-gov",
+          "count": 0
+        },
+        {
+          "name": "cris-climate-gov",
+          "count": 0
+        },
+        {
+          "name": "cw-gis-waterboards-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "dados-fortaleza-ce-gov-br",
+          "count": 0
+        },
+        {
           "name": "dados-gov-pt",
+          "count": 0
+        },
+        {
+          "name": "dadosabertos-turismodeportugal-pt",
+          "count": 0
+        },
+        {
+          "name": "data-ATgis-opendata-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "data-CAGISPortal-opendata-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "data-CityofPG-opendata-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "data-Galesburg-opendata-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "data-MSDIS-opendata-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "data-ampmetropole-fr",
+          "count": 0
+        },
+        {
+          "name": "data-angers-fr",
+          "count": 0
+        },
+        {
+          "name": "data-api-ssen-co-uk",
+          "count": 0
+        },
+        {
+          "name": "data-athgis-opendata-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "data-bloomington-in-gov",
+          "count": 0
+        },
+        {
+          "name": "data-boston-gov",
+          "count": 0
+        },
+        {
+          "name": "data-brisbane-qld-gov-au",
+          "count": 0
+        },
+        {
+          "name": "data-brla-gov",
+          "count": 0
+        },
+        {
+          "name": "data-brno-cz",
+          "count": 0
+        },
+        {
+          "name": "data-bs-ch",
+          "count": 0
+        },
+        {
+          "name": "data-ca-gov",
+          "count": 0
+        },
+        {
+          "name": "data-calgary-ca",
+          "count": 0
+        },
+        {
+          "name": "data-cambridgema-gov",
+          "count": 0
+        },
+        {
+          "name": "data-castco-org",
+          "count": 0
+        },
+        {
+          "name": "data-cdc-gov",
+          "count": 0
+        },
+        {
+          "name": "data-chateauroux-metropole-fr",
+          "count": 0
+        },
+        {
+          "name": "data-chattanooga-gov",
+          "count": 0
+        },
+        {
+          "name": "data-cincinnati-oh-gov",
+          "count": 0
+        },
+        {
+          "name": "data-cityofchicago-org",
+          "count": 0
+        },
+        {
+          "name": "data-cityofnewyork-us",
+          "count": 0
+        },
+        {
+          "name": "data-cityoforlando-net",
+          "count": 0
+        },
+        {
+          "name": "data-cnra-ca-gov",
+          "count": 0
+        },
+        {
+          "name": "data-colorado-gov",
+          "count": 0
+        },
+        {
+          "name": "data-cstx-gov",
+          "count": 0
+        },
+        {
+          "name": "data-ct-gov",
+          "count": 0
+        },
+        {
+          "name": "data-delaware-gov",
+          "count": 0
+        },
+        {
+          "name": "data-detroitmi-gov",
+          "count": 0
+        },
+        {
+          "name": "data-e-gov-go-jp",
+          "count": 0
+        },
+        {
+          "name": "data-economie-gouv-fr",
+          "count": 0
+        },
+        {
+          "name": "data-edmonton-ca",
+          "count": 0
+        },
+        {
+          "name": "data-education-gouv-fr",
+          "count": 0
+        },
+        {
+          "name": "data-eindhoven-nl",
+          "count": 0
+        },
+        {
+          "name": "data-energystar-gov",
           "count": 0
         },
         {
@@ -81,7 +410,39 @@
           "count": 0
         },
         {
+          "name": "data-everettwa-gov",
+          "count": 0
+        },
+        {
+          "name": "data-explore-star-fr",
+          "count": 0
+        },
+        {
+          "name": "data-fleurysurorne-fr",
+          "count": 0
+        },
+        {
+          "name": "data-fortworthtexas-gov",
+          "count": 0
+        },
+        {
+          "name": "data-garland-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "data-geo-admin-ch",
+          "count": 0
+        },
+        {
+          "name": "data-gis-ny-gov",
+          "count": 0
+        },
+        {
           "name": "data-gouv-fr",
+          "count": 0
+        },
+        {
+          "name": "data-gouv-nc",
           "count": 0
         },
         {
@@ -93,7 +454,27 @@
           "count": 0
         },
         {
+          "name": "data-gov-gr",
+          "count": 0
+        },
+        {
+          "name": "data-gov-hr",
+          "count": 0
+        },
+        {
           "name": "data-gov-ie",
+          "count": 0
+        },
+        {
+          "name": "data-gov-il",
+          "count": 0
+        },
+        {
+          "name": "data-gov-kg",
+          "count": 0
+        },
+        {
+          "name": "data-gov-lv",
           "count": 0
         },
         {
@@ -101,7 +482,35 @@
           "count": 0
         },
         {
+          "name": "data-gov-rs",
+          "count": 0
+        },
+        {
           "name": "data-gov-ua",
+          "count": 0
+        },
+        {
+          "name": "data-gov-uk",
+          "count": 0
+        },
+        {
+          "name": "data-govmu-org",
+          "count": 0
+        },
+        {
+          "name": "data-gwadair-opendata-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "data-hanovercounty-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "data-honolulu-gov",
+          "count": 0
+        },
+        {
+          "name": "data-hud-gov",
           "count": 0
         },
         {
@@ -109,7 +518,175 @@
           "count": 0
         },
         {
+          "name": "data-idwr-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "data-iledefrance-fr",
+          "count": 0
+        },
+        {
+          "name": "data-iledefrance-mobilites-fr",
+          "count": 0
+        },
+        {
+          "name": "data-in-emergencies-hqfao-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "data-inpe-br",
+          "count": 0
+        },
+        {
+          "name": "data-issy-com",
+          "count": 0
+        },
+        {
+          "name": "data-jerseycitynj-gov",
+          "count": 0
+        },
+        {
+          "name": "data-jmk-cz",
+          "count": 0
+        },
+        {
+          "name": "data-kcmo-org",
+          "count": 0
+        },
+        {
+          "name": "data-kingcounty-gov",
+          "count": 0
+        },
+        {
+          "name": "data-lacity-org",
+          "count": 0
+        },
+        {
+          "name": "data-lacounty-gov",
+          "count": 0
+        },
+        {
+          "name": "data-lahub-opendata-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "data-lakemac-com-au",
+          "count": 0
+        },
+        {
+          "name": "data-laregion-fr",
+          "count": 0
+        },
+        {
+          "name": "data-leicester-gov-uk",
+          "count": 0
+        },
+        {
+          "name": "data-maitland-nsw-gov-au",
+          "count": 0
+        },
+        {
+          "name": "data-marincounty-gov",
+          "count": 0
+        },
+        {
+          "name": "data-medicaid-gov",
+          "count": 0
+        },
+        {
+          "name": "data-melbourne-vic-gov-au",
+          "count": 0
+        },
+        {
+          "name": "data-metropole-rouen-normandie-fr",
+          "count": 0
+        },
+        {
+          "name": "data-mf-gov-cz",
+          "count": 0
+        },
+        {
+          "name": "data-michigan-gov",
+          "count": 0
+        },
+        {
+          "name": "data-milwaukee-gov",
+          "count": 0
+        },
+        {
+          "name": "data-minneapolismn-gov",
+          "count": 0
+        },
+        {
+          "name": "data-mo-gov",
+          "count": 0
+        },
+        {
+          "name": "data-monmouthnj-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "data-montgomerycountymd-gov",
+          "count": 0
+        },
+        {
+          "name": "data-montreuil-fr",
+          "count": 0
+        },
+        {
+          "name": "data-namur-be",
+          "count": 0
+        },
+        {
+          "name": "data-nantesmetropole-fr",
+          "count": 0
+        },
+        {
+          "name": "data-nj-gov",
+          "count": 0
+        },
+        {
+          "name": "data-nola-gov",
+          "count": 0
+        },
+        {
+          "name": "data-norfolk-gov",
+          "count": 0
+        },
+        {
           "name": "data-norge-no",
+          "count": 0
+        },
+        {
+          "name": "data-novascotia-ca",
+          "count": 0
+        },
+        {
+          "name": "data-nt-gov-au",
+          "count": 0
+        },
+        {
+          "name": "data-ny-gov",
+          "count": 0
+        },
+        {
+          "name": "data-ny-gov",
+          "count": 0
+        },
+        {
+          "name": "data-oaklandca-gov",
+          "count": 0
+        },
+        {
+          "name": "data-ontario-ca",
+          "count": 0
+        },
+        {
+          "name": "data-opendatasoft-com",
+          "count": 0
+        },
+        {
+          "name": "data-oregon-gov",
           "count": 0
         },
         {
@@ -117,7 +694,159 @@
           "count": 0
         },
         {
+          "name": "data-pa-gov",
+          "count": 0
+        },
+        {
+          "name": "data-providenceri-gov",
+          "count": 0
+        },
+        {
           "name": "data-public-lu",
+          "count": 0
+        },
+        {
+          "name": "data-ramseycountymn-gov",
+          "count": 0
+        },
+        {
+          "name": "data-ratp-fr",
+          "count": 0
+        },
+        {
+          "name": "data-regionreunion-com",
+          "count": 0
+        },
+        {
+          "name": "data-rennesmetropole-fr",
+          "count": 0
+        },
+        {
+          "name": "data-saint-maur-com",
+          "count": 0
+        },
+        {
+          "name": "data-sbb-ch",
+          "count": 0
+        },
+        {
+          "name": "data-sccgov-org",
+          "count": 0
+        },
+        {
+          "name": "data-sfgov-org",
+          "count": 0
+        },
+        {
+          "name": "data-slovensko-sk",
+          "count": 0
+        },
+        {
+          "name": "data-sncf-com",
+          "count": 0
+        },
+        {
+          "name": "data-somervillema-gov",
+          "count": 0
+        },
+        {
+          "name": "data-sonomacounty-ca-gov",
+          "count": 0
+        },
+        {
+          "name": "data-stad-gent",
+          "count": 0
+        },
+        {
+          "name": "data-stadt-zuerich-ch",
+          "count": 0
+        },
+        {
+          "name": "data-stirling-gov-uk",
+          "count": 0
+        },
+        {
+          "name": "data-strasbourg-eu",
+          "count": 0
+        },
+        {
+          "name": "data-sz-ch",
+          "count": 0
+        },
+        {
+          "name": "data-texas-gov",
+          "count": 0
+        },
+        {
+          "name": "data-tg-ch",
+          "count": 0
+        },
+        {
+          "name": "data-toulouse-metropole-fr",
+          "count": 0
+        },
+        {
+          "name": "data-townofcary-org",
+          "count": 0
+        },
+        {
+          "name": "data-vermont-gov",
+          "count": 0
+        },
+        {
+          "name": "data-virginia-gov",
+          "count": 0
+        },
+        {
+          "name": "data-wa-gov",
+          "count": 0
+        },
+        {
+          "name": "data-wa-gov",
+          "count": 0
+        },
+        {
+          "name": "data-wcad-org",
+          "count": 0
+        },
+        {
+          "name": "data-winnipeg-ca",
+          "count": 0
+        },
+        {
+          "name": "data-wprdc-org",
+          "count": 0
+        },
+        {
+          "name": "datacatalog-cookcountyil-gov",
+          "count": 0
+        },
+        {
+          "name": "datacube-services-geo-ca",
+          "count": 0
+        },
+        {
+          "name": "datahub-austintexas-gov",
+          "count": 0
+        },
+        {
+          "name": "datahub-hhs-gov",
+          "count": 0
+        },
+        {
+          "name": "datahub-smcgov-org",
+          "count": 0
+        },
+        {
+          "name": "datahub-transportation-gov",
+          "count": 0
+        },
+        {
+          "name": "datapresov-mestopresov-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "datasource-kapsarc-org",
           "count": 0
         },
         {
@@ -189,7 +918,19 @@
           "count": 0
         },
         {
+          "name": "datos-gob-do",
+          "count": 0
+        },
+        {
           "name": "datos-gob-es",
+          "count": 0
+        },
+        {
+          "name": "datos-gob-mx",
+          "count": 0
+        },
+        {
+          "name": "digital-atlas-gov-au",
           "count": 0
         },
         {
@@ -197,7 +938,347 @@
           "count": 0
         },
         {
+          "name": "donnees-montreal-ca",
+          "count": 0
+        },
+        {
+          "name": "donnees-ouvertes-verdun-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "dupage-monarch-project-DuPage-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "dwr-data-utahdnr-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "earth-search-aws-element84-com",
+          "count": 0
+        },
+        {
+          "name": "educationtocareer-data-mass-gov",
+          "count": 0
+        },
+        {
+          "name": "edx-netl-doe-gov",
+          "count": 0
+        },
+        {
+          "name": "emc-spacebel-be",
+          "count": 0
+        },
+        {
+          "name": "emergency-management-operations-Semenda-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "emergency-management-operations-eccounty-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "emodnet-ec-europa-eu",
+          "count": 0
+        },
+        {
+          "name": "eodata-thuenen-de",
+          "count": 0
+        },
+        {
+          "name": "epdopendata-cityofelgin-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "explorer-sandbox-dea-ga-gov-au",
+          "count": 0
+        },
+        {
+          "name": "forest-practice-calfire-forestry-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "gad-manabi-glxecuador-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "gemelo-digital-region-murcia-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "geo-cobbcountyga-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "geo-forsythcoga-opendata-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "geodata-colorado-gov",
+          "count": 0
+        },
+        {
+          "name": "geodata-ct-gov",
+          "count": 0
+        },
+        {
+          "name": "geodata-floridagio-gov",
+          "count": 0
+        },
+        {
+          "name": "geodata-frisco-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "geohub-BedfordVAGIS-opendata-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "geohub-cochrane-ca",
+          "count": 0
+        },
+        {
+          "name": "geohub-trentuniversity-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "geohubccoemlurb-tpfe-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "geoint-OGIS-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "geoportaal-lvnl-nl",
+          "count": 0
+        },
+        {
+          "name": "geoportal-env-go-jp",
+          "count": 0
+        },
+        {
+          "name": "geoportal-statistics-gov-uk",
+          "count": 0
+        },
+        {
+          "name": "geoservice-dlr-de",
+          "count": 0
+        },
+        {
+          "name": "gifu-opendata-pref-gifu-lg-jp",
+          "count": 0
+        },
+        {
+          "name": "gis-auburn-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "gis-chicagopolice-org",
+          "count": 0
+        },
+        {
+          "name": "gis-data-alaska-gov",
+          "count": 0
+        },
+        {
+          "name": "gis-data-ca-gov",
+          "count": 0
+        },
+        {
+          "name": "gis-data-madcoil-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "gis-dedham-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "gis-dffm-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "gis-fema-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "gis-fws-opendata-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "gis-georgetowntx-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "gis-ltsb-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "gis-tularecounty-opendata-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "gisdata-bentonco-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "gisdata-cityofnapa-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "gnb-socrata-com",
+          "count": 0
+        },
+        {
+          "name": "hc-cityofgi-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "health-data-ny-gov",
+          "count": 0
+        },
+        {
+          "name": "healthdata-gov",
+          "count": 0
+        },
+        {
+          "name": "hermits-peak-calf-canyon-fire-resources-NMHU-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "highways-hidot-hawaii-gov",
+          "count": 0
+        },
+        {
+          "name": "houstonisd-gis-houstonisd-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "hub-glahf-org",
+          "count": 0
+        },
+        {
+          "name": "hub-scag-ca-gov",
+          "count": 0
+        },
+        {
+          "name": "ictac-invemar-opendata-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "ideocuc-ocuc-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "ifeellucky-imf-dataviz-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "illinois-edp-data-socrata-com",
+          "count": 0
+        },
+        {
+          "name": "inside-sandy-springs-coss-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "kenya-ag-climate-esriaiddev-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "kgs-gis-data-and-maps-KU-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "l-a-mapping-services-lennoxaddington-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "landsatlook-usgs-gov",
+          "count": 0
+        },
+        {
+          "name": "lead-service-line-inventory-EMUA-hub-arcgis-com",
+          "count": 0
+        },
+        {
           "name": "lindas-admin-ch",
+          "count": 0
+        },
+        {
+          "name": "longbeach-opendatasoft-com",
+          "count": 0
+        },
+        {
+          "name": "louisville-metro-opendata-lojic-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "maconinsights-maconbibb-us",
+          "count": 0
+        },
+        {
+          "name": "mannheim-opendatasoft-com",
+          "count": 0
+        },
+        {
+          "name": "map-Highland-opendata-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "map-muskoka-on-ca",
+          "count": 0
+        },
+        {
+          "name": "mapgallery-jctngis-opendata-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "maps-boprc-govt-nz",
+          "count": 0
+        },
+        {
+          "name": "marine-copernicus-eu",
+          "count": 0
+        },
+        {
+          "name": "mcleancounty-mcggis-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "md-mountaindrew89-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "monitorwonen-flevoland-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "naturalengland-defra-opendata-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "neighborhoodmobility-ddot-dc-gov",
+          "count": 0
+        },
+        {
+          "name": "nm-geo-nm-state-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "observatorio-urbano-soacha-sigsoacha15-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "oceans-esrioceans-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "odp-cctegis-opendata-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "odre-opendatasoft-com",
           "count": 0
         },
         {
@@ -205,7 +1286,195 @@
           "count": 0
         },
         {
+          "name": "open-data-dortmund-de",
+          "count": 0
+        },
+        {
+          "name": "open-data-hub-LennoxAddington-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "open-data-newbraunfels-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "open-data-portal-citywindsor-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "open-data-seguin-utility-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "open-government-cityofmobile-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "open-gsa-gov",
+          "count": 0
+        },
+        {
+          "name": "open-hilversum-nl",
+          "count": 0
+        },
+        {
+          "name": "open-phl-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "open-tempe-gov",
+          "count": 0
+        },
+        {
+          "name": "opendata-CALAVERAS-GIS-opendata-arcgis-com",
+          "count": 0
+        },
+        {
           "name": "opendata-aragon-es",
+          "count": 0
+        },
+        {
+          "name": "opendata-berkspa-gov",
+          "count": 0
+        },
+        {
+          "name": "opendata-bordeaux-metropole-fr",
+          "count": 0
+        },
+        {
+          "name": "opendata-bruxelles-be",
+          "count": 0
+        },
+        {
+          "name": "opendata-cityofsfgis-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "opendata-comune-bologna-it",
+          "count": 0
+        },
+        {
+          "name": "opendata-dc-gov",
+          "count": 0
+        },
+        {
+          "name": "opendata-dc-gov",
+          "count": 0
+        },
+        {
+          "name": "opendata-dundeecity-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "opendata-gemalmelo-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "opendata-gis-utah-gov",
+          "count": 0
+        },
+        {
+          "name": "opendata-hauts-de-seine-fr",
+          "count": 0
+        },
+        {
+          "name": "opendata-kygeonet-opendata-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "opendata-liege-be",
+          "count": 0
+        },
+        {
+          "name": "opendata-maryland-gov",
+          "count": 0
+        },
+        {
+          "name": "opendata-medicinehat-ca",
+          "count": 0
+        },
+        {
+          "name": "opendata-miamidade-gov",
+          "count": 0
+        },
+        {
+          "name": "opendata-nhsbsa-net",
+          "count": 0
+        },
+        {
+          "name": "opendata-paris-fr",
+          "count": 0
+        },
+        {
+          "name": "opendata-potsdam-de",
+          "count": 0
+        },
+        {
+          "name": "opendata-rhein-kreis-neuss-de",
+          "count": 0
+        },
+        {
+          "name": "opendata-saemes-fr",
+          "count": 0
+        },
+        {
+          "name": "opendata-townofmorrisville-org",
+          "count": 0
+        },
+        {
+          "name": "opendata-umea-se",
+          "count": 0
+        },
+        {
+          "name": "opendata-vancouver-ca",
+          "count": 0
+        },
+        {
+          "name": "opendata-wuerzburg-de",
+          "count": 0
+        },
+        {
+          "name": "opendatakingston-cityofkingston-ca",
+          "count": 0
+        },
+        {
+          "name": "openveda-cloud",
+          "count": 0
+        },
+        {
+          "name": "opp-gis-and-mapping-resources-psu-opp-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "otwartedane-lublin-eu",
+          "count": 0
+        },
+        {
+          "name": "otwartedane-metropoliagzm-pl",
+          "count": 0
+        },
+        {
+          "name": "paituli-csc-fi",
+          "count": 0
+        },
+        {
+          "name": "performance-cityofhenderson-com",
+          "count": 0
+        },
+        {
+          "name": "performance-commerce-gov",
+          "count": 0
+        },
+        {
+          "name": "phoenixopendata-com",
+          "count": 0
+        },
+        {
+          "name": "planetarycomputer-microsoft-com",
+          "count": 0
+        },
+        {
+          "name": "pndb-opendatasoft-com",
           "count": 0
         },
         {
@@ -213,7 +1482,187 @@
           "count": 0
         },
         {
+          "name": "police-transparency-fairfield-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "policedata-coloradosprings-gov",
+          "count": 0
+        },
+        {
+          "name": "portal-mainroads-opendata-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "portal-opendata-dk",
+          "count": 0
+        },
+        {
+          "name": "psemp-spatialdataworkgroup-wa-psp-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "r5-gis-fema-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "rcoe-rcmrd-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "rotterdam-opendata-opendatasoft-com",
+          "count": 0
+        },
+        {
+          "name": "saint-louis-agglo-opendatasoft-com",
+          "count": 0
+        },
+        {
+          "name": "sarcop-napsgfoundation-org",
+          "count": 0
+        },
+        {
+          "name": "satudata-dompukab-go-id",
+          "count": 0
+        },
+        {
+          "name": "sdi-eea-europa-eu",
+          "count": 0
+        },
+        {
+          "name": "seas-properties-umich-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "sharefulton-fultoncountyga-gov",
+          "count": 0
+        },
+        {
+          "name": "sjc-pwd-paver-data-hub-SJCPWD-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "spartanburg-county-open-data-SpartCo-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "spc-ddp-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "stac-dataspace-copernicus-eu",
+          "count": 0
+        },
+        {
+          "name": "stac-eurac-edu",
+          "count": 0
+        },
+        {
+          "name": "strategic-performance-cccd-gis-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "sweep-scdnr-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "toursmetropole-opendatasoft-com",
+          "count": 0
+        },
+        {
+          "name": "trafficdata-se",
+          "count": 0
+        },
+        {
+          "name": "trailer-estates-manateegis-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "transit-arts-NJTRANSIT-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "udds-faa-opendata-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "understanding-property-value-summitgis-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "valenciennesmetro-opendatasoft-com",
+          "count": 0
+        },
+        {
+          "name": "vcp-lci-ca-gov",
+          "count": 0
+        },
+        {
+          "name": "vgin-vdem-virginia-gov",
+          "count": 0
+        },
+        {
+          "name": "webstat-banque-france-fr",
+          "count": 0
+        },
+        {
+          "name": "where-intelligence-kerryama-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "wildlifeconnectivity-ndow-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "wlion-ada-calumet-hub-arcgis-com",
+          "count": 0
+        },
+        {
+          "name": "www-archives-gov",
+          "count": 0
+        },
+        {
           "name": "www-avoindata-fi",
+          "count": 0
+        },
+        {
+          "name": "www-bumblebeeatlas-org",
+          "count": 0
+        },
+        {
+          "name": "www-census-gov",
+          "count": 0
+        },
+        {
+          "name": "www-dallasopendata-com",
+          "count": 0
+        },
+        {
+          "name": "www-data-act-gov-au",
+          "count": 0
+        },
+        {
+          "name": "www-data-gov-bc-ca",
+          "count": 0
+        },
+        {
+          "name": "www-data-gov-bh",
+          "count": 0
+        },
+        {
+          "name": "www-data-qld-gov-au",
+          "count": 0
+        },
+        {
+          "name": "www-data-rio",
+          "count": 0
+        },
+        {
+          "name": "www-data-va-gov",
+          "count": 0
+        },
+        {
+          "name": "www-datos-gov-co",
           "count": 0
         },
         {
@@ -221,11 +1670,67 @@
           "count": 0
         },
         {
+          "name": "www-donneesquebec-ca",
+          "count": 0
+        },
+        {
+          "name": "www-energy-gov",
+          "count": 0
+        },
+        {
+          "name": "www-geelongdataexchange-com-au",
+          "count": 0
+        },
+        {
           "name": "www-govdata-de",
           "count": 0
         },
         {
+          "name": "www-growbuckeye-com",
+          "count": 0
+        },
+        {
+          "name": "www-idee-es",
+          "count": 0
+        },
+        {
+          "name": "www-justice-gov",
+          "count": 0
+        },
+        {
+          "name": "www-marineregions-org",
+          "count": 0
+        },
+        {
+          "name": "www-nebraskamap-gov",
+          "count": 0
+        },
+        {
+          "name": "www-odwb-be",
+          "count": 0
+        },
+        {
           "name": "www-opendata-hro-de",
+          "count": 0
+        },
+        {
+          "name": "www-opendata-nhs-scot",
+          "count": 0
+        },
+        {
+          "name": "www-thamesdataexplorer-co-uk",
+          "count": 0
+        },
+        {
+          "name": "www-transparentrichmond-org",
+          "count": 0
+        },
+        {
+          "name": "www-treasury-gov",
+          "count": 0
+        },
+        {
+          "name": "www-visionzerogreaterportland-org",
           "count": 0
         }
       ],

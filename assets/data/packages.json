@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-15T00:44:10Z",
+  "generatedAt": "2026-07-16T00:47:11Z",
   "source": "assets/data/package-sources.json",
   "items": [
     {
@@ -51,7 +51,7 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-06-22T14:44:57Z",
       "updatedAt": "2026-06-22T14:44:57Z",
-      "downloadsTotal": 240,
+      "downloadsTotal": 242,
       "recentDownloads": 149,
       "relatedCaseStudies": [
         "ares-ceres"
@@ -69,8 +69,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-06-22T14:42:45Z",
       "updatedAt": "2026-06-22T14:42:45Z",
-      "downloadsTotal": 380,
-      "recentDownloads": 238,
+      "downloadsTotal": 384,
+      "recentDownloads": 237,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -87,8 +87,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-06-22T14:46:41Z",
       "updatedAt": "2026-06-22T14:46:41Z",
-      "downloadsTotal": 236,
-      "recentDownloads": 145,
+      "downloadsTotal": 238,
+      "recentDownloads": 144,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -99,14 +99,14 @@
       "name": "ceres-client",
       "displayName": "ceres-client",
       "summary": "HTTP clients for Ceres portal harvesters and embedding providers",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "url": "https://crates.io/crates/ceres-client",
       "repositoryUrl": "https://github.com/AndreaBozzo/Ceres",
       "license": "Apache-2.0",
-      "publishedAt": "2026-06-26T16:57:31Z",
-      "updatedAt": "2026-06-26T16:57:31Z",
-      "downloadsTotal": 398,
-      "recentDownloads": 168,
+      "publishedAt": "2026-07-15T16:21:04Z",
+      "updatedAt": "2026-07-15T16:21:04Z",
+      "downloadsTotal": 415,
+      "recentDownloads": 181,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -117,14 +117,14 @@
       "name": "ceres-core",
       "displayName": "ceres-core",
       "summary": "Core types, harvesting logic, and services for Ceres",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "url": "https://crates.io/crates/ceres-core",
       "repositoryUrl": "https://github.com/AndreaBozzo/Ceres",
       "license": "Apache-2.0",
-      "publishedAt": "2026-06-26T16:55:42Z",
-      "updatedAt": "2026-06-26T16:55:42Z",
-      "downloadsTotal": 624,
-      "recentDownloads": 261,
+      "publishedAt": "2026-07-15T16:18:57Z",
+      "updatedAt": "2026-07-15T16:18:57Z",
+      "downloadsTotal": 645,
+      "recentDownloads": 276,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -135,14 +135,14 @@
       "name": "ceres-db",
       "displayName": "ceres-db",
       "summary": "Database repository layer for Ceres with pgvector support",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "url": "https://crates.io/crates/ceres-db",
       "repositoryUrl": "https://github.com/AndreaBozzo/Ceres",
       "license": "Apache-2.0",
-      "publishedAt": "2026-06-26T16:59:08Z",
-      "updatedAt": "2026-06-26T16:59:08Z",
-      "downloadsTotal": 394,
-      "recentDownloads": 165,
+      "publishedAt": "2026-07-15T16:22:51Z",
+      "updatedAt": "2026-07-15T16:22:51Z",
+      "downloadsTotal": 411,
+      "recentDownloads": 178,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -153,14 +153,14 @@
       "name": "ceres-search",
       "displayName": "ceres-search",
       "summary": "Command-line interface for harvesting, embedding, and searching with Ceres",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "url": "https://crates.io/crates/ceres-search",
       "repositoryUrl": "https://github.com/AndreaBozzo/Ceres",
       "license": "Apache-2.0",
-      "publishedAt": "2026-06-26T17:00:53Z",
-      "updatedAt": "2026-06-26T17:00:53Z",
-      "downloadsTotal": 158,
-      "recentDownloads": 68,
+      "publishedAt": "2026-07-15T16:24:29Z",
+      "updatedAt": "2026-07-15T16:24:29Z",
+      "downloadsTotal": 170,
+      "recentDownloads": 80,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
