@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-17T00:49:42Z",
+  "generatedAt": "2026-07-18T00:45:37Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -73,7 +73,7 @@
     {
       "name": "axum",
       "url": "https://github.com/tokio-rs/axum",
-      "stars": "26.5k",
+      "stars": "26.6k",
       "prs": "1",
       "desc": "Web framework contributions around routing, ergonomics, and service integration in Rust.",
       "language": "Rust",
