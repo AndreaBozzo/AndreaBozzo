@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-18T00:45:52Z",
+  "generatedAt": "2026-07-19T00:52:05Z",
   "source": "case-study repoUrl GitHub repository metadata",
   "items": [
     {
@@ -29,7 +29,7 @@
         "rust"
       ],
       "language": "HTML",
-      "pushedAt": "2026-07-18T00:41:24Z",
+      "pushedAt": "2026-07-19T00:46:54Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "andreabozzo-site"
@@ -65,7 +65,7 @@
         "sparql"
       ],
       "language": "Rust",
-      "pushedAt": "2026-07-15T23:26:21Z",
+      "pushedAt": "2026-07-18T06:24:40Z",
       "defaultBranch": "master",
       "releases": [
         {
@@ -99,8 +99,8 @@
       "repoFullName": "AndreaBozzo/dataprof",
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
       "description": "High-performance data profiling \u0026 quality assessment for CSV, JSON, Parquet, pandas, polars, and Arrow — fast Rust core, clean Python API.",
-      "stars": 16,
-      "forks": 4,
+      "stars": 17,
+      "forks": 5,
       "topics": [
         "apache-arrow",
         "asyncio",
@@ -122,7 +122,7 @@
         "simd"
       ],
       "language": "Rust",
-      "pushedAt": "2026-07-17T21:17:36Z",
+      "pushedAt": "2026-07-18T08:09:46Z",
       "defaultBranch": "master",
       "releases": [
         {
@@ -294,17 +294,21 @@
       "caseStudySlug": "nephtys",
       "repoFullName": "AndreaBozzo/Nephtys",
       "repoUrl": "https://github.com/AndreaBozzo/Nephtys",
-      "description": "Edge connector for data streams",
+      "description": "Lightweight real-time stream connector for NATS JetStream — WebSocket, SSE, REST polling, webhooks \u0026 gRPC in, durable normalized events out. ~19 MB RSS, runtime-reconfigurable pipelines. IEEE UIC 2026 paper.",
       "stars": 1,
       "forks": 0,
       "topics": [
+        "connector",
         "connectors",
         "data-engineering",
+        "data-ingestion",
         "docker",
+        "edge-computing",
         "event-driven",
         "golang",
         "grafana",
         "grpc",
+        "iot",
         "jetstream",
         "nats",
         "prometheus-metrics",
@@ -315,7 +319,7 @@
         "websocket"
       ],
       "language": "Go",
-      "pushedAt": "2026-07-13T17:24:15Z",
+      "pushedAt": "2026-07-18T17:44:53Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "nephtys"
