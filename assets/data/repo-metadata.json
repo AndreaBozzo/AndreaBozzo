@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-19T00:52:05Z",
+  "generatedAt": "2026-07-20T00:52:31Z",
   "source": "case-study repoUrl GitHub repository metadata",
   "items": [
     {
@@ -29,7 +29,7 @@
         "rust"
       ],
       "language": "HTML",
-      "pushedAt": "2026-07-19T00:46:54Z",
+      "pushedAt": "2026-07-19T00:52:06Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "andreabozzo-site"
@@ -41,7 +41,7 @@
       "repoUrl": "https://github.com/AndreaBozzo/Ceres",
       "description": "Harvest-first Rust toolkit for open data metadata: sync 300+ portals (CKAN, DCAT, SPARQL, data.json, Socrata, OpenDataSoft, ArcGIS, CSW, STAC ) into PostgreSQL, add optional local embeddings and semantic search. Ceres Open Data Index (2M+ datasets) on Hugging Face.",
       "stars": 13,
-      "forks": 3,
+      "forks": 4,
       "topics": [
         "ckan",
         "cli",
@@ -122,7 +122,7 @@
         "simd"
       ],
       "language": "Rust",
-      "pushedAt": "2026-07-18T08:09:46Z",
+      "pushedAt": "2026-07-19T18:51:47Z",
       "defaultBranch": "master",
       "releases": [
         {
