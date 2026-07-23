@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-21T00:49:53Z",
+  "generatedAt": "2026-07-23T00:50:46Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -389,7 +389,7 @@
     {
       "name": "iceberg-rust",
       "url": "https://github.com/apache/iceberg-rust",
-      "stars": "1.3k",
+      "stars": "1.4k",
       "prs": "3",
       "desc": "Rust contributions around Apache Iceberg tables, metadata, and interoperability.",
       "language": "Rust",
@@ -586,7 +586,7 @@
     {
       "name": "fluss-rust",
       "url": "https://github.com/apache/fluss-rust",
-      "stars": "53",
+      "stars": "54",
       "prs": "2",
       "desc": "Client and integration work in the Fluss streaming ecosystem.",
       "language": "Rust",
