@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-24T00:47:57Z",
+  "generatedAt": "2026-07-25T00:50:41Z",
   "source": "case-study repoUrl GitHub repository metadata",
   "items": [
     {
@@ -29,7 +29,7 @@
         "rust"
       ],
       "language": "HTML",
-      "pushedAt": "2026-07-24T00:42:40Z",
+      "pushedAt": "2026-07-25T00:45:55Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "andreabozzo-site"
@@ -65,7 +65,7 @@
         "sparql"
       ],
       "language": "Rust",
-      "pushedAt": "2026-07-24T00:24:35Z",
+      "pushedAt": "2026-07-24T20:18:36Z",
       "defaultBranch": "master",
       "releases": [
         {
@@ -99,7 +99,7 @@
       "repoFullName": "AndreaBozzo/dataprof",
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
       "description": "High-performance data profiling \u0026 quality assessment for CSV, JSON, Parquet, pandas, polars, and Arrow — fast Rust core, clean Python API.",
-      "stars": 17,
+      "stars": 18,
       "forks": 6,
       "topics": [
         "apache-arrow",
@@ -122,9 +122,16 @@
         "simd"
       ],
       "language": "Rust",
-      "pushedAt": "2026-07-23T15:41:30Z",
+      "pushedAt": "2026-07-24T21:20:21Z",
       "defaultBranch": "master",
       "releases": [
+        {
+          "tagName": "v0.10.0",
+          "name": "dataprof v0.10.0",
+          "url": "https://github.com/AndreaBozzo/dataprof/releases/tag/v0.10.0",
+          "publishedAt": "2026-07-24T22:26:12Z",
+          "target": "master"
+        },
         {
           "tagName": "v0.9.0",
           "name": "dataprof v0.9.0",
@@ -137,13 +144,6 @@
           "name": "dataprof v0.8.1",
           "url": "https://github.com/AndreaBozzo/dataprof/releases/tag/v0.8.1",
           "publishedAt": "2026-05-31T13:34:04Z",
-          "target": "master"
-        },
-        {
-          "tagName": "v0.8.0",
-          "name": "dataprof v0.8.0",
-          "url": "https://github.com/AndreaBozzo/dataprof/releases/tag/v0.8.0",
-          "publishedAt": "2026-05-24T12:56:58Z",
           "target": "master"
         }
       ],
