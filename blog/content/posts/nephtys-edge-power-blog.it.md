@@ -1,7 +1,7 @@
 ---
 title: "Nephtys su un Raspberry Pi: 6.6× meno memoria, esattamente gli stessi watt"
 date: 2026-07-25T12:00:00+02:00
-draft: true
+draft: false
 tags: ["Edge Computing", "Go", "NATS", "Raspberry Pi", "Streaming", "Benchmarking", "Open Source"]
 categories: ["Data Engineering", "Embedded", "Open Source"]
 keywords: ["Nephtys", "edge computing", "Raspberry Pi 5", "Node-RED", "NATS JetStream", "misura di potenza", "efficienza energetica", "Go", "benchmarking"]
@@ -272,9 +272,9 @@ un revisore che da qualcuno che l'ha messo in produzione.
 
 A proposito: grazie ai revisori anonimi, la cui insistenza sull'hardware reale è l'unico
 motivo per cui questo articolo contiene una misura invece di un'assunzione, e al
-Prof. Giancarlo Fortino dell'Università della Calabria, che ha gestito la revisione del
-paper. Le conclusioni qui, compresa quella scomoda, sono soltanto mie.
-<!-- CONFIRM BEFORE PUBLISHING: exact first name (Giancarlo vs Gianluca) and exact role title. -->
+Prof. Fortino dell'Università della Calabria, che ha gestito la revisione del paper. Le
+conclusioni qui, compresa quella scomoda, sono soltanto mie.
+<!-- Surname only on purpose: first name unconfirmed (Giancarlo vs Gianluca). Add it once verified. -->
 
 ## Dove sta il lavoro
 

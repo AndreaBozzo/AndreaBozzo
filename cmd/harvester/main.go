@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"path/filepath"
 	"sync"
 
 	"github.com/AndreaBozzo/AndreaBozzo/internal/harvester"
@@ -53,7 +54,13 @@ func run(args []string) error {
 	case "update-contributions-readme":
 		return harvester.UpdateContributionsREADME(context.Background(), repoRoot, "AndreaBozzo")
 	case "validate-localization":
-		siteRoot := repoRoot + "/_site"
+		// filepath.Join, not string concatenation: on Windows repoRoot uses backslashes,
+		// so "repoRoot + \"/_site\"" produced a mixed-separator path that never compared
+		// equal to the walker's own filepath.Dir output. That silently disabled the
+		// "skip Hugo's /blog/ subtree" guard in ValidateLocalization, which then reported
+		// Hugo's own paginated page/1/ canonicals as failures. Identical on Linux, so CI
+		// never saw it.
+		siteRoot := filepath.Join(repoRoot, "_site")
 		if len(args) >= 2 && args[1] != "" {
 			siteRoot = args[1]
 		}
