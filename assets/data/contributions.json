@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-25T00:50:28Z",
+  "generatedAt": "2026-07-26T00:54:23Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -153,7 +153,7 @@
     {
       "name": "lance",
       "url": "https://github.com/lance-format/lance",
-      "stars": "6.8k",
+      "stars": "6.9k",
       "prs": "2",
       "desc": "Columnar storage and vector-data work in the Lance ecosystem.",
       "language": "Rust",
@@ -194,7 +194,7 @@
     {
       "name": "arrow-rs",
       "url": "https://github.com/apache/arrow-rs",
-      "stars": "3.5k",
+      "stars": "3.6k",
       "prs": "2",
       "desc": "Rust-side work in the Arrow ecosystem around columnar data and query plumbing.",
       "language": "Rust",
@@ -424,7 +424,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "892",
+      "stars": "893",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",

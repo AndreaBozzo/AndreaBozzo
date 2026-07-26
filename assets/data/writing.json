@@ -1,8 +1,62 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-25T00:50:28Z",
+  "generatedAt": "2026-07-26T00:54:23Z",
   "source": "blog/content/posts",
   "items": [
+    {
+      "id": "nephtys-edge-power-blog:en",
+      "slug": "nephtys-edge-power-blog",
+      "language": "en",
+      "title": "Nephtys on a Raspberry Pi: 6.6× less memory, exactly the same watts",
+      "summary": "I had never publicly written about Nephtys, and the first thing I have to report about it on real hardware is a null result: the memory advantage reproduced on a Raspberry Pi 5, the energy advantage never existed.",
+      "description": "A peer reviewer asked whether my edge connector actually runs on edge hardware. It does, using 6.59× less memory than Node-RED — and drawing exactly the same power. Why the second half of that sentence is the useful one.",
+      "publishedAt": "2026-07-25T10:00:00Z",
+      "url": "./blog/en/posts/nephtys-edge-power-blog/",
+      "sourcePath": "blog/content/posts/nephtys-edge-power-blog.en.md",
+      "tags": [
+        "Edge Computing",
+        "Go",
+        "NATS",
+        "Raspberry Pi",
+        "Streaming",
+        "Benchmarking",
+        "Open Source"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Embedded",
+        "Open Source"
+      ],
+      "wordCount": 2215,
+      "readingMinutes": 11
+    },
+    {
+      "id": "nephtys-edge-power-blog:it",
+      "slug": "nephtys-edge-power-blog",
+      "language": "it",
+      "title": "Nephtys su un Raspberry Pi: 6.6× meno memoria, esattamente gli stessi watt",
+      "summary": "Non avevo mai scritto pubblicamente di Nephtys, e la prima cosa che devo riportare su hardware reale è un risultato nullo: il vantaggio di memoria si è riprodotto su un Raspberry Pi 5, il vantaggio energetico non è mai esistito.",
+      "description": "Un revisore ha chiesto se il mio connettore edge girasse davvero su hardware edge. Gira, usando 6.59× meno memoria di Node-RED — e assorbendo esattamente la stessa potenza. Perché la seconda metà di questa frase è quella utile.",
+      "publishedAt": "2026-07-25T10:00:00Z",
+      "url": "./blog/posts/nephtys-edge-power-blog/",
+      "sourcePath": "blog/content/posts/nephtys-edge-power-blog.it.md",
+      "tags": [
+        "Edge Computing",
+        "Go",
+        "NATS",
+        "Raspberry Pi",
+        "Streaming",
+        "Benchmarking",
+        "Open Source"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Embedded",
+        "Open Source"
+      ],
+      "wordCount": 2285,
+      "readingMinutes": 11
+    },
     {
       "id": "zerobus-ingest-rust-arrow-blog:en",
       "slug": "zerobus-ingest-rust-arrow-blog",
