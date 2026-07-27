@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-26T00:54:33Z",
+  "generatedAt": "2026-07-27T00:54:27Z",
   "source": "case-study repoUrl GitHub repository metadata",
   "items": [
     {
@@ -29,7 +29,7 @@
         "rust"
       ],
       "language": "HTML",
-      "pushedAt": "2026-07-26T00:49:34Z",
+      "pushedAt": "2026-07-27T00:49:09Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "andreabozzo-site"
@@ -295,7 +295,7 @@
       "repoFullName": "AndreaBozzo/Nephtys",
       "repoUrl": "https://github.com/AndreaBozzo/Nephtys",
       "description": "Lightweight real-time stream connector for NATS JetStream — WebSocket, SSE, REST polling, webhooks \u0026 gRPC in, durable normalized events out. ~19 MB RSS, runtime-reconfigurable pipelines. IEEE UIC 2026 paper.",
-      "stars": 1,
+      "stars": 2,
       "forks": 0,
       "topics": [
         "connector",
@@ -319,8 +319,17 @@
         "websocket"
       ],
       "language": "Go",
-      "pushedAt": "2026-07-25T08:58:42Z",
+      "pushedAt": "2026-07-26T12:31:39Z",
       "defaultBranch": "main",
+      "releases": [
+        {
+          "tagName": "v0.3.0",
+          "name": "v0.3.0 — Operational visibility \u0026 distribution",
+          "url": "https://github.com/AndreaBozzo/Nephtys/releases/tag/v0.3.0",
+          "publishedAt": "2026-07-26T12:32:10Z",
+          "target": "main"
+        }
+      ],
       "relatedCaseStudies": [
         "nephtys"
       ]
