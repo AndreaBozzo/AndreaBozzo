@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-28T00:47:28Z",
+  "generatedAt": "2026-07-29T00:47:41Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -89,6 +89,25 @@
           "number": 3611,
           "url": "https://github.com/tokio-rs/axum/pull/3611",
           "mergedAt": "2026-02-26T10:14:21Z"
+        }
+      ]
+    },
+    {
+      "name": "winget-pkgs",
+      "url": "https://github.com/microsoft/winget-pkgs",
+      "stars": "10.9k",
+      "prs": "1",
+      "desc": "winget-pkgs is one of the upstream projects where I have shipped fixes, cleanup, or implementation work.",
+      "topics": [
+        "hacktoberfest"
+      ],
+      "lastPRMergedAt": "2026-07-29T00:46:21Z",
+      "prList": [
+        {
+          "title": "New package: AndreaBozzo.GitNodes version 0.1.0",
+          "number": 396497,
+          "url": "https://github.com/microsoft/winget-pkgs/pull/396497",
+          "mergedAt": "2026-07-29T00:46:21Z"
         }
       ]
     },
@@ -424,7 +443,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "894",
+      "stars": "895",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",
@@ -470,7 +489,7 @@
     {
       "name": "visura-api",
       "url": "https://github.com/zornade/visura-api",
-      "stars": "663",
+      "stars": "666",
       "prs": "1",
       "desc": "visura-api is one of the upstream projects where I have shipped fixes, cleanup, or implementation work.",
       "language": "Python",

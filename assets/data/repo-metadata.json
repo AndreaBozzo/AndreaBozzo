@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-28T00:47:39Z",
+  "generatedAt": "2026-07-29T00:47:57Z",
   "source": "case-study repoUrl GitHub repository metadata",
   "items": [
     {
@@ -29,7 +29,7 @@
         "rust"
       ],
       "language": "HTML",
-      "pushedAt": "2026-07-28T00:43:35Z",
+      "pushedAt": "2026-07-29T00:42:54Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "andreabozzo-site"
@@ -65,7 +65,7 @@
         "sparql"
       ],
       "language": "Rust",
-      "pushedAt": "2026-07-27T15:38:12Z",
+      "pushedAt": "2026-07-28T11:37:56Z",
       "defaultBranch": "master",
       "releases": [
         {
