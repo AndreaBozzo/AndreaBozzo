@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-30T00:45:32Z",
+  "generatedAt": "2026-07-31T00:51:51Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -144,7 +144,7 @@
     {
       "name": "datafusion",
       "url": "https://github.com/apache/datafusion",
-      "stars": "9.0k",
+      "stars": "9.1k",
       "prs": "1",
       "desc": "Query engine fixes and improvements in the Arrow-native SQL execution stack.",
       "language": "Rust",
@@ -443,7 +443,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "896",
+      "stars": "897",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",

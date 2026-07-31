@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-30T00:45:46Z",
+  "generatedAt": "2026-07-31T00:52:01Z",
   "source": "case-study repoUrl GitHub repository metadata",
   "items": [
     {
@@ -29,7 +29,7 @@
         "rust"
       ],
       "language": "HTML",
-      "pushedAt": "2026-07-30T00:41:32Z",
+      "pushedAt": "2026-07-31T00:47:25Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "andreabozzo-site"
@@ -65,7 +65,7 @@
         "sparql"
       ],
       "language": "Rust",
-      "pushedAt": "2026-07-28T11:37:56Z",
+      "pushedAt": "2026-07-30T11:32:17Z",
       "defaultBranch": "master",
       "releases": [
         {
@@ -122,7 +122,7 @@
         "simd"
       ],
       "language": "Rust",
-      "pushedAt": "2026-07-27T10:07:07Z",
+      "pushedAt": "2026-07-30T17:23:31Z",
       "defaultBranch": "master",
       "releases": [
         {
@@ -295,7 +295,7 @@
       "repoFullName": "AndreaBozzo/Nephtys",
       "repoUrl": "https://github.com/AndreaBozzo/Nephtys",
       "description": "Lightweight real-time stream connector for NATS JetStream — WebSocket, SSE, REST polling, webhooks \u0026 gRPC in, durable normalized events out. ~19 MB RSS, runtime-reconfigurable pipelines. IEEE UIC 2026 paper.",
-      "stars": 2,
+      "stars": 1,
       "forks": 0,
       "topics": [
         "connector",
@@ -319,7 +319,7 @@
         "websocket"
       ],
       "language": "Go",
-      "pushedAt": "2026-07-27T18:31:08Z",
+      "pushedAt": "2026-07-30T16:01:24Z",
       "defaultBranch": "main",
       "releases": [
         {
