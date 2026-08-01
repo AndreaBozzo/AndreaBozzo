@@ -1,12 +1,12 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-07-31T00:51:51Z",
+  "generatedAt": "2026-08-01T00:52:02Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
       "name": "polars",
       "url": "https://github.com/pola-rs/polars",
-      "stars": "39.1k",
+      "stars": "39.2k",
       "prs": "3",
       "desc": "Rust-native analytics work across DataFrame performance, ergonomics, and engine behavior.",
       "language": "Rust",
@@ -381,12 +381,18 @@
       "desc": "Lakehouse catalog and metadata contributions around operational reliability.",
       "language": "Rust",
       "topics": [
+        "access-control",
+        "apache-iceberg",
         "catalog",
+        "data-governance",
         "data-lake",
         "iceberg",
+        "iceberg-rest-catalog",
         "lakehouse",
         "lakehouse-governance",
         "open-lakehouse",
+        "openfga",
+        "rbac",
         "rust"
       ],
       "lastPRMergedAt": "2025-12-04T16:25:20Z",
@@ -489,7 +495,7 @@
     {
       "name": "visura-api",
       "url": "https://github.com/zornade/visura-api",
-      "stars": "666",
+      "stars": "667",
       "prs": "1",
       "desc": "visura-api is one of the upstream projects where I have shipped fixes, cleanup, or implementation work.",
       "language": "Python",
