@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-03T00:52:22Z",
+  "generatedAt": "2026-08-04T00:50:21Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -219,8 +219,7 @@
       "language": "Rust",
       "topics": [
         "arrow",
-        "parquet",
-        "rust"
+        "parquet"
       ],
       "lastPRMergedAt": "2026-01-14T22:16:36Z",
       "prList": [
@@ -495,7 +494,7 @@
     {
       "name": "visura-api",
       "url": "https://github.com/zornade/visura-api",
-      "stars": "667",
+      "stars": "668",
       "prs": "1",
       "desc": "visura-api is one of the upstream projects where I have shipped fixes, cleanup, or implementation work.",
       "language": "Python",

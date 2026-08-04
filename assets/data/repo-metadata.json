@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-03T00:52:36Z",
+  "generatedAt": "2026-08-04T00:50:36Z",
   "source": "case-study repoUrl GitHub repository metadata",
   "items": [
     {
@@ -29,7 +29,7 @@
         "rust"
       ],
       "language": "HTML",
-      "pushedAt": "2026-08-03T00:47:12Z",
+      "pushedAt": "2026-08-04T00:45:46Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "andreabozzo-site"
@@ -65,7 +65,7 @@
         "sparql"
       ],
       "language": "Rust",
-      "pushedAt": "2026-08-02T17:46:06Z",
+      "pushedAt": "2026-08-03T16:52:24Z",
       "defaultBranch": "master",
       "releases": [
         {
@@ -122,7 +122,7 @@
         "simd"
       ],
       "language": "Rust",
-      "pushedAt": "2026-08-01T23:24:00Z",
+      "pushedAt": "2026-08-03T14:35:16Z",
       "defaultBranch": "master",
       "releases": [
         {
@@ -319,7 +319,7 @@
         "websocket"
       ],
       "language": "Go",
-      "pushedAt": "2026-07-30T16:01:24Z",
+      "pushedAt": "2026-08-03T20:25:04Z",
       "defaultBranch": "main",
       "releases": [
         {
