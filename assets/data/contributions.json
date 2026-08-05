@@ -1,12 +1,12 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-04T00:50:21Z",
+  "generatedAt": "2026-08-05T00:45:40Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
       "name": "polars",
       "url": "https://github.com/pola-rs/polars",
-      "stars": "39.2k",
+      "stars": "39.3k",
       "prs": "3",
       "desc": "Rust-native analytics work across DataFrame performance, ergonomics, and engine behavior.",
       "language": "Rust",
@@ -542,7 +542,7 @@
     {
       "name": "pg_query.rs",
       "url": "https://github.com/pganalyze/pg_query.rs",
-      "stars": "247",
+      "stars": "249",
       "prs": "1",
       "desc": "Rust and Postgres parsing work in a low-level developer tooling library.",
       "language": "Rust",
