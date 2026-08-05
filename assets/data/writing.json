@@ -1,8 +1,62 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-05T00:45:41Z",
+  "generatedAt": "2026-08-05T08:38:00Z",
   "source": "blog/content/posts",
   "items": [
+    {
+      "id": "dbt-fusion-rust-blog:en",
+      "slug": "dbt-fusion-rust-blog",
+      "language": "en",
+      "title": "dbt rewrote itself in Rust. The speed is the boring part.",
+      "summary": "I opened a bug report against dbt and found a codebase nobody had told me about: 77 Rust crates where the Python used to be. This is what the rewrite is actually for, why the marketing undersells it, and what I broke loose while poking at it — two fixes, both for bugs that never printed an error.",
+      "description": "dbt Core's main branch has no Python engine left in it. 77 Rust crates, 18 stray .py files, no runtime. Everyone is talking about parse times. Parse times are the least interesting thing that happened.",
+      "publishedAt": "2026-08-04T08:00:00Z",
+      "url": "./blog/en/posts/dbt-fusion-rust-blog/",
+      "sourcePath": "blog/content/posts/dbt-fusion-rust-blog.en.md",
+      "tags": [
+        "dbt",
+        "Rust",
+        "DuckDB",
+        "Apache Arrow",
+        "DataFusion",
+        "Iceberg",
+        "Open Source",
+        "Data Engineering"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Open Source"
+      ],
+      "wordCount": 2959,
+      "readingMinutes": 14
+    },
+    {
+      "id": "dbt-fusion-rust-blog:it",
+      "slug": "dbt-fusion-rust-blog",
+      "language": "it",
+      "title": "dbt si è riscritto in Rust. La velocità è la parte noiosa.",
+      "summary": "Ho aperto una segnalazione di bug su dbt e ho trovato una codebase di cui nessuno mi aveva parlato: 77 crate Rust dove prima c'era il Python. Questo è a cosa serve davvero la riscrittura, perché il marketing la sottovende, e cosa ho smosso frugandoci dentro — due fix, entrambi per bug che non hanno mai stampato un errore.",
+      "description": "Sul branch main di dbt Core non è rimasto nemmeno un motore Python. 77 crate Rust, 18 file .py sparsi, nessun runtime. Tutti parlano dei tempi di parsing. I tempi di parsing sono la cosa meno interessante che è successa.",
+      "publishedAt": "2026-08-04T08:00:00Z",
+      "url": "./blog/posts/dbt-fusion-rust-blog/",
+      "sourcePath": "blog/content/posts/dbt-fusion-rust-blog.it.md",
+      "tags": [
+        "dbt",
+        "Rust",
+        "DuckDB",
+        "Apache Arrow",
+        "DataFusion",
+        "Iceberg",
+        "Open Source",
+        "Data Engineering"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Open Source"
+      ],
+      "wordCount": 3117,
+      "readingMinutes": 15
+    },
     {
       "id": "nephtys-edge-power-blog:en",
       "slug": "nephtys-edge-power-blog",
@@ -80,7 +134,7 @@
       "categories": [
         "Data Engineering"
       ],
-      "wordCount": 1940,
+      "wordCount": 1943,
       "readingMinutes": 9
     },
     {
@@ -106,7 +160,7 @@
       "categories": [
         "Data Engineering"
       ],
-      "wordCount": 1844,
+      "wordCount": 1847,
       "readingMinutes": 9
     },
     {
@@ -182,8 +236,8 @@
         "Knowledge Management",
         "Open Source"
       ],
-      "wordCount": 2200,
-      "readingMinutes": 10
+      "wordCount": 2203,
+      "readingMinutes": 11
     },
     {
       "id": "brain-blog:it",
@@ -208,7 +262,7 @@
         "Knowledge Management",
         "Open Source"
       ],
-      "wordCount": 2203,
+      "wordCount": 2206,
       "readingMinutes": 11
     },
     {
@@ -236,7 +290,7 @@
       "relatedCaseStudies": [
         "andreabozzo-site"
       ],
-      "wordCount": 1645,
+      "wordCount": 1648,
       "readingMinutes": 8
     },
     {
@@ -264,7 +318,7 @@
       "relatedCaseStudies": [
         "andreabozzo-site"
       ],
-      "wordCount": 1705,
+      "wordCount": 1708,
       "readingMinutes": 8
     },
     {
@@ -294,7 +348,7 @@
       "relatedCaseStudies": [
         "lakehouse-starter-kit"
       ],
-      "wordCount": 4105,
+      "wordCount": 4108,
       "readingMinutes": 19
     },
     {
@@ -324,7 +378,7 @@
       "relatedCaseStudies": [
         "lakehouse-starter-kit"
       ],
-      "wordCount": 4305,
+      "wordCount": 4308,
       "readingMinutes": 20
     },
     {
@@ -353,8 +407,8 @@
       "relatedCaseStudies": [
         "zero-grappler"
       ],
-      "wordCount": 1978,
-      "readingMinutes": 9
+      "wordCount": 1981,
+      "readingMinutes": 10
     },
     {
       "id": "embassyembeddedml-blog:it",
@@ -382,7 +436,7 @@
       "relatedCaseStudies": [
         "zero-grappler"
       ],
-      "wordCount": 2019,
+      "wordCount": 2022,
       "readingMinutes": 10
     },
     {
@@ -410,7 +464,7 @@
       "relatedCaseStudies": [
         "lance-bridge"
       ],
-      "wordCount": 1386,
+      "wordCount": 1389,
       "readingMinutes": 7
     },
     {
@@ -438,7 +492,7 @@
       "relatedCaseStudies": [
         "lance-bridge"
       ],
-      "wordCount": 1460,
+      "wordCount": 1463,
       "readingMinutes": 7
     },
     {
@@ -461,7 +515,7 @@
       "relatedCaseStudies": [
         "dce"
       ],
-      "wordCount": 1929,
+      "wordCount": 1930,
       "readingMinutes": 9
     },
     {
@@ -484,7 +538,7 @@
       "relatedCaseStudies": [
         "dce"
       ],
-      "wordCount": 1936,
+      "wordCount": 1937,
       "readingMinutes": 9
     },
     {
@@ -507,7 +561,7 @@
         "AI",
         "Developer Tools"
       ],
-      "wordCount": 1409,
+      "wordCount": 1412,
       "readingMinutes": 7
     },
     {
@@ -530,7 +584,7 @@
         "AI",
         "Developer Tools"
       ],
-      "wordCount": 1398,
+      "wordCount": 1401,
       "readingMinutes": 7
     },
     {
@@ -558,7 +612,7 @@
       "relatedCaseStudies": [
         "ares-ceres"
       ],
-      "wordCount": 2469,
+      "wordCount": 2472,
       "readingMinutes": 12
     },
     {
@@ -586,7 +640,7 @@
       "relatedCaseStudies": [
         "ares-ceres"
       ],
-      "wordCount": 2577,
+      "wordCount": 2580,
       "readingMinutes": 12
     },
     {
@@ -615,7 +669,7 @@
         "apache-rust-upstream",
         "dataprof"
       ],
-      "wordCount": 2350,
+      "wordCount": 2353,
       "readingMinutes": 11
     },
     {
@@ -644,7 +698,7 @@
         "apache-rust-upstream",
         "dataprof"
       ],
-      "wordCount": 2494,
+      "wordCount": 2497,
       "readingMinutes": 12
     },
     {
@@ -670,7 +724,7 @@
         "Software Engineering",
         "Open Source"
       ],
-      "wordCount": 2410,
+      "wordCount": 2413,
       "readingMinutes": 11
     },
     {
@@ -696,7 +750,7 @@
         "Software Engineering",
         "Open Source"
       ],
-      "wordCount": 2475,
+      "wordCount": 2478,
       "readingMinutes": 12
     },
     {
@@ -726,7 +780,7 @@
       "relatedCaseStudies": [
         "mosaico"
       ],
-      "wordCount": 2963,
+      "wordCount": 2966,
       "readingMinutes": 14
     },
     {
@@ -756,7 +810,7 @@
       "relatedCaseStudies": [
         "mosaico"
       ],
-      "wordCount": 3041,
+      "wordCount": 3044,
       "readingMinutes": 14
     },
     {
@@ -785,7 +839,7 @@
       "relatedCaseStudies": [
         "ares-ceres"
       ],
-      "wordCount": 1240,
+      "wordCount": 1243,
       "readingMinutes": 6
     },
     {
@@ -814,7 +868,7 @@
       "relatedCaseStudies": [
         "ares-ceres"
       ],
-      "wordCount": 1256,
+      "wordCount": 1259,
       "readingMinutes": 6
     },
     {
@@ -844,7 +898,7 @@
         "druid-datafusion-bridge",
         "lakekeeper"
       ],
-      "wordCount": 2855,
+      "wordCount": 2858,
       "readingMinutes": 13
     },
     {
@@ -874,7 +928,7 @@
         "druid-datafusion-bridge",
         "lakekeeper"
       ],
-      "wordCount": 2983,
+      "wordCount": 2986,
       "readingMinutes": 14
     },
     {
@@ -903,7 +957,7 @@
       "relatedCaseStudies": [
         "lakekeeper"
       ],
-      "wordCount": 2060,
+      "wordCount": 2063,
       "readingMinutes": 10
     },
     {
@@ -932,7 +986,7 @@
       "relatedCaseStudies": [
         "lakekeeper"
       ],
-      "wordCount": 2098,
+      "wordCount": 2101,
       "readingMinutes": 10
     },
     {
@@ -961,7 +1015,7 @@
       "relatedCaseStudies": [
         "apache-rust-upstream"
       ],
-      "wordCount": 1423,
+      "wordCount": 1426,
       "readingMinutes": 7
     },
     {
@@ -990,7 +1044,7 @@
       "relatedCaseStudies": [
         "apache-rust-upstream"
       ],
-      "wordCount": 1521,
+      "wordCount": 1524,
       "readingMinutes": 7
     }
   ]
