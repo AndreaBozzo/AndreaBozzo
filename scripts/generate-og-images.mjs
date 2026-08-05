@@ -17,6 +17,23 @@ const TEXT_X = 88;
 const TEXT_MAX_WIDTH = 690;
 const TITLE_FONT_SIZE = 64;
 const TITLE_LINE_HEIGHT = 76;
+// Title settings tried in order until the title fits without an ellipsis. The first entry
+// reproduces the original layout exactly — same font size, same line height, same first
+// baseline — so every card whose title already fitted stays byte-identical. The rest exist
+// because a long title losing its second half to "…" is worse than a slightly smaller
+// title, and on this card the second half is usually the point.
+//
+// Only the last entry gets a third line. The title band is bracketed by decorative rules
+// at y=150 and y=310; three lines clear both only at 44px, and only by starting 12px
+// higher than the others. Below 44px the title would read smaller than the body, so a
+// title that still does not fit truncates instead.
+const TITLE_FITS = [
+  {fontSize: TITLE_FONT_SIZE, lineHeight: TITLE_LINE_HEIGHT, maxLines: 2, firstBaseline: 198},
+  {fontSize: 58, lineHeight: 69, maxLines: 2, firstBaseline: 198},
+  {fontSize: 52, lineHeight: 62, maxLines: 2, firstBaseline: 198},
+  {fontSize: 46, lineHeight: 55, maxLines: 2, firstBaseline: 198},
+  {fontSize: 44, lineHeight: 52, maxLines: 3, firstBaseline: 186},
+];
 const FONT_FAMILY = 'Noto Sans';
 const METRIC_FONT_FILES = {
   regular: join(ROOT_DIR, 'node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff'),
@@ -168,10 +185,29 @@ function wrapText(text, maxWidth, maxLines, options) {
   return lines.slice(0, maxLines);
 }
 
-function renderTitleLines(lines) {
+// Pick the largest title setting that renders the whole title. wrapText signals that it
+// had to drop words by appending an ellipsis to its last line, so that is the fit test.
+function fitTitle(title) {
+  const wrapAt = (fit) => wrapText(title, TEXT_MAX_WIDTH, fit.maxLines, {
+    fontSize: fit.fontSize,
+    fontWeight: 700,
+  });
+
+  for (const fit of TITLE_FITS) {
+    const lines = wrapAt(fit);
+    if (!lines.some((line) => line.endsWith('…'))) {
+      return {...fit, lines};
+    }
+  }
+
+  const smallest = TITLE_FITS[TITLE_FITS.length - 1];
+  return {...smallest, lines: wrapAt(smallest)};
+}
+
+function renderTitleLines({lines, fontSize, lineHeight, firstBaseline}) {
   return lines.map((line, index) => {
-    const y = 198 + (index * TITLE_LINE_HEIGHT);
-    return `<text x="${TEXT_X}" y="${y}" fill="${COLORS.title}" font-size="${TITLE_FONT_SIZE}" font-weight="700" font-family="${FONT_FAMILY}">${escapeXml(line)}</text>`;
+    const y = firstBaseline + (index * lineHeight);
+    return `<text x="${TEXT_X}" y="${y}" fill="${COLORS.title}" font-size="${fontSize}" font-weight="700" font-family="${FONT_FAMILY}">${escapeXml(line)}</text>`;
   }).join('\n');
 }
 
@@ -216,7 +252,7 @@ function signatureMark(x, y, scale, palette) {
 
 function createCardSvg({ eyebrow, title, body, tags, slug, sectionLabel }) {
   const palette = paletteFor(slug);
-  const titleLines = wrapText(title, TEXT_MAX_WIDTH, 2, { fontSize: TITLE_FONT_SIZE, fontWeight: 700 });
+  const titleFit = fitTitle(title);
   const bodyLines = wrapText(body, TEXT_MAX_WIDTH, 3, { fontSize: 30, fontWeight: 400 });
   const safeTags = tags.length > 0 ? tags : ['Andrea Bozzo'];
 
@@ -233,7 +269,7 @@ function createCardSvg({ eyebrow, title, body, tags, slug, sectionLabel }) {
   <path d="M862 366H1102" stroke="${palette.ink}" stroke-opacity="0.18" stroke-width="2"/>
   ${signatureMark(884, 118, 1.72, palette)}
   <text x="88" y="112" fill="${palette.panel}" font-size="22" font-weight="700" font-family="${FONT_FAMILY}" letter-spacing="4">${escapeXml(eyebrow.toUpperCase())}</text>
-  ${renderTitleLines(titleLines)}
+  ${renderTitleLines(titleFit)}
   ${renderBodyLines(bodyLines)}
   ${renderTags(safeTags, palette)}
   <text x="88" y="570" fill="${COLORS.muted}" font-size="22" font-weight="500" font-family="${FONT_FAMILY}">andreabozzo.github.io/AndreaBozzo</text>

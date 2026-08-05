@@ -19,8 +19,8 @@
     <text x="40" y="122" fill="#edf7f3" fill-opacity="0.92" font-size="34" font-weight="700" font-family="Noto Sans">AB</text>
   </g>
   <text x="88" y="112" fill="#17342d" font-size="22" font-weight="700" font-family="Noto Sans" letter-spacing="4">BLOG POST</text>
-  <text x="88" y="198" fill="#10201c" font-size="64" font-weight="700" font-family="Noto Sans">dlt + dbt on One Unity</text>
-<text x="88" y="274" fill="#10201c" font-size="64" font-weight="700" font-family="Noto Sans">Catalog (and Why It…</text>
+  <text x="88" y="198" fill="#10201c" font-size="46" font-weight="700" font-family="Noto Sans">dlt + dbt on One Unity Catalog</text>
+<text x="88" y="253" fill="#10201c" font-size="46" font-weight="700" font-family="Noto Sans">(and Why It&apos;s Not &apos;Two DLTs&apos;)</text>
   <text x="88" y="386" fill="#425e56" font-size="30" font-weight="400" font-family="Noto Sans">How dlt (dlthub) ingestion and dbt</text>
 <text x="88" y="424" fill="#425e56" font-size="30" font-weight="400" font-family="Noto Sans">transformation meet at a single Unity Catalog</text>
 <text x="88" y="462" fill="#425e56" font-size="30" font-weight="400" font-family="Noto Sans">schema on Databricks — and why the inner…</text>

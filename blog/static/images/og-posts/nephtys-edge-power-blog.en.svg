@@ -19,8 +19,9 @@
     <text x="40" y="122" fill="#f6fffb" fill-opacity="0.92" font-size="34" font-weight="700" font-family="Noto Sans">AB</text>
   </g>
   <text x="88" y="112" fill="#0d3b32" font-size="22" font-weight="700" font-family="Noto Sans" letter-spacing="4">BLOG POST</text>
-  <text x="88" y="198" fill="#10201c" font-size="64" font-weight="700" font-family="Noto Sans">Nephtys on a</text>
-<text x="88" y="274" fill="#10201c" font-size="64" font-weight="700" font-family="Noto Sans">Raspberry Pi: 6.6×…</text>
+  <text x="88" y="186" fill="#10201c" font-size="44" font-weight="700" font-family="Noto Sans">Nephtys on a Raspberry Pi: 6.6×</text>
+<text x="88" y="238" fill="#10201c" font-size="44" font-weight="700" font-family="Noto Sans">less memory, exactly the same</text>
+<text x="88" y="290" fill="#10201c" font-size="44" font-weight="700" font-family="Noto Sans">watts</text>
   <text x="88" y="386" fill="#425e56" font-size="30" font-weight="400" font-family="Noto Sans">A peer reviewer asked whether my edge</text>
 <text x="88" y="424" fill="#425e56" font-size="30" font-weight="400" font-family="Noto Sans">connector actually runs on edge hardware. It</text>
 <text x="88" y="462" fill="#425e56" font-size="30" font-weight="400" font-family="Noto Sans">does, using 6.59× less memory than Node-RED…</text>

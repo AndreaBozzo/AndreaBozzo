@@ -19,8 +19,9 @@
     <text x="40" y="122" fill="#f6fffb" fill-opacity="0.92" font-size="34" font-weight="700" font-family="Noto Sans">AB</text>
   </g>
   <text x="88" y="112" fill="#0d3b32" font-size="22" font-weight="700" font-family="Noto Sans" letter-spacing="4">ARTICOLO</text>
-  <text x="88" y="198" fill="#10201c" font-size="64" font-weight="700" font-family="Noto Sans">Nephtys su un</text>
-<text x="88" y="274" fill="#10201c" font-size="64" font-weight="700" font-family="Noto Sans">Raspberry Pi: 6.6×…</text>
+  <text x="88" y="186" fill="#10201c" font-size="44" font-weight="700" font-family="Noto Sans">Nephtys su un Raspberry Pi:</text>
+<text x="88" y="238" fill="#10201c" font-size="44" font-weight="700" font-family="Noto Sans">6.6× meno memoria,</text>
+<text x="88" y="290" fill="#10201c" font-size="44" font-weight="700" font-family="Noto Sans">esattamente gli stessi watt</text>
   <text x="88" y="386" fill="#425e56" font-size="30" font-weight="400" font-family="Noto Sans">Un revisore ha chiesto se il mio connettore edge</text>
 <text x="88" y="424" fill="#425e56" font-size="30" font-weight="400" font-family="Noto Sans">girasse davvero su hardware edge. Gira, usando</text>
 <text x="88" y="462" fill="#425e56" font-size="30" font-weight="400" font-family="Noto Sans">6.59× meno memoria di Node-RED — e…</text>

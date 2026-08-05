@@ -19,8 +19,9 @@
     <text x="40" y="122" fill="#edf7f3" fill-opacity="0.92" font-size="34" font-weight="700" font-family="Noto Sans">AB</text>
   </g>
   <text x="88" y="112" fill="#17342d" font-size="22" font-weight="700" font-family="Noto Sans" letter-spacing="4">ARTICOLO</text>
-  <text x="88" y="198" fill="#10201c" font-size="64" font-weight="700" font-family="Noto Sans">dlt + dbt su un Solo</text>
-<text x="88" y="274" fill="#10201c" font-size="64" font-weight="700" font-family="Noto Sans">Unity Catalog (e…</text>
+  <text x="88" y="186" fill="#10201c" font-size="44" font-weight="700" font-family="Noto Sans">dlt + dbt su un Solo Unity</text>
+<text x="88" y="238" fill="#10201c" font-size="44" font-weight="700" font-family="Noto Sans">Catalog (e Perché Non Sono</text>
+<text x="88" y="290" fill="#10201c" font-size="44" font-weight="700" font-family="Noto Sans">&apos;Due DLT&apos;)</text>
   <text x="88" y="386" fill="#425e56" font-size="30" font-weight="400" font-family="Noto Sans">Come l&apos;ingestion con dlt (dlthub) e la</text>
 <text x="88" y="424" fill="#425e56" font-size="30" font-weight="400" font-family="Noto Sans">trasformazione con dbt si incontrano su un unico</text>
 <text x="88" y="462" fill="#425e56" font-size="30" font-weight="400" font-family="Noto Sans">schema Unity Catalog su Databricks — e perché…</text>
