@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-05T00:45:40Z",
+  "generatedAt": "2026-08-06T03:24:49Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -358,7 +358,7 @@
     {
       "name": "PathOfBuilding-PoE2",
       "url": "https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2",
-      "stars": "1.8k",
+      "stars": "1.9k",
       "prs": "1",
       "desc": "PathOfBuilding-PoE2 is one of the upstream projects where I have shipped fixes, cleanup, or implementation work.",
       "language": "Lua",
@@ -542,7 +542,7 @@
     {
       "name": "pg_query.rs",
       "url": "https://github.com/pganalyze/pg_query.rs",
-      "stars": "249",
+      "stars": "250",
       "prs": "1",
       "desc": "Rust and Postgres parsing work in a low-level developer tooling library.",
       "language": "Rust",
@@ -610,7 +610,7 @@
     {
       "name": "fluss-rust",
       "url": "https://github.com/apache/fluss-rust",
-      "stars": "54",
+      "stars": "55",
       "prs": "2",
       "desc": "Client and integration work in the Fluss streaming ecosystem.",
       "language": "Rust",

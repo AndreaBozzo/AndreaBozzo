@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-05T08:38:00Z",
+  "generatedAt": "2026-08-06T03:24:49Z",
   "source": "blog/content/posts",
   "items": [
     {
@@ -27,7 +27,7 @@
         "Data Engineering",
         "Open Source"
       ],
-      "wordCount": 2959,
+      "wordCount": 2956,
       "readingMinutes": 14
     },
     {
@@ -54,7 +54,7 @@
         "Data Engineering",
         "Open Source"
       ],
-      "wordCount": 3117,
+      "wordCount": 3114,
       "readingMinutes": 15
     },
     {
@@ -134,7 +134,7 @@
       "categories": [
         "Data Engineering"
       ],
-      "wordCount": 1943,
+      "wordCount": 1940,
       "readingMinutes": 9
     },
     {
@@ -160,7 +160,7 @@
       "categories": [
         "Data Engineering"
       ],
-      "wordCount": 1847,
+      "wordCount": 1844,
       "readingMinutes": 9
     },
     {
@@ -236,8 +236,8 @@
         "Knowledge Management",
         "Open Source"
       ],
-      "wordCount": 2203,
-      "readingMinutes": 11
+      "wordCount": 2200,
+      "readingMinutes": 10
     },
     {
       "id": "brain-blog:it",
@@ -262,7 +262,7 @@
         "Knowledge Management",
         "Open Source"
       ],
-      "wordCount": 2206,
+      "wordCount": 2203,
       "readingMinutes": 11
     },
     {
@@ -290,7 +290,7 @@
       "relatedCaseStudies": [
         "andreabozzo-site"
       ],
-      "wordCount": 1648,
+      "wordCount": 1645,
       "readingMinutes": 8
     },
     {
@@ -318,7 +318,7 @@
       "relatedCaseStudies": [
         "andreabozzo-site"
       ],
-      "wordCount": 1708,
+      "wordCount": 1705,
       "readingMinutes": 8
     },
     {
@@ -348,7 +348,7 @@
       "relatedCaseStudies": [
         "lakehouse-starter-kit"
       ],
-      "wordCount": 4108,
+      "wordCount": 4105,
       "readingMinutes": 19
     },
     {
@@ -378,7 +378,7 @@
       "relatedCaseStudies": [
         "lakehouse-starter-kit"
       ],
-      "wordCount": 4308,
+      "wordCount": 4305,
       "readingMinutes": 20
     },
     {
@@ -407,8 +407,8 @@
       "relatedCaseStudies": [
         "zero-grappler"
       ],
-      "wordCount": 1981,
-      "readingMinutes": 10
+      "wordCount": 1978,
+      "readingMinutes": 9
     },
     {
       "id": "embassyembeddedml-blog:it",
@@ -436,7 +436,7 @@
       "relatedCaseStudies": [
         "zero-grappler"
       ],
-      "wordCount": 2022,
+      "wordCount": 2019,
       "readingMinutes": 10
     },
     {
@@ -464,7 +464,7 @@
       "relatedCaseStudies": [
         "lance-bridge"
       ],
-      "wordCount": 1389,
+      "wordCount": 1386,
       "readingMinutes": 7
     },
     {
@@ -492,7 +492,7 @@
       "relatedCaseStudies": [
         "lance-bridge"
       ],
-      "wordCount": 1463,
+      "wordCount": 1460,
       "readingMinutes": 7
     },
     {
@@ -515,7 +515,7 @@
       "relatedCaseStudies": [
         "dce"
       ],
-      "wordCount": 1930,
+      "wordCount": 1929,
       "readingMinutes": 9
     },
     {
@@ -538,7 +538,7 @@
       "relatedCaseStudies": [
         "dce"
       ],
-      "wordCount": 1937,
+      "wordCount": 1936,
       "readingMinutes": 9
     },
     {
@@ -561,7 +561,7 @@
         "AI",
         "Developer Tools"
       ],
-      "wordCount": 1412,
+      "wordCount": 1409,
       "readingMinutes": 7
     },
     {
@@ -584,7 +584,7 @@
         "AI",
         "Developer Tools"
       ],
-      "wordCount": 1401,
+      "wordCount": 1398,
       "readingMinutes": 7
     },
     {
@@ -612,7 +612,7 @@
       "relatedCaseStudies": [
         "ares-ceres"
       ],
-      "wordCount": 2472,
+      "wordCount": 2469,
       "readingMinutes": 12
     },
     {
@@ -640,7 +640,7 @@
       "relatedCaseStudies": [
         "ares-ceres"
       ],
-      "wordCount": 2580,
+      "wordCount": 2577,
       "readingMinutes": 12
     },
     {
@@ -669,7 +669,7 @@
         "apache-rust-upstream",
         "dataprof"
       ],
-      "wordCount": 2353,
+      "wordCount": 2350,
       "readingMinutes": 11
     },
     {
@@ -698,7 +698,7 @@
         "apache-rust-upstream",
         "dataprof"
       ],
-      "wordCount": 2497,
+      "wordCount": 2494,
       "readingMinutes": 12
     },
     {
@@ -724,7 +724,7 @@
         "Software Engineering",
         "Open Source"
       ],
-      "wordCount": 2413,
+      "wordCount": 2410,
       "readingMinutes": 11
     },
     {
@@ -750,7 +750,7 @@
         "Software Engineering",
         "Open Source"
       ],
-      "wordCount": 2478,
+      "wordCount": 2475,
       "readingMinutes": 12
     },
     {
@@ -780,7 +780,7 @@
       "relatedCaseStudies": [
         "mosaico"
       ],
-      "wordCount": 2966,
+      "wordCount": 2963,
       "readingMinutes": 14
     },
     {
@@ -810,7 +810,7 @@
       "relatedCaseStudies": [
         "mosaico"
       ],
-      "wordCount": 3044,
+      "wordCount": 3041,
       "readingMinutes": 14
     },
     {
@@ -839,7 +839,7 @@
       "relatedCaseStudies": [
         "ares-ceres"
       ],
-      "wordCount": 1243,
+      "wordCount": 1240,
       "readingMinutes": 6
     },
     {
@@ -868,7 +868,7 @@
       "relatedCaseStudies": [
         "ares-ceres"
       ],
-      "wordCount": 1259,
+      "wordCount": 1256,
       "readingMinutes": 6
     },
     {
@@ -898,7 +898,7 @@
         "druid-datafusion-bridge",
         "lakekeeper"
       ],
-      "wordCount": 2858,
+      "wordCount": 2855,
       "readingMinutes": 13
     },
     {
@@ -928,7 +928,7 @@
         "druid-datafusion-bridge",
         "lakekeeper"
       ],
-      "wordCount": 2986,
+      "wordCount": 2983,
       "readingMinutes": 14
     },
     {
@@ -957,7 +957,7 @@
       "relatedCaseStudies": [
         "lakekeeper"
       ],
-      "wordCount": 2063,
+      "wordCount": 2060,
       "readingMinutes": 10
     },
     {
@@ -986,7 +986,7 @@
       "relatedCaseStudies": [
         "lakekeeper"
       ],
-      "wordCount": 2101,
+      "wordCount": 2098,
       "readingMinutes": 10
     },
     {
@@ -1015,7 +1015,7 @@
       "relatedCaseStudies": [
         "apache-rust-upstream"
       ],
-      "wordCount": 1426,
+      "wordCount": 1423,
       "readingMinutes": 7
     },
     {
@@ -1044,7 +1044,7 @@
       "relatedCaseStudies": [
         "apache-rust-upstream"
       ],
-      "wordCount": 1524,
+      "wordCount": 1521,
       "readingMinutes": 7
     }
   ]
