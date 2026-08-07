@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-06T03:25:04Z",
+  "generatedAt": "2026-08-07T03:10:47Z",
   "source": "case-study repoUrl GitHub repository metadata",
   "items": [
     {
@@ -29,7 +29,7 @@
         "rust"
       ],
       "language": "HTML",
-      "pushedAt": "2026-08-06T02:50:02Z",
+      "pushedAt": "2026-08-07T02:49:55Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "andreabozzo-site"
@@ -65,7 +65,7 @@
         "sparql"
       ],
       "language": "Rust",
-      "pushedAt": "2026-08-05T21:01:18Z",
+      "pushedAt": "2026-08-06T15:42:19Z",
       "defaultBranch": "master",
       "releases": [
         {
@@ -100,7 +100,7 @@
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
       "description": "High-performance data profiling \u0026 quality assessment for CSV, JSON, Parquet, pandas, polars, and Arrow — fast Rust core, clean Python API.",
       "stars": 18,
-      "forks": 5,
+      "forks": 6,
       "topics": [
         "apache-arrow",
         "asyncio",
@@ -122,7 +122,7 @@
         "simd"
       ],
       "language": "Rust",
-      "pushedAt": "2026-08-04T12:40:37Z",
+      "pushedAt": "2026-08-06T14:49:55Z",
       "defaultBranch": "master",
       "releases": [
         {
