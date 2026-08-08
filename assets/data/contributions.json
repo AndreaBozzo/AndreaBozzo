@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-07T03:10:31Z",
+  "generatedAt": "2026-08-08T02:07:28Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -376,7 +376,7 @@
       "name": "lakekeeper",
       "url": "https://github.com/lakekeeper/lakekeeper",
       "stars": "1.4k",
-      "prs": "2",
+      "prs": "3",
       "desc": "Lakehouse catalog and metadata contributions around operational reliability.",
       "language": "Rust",
       "topics": [
@@ -394,8 +394,14 @@
         "rbac",
         "rust"
       ],
-      "lastPRMergedAt": "2025-12-04T16:25:20Z",
+      "lastPRMergedAt": "2026-08-07T12:03:22Z",
       "prList": [
+        {
+          "title": "fix(authz): emit authorization events before applying assignment writes",
+          "number": 1924,
+          "url": "https://github.com/lakekeeper/lakekeeper/pull/1924",
+          "mergedAt": "2026-08-07T12:03:22Z"
+        },
         {
           "title": "feat: Add storage profile-level credential control flags",
           "number": 1518,
