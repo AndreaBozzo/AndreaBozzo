@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-09T02:19:27Z",
+  "generatedAt": "2026-08-10T02:24:23Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -517,7 +517,7 @@
     {
       "name": "awesome-italia-opensource",
       "url": "https://github.com/italia-opensource/awesome-italia-opensource",
-      "stars": "329",
+      "stars": "330",
       "prs": "1",
       "desc": "Curation and contribution work supporting the Italian open source ecosystem.",
       "language": "Python",
@@ -647,7 +647,7 @@
     {
       "name": "fantacalcio-py",
       "url": "https://github.com/piopy/fantacalcio-py",
-      "stars": "50",
+      "stars": "52",
       "prs": "4",
       "desc": "Small but concrete fixes in a Python project with an active user base.",
       "language": "Python",
