@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-11T02:17:57Z",
+  "generatedAt": "2026-08-12T02:32:51Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -73,7 +73,7 @@
     {
       "name": "axum",
       "url": "https://github.com/tokio-rs/axum",
-      "stars": "26.8k",
+      "stars": "26.9k",
       "prs": "1",
       "desc": "Web framework contributions around routing, ergonomics, and service integration in Rust.",
       "language": "Rust",
@@ -460,7 +460,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "898",
+      "stars": "905",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",
@@ -696,7 +696,7 @@
     {
       "name": "medha",
       "url": "https://github.com/ArchAI-Labs/medha",
-      "stars": "29",
+      "stars": "30",
       "prs": "1",
       "desc": "medha is one of the upstream projects where I have shipped fixes, cleanup, or implementation work.",
       "language": "Python",
