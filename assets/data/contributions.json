@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-12T02:32:51Z",
+  "generatedAt": "2026-08-13T02:34:16Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -95,7 +95,7 @@
     {
       "name": "winget-pkgs",
       "url": "https://github.com/microsoft/winget-pkgs",
-      "stars": "10.9k",
+      "stars": "11.0k",
       "prs": "1",
       "desc": "winget-pkgs is one of the upstream projects where I have shipped fixes, cleanup, or implementation work.",
       "topics": [
@@ -114,7 +114,7 @@
     {
       "name": "risingwave",
       "url": "https://github.com/risingwavelabs/risingwave",
-      "stars": "9.2k",
+      "stars": "9.3k",
       "prs": "1",
       "desc": "Streaming database contributions across query behavior, engine details, and developer workflow.",
       "language": "Rust",
@@ -460,7 +460,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "905",
+      "stars": "915",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",
@@ -571,7 +571,7 @@
     {
       "name": "CortexBrain",
       "url": "https://github.com/CortexFlow/CortexBrain",
-      "stars": "83",
+      "stars": "84",
       "prs": "3",
       "desc": "Implementation work across infrastructure and automation-oriented platform tooling.",
       "language": "Rust",

@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-12T02:32:57Z",
+  "generatedAt": "2026-08-13T02:36:23Z",
   "source": "case-study repoUrl GitHub Actions runs",
   "items": [
     {
@@ -24,14 +24,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/AndreaBozzo",
       "workflowName": "GitHub Metrics",
       "workflowPath": ".github/workflows/metrics.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/31555919022",
+      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/31660004402",
       "runsSampled": 9,
       "medianDurationSeconds": 185,
       "p95DurationSeconds": 204,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-08-12T02:11:52Z"
+      "latestRunAt": "2026-08-13T02:13:44Z"
     },
     {
       "caseStudySlug": "andreabozzo-site",
@@ -39,13 +39,13 @@
       "repoUrl": "https://github.com/AndreaBozzo/AndreaBozzo",
       "workflowName": "Update External Contributions",
       "workflowPath": ".github/workflows/update-contributions.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/31557191451",
+      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/31661200717",
       "runsSampled": 9,
       "medianDurationSeconds": 46,
       "p95DurationSeconds": 159,
       "successRate": 1,
       "latestStatus": "in_progress",
-      "latestRunAt": "2026-08-12T02:32:30Z"
+      "latestRunAt": "2026-08-13T02:33:54Z"
     },
     {
       "caseStudySlug": "ares-ceres",
@@ -69,10 +69,10 @@
       "workflowName": "PR #248",
       "workflowPath": "dynamic/github-code-scanning/codeql",
       "workflowUrl": "https://github.com/AndreaBozzo/Ceres/actions/runs/31117058159",
-      "runsSampled": 3,
-      "medianDurationSeconds": 124,
+      "runsSampled": 1,
+      "medianDurationSeconds": 474,
       "p95DurationSeconds": 474,
-      "successRate": 0.6666666666666666,
+      "successRate": 0,
       "latestStatus": "completed",
       "latestConclusion": "failure",
       "latestRunAt": "2026-08-06T15:50:16Z"
@@ -143,14 +143,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/Ceres",
       "workflowName": "Supabase Keepalive",
       "workflowPath": ".github/workflows/supabase-keepalive.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/Ceres/actions/runs/31465511682",
-      "runsSampled": 5,
-      "medianDurationSeconds": 15,
+      "workflowUrl": "https://github.com/AndreaBozzo/Ceres/actions/runs/31571992296",
+      "runsSampled": 6,
+      "medianDurationSeconds": 13,
       "p95DurationSeconds": 21,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-08-11T06:33:28Z"
+      "latestRunAt": "2026-08-12T06:57:33Z"
     },
     {
       "caseStudySlug": "ares-ceres",
@@ -166,6 +166,21 @@
       "latestStatus": "completed",
       "latestConclusion": "success",
       "latestRunAt": "2026-08-11T21:56:04Z"
+    },
+    {
+      "caseStudySlug": "ares-ceres",
+      "repoFullName": "AndreaBozzo/Ceres",
+      "repoUrl": "https://github.com/AndreaBozzo/Ceres",
+      "workflowName": "npm_and_yarn in /website for nanoid - Update #1521694528",
+      "workflowPath": "dynamic/dependabot/dependabot-updates",
+      "workflowUrl": "https://github.com/AndreaBozzo/Ceres/actions/runs/31565628780",
+      "runsSampled": 1,
+      "medianDurationSeconds": 56,
+      "p95DurationSeconds": 56,
+      "successRate": 0,
+      "latestStatus": "completed",
+      "latestConclusion": "failure",
+      "latestRunAt": "2026-08-12T05:10:44Z"
     },
     {
       "caseStudySlug": "datapizza-ai",
@@ -218,14 +233,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
       "workflowName": "Benchmarks",
       "workflowPath": ".github/workflows/benchmarks.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/31401102633",
-      "runsSampled": 5,
-      "medianDurationSeconds": 179,
-      "p95DurationSeconds": 415,
+      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/31643585330",
+      "runsSampled": 4,
+      "medianDurationSeconds": 174,
+      "p95DurationSeconds": 179,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-08-10T15:02:19Z"
+      "latestRunAt": "2026-08-12T21:43:08Z"
     },
     {
       "caseStudySlug": "dataprof",
@@ -233,14 +248,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
       "workflowName": "CI",
       "workflowPath": ".github/workflows/ci.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/31401100114",
+      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/31643585304",
       "runsSampled": 4,
-      "medianDurationSeconds": 250,
-      "p95DurationSeconds": 251,
+      "medianDurationSeconds": 251,
+      "p95DurationSeconds": 257,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-08-10T15:02:58Z"
+      "latestRunAt": "2026-08-12T21:44:38Z"
     },
     {
       "caseStudySlug": "dataprof",
@@ -248,14 +263,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
       "workflowName": "Deploy Pages",
       "workflowPath": ".github/workflows/deploy-pages.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/31401425651",
+      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/31631869768",
       "runsSampled": 2,
-      "medianDurationSeconds": 24,
-      "p95DurationSeconds": 103,
+      "medianDurationSeconds": 18,
+      "p95DurationSeconds": 50,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-08-10T15:04:07Z"
+      "latestRunAt": "2026-08-12T19:17:09Z"
     },
     {
       "caseStudySlug": "dataprof",
@@ -263,14 +278,29 @@
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
       "workflowName": "Labeler",
       "workflowPath": ".github/workflows/labeler.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/31399891239",
+      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/31643585235",
       "runsSampled": 3,
-      "medianDurationSeconds": 10,
-      "p95DurationSeconds": 20,
+      "medianDurationSeconds": 18,
+      "p95DurationSeconds": 24,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-08-10T14:45:41Z"
+      "latestRunAt": "2026-08-12T21:40:45Z"
+    },
+    {
+      "caseStudySlug": "dataprof",
+      "repoFullName": "AndreaBozzo/dataprof",
+      "repoUrl": "https://github.com/AndreaBozzo/dataprof",
+      "workflowName": "PR #578",
+      "workflowPath": "dynamic/github-code-scanning/codeql",
+      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/31631298590",
+      "runsSampled": 1,
+      "medianDurationSeconds": 121,
+      "p95DurationSeconds": 121,
+      "successRate": 1,
+      "latestStatus": "completed",
+      "latestConclusion": "success",
+      "latestRunAt": "2026-08-12T19:12:07Z"
     },
     {
       "caseStudySlug": "dataprof",
@@ -278,14 +308,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
       "workflowName": "Push on master",
       "workflowPath": "dynamic/github-code-scanning/codeql",
-      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/31401092921",
+      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/31631628799",
       "runsSampled": 1,
-      "medianDurationSeconds": 137,
-      "p95DurationSeconds": 137,
+      "medianDurationSeconds": 154,
+      "p95DurationSeconds": 154,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-08-10T15:01:01Z"
+      "latestRunAt": "2026-08-12T19:16:29Z"
     },
     {
       "caseStudySlug": "dataprof",
@@ -293,14 +323,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
       "workflowName": "Running Copilot Code Review",
       "workflowPath": "dynamic/agents/copilot-pull-request-reviewer",
-      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/31390793537",
+      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/31630245532",
       "runsSampled": 1,
-      "medianDurationSeconds": 113,
-      "p95DurationSeconds": 113,
+      "medianDurationSeconds": 287,
+      "p95DurationSeconds": 287,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-08-10T13:03:19Z"
+      "latestRunAt": "2026-08-12T19:02:12Z"
     },
     {
       "caseStudySlug": "dataprof",
@@ -308,14 +338,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
       "workflowName": "Security",
       "workflowPath": ".github/workflows/security.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/31401096960",
+      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/31643585308",
       "runsSampled": 4,
-      "medianDurationSeconds": 111,
-      "p95DurationSeconds": 140,
+      "medianDurationSeconds": 142,
+      "p95DurationSeconds": 150,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-08-10T15:00:37Z"
+      "latestRunAt": "2026-08-12T21:42:33Z"
     },
     {
       "caseStudySlug": "dce",
@@ -668,14 +698,14 @@
       "repoUrl": "https://github.com/lakekeeper/lakekeeper",
       "workflowName": "AuthZ Unittests",
       "workflowPath": ".github/workflows/authz.yml",
-      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31507349642",
+      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31641146715",
       "runsSampled": 1,
-      "medianDurationSeconds": 19,
-      "p95DurationSeconds": 19,
+      "medianDurationSeconds": 17,
+      "p95DurationSeconds": 17,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-08-11T15:30:24Z"
+      "latestRunAt": "2026-08-12T21:09:12Z"
     },
     {
       "caseStudySlug": "lakekeeper",
@@ -683,14 +713,14 @@
       "repoUrl": "https://github.com/lakekeeper/lakekeeper",
       "workflowName": "Docs Link Check",
       "workflowPath": ".github/workflows/docs_linkcheck.yml",
-      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31507349679",
-      "runsSampled": 2,
-      "medianDurationSeconds": 78,
-      "p95DurationSeconds": 91,
+      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31641146654",
+      "runsSampled": 1,
+      "medianDurationSeconds": 58,
+      "p95DurationSeconds": 58,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-08-11T15:31:24Z"
+      "latestRunAt": "2026-08-12T21:09:53Z"
     },
     {
       "caseStudySlug": "lakekeeper",
@@ -698,14 +728,14 @@
       "repoUrl": "https://github.com/lakekeeper/lakekeeper",
       "workflowName": "Examples Test [auth]",
       "workflowPath": ".github/workflows/test-examples.yml",
-      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31507350027",
+      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31641146988",
       "runsSampled": 2,
-      "medianDurationSeconds": 823,
-      "p95DurationSeconds": 1558,
-      "successRate": 0.5,
+      "medianDurationSeconds": 1868,
+      "p95DurationSeconds": 1916,
+      "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-08-11T15:56:04Z"
+      "latestRunAt": "2026-08-12T21:40:03Z"
     },
     {
       "caseStudySlug": "lakekeeper",
@@ -713,14 +743,14 @@
       "repoUrl": "https://github.com/lakekeeper/lakekeeper",
       "workflowName": "Kubernetes auth integration test",
       "workflowPath": ".github/workflows/kube-auth.yml",
-      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31507349880",
+      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31641146939",
       "runsSampled": 2,
-      "medianDurationSeconds": 1134,
-      "p95DurationSeconds": 1866,
-      "successRate": 0.5,
+      "medianDurationSeconds": 1757,
+      "p95DurationSeconds": 1802,
+      "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-08-11T16:01:12Z"
+      "latestRunAt": "2026-08-12T21:38:57Z"
     },
     {
       "caseStudySlug": "lakekeeper",
@@ -728,14 +758,29 @@
       "repoUrl": "https://github.com/lakekeeper/lakekeeper",
       "workflowName": "Lint Pull Request",
       "workflowPath": ".github/workflows/lint-pr.yml",
-      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31507346098",
-      "runsSampled": 2,
-      "medianDurationSeconds": 24,
-      "p95DurationSeconds": 78,
+      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31641311554",
+      "runsSampled": 3,
+      "medianDurationSeconds": 12,
+      "p95DurationSeconds": 13,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-08-11T15:30:23Z"
+      "latestRunAt": "2026-08-12T21:11:07Z"
+    },
+    {
+      "caseStudySlug": "lakekeeper",
+      "repoFullName": "lakekeeper/lakekeeper",
+      "repoUrl": "https://github.com/lakekeeper/lakekeeper",
+      "workflowName": "PR #1940",
+      "workflowPath": "dynamic/github-code-scanning/codeql",
+      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31641144483",
+      "runsSampled": 1,
+      "medianDurationSeconds": 61,
+      "p95DurationSeconds": 61,
+      "successRate": 1,
+      "latestStatus": "completed",
+      "latestConclusion": "success",
+      "latestRunAt": "2026-08-12T21:09:54Z"
     },
     {
       "caseStudySlug": "lakekeeper",
@@ -743,14 +788,14 @@
       "repoUrl": "https://github.com/lakekeeper/lakekeeper",
       "workflowName": "SeaweedFS Tests",
       "workflowPath": ".github/workflows/seaweedfs.yml",
-      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31507349669",
+      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31641146730",
       "runsSampled": 2,
-      "medianDurationSeconds": 1967,
-      "p95DurationSeconds": 4636,
-      "successRate": 0.5,
+      "medianDurationSeconds": 1034,
+      "p95DurationSeconds": 2190,
+      "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-08-11T16:02:53Z"
+      "latestRunAt": "2026-08-12T21:45:25Z"
     },
     {
       "caseStudySlug": "lakekeeper",
@@ -758,14 +803,14 @@
       "repoUrl": "https://github.com/lakekeeper/lakekeeper",
       "workflowName": "Security audit",
       "workflowPath": ".github/workflows/security_audit.yml",
-      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31502923487",
+      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31641144199",
       "runsSampled": 1,
-      "medianDurationSeconds": 350,
-      "p95DurationSeconds": 350,
+      "medianDurationSeconds": 275,
+      "p95DurationSeconds": 275,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-08-11T14:47:22Z"
+      "latestRunAt": "2026-08-12T21:13:28Z"
     },
     {
       "caseStudySlug": "lakekeeper",
@@ -773,14 +818,14 @@
       "repoUrl": "https://github.com/lakekeeper/lakekeeper",
       "workflowName": "Test Lakekeeper migrations",
       "workflowPath": ".github/workflows/migrations.yml",
-      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31507349943",
+      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31641146905",
       "runsSampled": 2,
-      "medianDurationSeconds": 1080,
-      "p95DurationSeconds": 1814,
-      "successRate": 0.5,
+      "medianDurationSeconds": 138,
+      "p95DurationSeconds": 167,
+      "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-08-11T16:00:20Z"
+      "latestRunAt": "2026-08-12T22:11:37Z"
     },
     {
       "caseStudySlug": "lakekeeper",
@@ -788,14 +833,14 @@
       "repoUrl": "https://github.com/lakekeeper/lakekeeper",
       "workflowName": "Unittests",
       "workflowPath": ".github/workflows/unittests.yml",
-      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31507349629",
-      "runsSampled": 2,
-      "medianDurationSeconds": 915,
-      "p95DurationSeconds": 1971,
-      "successRate": 0,
+      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31641146702",
+      "runsSampled": 1,
+      "medianDurationSeconds": 2770,
+      "p95DurationSeconds": 2770,
+      "successRate": 1,
       "latestStatus": "completed",
-      "latestConclusion": "failure",
-      "latestRunAt": "2026-08-11T16:02:56Z"
+      "latestConclusion": "success",
+      "latestRunAt": "2026-08-12T21:55:05Z"
     },
     {
       "caseStudySlug": "lakekeeper",
@@ -803,14 +848,14 @@
       "repoUrl": "https://github.com/lakekeeper/lakekeeper",
       "workflowName": "integration tests",
       "workflowPath": ".github/workflows/integration_test_matrix.yml",
-      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31507349884",
+      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31641146857",
       "runsSampled": 2,
-      "medianDurationSeconds": 1104,
-      "p95DurationSeconds": 1995,
-      "successRate": 0.5,
+      "medianDurationSeconds": 2604,
+      "p95DurationSeconds": 2655,
+      "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-08-11T16:03:21Z"
+      "latestRunAt": "2026-08-12T22:53:18Z"
     },
     {
       "caseStudySlug": "lakekeeper",
@@ -818,14 +863,14 @@
       "repoUrl": "https://github.com/lakekeeper/lakekeeper",
       "workflowName": "integration tests (formats)",
       "workflowPath": ".github/workflows/integration_test_formats.yml",
-      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31507349850",
+      "workflowUrl": "https://github.com/lakekeeper/lakekeeper/actions/runs/31641146914",
       "runsSampled": 2,
-      "medianDurationSeconds": 913,
-      "p95DurationSeconds": 3807,
-      "successRate": 0.5,
+      "medianDurationSeconds": 1483,
+      "p95DurationSeconds": 1489,
+      "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-08-11T16:33:33Z"
+      "latestRunAt": "2026-08-12T21:33:38Z"
     },
     {
       "caseStudySlug": "mosaico",
