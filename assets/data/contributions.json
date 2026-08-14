@@ -1,12 +1,12 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-13T02:34:16Z",
+  "generatedAt": "2026-08-14T02:32:52Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
       "name": "polars",
       "url": "https://github.com/pola-rs/polars",
-      "stars": "39.3k",
+      "stars": "39.4k",
       "prs": "3",
       "desc": "Rust-native analytics work across DataFrame performance, ergonomics, and engine behavior.",
       "language": "Rust",
@@ -460,7 +460,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "915",
+      "stars": "918",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",
