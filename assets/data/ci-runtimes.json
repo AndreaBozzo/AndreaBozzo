@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-15T01:42:16Z",
+  "generatedAt": "2026-08-16T01:49:38Z",
   "source": "case-study repoUrl GitHub Actions runs",
   "items": [
     {
@@ -9,14 +9,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/AndreaBozzo",
       "workflowName": "GitHub Metrics",
       "workflowPath": ".github/workflows/metrics.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/31856305671",
+      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/31919616032",
       "runsSampled": 10,
-      "medianDurationSeconds": 185,
+      "medianDurationSeconds": 171,
       "p95DurationSeconds": 204,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-08-15T01:24:46Z"
+      "latestRunAt": "2026-08-16T01:30:28Z"
     },
     {
       "caseStudySlug": "andreabozzo-site",
@@ -24,13 +24,13 @@
       "repoUrl": "https://github.com/AndreaBozzo/AndreaBozzo",
       "workflowName": "Update External Contributions",
       "workflowPath": ".github/workflows/update-contributions.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/31857197120",
+      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/31920426103",
       "runsSampled": 9,
-      "medianDurationSeconds": 49,
+      "medianDurationSeconds": 46,
       "p95DurationSeconds": 160,
       "successRate": 1,
       "latestStatus": "in_progress",
-      "latestRunAt": "2026-08-15T01:41:48Z"
+      "latestRunAt": "2026-08-16T01:49:10Z"
     },
     {
       "caseStudySlug": "ares-ceres",
@@ -69,8 +69,8 @@
       "workflowName": "Pull Request Labeler",
       "workflowPath": ".github/workflows/labeler.yml",
       "workflowUrl": "https://github.com/AndreaBozzo/Ceres/actions/runs/31540164818",
-      "runsSampled": 3,
-      "medianDurationSeconds": 15,
+      "runsSampled": 2,
+      "medianDurationSeconds": 13,
       "p95DurationSeconds": 15,
       "successRate": 1,
       "latestStatus": "completed",
@@ -128,14 +128,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/Ceres",
       "workflowName": "Supabase Keepalive",
       "workflowPath": ".github/workflows/supabase-keepalive.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/Ceres/actions/runs/31778151225",
-      "runsSampled": 8,
-      "medianDurationSeconds": 13,
+      "workflowUrl": "https://github.com/AndreaBozzo/Ceres/actions/runs/31868253353",
+      "runsSampled": 9,
+      "medianDurationSeconds": 14,
       "p95DurationSeconds": 21,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-08-14T06:58:11Z"
+      "latestRunAt": "2026-08-15T05:58:14Z"
     },
     {
       "caseStudySlug": "ares-ceres",
@@ -204,10 +204,10 @@
       "workflowName": "Test",
       "workflowPath": ".github/workflows/test.yml",
       "workflowUrl": "https://github.com/datapizza-labs/datapizza-ai/actions/runs/31799417116",
-      "runsSampled": 15,
-      "medianDurationSeconds": 77,
+      "runsSampled": 16,
+      "medianDurationSeconds": 76,
       "p95DurationSeconds": 82,
-      "successRate": 0.8333333333333334,
+      "successRate": 0.8888888888888888,
       "latestStatus": "completed",
       "latestConclusion": "action_required",
       "latestRunAt": "2026-08-14T12:13:29Z"

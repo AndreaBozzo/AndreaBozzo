@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-15T01:42:09Z",
+  "generatedAt": "2026-08-16T01:49:31Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -460,7 +460,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "919",
+      "stars": "920",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",
@@ -711,6 +711,23 @@
       ]
     },
     {
+      "name": "fantavibe",
+      "url": "https://github.com/informagico/fantavibe",
+      "stars": "7",
+      "prs": "1",
+      "desc": "Targeted upstream fixes and improvements in a smaller community project.",
+      "language": "JavaScript",
+      "lastPRMergedAt": "2025-09-10T15:08:49Z",
+      "prList": [
+        {
+          "title": "🧪 Implementa testing framework e risolve bug navigazione tab",
+          "number": 5,
+          "url": "https://github.com/informagico/fantavibe/pull/5",
+          "mergedAt": "2025-09-10T15:08:49Z"
+        }
+      ]
+    },
+    {
       "name": "openfga-client",
       "url": "https://github.com/vakamo-labs/openfga-client",
       "stars": "7",
@@ -724,23 +741,6 @@
           "number": 25,
           "url": "https://github.com/vakamo-labs/openfga-client/pull/25",
           "mergedAt": "2025-12-30T18:36:56Z"
-        }
-      ]
-    },
-    {
-      "name": "fantavibe",
-      "url": "https://github.com/informagico/fantavibe",
-      "stars": "6",
-      "prs": "1",
-      "desc": "Targeted upstream fixes and improvements in a smaller community project.",
-      "language": "JavaScript",
-      "lastPRMergedAt": "2025-09-10T15:08:49Z",
-      "prList": [
-        {
-          "title": "🧪 Implementa testing framework e risolve bug navigazione tab",
-          "number": 5,
-          "url": "https://github.com/informagico/fantavibe/pull/5",
-          "mergedAt": "2025-09-10T15:08:49Z"
         }
       ]
     },
