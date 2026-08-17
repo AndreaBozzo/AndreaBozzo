@@ -16,7 +16,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 <p align="center">
   <img src="https://img.shields.io/badge/Projects-25-blue?style=flat-square" alt="Projects"/>
   <img src="https://img.shields.io/badge/PRs_Merged-56-success?style=flat-square" alt="PRs Merged"/>
-  <img src="https://img.shields.io/badge/Combined_Stars-152.8k-yellow?style=flat-square" alt="Stars"/>
+  <img src="https://img.shields.io/badge/Combined_Stars-152.9k-yellow?style=flat-square" alt="Stars"/>
 </p>
 
 ### 🔬 Data Ecosystem
@@ -48,7 +48,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <p>
 <a href="https://github.com/datapizza-labs/datapizza-ai"><img src="https://img.shields.io/badge/datapizza--ai-%E2%AD%90%202.2k%20%7C%205%20PR-informational?style=flat-square" alt="datapizza-ai"/></a>
-  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-%E2%AD%90%20920%20%7C%2010%20PR-informational?style=flat-square" alt="mosaico"/></a>
+  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-%E2%AD%90%20921%20%7C%2010%20PR-informational?style=flat-square" alt="mosaico"/></a>
 </p>
 
 ### 🛠️ Infrastructure
@@ -63,7 +63,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 <p>
 <a href="https://github.com/microsoft/winget-pkgs"><img src="https://img.shields.io/badge/winget--pkgs-%E2%AD%90%2011.0k%20%7C%201%20PR-informational?style=flat-square" alt="winget-pkgs"/></a>
   <a href="https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2"><img src="https://img.shields.io/badge/PathOfBuilding--PoE2-%E2%AD%90%201.9k%20%7C%201%20PR-informational?style=flat-square" alt="PathOfBuilding-PoE2"/></a>
-  <a href="https://github.com/zornade/visura-api"><img src="https://img.shields.io/badge/visura--api-%E2%AD%90%20668%20%7C%201%20PR-informational?style=flat-square" alt="visura-api"/></a>
+  <a href="https://github.com/zornade/visura-api"><img src="https://img.shields.io/badge/visura--api-%E2%AD%90%20669%20%7C%201%20PR-informational?style=flat-square" alt="visura-api"/></a>
   <a href="https://github.com/italia-opensource/awesome-italia-opensource"><img src="https://img.shields.io/badge/awesome--italia--opensource-%E2%AD%90%20330%20%7C%201%20PR-informational?style=flat-square" alt="awesome-italia-opensource"/></a>
   <a href="https://github.com/piopy/fantacalcio-py"><img src="https://img.shields.io/badge/fantacalcio--py-%E2%AD%90%2052%20%7C%204%20PR-informational?style=flat-square" alt="fantacalcio-py"/></a>
   <a href="https://github.com/informagico/fantavibe"><img src="https://img.shields.io/badge/fantavibe-%E2%AD%90%207%20%7C%201%20PR-informational?style=flat-square" alt="fantavibe"/></a>

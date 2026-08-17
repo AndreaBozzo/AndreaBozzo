@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-16T01:49:31Z",
+  "generatedAt": "2026-08-17T01:47:21Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -460,7 +460,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "920",
+      "stars": "921",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",
@@ -506,7 +506,7 @@
     {
       "name": "visura-api",
       "url": "https://github.com/zornade/visura-api",
-      "stars": "668",
+      "stars": "669",
       "prs": "1",
       "desc": "visura-api is one of the upstream projects where I have shipped fixes, cleanup, or implementation work.",
       "language": "Python",
