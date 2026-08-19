@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-18T00:21:24Z",
+  "generatedAt": "2026-08-19T00:21:19Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -45,7 +45,7 @@
     {
       "name": "tokio",
       "url": "https://github.com/tokio-rs/tokio",
-      "stars": "32.9k",
+      "stars": "33.0k",
       "prs": "2",
       "desc": "Async runtime improvements around Rust concurrency, scheduling, and developer ergonomics.",
       "language": "Rust",
@@ -364,7 +364,7 @@
     {
       "name": "PathOfBuilding-PoE2",
       "url": "https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2",
-      "stars": "1.9k",
+      "stars": "1.8k",
       "prs": "1",
       "desc": "PathOfBuilding-PoE2 is one of the upstream projects where I have shipped fixes, cleanup, or implementation work.",
       "language": "Lua",
@@ -653,7 +653,7 @@
     {
       "name": "fantacalcio-py",
       "url": "https://github.com/piopy/fantacalcio-py",
-      "stars": "52",
+      "stars": "53",
       "prs": "4",
       "desc": "Small but concrete fixes in a Python project with an active user base.",
       "language": "Python",
