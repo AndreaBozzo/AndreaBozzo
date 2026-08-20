@@ -1,8 +1,60 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-20T00:21:52Z",
+  "generatedAt": "2026-08-20T09:11:12Z",
   "source": "blog/content/posts",
   "items": [
+    {
+      "id": "fantabuddy-blog:en",
+      "slug": "fantabuddy-blog",
+      "language": "en",
+      "title": "I Built a Model for Fantacalcio. The Useful Part Is When It Says No.",
+      "summary": "I started with Milan in Championship Manager 03/04, went through an almost perfect auction and a season shaped by injuries, then built Fantabuddy on holiday: a system that turns player lists, history and APIs into an auditable auction report.",
+      "description": "From Championship Manager 03/04 to Fantabuddy: how twenty years of football obsession became a reproducible auction report, with fresh data, models allowed to lose, and decisions that remain human.",
+      "publishedAt": "2026-08-20T08:00:00Z",
+      "url": "./blog/en/posts/fantabuddy-blog/",
+      "sourcePath": "blog/content/posts/fantabuddy-blog.en.md",
+      "tags": [
+        "Fantacalcio",
+        "Python",
+        "DuckDB",
+        "Machine Learning",
+        "Data Engineering",
+        "Open Source",
+        "Football Manager"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Open Source"
+      ],
+      "wordCount": 1817,
+      "readingMinutes": 9
+    },
+    {
+      "id": "fantabuddy-blog:it",
+      "slug": "fantabuddy-blog",
+      "language": "it",
+      "title": "Ho costruito un modello per il Fantacalcio. La parte utile è quando dice di no.",
+      "summary": "Sono partito dal Milan di Scudetto 03/04, sono passato per un'asta quasi perfetta e una stagione decisa dagli infortuni, e in vacanza ho costruito Fantabuddy: un sistema che trasforma listoni, storico e API in un report d'asta verificabile.",
+      "description": "Da Scudetto 03/04 a Fantabuddy: come vent'anni di passione per il calcio sono diventati un report d'asta riproducibile, con dati aggiornati, modelli autorizzati a perdere e decisioni ancora umane.",
+      "publishedAt": "2026-08-20T08:00:00Z",
+      "url": "./blog/posts/fantabuddy-blog/",
+      "sourcePath": "blog/content/posts/fantabuddy-blog.it.md",
+      "tags": [
+        "Fantacalcio",
+        "Python",
+        "DuckDB",
+        "Machine Learning",
+        "Data Engineering",
+        "Open Source",
+        "Football Manager"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Open Source"
+      ],
+      "wordCount": 1786,
+      "readingMinutes": 9
+    },
     {
       "id": "dbt-fusion-rust-blog:en",
       "slug": "dbt-fusion-rust-blog",

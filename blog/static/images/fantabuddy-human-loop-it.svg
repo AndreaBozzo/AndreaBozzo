@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="560" viewBox="0 0 1600 560" role="img" aria-labelledby="title desc" font-family="Arial, Helvetica, sans-serif">
+  <title id="title">Il confine utile di Fantabuddy</title>
+  <desc id="desc">Il listone e le API alimentano DuckDB, i modelli validati e il report HTML; Andrea e Renato prendono le decisioni d'asta e gestiscono la formazione.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071523"/>
+      <stop offset="1" stop-color="#102a43"/>
+    </linearGradient>
+    <linearGradient id="human" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff3d6"/>
+      <stop offset="1" stop-color="#ffd6b8"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000814" flood-opacity="0.28"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#56e6b0"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="560" rx="30" fill="url(#bg)"/>
+  <path d="M80 102H1180" stroke="#56e6b0" stroke-width="2" stroke-dasharray="6 10" opacity="0.35"/>
+  <text x="80" y="70" fill="#56e6b0" font-size="22" font-weight="700" letter-spacing="3">PARTE RIPETIBILE</text>
+  <text x="1530" y="70" fill="#ffb08a" font-size="22" font-weight="700" letter-spacing="3" text-anchor="end">PARTE UMANA</text>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="145" width="250" height="235" rx="24" fill="#13283f" stroke="#294662"/>
+    <rect x="355" y="145" width="250" height="235" rx="24" fill="#13283f" stroke="#294662"/>
+    <rect x="640" y="145" width="250" height="235" rx="24" fill="#13283f" stroke="#294662"/>
+    <rect x="925" y="145" width="250" height="235" rx="24" fill="#13283f" stroke="#294662"/>
+    <rect x="1240" y="120" width="290" height="285" rx="30" fill="url(#human)"/>
+  </g>
+
+  <text x="100" y="190" fill="#56e6b0" font-size="18" font-weight="700" letter-spacing="1.4">01 · FONTI</text>
+  <text x="100" y="240" fill="#f6f8fb" font-size="27" font-weight="700">Listone + API</text>
+  <text x="100" y="285" fill="#aabbd0" font-size="18">snapshot · fixture</text>
+  <text x="100" y="317" fill="#aabbd0" font-size="18">trasferimenti · alert</text>
+  <text x="385" y="190" fill="#56e6b0" font-size="18" font-weight="700" letter-spacing="1.4">02 · MEMORIA</text>
+  <text x="385" y="240" fill="#f6f8fb" font-size="27" font-weight="700">DuckDB</text>
+  <text x="385" y="285" fill="#aabbd0" font-size="18">identità · storico</text>
+  <text x="385" y="317" fill="#aabbd0" font-size="18">freschezza dichiarata</text>
+  <text x="670" y="190" fill="#56e6b0" font-size="18" font-weight="700" letter-spacing="1.4">03 · CONTROLLO</text>
+  <text x="670" y="240" fill="#f6f8fb" font-size="27" font-weight="700">Gate modello</text>
+  <text x="670" y="285" fill="#aabbd0" font-size="18">ML soltanto se batte</text>
+  <text x="670" y="317" fill="#aabbd0" font-size="18">una baseline temporale</text>
+  <text x="955" y="190" fill="#56e6b0" font-size="18" font-weight="700" letter-spacing="1.4">04 · PRODOTTO</text>
+  <text x="955" y="240" fill="#f6f8fb" font-size="27" font-weight="700">Report HTML</text>
+  <text x="955" y="285" fill="#aabbd0" font-size="18">prezzi · segnali</text>
+  <text x="955" y="317" fill="#aabbd0" font-size="18">spiegazioni · filtri</text>
+  <text x="1275" y="185" fill="#8d351f" font-size="18" font-weight="700" letter-spacing="1.2">GIUDIZIO E CURA</text>
+  <text x="1275" y="238" fill="#17202b" font-size="27" font-weight="700">Andrea + Renato</text>
+  <text x="1275" y="286" fill="#5f4034" font-size="20">scelte d'asta</text>
+  <text x="1275" y="320" fill="#5f4034" font-size="20">formazione settimanale</text>
+  <text x="1275" y="354" fill="#5f4034" font-size="20">poche scommesse</text>
+
+  <g stroke="#56e6b0" stroke-width="4" fill="none" marker-end="url(#arrow)">
+    <path d="M320 262H345"/>
+    <path d="M605 262H630"/>
+    <path d="M890 262H915"/>
+    <path d="M1175 262H1228"/>
+  </g>
+
+  <rect x="70" y="438" width="1460" height="72" rx="18" fill="#0a1b2d" stroke="#294662"/>
+  <text x="800" y="483" fill="#e5edf5" font-size="24" text-anchor="middle">Il sistema conserva ciò che sapevamo. Le persone decidono cosa farne.</text>
+</svg>
