@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-19T00:21:20Z",
+  "generatedAt": "2026-08-20T00:21:54Z",
   "source": "assets/data/package-sources.json",
   "items": [
     {
@@ -34,7 +34,7 @@
       "publishedAt": "2026-06-22T14:49:07Z",
       "updatedAt": "2026-06-22T14:49:07Z",
       "downloadsTotal": 88,
-      "recentDownloads": 36,
+      "recentDownloads": 35,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -52,7 +52,7 @@
       "publishedAt": "2026-06-22T14:44:57Z",
       "updatedAt": "2026-06-22T14:44:57Z",
       "downloadsTotal": 288,
-      "recentDownloads": 135,
+      "recentDownloads": 134,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -70,7 +70,7 @@
       "publishedAt": "2026-06-22T14:42:45Z",
       "updatedAt": "2026-06-22T14:42:45Z",
       "downloadsTotal": 460,
-      "recentDownloads": 213,
+      "recentDownloads": 212,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -88,7 +88,7 @@
       "publishedAt": "2026-06-22T14:46:41Z",
       "updatedAt": "2026-06-22T14:46:41Z",
       "downloadsTotal": 284,
-      "recentDownloads": 131,
+      "recentDownloads": 130,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -99,14 +99,14 @@
       "name": "ceres-client",
       "displayName": "ceres-client",
       "summary": "HTTP clients for Ceres portal harvesters and embedding providers",
-      "version": "0.6.0",
+      "version": "0.7.0",
       "url": "https://crates.io/crates/ceres-client",
       "repositoryUrl": "https://github.com/AndreaBozzo/Ceres",
       "license": "Apache-2.0",
-      "publishedAt": "2026-07-15T16:21:04Z",
-      "updatedAt": "2026-07-15T16:21:04Z",
-      "downloadsTotal": 489,
-      "recentDownloads": 221,
+      "publishedAt": "2026-08-19T12:15:56Z",
+      "updatedAt": "2026-08-19T12:15:56Z",
+      "downloadsTotal": 513,
+      "recentDownloads": 227,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -117,14 +117,14 @@
       "name": "ceres-core",
       "displayName": "ceres-core",
       "summary": "Core types, harvesting logic, and services for Ceres",
-      "version": "0.6.0",
+      "version": "0.7.0",
       "url": "https://crates.io/crates/ceres-core",
       "repositoryUrl": "https://github.com/AndreaBozzo/Ceres",
       "license": "Apache-2.0",
-      "publishedAt": "2026-07-15T16:18:57Z",
-      "updatedAt": "2026-07-15T16:18:57Z",
-      "downloadsTotal": 750,
-      "recentDownloads": 316,
+      "publishedAt": "2026-08-19T12:13:48Z",
+      "updatedAt": "2026-08-19T12:13:48Z",
+      "downloadsTotal": 779,
+      "recentDownloads": 322,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -135,14 +135,14 @@
       "name": "ceres-db",
       "displayName": "ceres-db",
       "summary": "Database repository layer for Ceres with pgvector support",
-      "version": "0.6.0",
+      "version": "0.7.0",
       "url": "https://crates.io/crates/ceres-db",
       "repositoryUrl": "https://github.com/AndreaBozzo/Ceres",
       "license": "Apache-2.0",
-      "publishedAt": "2026-07-15T16:22:51Z",
-      "updatedAt": "2026-07-15T16:22:51Z",
-      "downloadsTotal": 485,
-      "recentDownloads": 218,
+      "publishedAt": "2026-08-19T12:17:45Z",
+      "updatedAt": "2026-08-19T12:17:45Z",
+      "downloadsTotal": 510,
+      "recentDownloads": 225,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -153,14 +153,14 @@
       "name": "ceres-search",
       "displayName": "ceres-search",
       "summary": "Command-line interface for harvesting, embedding, and searching with Ceres",
-      "version": "0.6.0",
+      "version": "0.7.0",
       "url": "https://crates.io/crates/ceres-search",
       "repositoryUrl": "https://github.com/AndreaBozzo/Ceres",
       "license": "Apache-2.0",
-      "publishedAt": "2026-07-15T16:24:29Z",
-      "updatedAt": "2026-07-15T16:24:29Z",
-      "downloadsTotal": 209,
-      "recentDownloads": 117,
+      "publishedAt": "2026-08-19T12:19:27Z",
+      "updatedAt": "2026-08-19T12:19:27Z",
+      "downloadsTotal": 223,
+      "recentDownloads": 118,
       "relatedCaseStudies": [
         "ares-ceres"
       ]

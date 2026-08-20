@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-19T00:21:19Z",
+  "generatedAt": "2026-08-20T00:21:52Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -325,7 +325,7 @@
     {
       "name": "beelzebub",
       "url": "https://github.com/beelzebub-labs/beelzebub",
-      "stars": "2.1k",
+      "stars": "2.2k",
       "prs": "1",
       "desc": "Infrastructure-facing fixes and implementation work in a production-oriented platform project.",
       "language": "Go",
@@ -364,7 +364,7 @@
     {
       "name": "PathOfBuilding-PoE2",
       "url": "https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2",
-      "stars": "1.8k",
+      "stars": "1.9k",
       "prs": "1",
       "desc": "PathOfBuilding-PoE2 is one of the upstream projects where I have shipped fixes, cleanup, or implementation work.",
       "language": "Lua",
@@ -460,7 +460,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "922",
+      "stars": "925",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",
@@ -622,7 +622,7 @@
     {
       "name": "fluss-rust",
       "url": "https://github.com/apache/fluss-rust",
-      "stars": "56",
+      "stars": "57",
       "prs": "2",
       "desc": "Client and integration work in the Fluss streaming ecosystem.",
       "language": "Rust",
