@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-20T00:21:52Z",
+  "generatedAt": "2026-08-21T00:22:53Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -172,7 +172,7 @@
     {
       "name": "lance",
       "url": "https://github.com/lance-format/lance",
-      "stars": "6.9k",
+      "stars": "7.0k",
       "prs": "2",
       "desc": "Columnar storage and vector-data work in the Lance ecosystem.",
       "language": "Rust",
@@ -460,7 +460,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "925",
+      "stars": "937",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",
@@ -571,7 +571,7 @@
     {
       "name": "CortexBrain",
       "url": "https://github.com/CortexFlow/CortexBrain",
-      "stars": "84",
+      "stars": "83",
       "prs": "3",
       "desc": "Implementation work across infrastructure and automation-oriented platform tooling.",
       "language": "Rust",
@@ -653,7 +653,7 @@
     {
       "name": "fantacalcio-py",
       "url": "https://github.com/piopy/fantacalcio-py",
-      "stars": "53",
+      "stars": "54",
       "prs": "4",
       "desc": "Small but concrete fixes in a Python project with an active user base.",
       "language": "Python",
