@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-22T00:21:30Z",
+  "generatedAt": "2026-08-23T00:23:27Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -460,7 +460,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "945",
+      "stars": "946",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",
@@ -580,7 +580,6 @@
         "bpf-programs",
         "cluster-analysis",
         "cluster-monitoring-tool",
-        "data-science",
         "devops",
         "ebpf",
         "edge-computing",
@@ -593,8 +592,6 @@
         "open-source",
         "resource-monitoring",
         "rust",
-        "rust-lang",
-        "service-mesh",
         "traffic-control"
       ],
       "lastPRMergedAt": "2025-11-05T21:47:43Z",
@@ -620,40 +617,9 @@
       ]
     },
     {
-      "name": "fluss-rust",
-      "url": "https://github.com/apache/fluss-rust",
-      "stars": "57",
-      "prs": "2",
-      "desc": "Client and integration work in the Fluss streaming ecosystem.",
-      "language": "Rust",
-      "topics": [
-        "fluss",
-        "lakehouse",
-        "python",
-        "real-time-analytics",
-        "rust",
-        "streaming"
-      ],
-      "lastPRMergedAt": "2026-01-17T01:45:00Z",
-      "prList": [
-        {
-          "title": "[client] Add lookup support for primary key tables",
-          "number": 159,
-          "url": "https://github.com/apache/fluss-rust/pull/159",
-          "mergedAt": "2026-01-17T01:45:00Z"
-        },
-        {
-          "title": "chore: add integration tests for subscribe_batch and project_by_name",
-          "number": 116,
-          "url": "https://github.com/apache/fluss-rust/pull/116",
-          "mergedAt": "2026-01-02T08:54:09Z"
-        }
-      ]
-    },
-    {
       "name": "fantacalcio-py",
       "url": "https://github.com/piopy/fantacalcio-py",
-      "stars": "57",
+      "stars": "58",
       "prs": "4",
       "desc": "Small but concrete fixes in a Python project with an active user base.",
       "language": "Python",
@@ -690,6 +656,37 @@
           "number": 5,
           "url": "https://github.com/piopy/fantacalcio-py/pull/5",
           "mergedAt": "2025-09-04T19:34:58Z"
+        }
+      ]
+    },
+    {
+      "name": "fluss-rust",
+      "url": "https://github.com/apache/fluss-rust",
+      "stars": "57",
+      "prs": "2",
+      "desc": "Client and integration work in the Fluss streaming ecosystem.",
+      "language": "Rust",
+      "topics": [
+        "fluss",
+        "lakehouse",
+        "python",
+        "real-time-analytics",
+        "rust",
+        "streaming"
+      ],
+      "lastPRMergedAt": "2026-01-17T01:45:00Z",
+      "prList": [
+        {
+          "title": "[client] Add lookup support for primary key tables",
+          "number": 159,
+          "url": "https://github.com/apache/fluss-rust/pull/159",
+          "mergedAt": "2026-01-17T01:45:00Z"
+        },
+        {
+          "title": "chore: add integration tests for subscribe_batch and project_by_name",
+          "number": 116,
+          "url": "https://github.com/apache/fluss-rust/pull/116",
+          "mergedAt": "2026-01-02T08:54:09Z"
         }
       ]
     },
