@@ -1,12 +1,12 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-23T00:23:27Z",
+  "generatedAt": "2026-08-24T00:22:51Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
       "name": "polars",
       "url": "https://github.com/pola-rs/polars",
-      "stars": "39.4k",
+      "stars": "39.5k",
       "prs": "3",
       "desc": "Rust-native analytics work across DataFrame performance, ergonomics, and engine behavior.",
       "language": "Rust",
