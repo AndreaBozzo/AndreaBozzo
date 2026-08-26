@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-25T00:22:09Z",
+  "generatedAt": "2026-08-26T00:22:38Z",
   "source": "assets/data/package-sources.json",
   "items": [
     {
@@ -51,8 +51,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-06-22T14:44:57Z",
       "updatedAt": "2026-06-22T14:44:57Z",
-      "downloadsTotal": 289,
-      "recentDownloads": 128,
+      "downloadsTotal": 291,
+      "recentDownloads": 130,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -69,8 +69,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-06-22T14:42:45Z",
       "updatedAt": "2026-06-22T14:42:45Z",
-      "downloadsTotal": 463,
-      "recentDownloads": 202,
+      "downloadsTotal": 467,
+      "recentDownloads": 206,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -87,8 +87,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-06-22T14:46:41Z",
       "updatedAt": "2026-06-22T14:46:41Z",
-      "downloadsTotal": 285,
-      "recentDownloads": 124,
+      "downloadsTotal": 287,
+      "recentDownloads": 126,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -105,8 +105,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-08-19T12:15:56Z",
       "updatedAt": "2026-08-19T12:15:56Z",
-      "downloadsTotal": 518,
-      "recentDownloads": 224,
+      "downloadsTotal": 522,
+      "recentDownloads": 228,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -123,8 +123,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-08-19T12:13:48Z",
       "updatedAt": "2026-08-19T12:13:48Z",
-      "downloadsTotal": 788,
-      "recentDownloads": 316,
+      "downloadsTotal": 792,
+      "recentDownloads": 320,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -141,8 +141,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-08-19T12:17:45Z",
       "updatedAt": "2026-08-19T12:17:45Z",
-      "downloadsTotal": 515,
-      "recentDownloads": 222,
+      "downloadsTotal": 519,
+      "recentDownloads": 226,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -159,8 +159,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-08-19T12:19:27Z",
       "updatedAt": "2026-08-19T12:19:27Z",
-      "downloadsTotal": 226,
-      "recentDownloads": 119,
+      "downloadsTotal": 228,
+      "recentDownloads": 121,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -171,16 +171,16 @@
       "name": "dataprof",
       "displayName": "dataprof",
       "summary": "High-performance data profiler with ISO 8000/25012 quality metrics for CSV, JSON/JSONL, and Parquet files",
-      "version": "0.10.0",
+      "version": "0.11.0",
       "url": "https://crates.io/crates/dataprof",
       "repositoryUrl": "https://github.com/AndreaBozzo/dataprof",
       "documentationUrl": "https://docs.rs/dataprof",
       "homepageUrl": "https://andreabozzo.github.io/dataprof/",
       "license": "MIT OR Apache-2.0",
-      "publishedAt": "2026-07-24T22:22:46Z",
-      "updatedAt": "2026-07-24T22:22:46Z",
-      "downloadsTotal": 4701,
-      "recentDownloads": 227,
+      "publishedAt": "2026-08-25T14:38:11Z",
+      "updatedAt": "2026-08-25T14:38:11Z",
+      "downloadsTotal": 4709,
+      "recentDownloads": 235,
       "relatedCaseStudies": [
         "dataprof"
       ]
@@ -191,12 +191,12 @@
       "name": "dataprof",
       "displayName": "dataprof",
       "summary": "Fast, lightweight data profiling and quality assessment library",
-      "version": "0.10.0",
+      "version": "0.11.0",
       "url": "https://pypi.org/project/dataprof/",
       "repositoryUrl": "https://github.com/AndreaBozzo/dataprof",
       "homepageUrl": "https://andreabozzo.github.io/dataprof/",
       "runtimeRequirement": "\u003e=3.10",
-      "publishedAt": "2026-07-24T22:26:01Z",
+      "publishedAt": "2026-08-25T14:40:09Z",
       "relatedCaseStudies": [
         "dataprof"
       ]
