@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-27T01:55:30Z",
+  "generatedAt": "2026-08-28T03:19:18Z",
   "source": "assets/data/package-sources.json",
   "items": [
     {
@@ -51,8 +51,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-06-22T14:44:57Z",
       "updatedAt": "2026-06-22T14:44:57Z",
-      "downloadsTotal": 295,
-      "recentDownloads": 134,
+      "downloadsTotal": 297,
+      "recentDownloads": 135,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -69,8 +69,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-06-22T14:42:45Z",
       "updatedAt": "2026-06-22T14:42:45Z",
-      "downloadsTotal": 471,
-      "recentDownloads": 210,
+      "downloadsTotal": 475,
+      "recentDownloads": 212,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -87,8 +87,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-06-22T14:46:41Z",
       "updatedAt": "2026-06-22T14:46:41Z",
-      "downloadsTotal": 291,
-      "recentDownloads": 130,
+      "downloadsTotal": 293,
+      "recentDownloads": 131,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -105,8 +105,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-08-19T12:15:56Z",
       "updatedAt": "2026-08-19T12:15:56Z",
-      "downloadsTotal": 523,
-      "recentDownloads": 229,
+      "downloadsTotal": 524,
+      "recentDownloads": 228,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -123,7 +123,7 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-08-19T12:13:48Z",
       "updatedAt": "2026-08-19T12:13:48Z",
-      "downloadsTotal": 793,
+      "downloadsTotal": 796,
       "recentDownloads": 321,
       "relatedCaseStudies": [
         "ares-ceres"
@@ -141,8 +141,8 @@
       "license": "Apache-2.0",
       "publishedAt": "2026-08-19T12:17:45Z",
       "updatedAt": "2026-08-19T12:17:45Z",
-      "downloadsTotal": 520,
-      "recentDownloads": 227,
+      "downloadsTotal": 521,
+      "recentDownloads": 226,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
