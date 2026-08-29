@@ -12,7 +12,7 @@ A curated view of the systems I actively build. Related papers, integrations, da
 
 | Project | Why it matters |
 | --- | --- |
-| [dataprof](https://github.com/AndreaBozzo/dataprof) | Arrow-native data profiling with bounded memory, shipped as a Rust crate, CLI, and Python package for repeatable quality checks. |
+| [dataprof](https://github.com/AndreaBozzo/dataprof) | Arrow-native data profiling with bounded memory, shipped as a Rust crate and Python package for repeatable quality checks. |
 | [GitNodes](https://github.com/AndreaBozzo/gitnodes) | A Git-native, typed knowledge graph that engineering teams and AI agents can explore through the web UI or MCP. |
 | [Ceres](https://github.com/AndreaBozzo/Ceres) + [Ares](https://github.com/AndreaBozzo/Ares) | Complementary collection systems: reproducible open-data harvesting and schema-driven extraction. Ceres powers a [2.7M-record open-data index](https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index) and a [Databricks analytics pipeline](https://github.com/AndreaBozzo/databricks-ceres-pipeline). |
 | [Nephtys](https://github.com/AndreaBozzo/Nephtys) | A low-footprint, multi-protocol connector for durable NATS JetStream pipelines, backed by an [IEEE UIC 2026 evaluation](https://github.com/AndreaBozzo/uic2026-nephtys). |
