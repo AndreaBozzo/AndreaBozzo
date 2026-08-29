@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-28T03:19:18Z",
+  "generatedAt": "2026-08-29T00:46:03Z",
   "source": "assets/data/package-sources.json",
   "items": [
     {
@@ -180,7 +180,7 @@
       "publishedAt": "2026-08-25T14:38:11Z",
       "updatedAt": "2026-08-25T14:38:11Z",
       "downloadsTotal": 4711,
-      "recentDownloads": 237,
+      "recentDownloads": 225,
       "relatedCaseStudies": [
         "dataprof"
       ]
