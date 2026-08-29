@@ -2,9 +2,36 @@
 
 Open source engineer building data platforms, developer tooling, and technical writing around Rust, Python, Go, and modern analytics systems.
 
-These are my projects, contributions, and writings. For more about me, see the links below..
+These are my projects, contributions, and writings. For more about me, use the links below.
 
 [Website](https://andreabozzo.github.io/AndreaBozzo/) | [Blog](https://andreabozzo.github.io/AndreaBozzo/blog/) | [LinkedIn](https://www.linkedin.com/in/andrea-bozzo-/) | [Email](mailto:andreabozzo92@gmail.com)
+
+## Selected work
+
+A curated view of the systems I actively build. Related papers, integrations, datasets, and distribution repositories are grouped with their parent project.
+
+| Project | Why it matters |
+| --- | --- |
+| [dataprof](https://github.com/AndreaBozzo/dataprof) | Arrow-native data profiling with bounded memory, shipped as a Rust crate, CLI, and Python package for repeatable quality checks. |
+| [GitNodes](https://github.com/AndreaBozzo/gitnodes) | A Git-native, typed knowledge graph that engineering teams and AI agents can explore through the web UI or MCP. |
+| [Ceres](https://github.com/AndreaBozzo/Ceres) + [Ares](https://github.com/AndreaBozzo/Ares) | Complementary collection systems: reproducible open-data harvesting and schema-driven extraction. Ceres powers a [2.7M-record open-data index](https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index) and a [Databricks analytics pipeline](https://github.com/AndreaBozzo/databricks-ceres-pipeline). |
+| [Nephtys](https://github.com/AndreaBozzo/Nephtys) | A low-footprint, multi-protocol connector for durable NATS JetStream pipelines, backed by an [IEEE UIC 2026 evaluation](https://github.com/AndreaBozzo/uic2026-nephtys). |
+
+<details>
+<summary><strong>More selected work</strong> — lakehouse, applied research, and systems experiments</summary>
+
+| Project | Focus |
+| --- | --- |
+| [dlt + dbt on Databricks](https://github.com/AndreaBozzo/dlt-dbt-databricks) | **Active** — runnable ingestion, transformation, orchestration, and quality-gate examples validated against Databricks and in DuckDB CI. |
+| [OCCAS](https://github.com/AndreaBozzo/occas) | **Released research** — a reproducible corpus connecting real PX4 flight telemetry to external operating conditions, with provenance and a citable result. |
+| [Fantabuddy](https://github.com/AndreaBozzo/fantabuddy) | **Released data product** — reproducible Serie A auction analysis turned into an offline-ready interactive report. |
+| [DCE](https://github.com/AndreaBozzo/dce) | **Pre-release** — a Rust-native engine for defining, validating, and enforcing data contracts. |
+| [Zero Grappler](https://github.com/AndreaBozzo/zero-grappler) | **Prototype** — a `no_std`, allocation-free async pipeline for embedded sensor, DSP, and inference workloads. |
+| [IcebergSharp](https://github.com/AndreaBozzo/IcebergSharp) | **In development** — a vendor-neutral .NET reader for Apache Iceberg tables without a JVM service. |
+
+</details>
+
+Browse the [full project archive](https://andreabozzo.github.io/AndreaBozzo/#workbench) or [all repositories](https://github.com/AndreaBozzo?tab=repositories).
 
 ## Open source contributions
 
@@ -13,6 +40,9 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 > This section is updated automatically via GitHub Actions.
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
+<details>
+<summary><strong>56 merged PRs across 25 upstream projects</strong> · 153.5k combined stars</summary>
+
 <p align="center">
   <img src="https://img.shields.io/badge/Projects-25-blue?style=flat-square" alt="Projects"/>
   <img src="https://img.shields.io/badge/PRs_Merged-56-success?style=flat-square" alt="PRs Merged"/>
@@ -67,7 +97,9 @@ Contributions to the broader open source ecosystem beyond my own repositories.
   <a href="https://github.com/italia-opensource/awesome-italia-opensource"><img src="https://img.shields.io/badge/awesome--italia--opensource-%E2%AD%90%20330%20%7C%201%20PR-informational?style=flat-square" alt="awesome-italia-opensource"/></a>
   <a href="https://github.com/piopy/fantacalcio-py"><img src="https://img.shields.io/badge/fantacalcio--py-%E2%AD%90%2058%20%7C%204%20PR-informational?style=flat-square" alt="fantacalcio-py"/></a>
   <a href="https://github.com/informagico/fantavibe"><img src="https://img.shields.io/badge/fantavibe-%E2%AD%90%207%20%7C%201%20PR-informational?style=flat-square" alt="fantavibe"/></a>
-</p><!-- EXTERNAL_CONTRIBUTIONS:END -->
+</p>
+
+</details><!-- EXTERNAL_CONTRIBUTIONS:END -->
 
 ## GitHub snapshot
 

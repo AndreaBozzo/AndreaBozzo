@@ -457,6 +457,16 @@ func renderContributionMarkdown(categorized map[string][]contributionRepo) strin
 	}
 
 	var buf bytes.Buffer
+	projectNoun := "projects"
+	if totalRepos == 1 {
+		projectNoun = "project"
+	}
+	prNoun := "PRs"
+	if totalPRs == 1 {
+		prNoun = "PR"
+	}
+	buf.WriteString("<details>\n")
+	buf.WriteString(fmt.Sprintf("<summary><strong>%d merged %s across %d upstream %s</strong> · %s combined stars</summary>\n\n", totalPRs, prNoun, totalRepos, projectNoun, formatStars(totalStars)))
 	buf.WriteString("<p align=\"center\">\n")
 	buf.WriteString(fmt.Sprintf("  <img src=\"https://img.shields.io/badge/Projects-%d-blue?style=flat-square\" alt=\"Projects\"/>\n", totalRepos))
 	buf.WriteString(fmt.Sprintf("  <img src=\"https://img.shields.io/badge/PRs_Merged-%d-success?style=flat-square\" alt=\"PRs Merged\"/>\n", totalPRs))
@@ -485,6 +495,7 @@ func renderContributionMarkdown(categorized map[string][]contributionRepo) strin
 		}
 		buf.WriteString("\n</p>\n\n")
 	}
+	buf.WriteString("</details>\n")
 
 	return strings.TrimRight(buf.String(), "\n")
 }

@@ -645,6 +645,27 @@ func TestReplaceBetweenMarkers(t *testing.T) {
 	}
 }
 
+func TestRenderContributionMarkdownUsesCompactDisclosure(t *testing.T) {
+	categorized := map[string][]contributionRepo{
+		"Data Ecosystem": {
+			{
+				FullName: "apache/datafusion",
+				URL:      "https://github.com/apache/datafusion",
+				Stars:    1250,
+				PRCount:  3,
+			},
+		},
+	}
+
+	markdown := renderContributionMarkdown(categorized)
+	if !strings.Contains(markdown, "<summary><strong>3 merged PRs across 1 upstream project</strong> · 1.2k combined stars</summary>") {
+		t.Fatalf("expected compact contribution summary, got %q", markdown)
+	}
+	if !strings.HasPrefix(markdown, "<details>\n") || !strings.HasSuffix(markdown, "</details>") {
+		t.Fatalf("expected contribution index to be wrapped in details, got %q", markdown)
+	}
+}
+
 func TestGithubClientGetJSONDoesNotRetryGenericForbidden(t *testing.T) {
 	originalSleep := sleepFor
 	defer func() { sleepFor = originalSleep }()
