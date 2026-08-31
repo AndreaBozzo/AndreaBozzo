@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-30T00:56:21Z",
+  "generatedAt": "2026-08-31T00:57:21Z",
   "source": "assets/data/package-sources.json",
   "items": [
     {
@@ -106,7 +106,7 @@
       "publishedAt": "2026-08-19T12:15:56Z",
       "updatedAt": "2026-08-19T12:15:56Z",
       "downloadsTotal": 524,
-      "recentDownloads": 226,
+      "recentDownloads": 225,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -124,7 +124,7 @@
       "publishedAt": "2026-08-19T12:13:48Z",
       "updatedAt": "2026-08-19T12:13:48Z",
       "downloadsTotal": 796,
-      "recentDownloads": 318,
+      "recentDownloads": 315,
       "relatedCaseStudies": [
         "ares-ceres"
       ]
@@ -142,7 +142,7 @@
       "publishedAt": "2026-08-19T12:17:45Z",
       "updatedAt": "2026-08-19T12:17:45Z",
       "downloadsTotal": 521,
-      "recentDownloads": 224,
+      "recentDownloads": 223,
       "relatedCaseStudies": [
         "ares-ceres"
       ]

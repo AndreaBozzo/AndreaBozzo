@@ -1,12 +1,12 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-08-30T00:56:19Z",
+  "generatedAt": "2026-08-31T00:57:20Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
       "name": "polars",
       "url": "https://github.com/pola-rs/polars",
-      "stars": "39.5k",
+      "stars": "39.6k",
       "prs": "3",
       "desc": "Rust-native analytics work across DataFrame performance, ergonomics, and engine behavior.",
       "language": "Rust",
@@ -144,7 +144,7 @@
     {
       "name": "datafusion",
       "url": "https://github.com/apache/datafusion",
-      "stars": "9.2k",
+      "stars": "9.3k",
       "prs": "1",
       "desc": "Query engine fixes and improvements in the Arrow-native SQL execution stack.",
       "language": "Rust",
@@ -214,15 +214,21 @@
       "name": "arrow-rs",
       "url": "https://github.com/apache/arrow-rs",
       "stars": "3.6k",
-      "prs": "3",
+      "prs": "4",
       "desc": "Rust-side work in the Arrow ecosystem around columnar data and query plumbing.",
       "language": "Rust",
       "topics": [
         "arrow",
         "parquet"
       ],
-      "lastPRMergedAt": "2026-08-10T12:20:58Z",
+      "lastPRMergedAt": "2026-08-30T21:49:41Z",
       "prList": [
+        {
+          "title": "Fix FFI import of zero-length `Utf8`/`Binary` arrays at a non-zero offset",
+          "number": 10916,
+          "url": "https://github.com/apache/arrow-rs/pull/10916",
+          "mergedAt": "2026-08-30T21:49:41Z"
+        },
         {
           "title": "Report the number of rows padded by `with_truncated_rows`",
           "number": 10579,
@@ -554,7 +560,7 @@
     {
       "name": "pg_query.rs",
       "url": "https://github.com/pganalyze/pg_query.rs",
-      "stars": "254",
+      "stars": "255",
       "prs": "1",
       "desc": "Rust and Postgres parsing work in a low-level developer tooling library.",
       "language": "Rust",
@@ -571,7 +577,7 @@
     {
       "name": "CortexBrain",
       "url": "https://github.com/CortexFlow/CortexBrain",
-      "stars": "85",
+      "stars": "86",
       "prs": "3",
       "desc": "Implementation work across infrastructure and automation-oriented platform tooling.",
       "language": "Rust",
@@ -710,7 +716,7 @@
     {
       "name": "fantavibe",
       "url": "https://github.com/informagico/fantavibe",
-      "stars": "7",
+      "stars": "8",
       "prs": "1",
       "desc": "Targeted upstream fixes and improvements in a smaller community project.",
       "language": "JavaScript",
