@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-09-01T01:02:54Z",
+  "generatedAt": "2026-09-02T04:12:10Z",
   "source": "case-study repoUrl GitHub repository metadata",
   "items": [
     {
@@ -29,7 +29,7 @@
         "rust"
       ],
       "language": "HTML",
-      "pushedAt": "2026-09-01T00:51:40Z",
+      "pushedAt": "2026-09-02T03:39:16Z",
       "defaultBranch": "main",
       "relatedCaseStudies": [
         "andreabozzo-site"
@@ -100,7 +100,7 @@
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
       "description": "High-performance data profiling \u0026 quality assessment for CSV, JSON, Parquet, pandas, polars, and Arrow. Rust core, Python API, agent-friendly outputs.",
       "stars": 20,
-      "forks": 8,
+      "forks": 7,
       "topics": [
         "apache-arrow",
         "asyncio",
@@ -122,7 +122,7 @@
         "simd"
       ],
       "language": "Rust",
-      "pushedAt": "2026-08-31T18:14:45Z",
+      "pushedAt": "2026-09-01T15:57:03Z",
       "defaultBranch": "master",
       "releases": [
         {

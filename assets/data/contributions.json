@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-09-01T01:02:40Z",
+  "generatedAt": "2026-09-02T04:11:57Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -45,7 +45,7 @@
     {
       "name": "tokio",
       "url": "https://github.com/tokio-rs/tokio",
-      "stars": "33.0k",
+      "stars": "33.1k",
       "prs": "2",
       "desc": "Async runtime improvements around Rust concurrency, scheduling, and developer ergonomics.",
       "language": "Rust",
@@ -466,7 +466,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "992",
+      "stars": "997",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",
@@ -512,7 +512,7 @@
     {
       "name": "visura-api",
       "url": "https://github.com/zornade/visura-api",
-      "stars": "670",
+      "stars": "671",
       "prs": "1",
       "desc": "visura-api is one of the upstream projects where I have shipped fixes, cleanup, or implementation work.",
       "language": "Python",
@@ -625,7 +625,7 @@
     {
       "name": "fantacalcio-py",
       "url": "https://github.com/piopy/fantacalcio-py",
-      "stars": "58",
+      "stars": "59",
       "prs": "4",
       "desc": "Small but concrete fixes in a Python project with an active user base.",
       "language": "Python",

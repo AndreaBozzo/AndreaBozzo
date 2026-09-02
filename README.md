@@ -41,12 +41,12 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
 <details>
-<summary><strong>57 merged PRs across 25 upstream projects</strong> · 153.7k combined stars</summary>
+<summary><strong>57 merged PRs across 25 upstream projects</strong> · 153.8k combined stars</summary>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Projects-25-blue?style=flat-square" alt="Projects"/>
   <img src="https://img.shields.io/badge/PRs_Merged-57-success?style=flat-square" alt="PRs Merged"/>
-  <img src="https://img.shields.io/badge/Combined_Stars-153.7k-yellow?style=flat-square" alt="Stars"/>
+  <img src="https://img.shields.io/badge/Combined_Stars-153.8k-yellow?style=flat-square" alt="Stars"/>
 </p>
 
 ### 🔬 Data Ecosystem
@@ -67,7 +67,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 ### 🦀 Rust Tooling
 
 <p>
-<a href="https://github.com/tokio-rs/tokio"><img src="https://img.shields.io/badge/tokio-%E2%AD%90%2033.0k%20%7C%202%20PR-informational?style=flat-square" alt="tokio"/></a>
+<a href="https://github.com/tokio-rs/tokio"><img src="https://img.shields.io/badge/tokio-%E2%AD%90%2033.1k%20%7C%202%20PR-informational?style=flat-square" alt="tokio"/></a>
   <a href="https://github.com/tokio-rs/axum"><img src="https://img.shields.io/badge/axum-%E2%AD%90%2027.0k%20%7C%201%20PR-informational?style=flat-square" alt="axum"/></a>
   <a href="https://github.com/apache/iceberg-rust"><img src="https://img.shields.io/badge/iceberg--rust-%E2%AD%90%201.4k%20%7C%203%20PR-informational?style=flat-square" alt="iceberg-rust"/></a>
   <a href="https://github.com/vakamo-labs/openfga-client"><img src="https://img.shields.io/badge/openfga--client-%E2%AD%90%207%20%7C%201%20PR-informational?style=flat-square" alt="openfga-client"/></a>
@@ -78,7 +78,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <p>
 <a href="https://github.com/datapizza-labs/datapizza-ai"><img src="https://img.shields.io/badge/datapizza--ai-%E2%AD%90%202.2k%20%7C%205%20PR-informational?style=flat-square" alt="datapizza-ai"/></a>
-  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-%E2%AD%90%20992%20%7C%2010%20PR-informational?style=flat-square" alt="mosaico"/></a>
+  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-%E2%AD%90%20997%20%7C%2010%20PR-informational?style=flat-square" alt="mosaico"/></a>
 </p>
 
 ### 🛠️ Infrastructure
@@ -93,9 +93,9 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 <p>
 <a href="https://github.com/microsoft/winget-pkgs"><img src="https://img.shields.io/badge/winget--pkgs-%E2%AD%90%2011.0k%20%7C%201%20PR-informational?style=flat-square" alt="winget-pkgs"/></a>
   <a href="https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2"><img src="https://img.shields.io/badge/PathOfBuilding--PoE2-%E2%AD%90%201.9k%20%7C%201%20PR-informational?style=flat-square" alt="PathOfBuilding-PoE2"/></a>
-  <a href="https://github.com/zornade/visura-api"><img src="https://img.shields.io/badge/visura--api-%E2%AD%90%20670%20%7C%201%20PR-informational?style=flat-square" alt="visura-api"/></a>
+  <a href="https://github.com/zornade/visura-api"><img src="https://img.shields.io/badge/visura--api-%E2%AD%90%20671%20%7C%201%20PR-informational?style=flat-square" alt="visura-api"/></a>
   <a href="https://github.com/italia-opensource/awesome-italia-opensource"><img src="https://img.shields.io/badge/awesome--italia--opensource-%E2%AD%90%20330%20%7C%201%20PR-informational?style=flat-square" alt="awesome-italia-opensource"/></a>
-  <a href="https://github.com/piopy/fantacalcio-py"><img src="https://img.shields.io/badge/fantacalcio--py-%E2%AD%90%2058%20%7C%204%20PR-informational?style=flat-square" alt="fantacalcio-py"/></a>
+  <a href="https://github.com/piopy/fantacalcio-py"><img src="https://img.shields.io/badge/fantacalcio--py-%E2%AD%90%2059%20%7C%204%20PR-informational?style=flat-square" alt="fantacalcio-py"/></a>
   <a href="https://github.com/informagico/fantavibe"><img src="https://img.shields.io/badge/fantavibe-%E2%AD%90%208%20%7C%201%20PR-informational?style=flat-square" alt="fantavibe"/></a>
 </p>
 
