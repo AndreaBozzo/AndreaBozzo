@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-09-03T04:08:04Z",
+  "generatedAt": "2026-09-04T04:14:46Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -466,7 +466,7 @@
     {
       "name": "mosaico",
       "url": "https://github.com/mosaico-labs/mosaico",
-      "stars": "998",
+      "stars": "1.0k",
       "prs": "10",
       "desc": "Contributions across AI workflow orchestration and open tooling.",
       "language": "Python",
@@ -625,7 +625,7 @@
     {
       "name": "fantacalcio-py",
       "url": "https://github.com/piopy/fantacalcio-py",
-      "stars": "59",
+      "stars": "60",
       "prs": "4",
       "desc": "Small but concrete fixes in a Python project with an active user base.",
       "language": "Python",

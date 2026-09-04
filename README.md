@@ -41,12 +41,12 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
 <details>
-<summary><strong>57 merged PRs across 25 upstream projects</strong> · 153.8k combined stars</summary>
+<summary><strong>57 merged PRs across 25 upstream projects</strong> · 153.9k combined stars</summary>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Projects-25-blue?style=flat-square" alt="Projects"/>
   <img src="https://img.shields.io/badge/PRs_Merged-57-success?style=flat-square" alt="PRs Merged"/>
-  <img src="https://img.shields.io/badge/Combined_Stars-153.8k-yellow?style=flat-square" alt="Stars"/>
+  <img src="https://img.shields.io/badge/Combined_Stars-153.9k-yellow?style=flat-square" alt="Stars"/>
 </p>
 
 ### 🔬 Data Ecosystem
@@ -78,7 +78,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <p>
 <a href="https://github.com/datapizza-labs/datapizza-ai"><img src="https://img.shields.io/badge/datapizza--ai-%E2%AD%90%202.2k%20%7C%205%20PR-informational?style=flat-square" alt="datapizza-ai"/></a>
-  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-%E2%AD%90%20998%20%7C%2010%20PR-informational?style=flat-square" alt="mosaico"/></a>
+  <a href="https://github.com/mosaico-labs/mosaico"><img src="https://img.shields.io/badge/mosaico-%E2%AD%90%201.0k%20%7C%2010%20PR-informational?style=flat-square" alt="mosaico"/></a>
 </p>
 
 ### 🛠️ Infrastructure
@@ -95,7 +95,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
   <a href="https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2"><img src="https://img.shields.io/badge/PathOfBuilding--PoE2-%E2%AD%90%201.9k%20%7C%201%20PR-informational?style=flat-square" alt="PathOfBuilding-PoE2"/></a>
   <a href="https://github.com/zornade/visura-api"><img src="https://img.shields.io/badge/visura--api-%E2%AD%90%20671%20%7C%201%20PR-informational?style=flat-square" alt="visura-api"/></a>
   <a href="https://github.com/italia-opensource/awesome-italia-opensource"><img src="https://img.shields.io/badge/awesome--italia--opensource-%E2%AD%90%20330%20%7C%201%20PR-informational?style=flat-square" alt="awesome-italia-opensource"/></a>
-  <a href="https://github.com/piopy/fantacalcio-py"><img src="https://img.shields.io/badge/fantacalcio--py-%E2%AD%90%2059%20%7C%204%20PR-informational?style=flat-square" alt="fantacalcio-py"/></a>
+  <a href="https://github.com/piopy/fantacalcio-py"><img src="https://img.shields.io/badge/fantacalcio--py-%E2%AD%90%2060%20%7C%204%20PR-informational?style=flat-square" alt="fantacalcio-py"/></a>
   <a href="https://github.com/informagico/fantavibe"><img src="https://img.shields.io/badge/fantavibe-%E2%AD%90%208%20%7C%201%20PR-informational?style=flat-square" alt="fantavibe"/></a>
 </p>
 
