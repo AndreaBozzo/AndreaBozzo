@@ -57,6 +57,14 @@ jobs:
       - name: Run visual smoke tests
         run: npm run test:smoke
 
+      # generate-og-images.mjs renders with resvg and loadSystemFonts, asking for
+      # "Noto Sans". The runner does not ship it, so every OG card was falling back to
+      # a monospace face and the titles overflowed their panel. Non-fatal on purpose:
+      # if the install ever fails the cards render as they did before, and the deploy
+      # still goes out.
+      - name: Install fonts for OG card rendering
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-core || true
+
       - name: Build merged site
         run: npm run build:site
 
