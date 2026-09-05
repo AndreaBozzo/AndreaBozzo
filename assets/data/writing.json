@@ -1,8 +1,62 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-09-04T04:14:46Z",
+  "generatedAt": "2026-09-05T04:10:59Z",
   "source": "blog/content/posts",
   "items": [
+    {
+      "id": "commit-barrier-iceberg-blog:en",
+      "slug": "commit-barrier-iceberg-blog",
+      "language": "en",
+      "title": "I tried to put data quality inside the commit. One pub(crate) stopped it.",
+      "summary": "A falsification experiment with a written kill list and a negative result. Delta has a purpose-built idempotent commit; iceberg-rust rebases a transaction onto a base the caller never checked, so an external writer cannot make a commit conditional. The green concurrency test was a false pass — 0 of 40 rounds ever raced — and only a failpoint showed the duplicate.",
+      "description": "A profiler tells you the data is bad after it is already durable. So I tried to make the passing report a precondition of durability, on both Delta and Iceberg, with one trait. Delta worked. Iceberg could not express the commit at all — and the reason is four lines of visibility in a library, not anything in the spec.",
+      "publishedAt": "2026-09-04T08:00:00Z",
+      "url": "./blog/en/posts/commit-barrier-iceberg-blog/",
+      "sourcePath": "blog/content/posts/commit-barrier-iceberg-blog.en.md",
+      "tags": [
+        "Rust",
+        "Apache Iceberg",
+        "Delta Lake",
+        "Data Quality",
+        "Lakehouse",
+        "Transactions",
+        "Open Source",
+        "Data Engineering"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Open Source"
+      ],
+      "wordCount": 2350,
+      "readingMinutes": 11
+    },
+    {
+      "id": "commit-barrier-iceberg-blog:it",
+      "slug": "commit-barrier-iceberg-blog",
+      "language": "it",
+      "title": "Ho provato a mettere la data quality dentro il commit. Mi ha fermato un pub(crate).",
+      "summary": "Un esperimento di falsificazione con una kill list scritta prima e un risultato negativo. Delta ha un commit idempotente fatto apposta; iceberg-rust ribasa la transazione su una base che il chiamante non ha mai controllato, quindi uno scrittore esterno non può rendere condizionale un commit. Il test di concorrenza verde era un falso positivo — 0 round su 40 hanno davvero gareggiato — e solo un failpoint ha fatto uscire il duplicato.",
+      "description": "Un profiler ti dice che i dati sono sbagliati quando sono già durevoli. Così ho provato a rendere il report che passa una precondizione della durabilità, su Delta e su Iceberg, con un solo trait. Delta ha funzionato. Iceberg non riesce proprio a esprimere quel commit — e il motivo sono quattro righe di visibilità in una libreria, non qualcosa nella specifica.",
+      "publishedAt": "2026-09-04T08:00:00Z",
+      "url": "./blog/posts/commit-barrier-iceberg-blog/",
+      "sourcePath": "blog/content/posts/commit-barrier-iceberg-blog.it.md",
+      "tags": [
+        "Rust",
+        "Apache Iceberg",
+        "Delta Lake",
+        "Data Quality",
+        "Lakehouse",
+        "Transactions",
+        "Open Source",
+        "Data Engineering"
+      ],
+      "categories": [
+        "Data Engineering",
+        "Open Source"
+      ],
+      "wordCount": 2376,
+      "readingMinutes": 11
+    },
     {
       "id": "fantabuddy-blog:en",
       "slug": "fantabuddy-blog",
