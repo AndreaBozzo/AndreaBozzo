@@ -1,12 +1,12 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-09-05T04:10:59Z",
+  "generatedAt": "2026-09-06T04:19:04Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
       "name": "polars",
       "url": "https://github.com/pola-rs/polars",
-      "stars": "39.6k",
+      "stars": "39.7k",
       "prs": "3",
       "desc": "Rust-native analytics work across DataFrame performance, ergonomics, and engine behavior.",
       "language": "Rust",
@@ -95,7 +95,7 @@
     {
       "name": "winget-pkgs",
       "url": "https://github.com/microsoft/winget-pkgs",
-      "stars": "11.0k",
+      "stars": "11.1k",
       "prs": "1",
       "desc": "winget-pkgs is one of the upstream projects where I have shipped fixes, cleanup, or implementation work.",
       "topics": [
@@ -625,7 +625,7 @@
     {
       "name": "fantacalcio-py",
       "url": "https://github.com/piopy/fantacalcio-py",
-      "stars": "60",
+      "stars": "61",
       "prs": "4",
       "desc": "Small but concrete fixes in a Python project with an active user base.",
       "language": "Python",
