@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-09-08T04:18:50Z",
+  "generatedAt": "2026-09-09T04:24:20Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -172,7 +172,7 @@
     {
       "name": "lance",
       "url": "https://github.com/lance-format/lance",
-      "stars": "7.0k",
+      "stars": "7.1k",
       "prs": "2",
       "desc": "Columnar storage and vector-data work in the Lance ecosystem.",
       "language": "Rust",
@@ -699,7 +699,7 @@
     {
       "name": "medha",
       "url": "https://github.com/ArchAI-Labs/medha",
-      "stars": "30",
+      "stars": "31",
       "prs": "1",
       "desc": "medha is one of the upstream projects where I have shipped fixes, cleanup, or implementation work.",
       "language": "Python",
