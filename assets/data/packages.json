@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-09-09T04:24:20Z",
+  "generatedAt": "2026-09-10T04:22:06Z",
   "source": "assets/data/package-sources.json",
   "items": [
     {
@@ -52,7 +52,7 @@
       "publishedAt": "2026-06-22T14:44:57Z",
       "updatedAt": "2026-06-22T14:44:57Z",
       "downloadsTotal": 306,
-      "recentDownloads": 132,
+      "recentDownloads": 131,
       "relatedCaseStudies": [
         "ares-ceres"
       ]

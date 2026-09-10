@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-09-09T04:24:20Z",
+  "generatedAt": "2026-09-10T04:22:04Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -512,7 +512,7 @@
     {
       "name": "visura-api",
       "url": "https://github.com/zornade/visura-api",
-      "stars": "671",
+      "stars": "670",
       "prs": "1",
       "desc": "visura-api is one of the upstream projects where I have shipped fixes, cleanup, or implementation work.",
       "language": "Python",
@@ -577,7 +577,7 @@
     {
       "name": "CortexBrain",
       "url": "https://github.com/CortexFlow/CortexBrain",
-      "stars": "88",
+      "stars": "89",
       "prs": "3",
       "desc": "Implementation work across infrastructure and automation-oriented platform tooling.",
       "language": "Rust",
