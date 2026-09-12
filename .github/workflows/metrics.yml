@@ -9,6 +9,27 @@ on:
     paths:
       - '.github/workflows/metrics.yml'
 
+# Every step below pins repositories_batch. The default (100) makes the action
+# ask GitHub for 100 repositories in a single GraphQL query, each with ~10
+# sub-connections (releases, deployments, environments, languages, open/closed
+# issues, open/closed/merged PRs). That query now exceeds GitHub's time budget
+# for this account and returns 502 / "we couldn't respond in time".
+#
+# The action does not recover from that: its retry path halves the batch and
+# `continue`s, but `continue` in a do...while jumps to the condition, which
+# tests a counter still at 0 on the first page — so a first-page failure exits
+# the loop with zero repositories and the run still reports success. Every
+# repository-derived figure then renders as 0 (releases, stargazers, forkers,
+# watchers, licenses, languages) with nothing in the log to say so.
+#
+# Measured against this account: first:100 fails every time, first:74 fails
+# half the time, first:60 and first:50 succeeded 10/10. 60 is the largest size
+# with a reliable margin. Note the query cost is fixed at the batch size, so
+# this does not get riskier as the account gains repositories.
+#
+# The same bug caps the fetch at one page (it breaks whenever a page is
+# smaller than the total limit), so these figures cover the 60 most recently
+# updated non-fork repositories rather than all of them — a lower bound.
 jobs:
   github-metrics:
     runs-on: ubuntu-latest
@@ -22,6 +43,7 @@ jobs:
           token: ${{ secrets.METRICS_TOKEN }}
           filename: metrics/github-stats.svg
           user: AndreaBozzo
+          repositories_batch: 60
           template: classic
           base: header, activity, community, repositories
           base_indepth: yes
@@ -35,6 +57,7 @@ jobs:
           token: ${{ secrets.METRICS_TOKEN }}
           filename: metrics/languages.svg
           user: AndreaBozzo
+          repositories_batch: 60
           template: classic
           base: ""
           plugin_languages: yes
@@ -56,6 +79,7 @@ jobs:
           token: ${{ secrets.METRICS_TOKEN }}
           filename: metrics/contributions.svg
           user: AndreaBozzo
+          repositories_batch: 60
           template: classic
           base: ""
           plugin_isocalendar: yes
