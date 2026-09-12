@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-09-11T04:21:03Z",
+  "generatedAt": "2026-09-12T04:19:43Z",
   "source": "github.com/search/issues?author=AndreaBozzo+is:merged",
   "items": [
     {
@@ -387,7 +387,7 @@
     {
       "name": "lakekeeper",
       "url": "https://github.com/lakekeeper/lakekeeper",
-      "stars": "1.4k",
+      "stars": "1.5k",
       "prs": "3",
       "desc": "Lakehouse catalog and metadata contributions around operational reliability.",
       "language": "Rust",

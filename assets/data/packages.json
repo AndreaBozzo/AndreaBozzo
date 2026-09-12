@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-09-11T04:21:05Z",
+  "generatedAt": "2026-09-12T04:19:44Z",
   "source": "assets/data/package-sources.json",
   "items": [
     {
@@ -179,8 +179,8 @@
       "license": "MIT OR Apache-2.0",
       "publishedAt": "2026-08-25T14:38:11Z",
       "updatedAt": "2026-08-25T14:38:11Z",
-      "downloadsTotal": 4745,
-      "recentDownloads": 255,
+      "downloadsTotal": 4746,
+      "recentDownloads": 256,
       "relatedCaseStudies": [
         "dataprof"
       ]
