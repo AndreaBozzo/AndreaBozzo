@@ -1,6 +1,6 @@
 {
   "$schemaVersion": "v1",
-  "generatedAt": "2026-09-12T04:19:50Z",
+  "generatedAt": "2026-09-13T04:33:21Z",
   "source": "case-study repoUrl GitHub Actions runs",
   "items": [
     {
@@ -9,14 +9,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/AndreaBozzo",
       "workflowName": "Deploy static content to Pages",
       "workflowPath": ".github/workflows/pages.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/33885696875",
-      "runsSampled": 2,
-      "medianDurationSeconds": 131,
-      "p95DurationSeconds": 133,
+      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/34681378641",
+      "runsSampled": 1,
+      "medianDurationSeconds": 123,
+      "p95DurationSeconds": 123,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-09-04T14:48:59Z"
+      "latestRunAt": "2026-09-12T07:43:20Z"
     },
     {
       "caseStudySlug": "andreabozzo-site",
@@ -24,14 +24,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/AndreaBozzo",
       "workflowName": "GitHub Metrics",
       "workflowPath": ".github/workflows/metrics.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/34671285553",
-      "runsSampled": 9,
-      "medianDurationSeconds": 184,
+      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/34736646223",
+      "runsSampled": 10,
+      "medianDurationSeconds": 179,
       "p95DurationSeconds": 224,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-09-12T03:49:36Z"
+      "latestRunAt": "2026-09-13T03:58:15Z"
     },
     {
       "caseStudySlug": "andreabozzo-site",
@@ -39,13 +39,13 @@
       "repoUrl": "https://github.com/AndreaBozzo/AndreaBozzo",
       "workflowName": "Update External Contributions",
       "workflowPath": ".github/workflows/update-contributions.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/34672692135",
+      "workflowUrl": "https://github.com/AndreaBozzo/AndreaBozzo/actions/runs/34738140976",
       "runsSampled": 8,
-      "medianDurationSeconds": 42,
+      "medianDurationSeconds": 40,
       "p95DurationSeconds": 406,
       "successRate": 0.875,
       "latestStatus": "in_progress",
-      "latestRunAt": "2026-09-12T04:19:24Z"
+      "latestRunAt": "2026-09-13T04:32:48Z"
     },
     {
       "caseStudySlug": "ares-ceres",
@@ -113,14 +113,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/Ceres",
       "workflowName": "Supabase Keepalive",
       "workflowPath": ".github/workflows/supabase-keepalive.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/Ceres/actions/runs/34586978403",
+      "workflowUrl": "https://github.com/AndreaBozzo/Ceres/actions/runs/34686172567",
       "runsSampled": 6,
       "medianDurationSeconds": 13,
       "p95DurationSeconds": 25,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-09-11T09:59:54Z"
+      "latestRunAt": "2026-09-12T09:33:51Z"
     },
     {
       "caseStudySlug": "ares-ceres",
@@ -233,14 +233,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
       "workflowName": "Benchmarks",
       "workflowPath": ".github/workflows/benchmarks.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/34656638241",
-      "runsSampled": 3,
+      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/34681463183",
+      "runsSampled": 4,
       "medianDurationSeconds": 355,
-      "p95DurationSeconds": 431,
+      "p95DurationSeconds": 432,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-09-11T23:10:28Z"
+      "latestRunAt": "2026-09-12T07:50:31Z"
     },
     {
       "caseStudySlug": "dataprof",
@@ -248,14 +248,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
       "workflowName": "CI",
       "workflowPath": ".github/workflows/ci.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/34656638227",
+      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/34681463195",
       "runsSampled": 4,
-      "medianDurationSeconds": 1391,
-      "p95DurationSeconds": 1429,
+      "medianDurationSeconds": 1414,
+      "p95DurationSeconds": 1468,
       "successRate": 0.75,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-09-11T23:28:22Z"
+      "latestRunAt": "2026-09-12T08:06:53Z"
     },
     {
       "caseStudySlug": "dataprof",
@@ -263,14 +263,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
       "workflowName": "Deploy Pages",
       "workflowPath": ".github/workflows/deploy-pages.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/34657029950",
-      "runsSampled": 2,
-      "medianDurationSeconds": 31,
-      "p95DurationSeconds": 165,
+      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/34681765449",
+      "runsSampled": 3,
+      "medianDurationSeconds": 165,
+      "p95DurationSeconds": 173,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-09-11T23:13:15Z"
+      "latestRunAt": "2026-09-12T07:53:26Z"
     },
     {
       "caseStudySlug": "dataprof",
@@ -278,29 +278,29 @@
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
       "workflowName": "Labeler",
       "workflowPath": ".github/workflows/labeler.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/34638840959",
+      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/34680138774",
       "runsSampled": 2,
-      "medianDurationSeconds": 7,
-      "p95DurationSeconds": 46,
+      "medianDurationSeconds": 8,
+      "p95DurationSeconds": 11,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-09-11T19:26:32Z"
+      "latestRunAt": "2026-09-12T07:13:07Z"
     },
     {
       "caseStudySlug": "dataprof",
       "repoFullName": "AndreaBozzo/dataprof",
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
-      "workflowName": "PR #722",
+      "workflowName": "PR #724",
       "workflowPath": "dynamic/github-code-scanning/codeql",
-      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/34638838657",
+      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/34680138122",
       "runsSampled": 2,
-      "medianDurationSeconds": 62,
+      "medianDurationSeconds": 63,
       "p95DurationSeconds": 66,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-09-11T19:27:29Z"
+      "latestRunAt": "2026-09-12T07:14:01Z"
     },
     {
       "caseStudySlug": "dataprof",
@@ -308,14 +308,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
       "workflowName": "Push on master",
       "workflowPath": "dynamic/github-code-scanning/codeql",
-      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/34656638057",
+      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/34681463056",
       "runsSampled": 1,
-      "medianDurationSeconds": 59,
-      "p95DurationSeconds": 59,
+      "medianDurationSeconds": 73,
+      "p95DurationSeconds": 73,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-09-11T23:05:32Z"
+      "latestRunAt": "2026-09-12T07:44:32Z"
     },
     {
       "caseStudySlug": "dataprof",
@@ -323,14 +323,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
       "workflowName": "Running Copilot Code Review",
       "workflowPath": "dynamic/agents/copilot-pull-request-reviewer",
-      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/34637235819",
-      "runsSampled": 2,
-      "medianDurationSeconds": 234,
-      "p95DurationSeconds": 462,
+      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/34679614684",
+      "runsSampled": 1,
+      "medianDurationSeconds": 480,
+      "p95DurationSeconds": 480,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-09-11T19:12:40Z"
+      "latestRunAt": "2026-09-12T07:08:53Z"
     },
     {
       "caseStudySlug": "dataprof",
@@ -338,14 +338,14 @@
       "repoUrl": "https://github.com/AndreaBozzo/dataprof",
       "workflowName": "Security",
       "workflowPath": ".github/workflows/security.yml",
-      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/34656638216",
-      "runsSampled": 4,
-      "medianDurationSeconds": 146,
-      "p95DurationSeconds": 149,
+      "workflowUrl": "https://github.com/AndreaBozzo/dataprof/actions/runs/34681463197",
+      "runsSampled": 3,
+      "medianDurationSeconds": 141,
+      "p95DurationSeconds": 141,
       "successRate": 1,
       "latestStatus": "completed",
       "latestConclusion": "success",
-      "latestRunAt": "2026-09-11T23:06:32Z"
+      "latestRunAt": "2026-09-12T07:45:40Z"
     },
     {
       "caseStudySlug": "dce",
