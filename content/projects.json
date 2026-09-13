@@ -1,0 +1,1813 @@
+[
+  {
+    "slug": "dataprof",
+    "stack": [
+      "Rust",
+      "Python",
+      "Apache Arrow",
+      "Data quality"
+    ],
+    "title": "dataprof",
+    "displayTitle": "dataprof",
+    "subtitle": "Bounded-memory profiling for files, DataFrames, and Arrow streams.",
+    "summary": "A beta Rust crate and Python package for understanding unfamiliar tabular data: shape, types, statistics, quality signals, and comparable reports. The CLI belongs to historical releases.",
+    "metaDescription": "Bounded-memory profiling for files, DataFrames, and Arrow streams.",
+    "sections": [
+      {
+        "heading": "Broader inputs, a smaller Python install",
+        "body": "The current Python wheel supports local files, dictionaries, byte buffers, async HTTP profiling, and Arrow-compatible inputs. Database connectors remain a source-build feature. Reports can be saved, compared, rendered as Markdown, or summarized for an agent."
+      },
+      {
+        "heading": "Correctness before a prettier score",
+        "body": "Recent work covers Arrow C Stream inputs, complete traversal of chunked tables, Parquet sample coverage, stable numeric aggregation, and consistent empty-source behavior. Reports disclose when no quality assessment was possible instead of presenting missing evidence as a perfect score."
+      }
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/AndreaBozzo/dataprof"
+      },
+      {
+        "label": "Arrow C Stream support",
+        "url": "https://github.com/AndreaBozzo/dataprof/pull/706"
+      },
+      {
+        "label": "Quality assessment semantics",
+        "url": "https://github.com/AndreaBozzo/dataprof/pull/722"
+      },
+      {
+        "label": "Python package",
+        "url": "https://pypi.org/project/dataprof/"
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "dataprof",
+        "displayTitle": "dataprof",
+        "subtitle": "Profilazione a memoria limitata per file, DataFrame e stream Arrow.",
+        "summary": "Un crate Rust e un pacchetto Python in beta per capire dati tabulari sconosciuti: struttura, tipi, statistiche, segnali di qualità e report confrontabili. La CLI appartiene alle release storiche.",
+        "metaDescription": "Profilazione a memoria limitata per file, DataFrame e stream Arrow.",
+        "sections": [
+          {
+            "heading": "Più input, un’installazione Python essenziale",
+            "body": "La wheel Python supporta file locali, dizionari, buffer di byte, profiling HTTP asincrono e input compatibili con Arrow. I connettori database richiedono ancora una build da sorgente. I report si salvano, confrontano, rendono in Markdown o riassumono per un agente."
+          },
+          {
+            "heading": "Correttezza prima di un punteggio più bello",
+            "body": "Il lavoro recente copre Arrow C Stream, lettura completa delle tabelle a chunk, copertura del campionamento Parquet, aggregazioni numeriche stabili e gestione coerente delle sorgenti vuote. I report esplicitano quando non è stato possibile valutare la qualità."
+          }
+        ],
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/AndreaBozzo/dataprof"
+          },
+          {
+            "label": "Supporto Arrow C Stream",
+            "url": "https://github.com/AndreaBozzo/dataprof/pull/706"
+          },
+          {
+            "label": "Semantica della valutazione di qualità",
+            "url": "https://github.com/AndreaBozzo/dataprof/pull/722"
+          },
+          {
+            "label": "Pacchetto Python",
+            "url": "https://pypi.org/project/dataprof/"
+          }
+        ]
+      }
+    },
+    "reviewedAt": "2026-09-13"
+  },
+  {
+    "slug": "apache-rust-upstream",
+    "title": "Apache Rust Upstream",
+    "displayTitle": "Apache Rust Contributions",
+    "subtitle": "Upstream contributions across Arrow, DataFusion, Iceberg Rust, and Fluss Rust driven by real downstream system work.",
+    "summary": "A contribution-oriented case study about using Apache Rust projects as the place to fix recurring system constraints: Parquet reader behavior in arrow-rs, query-engine surfaces in DataFusion, table semantics in iceberg-rust, and streaming client integration in fluss-rust.",
+    "metaDescription": "Upstream contributions to Apache Arrow, DataFusion, Iceberg Rust, and Fluss Rust driven by real downstream system constraints, not vague familiarity.",
+    "stack": [
+      "Apache Arrow",
+      "DataFusion",
+      "Iceberg Rust",
+      "Fluss Rust",
+      "Rust OSS"
+    ],
+    "actions": [
+      {
+        "label": "Apache Arrow",
+        "url": "https://github.com/apache/arrow-rs",
+        "style": "primary"
+      },
+      {
+        "label": "Iceberg Rust",
+        "url": "https://github.com/apache/iceberg-rust",
+        "style": "secondary"
+      },
+      {
+        "label": "Fluss Rust",
+        "url": "https://github.com/apache/fluss-rust",
+        "style": "secondary"
+      },
+      {
+        "label": "Arrow article",
+        "url": "../../blog/en/posts/arrowfordataprof-blog/",
+        "style": "secondary"
+      },
+      {
+        "label": "Recent merged contribution",
+        "url": "https://github.com/apache/arrow-rs/pull/10916"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Summer 2026: Arrow correctness",
+        "body": "Two merged Arrow PRs address padded-row accounting and importing zero-length Utf8/Binary arrays at a non-zero offset. The latter connects directly to the Arrow input work in dataprof. The separate Iceberg stale-base reproduction is an experiment, not a merged upstream fix."
+      },
+      {
+        "heading": "Why it exists",
+        "body": "The value in upstream contribution work is not collecting project logos. It is using the actual substrate of your own systems as the place to remove repeated friction instead of carrying forks, custom docs, or private patches forever. For Rust data work, that substrate is increasingly shared across projects: Arrow memory, DataFusion execution, Iceberg table metadata, and streaming clients all become part of the same practical dependency chain."
+      },
+      {
+        "heading": "Technical center",
+        "body": "This contribution track spans the lower layers of the Rust data stack: Parquet reader behavior and examples in arrow-rs, Arrow-native query execution surfaces in DataFusion, table metadata and interoperability concerns in iceberg-rust, and streaming client and integration work in fluss-rust. The work is deliberately close to interfaces and examples because those are the points where downstream tools either become easy to build or quietly inherit confusing edge cases."
+      },
+      {
+        "heading": "Current proof points",
+        "body": "The public repository already shows a concrete footprint rather than vague affiliation: 2 PRs tracked for apache/arrow-rs, 1 for apache/datafusion, 3 for apache/iceberg-rust, and 2 for apache/fluss-rust. The Arrow and Iceberg work is also explained in long-form articles, which matters because the contribution trail is connected back to downstream tools like dataprof and streaming lakehouse experiments instead of sitting as isolated pull requests."
+      }
+    ],
+    "coverImage": "../../assets/images/case-studies/apache-rust-contrib-map.svg",
+    "coverAlt": "Map of contributions across arrow-rs, DataFusion, iceberg-rust, and fluss-rust",
+    "coverText": "When local tools hit substrate limits, the right fix is often to move one layer down and improve the underlying Apache project instead of carrying the problem privately.",
+    "mediaSlots": [
+      {
+        "label": "Contribution map",
+        "kind": "diagram",
+        "image": "../../assets/images/case-studies/apache-rust-contrib-map.svg",
+        "alt": "Contribution map across Apache Rust projects",
+        "caption": "Arrow, query execution, table metadata, and streaming client layers treated as one upstream surface."
+      },
+      {
+        "label": "Public proof",
+        "kind": "note",
+        "image": "../../assets/images/case-studies/apache-rust-proof-points.svg",
+        "alt": "Proof points for Apache Rust upstream contributions",
+        "caption": "Public README badges and long-form writing already expose the Arrow, DataFusion, Iceberg Rust, and Fluss Rust contribution trail."
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "Apache Rust Upstream",
+        "subtitle": "Contribuzioni upstream su Arrow, DataFusion, Iceberg Rust e Fluss Rust guidate dal lavoro reale sui sistemi downstream.",
+        "summary": "Un case study orientato alla contribuzione che usa i progetti Apache Rust come luogo in cui risolvere vincoli ricorrenti di sistema: comportamento dei reader Parquet in arrow-rs, superfici del motore di query in DataFusion, semantica delle tabelle in iceberg-rust e integrazione del client streaming in fluss-rust.",
+        "metaDescription": "Contribuzioni upstream su Apache Arrow, DataFusion, Iceberg Rust e Fluss Rust legate ai vincoli reali dei sistemi downstream.",
+        "sections": [
+          {
+            "heading": "Estate 2026: correttezza Arrow",
+            "body": "Due PR Arrow integrate riguardano il conteggio delle righe completate e l’import di array Utf8/Binary vuoti con offset non nullo. Il secondo caso si collega agli input Arrow di dataprof. La riproduzione Iceberg è un esperimento, non una correzione upstream integrata."
+          },
+          {
+            "heading": "Perché esiste",
+            "body": "Il valore del lavoro di contribuzione upstream non è collezionare loghi di progetti. È usare il substrato effettivo dei propri sistemi come luogo in cui rimuovere attriti ricorrenti, invece di portarsi dietro fork, documentazione custom o patch private per sempre. Per il lavoro dati in Rust quel substrato è sempre più condiviso tra progetti: memoria Arrow, esecuzione DataFusion, metadata delle tabelle Iceberg e client streaming diventano parte della stessa catena pratica di dipendenze."
+          },
+          {
+            "heading": "Centro tecnico",
+            "body": "Questa traccia di contribuzioni copre gli strati bassi dello stack dati Rust: comportamento ed esempi dei reader Parquet in arrow-rs, superfici di esecuzione query Arrow-native in DataFusion, metadata delle tabelle e interoperabilità in iceberg-rust e lavoro su client streaming e integrazione in fluss-rust. Il lavoro è volutamente vicino alle interfacce e agli esempi perché sono i punti in cui i tool downstream diventano facili da costruire o ereditano silenziosamente edge case confusi."
+          },
+          {
+            "heading": "Prove correnti",
+            "body": "Il repository pubblico mostra già un'impronta concreta invece di una vaga affiliazione: 2 PR tracciate per apache/arrow-rs, 1 per apache/datafusion, 3 per apache/iceberg-rust e 2 per apache/fluss-rust. Il lavoro su Arrow e Iceberg è anche raccontato in articoli lunghi, e questo conta perché la scia delle contribuzioni viene ricollegata a tool downstream come dataprof e agli esperimenti streaming lakehouse, invece di rimanere come pull request isolate."
+          }
+        ],
+        "coverAlt": "Mappa delle contribuzioni su arrow-rs, DataFusion, iceberg-rust e fluss-rust",
+        "coverText": "Quando i tool locali raggiungono i limiti del substrato, la correzione giusta è spesso scendere di un livello e migliorare il progetto Apache sottostante invece di portarsi dietro il problema in privato.",
+        "actions": [
+          {
+            "label": "Apache Arrow",
+            "url": "https://github.com/apache/arrow-rs",
+            "style": "primary"
+          },
+          {
+            "label": "Iceberg Rust",
+            "url": "https://github.com/apache/iceberg-rust",
+            "style": "secondary"
+          },
+          {
+            "label": "Fluss Rust",
+            "url": "https://github.com/apache/fluss-rust",
+            "style": "secondary"
+          },
+          {
+            "label": "Articolo su Arrow",
+            "url": "../../blog/en/posts/arrowfordataprof-blog/",
+            "style": "secondary"
+          },
+          {
+            "label": "Contribuzione recente integrata",
+            "url": "https://github.com/apache/arrow-rs/pull/10916"
+          }
+        ]
+      }
+    },
+    "reviewedAt": "2026-09-13"
+  },
+  {
+    "slug": "ares-ceres",
+    "stack": [
+      "Rust",
+      "Open data",
+      "PostgreSQL",
+      "Structured extraction"
+    ],
+    "title": "Ceres + Ares",
+    "displayTitle": "Ceres + Ares",
+    "subtitle": "From fragmented public sources to a reusable catalog and structured data.",
+    "summary": "Ceres synchronizes open-data metadata; Ares extracts schema-validated information from web pages. They address different stages of collecting useful data.",
+    "metaDescription": "From fragmented public sources to a reusable catalog and structured data.",
+    "sections": [
+      {
+        "heading": "Ceres: harvesting comes first",
+        "body": "Ceres now documents ten harvest paths, including CSW, STAC, and SDMX, alongside CKAN and DCAT variants. Recent work adds statistical dataflows and fixes partial CSW harvests and oversized SPARQL distributions. Parquet snapshots carry manifests, checksums, coverage reports, and changelogs; embeddings remain optional."
+      },
+      {
+        "heading": "Ares and the downstream work",
+        "body": "Ares supports hosted or local extraction with JSON Schema validation, persistent jobs, and operational controls. Ceres feeds a separate Databricks medallion pipeline and a natural-language discovery project built with Agent Bricks. These companion repositories are grouped here rather than presented as unrelated products."
+      }
+    ],
+    "actions": [
+      {
+        "label": "Ceres repository",
+        "url": "https://github.com/AndreaBozzo/Ceres"
+      },
+      {
+        "label": "Ares repository",
+        "url": "https://github.com/AndreaBozzo/Ares"
+      },
+      {
+        "label": "Public data index",
+        "url": "https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index"
+      },
+      {
+        "label": "Databricks pipeline",
+        "url": "https://github.com/AndreaBozzo/databricks-ceres-pipeline"
+      },
+      {
+        "label": "Discovery agent",
+        "url": "https://github.com/AndreaBozzo/ceres-discovery-agent"
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "Ceres + Ares",
+        "displayTitle": "Ceres + Ares",
+        "subtitle": "Da fonti pubbliche frammentate a un catalogo riutilizzabile e dati strutturati.",
+        "summary": "Ceres sincronizza metadati open data; Ares estrae informazioni validate rispetto a uno schema dalle pagine web. Coprono fasi diverse della raccolta di dati utili.",
+        "metaDescription": "Da fonti pubbliche frammentate a un catalogo riutilizzabile e dati strutturati.",
+        "sections": [
+          {
+            "heading": "Ceres: prima la raccolta",
+            "body": "Ceres documenta dieci percorsi di raccolta, inclusi CSW, STAC e SDMX oltre alle varianti CKAN e DCAT. Il lavoro recente aggiunge dataflow statistici e corregge raccolte CSW parziali e distribuzioni SPARQL troppo grandi. Gli snapshot Parquet includono manifest, checksum, report di copertura e changelog; gli embedding restano opzionali."
+          },
+          {
+            "heading": "Ares e i progetti a valle",
+            "body": "Ares supporta estrazione locale o hosted con validazione JSON Schema, job persistenti e controlli operativi. Ceres alimenta una pipeline medallion Databricks e un progetto di ricerca in linguaggio naturale basato su Agent Bricks. I repository collegati sono raccolti qui come parti dello stesso lavoro."
+          }
+        ],
+        "actions": [
+          {
+            "label": "Repository Ceres",
+            "url": "https://github.com/AndreaBozzo/Ceres"
+          },
+          {
+            "label": "Repository Ares",
+            "url": "https://github.com/AndreaBozzo/Ares"
+          },
+          {
+            "label": "Indice dati pubblico",
+            "url": "https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index"
+          },
+          {
+            "label": "Pipeline Databricks",
+            "url": "https://github.com/AndreaBozzo/databricks-ceres-pipeline"
+          },
+          {
+            "label": "Agente di ricerca",
+            "url": "https://github.com/AndreaBozzo/ceres-discovery-agent"
+          }
+        ]
+      }
+    },
+    "reviewedAt": "2026-09-13"
+  },
+  {
+    "slug": "mosaico",
+    "title": "Mosaico",
+    "subtitle": "Contribution work on an open data platform for robotics and physical AI.",
+    "summary": "A contribution-oriented case study around workflow boundaries, developer ergonomics, and data-platform integration surfaces in Mosaico.",
+    "stack": [
+      "Python",
+      "Robotics",
+      "Physical AI",
+      "Data Platform",
+      "Open Source"
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/AndreaBozzo/mosaico",
+        "style": "primary"
+      },
+      {
+        "label": "Related article",
+        "url": "../../blog/en/posts/mosaico-blog/",
+        "style": "secondary"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Why it exists",
+        "body": "Robotics and physical-AI systems are both research environments and production candidates at the same time. Teams need fast iteration, but they also need reproducible datasets, reliable jobs, and interfaces that hold up once multiple engineers start depending on them. Mosaico is interesting precisely because it has to serve both modes without collapsing into either one."
+      },
+      {
+        "heading": "Technical center",
+        "body": "The contribution work sits at integration boundaries: SDK and backend contracts, CI behavior, query ergonomics, and the places where orchestration has to stay debuggable for the next engineer. Each PR targets a seam where platform code meets messy real-world robotics workflows — the spots where convenience abstractions tend to leak the most."
+      },
+      {
+        "heading": "Current proof points",
+        "body": "The visible contribution history lands on the workflow boundaries that decide whether a robotics data platform stays usable across teams: CI reliability, query ergonomics, and SDK-server compatibility. The case study treats contribution work as a way to learn a platform from the inside, not as a detached summary."
+      }
+    ],
+    "coverImage": "../blog/images/Mosaico-architecture.png",
+    "coverAlt": "Mosaico architecture diagram",
+    "coverText": "Upstream contributions at the SDK, CI, and orchestration boundaries that decide whether a research platform survives multi-team use.",
+    "mediaSlots": [
+      {
+        "label": "Platform cover",
+        "kind": "screenshot",
+        "image": "../blog/images/Mosaico-Cover.svg",
+        "alt": "Mosaico project cover artwork",
+        "caption": "Monorepo surface for SDK plus backend."
+      },
+      {
+        "label": "System architecture",
+        "kind": "personal-note",
+        "image": "../blog/images/Mosaico-architecture.png",
+        "alt": "Mosaico architecture diagram",
+        "caption": "Client-server data platform shape."
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "Mosaico",
+        "subtitle": "Lavoro di contribuzione su una piattaforma dati open per robotica e AI fisica.",
+        "summary": "Un case study orientato alla contribuzione su confini di workflow, ergonomia per sviluppatori e superfici di integrazione di piattaforma dati in Mosaico.",
+        "metaDescription": "Mosaico: contribuzioni su una piattaforma dati open per robotica e physical AI, focalizzate su workflow boundary ed ergonomia SDK.",
+        "sections": [
+          {
+            "heading": "Perché esiste",
+            "body": "I sistemi di robotica e physical-AI sono allo stesso tempo ambienti di ricerca e candidati alla produzione. I team hanno bisogno di iterazione veloce, ma anche di dataset riproducibili, job affidabili e interfacce che reggano quando più ingegneri iniziano a dipenderne. Mosaico è interessante proprio perché deve servire entrambe le modalità senza collassare in nessuna delle due."
+          },
+          {
+            "heading": "Centro tecnico",
+            "body": "Il lavoro di contribuzione sta ai confini dell'integrazione: contratti SDK e backend, comportamento della CI, ergonomia delle query e i punti in cui l'orchestrazione deve restare debug-friendly per l'ingegnere successivo. Ogni PR mira a una giuntura in cui il codice di piattaforma incontra workflow di robotica reali e disordinati — i posti dove le astrazioni di comodo perdono di più."
+          },
+          {
+            "heading": "Prove correnti",
+            "body": "La cronologia visibile delle contribuzioni cade sui confini di workflow che decidono se una piattaforma dati per robotica resta usabile tra team: affidabilità della CI, ergonomia delle query e compatibilità SDK-server. Il case study tratta il lavoro di contribuzione come modo per imparare una piattaforma dall'interno, non come riassunto distaccato."
+          }
+        ],
+        "coverAlt": "Diagramma architetturale di Mosaico",
+        "coverText": "Contribuzioni upstream sui confini di SDK, CI e orchestrazione che decidono se una piattaforma di ricerca sopravvive all'uso multi-team.",
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/AndreaBozzo/mosaico",
+            "style": "primary"
+          },
+          {
+            "label": "Articolo collegato",
+            "url": "../../blog/en/posts/mosaico-blog/",
+            "style": "secondary"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "slug": "zero-grappler",
+    "title": "Zero Grappler",
+    "subtitle": "Minimal no_std async sensor-to-inference pipelines for embedded Rust.",
+    "summary": "A prototype crate for wiring async sources, DSP transforms, and inference stages together through Embassy channels with zero allocations.",
+    "stack": [
+      "Rust",
+      "Embedded",
+      "no_std",
+      "Embassy",
+      "TinyML"
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/AndreaBozzo/zero-grappler",
+        "style": "primary"
+      },
+      {
+        "label": "Related article",
+        "url": "../../blog/en/posts/embassyembeddedml-blog/",
+        "style": "secondary"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Why it exists",
+        "body": "Embedded ML examples often entangle hardware access, feature extraction, and inference logic, which makes reuse harder than it should be. Zero Grappler exists to separate those responsibilities early, so a sensor pipeline can be reasoned about as source, transform, and inference stages instead of one tightly coupled demo that only works on a single board."
+      },
+      {
+        "heading": "Technical center",
+        "body": "The crate splits the pipeline into three traits, keeps buffer sizes at compile time, routes stages through Embassy channels, and avoids heap allocation entirely. That structure is intentionally boring in the best embedded sense: types carry the buffer constraints, async tasks carry the scheduling model, and the runtime path stays compatible with no_std targets."
+      },
+      {
+        "heading": "Current proof points",
+        "body": "Even before the first full board demo, the design is already grounded by the no-allocation trait split, monomorphic Embassy task wrappers, the host-side mock example, and a documented bill of materials that keeps the first public hardware loop realistic rather than hypothetical. The next meaningful proof is not a bigger abstraction, but a small end-to-end sensor loop that shows the trait split surviving contact with real timing and memory limits."
+      }
+    ],
+    "coverImage": "../blog/images/zerograpplerarchitecture.png",
+    "coverAlt": "Zero Grappler pipeline architecture",
+    "mediaSlots": [
+      {
+        "label": "Pipeline architecture",
+        "kind": "diagram",
+        "image": "../blog/images/zerograpplerarchitecture.png",
+        "alt": "Zero Grappler architecture diagram",
+        "caption": "Sensor, DSP, and inference stages."
+      },
+      {
+        "label": "Hardware bill",
+        "kind": "personal-photo",
+        "image": "../blog/images/zerograpplercost_estimation.png",
+        "alt": "Zero Grappler hardware cost estimation graphic",
+        "caption": "Pico 2 W starter kit and budget."
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "Zero Grappler",
+        "subtitle": "Pipeline async minimali sensor-to-inference no_std per Rust embedded.",
+        "summary": "Un crate prototipo per cablare fonti async, trasformazioni DSP e stadi di inferenza attraverso canali Embassy con zero allocazioni.",
+        "metaDescription": "Zero Grappler: pipeline async no_std per sensori e inferenza in Rust embedded, basate su canali Embassy e zero allocazioni.",
+        "sections": [
+          {
+            "heading": "Perché esiste",
+            "body": "Gli esempi di ML embedded spesso intrecciano accesso hardware, estrazione di feature e logica di inferenza, rendendo il riuso più difficile di quanto dovrebbe essere. Zero Grappler esiste per separare presto queste responsabilità, così una pipeline da sensore può essere ragionata come stadi di source, transform e inference invece che come una singola demo accoppiata che funziona solo su una board."
+          },
+          {
+            "heading": "Centro tecnico",
+            "body": "Il crate divide la pipeline in tre trait, tiene le dimensioni dei buffer fissate a compile-time, instrada gli stadi attraverso canali Embassy ed evita completamente l'allocazione su heap. Quella struttura è intenzionalmente noiosa nel miglior senso embedded: i tipi portano i vincoli sui buffer, i task async portano il modello di scheduling e il percorso di runtime resta compatibile con target no_std."
+          },
+          {
+            "heading": "Prove correnti",
+            "body": "Anche prima della prima demo completa su board, il design è già ancorato dalla separazione dei trait senza allocazione, dai wrapper monomorfi per i task Embassy, dall'esempio mock lato host e da una distinta materiali documentata che mantiene realistico il primo loop hardware pubblico invece di renderlo ipotetico. La prossima prova significativa non è un'astrazione più grande, ma un piccolo loop end-to-end da sensore che mostri la separazione dei trait sopravvivere al contatto con limiti reali di tempo e memoria."
+          }
+        ],
+        "coverAlt": "Architettura della pipeline Zero Grappler",
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/AndreaBozzo/zero-grappler",
+            "style": "primary"
+          },
+          {
+            "label": "Articolo collegato",
+            "url": "../../blog/en/posts/embassyembeddedml-blog/",
+            "style": "secondary"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "slug": "nephtys",
+    "stack": [
+      "Go",
+      "NATS JetStream",
+      "Streaming",
+      "Edge"
+    ],
+    "title": "Nephtys",
+    "displayTitle": "Nephtys",
+    "subtitle": "Durable stream ingestion in a small Go service.",
+    "summary": "Nephtys normalizes WebSocket, SSE, REST polling, webhook, and gRPC sources into durable JetStream events, with dynamically managed stream configurations.",
+    "metaDescription": "Durable stream ingestion in a small Go service.",
+    "sections": [
+      {
+        "heading": "A supervised lifecycle",
+        "body": "Recent work gives each stream a bounded restart policy, persists registration before reporting success, exposes effective configuration, and separates liveness from readiness. A shared conformance and fault-injection suite exercises connector reliability; replay recipes document recovery."
+      },
+      {
+        "heading": "An edge evaluation with an honest limit",
+        "body": "The UIC companion repository includes reproducible sensor workloads and a Raspberry Pi 5 comparison. Nephtys used substantially less resident memory than Node-RED in that workload, but the whole-board power measurements did not establish an energy saving."
+      }
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/AndreaBozzo/Nephtys"
+      },
+      {
+        "label": "Connector reliability tests",
+        "url": "https://github.com/AndreaBozzo/Nephtys/pull/77"
+      },
+      {
+        "label": "Paper and benchmarks",
+        "url": "https://github.com/AndreaBozzo/uic2026-nephtys"
+      },
+      {
+        "label": "Replay recipe",
+        "url": "https://github.com/AndreaBozzo/Nephtys/pull/76"
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "Nephtys",
+        "displayTitle": "Nephtys",
+        "subtitle": "Ingestion di stream durevole in un piccolo servizio Go.",
+        "summary": "Nephtys normalizza sorgenti WebSocket, SSE, polling REST, webhook e gRPC in eventi JetStream durevoli, con configurazioni gestibili dinamicamente.",
+        "metaDescription": "Ingestion di stream durevole in un piccolo servizio Go.",
+        "sections": [
+          {
+            "heading": "Un ciclo di vita supervisionato",
+            "body": "Il lavoro recente assegna a ogni stream una politica di riavvio limitata, persiste la registrazione prima di dichiararla riuscita, espone la configurazione effettiva e separa liveness e readiness. Test comuni di conformità e fault injection verificano l’affidabilità; le ricette di replay documentano il recupero."
+          },
+          {
+            "heading": "Una valutazione edge con un limite esplicito",
+            "body": "Il repository del paper UIC include carichi sensore riproducibili e un confronto su Raspberry Pi 5. Nel carico misurato Nephtys usa molta meno memoria residente di Node-RED, ma le misure alla presa non dimostrano un risparmio energetico."
+          }
+        ],
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/AndreaBozzo/Nephtys"
+          },
+          {
+            "label": "Test di affidabilità dei connettori",
+            "url": "https://github.com/AndreaBozzo/Nephtys/pull/77"
+          },
+          {
+            "label": "Paper e benchmark",
+            "url": "https://github.com/AndreaBozzo/uic2026-nephtys"
+          },
+          {
+            "label": "Ricetta di replay",
+            "url": "https://github.com/AndreaBozzo/Nephtys/pull/76"
+          }
+        ]
+      }
+    },
+    "reviewedAt": "2026-09-13"
+  },
+  {
+    "slug": "dce",
+    "title": "DCE",
+    "subtitle": "Proactive data contracts enforcement built from dataprof's profiling core.",
+    "summary": "Pre-release Rust data-contract engine. It explores schema and quality validation across table formats and is not ready for production use.",
+    "metaDescription": "DCE: a Rust-native engine for defining, validating, and enforcing data contracts across modern table formats, built from dataprof's profiling core.",
+    "stack": [
+      "Rust",
+      "Data Contracts",
+      "Data Quality",
+      "Iceberg",
+      "YAML"
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/AndreaBozzo/dce",
+        "style": "primary"
+      },
+      {
+        "label": "Related article",
+        "url": "../../blog/en/posts/tabularmlpipes-blog/",
+        "style": "secondary"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Why it exists",
+        "body": "Profiling is useful after the fact, but data platforms also need an explicit way to define what must be true before pipelines keep moving. DCE extends the dataprof line of work toward enforcement: instead of only describing a dataset, the system should be able to fail a run when contracts around schema, quality, or table semantics are violated."
+      },
+      {
+        "heading": "Technical center",
+        "body": "DCE grows out of dataprof by moving from observation to enforcement: contract definitions, validation commands, and table-format-aware checks become the center of the workflow. The technical challenge is keeping contracts expressive enough for real data platforms while making them practical to run from a CLI, CI job, or future orchestration layer without creating another heavyweight governance product."
+      },
+      {
+        "heading": "Current proof points",
+        "body": "The shift from profiler to contract engine is already visible in the public repo through Iceberg-aware validation, explicit known limitations for non-Iceberg formats, 194 tests across packages, and a roadmap that makes the next steps in SQL execution and multi-format validation explicit. The useful signal is that limitations are documented alongside the implementation, which keeps the project honest about what can be enforced today and what still needs engineering work."
+      }
+    ],
+    "coverImage": "../../assets/images/case-studies/dce-logo.png",
+    "coverAlt": "DCE project logo",
+    "coverText": "Move from reactive profiling to explicit contracts that can fail fast inside data workflows.",
+    "mediaSlots": [
+      {
+        "label": "Contract example",
+        "kind": "spec",
+        "image": "../../assets/images/case-studies/dce-contract-example.svg",
+        "alt": "DCE contract example card",
+        "caption": "Iceberg contract fields and quality rules."
+      },
+      {
+        "label": "Validation run",
+        "kind": "terminal",
+        "image": "../../assets/images/case-studies/dce-cli-validate.svg",
+        "alt": "DCE CLI validation card",
+        "caption": "Validate, init, and check flows."
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "DCE",
+        "subtitle": "Enforcement proattivo dei data contract costruito dal core di profilazione di dataprof.",
+        "summary": "Motore Rust di data contract in pre-release. Esplora la validazione di schema e qualità tra formati tabellari e non è pronto per l’uso in produzione.",
+        "metaDescription": "DCE: motore Rust-native per definire e applicare data contract su formati di tabella moderni, costruito dal core di dataprof.",
+        "sections": [
+          {
+            "heading": "Perché esiste",
+            "body": "La profilazione è utile a posteriori, ma le piattaforme dati hanno bisogno anche di un modo esplicito per definire cosa deve essere vero prima che le pipeline vadano avanti. DCE estende la linea di lavoro di dataprof verso l'enforcement: invece di solo descrivere un dataset, il sistema deve poter far fallire un run quando i contratti su schema, qualità o semantica della tabella vengono violati."
+          },
+          {
+            "heading": "Centro tecnico",
+            "body": "DCE cresce da dataprof spostandosi dall'osservazione all'enforcement: definizioni di contratti, comandi di validazione e controlli consapevoli del formato di tabella diventano il centro del workflow. La sfida tecnica è tenere i contratti abbastanza espressivi per piattaforme dati reali rendendoli al tempo stesso pratici da eseguire da CLI, job CI o futuri layer di orchestrazione, senza creare un altro prodotto di governance pesante."
+          },
+          {
+            "heading": "Prove correnti",
+            "body": "Lo spostamento da profiler a contract engine è già visibile nel repo pubblico tramite validazione Iceberg-aware, limitazioni note esplicite per formati non-Iceberg, 194 test tra i package e una roadmap che rende esplicite le prossime tappe su esecuzione SQL e validazione multi-formato. Il segnale utile è che le limitazioni sono documentate accanto all'implementazione, e questo tiene il progetto onesto su cosa può essere enforced oggi e cosa ha ancora bisogno di lavoro ingegneristico."
+          }
+        ],
+        "coverAlt": "Logo del progetto DCE",
+        "coverText": "Passare dalla profilazione reattiva a contratti espliciti che possono fallire in fretta dentro i workflow dati.",
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/AndreaBozzo/dce",
+            "style": "primary"
+          },
+          {
+            "label": "Articolo collegato",
+            "url": "../../blog/en/posts/tabularmlpipes-blog/",
+            "style": "secondary"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "slug": "lakehouse-starter-kit",
+    "title": "Open Lakehouse Starter",
+    "subtitle": "A small-team lakehouse stack with dlt, dbt, Superset, and MinIO.",
+    "summary": "An open starter environment for small teams that combines ingestion, transformation, storage, and dashboards in a light but expandable lakehouse setup.",
+    "stack": [
+      "Python",
+      "Lakehouse",
+      "dlt",
+      "dbt",
+      "Superset"
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/AndreaBozzo/LakehouseStarterKit",
+        "style": "primary"
+      },
+      {
+        "label": "Related article",
+        "url": "../../blog/en/posts/finops-ai-lakehouse-blog/",
+        "style": "secondary"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Why it exists",
+        "body": "Small teams often need a usable lakehouse before they need platform complexity, so the real challenge is choosing a stack that starts light without painting the team into a corner. This starter exists for the moment before a team has a full platform group: they still need ingestion, transformations, dashboards, and object storage, but they need them in a shape that can be understood and replaced piece by piece."
+      },
+      {
+        "heading": "Technical center",
+        "body": "The project combines dlt ingestion, dbt transformations, Superset dashboards, and MinIO-backed object storage into a setup that is intentionally simple to start and expandable later. Each component has a clear job: dlt moves data in, dbt makes transformations explicit, Superset gives immediate analytical feedback, and MinIO keeps the storage path close to S3-compatible production patterns."
+      },
+      {
+        "heading": "Current proof points",
+        "body": "The repo already contains the first real artifact set: a published screenshot, a runnable compose stack, an example dlt API pipeline, staged dbt models, and local credentials for MinIO and Superset that make the small-team bootstrap path concrete rather than aspirational. The important next pressure is documentation and examples that show how a small starter can grow toward stronger catalog, quality, and cost controls without losing its plain local setup."
+      }
+    ],
+    "coverImage": "../../assets/images/case-studies/lakehouse-screen-01.png",
+    "coverAlt": "Open Lakehouse Starter screenshot",
+    "coverText": "A practical starter stack for ingestion, transformation, dashboards, and S3-compatible storage without enterprise overhead.",
+    "mediaSlots": [
+      {
+        "label": "Stack screenshot",
+        "kind": "diagram",
+        "image": "../../assets/images/case-studies/lakehouse-screen-01.png",
+        "alt": "Open Lakehouse Starter dashboard screenshot",
+        "caption": "Compose-based starter environment."
+      },
+      {
+        "label": "Bootstrap flow",
+        "kind": "terminal",
+        "image": "../../assets/images/case-studies/lakehouse-setup-flow.svg",
+        "alt": "Open Lakehouse Starter setup flow card",
+        "caption": "venv, compose, dlt, dbt, dashboards."
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "Open Lakehouse Starter",
+        "subtitle": "Uno stack lakehouse per piccoli team con dlt, dbt, Superset e MinIO.",
+        "summary": "Un ambiente starter open per piccoli team che combina ingestion, trasformazione, storage e dashboard in un setup lakehouse leggero ma espandibile.",
+        "metaDescription": "Open Lakehouse Starter: stack lakehouse leggero ed espandibile per piccoli team, basato su dlt, dbt, Superset e MinIO.",
+        "sections": [
+          {
+            "heading": "Perché esiste",
+            "body": "I piccoli team hanno spesso bisogno di un lakehouse usabile prima di aver bisogno della complessità di piattaforma, quindi la vera sfida è scegliere uno stack che parta leggero senza chiudere il team in un angolo. Questo starter esiste per il momento prima che un team abbia un gruppo di piattaforma completo: serve comunque ingestion, trasformazioni, dashboard e object storage, ma in una forma che si possa capire e sostituire pezzo per pezzo."
+          },
+          {
+            "heading": "Centro tecnico",
+            "body": "Il progetto combina ingestion con dlt, trasformazioni con dbt, dashboard con Superset e object storage su MinIO in un setup volutamente semplice all'inizio ed espandibile dopo. Ogni componente ha un lavoro chiaro: dlt sposta i dati in ingresso, dbt rende esplicite le trasformazioni, Superset dà feedback analitico immediato e MinIO tiene il percorso di storage vicino ai pattern di produzione S3-compatibili."
+          },
+          {
+            "heading": "Prove correnti",
+            "body": "Il repo contiene già il primo vero set di artefatti: uno screenshot pubblicato, uno stack compose eseguibile, un esempio di pipeline dlt verso un'API, modelli dbt staged e credenziali locali per MinIO e Superset, che rendono concreto invece che aspirazionale il percorso di bootstrap per un piccolo team. La prossima pressione importante è documentazione ed esempi che mostrino come uno starter piccolo può crescere verso un catalogo, controlli di qualità e costi più forti senza perdere il setup locale semplice."
+          }
+        ],
+        "coverAlt": "Screenshot di Open Lakehouse Starter",
+        "coverText": "Uno stack starter pratico per ingestion, trasformazioni, dashboard e storage S3-compatibile, senza overhead enterprise.",
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/AndreaBozzo/LakehouseStarterKit",
+            "style": "primary"
+          },
+          {
+            "label": "Articolo collegato",
+            "url": "../../blog/en/posts/finops-ai-lakehouse-blog/",
+            "style": "secondary"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "slug": "lakekeeper",
+    "title": "Lakekeeper",
+    "displayTitle": "Lakekeeper",
+    "subtitle": "An Iceberg REST catalog in Rust with vended credentials, OpenFGA, and a small operational footprint.",
+    "summary": "A case study on the Rust-native catalog layer that makes open lakehouse storage governable: table metadata, authorization, temporary credentials, and multi-engine interoperability without a JVM-heavy control plane.",
+    "metaDescription": "Lakekeeper: a Rust-native Iceberg REST catalog with OpenFGA authorization, vended cloud credentials, and multi-engine interoperability without a JVM.",
+    "stack": [
+      "Rust",
+      "Apache Iceberg",
+      "REST Catalog",
+      "OpenFGA",
+      "Lakehouse"
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/lakekeeper/lakekeeper",
+        "style": "primary"
+      },
+      {
+        "label": "Related article",
+        "url": "../../blog/en/posts/lakekeeper-blog/",
+        "style": "secondary"
+      },
+      {
+        "label": "Recent merged contribution",
+        "url": "https://github.com/lakekeeper/lakekeeper/pull/1924"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Summer 2026: authorization event ordering",
+        "body": "A merged contribution makes authorization events precede assignment writes. It is a concrete catalog-authorization fix, separate from the broader learning and integration work described below."
+      },
+      {
+        "heading": "Why it exists",
+        "body": "Object storage and open table formats are not enough on their own. A practical lakehouse still needs a catalog that can manage metadata, enforce access, and stay open enough to work across engines and deployment models. Lakekeeper matters because it puts the control plane around Iceberg tables into a Rust-native service that can be reasoned about as infrastructure rather than as an opaque extension of a compute engine."
+      },
+      {
+        "heading": "Technical center",
+        "body": "Lakekeeper implements the Iceberg REST catalog in Rust, pairing Postgres-backed metadata with OIDC authentication, OpenFGA authorization, vended cloud credentials, CloudEvents, and a deployment model that stays much lighter than JVM-oriented catalog stacks. The architecture is interesting because the catalog is not only a lookup service: it becomes the place where identity, temporary storage access, namespace management, and cross-engine interoperability meet."
+      },
+      {
+        "heading": "Current proof points",
+        "body": "The public footprint is already concrete: a long-form architecture write-up, documented RisingWave interoperability, integrations with external engines and managed platforms, a monthly release cadence, and 2 merged PRs tracked in the repository README rather than a vague claim of familiarity. The case study is especially useful as a catalog-level counterpart to the Rust data stack work: it shows where table metadata, governance, and engine access stop being abstract and become operational interfaces."
+      }
+    ],
+    "coverImage": "../blog/images/Lakekeeper-Overview.png",
+    "coverAlt": "Lakekeeper architecture overview",
+    "coverText": "A Rust-native catalog layer that turns object storage into a governed Iceberg system with temporary credentials, fine-grained auth, and multi-engine access.",
+    "mediaSlots": [
+      {
+        "label": "Architecture overview",
+        "kind": "diagram",
+        "image": "../blog/images/Lakekeeper-Overview.png",
+        "alt": "Lakekeeper architecture overview",
+        "caption": "Catalog core, storage access management, identity, and metadata flow in one Rust-native control plane."
+      },
+      {
+        "label": "Stack position",
+        "kind": "diagram",
+        "image": "../blog/images/Rust-Data-Stack-Complete.png",
+        "alt": "Rust-native data stack diagram including Lakekeeper",
+        "caption": "Lakekeeper sits at the catalog and governance layer between Iceberg storage and the engines that read or write it."
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "Lakekeeper",
+        "subtitle": "Un catalogo Iceberg REST in Rust con credenziali vended, OpenFGA e un'impronta operativa piccola.",
+        "summary": "Un case study sul layer di catalogo Rust-native che rende governabile lo storage lakehouse open: metadata delle tabelle, autorizzazione, credenziali temporanee e interoperabilità multi-engine senza un control plane pesante in JVM.",
+        "metaDescription": "Lakekeeper: catalogo Iceberg REST in Rust con OpenFGA, credenziali vended e interoperabilità multi-engine per lakehouse governati.",
+        "sections": [
+          {
+            "heading": "Estate 2026: ordine degli eventi di autorizzazione",
+            "body": "Una contribuzione integrata anticipa gli eventi di autorizzazione rispetto alla scrittura delle assegnazioni. È una correzione concreta nel catalogo, distinta dal lavoro di integrazione descritto sotto."
+          },
+          {
+            "heading": "Perché esiste",
+            "body": "Object storage e formati di tabella aperti non bastano da soli. Un lakehouse pratico ha comunque bisogno di un catalogo che possa gestire i metadata, applicare i controlli di accesso e restare abbastanza aperto da funzionare attraverso engine e modelli di deploy diversi. Lakekeeper conta perché mette il control plane attorno alle tabelle Iceberg in un servizio Rust-native ragionabile come infrastruttura, invece che come estensione opaca di un motore di calcolo."
+          },
+          {
+            "heading": "Centro tecnico",
+            "body": "Lakekeeper implementa il catalogo Iceberg REST in Rust, abbinando metadata su Postgres con autenticazione OIDC, autorizzazione OpenFGA, credenziali cloud vended, CloudEvents e un modello di deploy molto più leggero degli stack di catalogo orientati alla JVM. L'architettura è interessante perché il catalogo non è solo un servizio di lookup: diventa il posto in cui identità, accesso temporaneo allo storage, gestione dei namespace e interoperabilità cross-engine si incontrano."
+          },
+          {
+            "heading": "Prove correnti",
+            "body": "L'impronta pubblica è già concreta: un long-form architetturale, interoperabilità documentata con RisingWave, integrazioni con engine esterni e piattaforme managed, una cadenza di release mensile e 2 PR mergiate tracciate nel README del repository, invece di una vaga rivendicazione di familiarità. Il case study è particolarmente utile come controparte a livello di catalogo del lavoro sullo stack dati Rust: mostra dove metadata di tabella, governance e accesso degli engine smettono di essere astratti e diventano interfacce operative."
+          }
+        ],
+        "coverAlt": "Panoramica architetturale di Lakekeeper",
+        "coverText": "Un layer di catalogo Rust-native che trasforma l'object storage in un sistema Iceberg governato, con credenziali temporanee, auth fine-grained e accesso multi-engine.",
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/lakekeeper/lakekeeper",
+            "style": "primary"
+          },
+          {
+            "label": "Articolo collegato",
+            "url": "../../blog/en/posts/lakekeeper-blog/",
+            "style": "secondary"
+          },
+          {
+            "label": "Contribuzione recente integrata",
+            "url": "https://github.com/lakekeeper/lakekeeper/pull/1924"
+          }
+        ]
+      }
+    },
+    "reviewedAt": "2026-09-13"
+  },
+  {
+    "slug": "icebergsharp",
+    "title": "IcebergSharp",
+    "displayTitle": "IcebergSharp",
+    "subtitle": "A .NET Iceberg reader in development: metadata and catalog foundations first.",
+    "summary": "Phase 3 development implements Iceberg metadata parsing, streaming Avro manifest readers, and a read-only REST catalog client. Scan planning, file I/O, live catalog validation, and Parquet data reads remain on the roadmap.",
+    "metaDescription": "A .NET Iceberg reader in development: metadata and catalog foundations first.",
+    "stack": [
+      "C#",
+      ".NET 9",
+      "Apache Iceberg",
+      "Apache Arrow",
+      "REST Catalog"
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/AndreaBozzo/IcebergSharp",
+        "style": "primary"
+      },
+      {
+        "label": "Roadmap",
+        "url": "https://github.com/AndreaBozzo/IcebergSharp#roadmap",
+        "style": "secondary"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Current implementation boundary",
+        "body": "Phase 3 development implements Iceberg metadata parsing, streaming Avro manifest readers, and a read-only REST catalog client. Scan planning, file I/O, live catalog validation, and Parquet data reads remain on the roadmap."
+      },
+      {
+        "heading": "The goal",
+        "body": "Give .NET applications direct access to Iceberg metadata and, eventually, Arrow batches without a JVM service. Schema evolution, pruning, and time travel motivate the design; they should not be read as a claim that the full data-reading path already ships."
+      }
+    ],
+    "coverImage": "../../assets/images/case-studies/icebergsharp-logo.png",
+    "coverAlt": "IcebergSharp logo",
+    "coverText": "A focused .NET client for Apache Iceberg: REST catalog, Avro manifest reader, and Arrow output, so .NET apps can read lakehouse tables without a Spark or Trino sidecar.",
+    "translations": {
+      "it": {
+        "title": "IcebergSharp",
+        "subtitle": "Un reader Iceberg .NET in sviluppo: prima metadati e catalogo.",
+        "summary": "La fase 3 implementa parsing dei metadati Iceberg, lettura streaming dei manifest Avro e client REST del catalogo in sola lettura. Scan planning, I/O, validazione su cataloghi reali e lettura Parquet restano nella roadmap.",
+        "metaDescription": "Un reader Iceberg .NET in sviluppo: prima metadati e catalogo.",
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/AndreaBozzo/IcebergSharp",
+            "style": "primary"
+          },
+          {
+            "label": "Roadmap",
+            "url": "https://github.com/AndreaBozzo/IcebergSharp#roadmap",
+            "style": "secondary"
+          }
+        ],
+        "sections": [
+          {
+            "heading": "Limiti dell’implementazione attuale",
+            "body": "La fase 3 implementa parsing dei metadati Iceberg, lettura streaming dei manifest Avro e client REST del catalogo in sola lettura. Scan planning, I/O, validazione su cataloghi reali e lettura Parquet restano nella roadmap."
+          },
+          {
+            "heading": "Obiettivo",
+            "body": "Dare alle applicazioni .NET accesso diretto ai metadati Iceberg e, in futuro, a batch Arrow senza un servizio JVM. Evoluzione dello schema, pruning e time travel motivano il progetto; non sono una dichiarazione che l’intero percorso di lettura sia già disponibile."
+          }
+        ],
+        "coverAlt": "Logo IcebergSharp",
+        "coverText": "Un client .NET focalizzato per Apache Iceberg: catalog REST, lettura Avro dei manifest e output Arrow, così le app .NET possono leggere tabelle lakehouse senza un sidecar Spark o Trino."
+      }
+    },
+    "reviewedAt": "2026-09-13"
+  },
+  {
+    "slug": "peek-a-boo",
+    "title": "Peek-a-Boo",
+    "subtitle": "A minimalist AI agent for surgical file search and extraction.",
+    "summary": "A Python agent that uses focused grep and ls operations to answer codebase questions with lower token cost than broad repository scans.",
+    "stack": [
+      "Python",
+      "CLI",
+      "Agent Tooling",
+      "Code Audit",
+      "Gemini"
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/AndreaBozzo/Peek-a-Boo",
+        "style": "primary"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Why it exists",
+        "body": "A lot of code search tasks do not need a full-repo embedding or a giant prompt, they need a cheap agent that can ask narrower questions in sequence. Peek-a-Boo exists for that narrow but common class of work: find the relevant files, inspect just enough context, and produce an answer without turning the entire repository into model input."
+      },
+      {
+        "heading": "Technical center",
+        "body": "Peek-a-Boo keeps the tool surface intentionally small, leaning on grep-like operations and focused traversal so the model spends tokens on synthesis instead of raw repository context. The constraint is the product: by limiting available actions and bounding search, the agent has to behave more like a careful code auditor than a broad summarizer."
+      },
+      {
+        "heading": "Current proof points",
+        "body": "The project already behaves like a benchmark-shaped prototype: four built-in missions, a generated target codebase, safety limits that prevent token blowups, and a deliberately narrow tool surface that makes the token-saving argument inspectable in code rather than only in prose. That makes it a useful experiment in agent ergonomics because the success criterion is not model cleverness in the abstract, but whether the tool loop finds the right evidence with less context waste."
+      }
+    ],
+    "coverImage": "../../assets/images/case-studies/peek-a-boo-run.png",
+    "coverAlt": "Peek-a-Boo example mission run",
+    "coverText": "Use surgical file operations instead of broad context dumps when the task is to find one answer fast.",
+    "mediaSlots": [
+      {
+        "label": "Mission run",
+        "kind": "screenshot",
+        "image": "../../assets/images/case-studies/peek-a-boo-run.png",
+        "alt": "Peek-a-Boo mission run screenshot",
+        "caption": "Credential-hunt mission in the test repo."
+      },
+      {
+        "label": "Tool surface",
+        "kind": "note",
+        "image": "../../assets/images/case-studies/peek-a-boo-tooling.svg",
+        "alt": "Peek-a-Boo tool surface card",
+        "caption": "Five tools with strict search limits."
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "Peek-a-Boo",
+        "subtitle": "Un agente AI minimalista per ricerca chirurgica e estrazione su file.",
+        "summary": "Un agente Python che usa operazioni grep e ls focalizzate per rispondere a domande sulla codebase con un costo in token più basso rispetto a scansioni di repository ampie.",
+        "metaDescription": "Peek-a-Boo: agente AI Python che usa operazioni grep e ls mirate per ricerche su codebase con costo in token più basso.",
+        "sections": [
+          {
+            "heading": "Perché esiste",
+            "body": "Molti task di ricerca su codice non hanno bisogno di un embedding dell'intero repo o di un prompt gigante, hanno bisogno di un agente economico che possa fare domande più ristrette in sequenza. Peek-a-Boo esiste per quella classe di lavoro stretta ma comune: trovare i file rilevanti, ispezionare giusto il contesto necessario e produrre una risposta senza trasformare l'intero repository in input per il modello."
+          },
+          {
+            "heading": "Centro tecnico",
+            "body": "Peek-a-Boo mantiene la superficie degli strumenti intenzionalmente piccola, appoggiandosi a operazioni in stile grep e a traversal focalizzati, così il modello spende token sulla sintesi invece che sul contesto grezzo del repository. Il vincolo è il prodotto: limitando le azioni disponibili e delimitando la ricerca, l'agente deve comportarsi più come un revisore di codice attento che come un sintetizzatore generico."
+          },
+          {
+            "heading": "Prove correnti",
+            "body": "Il progetto si comporta già come un prototipo a forma di benchmark: quattro mission built-in, una codebase target generata, limiti di sicurezza che impediscono esplosioni di token e una superficie di strumenti volutamente stretta che rende l'argomento del risparmio di token ispezionabile nel codice e non solo nella prosa. Questo lo rende un esperimento utile sull'ergonomia degli agenti, perché il criterio di successo non è l'astuzia del modello in astratto, ma se il loop dello strumento trovi le giuste evidenze con meno spreco di contesto."
+          }
+        ],
+        "coverAlt": "Esempio di run di una mission Peek-a-Boo",
+        "coverText": "Usa operazioni chirurgiche su file invece di dump ampi di contesto quando il compito è trovare velocemente una risposta.",
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/AndreaBozzo/Peek-a-Boo",
+            "style": "primary"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "slug": "lance-bridge",
+    "title": "Lance Bridge",
+    "displayTitle": "Lance Event Bridge",
+    "subtitle": "Semantic indexing from live event streams into LanceDB without standing up a separate vector database.",
+    "summary": "A Python bridge that consumes JetStream event batches, normalizes them into a LanceModel schema, computes embeddings, and writes them into LanceDB so a live stream becomes a local semantic-search surface.",
+    "metaDescription": "Lance Bridge: a Python service that consumes JetStream events, computes embeddings, and writes them into LanceDB for live semantic search.",
+    "stack": [
+      "Python",
+      "LanceDB",
+      "NATS JetStream",
+      "Embeddings",
+      "Apache Arrow"
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/AndreaBozzo/lancedb-nephtys-bridge",
+        "style": "primary"
+      },
+      {
+        "label": "Related article",
+        "url": "../../blog/en/posts/lancearticle-blog/",
+        "style": "secondary"
+      },
+      {
+        "label": "Lance upstream",
+        "url": "https://github.com/lance-format/lance",
+        "style": "secondary"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Why it exists",
+        "body": "There is a recurring gap between live event streams and small-footprint semantic search. Many teams want embeddings over fresh events, but not the operational overhead of a separate vector database cluster. Lance Bridge explores the thinner path: keep the event feed durable in JetStream, then project selected events into a local LanceDB store that can be searched semantically without becoming a whole new platform."
+      },
+      {
+        "heading": "Technical center",
+        "body": "The bridge consumes JetStream batches, normalizes the payloads, computes embeddings with the LanceDB model registry or explicit batch embedding calls, and writes LanceModel rows into a local store that can be queried back as Arrow tables. The technical center is the handoff: stream events need stable identifiers, payload normalization, embedding metadata, and storage layout choices that still make later compaction and zero-copy reads possible."
+      },
+      {
+        "heading": "Current proof points",
+        "body": "The public article already exposes the real engineering surface instead of hand-waving: the schema model, embedding flow, NATS message handler, compaction caveats, zero-copy Arrow reads, and 2 tracked PRs in lance-format/lance that show hands-on familiarity with the underlying storage internals. The bridge is intentionally small, but it connects two useful ideas: event systems are good at freshness, and Lance is good at local analytical and vector access."
+      }
+    ],
+    "coverImage": "../blog/images/lanceformat-cover.png",
+    "coverAlt": "Lance Format and LanceDB cover artwork",
+    "coverText": "Take a live JetStream feed, embed it, and keep it queryable inside a local LanceDB store that still speaks Arrow natively.",
+    "mediaSlots": [
+      {
+        "label": "Lance format",
+        "kind": "diagram",
+        "image": "../blog/images/lanceformat-cover.png",
+        "alt": "Lance Format and LanceDB cover artwork",
+        "caption": "The storage side of the bridge: random-access columnar files, native vector indexing, and Arrow-first interoperability."
+      },
+      {
+        "label": "Event source",
+        "kind": "diagram",
+        "image": "../../assets/images/case-studies/nephtys-connectors.svg",
+        "alt": "Nephtys connector matrix card",
+        "caption": "The streaming side: Nephtys and JetStream provide the event feed that the bridge turns into a semantically searchable local store."
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "Lance Bridge",
+        "subtitle": "Indicizzazione semantica da stream di eventi live verso LanceDB senza tirare su un database vettoriale separato.",
+        "summary": "Un bridge Python che consuma batch di eventi JetStream, li normalizza in uno schema LanceModel, calcola gli embedding e li scrive in LanceDB, così uno stream live diventa una superficie locale di ricerca semantica.",
+        "metaDescription": "Lance Bridge: bridge Python che porta stream JetStream in LanceDB con embedding e ricerca semantica locale, senza vector DB separato.",
+        "sections": [
+          {
+            "heading": "Perché esiste",
+            "body": "C'è un divario ricorrente tra stream di eventi live e ricerca semantica a basso footprint. Molti team vogliono embedding su eventi freschi, ma non l'overhead operativo di un cluster di database vettoriale separato. Lance Bridge esplora il percorso più sottile: tenere il feed eventi durabile in JetStream e poi proiettare gli eventi selezionati in uno store LanceDB locale che si può cercare semanticamente senza diventare un'altra piattaforma intera."
+          },
+          {
+            "heading": "Centro tecnico",
+            "body": "Il bridge consuma batch JetStream, normalizza i payload, calcola gli embedding con il model registry di LanceDB o con chiamate esplicite di batch embedding, e scrive righe LanceModel in uno store locale che si può poi interrogare come tabelle Arrow. Il centro tecnico è il passaggio: gli eventi di stream hanno bisogno di identificatori stabili, normalizzazione del payload, metadata di embedding e scelte di layout dello storage che rendano comunque possibili compattazione successiva e letture zero-copy."
+          },
+          {
+            "heading": "Prove correnti",
+            "body": "L'articolo pubblico espone già la vera superficie ingegneristica invece di vaghe promesse: il modello di schema, il flow di embedding, l'handler dei messaggi NATS, le note sulla compattazione, le letture Arrow zero-copy e 2 PR tracciate in lance-format/lance che mostrano familiarità diretta con gli interni dello storage. Il bridge è intenzionalmente piccolo, ma collega due idee utili: i sistemi a eventi sono bravi sulla freschezza e Lance è bravo sull'accesso analitico e vettoriale locale."
+          }
+        ],
+        "coverAlt": "Cover di Lance Format e LanceDB",
+        "coverText": "Prendi un feed JetStream live, calcola gli embedding e tienilo interrogabile dentro uno store LanceDB locale che parla ancora Arrow nativamente.",
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/AndreaBozzo/lancedb-nephtys-bridge",
+            "style": "primary"
+          },
+          {
+            "label": "Articolo collegato",
+            "url": "../../blog/en/posts/lancearticle-blog/",
+            "style": "secondary"
+          },
+          {
+            "label": "Contribuzioni a Lance",
+            "url": "https://github.com/lance-format/lance",
+            "style": "secondary"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "slug": "druid-datafusion-bridge",
+    "title": "druid-datafusion-bridge",
+    "displayTitle": "Druid Segment Bridge",
+    "subtitle": "Query Apache Druid segments directly through DataFusion.",
+    "summary": "A Rust bridge that reads Druid segment files directly and exposes them to DataFusion as queryable tables without requiring a running Druid cluster.",
+    "stack": [
+      "Rust",
+      "Apache Druid",
+      "DataFusion",
+      "Arrow",
+      "Query Engine"
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/AndreaBozzo/druid-datafusion-bridge",
+        "style": "primary"
+      },
+      {
+        "label": "Related article",
+        "url": "../../blog/en/posts/polarsruststack-blog/",
+        "style": "secondary"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Why it exists",
+        "body": "Query engines become more reusable when storage formats can be inspected directly instead of only through the original serving system. Druid segments contain years of useful analytical engineering, but they are usually approached through a running Druid cluster; this project asks what becomes possible when those segment files can be read directly by a Rust query stack."
+      },
+      {
+        "heading": "Technical center",
+        "body": "The library reads Druid segment structures such as index.dr data and maps them into DataFusion table and execution abstractions, aiming for vectorized Arrow-friendly execution where possible. The hard part is translating storage internals, dictionaries, metrics, and bitmap-oriented access patterns into DataFusion abstractions without pretending the original format was designed as a simple Arrow file."
+      },
+      {
+        "heading": "Current proof points",
+        "body": "Even as a work in progress, the evaluation surface is already concrete: a dedicated segment parser layer, DataFusion `TableProvider` and `ExecutionPlan` adapters, Wikipedia segment fixtures, and integration tests around offline segment access rather than hand-wavy architectural claims. The current value is exploratory but specific: each parser and adapter clarifies how much of Druid's segment model can be exposed through modern Arrow and DataFusion interfaces."
+      }
+    ],
+    "coverImage": "../../assets/images/case-studies/druid-datafusion-bridge-logo.png",
+    "coverAlt": "druid-datafusion-bridge project logo",
+    "coverText": "Read Druid segment internals directly and surface them as DataFusion tables without standing up the original cluster.",
+    "mediaSlots": [
+      {
+        "label": "Segment anatomy",
+        "kind": "diagram",
+        "image": "../../assets/images/case-studies/druid-segment-anatomy.svg",
+        "alt": "druid-datafusion-bridge segment anatomy card",
+        "caption": "Smoosh files, dictionaries, metrics, and bitmaps."
+      },
+      {
+        "label": "Query demo",
+        "kind": "terminal",
+        "image": "../../assets/images/case-studies/druid-query-demo.svg",
+        "alt": "druid-datafusion-bridge query demo card",
+        "caption": "Register a segment and query it in DataFusion."
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "druid-datafusion-bridge",
+        "subtitle": "Interroga i segmenti Apache Druid direttamente attraverso DataFusion.",
+        "summary": "Un bridge Rust che legge direttamente i file di segmento Druid e li espone a DataFusion come tabelle interrogabili senza richiedere un cluster Druid in esecuzione.",
+        "metaDescription": "druid-datafusion-bridge: bridge Rust che legge segmenti Apache Druid direttamente e li espone come tabelle DataFusion.",
+        "sections": [
+          {
+            "heading": "Perché esiste",
+            "body": "I motori di query diventano più riutilizzabili quando i formati di storage si possono ispezionare direttamente invece che solo attraverso il sistema di serving originale. I segmenti Druid contengono anni di ingegneria analitica utile, ma sono normalmente affrontati attraverso un cluster Druid in esecuzione; questo progetto si chiede cosa diventa possibile quando quei file di segmento si possono leggere direttamente da uno stack di query Rust."
+          },
+          {
+            "heading": "Centro tecnico",
+            "body": "La libreria legge le strutture dei segmenti Druid come i dati index.dr e le mappa nelle astrazioni di tabella ed esecuzione di DataFusion, puntando a un'esecuzione vettorializzata e Arrow-friendly dove possibile. La parte difficile è tradurre interni di storage, dizionari, metriche e pattern di accesso bitmap-oriented nelle astrazioni di DataFusion senza fingere che il formato originale sia stato progettato come un semplice file Arrow."
+          },
+          {
+            "heading": "Prove correnti",
+            "body": "Anche da lavoro in corso, la superficie di valutazione è già concreta: un layer parser dedicato per i segmenti, adattatori `TableProvider` ed `ExecutionPlan` per DataFusion, fixture su segmenti Wikipedia e test di integrazione sull'accesso offline ai segmenti, invece di affermazioni architetturali vaghe. Il valore corrente è esplorativo ma specifico: ogni parser e adattatore chiarisce quanto del modello di segmento Druid può essere esposto attraverso le interfacce Arrow e DataFusion moderne."
+          }
+        ],
+        "coverAlt": "Logo del progetto druid-datafusion-bridge",
+        "coverText": "Leggi gli interni dei segmenti Druid direttamente e portali in DataFusion come tabelle, senza tirare su il cluster originale.",
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/AndreaBozzo/druid-datafusion-bridge",
+            "style": "primary"
+          },
+          {
+            "label": "Articolo collegato",
+            "url": "../../blog/en/posts/polarsruststack-blog/",
+            "style": "secondary"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "slug": "datapizza-ai",
+    "title": "DataPizza AI",
+    "displayTitle": "DataPizza AI",
+    "subtitle": "A Python GenAI framework for production-ready agents and RAG pipelines with minimal abstraction.",
+    "summary": "An open-source Python framework that covers multi-provider LLM clients, tool-calling agents, document ingestion pipelines, and vector search — built around a less-abstraction-more-control philosophy and OpenTelemetry observability throughout.",
+    "metaDescription": "Datapizza AI: an open-source Python GenAI framework for multi-provider LLM clients, tool-calling agents, and RAG pipelines with minimal abstraction.",
+    "stack": [
+      "Python",
+      "GenAI",
+      "RAG",
+      "Agents",
+      "OpenTelemetry"
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/datapizza-labs/datapizza-ai",
+        "style": "primary"
+      },
+      {
+        "label": "PyPI",
+        "url": "https://pypi.org/project/datapizza-ai/",
+        "style": "secondary"
+      },
+      {
+        "label": "Docs",
+        "url": "https://docs.datapizza.ai",
+        "style": "secondary"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Why it exists",
+        "body": "Most GenAI frameworks overcorrect toward magic: giant abstractions that collapse when you need to understand what is actually happening between the model call and the result. DataPizza AI starts from the other direction — keep the surface small, keep the providers swappable, and make the tracing explicit enough that a team can debug a failing RAG pipeline without reading the framework internals."
+      },
+      {
+        "heading": "Technical center",
+        "body": "The framework layers a multi-provider LLM client layer (OpenAI, Gemini, Anthropic, Mistral, Azure) under tool-calling agents, then above that a document ingestion and chunking pipeline (Docling, Azure Document Intelligence) that feeds into Qdrant-backed vector search with Cohere or FastEmbed embedders and optional reranking. Redis caching and OpenTelemetry tracing run across all layers. The architectural discipline is that provider switching, agent composition, and pipeline wiring are all done declaratively without rewriting business logic."
+      },
+      {
+        "heading": "Current proof points",
+        "body": "Five merged PRs cover the layers where the framework's less-abstraction mandate creates the most friction in practice. PR #55 added async Bedrock support (a_invoke and a_stream_invoke via aioboto3) to unblock async-first application patterns. PR #67 fixed IngestionPipeline.run() to actually accept a list of file paths as its own documented signature promised. PR #77 added a metadata parameter to AzureParser and DoclingParser with runtime type validation so pipelines can pass context through the ingestion layer without hitting a TypeError. PR #97 introduced an async context manager on MCPClient for persistent sessions, which matters for any stateful MCP server that maintains database connections or authentication state across tool calls. PR #106 refactored FastEmbedder to use fastembed's native batch processing and asyncio.to_thread() — removing duplicated logic and fixing the async path so blocking I/O no longer runs on the event loop."
+      }
+    ],
+    "coverImage": "../../assets/images/case-studies/datapizza-ai-logo.png",
+    "coverAlt": "DataPizza AI project logo",
+    "coverText": "Multi-provider agents, document pipelines, and vector search in one composable Python package — vendor-agnostic and traced by design.",
+    "mediaSlots": [
+      {
+        "label": "Framework layers",
+        "kind": "diagram",
+        "image": "../../assets/images/case-studies/datapizza-ai-architecture.svg",
+        "alt": "DataPizza AI framework layers diagram",
+        "caption": "Client, agent, pipeline, and storage layers with OpenTelemetry across all of them."
+      },
+      {
+        "label": "Merged contributions",
+        "kind": "note",
+        "image": "../../assets/images/case-studies/datapizza-ai-proof-points.svg",
+        "alt": "DataPizza AI merged contributions card",
+        "caption": "5 merged PRs: async Bedrock client, ingestion list fix, parser metadata, MCP sessions, FastEmbedder refactor."
+      },
+      {
+        "label": "Project logo",
+        "kind": "screenshot",
+        "image": "../../assets/images/case-studies/datapizza-ai-logo.png",
+        "alt": "DataPizza AI logo",
+        "caption": "2 200+ stars. Active release cadence."
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "DataPizza AI",
+        "displayTitle": "DataPizza AI",
+        "subtitle": "Un framework Python GenAI per agenti e pipeline RAG pronti per la produzione, con astrazione minima.",
+        "summary": "Un framework Python open-source che copre client LLM multi-provider, agenti con tool-calling, pipeline di ingestion documentale e ricerca vettoriale — costruito attorno a una filosofia di meno astrazione e più controllo, con osservabilità OpenTelemetry ovunque.",
+        "metaDescription": "DataPizza AI: framework Python GenAI per agenti, RAG e pipeline documentali con client multi-provider e tracciamento OpenTelemetry.",
+        "sections": [
+          {
+            "heading": "Perché esiste",
+            "body": "La maggior parte dei framework GenAI esagera con la magia: grandi astrazioni che crollano quando hai bisogno di capire cosa sta succedendo davvero tra la chiamata al modello e il risultato. DataPizza AI parte dalla direzione opposta — tieni la superficie piccola, tieni i provider intercambiabili, e rendi il tracing abbastanza esplicito da permettere a un team di fare debug su una pipeline RAG che fallisce senza dover leggere gli interni del framework."
+          },
+          {
+            "heading": "Centro tecnico",
+            "body": "Il framework stratifica un layer di client LLM multi-provider (OpenAI, Gemini, Anthropic, Mistral, Azure) sotto agenti con tool-calling, poi sopra una pipeline di ingestion e chunking documentale (Docling, Azure Document Intelligence) che alimenta una ricerca vettoriale su Qdrant con embedder Cohere o FastEmbed e reranking opzionale. Redis caching e tracciamento OpenTelemetry girano su tutti i layer. La disciplina architetturale è che lo switch di provider, la composizione degli agenti e il cablaggio della pipeline avvengono tutti in modo dichiarativo senza riscrivere la business logic."
+          },
+          {
+            "heading": "Prove correnti",
+            "body": "Cinque PR unite coprono i layer in cui il mandato di meno astrazione del framework crea più attrito nella pratica. La PR #55 ha aggiunto il supporto Bedrock async (a_invoke e a_stream_invoke via aioboto3) per sbloccare i pattern applicativi async-first. La PR #67 ha corretto IngestionPipeline.run() per accettare effettivamente una lista di file path come prometteva la sua stessa firma documentata. La PR #77 ha aggiunto un parametro metadata ad AzureParser e DoclingParser con validazione del tipo a runtime, così le pipeline possono passare contesto attraverso il layer di ingestion senza incorrere in un TypeError. La PR #97 ha introdotto un async context manager su MCPClient per sessioni persistenti, fondamentale per i server MCP stateful che mantengono connessioni database o stato di autenticazione tra le chiamate agli strumenti. La PR #106 ha rifattorizzato FastEmbedder per usare il batch processing nativo di fastembed e asyncio.to_thread() — eliminando logica duplicata e correggendo il percorso async in modo che l'I/O bloccante non giri più sull'event loop."
+          }
+        ],
+        "coverAlt": "Logo del progetto DataPizza AI",
+        "coverText": "Agenti multi-provider, pipeline documentali e ricerca vettoriale in un pacchetto Python componibile — vendor-agnostic e tracciato per design.",
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/datapizza-labs/datapizza-ai",
+            "style": "primary"
+          },
+          {
+            "label": "PyPI",
+            "url": "https://pypi.org/project/datapizza-ai/",
+            "style": "secondary"
+          },
+          {
+            "label": "Documentazione",
+            "url": "https://docs.datapizza.ai",
+            "style": "secondary"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "slug": "andreabozzo-site",
+    "title": "This little website",
+    "subtitle": "A personal homepage with an old-school soul and a small maintenance bill.",
+    "summary": "Static HTML, one stylesheet, and a Hugo blog. A tiny Node script puts the pieces together.",
+    "metaDescription": "How this personal website stays small: static HTML, CSS, Hugo, and a simple build.",
+    "stack": [
+      "HTML",
+      "CSS",
+      "Hugo",
+      "Node.js"
+    ],
+    "actions": [
+      {
+        "label": "Source code",
+        "url": "https://github.com/AndreaBozzo/AndreaBozzo"
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Less machinery, more personality",
+        "body": "This used to be a portfolio application with animated graphs, a Rust/WebAssembly engine, live GitHub statistics, and several generated dashboards. The interesting part was always the work itself. The redesign gives that work a quieter home, with a nod to the personal web of the 1990s."
+      },
+      {
+        "heading": "How it works",
+        "body": "The homepage and project notes render as static HTML from a few small templates. One shared CSS file handles the desktop-inspired design and mobile layout. Hugo still owns the bilingual blog. There are no browser-side API requests, external fonts, or JavaScript requirements."
+      },
+      {
+        "heading": "Keeping it maintainable",
+        "body": "Homepage copy lives in one bilingual file; project notes live in one JSON file. The latest writing links come from Hugo’s own index at build time. Node and Hugo assemble the site for GitHub Pages. The README contribution updater is a separate Go utility, outside the site build."
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "Questo piccolo sito",
+        "displayTitle": "Questo piccolo sito",
+        "subtitle": "Una homepage personale con lo spirito del vecchio web e poca manutenzione.",
+        "summary": "HTML statico, un solo foglio di stile e un blog Hugo. Un piccolo script Node mette insieme i pezzi.",
+        "metaDescription": "Come questo sito personale resta semplice: HTML statico, CSS, Hugo e una build essenziale.",
+        "sections": [
+          {
+            "heading": "Meno meccanismi, più personalità",
+            "body": "Prima questo portfolio aveva grafi animati, un motore Rust/WebAssembly, statistiche GitHub live e diversi pannelli generati. La parte interessante era sempre il lavoro. Il nuovo sito gli dà una casa più tranquilla, con un richiamo al web personale degli anni Novanta."
+          },
+          {
+            "heading": "Come funziona",
+            "body": "La homepage e le note sui progetti diventano HTML statico tramite pochi template. Un solo file CSS gestisce lo stile desktop e il layout mobile. Hugo continua a gestire il blog bilingue. Non servono richieste API dal browser, font esterni o JavaScript."
+          },
+          {
+            "heading": "Manutenzione semplice",
+            "body": "I testi della homepage sono in un file bilingue; le note sui progetti in un file JSON. I link agli ultimi articoli arrivano dall’indice di Hugo durante la build. Node e Hugo assemblano il sito per GitHub Pages. L’aggiornamento delle contribuzioni nel README resta un’utilità Go separata."
+          }
+        ],
+        "actions": [
+          {
+            "label": "Codice sorgente",
+            "url": "https://github.com/AndreaBozzo/AndreaBozzo"
+          }
+        ]
+      }
+    },
+    "displayTitle": "This little website"
+  },
+  {
+    "slug": "gitnodes",
+    "stack": [
+      "Rust",
+      "Git",
+      "SQLite",
+      "MCP"
+    ],
+    "title": "GitNodes",
+    "displayTitle": "GitNodes",
+    "subtitle": "Engineering knowledge that remembers why a decision changed.",
+    "summary": "A Git-native knowledge graph connecting decisions, systems, incidents, and postmortems. Markdown in Git remains the source of truth.",
+    "metaDescription": "Engineering knowledge that remembers why a decision changed.",
+    "sections": [
+      {
+        "heading": "From notes to a connected history",
+        "body": "Typed relationships let readers follow a decision through an incident and its postmortem to the decision that superseded it. SQLite provides a disposable search and graph index; the underlying notes remain reviewable Markdown."
+      },
+      {
+        "heading": "A tool for people and agents",
+        "body": "People browse and edit through the web UI. Agents traverse the same knowledge through read-only MCP tools and author changes through Git. The public v0.2.0 release, Homebrew tap, Windows package, and read-only demo make the project available beyond a source checkout."
+      }
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/AndreaBozzo/gitnodes"
+      },
+      {
+        "label": "v0.2.0 release",
+        "url": "https://github.com/AndreaBozzo/gitnodes/releases/tag/v0.2.0"
+      },
+      {
+        "label": "Live demo",
+        "url": "https://gitnodes-demo-production.up.railway.app"
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "GitNodes",
+        "displayTitle": "GitNodes",
+        "subtitle": "Conoscenza tecnica che ricorda perché una decisione è cambiata.",
+        "summary": "Un grafo della conoscenza basato su Git collega decisioni, sistemi, incidenti e postmortem. I documenti Markdown in Git restano la fonte dei dati.",
+        "metaDescription": "Conoscenza tecnica che ricorda perché una decisione è cambiata.",
+        "sections": [
+          {
+            "heading": "Dagli appunti a una storia collegata",
+            "body": "Le relazioni tipizzate permettono di seguire una decisione, l’incidente e il postmortem fino alla decisione che l’ha sostituita. SQLite è un indice ricostruibile per ricerca e grafo; i documenti restano Markdown revisionabile."
+          },
+          {
+            "heading": "Uno strumento per persone e agenti",
+            "body": "Le persone esplorano e modificano dalla UI web. Gli agenti navigano la stessa conoscenza tramite strumenti MCP in sola lettura e scrivono tramite Git. La release pubblica v0.2.0, il tap Homebrew, il pacchetto Windows e la demo in sola lettura lo rendono accessibile senza compilare il sorgente."
+          }
+        ],
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/AndreaBozzo/gitnodes"
+          },
+          {
+            "label": "Release v0.2.0",
+            "url": "https://github.com/AndreaBozzo/gitnodes/releases/tag/v0.2.0"
+          },
+          {
+            "label": "Demo online",
+            "url": "https://gitnodes-demo-production.up.railway.app"
+          }
+        ]
+      }
+    },
+    "reviewedAt": "2026-09-13"
+  },
+  {
+    "slug": "dlt-dbt-databricks",
+    "stack": [
+      "Python",
+      "dlt",
+      "dbt",
+      "Databricks",
+      "DuckDB"
+    ],
+    "title": "dlt + dbt on Databricks",
+    "displayTitle": "dlt + dbt on Databricks",
+    "subtitle": "Runnable lakehouse examples, from ingestion to an evidence-based quality gate.",
+    "summary": "A public example stack using the dlthub dlt library, dbt models, Unity Catalog, and Databricks orchestration. The same pipeline can run locally against DuckDB.",
+    "metaDescription": "Runnable lakehouse examples, from ingestion to an evidence-based quality gate.",
+    "sections": [
+      {
+        "heading": "Real inputs, complete workflows",
+        "body": "Examples cover REST and Postgres ingestion, incremental merges, schema contracts, Iceberg, and Zerobus. dbt builds staging and analytics marts, including an insurance-claims example. A Databricks Asset Bundle connects ingestion and transformation."
+      },
+      {
+        "heading": "A useful local feedback loop",
+        "body": "The warehouse-free CI lane runs ingestion, dbt, and the quality gate against DuckDB. The gate emits promote, review, or block with deterministic evidence. The August additions include Zerobus ingestion and fixes from exercising it on a real workspace."
+      }
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/AndreaBozzo/dlt-dbt-databricks"
+      },
+      {
+        "label": "Zerobus integration",
+        "url": "https://github.com/AndreaBozzo/dlt-dbt-databricks/pull/34"
+      },
+      {
+        "label": "Rust / Arrow Flight demo",
+        "url": "https://github.com/AndreaBozzo/zerobus-rust-demo"
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "dlt + dbt on Databricks",
+        "displayTitle": "dlt + dbt on Databricks",
+        "subtitle": "Esempi lakehouse eseguibili, dall’ingestion a un controllo di qualità basato su evidenze.",
+        "summary": "Uno stack pubblico con la libreria dlt di dlthub, modelli dbt, Unity Catalog e orchestrazione Databricks. La stessa pipeline può girare in locale su DuckDB.",
+        "metaDescription": "Esempi lakehouse eseguibili, dall’ingestion a un controllo di qualità basato su evidenze.",
+        "sections": [
+          {
+            "heading": "Input reali, workflow completi",
+            "body": "Gli esempi coprono ingestion da REST e Postgres, merge incrementali, contratti di schema, Iceberg e Zerobus. dbt costruisce staging e mart analitici, compreso un caso sui sinistri assicurativi. Un Databricks Asset Bundle collega ingestion e trasformazioni."
+          },
+          {
+            "heading": "Un ciclo di verifica locale",
+            "body": "La CI senza warehouse esegue ingestion, dbt e controllo di qualità su DuckDB. Il gate produce promote, review o block con evidenze deterministiche. Le aggiunte di agosto includono Zerobus e correzioni emerse dall’esecuzione su un workspace reale."
+          }
+        ],
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/AndreaBozzo/dlt-dbt-databricks"
+          },
+          {
+            "label": "Integrazione Zerobus",
+            "url": "https://github.com/AndreaBozzo/dlt-dbt-databricks/pull/34"
+          },
+          {
+            "label": "Demo Rust / Arrow Flight",
+            "url": "https://github.com/AndreaBozzo/zerobus-rust-demo"
+          }
+        ]
+      }
+    },
+    "reviewedAt": "2026-09-13"
+  },
+  {
+    "slug": "fantabuddy",
+    "stack": [
+      "Python",
+      "DuckDB",
+      "Parquet",
+      "Static HTML"
+    ],
+    "title": "Fantabuddy",
+    "displayTitle": "Fantabuddy",
+    "subtitle": "A local football-data history and an auction report you can take offline.",
+    "summary": "Fantabuddy turns official Fantacalcio lists and football data into a local DuckDB warehouse, Classic or Mantra auction reports, and verifiable Parquet snapshots.",
+    "metaDescription": "A local football-data history and an auction report you can take offline.",
+    "sections": [
+      {
+        "heading": "The history is the useful part",
+        "body": "Official player lists are retained with source URLs and checksums, so changes in roles, values, and availability can be inspected across snapshots. Python pipelines build the warehouse; a single HTML report brings budget-aware rankings and availability signals to the auction."
+      },
+      {
+        "heading": "A corpus you can keep",
+        "body": "The September v0.4.0 release is followed by verified corpus imports from a ZIP or directory. Exports carry manifests, schemas, row counts, and SHA-256 checksums. The project has grown from an auction aid into a small, reproducible data product."
+      }
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/AndreaBozzo/fantabuddy"
+      },
+      {
+        "label": "v0.4.0 release",
+        "url": "https://github.com/AndreaBozzo/fantabuddy/releases/tag/v0.4.0"
+      },
+      {
+        "label": "Verified imports",
+        "url": "https://github.com/AndreaBozzo/fantabuddy/pull/6"
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "Fantabuddy",
+        "displayTitle": "Fantabuddy",
+        "subtitle": "Uno storico calcistico locale e un report da portare all’asta, anche offline.",
+        "summary": "Fantabuddy trasforma listoni ufficiali e dati calcistici in un warehouse DuckDB locale, report d’asta Classic o Mantra e snapshot Parquet verificabili.",
+        "metaDescription": "Uno storico calcistico locale e un report da portare all’asta, anche offline.",
+        "sections": [
+          {
+            "heading": "Lo storico è la parte utile",
+            "body": "I listoni vengono conservati con URL di origine e checksum, per confrontare ruoli, valori e disponibilità tra snapshot. Le pipeline Python alimentano il warehouse; un singolo HTML porta all’asta ranking coerenti con il budget e segnali di disponibilità."
+          },
+          {
+            "heading": "Un corpus da conservare",
+            "body": "Alla release v0.4.0 di settembre segue l’import verificato di corpus da ZIP o directory. Gli export includono manifest, schemi, conteggi e checksum SHA-256. Da supporto per l’asta, il progetto è diventato un piccolo prodotto dati riproducibile."
+          }
+        ],
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/AndreaBozzo/fantabuddy"
+          },
+          {
+            "label": "Release v0.4.0",
+            "url": "https://github.com/AndreaBozzo/fantabuddy/releases/tag/v0.4.0"
+          },
+          {
+            "label": "Import verificati",
+            "url": "https://github.com/AndreaBozzo/fantabuddy/pull/6"
+          }
+        ]
+      }
+    },
+    "reviewedAt": "2026-09-13"
+  },
+  {
+    "slug": "occas",
+    "stack": [
+      "Python",
+      "PX4",
+      "ERA5",
+      "Reproducible research"
+    ],
+    "title": "OCCAS",
+    "displayTitle": "OCCAS",
+    "subtitle": "Connecting real flight telemetry to the conditions it was flown in.",
+    "summary": "The Operational Context Corpus for Autonomous Systems pairs PX4 flight logs with external context and records the provenance behind each analysis.",
+    "metaDescription": "Connecting real flight telemetry to the conditions it was flown in.",
+    "sections": [
+      {
+        "heading": "An agreement study, with a negative result",
+        "body": "The public analysis compares ERA5 wind with onboard PX4 estimates across 871 runs and 1,059 run-hours. It finds no evidence of a systematic component-wise offset, but agreement is too imprecise for ERA5 to substitute for onboard estimates under the predeclared usefulness criterion."
+      },
+      {
+        "heading": "Evidence that can be inspected",
+        "body": "The repository records the methodology, manifests, sensitivity analyses, and post-hoc corrections. A public v0.1.0 release is available. Results are aggregate; raw geolocated trajectories are not redistributed. An operational-design-domain representation remains future work."
+      }
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/AndreaBozzo/occas"
+      },
+      {
+        "label": "Analysis and limits",
+        "url": "https://github.com/AndreaBozzo/occas/blob/main/docs/10-h1-results.md"
+      },
+      {
+        "label": "v0.1.0 release",
+        "url": "https://github.com/AndreaBozzo/occas/releases/tag/v0.1.0"
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "OCCAS",
+        "displayTitle": "OCCAS",
+        "subtitle": "Collegare la telemetria di volo reale alle condizioni in cui è stata prodotta.",
+        "summary": "L’Operational Context Corpus for Autonomous Systems associa log PX4 a contesto esterno e registra la provenienza dei dati di ogni analisi.",
+        "metaDescription": "Collegare la telemetria di volo reale alle condizioni in cui è stata prodotta.",
+        "sections": [
+          {
+            "heading": "Uno studio di concordanza, con un risultato negativo",
+            "body": "L’analisi pubblica confronta il vento ERA5 con le stime PX4 su 871 voli e 1.059 ore. Non emerge evidenza di uno scostamento sistematico per componente, ma la concordanza è troppo imprecisa perché ERA5 sostituisca le stime di bordo secondo il criterio fissato in anticipo."
+          },
+          {
+            "heading": "Evidenze ispezionabili",
+            "body": "Il repository documenta metodologia, manifest, analisi di sensibilità e correzioni post-hoc. È disponibile una release pubblica v0.1.0. I risultati sono aggregati; le traiettorie geolocalizzate grezze non vengono ridistribuite. La rappresentazione dell’operational design domain resta lavoro futuro."
+          }
+        ],
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/AndreaBozzo/occas"
+          },
+          {
+            "label": "Analisi e limiti",
+            "url": "https://github.com/AndreaBozzo/occas/blob/main/docs/10-h1-results.md"
+          },
+          {
+            "label": "Release v0.1.0",
+            "url": "https://github.com/AndreaBozzo/occas/releases/tag/v0.1.0"
+          }
+        ]
+      }
+    },
+    "reviewedAt": "2026-09-13"
+  },
+  {
+    "slug": "iceberg-stale-base-repro",
+    "stack": [
+      "Rust",
+      "Apache Iceberg",
+      "Transactions"
+    ],
+    "title": "Iceberg stale-base reproduction",
+    "displayTitle": "Iceberg stale-base reproduction",
+    "subtitle": "A small reproduction of a large commit-semantics problem.",
+    "summary": "A minimal Rust program demonstrates how an iceberg-rust transaction can commit after replacing the table state against which the caller checked a precondition.",
+    "metaDescription": "A small reproduction of a large commit-semantics problem.",
+    "sections": [
+      {
+        "heading": "Two writers, one duplicated epoch",
+        "body": "Writer A observes that an epoch has not been applied. Writer B commits it. A’s transaction reloads the new base and commits too, producing a duplicate. The reproduction isolates transaction behavior without Arrow, Parquet, or data files."
+      },
+      {
+        "heading": "Make the failed assumption reproducible",
+        "body": "Rebasing is valid for an unconditional append; the problem is expressing a caller-defined precondition from an external crate. This September companion repository supports the blog experiment on putting a data-quality check inside an idempotent commit."
+      }
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/AndreaBozzo/iceberg-stale-base-repro"
+      },
+      {
+        "label": "Experiment write-up",
+        "url": "../../blog/en/posts/commit-barrier-iceberg-blog/"
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "Iceberg stale-base reproduction",
+        "displayTitle": "Iceberg stale-base reproduction",
+        "subtitle": "Una piccola riproduzione di un problema importante nella semantica dei commit.",
+        "summary": "Un programma Rust minimale mostra come una transazione iceberg-rust possa fare commit dopo aver sostituito lo stato su cui il chiamante aveva verificato una precondizione.",
+        "metaDescription": "Una piccola riproduzione di un problema importante nella semantica dei commit.",
+        "sections": [
+          {
+            "heading": "Due writer, un’epoca duplicata",
+            "body": "Il writer A verifica che un’epoca non sia stata applicata. B la registra. La transazione di A ricarica la nuova base e fa comunque commit, creando un duplicato. La riproduzione isola il comportamento senza Arrow, Parquet o file di dati."
+          },
+          {
+            "heading": "Rendere riproducibile l’ipotesi fallita",
+            "body": "Il rebase è valido per un append incondizionato; il problema è esprimere una precondizione del chiamante da un crate esterno. Questo repository di settembre accompagna l’esperimento sul controllo di qualità dentro un commit idempotente."
+          }
+        ],
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/AndreaBozzo/iceberg-stale-base-repro"
+          },
+          {
+            "label": "Resoconto dell’esperimento",
+            "url": "../../blog/en/posts/commit-barrier-iceberg-blog/"
+          }
+        ]
+      }
+    },
+    "reviewedAt": "2026-09-13"
+  },
+  {
+    "slug": "mercury",
+    "stack": [
+      "Python",
+      "NATS JetStream",
+      "Lance"
+    ],
+    "title": "Mercury",
+    "displayTitle": "Mercury",
+    "subtitle": "An observation-first system for market-data research.",
+    "summary": "A public alpha connecting Nephtys feeds, normalized events, signal experiments, and a replayable Lance archive.",
+    "metaDescription": "An observation-first system for market-data research.",
+    "sections": [
+      {
+        "heading": "A consumer of the streaming tools",
+        "body": "Nephtys publishes events to JetStream. Mercury consumes them, produces signal intent, and archives event envelopes with broker sequence information for replay and redelivery analysis."
+      },
+      {
+        "heading": "Current scope",
+        "body": "The default observation mode records outcomes without placing orders. Explicit sandbox experiments are supported; live execution is disabled. The replay and backtesting model is deliberately basic, so this is presented as a systems experiment rather than evidence of trading performance."
+      }
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/AndreaBozzo/Mercury"
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "Mercury",
+        "displayTitle": "Mercury",
+        "subtitle": "Un sistema di ricerca sui dati di mercato che parte dall’osservazione.",
+        "summary": "Un’alpha pubblica collega feed Nephtys, eventi normalizzati, esperimenti sui segnali e un archivio Lance riproducibile.",
+        "metaDescription": "Un sistema di ricerca sui dati di mercato che parte dall’osservazione.",
+        "sections": [
+          {
+            "heading": "Un utilizzatore degli strumenti di streaming",
+            "body": "Nephtys pubblica eventi su JetStream. Mercury li consuma, produce intenzioni di segnale e archivia gli eventi con le sequenze del broker per replay e analisi delle riconsegne."
+          },
+          {
+            "heading": "Ambito attuale",
+            "body": "La modalità predefinita osserva e registra gli esiti senza inviare ordini. Sono previsti esperimenti sandbox espliciti; l’esecuzione live è disabilitata. Il modello di replay e backtesting è volutamente semplice: è un esperimento di sistemi, non una prova di rendimento."
+          }
+        ],
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/AndreaBozzo/Mercury"
+          }
+        ]
+      }
+    },
+    "reviewedAt": "2026-09-13"
+  }
+]

@@ -12,9 +12,9 @@ A curated view of the systems I actively build. Related papers, integrations, da
 
 | Project | Why it matters |
 | --- | --- |
-| [dataprof](https://github.com/AndreaBozzo/dataprof) | Arrow-native data profiling with bounded memory, shipped as a Rust crate and Python package for repeatable quality checks. |
+| [dataprof](https://github.com/AndreaBozzo/dataprof) | Bounded-memory Rust/Python profiling for files, DataFrames, and Arrow streams, with explicit assessment scope and comparable quality reports. |
 | [GitNodes](https://github.com/AndreaBozzo/gitnodes) | A Git-native, typed knowledge graph that engineering teams and AI agents can explore through the web UI or MCP. |
-| [Ceres](https://github.com/AndreaBozzo/Ceres) + [Ares](https://github.com/AndreaBozzo/Ares) | Complementary collection systems: reproducible open-data harvesting and schema-driven extraction. Ceres powers a [2.7M-record open-data index](https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index) and a [Databricks analytics pipeline](https://github.com/AndreaBozzo/databricks-ceres-pipeline). |
+| [Ceres](https://github.com/AndreaBozzo/Ceres) + [Ares](https://github.com/AndreaBozzo/Ares) | Complementary collection systems: reproducible open-data harvesting and schema-driven extraction. Ceres powers a [public open-data index](https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index) and a [Databricks analytics pipeline](https://github.com/AndreaBozzo/databricks-ceres-pipeline). |
 | [Nephtys](https://github.com/AndreaBozzo/Nephtys) | A low-footprint, multi-protocol connector for durable NATS JetStream pipelines, backed by an [IEEE UIC 2026 evaluation](https://github.com/AndreaBozzo/uic2026-nephtys). |
 
 <details>
@@ -23,15 +23,24 @@ A curated view of the systems I actively build. Related papers, integrations, da
 | Project | Focus |
 | --- | --- |
 | [dlt + dbt on Databricks](https://github.com/AndreaBozzo/dlt-dbt-databricks) | **Active** — runnable ingestion, transformation, orchestration, and quality-gate examples validated against Databricks and in DuckDB CI. |
-| [OCCAS](https://github.com/AndreaBozzo/occas) | **Released research** — a reproducible corpus connecting real PX4 flight telemetry to external operating conditions, with provenance and a citable result. |
-| [Fantabuddy](https://github.com/AndreaBozzo/fantabuddy) | **Released data product** — reproducible Serie A auction analysis turned into an offline-ready interactive report. |
+| [OCCAS](https://github.com/AndreaBozzo/occas) | **v0.1.0 research release** — a provenance-backed PX4/ERA5 agreement study; external wind estimates were too imprecise to substitute for onboard estimates under the study’s criterion. |
+| [Fantabuddy](https://github.com/AndreaBozzo/fantabuddy) | **v0.4.0 data product** — a local DuckDB history of official player lists, offline Classic/Mantra auction reports, and verifiable Parquet corpus exports. |
 | [DCE](https://github.com/AndreaBozzo/dce) | **Pre-release** — a Rust-native engine for defining, validating, and enforcing data contracts. |
 | [Zero Grappler](https://github.com/AndreaBozzo/zero-grappler) | **Prototype** — a `no_std`, allocation-free async pipeline for embedded sensor, DSP, and inference workloads. |
-| [IcebergSharp](https://github.com/AndreaBozzo/IcebergSharp) | **In development** — a vendor-neutral .NET reader for Apache Iceberg tables without a JVM service. |
+| [IcebergSharp](https://github.com/AndreaBozzo/IcebergSharp) | **In development** — .NET Iceberg metadata, Avro manifests, and REST catalog access; scan planning and Parquet data reads remain on the roadmap. |
 
 </details>
 
 Browse the [full project archive](https://andreabozzo.github.io/AndreaBozzo/#workbench) or [all repositories](https://github.com/AndreaBozzo?tab=repositories).
+
+## Summer 2026 public work
+
+Reviewed on 13 September, covering 13 June–13 September 2026.
+
+- [GitNodes](https://github.com/AndreaBozzo/gitnodes/releases/tag/v0.2.0): released Git-native engineering knowledge, with a web UI, read-only MCP tools, and packaged binaries.
+- [dlt + dbt on Databricks](https://github.com/AndreaBozzo/dlt-dbt-databricks): complete ingestion-to-quality-gate examples, including a local DuckDB lane and Zerobus integration.
+- [Iceberg stale-base reproduction](https://github.com/AndreaBozzo/iceberg-stale-base-repro): a minimal two-writer example behind the September commit-barrier experiment.
+- [Recent public-work review](content/public-work-review.md): sources, status corrections, research, and upstream contributions.
 
 ## Open source contributions
 

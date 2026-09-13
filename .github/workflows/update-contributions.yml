@@ -1,53 +1,27 @@
 name: Update External Contributions
-
 on:
   schedule:
-    # Runs every day at 00:00 UTC
     - cron: '0 0 * * *'
-  workflow_dispatch: # Allows manual trigger
-
+  workflow_dispatch:
 permissions:
   contents: write
-
 jobs:
   update-contributions:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
-
-      - name: Set up Go
-        uses: actions/setup-go@v5
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v5
         with:
           go-version: '1.22'
           cache: false
-
-      - name: Fetch external contributions
+      - run: go test ./...
+      - name: Update README contributions
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: go run ./cmd/harvester update-contributions-readme
-
-      - name: Refresh schema-versioned source data
-        run: go run ./cmd/harvester ingest --all
-
-      - name: Render generated pages from refreshed data
-        run: go run ./cmd/harvester generate-static-artifacts
-
-      - name: Commit and push if changed
+      - name: Commit changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add README.md \
-            assets/data/writing.json \
-            assets/data/packages.json \
-            assets/data/contributions.json \
-            assets/data/ci-runtimes.json \
-            assets/data/datasets.json \
-            assets/data/repo-metadata.json \
-            work \
-            it/work \
-            robots.txt \
-            sitemap.xml \
-            pages-sitemap.xml
-          git diff --cached --quiet || (git commit -m "docs: update generated site data" && git push)
+          git add README.md
+          git diff --cached --quiet || (git commit -m "docs: update README contributions" && git push)

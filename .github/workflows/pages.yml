@@ -1,19 +1,15 @@
 name: Deploy static content to Pages
-
 on:
   push:
-    branches: ["main"]
+    branches: [main]
   workflow_dispatch:
-
 permissions:
   contents: read
   pages: write
   id-token: write
-
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: false
-
 jobs:
   deploy:
     environment:
@@ -21,63 +17,30 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
+      - uses: actions/checkout@v6
         with:
           submodules: recursive
           fetch-depth: 0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: '22'
-          cache: 'npm'
-
-      - name: Setup Go
-        uses: actions/setup-go@v6
-        with:
-          go-version: '1.22'
-          cache: false
-
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
+          cache: npm
+      - uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: '0.146.0'
           extended: true
-
-      - name: Install root-site dependencies
-        run: npm ci
-
-      - name: Install Playwright browser
-        run: npx playwright install --with-deps chromium
-
-      - name: Validate schema-versioned data
-        run: npm run validate:data
-
-      - name: Run visual smoke tests
-        run: npm run test:smoke
-
-      # generate-og-images.mjs renders with resvg and loadSystemFonts, asking for
-      # "Noto Sans". The runner does not ship it, so every OG card was falling back to
-      # a monospace face and the titles overflowed their panel. Non-fatal on purpose:
-      # if the install ever fails the cards render as they did before, and the deploy
-      # still goes out.
-      - name: Install fonts for OG card rendering
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-core || true
-
-      - name: Build merged site
-        run: npm run build:site
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v6
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build:site
+      - run: npm run test:smoke
+        env:
+          SITE_ALREADY_BUILT: '1'
+      - uses: actions/configure-pages@v6
         with:
           enablement: true
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v5
+      - uses: actions/upload-pages-artifact@v5
         with:
-          path: '_site'
-
+          path: _site
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5

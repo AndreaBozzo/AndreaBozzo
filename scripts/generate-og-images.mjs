@@ -6,8 +6,6 @@ import { Resvg } from '@resvg/resvg-js';
 import opentype from 'opentype.js';
 
 const ROOT_DIR = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const CASE_STUDIES_PATH = join(ROOT_DIR, 'assets/data/case-studies.json');
-const OUTPUT_DIR = join(ROOT_DIR, 'assets/images/og');
 const BLOG_POSTS_DIR = join(ROOT_DIR, 'blog/content/posts');
 const BLOG_OG_DIR = join(ROOT_DIR, 'blog/static/images/og-posts');
 const WIDTH = 1200;
@@ -329,30 +327,7 @@ function blogEyebrowForFile(fileBaseName) {
   return fileBaseName.endsWith('.it') ? 'Articolo' : 'Blog Post';
 }
 
-mkdirSync(OUTPUT_DIR, { recursive: true });
 mkdirSync(BLOG_OG_DIR, { recursive: true });
-
-const payload = JSON.parse(readFileSync(CASE_STUDIES_PATH, 'utf8'));
-
-writeCard(OUTPUT_DIR, 'homepage', {
-  eyebrow: 'Andrea Bozzo',
-  title: 'A living map of data infrastructure work.',
-  body: 'Data platforms, open source, technical writing, and practical systems work across Rust, Python, and Go.',
-  tags: ['Rust', 'Python', 'Go', 'Open Source'],
-  slug: 'homepage',
-  sectionLabel: 'Homepage',
-});
-
-for (const study of payload.items ?? []) {
-  writeCard(OUTPUT_DIR, study.slug, {
-    eyebrow: 'Case Study',
-    title: study.displayTitle || study.title || study.slug,
-    body: study.subtitle || study.summary || 'Work archive entry',
-    tags: Array.isArray(study.stack) ? study.stack : [],
-    slug: study.slug,
-    sectionLabel: 'Work Page',
-  });
-}
 
 for (const entry of readdirSync(BLOG_POSTS_DIR)) {
   if (!entry.endsWith('.md')) {

@@ -1,6 +1,6 @@
 import { createReadStream, existsSync, statSync } from 'node:fs';
 import { createServer } from 'node:http';
-import { extname, join, normalize, resolve } from 'node:path';
+import { extname, join, resolve, sep } from 'node:path';
 
 const root = resolve(process.argv[2] || '_site');
 const port = Number.parseInt(process.argv[3] || process.env.PORT || '4173', 10);
@@ -17,11 +17,14 @@ const contentTypes = new Map([
 ]);
 
 function resolveRequestPath(url) {
-  const pathname = decodeURIComponent(new URL(url, 'http://localhost').pathname);
-  const requested = normalize(pathname).replace(/^(\.\.[/\\])+/, '');
+  let pathname;
+  try { pathname = decodeURIComponent(new URL(url, 'http://localhost').pathname); }
+  catch { return null; }
+  // Also preview the actual GitHub Pages project prefix.
+  const requested = pathname.replace(/^\/AndreaBozzo(?=\/|$)/, '').replace(/^\/+/, '');
   let filePath = resolve(join(root, requested));
 
-  if (!filePath.startsWith(root)) {
+  if (filePath !== root && !filePath.startsWith(root + sep)) {
     return null;
   }
 
@@ -33,7 +36,7 @@ function resolveRequestPath(url) {
     filePath = join(filePath, 'index.html');
   }
 
-  if (!filePath.startsWith(root) || !existsSync(filePath) || !statSync(filePath).isFile()) {
+  if (!filePath.startsWith(root + sep) || !existsSync(filePath) || !statSync(filePath).isFile()) {
     return null;
   }
 

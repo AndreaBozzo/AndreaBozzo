@@ -3,6 +3,8 @@ blog/public/
 blog/resources/
 blog/.hugo_build.lock
 _site/
+test-results/
+playwright-report/
 
 # Development files
 node_modules/
@@ -33,10 +35,6 @@ rust/**/target/
 /harvester
 assets/*.min.js
 assets/*.min.css
-!assets/data/
-!assets/data/case-studies.json
-!assets/wasm/
-!assets/wasm/**
 
 # Temporary files
 *.tmp
