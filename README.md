@@ -33,15 +33,6 @@ A curated view of the systems I actively build. Related papers, integrations, da
 
 Browse the [full project archive](https://andreabozzo.github.io/AndreaBozzo/#workbench) or [all repositories](https://github.com/AndreaBozzo?tab=repositories).
 
-## Summer 2026 public work
-
-Reviewed on 13 September, covering 13 June–13 September 2026.
-
-- [GitNodes](https://github.com/AndreaBozzo/gitnodes/releases/tag/v0.2.0): released Git-native engineering knowledge, with a web UI, read-only MCP tools, and packaged binaries.
-- [dlt + dbt on Databricks](https://github.com/AndreaBozzo/dlt-dbt-databricks): complete ingestion-to-quality-gate examples, including a local DuckDB lane and Zerobus integration.
-- [Iceberg stale-base reproduction](https://github.com/AndreaBozzo/iceberg-stale-base-repro): a minimal two-writer example behind the September commit-barrier experiment.
-- [Recent public-work review](content/public-work-review.md): sources, status corrections, research, and upstream contributions.
-
 ## Open source contributions
 
 Contributions to the broader open source ecosystem beyond my own repositories.
