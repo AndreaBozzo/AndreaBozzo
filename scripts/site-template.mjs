@@ -47,7 +47,7 @@ export function windowBar(title, number = '') {
 
 export const computer = `<div class="computer" aria-hidden="true">
   <div class="monitor"><div class="screen"><span class="terminal-label">ANDREA'S WORKSTATION</span><pre>  ┌───────┐
-  │ &gt;_   │──┐
+  │ &gt;_    │──┐
   └───────┘  │
       ┌──────┴──┐
       │  DATA   │
