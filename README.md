@@ -41,12 +41,12 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
 <details>
-<summary><strong>57 merged PRs across 25 upstream projects</strong> · 154.3k combined stars</summary>
+<summary><strong>57 merged PRs across 25 upstream projects</strong> · 154.4k combined stars</summary>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Projects-25-blue?style=flat-square" alt="Projects"/>
   <img src="https://img.shields.io/badge/PRs_Merged-57-success?style=flat-square" alt="PRs Merged"/>
-  <img src="https://img.shields.io/badge/Combined_Stars-154.3k-yellow?style=flat-square" alt="Stars"/>
+  <img src="https://img.shields.io/badge/Combined_Stars-154.4k-yellow?style=flat-square" alt="Stars"/>
 </p>
 
 ### 🔬 Data Ecosystem
@@ -85,7 +85,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <p>
 <a href="https://github.com/beelzebub-labs/beelzebub"><img src="https://img.shields.io/badge/beelzebub-%E2%AD%90%202.2k%20%7C%201%20PR-informational?style=flat-square" alt="beelzebub"/></a>
-  <a href="https://github.com/CortexFlow/CortexBrain"><img src="https://img.shields.io/badge/CortexBrain-%E2%AD%90%2089%20%7C%203%20PR-informational?style=flat-square" alt="CortexBrain"/></a>
+  <a href="https://github.com/CortexFlow/CortexBrain"><img src="https://img.shields.io/badge/CortexBrain-%E2%AD%90%2088%20%7C%203%20PR-informational?style=flat-square" alt="CortexBrain"/></a>
 </p>
 
 ### 📦 Other
