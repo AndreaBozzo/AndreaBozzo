@@ -1809,5 +1809,77 @@
       }
     },
     "reviewedAt": "2026-09-13"
+  },
+  {
+    "slug": "lares",
+    "stack": [
+      "Shell",
+      "Docker Compose",
+      "Raspberry Pi",
+      "restic"
+    ],
+    "title": "Lares",
+    "displayTitle": "Lares",
+    "subtitle": "Boring, recoverable infrastructure for the home.",
+    "summary": "A small self-hosted stack — DNS, file sync, passwords, monitoring, backups — designed backwards from the assumption that the machine will eventually die.",
+    "metaDescription": "Boring, recoverable infrastructure for the home.",
+    "sections": [
+      {
+        "heading": "Designed around the failure, not the service list",
+        "body": "State is snapshotted through SQLite with locks held, checked with integrity_check, and promoted only once it verifies; a failed vault snapshot fails the job instead of shipping stale data. Images are pinned by digest, every administrative interface binds to localhost and is published only over Tailscale, and rebuilding from a blank disk is a scripted path rather than an afternoon of remembering."
+      },
+      {
+        "heading": "Verified at the kernel, explicit about scope",
+        "body": "The verification script checks behaviour rather than configuration: the cgroup’s memory.max rather than compose’s mem_limit, a genuinely filtered DNS answer rather than a running container, snapshot age rather than an existing timer. Tested on Raspberry Pi OS and on a blank Debian 13 host; the design generalises, the bootstrap script does not yet."
+      }
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/AndreaBozzo/lares"
+      },
+      {
+        "label": "Disaster recovery",
+        "url": "https://github.com/AndreaBozzo/lares/blob/main/docs/disaster-recovery.md"
+      },
+      {
+        "label": "Initial setup",
+        "url": "https://github.com/AndreaBozzo/lares/blob/main/docs/initial-setup.md"
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "Lares",
+        "displayTitle": "Lares",
+        "subtitle": "Infrastruttura domestica noiosa e ripristinabile.",
+        "summary": "Un piccolo stack self-hosted — DNS, sincronizzazione file, password, monitoraggio, backup — progettato a ritroso dall’ipotesi che prima o poi la macchina si rompa.",
+        "metaDescription": "Infrastruttura domestica noiosa e ripristinabile.",
+        "sections": [
+          {
+            "heading": "Progettato sul guasto, non sull’elenco dei servizi",
+            "body": "Lo stato viene copiato attraverso SQLite con i lock attivi, controllato con integrity_check e promosso solo dopo la verifica; uno snapshot del vault fallito fa fallire il job invece di spedire dati vecchi. Le immagini sono fissate per digest, ogni interfaccia amministrativa ascolta su localhost ed è pubblicata solo via Tailscale, e la ricostruzione da disco vuoto è un percorso scriptato, non un pomeriggio passato a ricordare."
+          },
+          {
+            "heading": "Verificato nel kernel, esplicito sui limiti",
+            "body": "Lo script di verifica controlla il comportamento e non la configurazione: il memory.max del cgroup invece del mem_limit di compose, una risposta DNS davvero filtrata invece di un container acceso, l’età dell’ultimo snapshot invece di un timer che esiste. Testato su Raspberry Pi OS e su un host Debian 13 vuoto; il progetto è generalizzabile, lo script di bootstrap non ancora."
+          }
+        ],
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/AndreaBozzo/lares"
+          },
+          {
+            "label": "Ripristino dopo un guasto",
+            "url": "https://github.com/AndreaBozzo/lares/blob/main/docs/disaster-recovery.md"
+          },
+          {
+            "label": "Configurazione iniziale",
+            "url": "https://github.com/AndreaBozzo/lares/blob/main/docs/initial-setup.md"
+          }
+        ]
+      }
+    },
+    "reviewedAt": "2026-09-15"
   }
 ]

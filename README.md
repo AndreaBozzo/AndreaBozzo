@@ -18,7 +18,7 @@ A curated view of the systems I actively build. Related papers, integrations, da
 | [Nephtys](https://github.com/AndreaBozzo/Nephtys) | A low-footprint, multi-protocol connector for durable NATS JetStream pipelines, backed by an [IEEE UIC 2026 evaluation](https://github.com/AndreaBozzo/uic2026-nephtys). |
 
 <details>
-<summary><strong>More selected work</strong> — lakehouse, applied research, and systems experiments</summary>
+<summary><strong>More selected work</strong> — lakehouse, applied research, and systems work</summary>
 
 | Project | Focus |
 | --- | --- |
@@ -28,6 +28,7 @@ A curated view of the systems I actively build. Related papers, integrations, da
 | [DCE](https://github.com/AndreaBozzo/dce) | **Pre-release** — a Rust-native engine for defining, validating, and enforcing data contracts. |
 | [Zero Grappler](https://github.com/AndreaBozzo/zero-grappler) | **Prototype** — a `no_std`, allocation-free async pipeline for embedded sensor, DSP, and inference workloads. |
 | [IcebergSharp](https://github.com/AndreaBozzo/IcebergSharp) | **In development** — .NET Iceberg metadata, Avro manifests, and REST catalog access; scan planning and Parquet data reads remain on the roadmap. |
+| [Lares](https://github.com/AndreaBozzo/lares) | **In use** — a small self-hosted home stack built around failure semantics: digest-pinned images, application-consistent SQLite snapshots to encrypted offsite backup, and a scripted bare-metal rebuild. |
 
 </details>
 
