@@ -49,13 +49,11 @@ for the benchmarks instead of trusting my laptop's opinion of what counts as "ed
 were done. What was left was a Pi 5, a Samsung T7 and the feeling that the machine should do
 something with the other 99% of its life.
 
-I did not want another toy deployment. I have enough of those. I wanted a machine I would
-actually notice being offline.
+I did not want another toy deployment. I wanted a machine I would actually notice being offline.
 
 To be clear about the scale: this is not a homelab. It is one Pi with 4 GB of RAM, swap on zram
 (so "just add swap" spends RAM to save RAM), and one SSD that is also the boot disk. No NAS, no
-cluster, no spare node waiting in the wings. Which made things simpler, honestly. No point
-designing for hardware I do not own.
+cluster, no spare node. Honestly, that made things simpler.
 
 Everything went into a private repository. I will call it the house repo, because you cannot open
 it anyway: it describes my actual machine, with its hostname, its storage layout, my network, and
@@ -72,11 +70,8 @@ As a list, none of this is interesting. Things got interesting once I started tr
 
 ## The vault ruined the mood
 
-You can be relaxed about a hobby container. Dashboard dies, you restart it. Test database
-disappears, you shrug.
-
-A password vault is different. The moment Vaultwarden was on the machine, I had to ask what my
-backup actually meant.
+You can be relaxed about a hobby container. Dashboard dies, you restart it. A password vault is
+different: the moment Vaultwarden was on the machine, I had to ask what my backup actually meant.
 
 At that point the backup was restic, pushing the filesystem to Backblaze B2 every night. Perfectly
 normal. It was also copying a live SQLite database in WAL mode, in the middle of whatever
@@ -93,10 +88,8 @@ yesterday's vault and still says "success". I prefer loud.
 
 ## The kernel had other plans
 
-Memory went the same way.
-
-With 4 GB to share, I gave every container a memory limit. The Compose file looked great. Every
-service had its ceiling.
+Memory went the same way. With 4 GB to share, I gave every container a memory limit, and the
+Compose file looked great.
 
 Except Raspberry Pi OS boots with the memory cgroup disabled, so Docker had quietly thrown all of
 them away. One warning line, and `docker inspect` reporting `Memory=0` while the Compose file
@@ -104,15 +97,13 @@ insisted otherwise. The config said the containers were bounded. The kernel disa
 kernel wins these arguments.
 
 I like this one because it is the whole weekend in miniature. We check that we *asked* a system to
-do something, and then treat that as proof that it *did*. So the house repo slowly filled up with
-checks against what is actually true: not "does Compose say `mem_limit`" but "what does
-`memory.max` say"; not "is the DNS container up" but "does a blocked domain come back blocked";
-not "is the backup timer enabled" but "when was the last good snapshot".
+do something, and then treat that as proof that it *did*. So the house repo filled up with checks
+against what is actually true: not "does Compose say `mem_limit`" but "what does `memory.max`
+say"; not "is the DNS container up" but "does a blocked domain come back blocked".
 
-Syncthing taught the same lesson a different way. It happily accepted a folder path that made
-perfect sense to me, and wrote everything into an anonymous Docker volume instead of the storage
-I was backing up. Everything looked healthy. The files were there. Just not where Samba or the
-backup could see them.
+Syncthing made the same point in miniature. It accepted a folder path that made perfect sense to
+me and quietly wrote everything into an anonymous Docker volume, where neither Samba nor the backup
+could see it.
 
 Verify behaviour, not declarations. That became the rule for the rest of the weekend.
 
@@ -120,19 +111,24 @@ Verify behaviour, not declarations. That became the rule for the rest of the wee
 
 By Sunday the Pi was useful, which created a new problem. What happens when the SSD dies?
 
-Drives die. If this thing holds my files, my DNS and my passwords, "I can probably remember how I
-set it up" is not a plan. So I spent Sunday pretending the machine was already dead.
+If this thing holds my files, my DNS and my passwords, "I can probably remember how I set it up"
+is not a plan. So I spent Sunday pretending the machine was already dead.
 
-That produced more code than all the services put together. A bootstrap script that takes a blank
-Pi to a working host, with a `--check` mode that tells you what it would do without doing it. A
-restore script. systemd timers. Images pinned by digest instead of `latest`, because learning
-mid-recovery that a fresh Vaultwarden image has decided to migrate your vault is a special kind of
-bad day.
+That produced more code than all the services put together: a bootstrap script that takes a blank
+Pi to a working host, a restore script, systemd timers, and images pinned by digest, because
+learning mid-recovery that a fresh Vaultwarden image has decided to migrate your vault is a special
+kind of bad day.
 
 Testing the restore was, of course, where I broke something. I pointed a trial restore at `/tmp`,
 which on Raspberry Pi OS is a 2 GB tmpfs. In other words, RAM. Free memory went from 3.3 GiB to
 under 1 GiB before I killed it, on the machine serving DNS to all my devices. The restore script
-now refuses tmpfs targets and checks free space before starting. Lesson learned the classic way.
+now refuses tmpfs targets and checks free space before starting.
+
+Monitoring had its own version of this. Uptime Kuma sent its alerts to ntfy at the same tailnet
+HTTPS address my phone uses, which is perfectly reasonable until you remember the alert travels
+from one container to another, and containers cannot resolve tailnet names. When I stopped
+Vaultwarden to test it, my phone stayed quiet for three minutes. The right URL was just
+`http://ntfy`.
 
 In the end, recovery came down to three things that must not die with the machine: the
 repository, the encrypted offsite backup, and the credentials to open it.
@@ -146,30 +142,15 @@ written on Saturday, says in bold that the restic password belongs in Vaultwarde
 
 Some secrets need to live somewhere very boring. Paper is still annoyingly good at this.
 
-## The notification that notified nobody
-
-Sunday's other highlight. Uptime Kuma had five monitors and no way to tell anyone about them: it
-recorded outages and kept them to itself. So I added ntfy, exposed it through Tailscale, and
-pointed Kuma at the same HTTPS address my phone uses. Perfectly reasonable.
-
-Then I stopped Vaultwarden to test it, and my phone stayed very quiet for three minutes.
-
-The alert was going from one container to another, and the tailnet hostname meant nothing to the
-container's DNS. The integration existed, the UI said it existed, and it reached nobody. The right
-URL was just `http://ntfy`. After that, stopping Vaultwarden buzzed my phone in about two minutes.
-Internal traffic uses internal names. Obvious in hindsight, like everything in this post.
-
 ## Sunday evening: an accidental open-source project
 
 Sunday afternoon I looked at the house repo and realised some of it might be useful outside my
-house.
+house. Not the service list: there are thousands of Compose files with AdGuard and Vaultwarden in
+them. The useful bits were the SQLite snapshots, the kernel-checked memory limits, the tmpfs guard,
+admin UIs that never touch the LAN, and a recovery path I had actually walked.
 
-Not the service list. There are thousands of Compose files with AdGuard and Vaultwarden in them.
-The useful bits were the SQLite snapshots, the memory limits checked against the kernel, the
-tmpfs guard, admin UIs that never touch the LAN, and a recovery path I had actually walked.
-
-The house repo itself could not go public, and should not. It knows too much about my Pi, which is
-exactly its job. So I pulled out the parts that were not specific to my house, and that became
+The house repo itself knows too much about my Pi to go public, which is exactly its job. So I
+pulled out the parts that were not specific to my house, and that became
 [Lares](https://github.com/AndreaBozzo/lares). The name comes from the Roman household gods, the
 guardians of the home. A bit grand for a repo that is mostly SQLite snapshots and Samba config,
 but I liked it.
@@ -181,13 +162,9 @@ it, and it started confessing.
 
 The backup script used a variable that only existed on my machine, so every scheduled backup would
 have died before writing a byte. The Samba config contained `${PI_USER}`, which Samba does not
-expand, so it would have refused every login. The recovery guide told you to restore to `/tmp`,
-which, as established, the restore script refuses. My Pi's real hostname had survived the cleanup
-as a working value in `compose.yaml`.
-
-The CI had its own moment. A check meant to catch unset shell variables ran the scripts with an
-empty environment, the scripts exited immediately because their config file was missing, and CI
-went green. A passing test for code it never reached. I have
+expand. My Pi's real hostname had survived the cleanup in `compose.yaml`. And a CI check meant to
+catch unset variables ran the scripts with an empty environment, watched them exit on the missing
+config file, and went green: a passing test for code it never reached. I have
 [written about this exact species of bug](/AndreaBozzo/blog/en/posts/commit-barrier-iceberg-blog/)
 before, and apparently I needed the reminder.
 
@@ -227,11 +204,9 @@ Both repos now clear stale locks first, never create a repository on their own, 
 result of the last run. If two failures look identical from where you are standing, automation does
 not get to pick the convenient one.
 
-Monday also answered the last question on my list: what if the Pi itself gets compromised? The
-docs claimed the B2 key, scoped to one bucket, could not delete its own backups. I asked B2 what the
-key could actually do, and `deleteFiles` was right there. Scoping limits *which* bucket, not what
-you can do inside it. The Pi now has an append-only key: it can add backups and read them, not
-erase them. Another declaration, another check.
+Monday also answered what happens if the Pi itself gets compromised. The docs claimed a
+bucket-scoped B2 key could not delete its own backups; B2 said the key had `deleteFiles`. The Pi now
+has an append-only key: it can add backups, not erase them. Another declaration, another check.
 
 ## Where it landed
 
