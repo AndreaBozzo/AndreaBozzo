@@ -42,20 +42,20 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
 <details>
-<summary><strong>59 merged PRs across 26 upstream projects</strong> · 155.0k combined stars</summary>
+<summary><strong>59 merged PRs across 26 upstream projects</strong> · 155.1k combined stars</summary>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Projects-26-blue?style=flat-square" alt="Projects"/>
   <img src="https://img.shields.io/badge/PRs_Merged-59-success?style=flat-square" alt="PRs Merged"/>
-  <img src="https://img.shields.io/badge/Combined_Stars-155.0k-yellow?style=flat-square" alt="Stars"/>
+  <img src="https://img.shields.io/badge/Combined_Stars-155.1k-yellow?style=flat-square" alt="Stars"/>
 </p>
 
 ### 🔬 Data Ecosystem
 
 <p>
 <a href="https://github.com/pola-rs/polars"><img src="https://img.shields.io/badge/polars-%E2%AD%90%2039.8k%20%7C%203%20PR-informational?style=flat-square" alt="polars"/></a>
-  <a href="https://github.com/risingwavelabs/risingwave"><img src="https://img.shields.io/badge/risingwave-%E2%AD%90%209.3k%20%7C%201%20PR-informational?style=flat-square" alt="risingwave"/></a>
   <a href="https://github.com/apache/datafusion"><img src="https://img.shields.io/badge/datafusion-%E2%AD%90%209.3k%20%7C%201%20PR-informational?style=flat-square" alt="datafusion"/></a>
+  <a href="https://github.com/risingwavelabs/risingwave"><img src="https://img.shields.io/badge/risingwave-%E2%AD%90%209.3k%20%7C%201%20PR-informational?style=flat-square" alt="risingwave"/></a>
   <a href="https://github.com/lance-format/lance"><img src="https://img.shields.io/badge/lance-%E2%AD%90%207.1k%20%7C%202%20PR-informational?style=flat-square" alt="lance"/></a>
   <a href="https://github.com/apache/arrow-rs"><img src="https://img.shields.io/badge/arrow--rs-%E2%AD%90%203.6k%20%7C%204%20PR-informational?style=flat-square" alt="arrow-rs"/></a>
   <a href="https://github.com/supabase/etl"><img src="https://img.shields.io/badge/etl-%E2%AD%90%202.3k%20%7C%202%20PR-informational?style=flat-square" alt="etl"/></a>
