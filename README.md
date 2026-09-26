@@ -42,12 +42,12 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
 <details>
-<summary><strong>59 merged PRs across 26 upstream projects</strong> · 155.2k combined stars</summary>
+<summary><strong>59 merged PRs across 26 upstream projects</strong> · 155.3k combined stars</summary>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Projects-26-blue?style=flat-square" alt="Projects"/>
   <img src="https://img.shields.io/badge/PRs_Merged-59-success?style=flat-square" alt="PRs Merged"/>
-  <img src="https://img.shields.io/badge/Combined_Stars-155.2k-yellow?style=flat-square" alt="Stars"/>
+  <img src="https://img.shields.io/badge/Combined_Stars-155.3k-yellow?style=flat-square" alt="Stars"/>
 </p>
 
 ### 🔬 Data Ecosystem
@@ -70,7 +70,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <p>
 <a href="https://github.com/tokio-rs/tokio"><img src="https://img.shields.io/badge/tokio-%E2%AD%90%2033.2k%20%7C%202%20PR-informational?style=flat-square" alt="tokio"/></a>
-  <a href="https://github.com/tokio-rs/axum"><img src="https://img.shields.io/badge/axum-%E2%AD%90%2027.2k%20%7C%201%20PR-informational?style=flat-square" alt="axum"/></a>
+  <a href="https://github.com/tokio-rs/axum"><img src="https://img.shields.io/badge/axum-%E2%AD%90%2027.3k%20%7C%201%20PR-informational?style=flat-square" alt="axum"/></a>
   <a href="https://github.com/apache/iceberg-rust"><img src="https://img.shields.io/badge/iceberg--rust-%E2%AD%90%201.4k%20%7C%203%20PR-informational?style=flat-square" alt="iceberg-rust"/></a>
   <a href="https://github.com/vakamo-labs/openfga-client"><img src="https://img.shields.io/badge/openfga--client-%E2%AD%90%207%20%7C%201%20PR-informational?style=flat-square" alt="openfga-client"/></a>
   <a href="https://github.com/rust-ita/rust-docs-it"><img src="https://img.shields.io/badge/rust--docs--it-%E2%AD%90%202%20%7C%202%20PR-informational?style=flat-square" alt="rust-docs-it"/></a>
