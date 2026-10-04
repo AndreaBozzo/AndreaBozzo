@@ -2,11 +2,13 @@ import { document, windowBar, computer, escape } from './site-template.mjs';
 
 const projects = [
   ['dataprof', 'Rust · Python · Arrow', 'Files, DataFrames, and Arrow streams. Quality reports that disclose what was actually assessed.', 'File, DataFrame e stream Arrow. Report che esplicitano cosa è stato davvero valutato.', 'work/dataprof/'],
-  ['Ceres + Ares', 'Rust · Open data', 'Collecting open data and turning messy sources into useful datasets.', 'Raccolta di open data: da fonti disordinate a dataset utilizzabili.', 'work/ares-ceres/'],
-  ['GitNodes', 'Rust · Git · MCP', 'Connect decisions, incidents, and the reasons things changed. Knowledge that stays in Git.', 'Collega decisioni, incidenti e ragioni dei cambiamenti. La conoscenza resta in Git.', 'work/gitnodes/'],
+  ['arrow-abi-doctor', 'C · Rust · Arrow', 'Differential tests for the Arrow C Data and C Stream interfaces. Findings fixed in arrow-rs, nanoarrow, and dataprof.', 'Test differenziali per le interfacce Arrow C Data e C Stream. Difetti corretti in arrow-rs, nanoarrow e dataprof.', 'work/arrow-abi-doctor/'],
+  ['Tabular Evolution Corpus', 'Python · Parquet', 'Versioned Parquet scenarios of schemas changing over time, read by four engines. Findings filed upstream.', 'Scenari Parquet versionati di schemi che cambiano nel tempo, letti da quattro motori. Segnalazioni upstream.', 'work/tabular-evolution-corpus/'],
+  ['Metric Evidence', 'Power BI · dataprof', 'A revenue report that shows dataprof evidence about the data next to each number.', 'Un report sul fatturato che mostra accanto a ogni numero le evidenze dataprof sui dati.', 'work/metric-evidence/'],
   ['dlt + dbt', 'Python · Databricks', 'Runnable lakehouse pipelines, analytics marts, and quality gates. Also tested locally with DuckDB.', 'Pipeline lakehouse, mart e controlli di qualità eseguibili. Verificati anche in locale con DuckDB.', 'work/dlt-dbt-databricks/'],
   ['Nephtys', 'Go · NATS · Edge', 'Supervised stream ingestion, durable events, and reproducible edge benchmarks.', 'Ingestion supervisionata, eventi durevoli e benchmark edge riproducibili.', 'work/nephtys/'],
 ];
+const featured = new Set(projects.map(([, , , , url]) => url.split('/')[1]));
 
 const copy = {
   en: {
@@ -65,7 +67,7 @@ export function homepage(lang, studies, posts) {
         <h2>${c.selected}</h2><p class="section-intro">${c.selectedIntro}</p>
         <div class="project-list">${projects.map(([name, stack, en, it, url], i) => `<article class="project-row"><span class="file-icon" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span><div><h3><a href="${projectLink(url)}">${name}</a></h3><p>${lang === 'it' ? it : en}</p></div><span class="project-stack">${stack}</span></article>`).join('')}</div>
         <details class="archive"><summary>${c.archive}</summary><ul>
-          ${studies.filter(s => !['dataprof', 'ares-ceres', 'gitnodes', 'dlt-dbt-databricks', 'nephtys', 'apache-rust-upstream'].includes(s.slug)).sort((a,b) => (b.reviewedAt || '').localeCompare(a.reviewedAt || '')).map(s => { const localized = lang === 'it' ? s.translations.it : s; return `<li><a href="./work/${s.slug}/">${escape(localized.displayTitle || localized.title || s.title)}</a>: ${escape(localized.subtitle)}</li>`; }).join('')}</ul><a href="https://github.com/AndreaBozzo?tab=repositories">${c.repo} ↗</a></details>
+          ${studies.filter(s => !featured.has(s.slug) && s.slug !== 'apache-rust-upstream').sort((a,b) => (b.reviewedAt || '').localeCompare(a.reviewedAt || '')).map(s => { const localized = lang === 'it' ? s.translations.it : s; return `<li><a href="./work/${s.slug}/">${escape(localized.displayTitle || localized.title || s.title)}</a>: ${escape(localized.subtitle)}</li>`; }).join('')}</ul><a href="https://github.com/AndreaBozzo?tab=repositories">${c.repo} ↗</a></details>
         <p class="section-intro summer-notes">${lang === 'it' ? 'Dal laboratorio, estate 2026:' : 'From the workbench, summer 2026:'} <a href="./work/lares/">Lares</a> · <a href="./work/fantabuddy/">Fantabuddy</a> · <a href="./work/occas/">OCCAS</a> · <a href="./work/iceberg-stale-base-repro/">${lang === 'it' ? 'Esperimento sui commit Iceberg' : 'Iceberg commit experiment'}</a></p>
         <div id="papers" class="research"><p>${lang === 'it' ? 'Ricerca e benchmark riproducibili:' : 'Research & reproducible benchmarks:'} <a href="https://github.com/AndreaBozzo/uic2026-nephtys">Nephtys / UIC 2026</a> · <a href="https://github.com/AndreaBozzo/scalcom2026-dataprof">dataprof / ScalCom 2026</a></p></div>
         <div class="upstream" id="projects"><h3>${c.upstream}</h3><p>${c.upstreamText}</p><a href="./work/apache-rust-upstream/">${c.upstreamLink} →</a></div>

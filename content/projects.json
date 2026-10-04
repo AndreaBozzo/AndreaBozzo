@@ -80,6 +80,238 @@
     "reviewedAt": "2026-09-13"
   },
   {
+    "slug": "arrow-abi-doctor",
+    "stack": [
+      "C",
+      "Rust",
+      "Apache Arrow",
+      "ABI testing"
+    ],
+    "title": "arrow-abi-doctor",
+    "displayTitle": "arrow-abi-doctor",
+    "subtitle": "Differential testing for the Arrow C Data and C Stream interfaces.",
+    "summary": "A test harness that builds portable, minimized reproducers of Arrow C structures, hands them to real consumers in isolated processes, and observes the whole lifecycle: imports, moves, releases, leaks, and the data that comes back.",
+    "metaDescription": "Differential testing for the Arrow C Data and C Stream interfaces.",
+    "sections": [
+      {
+        "heading": "One corpus, six consumers",
+        "body": "Milestone 1 runs a frozen conformance model of 5,650 cells against a null control, nanoarrow as the reference validator, PyArrow, Arrow C++ and DuckDB built with sanitizers, and dataprof. A consumer agrees when the lifecycle is clean, nothing leaks, and the returned data has the digest of what was sent. Cells a consumer cannot run are reported as not run, with the reason."
+      },
+      {
+        "heading": "Findings that went upstream",
+        "body": "The harness found two FFI defects in dataprof, both fixed, and a zero-length Utf8 slice at a non-zero offset that overran its buffer in arrow-rs, fixed in apache/arrow-rs#10916. Misaligned loads on unaligned buffers were fixed in nanoarrow and are reproduced but still open in DuckDB. It tests trusted-but-defective producers; it does not harden against malicious ones."
+      }
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/AndreaBozzo/arrow-abi-doctor"
+      },
+      {
+        "label": "arrow-rs fix",
+        "url": "https://github.com/apache/arrow-rs/pull/10916"
+      },
+      {
+        "label": "nanoarrow fix",
+        "url": "https://github.com/apache/arrow-nanoarrow/pull/946"
+      },
+      {
+        "label": "DuckDB report",
+        "url": "https://github.com/duckdb/duckdb/issues/26076"
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "arrow-abi-doctor",
+        "displayTitle": "arrow-abi-doctor",
+        "subtitle": "Test differenziali per le interfacce Arrow C Data e C Stream.",
+        "summary": "Un harness di test che costruisce riproduttori portabili e minimi di strutture C Arrow, li passa a consumer reali in processi isolati e osserva l’intero ciclo di vita: import, spostamenti, rilasci, leak e i dati restituiti.",
+        "metaDescription": "Test differenziali per le interfacce Arrow C Data e C Stream.",
+        "sections": [
+          {
+            "heading": "Un corpus, sei consumer",
+            "body": "La milestone 1 esegue un modello di conformità congelato di 5.650 celle contro un controllo nullo, nanoarrow come validatore di riferimento, PyArrow, Arrow C++ e DuckDB compilati con sanitizer, e dataprof. Un consumer è in accordo quando il ciclo di vita è pulito, non ci sono leak e i dati restituiti hanno il digest di quelli inviati. Le celle che un consumer non può eseguire risultano non eseguite, con il motivo."
+          },
+          {
+            "heading": "Risultati arrivati upstream",
+            "body": "L’harness ha trovato due difetti FFI in dataprof, entrambi corretti, e una slice Utf8 di lunghezza zero con offset non nullo che sforava il buffer in arrow-rs, corretta in apache/arrow-rs#10916. Le letture disallineate su buffer non allineati sono state corrette in nanoarrow; in DuckDB sono riprodotte ma ancora aperte. Il perimetro sono producer fidati ma difettosi, non quelli malevoli."
+          }
+        ],
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/AndreaBozzo/arrow-abi-doctor"
+          },
+          {
+            "label": "Correzione in arrow-rs",
+            "url": "https://github.com/apache/arrow-rs/pull/10916"
+          },
+          {
+            "label": "Correzione in nanoarrow",
+            "url": "https://github.com/apache/arrow-nanoarrow/pull/946"
+          },
+          {
+            "label": "Segnalazione DuckDB",
+            "url": "https://github.com/duckdb/duckdb/issues/26076"
+          }
+        ]
+      }
+    },
+    "reviewedAt": "2026-10-04"
+  },
+  {
+    "slug": "tabular-evolution-corpus",
+    "stack": [
+      "Python",
+      "Parquet",
+      "Schema evolution",
+      "Hugging Face"
+    ],
+    "title": "tabular-evolution-corpus",
+    "displayTitle": "Tabular Evolution Corpus",
+    "subtitle": "Small, versioned Parquet scenarios of datasets changing shape over time.",
+    "summary": "Thirty-five deterministic scenarios record what changed between versions: schemas, structural mutations, rows, and values. A validator re-derives every declared fact from the files. The corpus leaves compatibility decisions to the system under test, and is also published on Hugging Face.",
+    "metaDescription": "Small, versioned Parquet scenarios of datasets changing shape over time.",
+    "sections": [
+      {
+        "heading": "Observations, not verdicts",
+        "body": "Adapters read every transition with PyArrow, DuckDB, Polars, and Delta Lake, in both file orders, and record the result type or the error each engine raised. On corpus 0.2.0 the engines or their modes disagree on 26 of 36 transitions. The records are pinned to engine version, corpus revision, and platform."
+      },
+      {
+        "heading": "Findings filed upstream",
+        "body": "Each finding is reproduced outside the corpus and checked for duplicates before it is filed. Open reports cover a time zone dropped or applied depending on file order in Polars, a union_by_name read that fails on non-ASCII text in DuckDB, and two delta-rs appends: one that silently truncates float64 values into an int64 column, and a schema merge that adds a new column as non-nullable."
+      }
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/AndreaBozzo/tabular-evolution-corpus"
+      },
+      {
+        "label": "Dataset on Hugging Face",
+        "url": "https://huggingface.co/datasets/AndreaBozzo/tabular-evolution-corpus"
+      },
+      {
+        "label": "Engine observations",
+        "url": "https://github.com/AndreaBozzo/tabular-evolution-corpus/blob/main/docs/OBSERVATIONS.md"
+      },
+      {
+        "label": "Upstream findings",
+        "url": "https://github.com/AndreaBozzo/tabular-evolution-corpus/issues/16"
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "tabular-evolution-corpus",
+        "displayTitle": "Tabular Evolution Corpus",
+        "subtitle": "Piccoli scenari Parquet versionati di dataset che cambiano forma nel tempo.",
+        "summary": "Trentacinque scenari deterministici registrano cosa cambia tra una versione e l’altra: schemi, mutazioni strutturali, righe e valori. Un validatore ricava di nuovo ogni fatto dichiarato dai file. Il corpus lascia le decisioni di compatibilità al sistema sotto test ed è pubblicato anche su Hugging Face.",
+        "metaDescription": "Piccoli scenari Parquet versionati di dataset che cambiano forma nel tempo.",
+        "sections": [
+          {
+            "heading": "Osservazioni, non verdetti",
+            "body": "Gli adapter leggono ogni transizione con PyArrow, DuckDB, Polars e Delta Lake, in entrambi gli ordini dei file, e registrano il tipo risultante o l’errore sollevato da ciascun motore. Sul corpus 0.2.0 motori e modalità divergono su 26 transizioni su 36. Le registrazioni sono legate a versione del motore, revisione del corpus e piattaforma."
+          },
+          {
+            "heading": "Segnalazioni upstream",
+            "body": "Ogni risultato viene riprodotto fuori dal corpus e verificato contro i duplicati prima della segnalazione. Le issue aperte riguardano un fuso orario perso o applicato a seconda dell’ordine dei file in Polars, una lettura union_by_name che fallisce su testo non ASCII in DuckDB e due append in delta-rs: uno che tronca in silenzio valori float64 in una colonna int64, e un merge di schema che aggiunge una nuova colonna come non nullable."
+          }
+        ],
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/AndreaBozzo/tabular-evolution-corpus"
+          },
+          {
+            "label": "Dataset su Hugging Face",
+            "url": "https://huggingface.co/datasets/AndreaBozzo/tabular-evolution-corpus"
+          },
+          {
+            "label": "Osservazioni sui motori",
+            "url": "https://github.com/AndreaBozzo/tabular-evolution-corpus/blob/main/docs/OBSERVATIONS.md"
+          },
+          {
+            "label": "Segnalazioni upstream",
+            "url": "https://github.com/AndreaBozzo/tabular-evolution-corpus/issues/16"
+          }
+        ]
+      }
+    },
+    "reviewedAt": "2026-10-04"
+  },
+  {
+    "slug": "metric-evidence",
+    "stack": [
+      "Python",
+      "Power BI",
+      "dataprof",
+      "Data quality"
+    ],
+    "title": "Metric Evidence",
+    "displayTitle": "Metric Evidence",
+    "subtitle": "A Power BI report that puts each metric next to dataprof evidence about its data.",
+    "summary": "Revenue changed: which segments contributed, and which data limitations affect the reading? A local Power BI project shows dataprof profiles per month and region, the snapshot’s coverage, and a check that the rows Power BI loaded are the rows dataprof profiled. Synthetic data, no Power BI Service, no paid licence.",
+    "metaDescription": "A Power BI report that puts each metric next to dataprof evidence about its data.",
+    "sections": [
+      {
+        "heading": "Evidence beside the number, not instead of it",
+        "body": "Three situations are planted in synthetic orders: a real drop in one region, category labels going missing in the same region and month, and an extract that stops mid-month. Partial months are compared on the same days, so the report shows −8.5% where a naive full-month comparison would claim −39.8%. Data observations describe the data; they are never presented as the reason revenue moved."
+      },
+      {
+        "heading": "Checked against an independent reference",
+        "body": "Each evidence measure picks exactly one scope, so overlapping profiles are never added together. A Python reference recomputes the results in integer cents, a read-only script reconciles the live DAX against it, and a mutation check changes one value at a time to prove the snapshot match breaks. The global quality score is deliberately unused."
+      }
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/AndreaBozzo/metric-evidence"
+      },
+      {
+        "label": "Verification record",
+        "url": "https://github.com/AndreaBozzo/metric-evidence/tree/main/verification"
+      },
+      {
+        "label": "dataprof",
+        "url": "https://github.com/AndreaBozzo/dataprof"
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "Metric Evidence",
+        "displayTitle": "Metric Evidence",
+        "subtitle": "Un report Power BI che affianca a ogni metrica le evidenze dataprof sui suoi dati.",
+        "summary": "Il fatturato è cambiato: quali segmenti hanno contribuito, e quali limiti dei dati pesano sulla lettura? Un progetto Power BI locale mostra i profili dataprof per mese e regione, la copertura dello snapshot e un controllo che le righe caricate da Power BI siano quelle profilate da dataprof. Dati sintetici, niente Power BI Service, nessuna licenza a pagamento.",
+        "metaDescription": "Un report Power BI che affianca a ogni metrica le evidenze dataprof sui suoi dati.",
+        "sections": [
+          {
+            "heading": "Le evidenze accanto al numero, non al suo posto",
+            "body": "Negli ordini sintetici ci sono tre situazioni pianificate: un calo reale in una regione, etichette di categoria che spariscono nella stessa regione e nello stesso mese, e un estratto che si ferma a metà mese. I mesi parziali si confrontano sugli stessi giorni, così il report mostra −8,5% dove un confronto ingenuo sul mese intero direbbe −39,8%. Le osservazioni sui dati descrivono i dati; non vengono mai presentate come il motivo per cui il fatturato è cambiato."
+          },
+          {
+            "heading": "Verificato contro un riferimento indipendente",
+            "body": "Ogni misura di evidenza sceglie un solo ambito, così profili sovrapposti non vengono mai sommati. Un riferimento Python ricalcola i risultati in centesimi interi, uno script in sola lettura riconcilia il DAX in esecuzione e un controllo di mutazione cambia un valore alla volta per dimostrare che la corrispondenza dello snapshot si rompe. Il punteggio di qualità globale è volutamente inutilizzato."
+          }
+        ],
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/AndreaBozzo/metric-evidence"
+          },
+          {
+            "label": "Registro delle verifiche",
+            "url": "https://github.com/AndreaBozzo/metric-evidence/tree/main/verification"
+          },
+          {
+            "label": "dataprof",
+            "url": "https://github.com/AndreaBozzo/dataprof"
+          }
+        ]
+      }
+    },
+    "reviewedAt": "2026-10-04"
+  },
+  {
     "slug": "apache-rust-upstream",
     "title": "Apache Rust Upstream",
     "displayTitle": "Apache Rust Contributions",
@@ -1881,5 +2113,69 @@
       }
     },
     "reviewedAt": "2026-09-15"
+  },
+  {
+    "slug": "dbt-isrm",
+    "stack": [
+      "Python",
+      "dbt",
+      "DuckDB",
+      "Parquet"
+    ],
+    "title": "dbt-isrm",
+    "displayTitle": "dbt Information Schema Release Matrix",
+    "subtitle": "How dbt’s Information Schema changes across releases and execution stages.",
+    "summary": "A small harness that runs controlled dbt projects across releases and stages, each release in its own cached environment, and records the schema and population of the Information Schema Parquet files dbt writes. A change is an observation, not a verdict.",
+    "metaDescription": "How dbt’s Information Schema changes across releases and execution stages.",
+    "sections": [
+      {
+        "heading": "Counts, plus a few direct checks",
+        "body": "Every column of every Information Schema table is measured per run: type, rows, nulls, empty values, and populated values. Counts cannot see a value that is present but wrong, so three semantic expectations read values directly. One of them led to dbt-labs/dbt#16588, an open report that the invocations table never contains the current invocation."
+      }
+    ],
+    "actions": [
+      {
+        "label": "Repository",
+        "url": "https://github.com/AndreaBozzo/dbt-isrm"
+      },
+      {
+        "label": "Findings",
+        "url": "https://github.com/AndreaBozzo/dbt-isrm/blob/main/FINDINGS.md"
+      },
+      {
+        "label": "dbt report",
+        "url": "https://github.com/dbt-labs/dbt/issues/16588"
+      }
+    ],
+    "translations": {
+      "it": {
+        "title": "dbt-isrm",
+        "displayTitle": "dbt Information Schema Release Matrix",
+        "subtitle": "Come cambia l’Information Schema di dbt tra release e fasi di esecuzione.",
+        "summary": "Un piccolo harness che esegue progetti dbt controllati su più release e fasi, ciascuna release in un ambiente in cache, e registra schema e popolamento dei file Parquet dell’Information Schema scritti da dbt. Un cambiamento è un’osservazione, non un verdetto.",
+        "metaDescription": "Come cambia l’Information Schema di dbt tra release e fasi di esecuzione.",
+        "sections": [
+          {
+            "heading": "Conteggi, più qualche controllo diretto",
+            "body": "Per ogni esecuzione si misura ogni colonna di ogni tabella dell’Information Schema: tipo, righe, null, valori vuoti e valori popolati. I conteggi non vedono un valore presente ma sbagliato, quindi tre aspettative semantiche leggono direttamente i valori. Una di queste ha portato a dbt-labs/dbt#16588, una segnalazione aperta: la tabella delle invocazioni non contiene mai l’invocazione corrente."
+          }
+        ],
+        "actions": [
+          {
+            "label": "Repository",
+            "url": "https://github.com/AndreaBozzo/dbt-isrm"
+          },
+          {
+            "label": "Risultati",
+            "url": "https://github.com/AndreaBozzo/dbt-isrm/blob/main/FINDINGS.md"
+          },
+          {
+            "label": "Segnalazione dbt",
+            "url": "https://github.com/dbt-labs/dbt/issues/16588"
+          }
+        ]
+      }
+    },
+    "reviewedAt": "2026-10-04"
   }
 ]

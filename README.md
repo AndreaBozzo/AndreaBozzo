@@ -12,16 +12,19 @@ A curated view of the systems I actively build. Related papers, integrations, da
 
 | Project | Why it matters |
 | --- | --- |
-| [dataprof](https://github.com/AndreaBozzo/dataprof) | Bounded-memory Rust/Python profiling for files, DataFrames, and Arrow streams, with explicit assessment scope and comparable quality reports. |
-| [GitNodes](https://github.com/AndreaBozzo/gitnodes) | A Git-native, typed knowledge graph that engineering teams and AI agents can explore through the web UI or MCP. |
-| [Ceres](https://github.com/AndreaBozzo/Ceres) + [Ares](https://github.com/AndreaBozzo/Ares) | Complementary collection systems: reproducible open-data harvesting and schema-driven extraction. Ceres powers a [public open-data index](https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index) and a [Databricks analytics pipeline](https://github.com/AndreaBozzo/databricks-ceres-pipeline). |
+| [dataprof](https://github.com/AndreaBozzo/dataprof) | Bounded-memory Rust/Python profiling for files, DataFrames, and Arrow streams, with explicit assessment scope and comparable quality reports. Applied in [Metric Evidence](https://github.com/AndreaBozzo/metric-evidence), a Power BI report that shows data evidence next to each metric. |
+| [arrow-abi-doctor](https://github.com/AndreaBozzo/arrow-abi-doctor) | Differential testing of the Arrow C Data and C Stream interfaces across real consumers, in isolated processes. |
+| [Tabular Evolution Corpus](https://github.com/AndreaBozzo/tabular-evolution-corpus) | Versioned Parquet scenarios of datasets changing shape, with machine-checked manifests, also on [Hugging Face](https://huggingface.co/datasets/AndreaBozzo/tabular-evolution-corpus). |
 | [Nephtys](https://github.com/AndreaBozzo/Nephtys) | A low-footprint, multi-protocol connector for durable NATS JetStream pipelines, backed by an [IEEE UIC 2026 evaluation](https://github.com/AndreaBozzo/uic2026-nephtys). |
 
 <details>
-<summary><strong>More selected work</strong> — lakehouse, applied research, and systems work</summary>
+<summary><strong>More selected work</strong> — open data, knowledge graphs, lakehouse, applied research, and systems work</summary>
 
 | Project | Focus |
 | --- | --- |
+| [Ceres](https://github.com/AndreaBozzo/Ceres) + [Ares](https://github.com/AndreaBozzo/Ares) | **v0.7.0 / v0.4.0** — reproducible open-data harvesting and schema-driven extraction. Ceres powers a [public open-data index](https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index) and a [Databricks analytics pipeline](https://github.com/AndreaBozzo/databricks-ceres-pipeline). |
+| [GitNodes](https://github.com/AndreaBozzo/gitnodes) | **v0.2.0** — a Git-native, typed knowledge graph that engineering teams and AI agents can explore through the web UI or MCP. |
+| [dbt-isrm](https://github.com/AndreaBozzo/dbt-isrm) | **New** — a release matrix for dbt's Information Schema across releases and execution stages. |
 | [dlt + dbt on Databricks](https://github.com/AndreaBozzo/dlt-dbt-databricks) | **Active** — runnable ingestion, transformation, orchestration, and quality-gate examples validated against Databricks and in DuckDB CI. |
 | [OCCAS](https://github.com/AndreaBozzo/occas) | **v0.1.0 research release** — a provenance-backed PX4/ERA5 agreement study; external wind estimates were too imprecise to substitute for onboard estimates under the study’s criterion. |
 | [Fantabuddy](https://github.com/AndreaBozzo/fantabuddy) | **v0.4.0 data product** — a local DuckDB history of official player lists, offline Classic/Mantra auction reports, and verifiable Parquet corpus exports. |
