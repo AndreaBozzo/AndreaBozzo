@@ -57,7 +57,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <p>
 <a href="https://github.com/pola-rs/polars"><img src="https://img.shields.io/badge/polars-%E2%AD%90%2040.1k%20%7C%203%20PR-informational?style=flat-square" alt="polars"/></a>
-  <a href="https://github.com/apache/datafusion"><img src="https://img.shields.io/badge/datafusion-%E2%AD%90%209.4k%20%7C%201%20PR-informational?style=flat-square" alt="datafusion"/></a>
+  <a href="https://github.com/apache/datafusion"><img src="https://img.shields.io/badge/datafusion-%E2%AD%90%209.5k%20%7C%201%20PR-informational?style=flat-square" alt="datafusion"/></a>
   <a href="https://github.com/risingwavelabs/risingwave"><img src="https://img.shields.io/badge/risingwave-%E2%AD%90%209.4k%20%7C%201%20PR-informational?style=flat-square" alt="risingwave"/></a>
   <a href="https://github.com/lance-format/lance"><img src="https://img.shields.io/badge/lance-%E2%AD%90%207.2k%20%7C%202%20PR-informational?style=flat-square" alt="lance"/></a>
   <a href="https://github.com/apache/arrow-rs"><img src="https://img.shields.io/badge/arrow--rs-%E2%AD%90%203.6k%20%7C%204%20PR-informational?style=flat-square" alt="arrow-rs"/></a>
@@ -93,7 +93,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <p>
 <a href="https://github.com/beelzebub-labs/beelzebub"><img src="https://img.shields.io/badge/beelzebub-%E2%AD%90%202.2k%20%7C%201%20PR-informational?style=flat-square" alt="beelzebub"/></a>
-  <a href="https://github.com/CortexFlow/CortexBrain"><img src="https://img.shields.io/badge/CortexBrain-%E2%AD%90%2092%20%7C%203%20PR-informational?style=flat-square" alt="CortexBrain"/></a>
+  <a href="https://github.com/CortexFlow/CortexBrain"><img src="https://img.shields.io/badge/CortexBrain-%E2%AD%90%2093%20%7C%203%20PR-informational?style=flat-square" alt="CortexBrain"/></a>
 </p>
 
 ### 📦 Other
@@ -101,9 +101,9 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 <p>
 <a href="https://github.com/microsoft/winget-pkgs"><img src="https://img.shields.io/badge/winget--pkgs-%E2%AD%90%2011.2k%20%7C%201%20PR-informational?style=flat-square" alt="winget-pkgs"/></a>
   <a href="https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2"><img src="https://img.shields.io/badge/PathOfBuilding--PoE2-%E2%AD%90%201.9k%20%7C%201%20PR-informational?style=flat-square" alt="PathOfBuilding-PoE2"/></a>
-  <a href="https://github.com/zornade/visura-api"><img src="https://img.shields.io/badge/visura--api-%E2%AD%90%20675%20%7C%201%20PR-informational?style=flat-square" alt="visura-api"/></a>
+  <a href="https://github.com/zornade/visura-api"><img src="https://img.shields.io/badge/visura--api-%E2%AD%90%20676%20%7C%201%20PR-informational?style=flat-square" alt="visura-api"/></a>
   <a href="https://github.com/italia-opensource/awesome-italia-opensource"><img src="https://img.shields.io/badge/awesome--italia--opensource-%E2%AD%90%20334%20%7C%202%20PR-informational?style=flat-square" alt="awesome-italia-opensource"/></a>
-  <a href="https://github.com/piopy/fantacalcio-py"><img src="https://img.shields.io/badge/fantacalcio--py-%E2%AD%90%2067%20%7C%204%20PR-informational?style=flat-square" alt="fantacalcio-py"/></a>
+  <a href="https://github.com/piopy/fantacalcio-py"><img src="https://img.shields.io/badge/fantacalcio--py-%E2%AD%90%2068%20%7C%204%20PR-informational?style=flat-square" alt="fantacalcio-py"/></a>
   <a href="https://github.com/informagico/fantavibe"><img src="https://img.shields.io/badge/fantavibe-%E2%AD%90%208%20%7C%201%20PR-informational?style=flat-square" alt="fantavibe"/></a>
 </p>
 
