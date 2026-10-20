@@ -1,6 +1,6 @@
 ---
 title: "Dove deve fermarsi la libreria?"
-date: 2026-10-20T17:30:00+02:00
+date: 2026-10-20T17:15:00+02:00
 draft: false
 tags: ["Data Quality", "Data Engineering", "Open Source", "dataprof", "dlt", "DuckDB", "API Design"]
 categories: ["Data Engineering", "Open Source"]
