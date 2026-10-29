@@ -45,12 +45,12 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
 <details>
-<summary><strong>63 merged PRs across 29 upstream projects</strong> · 220.9k combined stars</summary>
+<summary><strong>63 merged PRs across 29 upstream projects</strong> · 221.0k combined stars</summary>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Projects-29-blue?style=flat-square" alt="Projects"/>
   <img src="https://img.shields.io/badge/PRs_Merged-63-success?style=flat-square" alt="PRs Merged"/>
-  <img src="https://img.shields.io/badge/Combined_Stars-220.9k-yellow?style=flat-square" alt="Stars"/>
+  <img src="https://img.shields.io/badge/Combined_Stars-221.0k-yellow?style=flat-square" alt="Stars"/>
 </p>
 
 ### 🔬 Data Ecosystem
@@ -99,7 +99,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 ### 📦 Other
 
 <p>
-<a href="https://github.com/microsoft/winget-pkgs"><img src="https://img.shields.io/badge/winget--pkgs-%E2%AD%90%2011.2k%20%7C%201%20PR-informational?style=flat-square" alt="winget-pkgs"/></a>
+<a href="https://github.com/microsoft/winget-pkgs"><img src="https://img.shields.io/badge/winget--pkgs-%E2%AD%90%2011.3k%20%7C%201%20PR-informational?style=flat-square" alt="winget-pkgs"/></a>
   <a href="https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2"><img src="https://img.shields.io/badge/PathOfBuilding--PoE2-%E2%AD%90%201.9k%20%7C%201%20PR-informational?style=flat-square" alt="PathOfBuilding-PoE2"/></a>
   <a href="https://github.com/zornade/visura-api"><img src="https://img.shields.io/badge/visura--api-%E2%AD%90%20677%20%7C%201%20PR-informational?style=flat-square" alt="visura-api"/></a>
   <a href="https://github.com/italia-opensource/awesome-italia-opensource"><img src="https://img.shields.io/badge/awesome--italia--opensource-%E2%AD%90%20336%20%7C%202%20PR-informational?style=flat-square" alt="awesome-italia-opensource"/></a>
