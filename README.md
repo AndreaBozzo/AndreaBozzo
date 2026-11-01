@@ -45,12 +45,12 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
 <details>
-<summary><strong>63 merged PRs across 29 upstream projects</strong> · 221.1k combined stars</summary>
+<summary><strong>63 merged PRs across 29 upstream projects</strong> · 221.2k combined stars</summary>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Projects-29-blue?style=flat-square" alt="Projects"/>
   <img src="https://img.shields.io/badge/PRs_Merged-63-success?style=flat-square" alt="PRs Merged"/>
-  <img src="https://img.shields.io/badge/Combined_Stars-221.1k-yellow?style=flat-square" alt="Stars"/>
+  <img src="https://img.shields.io/badge/Combined_Stars-221.2k-yellow?style=flat-square" alt="Stars"/>
 </p>
 
 ### 🔬 Data Ecosystem
@@ -66,7 +66,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
   <a href="https://github.com/ddotta/awesome-polars"><img src="https://img.shields.io/badge/awesome--polars-%E2%AD%90%201.1k%20%7C%201%20PR-informational?style=flat-square" alt="awesome-polars"/></a>
   <a href="https://github.com/pganalyze/pg_query.rs"><img src="https://img.shields.io/badge/pg__query.rs-%E2%AD%90%20259%20%7C%201%20PR-informational?style=flat-square" alt="pg_query.rs"/></a>
   <a href="https://github.com/apache/arrow-nanoarrow"><img src="https://img.shields.io/badge/arrow--nanoarrow-%E2%AD%90%20250%20%7C%201%20PR-informational?style=flat-square" alt="arrow-nanoarrow"/></a>
-  <a href="https://github.com/apache/fluss-rust"><img src="https://img.shields.io/badge/fluss--rust-%E2%AD%90%2058%20%7C%202%20PR-informational?style=flat-square" alt="fluss-rust"/></a>
+  <a href="https://github.com/apache/fluss-rust"><img src="https://img.shields.io/badge/fluss--rust-%E2%AD%90%2057%20%7C%202%20PR-informational?style=flat-square" alt="fluss-rust"/></a>
   <a href="https://github.com/ArchAI-Labs/medha"><img src="https://img.shields.io/badge/medha-%E2%AD%90%2031%20%7C%201%20PR-informational?style=flat-square" alt="medha"/></a>
 </p>
 
