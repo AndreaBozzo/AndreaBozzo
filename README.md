@@ -2,40 +2,46 @@
 
 Open source engineer building data platforms, developer tooling, and technical writing around Rust, Python, Go, and modern analytics systems.
 
-These are my projects, contributions, and writings. For more about me, use the links below.
-
 [Website](https://andreabozzo.github.io/AndreaBozzo/) | [Blog](https://andreabozzo.github.io/AndreaBozzo/blog/) | [LinkedIn](https://www.linkedin.com/in/andrea-bozzo-/) | [Email](mailto:andreabozzo92@gmail.com)
 
 ## Selected work
 
-A curated view of the systems I actively build. Related papers, integrations, datasets, and distribution repositories are grouped with their parent project.
-
-| Project | Why it matters |
-| --- | --- |
-| [dataprof](https://github.com/AndreaBozzo/dataprof) | Bounded-memory Rust/Python profiling for files, DataFrames, and Arrow streams, with explicit assessment scope and comparable quality reports. Applied in [Metric Evidence](https://github.com/AndreaBozzo/metric-evidence), a Power BI report that shows data evidence next to each metric. |
-| [arrow-abi-doctor](https://github.com/AndreaBozzo/arrow-abi-doctor) | Differential testing of the Arrow C Data and C Stream interfaces across real consumers, in isolated processes. |
-| [Tabular Evolution Corpus](https://github.com/AndreaBozzo/tabular-evolution-corpus) | Versioned Parquet scenarios of datasets changing shape, with machine-checked manifests, also on [Hugging Face](https://huggingface.co/datasets/AndreaBozzo/tabular-evolution-corpus). |
-| [Nephtys](https://github.com/AndreaBozzo/Nephtys) | A low-footprint, multi-protocol connector for durable NATS JetStream pipelines, backed by an [IEEE UIC 2026 evaluation](https://github.com/AndreaBozzo/uic2026-nephtys). |
-
-<details>
-<summary><strong>More selected work</strong> — open data, knowledge graphs, lakehouse, applied research, and systems work</summary>
+Systems I actively build. Related papers, integrations, datasets, and distribution repositories are grouped with their parent project.
 
 | Project | Focus |
 | --- | --- |
-| [Ceres](https://github.com/AndreaBozzo/Ceres) + [Ares](https://github.com/AndreaBozzo/Ares) | **v0.7.0 / v0.4.0** — reproducible open-data harvesting and schema-driven extraction. Ceres powers a [public open-data index](https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index) and a [Databricks analytics pipeline](https://github.com/AndreaBozzo/databricks-ceres-pipeline). |
-| [GitNodes](https://github.com/AndreaBozzo/gitnodes) | **v0.2.0** — a Git-native, typed knowledge graph that engineering teams and AI agents can explore through the web UI or MCP. |
-| [dbt-isrm](https://github.com/AndreaBozzo/dbt-isrm) | **New** — a release matrix for dbt's Information Schema across releases and execution stages. |
-| [dlt + dbt on Databricks](https://github.com/AndreaBozzo/dlt-dbt-databricks) | **Active** — runnable ingestion, transformation, orchestration, and quality-gate examples validated against Databricks and in DuckDB CI. |
-| [OCCAS](https://github.com/AndreaBozzo/occas) | **v0.1.0 research release** — a provenance-backed PX4/ERA5 agreement study; external wind estimates were too imprecise to substitute for onboard estimates under the study’s criterion. |
-| [Fantabuddy](https://github.com/AndreaBozzo/fantabuddy) | **v0.4.0 data product** — a local DuckDB history of official player lists, offline Classic/Mantra auction reports, and verifiable Parquet corpus exports. |
-| [DCE](https://github.com/AndreaBozzo/dce) | **Pre-release** — a Rust-native engine for defining, validating, and enforcing data contracts. |
-| [Zero Grappler](https://github.com/AndreaBozzo/zero-grappler) | **Prototype** — a `no_std`, allocation-free async pipeline for embedded sensor, DSP, and inference workloads. |
-| [IcebergSharp](https://github.com/AndreaBozzo/IcebergSharp) | **In development** — .NET Iceberg metadata, Avro manifests, and REST catalog access; scan planning and Parquet data reads remain on the roadmap. |
-| [Lares](https://github.com/AndreaBozzo/lares) | **In use** — a small self-hosted home stack built around failure semantics: digest-pinned images, application-consistent SQLite snapshots to encrypted offsite backup, and a scripted bare-metal rebuild. |
+| [dataprof](https://github.com/AndreaBozzo/dataprof) | **v0.13.1**: bounded-memory Rust/Python profiling and pipeline quality gates for CSV, JSON, Parquet, DataFrames, and Arrow streams, with explicit assessment scope and comparable quality reports. Related work includes [Metric Evidence](https://github.com/AndreaBozzo/metric-evidence), a Power BI report with evidence beside each metric; a [dlt/SQL/DuckDB pipeline reference](https://github.com/AndreaBozzo/dataprof-pipeline-reference); a [seven-rule, six-tool comparison of checks and costs](https://github.com/AndreaBozzo/dataprof-dq-comparison); and an [ADBC query profiling and type/stream matrix](https://github.com/AndreaBozzo/dataprof-adbc-matrix). |
+| [arrow-abi-doctor](https://github.com/AndreaBozzo/arrow-abi-doctor) | Differential testing of the Arrow C Data and C Stream interfaces across real consumers, in isolated processes. |
+| [Tabular Evolution Corpus](https://github.com/AndreaBozzo/tabular-evolution-corpus) | **v0.3.0**: versioned Parquet scenarios of datasets changing shape, with machine-checked manifests, also on [Hugging Face](https://huggingface.co/datasets/AndreaBozzo/tabular-evolution-corpus). |
+| [Nephtys](https://github.com/AndreaBozzo/Nephtys) | A low-footprint, multi-protocol connector for durable NATS JetStream pipelines, backed by an [IEEE UIC 2026 evaluation](https://github.com/AndreaBozzo/uic2026-nephtys). |
+
+<details>
+<summary><strong>More selected work</strong>: open data, knowledge graphs, lakehouse, applied research, and systems work</summary>
+
+| Project | Focus |
+| --- | --- |
+| [Ceres](https://github.com/AndreaBozzo/Ceres) + [Ares](https://github.com/AndreaBozzo/Ares) | **v0.7.0 / v0.4.0**: reproducible open-data harvesting and schema-driven extraction. Ceres powers a [public open-data index](https://huggingface.co/datasets/AndreaBozzo/ceres-open-data-index) and a [Databricks analytics pipeline](https://github.com/AndreaBozzo/databricks-ceres-pipeline). |
+| [GitNodes](https://github.com/AndreaBozzo/gitnodes) | **v0.2.0**: a Git-native, typed knowledge graph for engineering teams and AI agents, accessible through the web UI or MCP. |
+| [dbt-isrm](https://github.com/AndreaBozzo/dbt-isrm) | **Active**: a release matrix for dbt's Information Schema across releases and execution stages. |
+| [dlt + dbt on Databricks](https://github.com/AndreaBozzo/dlt-dbt-databricks) | **Active**: runnable ingestion, transformation, orchestration, and quality-gate examples validated against Databricks and in DuckDB CI. |
+| [OCCAS](https://github.com/AndreaBozzo/occas) | **v0.1.0 research release**: a provenance-backed PX4/ERA5 agreement study; external wind estimates were too imprecise to substitute for onboard estimates under the study's criterion. |
+| [Fantabuddy](https://github.com/AndreaBozzo/fantabuddy) | **v0.4.0 data product**: a local DuckDB history of official player lists, offline Classic/Mantra auction reports, and verifiable Parquet corpus exports. |
+| [DCE](https://github.com/AndreaBozzo/dce) | **Pre-release**: a Rust-native engine for defining, validating, and enforcing data contracts. |
+| [Zero Grappler](https://github.com/AndreaBozzo/zero-grappler) | **Prototype**: a `no_std`, allocation-free async pipeline for embedded sensor, DSP, and inference workloads. |
+| [IcebergSharp](https://github.com/AndreaBozzo/IcebergSharp) | **In development**: .NET Iceberg metadata, Avro manifests, and REST catalog access; scan planning and Parquet data reads remain on the roadmap. |
+| [Lares](https://github.com/AndreaBozzo/lares) | **In use**: a small self-hosted home stack built around failure semantics, with digest-pinned images, application-consistent SQLite snapshots to encrypted offsite backup, and a scripted bare-metal rebuild. |
 
 </details>
 
 Browse the [full project archive](https://andreabozzo.github.io/AndreaBozzo/#workbench) or [all repositories](https://github.com/AndreaBozzo?tab=repositories).
+
+## Recent writing
+
+- 2026-10-20: [Where Should the Library Stop?](https://andreabozzo.github.io/AndreaBozzo/blog/en/posts/where-should-the-library-stop-blog/)
+- 2026-10-05: [Green Is a Policy, Not a Fact](https://andreabozzo.github.io/AndreaBozzo/blog/en/posts/green-is-a-policy-blog/)
+- 2026-09-19: [When a Weekend Raspberry Pi Project Became Infrastructure](https://andreabozzo.github.io/AndreaBozzo/blog/en/posts/lares-weekend-pi-blog/)
+
+The [full blog](https://andreabozzo.github.io/AndreaBozzo/blog/) has posts in English and Italian.
 
 ## Open source contributions
 
