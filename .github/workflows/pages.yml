@@ -15,7 +15,8 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    # Playwright 1.60 ships no Chromium for ubuntu-latest (26.04); pin until it does.
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
         with:
