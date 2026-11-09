@@ -1,4 +1,4 @@
-// The README contribution updater is independent of the website build.
+// The README updaters are independent of the website build.
 package main
 
 import (
@@ -6,16 +6,27 @@ import (
 	"fmt"
 	"github.com/AndreaBozzo/AndreaBozzo/internal/harvester"
 	"os"
+	"time"
 )
 
+const usage = "Usage: go run ./cmd/harvester <update-contributions-readme|update-writing-readme> (from the repository root)"
+
 func main() {
-	if len(os.Args) != 2 || os.Args[1] != "update-contributions-readme" {
-		fmt.Fprintln(os.Stderr, "Usage: go run ./cmd/harvester update-contributions-readme (from the repository root)")
+	if len(os.Args) != 2 {
+		fmt.Fprintln(os.Stderr, usage)
 		os.Exit(1)
 	}
 	root, err := os.Getwd()
 	if err == nil {
-		err = harvester.UpdateContributionsREADME(context.Background(), root, "AndreaBozzo")
+		switch os.Args[1] {
+		case "update-contributions-readme":
+			err = harvester.UpdateContributionsREADME(context.Background(), root, "AndreaBozzo")
+		case "update-writing-readme":
+			err = harvester.UpdateRecentWritingREADME(root, time.Now(), 3)
+		default:
+			fmt.Fprintln(os.Stderr, usage)
+			os.Exit(1)
+		}
 	}
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)

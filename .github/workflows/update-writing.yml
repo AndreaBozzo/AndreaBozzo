@@ -1,0 +1,33 @@
+name: Update Recent Writing
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'blog/content/posts/**'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: readme-update
+  cancel-in-progress: false
+jobs:
+  update-writing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+          cache: false
+      - run: go test ./internal/harvester/...
+      - name: Update README recent writing
+        run: go run ./cmd/harvester update-writing-readme
+      - name: Commit changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add README.md
+          git diff --cached --quiet && exit 0
+          git commit -m "docs: update README recent writing"
+          git pull --rebase origin main
+          git push
