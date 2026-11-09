@@ -37,9 +37,11 @@ Browse the [full project archive](https://andreabozzo.github.io/AndreaBozzo/#wor
 
 ## Recent writing
 
+<!-- RECENT_WRITING:START -->
+- 2026-11-09: [One Year, 24 Posts: What Held Up and What Didn't](https://andreabozzo.github.io/AndreaBozzo/blog/en/posts/one-year-of-writing-blog/)
 - 2026-10-20: [Where Should the Library Stop?](https://andreabozzo.github.io/AndreaBozzo/blog/en/posts/where-should-the-library-stop-blog/)
 - 2026-10-05: [Green Is a Policy, Not a Fact](https://andreabozzo.github.io/AndreaBozzo/blog/en/posts/green-is-a-policy-blog/)
-- 2026-09-19: [When a Weekend Raspberry Pi Project Became Infrastructure](https://andreabozzo.github.io/AndreaBozzo/blog/en/posts/lares-weekend-pi-blog/)
+<!-- RECENT_WRITING:END -->
 
 The [full blog](https://andreabozzo.github.io/AndreaBozzo/blog/) has posts in English and Italian.
 
