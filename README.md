@@ -67,7 +67,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 <a href="https://github.com/pola-rs/polars"><img src="https://img.shields.io/badge/polars-%E2%AD%90%2040.3k%20%7C%203%20PR-informational?style=flat-square" alt="polars"/></a>
   <a href="https://github.com/apache/datafusion"><img src="https://img.shields.io/badge/datafusion-%E2%AD%90%209.6k%20%7C%201%20PR-informational?style=flat-square" alt="datafusion"/></a>
   <a href="https://github.com/risingwavelabs/risingwave"><img src="https://img.shields.io/badge/risingwave-%E2%AD%90%209.4k%20%7C%201%20PR-informational?style=flat-square" alt="risingwave"/></a>
-  <a href="https://github.com/igorbarinov/awesome-data-engineering"><img src="https://img.shields.io/badge/awesome--data--engineering-%E2%AD%90%209.2k%20%7C%201%20PR-informational?style=flat-square" alt="awesome-data-engineering"/></a>
+  <a href="https://github.com/igorbarinov/awesome-data-engineering"><img src="https://img.shields.io/badge/awesome--data--engineering-%E2%AD%90%209.3k%20%7C%201%20PR-informational?style=flat-square" alt="awesome-data-engineering"/></a>
   <a href="https://github.com/lance-format/lance"><img src="https://img.shields.io/badge/lance-%E2%AD%90%207.3k%20%7C%202%20PR-informational?style=flat-square" alt="lance"/></a>
   <a href="https://github.com/apache/arrow-rs"><img src="https://img.shields.io/badge/arrow--rs-%E2%AD%90%203.7k%20%7C%205%20PR-informational?style=flat-square" alt="arrow-rs"/></a>
   <a href="https://github.com/supabase/etl"><img src="https://img.shields.io/badge/etl-%E2%AD%90%202.4k%20%7C%202%20PR-informational?style=flat-square" alt="etl"/></a>
@@ -82,8 +82,8 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 ### 🦀 Rust Tooling
 
 <p>
-<a href="https://github.com/rust-unofficial/awesome-rust"><img src="https://img.shields.io/badge/awesome--rust-%E2%AD%90%2060.4k%20%7C%201%20PR-informational?style=flat-square" alt="awesome-rust"/></a>
-  <a href="https://github.com/tokio-rs/tokio"><img src="https://img.shields.io/badge/tokio-%E2%AD%90%2033.8k%20%7C%202%20PR-informational?style=flat-square" alt="tokio"/></a>
+<a href="https://github.com/rust-unofficial/awesome-rust"><img src="https://img.shields.io/badge/awesome--rust-%E2%AD%90%2060.5k%20%7C%201%20PR-informational?style=flat-square" alt="awesome-rust"/></a>
+  <a href="https://github.com/tokio-rs/tokio"><img src="https://img.shields.io/badge/tokio-%E2%AD%90%2033.7k%20%7C%202%20PR-informational?style=flat-square" alt="tokio"/></a>
   <a href="https://github.com/tokio-rs/axum"><img src="https://img.shields.io/badge/axum-%E2%AD%90%2027.8k%20%7C%201%20PR-informational?style=flat-square" alt="axum"/></a>
   <a href="https://github.com/rust-lang/this-week-in-rust"><img src="https://img.shields.io/badge/this--week--in--rust-%E2%AD%90%202.7k%20%7C%201%20PR-informational?style=flat-square" alt="this-week-in-rust"/></a>
   <a href="https://github.com/apache/iceberg-rust"><img src="https://img.shields.io/badge/iceberg--rust-%E2%AD%90%201.4k%20%7C%203%20PR-informational?style=flat-square" alt="iceberg-rust"/></a>
@@ -102,7 +102,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <p>
 <a href="https://github.com/beelzebub-labs/beelzebub"><img src="https://img.shields.io/badge/beelzebub-%E2%AD%90%202.2k%20%7C%201%20PR-informational?style=flat-square" alt="beelzebub"/></a>
-  <a href="https://github.com/CortexFlow/CortexBrain"><img src="https://img.shields.io/badge/CortexBrain-%E2%AD%90%2093%20%7C%203%20PR-informational?style=flat-square" alt="CortexBrain"/></a>
+  <a href="https://github.com/CortexFlow/CortexBrain"><img src="https://img.shields.io/badge/CortexBrain-%E2%AD%90%2094%20%7C%203%20PR-informational?style=flat-square" alt="CortexBrain"/></a>
 </p>
 
 ### 📦 Other
