@@ -53,12 +53,12 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
 <details>
-<summary><strong>65 merged PRs across 30 upstream projects</strong> · 231.2k combined stars</summary>
+<summary><strong>65 merged PRs across 30 upstream projects</strong> · 231.3k combined stars</summary>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Projects-30-blue?style=flat-square" alt="Projects"/>
   <img src="https://img.shields.io/badge/PRs_Merged-65-success?style=flat-square" alt="PRs Merged"/>
-  <img src="https://img.shields.io/badge/Combined_Stars-231.2k-yellow?style=flat-square" alt="Stars"/>
+  <img src="https://img.shields.io/badge/Combined_Stars-231.3k-yellow?style=flat-square" alt="Stars"/>
 </p>
 
 ### 🔬 Data Ecosystem
