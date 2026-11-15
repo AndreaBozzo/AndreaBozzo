@@ -29,7 +29,9 @@
             {{- $url := urls.Parse (htmlUnescape .) -}}
             {{- if not $url.IsAbs -}}
               {{- $absolute := $pageURL.ResolveReference $url -}}
-              {{- $updatedTag = replace $updatedTag $quoted (printf "\"%s\"" (htmlEscape $absolute.String)) -}}
+              {{- $attribute := index . 0 -}}
+              {{- $prefix := strings.TrimSuffix $quoted $attribute -}}
+              {{- $updatedTag = replace $updatedTag $attribute (printf "%s\"%s\"" $prefix (htmlEscape $absolute.String)) -}}
             {{- end -}}
           {{- end -}}
         {{- end -}}
