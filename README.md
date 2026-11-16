@@ -53,12 +53,12 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
 <details>
-<summary><strong>65 merged PRs across 30 upstream projects</strong> · 231.4k combined stars</summary>
+<summary><strong>65 merged PRs across 30 upstream projects</strong> · 231.5k combined stars</summary>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Projects-30-blue?style=flat-square" alt="Projects"/>
   <img src="https://img.shields.io/badge/PRs_Merged-65-success?style=flat-square" alt="PRs Merged"/>
-  <img src="https://img.shields.io/badge/Combined_Stars-231.4k-yellow?style=flat-square" alt="Stars"/>
+  <img src="https://img.shields.io/badge/Combined_Stars-231.5k-yellow?style=flat-square" alt="Stars"/>
 </p>
 
 ### 🔬 Data Ecosystem
@@ -82,7 +82,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 ### 🦀 Rust Tooling
 
 <p>
-<a href="https://github.com/rust-unofficial/awesome-rust"><img src="https://img.shields.io/badge/awesome--rust-%E2%AD%90%2060.5k%20%7C%201%20PR-informational?style=flat-square" alt="awesome-rust"/></a>
+<a href="https://github.com/rust-unofficial/awesome-rust"><img src="https://img.shields.io/badge/awesome--rust-%E2%AD%90%2060.6k%20%7C%201%20PR-informational?style=flat-square" alt="awesome-rust"/></a>
   <a href="https://github.com/tokio-rs/tokio"><img src="https://img.shields.io/badge/tokio-%E2%AD%90%2033.7k%20%7C%202%20PR-informational?style=flat-square" alt="tokio"/></a>
   <a href="https://github.com/tokio-rs/axum"><img src="https://img.shields.io/badge/axum-%E2%AD%90%2027.8k%20%7C%201%20PR-informational?style=flat-square" alt="axum"/></a>
   <a href="https://github.com/rust-lang/this-week-in-rust"><img src="https://img.shields.io/badge/this--week--in--rust-%E2%AD%90%202.7k%20%7C%201%20PR-informational?style=flat-square" alt="this-week-in-rust"/></a>
