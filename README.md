@@ -53,12 +53,12 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
 <details>
-<summary><strong>66 merged PRs across 31 upstream projects</strong> · 237.7k combined stars</summary>
+<summary><strong>66 merged PRs across 31 upstream projects</strong> · 237.8k combined stars</summary>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Projects-31-blue?style=flat-square" alt="Projects"/>
   <img src="https://img.shields.io/badge/PRs_Merged-66-success?style=flat-square" alt="PRs Merged"/>
-  <img src="https://img.shields.io/badge/Combined_Stars-237.7k-yellow?style=flat-square" alt="Stars"/>
+  <img src="https://img.shields.io/badge/Combined_Stars-237.8k-yellow?style=flat-square" alt="Stars"/>
 </p>
 
 ### 🔬 Data Ecosystem
@@ -68,7 +68,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
   <a href="https://github.com/apache/datafusion"><img src="https://img.shields.io/badge/datafusion-%E2%AD%90%209.6k%20%7C%201%20PR-informational?style=flat-square" alt="datafusion"/></a>
   <a href="https://github.com/risingwavelabs/risingwave"><img src="https://img.shields.io/badge/risingwave-%E2%AD%90%209.4k%20%7C%201%20PR-informational?style=flat-square" alt="risingwave"/></a>
   <a href="https://github.com/igorbarinov/awesome-data-engineering"><img src="https://img.shields.io/badge/awesome--data--engineering-%E2%AD%90%209.3k%20%7C%201%20PR-informational?style=flat-square" alt="awesome-data-engineering"/></a>
-  <a href="https://github.com/lance-format/lance"><img src="https://img.shields.io/badge/lance-%E2%AD%90%207.3k%20%7C%202%20PR-informational?style=flat-square" alt="lance"/></a>
+  <a href="https://github.com/lance-format/lance"><img src="https://img.shields.io/badge/lance-%E2%AD%90%207.4k%20%7C%202%20PR-informational?style=flat-square" alt="lance"/></a>
   <a href="https://github.com/dlt-hub/dlt"><img src="https://img.shields.io/badge/dlt-%E2%AD%90%206.1k%20%7C%201%20PR-informational?style=flat-square" alt="dlt"/></a>
   <a href="https://github.com/apache/arrow-rs"><img src="https://img.shields.io/badge/arrow--rs-%E2%AD%90%203.7k%20%7C%205%20PR-informational?style=flat-square" alt="arrow-rs"/></a>
   <a href="https://github.com/supabase/etl"><img src="https://img.shields.io/badge/etl-%E2%AD%90%202.4k%20%7C%202%20PR-informational?style=flat-square" alt="etl"/></a>
@@ -85,7 +85,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 <p>
 <a href="https://github.com/rust-unofficial/awesome-rust"><img src="https://img.shields.io/badge/awesome--rust-%E2%AD%90%2060.6k%20%7C%201%20PR-informational?style=flat-square" alt="awesome-rust"/></a>
   <a href="https://github.com/tokio-rs/tokio"><img src="https://img.shields.io/badge/tokio-%E2%AD%90%2033.7k%20%7C%202%20PR-informational?style=flat-square" alt="tokio"/></a>
-  <a href="https://github.com/tokio-rs/axum"><img src="https://img.shields.io/badge/axum-%E2%AD%90%2027.8k%20%7C%201%20PR-informational?style=flat-square" alt="axum"/></a>
+  <a href="https://github.com/tokio-rs/axum"><img src="https://img.shields.io/badge/axum-%E2%AD%90%2027.9k%20%7C%201%20PR-informational?style=flat-square" alt="axum"/></a>
   <a href="https://github.com/rust-lang/this-week-in-rust"><img src="https://img.shields.io/badge/this--week--in--rust-%E2%AD%90%202.7k%20%7C%201%20PR-informational?style=flat-square" alt="this-week-in-rust"/></a>
   <a href="https://github.com/apache/iceberg-rust"><img src="https://img.shields.io/badge/iceberg--rust-%E2%AD%90%201.4k%20%7C%203%20PR-informational?style=flat-square" alt="iceberg-rust"/></a>
   <a href="https://github.com/vakamo-labs/openfga-client"><img src="https://img.shields.io/badge/openfga--client-%E2%AD%90%207%20%7C%201%20PR-informational?style=flat-square" alt="openfga-client"/></a>
