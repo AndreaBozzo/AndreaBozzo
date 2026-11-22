@@ -53,12 +53,12 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <!-- EXTERNAL_CONTRIBUTIONS:START -->
 <details>
-<summary><strong>66 merged PRs across 31 upstream projects</strong> · 238.1k combined stars</summary>
+<summary><strong>66 merged PRs across 31 upstream projects</strong> · 238.2k combined stars</summary>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Projects-31-blue?style=flat-square" alt="Projects"/>
   <img src="https://img.shields.io/badge/PRs_Merged-66-success?style=flat-square" alt="PRs Merged"/>
-  <img src="https://img.shields.io/badge/Combined_Stars-238.1k-yellow?style=flat-square" alt="Stars"/>
+  <img src="https://img.shields.io/badge/Combined_Stars-238.2k-yellow?style=flat-square" alt="Stars"/>
 </p>
 
 ### 🔬 Data Ecosystem
@@ -84,7 +84,7 @@ Contributions to the broader open source ecosystem beyond my own repositories.
 
 <p>
 <a href="https://github.com/rust-unofficial/awesome-rust"><img src="https://img.shields.io/badge/awesome--rust-%E2%AD%90%2060.7k%20%7C%201%20PR-informational?style=flat-square" alt="awesome-rust"/></a>
-  <a href="https://github.com/tokio-rs/tokio"><img src="https://img.shields.io/badge/tokio-%E2%AD%90%2033.7k%20%7C%202%20PR-informational?style=flat-square" alt="tokio"/></a>
+  <a href="https://github.com/tokio-rs/tokio"><img src="https://img.shields.io/badge/tokio-%E2%AD%90%2033.8k%20%7C%202%20PR-informational?style=flat-square" alt="tokio"/></a>
   <a href="https://github.com/tokio-rs/axum"><img src="https://img.shields.io/badge/axum-%E2%AD%90%2027.9k%20%7C%201%20PR-informational?style=flat-square" alt="axum"/></a>
   <a href="https://github.com/rust-lang/this-week-in-rust"><img src="https://img.shields.io/badge/this--week--in--rust-%E2%AD%90%202.7k%20%7C%201%20PR-informational?style=flat-square" alt="this-week-in-rust"/></a>
   <a href="https://github.com/apache/iceberg-rust"><img src="https://img.shields.io/badge/iceberg--rust-%E2%AD%90%201.4k%20%7C%203%20PR-informational?style=flat-square" alt="iceberg-rust"/></a>
